@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/white_20" />
+            <corners android:radius="@dimen/px_12" />
+        </shape>
+    </item>
+    <item>
+        <nine-patch android:src="@drawable/shadow_white_rect" />
+    </item>
+</layer-list>

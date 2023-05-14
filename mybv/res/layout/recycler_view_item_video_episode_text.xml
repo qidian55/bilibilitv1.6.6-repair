@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/episode_container" android:padding="@dimen/px_12" android:focusable="true" android:focusableInTouchMode="true" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="@dimen/px_170"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.bilibili.tv.widget.DrawTextView android:textSize="@dimen/px_32" android:textColor="@color/white" android:ellipsize="end" android:gravity="center|left" android:layout_gravity="center" android:id="@id/episode_layout" android:background="@drawable/background_white_rect" android:padding="@dimen/px_24" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:maxLines="2" />
+</FrameLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginTop="@dimen/px_50" android:layout_weight="1.0">
+        <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_48" android:textColor="@color/white" android:id="@id/hot_words_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_90" android:layout_marginRight="@dimen/px_90" android:text="@string/search_hot_words" />
+        <android.support.v7.widget.RecyclerView android:id="@id/hot_words_view" android:paddingBottom="@dimen/px_30" android:focusable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/px_60" android:layout_marginTop="@dimen/px_30" android:layout_marginRight="@dimen/px_70" android:layout_marginBottom="@dimen/px_100" />
+    </LinearLayout>
+    <ImageView android:layout_gravity="center" android:id="@id/line" android:background="@drawable/background_search_promo" android:layout_width="@dimen/px_4" android:layout_height="@dimen/px_898" />
+    <LinearLayout android:orientation="vertical" android:id="@id/query_history_layout" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginTop="@dimen/px_50" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_90" android:layout_marginRight="@dimen/px_50">
+            <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_48" android:textColor="@color/white" android:id="@id/query_history_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/px_40" android:text="@string/search_history" />
+            <Space android:focusable="false" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_36" android:textColor="@color/focus_text_color_white_50" android:id="@id/hint_sort" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="长按[OK]键清空" />
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView android:id="@id/search_history_view" android:paddingBottom="@dimen/px_30" android:focusable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/px_60" android:layout_marginTop="@dimen/px_30" android:layout_marginRight="@dimen/px_70" android:layout_marginBottom="@dimen/px_100" />
+    </LinearLayout>
+</LinearLayout>

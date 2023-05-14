@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/video_detail_info_layout" android:background="@drawable/background_image" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.bilibili.tv.widget.ScalableImageView android:id="@id/blur" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <View android:background="@color/black_60" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <ScrollView android:focusable="true" android:focusableInTouchMode="true" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:paddingTop="@dimen/px_200" android:paddingBottom="@dimen/px_200" android:focusable="false" android:layout_width="@dimen/px_960" android:layout_height="wrap_content">
+            <TextView android:textAppearance="@style/TextAppearance.App.Small" android:textColor="@color/white_50" android:layout_gravity="left" android:id="@id/video_info_describe_title" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/video_info_describe" />
+            <TextView android:textAppearance="@style/TextAppearance.App.Small" android:textColor="@color/white" android:id="@id/video_info_describe" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/px_18" android:lineSpacingMultiplier="1.2" />
+            <TextView android:textAppearance="@style/TextAppearance.App.Small" android:textColor="@color/white_50" android:layout_gravity="left" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/px_28" android:text="在手机上观看: " />
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/phone_watch" android:layout_width="@dimen/px_480" android:layout_height="@dimen/px_480" android:layout_marginTop="@dimen/px_18" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

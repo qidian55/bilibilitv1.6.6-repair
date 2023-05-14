@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/loading_view_content" android:background="@drawable/background_image" android:focusable="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:focusable="false" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_50" android:layout_marginTop="@dimen/px_50" android:layout_marginRight="@dimen/px_50">
+            <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_48" android:textColor="@color/white" android:id="@id/title" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <Space android:focusable="false" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_36" android:textColor="@color/focus_text_color_white_50" android:layout_gravity="center_vertical" android:id="@id/hint_sort" android:focusable="false" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sort" />
+        </LinearLayout>
+        <include android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/px_40" layout="@layout/layout_common_recycler_view" />
+    </LinearLayout>
+</FrameLayout>

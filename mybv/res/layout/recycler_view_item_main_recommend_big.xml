@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bilibili.tv.widget.DrawFrameLayout android:id="@id/draw" android:focusable="true" android:focusableInTouchMode="true" android:clickable="true" android:layout_width="@dimen/px_406" android:layout_height="@dimen/px_540"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.bilibili.tv.widget.ScalableImageView android:id="@id/img" android:background="@drawable/shape_default_loading_img" android:focusable="false" android:layout_width="fill_parent" android:layout_height="@dimen/px_538" app:placeholderImage="@drawable/default_img_loading" app:placeholderImageScaleType="centerInside" app:roundedCornerRadius="@dimen/px_24" />
+    <com.bilibili.tv.widget.ScalableImageView android:layout_gravity="bottom" android:id="@id/black_img" android:background="@drawable/background_main_recommend" android:layout_width="fill_parent" android:layout_height="@dimen/px_125" />
+    <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_30" android:textColor="@color/white" android:ellipsize="marquee" android:gravity="center" android:layout_gravity="bottom|center" android:id="@id/title" android:focusable="false" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/px_18" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" />
+</com.bilibili.tv.widget.DrawFrameLayout>

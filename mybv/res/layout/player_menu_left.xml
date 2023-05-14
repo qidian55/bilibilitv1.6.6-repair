@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/black_80" android:layout_width="@dimen/px_330" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_48" android:textColor="@color/white" android:paddingLeft="@dimen/px_50" android:paddingRight="@dimen/px_20" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/px_50" android:text="@string/this_bangumi" />
+    <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_36" android:textColor="@color/white_50" android:id="@id/episode_count" android:paddingLeft="@dimen/px_50" android:paddingRight="@dimen/px_20" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/px_20" android:text="@string/total_episode_count" />
+    <View android:background="@color/white_50" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="@dimen/px_24" android:layout_marginTop="@dimen/px_30" android:layout_marginRight="@dimen/px_24" />
+    <com.bilibili.tv.player.widget.base.BaseTVRecyclerView android:id="@id/episode_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/px_32" android:layout_marginBottom="@dimen/px_34" />
+</LinearLayout>

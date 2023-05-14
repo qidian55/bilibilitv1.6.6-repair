@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/background_image" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="@dimen/px_110">
+        <Space android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <com.bilibili.tv.widget.NetworkBadgeView android:id="@id/network" android:focusable="false" android:layout_width="@dimen/px_62" android:layout_height="@dimen/px_62" android:layout_marginTop="@dimen/px_30" android:layout_marginRight="@dimen/px_40" />
+        <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_48" android:textColor="@color/white_50" android:id="@id/time" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/px_30" android:layout_marginRight="@dimen/px_80" />
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView android:id="@id/title_rv" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_78" />
+    <com.bilibili.tv.widget.FixedViewPager android:id="@id/view_pager" android:focusable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/px_34" />
+</LinearLayout>

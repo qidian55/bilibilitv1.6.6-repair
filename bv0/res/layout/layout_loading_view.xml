@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/image_content" android:focusable="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ProgressBar android:id="@id/loading" android:focusable="false" android:visibility="gone" android:layout_width="@dimen/px_150" android:layout_height="@dimen/px_150" style="?android:progressBarStyleLarge" />
+    <ImageView android:id="@id/error" android:background="@drawable/load_error" android:focusable="false" android:visibility="gone" android:layout_width="@dimen/px_569" android:layout_height="@dimen/px_459" />
+    <ImageView android:id="@id/nothing" android:background="@drawable/load_nothing" android:focusable="false" android:visibility="gone" android:layout_width="@dimen/px_368" android:layout_height="@dimen/px_347" />
+    <com.bilibili.tv.widget.ShadowTextView android:textAppearance="@style/TextAppearance.App.Subtitle" android:textSize="@dimen/px_36" android:textColor="@color/white" android:gravity="center" android:id="@id/text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/px_20" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ok_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/px_24">
+        <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_36" android:textColor="@color/white" android:gravity="center" android:id="@id/click" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="点击" />
+        <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_36" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/ok" android:paddingLeft="@dimen/px_16" android:paddingTop="@dimen/px_2" android:paddingRight="@dimen/px_16" android:paddingBottom="@dimen/px_2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_10" android:layout_marginRight="@dimen/px_10" android:text="[OK]" />
+        <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_36" android:textColor="@color/white" android:gravity="center" android:id="@id/jian" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="键再试试吧" />
+    </LinearLayout>
+</LinearLayout>

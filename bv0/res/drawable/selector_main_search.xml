@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="false" android:drawable="@drawable/ic_main_search" />
+    <item android:state_focused="true" android:drawable="@drawable/ic_main_search_highlight" />
+</selector>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bilibili.tv.widget.DrawTextView android:textSize="@dimen/px_32" android:textColor="@color/white" android:ellipsize="end" android:gravity="center|left" android:layout_gravity="center" android:id="@id/video_detail_episode_txt" android:background="@drawable/background_white_rect" android:padding="@dimen/px_24" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="@dimen/px_144" android:maxLines="2"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

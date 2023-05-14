@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/search_container" android:background="@drawable/background_image" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/keyboard_wrapper" android:background="@color/black_20" android:layout_width="@dimen/px_680" android:layout_height="fill_parent">
+        <com.bilibili.tv.ui.search.SearchKeyboardView android:id="@id/keyboard_view" android:paddingLeft="@dimen/px_50" android:paddingTop="@dimen/px_90" android:paddingRight="@dimen/px_50" android:paddingBottom="@dimen/px_20" android:nextFocusLeft="@id/keyboard_view" android:nextFocusUp="@id/keyboard_view" android:layout_width="@dimen/px_680" android:layout_height="wrap_content" />
+        <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_32" android:textColor="@color/white_30" android:gravity="center" android:id="@id/focus_holder" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/search_bottom_hint" android:layout_below="@id/keyboard_view" android:layout_alignLeft="@id/keyboard_view" android:layout_alignRight="@id/keyboard_view" />
+    </LinearLayout>
+    <FrameLayout android:id="@id/fragment_container" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-files-path name="app_update" path="update" />
+    <root-path name="external_storage_path" path="" />
+    <external-path name="beta_external_path" path="Download/" />
+    <external-path name="beta_external_files_path" path="Android/data/" />
+</paths>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_80" android:layout_marginTop="@dimen/px_40" android:layout_marginRight="@dimen/px_80"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Space android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    <ImageView android:id="@id/search" android:background="@drawable/selector_main_search" android:focusable="true" android:nextFocusLeft="@id/search" android:nextFocusRight="@id/setting" android:layout_width="@dimen/px_90" android:layout_height="@dimen/px_90" android:layout_marginRight="@dimen/px_27" />
+    <ImageView android:id="@id/setting" android:background="@drawable/selector_main_setting" android:focusable="true" android:nextFocusLeft="@id/search" android:nextFocusRight="@id/setting" android:layout_width="@dimen/px_90" android:layout_height="@dimen/px_90" android:layout_marginRight="@dimen/px_30" />
+    <com.bilibili.tv.widget.NetworkBadgeView android:id="@id/network" android:focusable="false" android:layout_width="@dimen/px_62" android:layout_height="@dimen/px_62" android:layout_marginRight="@dimen/px_38" />
+    <TextView android:textSize="@dimen/px_48" android:textColor="@color/white" android:id="@id/time" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</LinearLayout>

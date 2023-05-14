@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:id="@id/root" android:background="@color/black" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/danmaku_view" android:background="@android:color/transparent" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <include android:id="@id/top" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" layout="@layout/player_top_group" />
+    <include android:id="@id/bottom" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/player_bottom_group" />
+    <ViewStub android:id="@id/tv_toggle_icon" android:focusable="false" android:layout="@layout/layout_tv_icon_view" android:layout_width="@dimen/px_240" android:layout_height="@dimen/px_215" android:layout_marginRight="@dimen/px_60" android:layout_marginBottom="@dimen/px_30" android:layout_above="@id/bottom" android:layout_alignParentRight="true" android:layout_marginEnd="@dimen/px_60" android:layout_alignParentEnd="true" />
+    <ViewStub android:id="@id/right_menu" android:focusable="false" android:layout="@layout/player_menu_right" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_alignParentRight="true" android:layout_alignParentEnd="true" />
+    <ViewStub android:id="@id/left_menu" android:focusable="false" android:layout="@layout/player_menu_left" android:layout_width="@dimen/px_330" android:layout_height="fill_parent" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" />
+    <ViewStub android:id="@id/continued_play_tip" android:focusable="false" android:layout="@layout/play_continued_tip" android:layout_width="@dimen/px_920" android:layout_height="@dimen/px_150" android:layout_marginBottom="@dimen/px_88" android:layout_above="@id/bottom" />
+    <include android:id="@id/buffering_group" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" layout="@layout/layout_buffering" />
+    <include android:id="@id/preparing" android:focusable="false" android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/layout_loading" />
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@color/black_60" android:focusable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_58" android:textColor="@color/white_80" android:gravity="center|right" android:id="@id/title" android:paddingRight="@dimen/px_150" android:focusable="false" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/px_100" android:layout_weight="1.0" android:lineSpacingExtra="@dimen/px_40" />
+    <android.support.v7.widget.RecyclerView android:id="@id/list" android:focusable="false" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginTop="@dimen/px_100" android:layout_marginBottom="@dimen/px_100" android:layout_weight="1.0" />
+</LinearLayout>

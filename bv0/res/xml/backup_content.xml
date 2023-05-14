@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <exclude domain="root" path="app_upgrade" />
+    <exclude domain="root" path="app_bugly" />
+    <exclude domain="sharedpref" path="environment_prefs.xml" />
+    <exclude domain="file" path="log" />
+    <exclude domain="file" path="data" />
+    <exclude domain="file" path="bili_params.dat" />
+</full-backup-content>

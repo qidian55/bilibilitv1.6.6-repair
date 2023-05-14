@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:focusable="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_70" android:layout_marginTop="@dimen/px_50" android:layout_marginRight="@dimen/px_50">
+        <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_48" android:textColor="@color/white" android:id="@id/query_history_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/px_40" android:text="@string/search_result_title" />
+        <Space android:focusable="false" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_36" android:textColor="@color/focus_text_color_white_50" android:id="@id/hint_sort" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="长按[OK]键排序" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:focusable="false" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:focusable="false" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <com.bilibili.tv.widget.TvRecyclerView android:id="@id/result_container" android:paddingLeft="@dimen/px_50" android:paddingTop="@dimen/px_30" android:paddingBottom="@dimen/px_30" android:focusable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <com.bilibili.tv.ui.base.LoadingImageView android:id="@id/loading_view" android:focusable="false" android:layout_width="fill_parent" android:layout_height="fill_parent" app:loading_background="@color/transparent" />
+        </FrameLayout>
+        <LinearLayout android:orientation="vertical" android:focusable="false" android:layout_width="@dimen/px_224" android:layout_height="fill_parent">
+            <android.support.v7.widget.RecyclerView android:id="@id/category_container" android:paddingTop="@dimen/px_30" android:focusable="false" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+            <ImageView android:id="@id/category_more" android:focusable="false" android:layout_width="@dimen/px_204" android:layout_height="@dimen/px_200" android:src="@drawable/ic_category_more" android:scaleType="centerInside" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bilibili.tv.widget.side.SideSearchLinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/content_search" android:focusable="true" android:nextFocusLeft="@id/content_search" android:nextFocusRight="@id/content_search" android:nextFocusUp="@id/content_search" android:layout_width="fill_parent" android:layout_height="@dimen/px_102" android:nextFocusForward="@id/content_search"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:layout_gravity="start" android:id="@id/search_tag" android:background="@color/tv_pink_dark" android:focusable="false" android:visibility="invisible" android:layout_width="@dimen/px_8" android:layout_height="fill_parent" />
+    <ImageView android:id="@id/search_img" android:focusable="false" android:layout_width="@dimen/px_42" android:layout_height="@dimen/px_42" android:layout_marginLeft="@dimen/px_42" android:src="@drawable/ic_small_search_white_50" />
+    <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_36" android:textColor="@color/focus_text_color_white_50" android:gravity="center|left" android:id="@id/search_text" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_16" android:text="搜索分区" />
+</com.bilibili.tv.widget.side.SideSearchLinearLayout>

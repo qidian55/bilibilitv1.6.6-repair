@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/player_left_menu_bg_1" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="@dimen/px_330" android:layout_height="@dimen/px_72" android:layout_marginTop="@dimen/px_34"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/text" android:paddingLeft="0.0dip" android:paddingRight="@dimen/px_10" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="wrap_content" android:layout_height="@dimen/px_72" style="@style/PlayerTextView.Focusable.Normal" />
+    <ImageView android:focusable="false" android:focusableInTouchMode="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_30" android:src="@drawable/ic_player_play_icon_small" />
+</LinearLayout>

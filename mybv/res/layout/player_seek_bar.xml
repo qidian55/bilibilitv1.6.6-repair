@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bilibili.tv.player.widget.PlayerSeekBar android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <SeekBar android:id="@id/seekBar" android:focusable="false" android:layout_width="fill_parent" android:layout_height="@dimen/px_10" android:layout_marginLeft="@dimen/px_30" android:layout_marginRight="@dimen/px_30" android:max="1000" android:progress="0" style="@style/Seekbar" />
+    <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_32" android:textColor="@color/pink" android:gravity="center" android:id="@id/time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/px_20" android:text="@string/time_default" android:maxLines="1" android:drawableTop="@drawable/triangle" />
+</com.bilibili.tv.player.widget.PlayerSeekBar>

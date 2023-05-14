@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:paddingLeft="@dimen/px_35" android:paddingTop="@dimen/px_30" android:paddingRight="@dimen/px_35" android:focusable="true" android:focusableInTouchMode="true" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.bilibili.tv.widget.ScalableImageView android:id="@id/cover" android:background="@drawable/shape_default_loading_img" android:focusable="false" android:layout_width="@dimen/px_190" android:layout_height="@dimen/px_190" app:placeholderImage="@drawable/default_img_loading" app:placeholderImageScaleType="centerInside" app:roundedCornerRadius="@dimen/px_12" />
+    <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_32" android:textColor="@color/focus_text_color_white_50" android:ellipsize="marquee" android:id="@id/name" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/px_20" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" />
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="bottom" android:orientation="vertical" android:id="@id/content" android:paddingLeft="@dimen/px_180" android:paddingRight="@dimen/px_180" android:focusable="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_50" android:textColor="@color/white" android:id="@id/first" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_36" android:textColor="@color/white" android:id="@id/second" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/px_30" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@color/android_live_pink" android:focusable="false" android:layout_width="fill_parent" android:layout_height="@dimen/px_120" android:layout_marginTop="@dimen/px_40">
+        <FrameLayout android:id="@id/play_layout" android:background="@drawable/selector_live_player_button" android:focusable="true" android:nextFocusLeft="@id/play_layout" android:nextFocusRight="@id/play_layout" android:nextFocusUp="@id/play_layout" android:nextFocusDown="@id/danmaku_show_layout" android:layout_width="@dimen/px_80" android:layout_height="@dimen/px_80">
+            <ImageView android:layout_gravity="center" android:id="@id/play" android:background="@drawable/selector_live_player_player_button" android:focusable="false" android:layout_width="@dimen/px_60" android:layout_height="@dimen/px_60" />
+        </FrameLayout>
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView android:layout_gravity="center" android:id="@id/recycler_view" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/px_40" android:layout_marginBottom="@dimen/px_100" />
+</LinearLayout>

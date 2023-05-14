@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.bilibili.tv">
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.software.leanback" android:required="false"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_ALL_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <application android:allowBackup="true" android:fullBackupContent="@xml/backup_content" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.bilibili.tv.MainApplication" android:networkSecurityConfig="@xml/network_security_config" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="FAWKES_APP_KEY" android:value="android"/>
+        <meta-data android:name="BUILD_SN" android:value="0"/>
+        <activity android:label="@string/app_name" android:name="com.bilibili.tv.ui.splash.SplashActivity" android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.bilibili.tv.ui.main.MainActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.search.SearchActivity" android:screenOrientation="landscape" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:launchMode="singleTop" android:name="com.bilibili.tv.ui.account.LoginActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.history.VideoHistoryActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.bangumi.follow.FollowBangumiActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.favorite.FavoriteActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.bangumi.time.BangumiTimelineActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.favorite.boxlist.BoxListInfoActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.bangumi.BangumiDetailInfoActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.bangumi.tag.BangumiTagListActivity" android:screenOrientation="landscape"/>
+        <activity android:launchMode="singleTask" android:name="com.bilibili.tv.ui.bangumi.BangumiDetailActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.video.VideoDetailActivity" android:screenOrientation="landscape"/>
+        <activity android:exported="true" android:name="com.bilibili.tv.player.PlayerActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.video.VideoDetailInfoActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.video.VideoMoreEpisodeActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.ranking.RankingActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.setting.SettingActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.area.AreaActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.video.tag.VideoTagSearchActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.attention.AttentionDynamicActivity" android:screenOrientation="landscape"/>
+        <activity android:launchMode="singleTop" android:name="com.bilibili.tv.ui.upgrade.UpgradeActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.live.LiveActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.live.player.LivePlayerActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.auth.AuthSpaceActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.bangumi.tag.BangumiTagActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.bangumi.follow.NewFollowBangumiActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.vip.VipActivity" android:screenOrientation="landscape"/>
+        <provider android:authorities="com.bilibili.tv.provider.TvSearchSuggestionProvider" android:exported="false" android:name="com.bilibili.tv.provider.TvSearchSuggestionProvider"/>
+        <provider android:authorities="com.bilibili.tv.provider.resolver" android:exported="false" android:multiprocess="false" android:name="com.bilibili.lib.media.resolver.resolve.MediaResolveProvider"/>
+        <service android:label="@string/app_name" android:name="com.bilibili.tv.service.paper.LiveWallpaperService" android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService"/>
+            </intent-filter>
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/livewallpaper"/>
+        </service>
+        <meta-data android:name="UMENG_APPKEY" android:value="53d2412e56240b8a6500dd63"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="xxxxxxxxxxxxxxxx"/>
+        <provider android:authorities="com.bilibili.tv.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <service android:exported="false" android:name="com.bilibili.lib.neuron.internal.NeuronLocalService"/>
+        <service android:exported="false" android:name="com.bilibili.lib.neuron.internal.NeuronRemoteService" android:process=":stats"/>
+        <provider android:authorities="com.bilibili.tv.provider.modresource" android:exported="false" android:multiprocess="false" android:name="com.bilibili.lib.mod.ModResourceProvider"/>
+        <provider android:authorities="com.bilibili.tv.provider.umeng" android:exported="false" android:name="com.bilibili.umeng.BiliUmengProvider"/>
+        <provider android:authorities="com.bilibili.tv.provider.auth" android:exported="false" android:multiprocess="false" android:name="com.bilibili.lib.account.AuthProvider"/>
+        <service android:enabled="true" android:exported="false" android:name="tv.danmaku.ijk.media.player.services.IjkMediaPlayerService" android:process=":ijkservice"/>
+        <service android:exported="false" android:name="com.bilibili.lib.infoeyes.InfoEyesLocalService"/>
+        <service android:exported="false" android:name="com.bilibili.lib.infoeyes.InfoEyesRemoteService" android:process=":stats"/>
+        <provider android:authorities="com.bilibili.tv.provider.xpref" android:exported="false" android:name="com.bilibili.xpref.XprefProvider"/>
+        <activity android:configChanges="keyboardHidden|locale|orientation|screenSize" android:name="com.tencent.bugly.beta.ui.BetaActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="com.bilibili.tv.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.tencent.bugly.beta.utils.BuglyFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <service android:exported="false" android:name="com.tencent.bugly.beta.tinker.TinkerResultService"/>
+        <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$STDStub_00"/>
+        <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$STDStub_01"/>
+        <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$STDStub_02"/>
+        <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$STDStub_03"/>
+        <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$STDStub_04"/>
+        <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$STDStub_05"/>
+        <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$STDStub_06"/>
+        <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$STDStub_07"/>
+        <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$STDStub_08"/>
+        <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$STDStub_09"/>
+        <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$STDStub_00_T" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$STDStub_01_T" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$STDStub_02_T" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTStub_00"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTStub_01"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTStub_02"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTStub_03"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTStub_04"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTStub_05"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTStub_06"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTStub_07"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTStub_08"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTStub_09"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTStub_00_T" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTStub_01_T" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:launchMode="singleTop" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTStub_02_T" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTKStub_00"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTKStub_01"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTKStub_02"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTKStub_03"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTKStub_04"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTKStub_05"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTKStub_06"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTKStub_07"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTKStub_08"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTKStub_09"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTKStub_00_T" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTKStub_01_T" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SGTKStub_02_T" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:launchMode="singleInstance" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_00"/>
+        <activity android:launchMode="singleInstance" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_01"/>
+        <activity android:launchMode="singleInstance" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_02"/>
+        <activity android:launchMode="singleInstance" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_03"/>
+        <activity android:launchMode="singleInstance" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_04"/>
+        <activity android:launchMode="singleInstance" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_05"/>
+        <activity android:launchMode="singleInstance" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_06"/>
+        <activity android:launchMode="singleInstance" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_07"/>
+        <activity android:launchMode="singleInstance" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_08"/>
+        <activity android:launchMode="singleInstance" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_09"/>
+        <activity android:launchMode="singleInstance" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_00_T" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:launchMode="singleInstance" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_01_T" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:launchMode="singleInstance" android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_02_T" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="tinker_version" android:value="1.9.1"/>
+        <service android:exported="false" android:name="com.tencent.tinker.lib.service.TinkerPatchService" android:process=":patch"/>
+        <service android:exported="false" android:name="com.tencent.tinker.lib.service.TinkerPatchService$InnerService" android:process=":patch"/>
+        <service android:exported="false" android:name="com.tencent.tinker.lib.service.DefaultTinkerResultService"/>
+    </application>
+</manifest>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_36" android:textColor="@color/focus_text_color_white_50" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hot_video" />
+        <Space android:focusable="false" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_36" android:textColor="@color/focus_text_color_white_50" android:layout_gravity="bottom" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sort" />
+    </LinearLayout>
+</LinearLayout>

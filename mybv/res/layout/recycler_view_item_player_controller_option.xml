@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_50" android:layout_marginRight="@dimen/px_50"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/content_layout" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <FrameLayout android:background="@drawable/selector_live_player_button" android:focusable="false" android:nextFocusLeft="@id/up_layout" android:nextFocusRight="@id/danmaku_show_layout" android:nextFocusUp="@id/play_layout" android:nextFocusDown="@id/up_layout" android:duplicateParentState="true" android:layout_width="@dimen/px_90" android:layout_height="@dimen/px_90">
+            <com.bilibili.tv.widget.ScalableImageView android:layout_gravity="center" android:id="@id/img" android:focusable="false" android:layout_width="@dimen/px_60" android:layout_height="@dimen/px_60" />
+        </FrameLayout>
+        <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_32" android:textColor="@color/white" android:id="@id/text" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/px_16" />
+    </LinearLayout>
+</LinearLayout>

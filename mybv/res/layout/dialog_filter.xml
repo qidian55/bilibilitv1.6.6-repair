@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@color/black_60" android:focusable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <GridLayout android:orientation="horizontal" android:id="@id/filter_dialog_container" android:padding="@dimen/px_10" android:focusable="false" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:rowCount="2" android:columnCount="4">
+        <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_48" android:textColor="@color/white_50" android:gravity="center" android:id="@id/title" android:focusable="false" android:layout_width="@dimen/px_144" android:layout_height="@dimen/px_72" />
+    </GridLayout>
+</RelativeLayout>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wallpaper android:description="@string/app_name" android:settingsActivity="LiveWallPreference" android:thumbnail="@mipmap/ic_launcher"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

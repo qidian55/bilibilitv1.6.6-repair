@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/status_bar_latest_event_content" android:layout_width="fill_parent" android:layout_height="128.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/icon" android:layout_width="128.0dip" android:layout_height="128.0dip" android:scaleType="centerCrop" />
+    <include android:layout_width="48.0dip" android:layout_height="48.0dip" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:layout_alignParentRight="true" android:layout_alignParentEnd="true" layout="@layout/notification_media_cancel_action" />
+    <include android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="128.0dip" android:layout_toLeftOf="@id/cancel_action" android:layout_marginStart="128.0dip" android:layout_toStartOf="@id/cancel_action" layout="@layout/notification_template_lines_media" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/media_actions" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_marginLeft="12.0dip" android:layout_marginRight="12.0dip" android:layout_toRightOf="@id/icon" android:layout_alignParentBottom="true" android:layoutDirection="ltr" android:layout_toEndOf="@id/icon" />
+    <ImageView android:id="@id/action_divider" android:background="?android:dividerHorizontal" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_toRightOf="@id/icon" android:layout_above="@id/media_actions" android:layout_toEndOf="@id/icon" />
+</RelativeLayout>

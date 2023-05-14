@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bilibili.tv.widget.DrawRelativeLayout android:orientation="vertical" android:focusable="true" android:focusableInTouchMode="true" android:clipChildren="false" android:clipToPadding="false" android:layout_width="@dimen/px_320" android:layout_height="@dimen/px_258"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/img" android:focusable="false" android:layout_width="@dimen/px_140" android:layout_height="@dimen/px_140" android:layout_marginTop="@dimen/px_24" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+    <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_36" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/name" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/px_24" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+</com.bilibili.tv.widget.DrawRelativeLayout>

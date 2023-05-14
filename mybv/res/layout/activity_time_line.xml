@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/timeline" android:background="@drawable/background_image" android:focusable="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_48" android:textColor="@color/white" android:id="@id/title" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_50" android:layout_marginTop="@dimen/px_50" android:text="放送表" />
+    <android.support.v7.widget.RecyclerView android:id="@id/recycler_view" android:paddingLeft="@dimen/px_108" android:paddingTop="@dimen/px_40" android:paddingRight="@dimen/px_170" android:focusable="false" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/title"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+    <com.bilibili.tv.ui.base.LoadingImageView android:id="@id/loading_view" android:focusable="false" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <View android:id="@id/white_line" android:background="@color/white_40" android:focusable="false" android:visibility="gone" android:layout_width="@dimen/px_6" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/px_120" android:layout_marginTop="@dimen/px_40" android:layout_below="@id/title" />
+</RelativeLayout>

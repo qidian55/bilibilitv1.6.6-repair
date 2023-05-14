@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/timeline_header" android:paddingTop="@dimen/px_20" android:paddingBottom="@dimen/px_20" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/icon" android:focusable="false" android:layout_width="@dimen/px_30" android:layout_height="@dimen/px_30" android:src="@drawable/ic_timeline_head_gray" android:scaleType="fitXY" />
+    <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_36" android:textColor="@color/white_50" android:gravity="center_vertical" android:id="@id/week" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_30" android:text="星期一" />
+    <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_36" android:textColor="@color/white_50" android:gravity="center_vertical" android:id="@id/time" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_30" android:text="今天" />
+</LinearLayout>

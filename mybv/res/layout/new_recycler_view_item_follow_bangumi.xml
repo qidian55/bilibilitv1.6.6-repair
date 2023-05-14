@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:focusable="true" android:focusableInTouchMode="true" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.bilibili.tv.widget.ScalableImageView android:id="@id/img" android:focusable="false" android:layout_width="fill_parent" android:layout_height="@dimen/px_346" app:actualImageScaleType="fitXY" app:placeholderImage="@drawable/new_shape_default_loading_img" app:roundBottomLeft="false" app:roundBottomRight="false" app:roundTopLeft="true" app:roundTopRight="true" app:roundedCornerRadius="@dimen/px_4" />
+            <View android:id="@id/fg" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/bottom_layout" android:background="@drawable/new_selector_default_text_bg" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_32" android:textColor="@color/focus_text_color_white_50" android:ellipsize="marquee" android:gravity="center" android:id="@id/title" android:paddingTop="@dimen/px_14" android:paddingBottom="@dimen/px_14" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_14" android:layout_marginRight="@dimen/px_14" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" />
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

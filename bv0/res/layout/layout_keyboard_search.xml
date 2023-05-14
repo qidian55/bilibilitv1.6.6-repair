@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:tag="search_layout" android:background="@drawable/shape_keyboard_bg" android:layout_width="fill_parent" android:layout_height="@dimen/px_80"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:focusable="false" android:layout_width="@dimen/px_50" android:layout_height="@dimen/px_50" android:layout_marginLeft="@dimen/px_10" android:src="@drawable/ic_search_white" />
+    <EditText android:textSize="@dimen/px_36" android:textColor="@color/white_80" android:textColorHint="@color/white_40" android:id="@id/search_text" android:background="@null" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/px_20" android:hint="@string/search_text_hint" android:singleLine="true" android:inputType="text" android:imeOptions="actionSearch" />
+</LinearLayout>

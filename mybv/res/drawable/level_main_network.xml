@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_network_wireless_1" android:maxLevel="0" />
+    <item android:drawable="@drawable/ic_network_wireless_2" android:maxLevel="1" />
+    <item android:drawable="@drawable/ic_network_wireless_3" android:maxLevel="2" />
+    <item android:drawable="@drawable/ic_network_wireless_4" android:maxLevel="3" />
+</level-list>

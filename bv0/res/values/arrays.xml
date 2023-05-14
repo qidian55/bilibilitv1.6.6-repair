@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="player_danmaku_toggle">
+        <item>@string/on</item>
+        <item>@string/off</item>
+    </string-array>
+    <string-array name="player_quality">
+        <item>@string/quality_shd</item>
+        <item>@string/quality_hd</item>
+        <item>@string/quality_sd</item>
+    </string-array>
+    <string-array name="player_right_menu_level_1">
+        <item>@string/quality</item>
+        <item>@string/danmaku_toggle</item>
+        <item>@string/screen_ratio</item>
+        <item>@string/danmaku_size</item>
+        <item>@string/danmaku_alpha</item>
+    </string-array>
+    <string-array name="player_right_menu_level_1_1">
+        <item>@string/episode</item>
+        <item>@string/quality</item>
+        <item>@string/danmaku_toggle</item>
+        <item>@string/screen_ratio</item>
+    </string-array>
+    <string-array name="player_screen_ratio">
+        <item>@string/ratio_16_9</item>
+        <item>@string/ratio_4_3</item>
+        <item>@string/adjust_screen</item>
+        <item>@string/adjust_content</item>
+    </string-array>
+</resources>

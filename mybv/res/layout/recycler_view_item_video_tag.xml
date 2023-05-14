@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/tag_view" android:padding="@dimen/px_16" android:focusable="true" android:focusableInTouchMode="true" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.bilibili.tv.widget.DrawTextView android:textSize="@dimen/px_32" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/text" android:background="@drawable/background_white_rect" android:paddingLeft="@dimen/px_18" android:paddingRight="@dimen/px_18" android:focusable="false" android:layout_width="wrap_content" android:layout_height="@dimen/px_70" android:maxLines="1" />
+</FrameLayout>

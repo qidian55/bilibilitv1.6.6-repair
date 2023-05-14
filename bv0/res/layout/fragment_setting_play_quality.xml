@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:focusable="false" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_44" android:textColor="@color/white" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="播放器设置 - 默认清晰度" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:focusable="false" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.bilibili.tv.widget.DrawFrameLayout android:id="@id/low_quality" android:background="@drawable/shape_rectangle_trans_with_12corner_white_10" android:focusable="true" android:nextFocusRight="@id/high_quality" android:nextFocusUp="@id/low_quality" android:nextFocusDown="@id/low_quality" android:layout_width="@dimen/px_330" android:layout_height="@dimen/px_96" android:layout_marginTop="@dimen/px_100">
+            <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_44" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="流畅" />
+        </com.bilibili.tv.widget.DrawFrameLayout>
+        <com.bilibili.tv.widget.DrawFrameLayout android:id="@id/high_quality" android:background="@drawable/shape_rectangle_trans_with_12corner_white_10" android:focusable="true" android:nextFocusLeft="@id/low_quality" android:nextFocusRight="@id/super_quality" android:nextFocusUp="@id/high_quality" android:nextFocusDown="@id/high_quality" android:layout_width="@dimen/px_330" android:layout_height="@dimen/px_96" android:layout_marginLeft="@dimen/px_40" android:layout_marginTop="@dimen/px_100">
+            <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_44" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="高清" />
+        </com.bilibili.tv.widget.DrawFrameLayout>
+        <com.bilibili.tv.widget.DrawFrameLayout android:id="@id/super_quality" android:background="@drawable/shape_rectangle_trans_with_12corner_white_10" android:focusable="true" android:nextFocusLeft="@id/high_quality" android:nextFocusRight="@id/super_quality" android:nextFocusUp="@id/super_quality" android:nextFocusDown="@id/super_quality" android:layout_width="@dimen/px_330" android:layout_height="@dimen/px_96" android:layout_marginLeft="@dimen/px_40" android:layout_marginTop="@dimen/px_100">
+            <com.bilibili.tv.widget.ShadowTextView android:textSize="@dimen/px_44" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="超清" />
+        </com.bilibili.tv.widget.DrawFrameLayout>
+    </LinearLayout>
+</LinearLayout>

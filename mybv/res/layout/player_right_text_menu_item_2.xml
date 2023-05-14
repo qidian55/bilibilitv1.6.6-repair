@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:id="@id/text" android:background="@drawable/player_right_menu_bg_2" android:paddingLeft="@dimen/px_50" android:paddingRight="@dimen/px_50" android:layout_width="@dimen/px_400" android:layout_height="@dimen/px_72" android:layout_marginTop="@dimen/px_34" android:drawableLeft="@drawable/oval" android:drawablePadding="@dimen/px_20" style="@style/PlayerTextView.Focusable.Normal"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,16 @@
+# 参考apk
+
+## 哔哩哔哩TV版1.6.6（官版）
+- md5sum:43a839d66d35fdd46a33a52fe8113b8a
+- sha1sum:c91bc6529fc365a7f205c2fc747cfc72374a71f9
+- sha256sum:5bf8c6d815a180024778fe72142d07ecd4b4e34774dcba0dd23dae127c1dc03b
+
+## 感谢各路大神铺路166手撕签名版
+- md5sum:2924e8746b514f91bca1ef1a4895c4eb
+- sha1sum:bc781c15c822ca84c2c8d75342c1bc2dbda091a7
+- sha256sum:18bb5d217a215172c309125a59597960e39d775a8c593f4dadb9ea28c5a332fc
+
+## bilibili优化4(改版)
+- md5sum:43ef73adc29bb13224015ea90a0cc8ec
+- sha1sum:1923755be3adf0de5d60e8f1cb7b21fe0c5ca7e7
+- sha256sum::11265bea18ee1447eca21b941fe99e03e28e7b8e9d1fbf391103ad482862b81c

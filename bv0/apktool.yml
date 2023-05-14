@@ -1,0 +1,28 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: 哔哩哔哩TV版1.6.6.apk
+compressionType: false
+doNotCompress:
+- resources.arsc
+- png
+- res/drawable-nodpi-v4/background_image.webp
+- res/drawable-nodpi-v4/background_splash_default.webp
+- jpg
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '17'
+  targetSdkVersion: '27'
+sharedLibrary: false
+sparseResources: false
+unknownFiles:
+  okhttp3/internal/publicsuffix/publicsuffixes.gz: '8'
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.5.0-dirty
+versionInfo:
+  versionCode: '1606'
+  versionName: 1.6.6

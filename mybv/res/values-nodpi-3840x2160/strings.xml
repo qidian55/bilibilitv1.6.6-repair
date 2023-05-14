@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_btn_i_know">知道了</string>
+    <string name="dialog_btn_i_know_v2">知道啦</string>
+    <string name="dialog_msg_request_camera_permission_common">"哔哩哔哩被禁止访问你的相机，将不能正常使用相机相关的功能，如二维码。
+
+如果需要使用，请在“系统设置”或授权对话框中允许“相机”权限。"</string>
+    <string name="dialog_msg_request_camera_permission_for_shot">"哔哩哔哩被禁止访问你的相机，将不能正常使用拍照功能。
+
+如果需要使用，请在“系统设置”或授权对话框中允许“相机”权限。"</string>
+    <string name="dialog_msg_request_phone_permission">哔哩哔哩需要获取手机/电话权限，以校验IMEI&amp;IMSI码，防止账号被盗。</string>
+    <string name="dialog_msg_request_storage_permissions">"哔哩哔哩被禁止访问你的存储设备，以下功能将不能正常使用：
+缓存视频、弹幕，保存视频截图以及分享图片等。
+
+如果需要使用这些功能，请在“系统设置”或授权对话框中允许“存储空间”权限。"</string>
+    <string name="dialog_msg_request_storage_permissions_for_download">哔哩哔哩需要访问你的存储设备来指定缓存目录，请在“系统设置”或授权对话框中允许“存储空间”权限。</string>
+    <string name="dialog_msg_request_storage_permissions_for_pictures">哔哩哔哩需要访问你的存储设备来选择图片，请在“系统设置”或授权对话框中允许“存储空间”权限。</string>
+    <string name="permission_tips_dialog_msg_request_location_common">"哔哩哔哩被禁止使用定位权限，将会影响您的使用体验。
+
+如果需要使用，请在\"系统设置\"或授权对话框中允许\"定位\"权限"</string>
+</resources>

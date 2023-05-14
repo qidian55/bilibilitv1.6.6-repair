@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bilibili.tv.widget.CategoryTextView android:textSize="@dimen/px_36" android:textColor="@color/white_20" android:gravity="center_vertical" android:background="@drawable/selector_search_right_tab_bg" android:paddingLeft="@dimen/px_44" android:focusable="true" android:focusableInTouchMode="true" android:clickable="true" android:layout_width="@dimen/px_224" android:layout_height="@dimen/px_74" android:layout_marginBottom="@dimen/px_10"
+  xmlns:android="http://schemas.android.com/apk/res/android" />
