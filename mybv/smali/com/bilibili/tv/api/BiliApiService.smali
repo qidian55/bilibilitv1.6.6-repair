@@ -61,6 +61,21 @@
     .end annotation
 .end method
 
+.method public abstract getMainRecommend()Lbl/vp;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lbl/vp<",
+            "Lcom/bilibili/tv/api/main/MainRecommend;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/x/v2/show"
+    .end annotation
+.end method
+
 .method public abstract getSearchRanks()Lbl/vp;
     .annotation runtime Lcom/bilibili/okretro/anno/CacheControl;
         a = 0x1d4c0L

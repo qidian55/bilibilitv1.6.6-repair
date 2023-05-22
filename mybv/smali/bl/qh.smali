@@ -610,7 +610,7 @@
     goto :goto_1
 
     :cond_1
-    const-string v1, "https://bangumi.bilibili.com/player/api/v2/playurlproj"
+    const-string v1, "https://bangumi.bilibili.com/player/api/v2/playurl"
 
     .line 122
     :goto_1

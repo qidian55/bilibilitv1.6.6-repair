@@ -221,7 +221,7 @@
     .line 375
     check-cast v1, Ljava/lang/String;
 
-    const-string v2, "bilibili_yst://pgc"
+    const-string v2, "bilibili://bangumi"
 
     const/4 v5, 0x0
 
@@ -246,6 +246,34 @@
     goto :goto_0
 
     :cond_1
+
+
+    #modify to 1.6.4
+    const-string v2, "http://bangumi.bilibili.com/anime"
+
+    const/4 v5, 0x0
+
+    invoke-static {v1, v2, v4, v3, v5}, Lbl/bcl;->a(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+
+    move-result v2
+
+    const-wide/16 v5, 0x0
+
+    if-eqz v2, :cond_46
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/content/ContentUris;->parseId(Landroid/net/Uri;)J
+
+    move-result-wide v1
+
+    goto :goto_0
+
+    :cond_46
+
+
     move-wide v1, v5
 
     :goto_0

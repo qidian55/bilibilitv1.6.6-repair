@@ -68,7 +68,7 @@
         value = {
             "Ljava/util/List<",
             "+",
-            "Lcom/bilibili/bangumi/api/BangumiMainEx$Content;",
+            "Lcom/bilibili/bangumi/api/BangumiBriefPlus;",
             ">;"
         }
     .end annotation
@@ -432,10 +432,10 @@
 
     move-result-object p2
 
-    check-cast p2, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;
+    check-cast p2, Lcom/bilibili/bangumi/api/BangumiBriefPlus;
 
     .line 261
-    iget-object v1, p2, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;->title:Ljava/lang/String;
+    iget-object v1, p2, Lcom/bilibili/bangumi/api/BangumiBriefPlus;->title:Ljava/lang/String;
 
     check-cast v1, Ljava/lang/CharSequence;
 
@@ -450,7 +450,7 @@
 
     move-result-object v1
 
-    iget-object v2, p2, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;->title:Ljava/lang/String;
+    iget-object v2, p2, Lcom/bilibili/bangumi/api/BangumiBriefPlus;->title:Ljava/lang/String;
 
     check-cast v2, Ljava/lang/CharSequence;
 
@@ -458,7 +458,7 @@
 
     .line 264
     :cond_2
-    iget-object v1, p2, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;->cover:Ljava/lang/String;
+    iget-object v1, p2, Lcom/bilibili/bangumi/api/BangumiBriefPlus;->cover:Ljava/lang/String;
 
     check-cast v1, Ljava/lang/CharSequence;
 
@@ -481,7 +481,7 @@
     check-cast v2, Landroid/content/Context;
 
     .line 268
-    iget-object v3, p2, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;->cover:Ljava/lang/String;
+    iget-object v3, p2, Lcom/bilibili/bangumi/api/BangumiBriefPlus;->cover:Ljava/lang/String;
 
     .line 266
     invoke-static {v2, v3}, Lbl/ach;->a(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
@@ -518,7 +518,7 @@
             "(",
             "Ljava/util/List<",
             "+",
-            "Lcom/bilibili/bangumi/api/BangumiMainEx$Content;",
+            "Lcom/bilibili/bangumi/api/BangumiBriefPlus;",
             ">;)V"
         }
     .end annotation

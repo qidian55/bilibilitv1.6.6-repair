@@ -16,6 +16,27 @@
 
 
 # virtual methods
+.method public abstract a()Lbl/vp;
+    .annotation runtime Lcom/bilibili/okretro/anno/CacheControl;
+        a = 0x1d4c0L
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lbl/vp<",
+            "Lcom/bilibili/bangumi/api/BangumiApiResponse<",
+            "Ljava/util/List<",
+            "Lcom/bilibili/bangumi/api/BangumiBriefPlus;",
+            ">;>;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/api/concern_recommend"
+    .end annotation
+.end method
+
 .method public abstract a(II)Lbl/vp;
     .param p1    # I
         .annotation runtime Lretrofit2/http/Query;

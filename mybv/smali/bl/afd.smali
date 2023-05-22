@@ -197,16 +197,16 @@
     invoke-virtual {p1, p2}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$a;)V
 
     .line 152
-    const-class p1, Lbl/kh;
+    const-class p1, Lcom/bilibili/tv/api/BiliApiService;
 
     invoke-static {p1}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Lbl/kh;
+    check-cast p1, Lcom/bilibili/tv/api/BiliApiService;
 
     .line 153
-    invoke-interface {p1}, Lbl/kh;->a()Lbl/vp;
+    invoke-interface {p1}, Lcom/bilibili/tv/api/BiliApiService;->getMainRecommend()Lbl/vp;
 
     move-result-object p1
 

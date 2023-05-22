@@ -205,29 +205,29 @@
 
     .line 414
     :cond_0
-    instance-of v2, v1, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;
+    instance-of v2, v1, Lcom/bilibili/bangumi/api/BangumiBriefPlus;
 
     if-eqz v2, :cond_2
 
     .line 415
-    check-cast v1, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;
+    check-cast v1, Lcom/bilibili/bangumi/api/BangumiBriefPlus;
 
-    iget-object v2, v1, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;->uri:Ljava/lang/String;
+    iget-object v2, v1, Lcom/bilibili/bangumi/api/BangumiBriefPlus;->seasonId:Ljava/lang/String;
 
-    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-virtual {v2}, Ljava/lang/String;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 416
-    invoke-static {v2}, Landroid/content/ContentUris;->parseId(Landroid/net/Uri;)J
+    #.line 416
+    #invoke-static {v2}, Landroid/content/ContentUris;->parseId(Landroid/net/Uri;)J
 
-    move-result-wide v2
+    #move-result-wide v2
 
-    const-wide/16 v4, 0x0
+    #const-wide/16 v4, 0x0
 
-    cmp-long v6, v2, v4
+    #cmp-long v6, v2, v4
 
-    if-lez v6, :cond_1
+    #if-lez v6, :cond_1
 
     .line 419
     sget-object v4, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->Companion:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$a;
@@ -237,10 +237,10 @@
 
     check-cast v5, Landroid/content/Context;
 
-    .line 421
-    invoke-static {v2, v3}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    #.line 421
+    #invoke-static {v2, v3}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    move-result-object v2
+    #move-result-object v2
 
     .line 419
     invoke-virtual {v4, v5, v2}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$a;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
@@ -294,7 +294,7 @@
     const/4 v3, 0x3
 
     .line 430
-    iget-object v1, v1, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;->title:Ljava/lang/String;
+    iget-object v1, v1, Lcom/bilibili/bangumi/api/BangumiBriefPlus;->title:Ljava/lang/String;
 
     aput-object v1, v2, v3
 

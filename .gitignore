@@ -1,6 +1,10 @@
+参考apk/*.cache/
+参考apk/*.jadx
+
 bv1/
 bv2/
 bv3/
 bv4/
 
 diff*.txt
+log.txt

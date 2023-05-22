@@ -1,6 +1,11 @@
 # 参考apk
 
-## 哔哩哔哩TV版1.6.6（官版）
+## bilibili1.6.4（学区版）
+- md5sum:ed0e17dd036164bd70ac50ceda2e95a7
+- sha1sum:d5f7685b34e828db583f7978dff922919d921865
+- sha256sum:98824dd5ddfd2d18c2d2a03e9987d837e6e2017d5deadff90e418676a7254250
+
+## 哔哩哔哩TV版1.6.6（学区版）
 - md5sum:43a839d66d35fdd46a33a52fe8113b8a
 - sha1sum:c91bc6529fc365a7f205c2fc747cfc72374a71f9
 - sha256sum:5bf8c6d815a180024778fe72142d07ecd4b4e34774dcba0dd23dae127c1dc03b
