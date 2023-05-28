@@ -553,6 +553,15 @@
 
     invoke-direct {v6, v8}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
+
+    const-string v8, "data"
+    invoke-virtual {v6, v8}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    move-result-object v8
+    if-eqz v8, :cond_000
+    move-object v6, v8
+    :cond_000
+
+
     const-string v8, "accept_quality"
 
     .line 51

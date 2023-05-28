@@ -530,7 +530,7 @@
 
     if-eqz v3, :cond_1
 
-    const-string v3, "https://app.bilibili.com/v2/playurlproj"
+    const-string v3, "https://app.bilibili.com/v2/playurl"
 
     goto :goto_1
 
@@ -542,7 +542,7 @@
     goto :goto_1
 
     :cond_2
-    const-string v3, "https://app.bilibili.com/v2/playurlproj"
+    const-string v3, "https://api.bilibili.com/x/player/playurl"
 
     .line 118
     :goto_1
@@ -568,6 +568,12 @@
     invoke-virtual {v2, v3, v1}, Lbl/qa$a;->a(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v1
+
+
+    #const-string v2, "qn"
+    #const-string v3, "80"
+    #invoke-virtual {v1, v2, v3}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
 
     const-string v2, "cid"
 
