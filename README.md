@@ -15,11 +15,11 @@
 - 首页推荐和番剧推荐改用1.6.4版本的接口和代码
 - 番剧源回退至原版
 
-### v3.0（测试版）
-> 尝试换用[bilibili-API-collect](https://github.com/SocialSisterYi/bilibili-API-collect/blob/master/docs/video/videostream_url.md)提供的web版视频源
+### v3.0
+> 尝试换用[bilibili-API-collect](https://github.com/SocialSisterYi/bilibili-API-collect)提供的web源
 
-- 强制采用cookie认证的web视频源，登录后可获取1080P视频
-- 由于代码冲突，番剧观看该版本不可用
+- 强制采用web视频及番剧源，登录后可获取1080P视频
+
 
 ## 修改
 `diff -r mybv bv0`查看相对于原版的改动。
