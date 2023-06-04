@@ -16,7 +16,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lbl/vm<",
-        "Lcom/bilibili/tv/api/main/MainRecommend;",
+        "Lcom/bilibili/tv/api/main/MainRecommendEx;",
         ">;"
     }
 .end annotation
@@ -45,7 +45,7 @@
 
 
 # virtual methods
-.method public a(Lcom/bilibili/tv/api/main/MainRecommend;)V
+.method public a(Lcom/bilibili/tv/api/main/MainRecommendEx;)V
     .locals 5
 
     .line 187
@@ -59,7 +59,7 @@
 
     if-eqz p1, :cond_7
 
-    invoke-virtual {p1}, Lcom/bilibili/tv/api/main/MainRecommend;->getData()Ljava/util/List;
+    invoke-virtual {p1}, Lcom/bilibili/tv/api/main/MainRecommendEx;->getData()Ljava/util/List;
 
     move-result-object v0
 
@@ -69,7 +69,7 @@
 
     .line 190
     :cond_0
-    invoke-virtual {p1}, Lcom/bilibili/tv/api/main/MainRecommend;->getData()Ljava/util/List;
+    invoke-virtual {p1}, Lcom/bilibili/tv/api/main/MainRecommendEx;->getData()Ljava/util/List;
 
     move-result-object p1
 
@@ -115,14 +115,14 @@
 
     move-result-object v2
 
-    check-cast v2, Lcom/bilibili/tv/api/main/MainRecommend$Data;
+    check-cast v2, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;
 
-    const-string v3, "bangumi"
+    const-string v3, "large_popular_ogv"
 
     .line 200
     check-cast v3, Ljava/lang/CharSequence;
 
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Data;->getType()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getCardType()Ljava/lang/String;
 
     move-result-object v4
 
@@ -135,57 +135,17 @@
     if-eqz v3, :cond_4
 
     .line 201
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    #modify to 1.6.4
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Data;->getBody()Ljava/util/List;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_3
-
-    .line 195
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Data;->getBody()Ljava/util/List;
-
-    move-result-object v2
-
-    if-nez v2, :cond_5d
-
-    invoke-static {}, Lbl/bbi;->a()V
-
-    :cond_5d
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_61
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/bilibili/tv/api/main/MainRecommend$Body;
-
-    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_61
-
-
-    #invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    #goto :goto_0
+    goto :goto_0
 
     :cond_4
-    const-string v3, "recommend"
+    const-string v3, "small_popular_ugc"
 
     .line 202
     check-cast v3, Ljava/lang/CharSequence;
 
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Data;->getType()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getCardType()Ljava/lang/String;
 
     move-result-object v4
 
@@ -198,48 +158,9 @@
     if-eqz v3, :cond_3
 
     .line 203
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    #modify to 1.6.4
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Data;->getBody()Ljava/util/List;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_3
-
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Data;->getBody()Ljava/util/List;
-
-    move-result-object v2
-
-    if-nez v2, :cond_92
-
-    invoke-static {}, Lbl/bbi;->a()V
-
-    :cond_92
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_96
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/bilibili/tv/api/main/MainRecommend$Body;
-
-    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_96
-
-
-    #invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    #goto :goto_0
+    goto :goto_0
 
     .line 206
     :cond_5
@@ -290,9 +211,9 @@
     .locals 0
 
     .line 184
-    check-cast p1, Lcom/bilibili/tv/api/main/MainRecommend;
+    check-cast p1, Lcom/bilibili/tv/api/main/MainRecommendEx;
 
-    invoke-virtual {p0, p1}, Lbl/afd$d;->a(Lcom/bilibili/tv/api/main/MainRecommend;)V
+    invoke-virtual {p0, p1}, Lbl/afd$d;->a(Lcom/bilibili/tv/api/main/MainRecommendEx;)V
 
     return-void
 .end method

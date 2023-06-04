@@ -37,7 +37,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
-            "Lcom/bilibili/tv/api/main/MainRecommend$Body;",
+            "Lcom/bilibili/tv/api/main/MainRecommendEx$Content;",
             ">;"
         }
     .end annotation
@@ -47,7 +47,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
-            "Lcom/bilibili/tv/api/main/MainRecommend$Body;",
+            "Lcom/bilibili/tv/api/main/MainRecommendEx$Content;",
             ">;"
         }
     .end annotation
@@ -159,7 +159,7 @@
 .method public a()I
     .locals 1
 
-    const/16 v0, 0x14
+    const/16 v0, 0x19
 
     return v0
 .end method
@@ -242,7 +242,7 @@
 
     move-result v0
 
-    const/4 v4, 0x4
+    const/4 v4, 0x5
 
     if-ge v0, v4, :cond_0
 
@@ -278,10 +278,10 @@
 
     move-result-object v2
 
-    check-cast v2, Lcom/bilibili/tv/api/main/MainRecommend$Body;
+    check-cast v2, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;
 
     .line 243
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Body;->getTitle()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getTitle()Ljava/lang/String;
 
     move-result-object v3
 
@@ -298,7 +298,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Body;->getTitle()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getTitle()Ljava/lang/String;
 
     move-result-object v4
 
@@ -308,7 +308,7 @@
 
     .line 246
     :cond_1
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Body;->getCover()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getCover()Ljava/lang/String;
 
     move-result-object v3
 
@@ -338,7 +338,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Body;->getCover()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getCover()Ljava/lang/String;
 
     move-result-object v5
 
@@ -359,7 +359,7 @@
 
     .line 254
     :cond_2
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Body;->getUri()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getUri()Ljava/lang/String;
 
     move-result-object v0
 
@@ -378,7 +378,7 @@
 
     invoke-static {v0, v3}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Body;->getUri()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getUri()Ljava/lang/String;
 
     move-result-object v2
 
@@ -420,7 +420,7 @@
 
     move-result v0
 
-    const/16 v4, 0x10
+    const/16 v4, 0x14
 
     if-ge v0, v4, :cond_5
 
@@ -460,10 +460,10 @@
 
     move-result-object v2
 
-    check-cast v2, Lcom/bilibili/tv/api/main/MainRecommend$Body;
+    check-cast v2, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;
 
     .line 268
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Body;->getTitle()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getTitle()Ljava/lang/String;
 
     move-result-object v3
 
@@ -480,7 +480,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Body;->getTitle()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getTitle()Ljava/lang/String;
 
     move-result-object v4
 
@@ -490,7 +490,7 @@
 
     .line 271
     :cond_6
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Body;->getCover()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getCover()Ljava/lang/String;
 
     move-result-object v3
 
@@ -521,7 +521,7 @@
     move-result-object v4
 
     .line 275
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Body;->getCover()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getCover()Ljava/lang/String;
 
     move-result-object v5
 
@@ -548,7 +548,7 @@
 
     .line 282
     :cond_7
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Body;->getUri()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getUri()Ljava/lang/String;
 
     move-result-object v0
 
@@ -567,7 +567,7 @@
 
     invoke-static {v0, v3}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommend$Body;->getUri()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getUri()Ljava/lang/String;
 
     move-result-object v2
 
@@ -612,10 +612,10 @@
         value = {
             "(",
             "Ljava/util/List<",
-            "Lcom/bilibili/tv/api/main/MainRecommend$Body;",
+            "Lcom/bilibili/tv/api/main/MainRecommendEx$Content;",
             ">;",
             "Ljava/util/List<",
-            "Lcom/bilibili/tv/api/main/MainRecommend$Body;",
+            "Lcom/bilibili/tv/api/main/MainRecommendEx$Content;",
             ">;)Z"
         }
     .end annotation
@@ -635,7 +635,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x4
+    const/4 v2, 0x5
 
     if-lt v0, v2, :cond_0
 
@@ -655,7 +655,7 @@
 
     move-result v0
 
-    const/16 v2, 0x10
+    const/16 v2, 0x14
 
     if-lt v0, v2, :cond_1
 

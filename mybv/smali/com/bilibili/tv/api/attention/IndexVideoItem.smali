@@ -61,7 +61,7 @@
     .end annotation
 .end field
 
-.field public mid:I
+.field public mid:J
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "mid"
     .end annotation

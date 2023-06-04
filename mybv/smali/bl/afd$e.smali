@@ -250,7 +250,7 @@
     .line 453
     check-cast v1, Ljava/lang/String;
 
-    const-string v2, "bilibili://video"
+    const-string v2, "bilibili_yst://video"
 
     const/4 v5, 0x0
 

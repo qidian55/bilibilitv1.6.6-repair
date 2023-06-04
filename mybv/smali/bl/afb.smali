@@ -224,7 +224,7 @@
     iput-object p1, p0, Lbl/afb;->c:Lbl/afb$a;
 
     .line 148
-    const-class p1, Lcom/bilibili/bangumi/api/BangumiApiService;
+    const-class p1, Lbl/kh;
 
     invoke-static {p1}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
 
@@ -234,9 +234,9 @@
 
     invoke-static {p1, p2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast p1, Lcom/bilibili/bangumi/api/BangumiApiService;
+    check-cast p1, Lbl/kh;
 
-    invoke-interface {p1}, Lcom/bilibili/bangumi/api/BangumiApiService;->a()Lbl/vp;
+    invoke-interface {p1}, Lbl/kh;->b()Lbl/vp;
 
     move-result-object p1
 

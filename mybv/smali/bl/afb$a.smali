@@ -16,10 +16,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lbl/vm<",
-        "Ljava/util/List<",
-        "+",
-        "Lcom/bilibili/bangumi/api/BangumiBriefPlus;",
-        ">;>;"
+        "Lcom/bilibili/bangumi/api/BangumiMainEx;",
+        ">;"
     }
 .end annotation
 
@@ -47,31 +45,18 @@
 
 
 # virtual methods
-.method public a(Ljava/util/List;)V
+.method public a(Lcom/bilibili/bangumi/api/BangumiMainEx;)V
     .locals 1
 
-
-    #modify to 1.6.4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "+",
-            "Lcom/bilibili/bangumi/api/BangumiBriefPlus;",
-            ">;)V"
-        }
-    .end annotation
-
-
-    #if-eqz p1, :cond_0
+    if-eqz p1, :cond_0
 
     .line 184
-    #iget-object p1, p1, Lcom/bilibili/bangumi/api/BangumiMainEx;->dataList:Ljava/util/List;
+    iget-object p1, p1, Lcom/bilibili/bangumi/api/BangumiMainEx;->dataList:Ljava/util/List;
 
-    #goto :goto_0
+    goto :goto_0
 
-    #:cond_0
-    #const/4 p1, 0x0
+    :cond_0
+    const/4 p1, 0x0
 
     :goto_0
     if-eqz p1, :cond_3
@@ -166,22 +151,12 @@
 .end method
 
 .method public synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
     .line 182
-    check-cast p1, Lcom/bilibili/bangumi/api/BangumiApiResponse;
-    if-nez p1, :cond_1
-    return-void
-    :cond_1
-    iget v0, p1, Lcom/bilibili/bangumi/api/BangumiApiResponse;->code:I
-    if-eqz v0, :cond_2
-    return-void
-    :cond_2
-    iget-object p1, p1, Lcom/bilibili/bangumi/api/BangumiApiResponse;->result:Ljava/lang/Object;
+    check-cast p1, Lcom/bilibili/bangumi/api/BangumiMainEx;
 
-    check-cast p1, Ljava/util/List;
-
-    invoke-virtual {p0, p1}, Lbl/afb$a;->a(Ljava/util/List;)V
+    invoke-virtual {p0, p1}, Lbl/afb$a;->a(Lcom/bilibili/bangumi/api/BangumiMainEx;)V
 
     return-void
 .end method
