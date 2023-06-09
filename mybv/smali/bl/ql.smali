@@ -537,12 +537,12 @@
     :cond_1
     if-eqz p6, :cond_2
 
-    const-string v3, "https://api.snm0516.aisee.tv/x/tv/ugc/playurl"
+    const-string v3, "https://api.bilibili.com/x/player/playurl"
 
     goto :goto_1
 
     :cond_2
-    const-string v3, "https://api.bilibili.com/x/player/playurl"
+    const-string v3, "https://api.snm0516.aisee.tv/x/tv/ugc/playurl"
 
     .line 118
     :goto_1
@@ -568,12 +568,6 @@
     invoke-virtual {v2, v3, v1}, Lbl/qa$a;->a(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v1
-
-
-    #const-string v2, "qn"
-    #const-string v3, "80"
-    #invoke-virtual {v1, v2, v3}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
 
     const-string v2, "cid"
 
@@ -893,7 +887,22 @@
 
     move-result v2
 
-    if-nez v2, :cond_c
+
+    if-eqz v2, :cond_00
+    if-nez p6, :cond_c
+    new-instance v1, Ljava/lang/String;
+    iget-object v2, v7, Lbl/qm;->b:[B
+    invoke-direct {v1, v2}, Ljava/lang/String;-><init>([B)V
+    const-string v2, "720P"
+    invoke-virtual {v1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    move-result v1
+    const/4 v2, 0x0
+    if-ge v2, v1, :cond_00
+    goto :cond_c
+    :cond_00
+
+
+    #if-nez v2, :cond_c
 
     if-nez p6, :cond_b
 

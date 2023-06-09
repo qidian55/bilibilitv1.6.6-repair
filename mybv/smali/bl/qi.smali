@@ -590,8 +590,14 @@
     move-result-object v2
     if-eqz v2, :cond_000
     move-object v1, v2
+    goto :cond_001
     :cond_000
-
+    const-string v2, "data"
+    invoke-virtual {v1, v2}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    move-result-object v2
+    if-eqz v2, :cond_001
+    move-object v1, v2
+    :cond_001
 
     const-string v2, "accept_quality"
 

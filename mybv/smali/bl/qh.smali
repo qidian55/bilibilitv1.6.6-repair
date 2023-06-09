@@ -558,8 +558,8 @@
     return v1
 .end method
 
-.method private a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lbl/ps;Lbl/pu;Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;)Lcom/bilibili/lib/media/resource/MediaResource;
-    .locals 6
+.method private a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lbl/ps;Lbl/pu;Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;Z)Lcom/bilibili/lib/media/resource/MediaResource;
+    .locals 10
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -568,6 +568,13 @@
             Lcom/bilibili/lib/media/resolver/exception/ResolveException;
         }
     .end annotation
+
+
+    move-object v6, p2
+    move-object v7, p3
+    move-object v8, p4
+    move-object v9, p5
+
 
     .line 117
     invoke-direct {p0, p2}, Lbl/qh;->a(Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;)V
@@ -605,12 +612,20 @@
 
     if-eqz v1, :cond_1
 
-    const-string v1, "http://bangumi.bilibili.com/player/api/v2/playurlproj"
+    const-string v1, "http://bangumi.bilibili.com/player/api/v2/playurl"
 
     goto :goto_1
 
     :cond_1
+
+
+    if-eqz p6, :cond_00
     const-string v1, "https://api.bilibili.com/pgc/player/web/playurl"
+    goto :goto_1
+    :cond_00
+
+
+    const-string v1, "https://api.snm0516.aisee.tv/x/tv/playurl"
 
     .line 122
     :goto_1
@@ -629,6 +644,12 @@
     invoke-virtual {v1, v0}, Lbl/qa$a;->a(Z)Lbl/qa$a;
 
     move-result-object v0
+
+
+    const-string v1, "playurl_type"
+    const-string v2, "2"
+    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
 
     const-string v1, "cid"
 
@@ -683,9 +704,13 @@
     const-string v1, "platform"
 
     .line 129
-    invoke-virtual {p3}, Lbl/ps;->d()Ljava/lang/String;
+    #invoke-virtual {p3}, Lbl/ps;->d()Ljava/lang/String;
 
-    move-result-object v2
+    #move-result-object v2
+
+
+    const-string v2, "android_tv_yst"
+
 
     invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
@@ -977,7 +1002,31 @@
 
     move-result p5
 
-    if-nez p5, :cond_a
+
+    if-eqz p5, :cond_000
+    if-nez p6, :cond_a
+    new-instance v4, Ljava/lang/String;
+    iget-object v5, p3, Lbl/qi;->b:[B
+    invoke-direct {v4, v5}, Ljava/lang/String;-><init>([B)V
+    const-string v5, "720P"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    move-result v4
+    const/4 v5, 0x0
+    if-ge v5, v4, :cond_000
+    goto :cond_a
+    :cond_000
+
+    if-nez p6, :cond_001
+    move-object v4, p0
+    move-object v5, p1
+    const/4 v10, 0x1
+    invoke-direct/range {v4 .. v10}, Lbl/qh;->a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lbl/ps;Lbl/pu;Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;Z)Lcom/bilibili/lib/media/resource/MediaResource;
+    move-result-object v1
+    return-object v1
+    :cond_001
+
+
+    #if-nez p5, :cond_a
 
     .line 154
     new-instance p1, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
@@ -1082,7 +1131,7 @@
 
 # virtual methods
 .method public resolveMediaResource(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lbl/ps;Lbl/pu;Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;)Lcom/bilibili/lib/media/resource/MediaResource;
-    .locals 7
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/bilibili/lib/media/resolver/exception/ResolveException;
@@ -1137,6 +1186,8 @@
 
     move-result-object v3
 
+    const/4 v7, 0x0
+
     move-object v1, p0
 
     move-object v2, p1
@@ -1147,7 +1198,7 @@
 
     move-object v6, p5
 
-    invoke-direct/range {v1 .. v6}, Lbl/qh;->a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lbl/ps;Lbl/pu;Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;)Lcom/bilibili/lib/media/resource/MediaResource;
+    invoke-direct/range {v1 .. v7}, Lbl/qh;->a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lbl/ps;Lbl/pu;Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;Z)Lcom/bilibili/lib/media/resource/MediaResource;
 
     move-result-object p1
 
