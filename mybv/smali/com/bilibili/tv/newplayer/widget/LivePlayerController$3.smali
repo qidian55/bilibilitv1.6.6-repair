@@ -1,6 +1,6 @@
 .class Lcom/bilibili/tv/newplayer/widget/LivePlayerController$3;
 .super Ljava/lang/Object;
-.source "BL"
+.source "LivePlayerController.java"
 
 # interfaces
 .implements Landroid/view/animation/Animation$AnimationListener;
@@ -18,15 +18,16 @@
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
+.field final synthetic this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
 
 # direct methods
 .method constructor <init>(Lcom/bilibili/tv/newplayer/widget/LivePlayerController;)V
     .locals 0
 
-    .line 243
-    iput-object p1, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$3;->a:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
+    .prologue
+    .line 206
+    iput-object p1, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$3;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,33 +37,39 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 1
+    .locals 2
 
-    .line 250
-    iget-object p1, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$3;->a:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
+    .prologue
+    .line 217
+    iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$3;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
-    const/4 v0, 0x4
+    const/4 v1, 0x4
 
-    invoke-virtual {p1, v0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->setVisibility(I)V
 
-    .line 251
-    iget-object p1, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$3;->a:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
+    .line 218
+    iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$3;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
-    const v0, 0x7f05009c
+    const v1, 0x7f05009c
 
-    invoke-virtual {p1, v0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->setBackgroundResource(I)V
 
+    .line 219
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
 
+    .prologue
+    .line 209
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 0
 
+    .prologue
+    .line 213
     return-void
 .end method

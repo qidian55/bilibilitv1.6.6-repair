@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Lbl/afa;)V
-    .locals 4
+    .locals 6
 
     const-string v0, "mainAreaFragment"
 
@@ -156,6 +156,11 @@
 
     .line 167
     :cond_1
+
+
+    move-object v3, p1
+
+
     invoke-virtual {p1}, Lcom/bilibili/tv/api/category/CategoryMeta;->getChildren()Ljava/util/List;
 
     move-result-object p1
@@ -164,6 +169,11 @@
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
+
+
+    const/4 v4, 0x0
+    const v5, 0x10001
+
 
     :goto_1
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
@@ -179,13 +189,13 @@
     check-cast v0, Lcom/bilibili/tv/api/category/CategoryMeta;
 
     .line 170
-    iget v1, v0, Lcom/bilibili/tv/api/category/CategoryMeta;->mTid:I
+    #iget v2, v0, Lcom/bilibili/tv/api/category/CategoryMeta;->mTid:I
 
-    const v2, 0x10001
+    #const v2, 0x10001
 
-    if-ne v1, v2, :cond_2
+    #if-ne v1, v2, :cond_2
 
-    goto :goto_1
+    #goto :goto_1
 
     .line 173
     :cond_2
@@ -193,10 +203,30 @@
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+
+    iget v2, v0, Lcom/bilibili/tv/api/category/CategoryMeta;->mTid:I
+    if-ne v2, v5, :goto_1
+    const/4 v4, 0x1
+
+
     goto :goto_1
 
     .line 180
     :cond_3
+
+
+    if-nez v4, :cond_01
+    iget-object p1, p0, Lbl/afa$c;->d:Ljava/util/ArrayList;
+    new-instance v0, Lcom/bilibili/tv/api/category/CategoryMeta;
+    const v2, 0x7f0c00b4
+    invoke-static {v2}, Lbl/adl;->e(I)Ljava/lang/String;
+    move-result-object v2
+    const/4 v1, 0x0
+    invoke-direct {v0, v5, v2, v1}, Lcom/bilibili/tv/api/category/CategoryMeta;-><init>(ILjava/lang/String;I)V
+    invoke-virtual {p1, v1, v0}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    :cond_01
+
+
     iget-object p1, p0, Lbl/afa$c;->d:Ljava/util/ArrayList;
 
     new-instance v0, Lcom/bilibili/tv/api/category/CategoryMeta;

@@ -1,6 +1,6 @@
 .class Lbl/aef$2;
 .super Landroid/support/v7/widget/RecyclerView$g;
-.source "BL"
+.source "aef.java"
 
 
 # annotations
@@ -15,23 +15,24 @@
 
 
 # instance fields
-.field final synthetic a:I
+.field final synthetic this$0:Lbl/aef;
 
-.field final synthetic b:I
+.field final synthetic val$b2:I
 
-.field final synthetic c:Lbl/aef;
+.field final synthetic val$b3:I
 
 
 # direct methods
 .method constructor <init>(Lbl/aef;II)V
     .locals 0
 
-    .line 107
-    iput-object p1, p0, Lbl/aef$2;->c:Lbl/aef;
+    .prologue
+    .line 86
+    iput-object p1, p0, Lbl/aef$2;->this$0:Lbl/aef;
 
-    iput p2, p0, Lbl/aef$2;->a:I
+    iput p2, p0, Lbl/aef$2;->val$b3:I
 
-    iput p3, p0, Lbl/aef$2;->b:I
+    iput p3, p0, Lbl/aef$2;->val$b2:I
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$g;-><init>()V
 
@@ -41,51 +42,53 @@
 
 # virtual methods
 .method public a(Landroid/graphics/Rect;Landroid/view/View;Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$s;)V
-    .locals 1
+    .locals 4
 
-    .line 110
+    .prologue
+    const/4 v1, 0x0
+
+    .line 91
     invoke-virtual {p3, p2}, Landroid/support/v7/widget/RecyclerView;->g(Landroid/view/View;)I
 
-    move-result p2
+    move-result v2
 
-    const/4 p3, 0x0
+    .line 92
+    const/4 v0, 0x1
 
-    const/4 p4, 0x1
+    if-le v2, v0, :cond_15
 
-    if-le p2, p4, :cond_0
+    iget v0, p0, Lbl/aef$2;->val$b3:I
 
-    .line 116
-    iget p4, p0, Lbl/aef$2;->a:I
+    .line 93
+    :goto_a
+    rem-int/lit8 v2, v2, 0x2
 
-    goto :goto_0
+    if-nez v2, :cond_17
 
-    :cond_0
-    const/4 p4, 0x0
+    .line 94
+    iget v2, p0, Lbl/aef$2;->val$b2:I
 
-    .line 118
-    :goto_0
-    rem-int/lit8 p2, p2, 0x2
+    move v3, v1
 
-    if-nez p2, :cond_1
+    .line 100
+    :goto_11
+    invoke-virtual {p1, v3, v0, v2, v1}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 119
-    iget p2, p0, Lbl/aef$2;->b:I
-
-    move v0, p2
-
-    const/4 p2, 0x0
-
-    goto :goto_1
-
-    .line 121
-    :cond_1
-    iget p2, p0, Lbl/aef$2;->b:I
-
-    const/4 v0, 0x0
-
-    .line 123
-    :goto_1
-    invoke-virtual {p1, p2, p4, v0, p3}, Landroid/graphics/Rect;->set(IIII)V
-
+    .line 101
     return-void
+
+    :cond_15
+    move v0, v1
+
+    .line 92
+    goto :goto_a
+
+    .line 97
+    :cond_17
+    iget v3, p0, Lbl/aef$2;->val$b2:I
+
+    move v2, v1
+
+    .line 98
+    goto :goto_11
 .end method

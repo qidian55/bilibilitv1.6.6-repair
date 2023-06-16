@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "LiveVideoPlayer.java"
 
 # interfaces
 .implements Lbl/ael;
@@ -18,18 +18,20 @@
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
+.field final synthetic this$0:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
 
 
 # direct methods
 .method public constructor <init>(Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;)V
     .locals 0
 
-    .line 446
-    iput-object p1, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer$a;->a:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
+    .prologue
+    .line 424
+    iput-object p1, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer$a;->this$0:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 425
     return-void
 .end method
 
@@ -38,5 +40,7 @@
 .method public varargs a(I[Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 422
     return-void
 .end method

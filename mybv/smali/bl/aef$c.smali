@@ -1,6 +1,6 @@
 .class public Lbl/aef$c;
 .super Lbl/adv;
-.source "BL"
+.source "aef.java"
 
 # interfaces
 .implements Landroid/view/View$OnFocusChangeListener;
@@ -31,12 +31,13 @@
 .method public constructor <init>(Landroid/view/View;)V
     .locals 1
 
-    .line 285
+    .prologue
+    .line 287
     invoke-direct {p0, p1}, Lbl/adv;-><init>(Landroid/view/View;)V
 
+    .line 288
     const v0, 0x7f0800a1
 
-    .line 286
     invoke-virtual {p0, p1, v0}, Lbl/aef$c;->a(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object v0
@@ -45,9 +46,9 @@
 
     iput-object v0, p0, Lbl/aef$c;->n:Lcom/bilibili/tv/widget/ScalableImageView;
 
+    .line 289
     const v0, 0x7f080132
 
-    .line 287
     invoke-virtual {p0, p1, v0}, Lbl/aef$c;->a(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object v0
@@ -56,9 +57,9 @@
 
     iput-object v0, p0, Lbl/aef$c;->o:Landroid/widget/TextView;
 
+    .line 290
     const v0, 0x7f08011c
 
-    .line 288
     invoke-virtual {p0, p1, v0}, Lbl/aef$c;->a(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object v0
@@ -67,9 +68,9 @@
 
     iput-object v0, p0, Lbl/aef$c;->p:Landroid/widget/TextView;
 
+    .line 291
     const v0, 0x7f080074
 
-    .line 289
     invoke-virtual {p0, p1, v0}, Lbl/aef$c;->a(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object v0
@@ -78,37 +79,37 @@
 
     iput-object v0, p0, Lbl/aef$c;->q:Lcom/bilibili/tv/widget/DrawRelativeLayout;
 
-    .line 290
+    .line 292
     invoke-virtual {p1, p0}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
+    .line 293
     return-void
 .end method
 
 .method public static a(Landroid/view/ViewGroup;)Lbl/aef$c;
-    .locals 3
+    .locals 4
 
-    .line 294
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object v0
-
-    const v1, 0x7f0a007e
-
-    const/4 v2, 0x0
-
-    .line 295
-    invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object p0
-
+    .prologue
     .line 296
     new-instance v0, Lbl/aef$c;
 
-    invoke-direct {v0, p0}, Lbl/aef$c;-><init>(Landroid/view/View;)V
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v1
+
+    const v2, 0x7f0a007e
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, p0, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lbl/aef$c;-><init>(Landroid/view/View;)V
 
     return-object v0
 .end method
@@ -116,12 +117,14 @@
 
 # virtual methods
 .method public onFocusChange(Landroid/view/View;Z)V
-    .locals 0
+    .locals 1
 
+    .prologue
     .line 301
-    iget-object p1, p0, Lbl/aef$c;->q:Lcom/bilibili/tv/widget/DrawRelativeLayout;
+    iget-object v0, p0, Lbl/aef$c;->q:Lcom/bilibili/tv/widget/DrawRelativeLayout;
 
-    invoke-virtual {p1, p2}, Lcom/bilibili/tv/widget/DrawRelativeLayout;->setUpEnabled(Z)V
+    invoke-virtual {v0, p2}, Lcom/bilibili/tv/widget/DrawRelativeLayout;->setUpEnabled(Z)V
 
+    .line 302
     return-void
 .end method

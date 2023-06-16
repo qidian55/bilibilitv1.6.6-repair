@@ -71,11 +71,11 @@
     if-eqz p1, :cond_2
 
     .line 545
-    iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$f;->a:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
+    #iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$f;->a:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
 
-    iget-boolean v1, p1, Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;->mFollowed:Z
+    #iget-boolean v1, p1, Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;->mFollowed:Z
 
-    invoke-static {v0, v1}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->a(Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;Z)V
+    #invoke-static {v0, v1}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->a(Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;Z)V
 
     .line 546
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$f;->a:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;

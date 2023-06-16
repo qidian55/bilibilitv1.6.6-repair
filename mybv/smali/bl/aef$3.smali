@@ -1,6 +1,6 @@
 .class Lbl/aef$3;
 .super Landroid/support/v7/widget/RecyclerView$m;
-.source "BL"
+.source "aef.java"
 
 
 # annotations
@@ -15,19 +15,20 @@
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+.field final synthetic this$0:Lbl/aef;
 
-.field final synthetic b:Lbl/aef;
+.field final synthetic val$sideRightGridLayoutManger:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
 
 
 # direct methods
 .method constructor <init>(Lbl/aef;Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;)V
     .locals 0
 
-    .line 126
-    iput-object p1, p0, Lbl/aef$3;->b:Lbl/aef;
+    .prologue
+    .line 103
+    iput-object p1, p0, Lbl/aef$3;->this$0:Lbl/aef;
 
-    iput-object p2, p0, Lbl/aef$3;->a:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+    iput-object p2, p0, Lbl/aef$3;->val$sideRightGridLayoutManger:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$m;-><init>()V
 
@@ -37,91 +38,97 @@
 
 # virtual methods
 .method public a(Landroid/support/v7/widget/RecyclerView;I)V
-    .locals 0
+    .locals 2
 
-    .line 129
+    .prologue
+    .line 106
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView$m;->a(Landroid/support/v7/widget/RecyclerView;I)V
 
-    .line 130
-    iget-object p1, p0, Lbl/aef$3;->b:Lbl/aef;
+    .line 107
+    iget-object v0, p0, Lbl/aef$3;->this$0:Lbl/aef;
 
-    invoke-static {p1}, Lbl/aef;->b(Lbl/aef;)Z
+    # getter for: Lbl/aef;->g:Z
+    invoke-static {v0}, Lbl/aef;->access$200(Lbl/aef;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_1b
 
-    .line 131
-    iget-object p1, p0, Lbl/aef$3;->b:Lbl/aef;
+    iget-object v0, p0, Lbl/aef$3;->this$0:Lbl/aef;
 
-    invoke-static {p1}, Lbl/aef;->c(Lbl/aef;)Z
+    # getter for: Lbl/aef;->h:Z
+    invoke-static {v0}, Lbl/aef;->access$300(Lbl/aef;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_0
+    if-nez v0, :cond_1b
 
-    iget-object p1, p0, Lbl/aef$3;->b:Lbl/aef;
+    iget-object v0, p0, Lbl/aef$3;->this$0:Lbl/aef;
 
-    invoke-static {p1}, Lbl/aef;->d(Lbl/aef;)Lbl/aef$b;
+    # getter for: Lbl/aef;->c:Lbl/aef$b;
+    invoke-static {v0}, Lbl/aef;->access$400(Lbl/aef;)Lbl/aef$b;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_0
+    if-nez v0, :cond_1c
 
-    .line 132
-    iget-object p1, p0, Lbl/aef$3;->a:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
-
-    invoke-virtual {p1}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->p()I
-
-    move-result p1
-
-    .line 133
-    iget-object p2, p0, Lbl/aef$3;->a:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
-
-    invoke-virtual {p2}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->x()I
-
-    move-result p2
-
-    if-lez p2, :cond_0
-
-    add-int/lit8 p1, p1, 0xa
-
-    iget-object p2, p0, Lbl/aef$3;->a:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
-
-    .line 134
-    invoke-virtual {p2}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->H()I
-
-    move-result p2
-
-    add-int/lit8 p2, p2, -0x1
-
-    if-lt p1, p2, :cond_0
-
-    iget-object p1, p0, Lbl/aef$3;->a:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
-
-    .line 135
-    invoke-virtual {p1}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->H()I
-
-    move-result p1
-
-    iget-object p2, p0, Lbl/aef$3;->a:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
-
-    invoke-virtual {p2}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->x()I
-
-    move-result p2
-
-    if-le p1, p2, :cond_0
-
-    .line 136
-    iget-object p1, p0, Lbl/aef$3;->b:Lbl/aef;
-
-    invoke-static {p1}, Lbl/aef;->e(Lbl/aef;)I
-
-    .line 137
-    iget-object p1, p0, Lbl/aef$3;->b:Lbl/aef;
-
-    invoke-static {p1}, Lbl/aef;->f(Lbl/aef;)V
-
-    :cond_0
+    .line 116
+    :cond_1b
+    :goto_1b
     return-void
+
+    .line 110
+    :cond_1c
+    iget-object v0, p0, Lbl/aef$3;->val$sideRightGridLayoutManger:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+
+    invoke-virtual {v0}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->p()I
+
+    move-result v0
+
+    .line 111
+    iget-object v1, p0, Lbl/aef$3;->val$sideRightGridLayoutManger:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+
+    invoke-virtual {v1}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->x()I
+
+    move-result v1
+
+    if-lez v1, :cond_1b
+
+    add-int/lit8 v0, v0, 0xa
+
+    iget-object v1, p0, Lbl/aef$3;->val$sideRightGridLayoutManger:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+
+    invoke-virtual {v1}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->H()I
+
+    move-result v1
+
+    add-int/lit8 v1, v1, -0x1
+
+    if-lt v0, v1, :cond_1b
+
+    iget-object v0, p0, Lbl/aef$3;->val$sideRightGridLayoutManger:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+
+    invoke-virtual {v0}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->H()I
+
+    move-result v0
+
+    iget-object v1, p0, Lbl/aef$3;->val$sideRightGridLayoutManger:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+
+    invoke-virtual {v1}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->x()I
+
+    move-result v1
+
+    if-le v0, v1, :cond_1b
+
+    .line 114
+    iget-object v0, p0, Lbl/aef$3;->this$0:Lbl/aef;
+
+    invoke-static {v0}, Lbl/aef;->e(Lbl/aef;)I
+
+    .line 115
+    iget-object v0, p0, Lbl/aef$3;->this$0:Lbl/aef;
+
+    invoke-virtual {v0}, Lbl/aef;->a()V
+
+    goto :goto_1b
 .end method

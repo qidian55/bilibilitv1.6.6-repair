@@ -1,19 +1,19 @@
 .class public interface abstract Lbl/aeh;
 .super Ljava/lang/Object;
-.source "BL"
+.source "aeh.java"
 
 
 # annotations
 .annotation runtime Lretrofit2/http/BaseUrl;
-    a = "http://live.bilibili.com"
+    a = "https://api.live.bilibili.com"
 .end annotation
 
 
 # virtual methods
-.method public abstract a(ILjava/lang/String;Ljava/lang/String;I)Lbl/vp;
+.method public abstract a(ILjava/lang/String;Ljava/lang/String;II)Lbl/vp;
     .param p1    # I
         .annotation runtime Lretrofit2/http/Query;
-            a = "area_id"
+            a = "areaId"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
@@ -31,21 +31,25 @@
             a = "page"
         .end annotation
     .end param
+    .param p5    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "pageSize"
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
-            "I)",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
-            "Ljava/util/List<",
-            "Lcom/bilibili/tv/ui/live/api/BiliLive;",
-            ">;>;>;"
+            "II)",
+            "Lbl/vp",
+            "<",
+            "Lmybl/BiliLiveEx;",
+            ">;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/mobile/rooms"
+        a = "/room/v1/Area/getListByAreaID"
     .end annotation
 .end method

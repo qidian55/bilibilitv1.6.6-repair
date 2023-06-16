@@ -1,6 +1,6 @@
 .class Lcom/bilibili/tv/ui/live/player/LivePlayerActivity$2;
 .super Ljava/lang/Object;
-.source "BL"
+.source "LivePlayerActivity.java"
 
 # interfaces
 .implements Lbl/agb$b;
@@ -18,15 +18,16 @@
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;
+.field final synthetic this$0:Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;)V
     .locals 0
 
-    .line 155
-    iput-object p1, p0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity$2;->a:Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;
+    .prologue
+    .line 134
+    iput-object p1, p0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity$2;->this$0:Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,30 +37,32 @@
 
 # virtual methods
 .method public a(Lbl/agb;Landroid/view/View;)V
-    .locals 0
+    .locals 1
 
-    .line 158
-    iget-object p1, p0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity$2;->a:Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;
+    .prologue
+    .line 137
+    iget-object v0, p0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity$2;->this$0:Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;
 
-    invoke-static {p1}, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->a(Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;)Lbl/agb;
+    # getter for: Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->e:Lbl/agb;
+    invoke-static {v0}, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->access$000(Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;)Lbl/agb;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lbl/agb;->dismiss()V
+    invoke-virtual {v0}, Lbl/agb;->dismiss()V
 
-    .line 159
-    iget-object p1, p0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity$2;->a:Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;
+    .line 138
+    iget-object v0, p0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity$2;->this$0:Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;
 
-    invoke-virtual {p1}, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->getWindow()Landroid/view/Window;
+    invoke-virtual {v0}, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->getWindow()Landroid/view/Window;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    .line 160
-    invoke-static {p1}, Lbl/adl;->a(Landroid/view/View;)V
+    invoke-static {v0}, Lbl/adl;->a(Landroid/view/View;)V
 
+    .line 139
     return-void
 .end method

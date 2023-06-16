@@ -98,7 +98,7 @@
     .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, 0x1
+    const/4 v0, 0x2
 
     .line 55
     iput v0, p0, Lbl/wm;->m:I

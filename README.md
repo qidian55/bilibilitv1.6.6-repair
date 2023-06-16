@@ -27,6 +27,12 @@
 - 由于原版推荐接口恢复正常，回退相关代码
 - 视频及番剧均优先采用TV源，次优采用web源（B站接口变换过于频繁，先尽可能找个清晰度比较高的凑合着用）
 
+### v5.0
+> 尝试基于java层修复
+
+- 用捉急的Java代码水平重写了直播源获取相关逻辑，锁定原画画质，仅支持ijk解码（现在勉强可以看直播了）
+- 简陋地实现了直播弹幕播放
+
 
 ## todo list
 - [ ] 似乎6月1日后web源只能拿到720P，继续寻找可用源。。。
@@ -40,6 +46,13 @@
 
 ## 编译
 ```bash
-sudo apt install apktool signapk
+#环境安装
+sudo apt install apktool signapk openjdk-8-jdk
+sudo update-alternatives --set javac /usr/lib/jvm/java-8-openjdk-amd64/bin/javac
+#编译java类
+cd mybv/java
+./build.sh
+cd ../..
+#编译apk
 ./build.sh
 ```
