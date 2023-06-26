@@ -319,41 +319,6 @@
 
 
 # virtual methods
-.method public finalize()V
-    .locals 1
-
-    .prologue
-    .line 151
-    sget-object v0, Lmybl/DanmakuClient;->clientSocket:Ljava/net/Socket;
-
-    invoke-virtual {v0}, Ljava/net/Socket;->isClosed()Z
-
-    move-result v0
-
-    if-nez v0, :cond_d
-
-    .line 152
-    :try_start_8
-    sget-object v0, Lmybl/DanmakuClient;->clientSocket:Ljava/net/Socket;
-
-    invoke-virtual {v0}, Ljava/net/Socket;->close()V
-    :try_end_d
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_d} :catch_e
-
-    .line 155
-    :cond_d
-    :goto_d
-    return-void
-
-    .line 153
-    :catch_e
-    move-exception v0
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_d
-.end method
-
 .method public readClient(Ljava/io/DataInputStream;)V
     .locals 6
 
@@ -455,6 +420,41 @@
     .line 99
     :cond_45
     return-void
+.end method
+
+.method public release()V
+    .locals 1
+
+    .prologue
+    .line 151
+    sget-object v0, Lmybl/DanmakuClient;->clientSocket:Ljava/net/Socket;
+
+    invoke-virtual {v0}, Ljava/net/Socket;->isClosed()Z
+
+    move-result v0
+
+    if-nez v0, :cond_d
+
+    .line 152
+    :try_start_8
+    sget-object v0, Lmybl/DanmakuClient;->clientSocket:Ljava/net/Socket;
+
+    invoke-virtual {v0}, Ljava/net/Socket;->close()V
+    :try_end_d
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_d} :catch_e
+
+    .line 155
+    :cond_d
+    :goto_d
+    return-void
+
+    .line 153
+    :catch_e
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_d
 .end method
 
 .method public startClient(Ljava/lang/String;I)V

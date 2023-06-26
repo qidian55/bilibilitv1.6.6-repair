@@ -147,7 +147,7 @@ public class DanmakuClient {
         return bos.toByteArray();
     }
 
-    public void finalize(){
+    public void release(){
         if(!clientSocket.isClosed()){
             try{clientSocket.close();}
             catch(Exception e){e.printStackTrace();}
