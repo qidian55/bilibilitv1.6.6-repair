@@ -1,6 +1,6 @@
 .class Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;
 .super Ltv/danmaku/ijk/media/player/IIjkMediaPlayerService$Stub;
-.source "BL"
+.source "IjkMediaPlayerService.java"
 
 
 # annotations
@@ -22,7 +22,8 @@
 .method constructor <init>(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)V
     .locals 0
 
-    .line 107
+    .prologue
+    .line 34
     iput-object p1, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
 
     invoke-direct {p0}, Ltv/danmaku/ijk/media/player/IIjkMediaPlayerService$Stub;-><init>()V
@@ -33,106 +34,120 @@
 
 # virtual methods
 .method public create(ILtv/danmaku/ijk/media/player/IIjkMediaPlayerClient;)Ltv/danmaku/ijk/media/player/IIjkMediaPlayer;
-    .locals 3
+    .locals 5
 
-    .line 110
+    .prologue
+    .line 38
     iget-object v0, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
 
+    # getter for: Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mClients:Landroid/util/SparseArray;
     invoke-static {v0}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->access$000(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)Landroid/util/SparseArray;
 
-    move-result-object v0
+    move-result-object v1
 
-    monitor-enter v0
+    monitor-enter v1
 
-    .line 111
-    :try_start_0
-    new-instance v1, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;
+    .line 39
+    :try_start_7
+    new-instance v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;
 
-    invoke-direct {v1, p2}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;-><init>(Ltv/danmaku/ijk/media/player/IIjkMediaPlayerClient;)V
+    invoke-direct {v0, p2}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;-><init>(Ltv/danmaku/ijk/media/player/IIjkMediaPlayerClient;)V
 
-    .line 112
-    new-instance p2, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$IjkMediaPlayerDeathHandler;
+    .line 40
+    new-instance v2, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$IjkMediaPlayerDeathHandler;
 
+    iget-object v3, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
+
+    invoke-direct {v2, v3, p1}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$IjkMediaPlayerDeathHandler;-><init>(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;I)V
+
+    invoke-virtual {v0, v2}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;->linkDeathHandler(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$IjkMediaPlayerDeathHandler;)V
+
+    .line 41
     iget-object v2, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
 
-    invoke-direct {p2, v2, p1}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$IjkMediaPlayerDeathHandler;-><init>(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;I)V
-
-    invoke-virtual {v1, p2}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;->linkDeathHandler(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$IjkMediaPlayerDeathHandler;)V
-
-    .line 113
-    iget-object p2, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
-
-    invoke-static {p2}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->access$000(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)Landroid/util/SparseArray;
-
-    move-result-object p2
-
-    new-instance v2, Ljava/lang/ref/WeakReference;
-
-    invoke-direct {v2, v1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
-
-    invoke-virtual {p2, p1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    const-string p1, "IjkMediaPlayerService"
-
-    .line 114
-    new-instance p2, Ljava/lang/StringBuilder;
-
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "IIjkMediaPlayerService create mClients.size() = "
-
-    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v2, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
-
+    # getter for: Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mClients:Landroid/util/SparseArray;
     invoke-static {v2}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->access$000(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)Landroid/util/SparseArray;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
+    new-instance v3, Ljava/lang/ref/WeakReference;
 
-    move-result v2
+    invoke-direct {v3, v0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 42
+    const-string v2, "IjkMediaPlayerService"
 
-    move-result-object p2
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-static {p1, p2}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 115
-    monitor-exit v0
+    const-string v4, "IIjkMediaPlayerService create mClients.size() = "
 
-    return-object v1
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :catchall_0
-    move-exception p1
+    move-result-object v3
 
-    .line 116
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    iget-object v4, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
 
-    throw p1
+    # getter for: Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mClients:Landroid/util/SparseArray;
+    invoke-static {v4}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->access$000(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)Landroid/util/SparseArray;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/util/SparseArray;->size()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 43
+    monitor-exit v1
+
+    .line 44
+    return-object v0
+
+    .line 43
+    :catchall_48
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_4a
+    .catchall {:try_start_7 .. :try_end_4a} :catchall_48
+
+    throw v0
 .end method
 
 .method public removeClient(I)V
-    .locals 6
+    .locals 7
 
-    .line 121
-    iget-object v0, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
+    .prologue
+    const/4 v4, 0x0
 
-    invoke-static {v0}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->access$000(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)Landroid/util/SparseArray;
-
-    move-result-object v0
-
-    monitor-enter v0
-
-    .line 123
-    :try_start_0
+    .line 50
     iget-object v1, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
 
+    # getter for: Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mClients:Landroid/util/SparseArray;
+    invoke-static {v1}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->access$000(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)Landroid/util/SparseArray;
+
+    move-result-object v5
+
+    monitor-enter v5
+
+    .line 51
+    :try_start_8
+    iget-object v1, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
+
+    # getter for: Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mClients:Landroid/util/SparseArray;
     invoke-static {v1}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->access$000(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)Landroid/util/SparseArray;
 
     move-result-object v1
@@ -143,162 +158,188 @@
 
     check-cast v1, Ljava/lang/ref/WeakReference;
 
-    .line 124
+    .line 52
     iget-object v2, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
 
+    # getter for: Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mClients:Landroid/util/SparseArray;
     invoke-static {v2}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->access$000(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)Landroid/util/SparseArray;
 
     move-result-object v2
 
     invoke-virtual {v2, p1}, Landroid/util/SparseArray;->remove(I)V
 
-    if-eqz v1, :cond_0
+    .line 53
+    if-eqz v1, :cond_37
 
-    .line 127
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v1
 
-    check-cast p1, Ltv/danmaku/ijk/media/player/IIjkMediaPlayer;
+    check-cast v1, Ltv/danmaku/ijk/media/player/IIjkMediaPlayer;
 
-    if-eqz p1, :cond_0
+    if-eqz v1, :cond_37
 
-    .line 129
-    instance-of v1, p1, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;
+    instance-of v2, v1, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_37
 
-    .line 130
-    move-object v1, p1
+    .line 54
+    move-object v0, v1
+
+    check-cast v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;
+
+    move-object v2, v0
+
+    invoke-virtual {v2}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;->unlinkDeathHandler()V
+
+    .line 55
+    check-cast v1, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;
+
+    invoke-virtual {v1}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;->quitHandleThread()V
+
+    .line 57
+    :cond_37
+    iget-object v1, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
+
+    # getter for: Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mClients:Landroid/util/SparseArray;
+    invoke-static {v1}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->access$000(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)Landroid/util/SparseArray;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
+
+    move-result v6
+
+    move v3, v4
+
+    move v2, v4
+
+    .line 59
+    :goto_43
+    if-ge v3, v6, :cond_69
+
+    .line 60
+    iget-object v1, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
+
+    # getter for: Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mClients:Landroid/util/SparseArray;
+    invoke-static {v1}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->access$000(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)Landroid/util/SparseArray;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v3}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/ref/WeakReference;
+
+    .line 61
+    if-eqz v1, :cond_a2
+
+    .line 62
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ltv/danmaku/ijk/media/player/IIjkMediaPlayer;
+
+    .line 63
+    instance-of v4, v1, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;
+
+    if-eqz v4, :cond_a2
 
     check-cast v1, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;
 
-    invoke-virtual {v1}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;->unlinkDeathHandler()V
+    iget-boolean v1, v1, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;->mBlocked:Z
 
-    .line 131
-    check-cast p1, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;
+    if-eqz v1, :cond_a2
 
-    invoke-virtual {p1}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;->quitHandleThread()V
+    .line 64
+    add-int/lit8 v1, v2, 0x1
 
-    .line 136
-    :cond_0
-    iget-object p1, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
-
-    invoke-static {p1}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->access$000(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)Landroid/util/SparseArray;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/util/SparseArray;->size()I
-
-    move-result p1
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    :goto_0
-    if-ge v2, p1, :cond_2
-
-    .line 138
-    iget-object v4, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
-
-    invoke-static {v4}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->access$000(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)Landroid/util/SparseArray;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/ref/WeakReference;
-
-    if-eqz v4, :cond_1
-
-    .line 140
-    invoke-virtual {v4}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ltv/danmaku/ijk/media/player/IIjkMediaPlayer;
-
-    .line 141
-    instance-of v5, v4, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;
-
-    if-eqz v5, :cond_1
-
-    .line 142
-    check-cast v4, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;
-
-    iget-boolean v4, v4, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;->mBlocked:Z
-
-    if-eqz v4, :cond_1
-
+    .line 59
+    :goto_65
     add-int/lit8 v3, v3, 0x1
 
-    :cond_1
-    add-int/lit8 v2, v2, 0x1
+    move v2, v1
 
-    goto :goto_0
+    goto :goto_43
 
-    :cond_2
-    if-lez v3, :cond_4
+    .line 68
+    :cond_69
+    if-lez v2, :cond_9d
 
-    const-string v2, "IjkMediaPlayerService"
+    .line 69
+    const-string v1, "IjkMediaPlayerService"
 
-    .line 149
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "MediaPlayerService blockCount = "
+    const-string v4, "MediaPlayerService blockCount = "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    const-string v5, ",mClients.size = "
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v4, ",mClients.size = "
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-static {v2, v4}, Ltv/danmaku/android/log/BLog;->w(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    if-eq p1, v3, :cond_3
+    move-result-object v3
 
-    const/4 p1, 0x3
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-lt v3, p1, :cond_4
+    move-result-object v3
 
-    :cond_3
-    const-string p1, "IjkMediaPlayerService"
+    invoke-static {v1, v3}, Ltv/danmaku/android/log/BLog;->w(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 70
+    if-eq v6, v2, :cond_92
+
+    const/4 v1, 0x3
+
+    if-lt v2, v1, :cond_9d
+
+    .line 71
+    :cond_92
+    const-string v1, "IjkMediaPlayerService"
 
     const-string v2, "ANR happened, IjkMediaPlayerService will reboot"
 
-    .line 151
-    invoke-static {p1, v2}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 152
+    .line 72
+    const/4 v1, 0x0
+
     invoke-static {v1}, Ljava/lang/System;->exit(I)V
 
-    .line 155
-    :cond_4
-    monitor-exit v0
+    .line 75
+    :cond_9d
+    monitor-exit v5
 
+    .line 76
     return-void
 
-    :catchall_0
-    move-exception p1
+    .line 75
+    :catchall_9f
+    move-exception v1
 
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    monitor-exit v5
+    :try_end_a1
+    .catchall {:try_start_8 .. :try_end_a1} :catchall_9f
 
-    throw p1
+    throw v1
+
+    :cond_a2
+    move v1, v2
+
+    goto :goto_65
 .end method

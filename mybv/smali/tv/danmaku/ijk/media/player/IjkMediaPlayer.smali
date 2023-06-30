@@ -6561,7 +6561,7 @@
 .end method
 
 .method public setDataSource(Landroid/content/Context;Landroid/net/Uri;)V
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -6577,21 +6577,6 @@
 
     :cond_0
     const/4 v0, 0x0
-
-
-    invoke-virtual {p2}, Landroid/net/Uri;->toString()Ljava/lang/String;
-    move-result-object v1
-    const-string v2, "platform=pc"
-    invoke-virtual {v1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-    move-result v1
-    if-ge v0, v1, :cond_1
-    new-instance v0, Ljava/util/HashMap;
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-    const-string v1, "Referer"
-    const-string v2, "https://www.bilibili.com"
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :cond_1
-
 
     .line 1276
     invoke-virtual {p0, p1, p2, v0}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setDataSource(Landroid/content/Context;Landroid/net/Uri;Ljava/util/Map;)V

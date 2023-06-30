@@ -95,26 +95,26 @@
     .locals 2
 
     .prologue
-    .line 139
+    .line 137
     new-instance v1, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v1}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 140
+    .line 138
     new-instance v0, Ljava/util/zip/InflaterOutputStream;
 
     invoke-direct {v0, v1}, Ljava/util/zip/InflaterOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    .line 142
+    .line 140
     :try_start_a
     invoke-virtual {v0, p0}, Ljava/util/zip/InflaterOutputStream;->write([B)V
 
-    .line 143
+    .line 141
     invoke-virtual {v0}, Ljava/util/zip/InflaterOutputStream;->close()V
     :try_end_10
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_10} :catch_15
 
-    .line 147
+    .line 145
     :goto_10
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
@@ -122,11 +122,11 @@
 
     return-object v0
 
-    .line 144
+    .line 142
     :catch_15
     move-exception v0
 
-    .line 145
+    .line 143
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_10
@@ -136,17 +136,17 @@
     .locals 6
 
     .prologue
-    .line 102
+    .line 100
     new-instance v0, Ljava/io/ByteArrayInputStream;
 
     invoke-direct {v0, p0}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    .line 103
+    .line 101
     new-instance v1, Ljava/io/DataInputStream;
 
     invoke-direct {v1, v0}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
 
-    .line 105
+    .line 103
     :cond_a
     :goto_a
     :try_start_a
@@ -156,50 +156,50 @@
 
     if-lez v0, :cond_8b
 
-    .line 106
+    .line 104
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v0
 
-    .line 107
+    .line 105
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readShort()S
 
     move-result v2
 
-    .line 108
+    .line 106
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readShort()S
 
     move-result v3
 
+    .line 107
+    invoke-virtual {v1}, Ljava/io/DataInputStream;->readInt()I
+
+    .line 108
+    invoke-virtual {v1}, Ljava/io/DataInputStream;->readInt()I
+
     .line 109
-    invoke-virtual {v1}, Ljava/io/DataInputStream;->readInt()I
-
-    .line 110
-    invoke-virtual {v1}, Ljava/io/DataInputStream;->readInt()I
-
-    .line 111
     sub-int/2addr v0, v2
 
     new-array v0, v0, [B
 
-    .line 112
+    .line 110
     invoke-virtual {v1, v0}, Ljava/io/DataInputStream;->read([B)I
 
-    .line 113
+    .line 111
     const/4 v2, 0x2
 
     if-ne v3, v2, :cond_2e
 
-    .line 114
+    .line 112
     invoke-static {p0}, Lmybl/DanmakuClient;->parse([B)V
     :try_end_2e
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_2e} :catch_87
 
-    .line 116
+    .line 114
     :cond_2e
     if-nez v3, :cond_a
 
-    .line 118
+    .line 116
     :try_start_30
     new-instance v2, Lorg/json/JSONObject;
 
@@ -209,7 +209,7 @@
 
     invoke-direct {v2, v3}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    .line 119
+    .line 117
     const-string v0, "cmd"
 
     invoke-virtual {v2, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
@@ -224,7 +224,7 @@
 
     if-eqz v0, :cond_a
 
-    .line 120
+    .line 118
     new-instance v0, Lorg/json/JSONObject;
 
     const-string v3, "info"
@@ -253,28 +253,28 @@
 
     invoke-direct {v0, v2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    .line 121
+    .line 119
     const-string v2, "color"
 
     invoke-virtual {v0, v2}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v2
 
-    .line 122
+    .line 120
     const-string v3, "font_size"
 
     invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v3
 
-    .line 123
+    .line 121
     const-string v4, "content"
 
     invoke-virtual {v0, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 124
+    .line 122
     const/4 v4, 0x1
 
     const/4 v5, 0x0
@@ -283,7 +283,7 @@
 
     move-result-object v0
 
-    .line 125
+    .line 123
     sget-object v2, Lmybl/DanmakuClient;->player:Ltv/danmaku/videoplayer/core/danmaku/IDanmakuPlayer;
 
     invoke-interface {v2, v0}, Ltv/danmaku/videoplayer/core/danmaku/IDanmakuPlayer;->onDanmakuAppended(Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;)V
@@ -293,11 +293,11 @@
 
     goto :goto_a
 
-    .line 127
+    .line 125
     :catch_82
     move-exception v0
 
-    .line 128
+    .line 126
     :try_start_83
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_86
@@ -305,14 +305,14 @@
 
     goto :goto_a
 
-    .line 132
+    .line 130
     :catch_87
     move-exception v0
 
-    .line 133
+    .line 131
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    .line 136
+    .line 134
     :cond_8b
     return-void
 .end method
@@ -333,7 +333,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_45
+    if-nez v0, :cond_3b
 
     .line 80
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
@@ -357,30 +357,20 @@
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
 
     .line 85
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(I)V
-
-    .line 86
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(I)V
-
-    .line 87
     sub-int v0, v1, v2
 
     new-array v4, v0, [B
 
-    .line 88
+    .line 86
     const/4 v0, 0x0
 
-    .line 89
-    :goto_29
+    .line 87
+    :goto_1f
     sub-int v5, v1, v2
 
-    if-ge v0, v5, :cond_36
+    if-ge v0, v5, :cond_2c
 
-    .line 90
+    .line 88
     sub-int v5, v1, v2
 
     sub-int/2addr v5, v0
@@ -391,34 +381,34 @@
 
     add-int/2addr v0, v5
 
-    goto :goto_29
+    goto :goto_1f
 
-    .line 92
-    :cond_36
+    .line 90
+    :cond_2c
     const/4 v0, 0x2
 
     if-ne v3, v0, :cond_0
 
-    .line 93
+    .line 91
     invoke-static {v4}, Lmybl/DanmakuClient;->decompress([B)[B
 
     move-result-object v0
 
     invoke-static {v0}, Lmybl/DanmakuClient;->parse([B)V
-    :try_end_40
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_40} :catch_41
+    :try_end_36
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_36} :catch_37
 
     goto :goto_0
 
-    .line 96
-    :catch_41
+    .line 94
+    :catch_37
     move-exception v0
 
-    .line 97
+    .line 95
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 99
-    :cond_45
+    .line 97
+    :cond_3b
     return-void
 .end method
 
@@ -426,7 +416,7 @@
     .locals 1
 
     .prologue
-    .line 151
+    .line 149
     sget-object v0, Lmybl/DanmakuClient;->clientSocket:Ljava/net/Socket;
 
     invoke-virtual {v0}, Ljava/net/Socket;->isClosed()Z
@@ -435,7 +425,7 @@
 
     if-nez v0, :cond_d
 
-    .line 152
+    .line 150
     :try_start_8
     sget-object v0, Lmybl/DanmakuClient;->clientSocket:Ljava/net/Socket;
 
@@ -443,12 +433,12 @@
     :try_end_d
     .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_d} :catch_e
 
-    .line 155
+    .line 153
     :cond_d
     :goto_d
     return-void
 
-    .line 153
+    .line 151
     :catch_e
     move-exception v0
 

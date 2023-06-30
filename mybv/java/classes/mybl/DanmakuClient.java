@@ -82,8 +82,6 @@ public class DanmakuClient {
                 int version = inFromServer.readShort();
                 int operation = inFromServer.readInt();
                 int seqid = inFromServer.readInt();
-                System.out.println(packetlen);
-                System.out.println(headlen);
                 byte[] result = new byte[packetlen - headlen];
                 int receivedlen = 0;
                 while (receivedlen < packetlen - headlen) {

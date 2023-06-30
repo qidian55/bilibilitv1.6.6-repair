@@ -1,6 +1,6 @@
 .class public Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
 .super Landroid/app/Service;
-.source "BL"
+.source "IjkMediaPlayerService.java"
 
 
 # annotations
@@ -25,8 +25,10 @@
 .field private final mClients:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/util/SparseArray<",
-            "Ljava/lang/ref/WeakReference<",
+            "Landroid/util/SparseArray",
+            "<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
             "Ltv/danmaku/ijk/media/player/IIjkMediaPlayer;",
             ">;>;"
         }
@@ -38,7 +40,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 45
+    .prologue
+    .line 22
     new-instance v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$1;
 
     invoke-direct {v0}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$1;-><init>()V
@@ -51,17 +54,18 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 37
+    .prologue
+    .line 19
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
-    .line 39
+    .line 33
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     iput-object v0, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mClients:Landroid/util/SparseArray;
 
-    .line 107
+    .line 34
     new-instance v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;
 
     invoke-direct {v0, p0}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$2;-><init>(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)V
@@ -72,203 +76,213 @@
 .end method
 
 .method static synthetic access$000(Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;)Landroid/util/SparseArray;
-    .locals 0
+    .locals 1
 
-    .line 37
-    iget-object p0, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mClients:Landroid/util/SparseArray;
+    .prologue
+    .line 19
+    iget-object v0, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mClients:Landroid/util/SparseArray;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static loadLibrariesOnce(Landroid/os/Bundle;)V
-    .locals 2
+    .locals 3
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "UnsafeDynamicallyLoadedCode"
         }
     .end annotation
 
-    .line 61
-    const-class v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
+    .prologue
+    .line 86
+    const-class v1, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
 
-    monitor-enter v0
+    monitor-enter v1
 
-    .line 62
-    :try_start_0
-    sget-boolean v1, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mIsLibLoaded:Z
+    .line 87
+    :try_start_3
+    sget-boolean v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mIsLibLoaded:Z
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_4b
 
-    if-eqz p0, :cond_0
+    .line 91
+    if-eqz p0, :cond_4d
 
-    const-string v1, "ijkffmpeg"
+    const-string v0, "ijkffmpeg"
 
-    .line 63
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_4d
 
-    const-string v1, "ijksdl"
+    const-string v0, "ijksdl"
 
-    .line 64
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_4d
 
-    const-string v1, "ijkplayer"
+    const-string v0, "ijkplayer"
 
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_4d
 
-    const-string v1, "ijkffmpeg"
+    .line 92
+    const-string v0, "ijkffmpeg"
 
-    .line 65
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Ljava/lang/System;->load(Ljava/lang/String;)V
+    invoke-static {v0}, Ljava/lang/System;->load(Ljava/lang/String;)V
 
-    const-string v1, "ijksdl"
+    .line 93
+    const-string v0, "ijksdl"
 
-    .line 66
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Ljava/lang/System;->load(Ljava/lang/String;)V
+    invoke-static {v0}, Ljava/lang/System;->load(Ljava/lang/String;)V
 
-    const-string v1, "ijkplayer"
+    .line 94
+    const-string v0, "ijkplayer"
 
-    .line 67
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Ljava/lang/System;->load(Ljava/lang/String;)V
+    invoke-static {v0}, Ljava/lang/System;->load(Ljava/lang/String;)V
 
-    goto :goto_0
+    .line 100
+    :goto_48
+    const/4 v0, 0x1
 
-    .line 69
-    :cond_0
-    sget-object p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->sLocalLibLoader:Ltv/danmaku/ijk/media/player/IjkLibLoader;
+    sput-boolean v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mIsLibLoaded:Z
 
-    const-string v1, "ijkffmpeg"
+    .line 102
+    :cond_4b
+    monitor-exit v1
 
-    invoke-interface {p0, v1}, Ltv/danmaku/ijk/media/player/IjkLibLoader;->loadLibrary(Ljava/lang/String;)V
-
-    .line 70
-    sget-object p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->sLocalLibLoader:Ltv/danmaku/ijk/media/player/IjkLibLoader;
-
-    const-string v1, "ijksdl"
-
-    invoke-interface {p0, v1}, Ltv/danmaku/ijk/media/player/IjkLibLoader;->loadLibrary(Ljava/lang/String;)V
-
-    .line 71
-    sget-object p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->sLocalLibLoader:Ltv/danmaku/ijk/media/player/IjkLibLoader;
-
-    const-string v1, "ijkplayer"
-
-    invoke-interface {p0, v1}, Ltv/danmaku/ijk/media/player/IjkLibLoader;->loadLibrary(Ljava/lang/String;)V
-
-    :goto_0
-    const/4 p0, 0x1
-
-    .line 73
-    sput-boolean p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mIsLibLoaded:Z
-
-    .line 75
-    :cond_1
-    monitor-exit v0
-
+    .line 103
     return-void
 
-    :catchall_0
-    move-exception p0
+    .line 96
+    :cond_4d
+    sget-object v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->sLocalLibLoader:Ltv/danmaku/ijk/media/player/IjkLibLoader;
 
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    const-string v2, "ijkffmpeg"
 
-    throw p0
+    invoke-interface {v0, v2}, Ltv/danmaku/ijk/media/player/IjkLibLoader;->loadLibrary(Ljava/lang/String;)V
+
+    .line 97
+    sget-object v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->sLocalLibLoader:Ltv/danmaku/ijk/media/player/IjkLibLoader;
+
+    const-string v2, "ijksdl"
+
+    invoke-interface {v0, v2}, Ltv/danmaku/ijk/media/player/IjkLibLoader;->loadLibrary(Ljava/lang/String;)V
+
+    .line 98
+    sget-object v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->sLocalLibLoader:Ltv/danmaku/ijk/media/player/IjkLibLoader;
+
+    const-string v2, "ijkplayer"
+
+    invoke-interface {v0, v2}, Ltv/danmaku/ijk/media/player/IjkLibLoader;->loadLibrary(Ljava/lang/String;)V
+
+    goto :goto_48
+
+    .line 102
+    :catchall_63
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_65
+    .catchall {:try_start_3 .. :try_end_65} :catchall_63
+
+    throw v0
 .end method
 
 
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .locals 0
+    .locals 1
 
-    .line 161
+    .prologue
+    .line 137
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    move-result-object p1
+    move-result-object v0
 
-    .line 162
-    invoke-static {p1}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->loadLibrariesOnce(Landroid/os/Bundle;)V
+    invoke-static {v0}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->loadLibrariesOnce(Landroid/os/Bundle;)V
 
-    .line 163
-    iget-object p1, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mBinder:Ltv/danmaku/ijk/media/player/IIjkMediaPlayerService$Stub;
+    .line 138
+    iget-object v0, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mBinder:Ltv/danmaku/ijk/media/player/IIjkMediaPlayerService$Stub;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public onCreate()V
     .locals 0
 
-    .line 80
+    .prologue
+    .line 107
     invoke-super {p0}, Landroid/app/Service;->onCreate()V
 
+    .line 108
     return-void
 .end method
 
 .method public onDestroy()V
     .locals 0
 
-    .line 180
+    .prologue
+    .line 149
     invoke-super {p0}, Landroid/app/Service;->onDestroy()V
 
+    .line 150
     return-void
 .end method
 
 .method public onStartCommand(Landroid/content/Intent;II)I
-    .locals 0
+    .locals 1
 
-    .line 168
+    .prologue
+    .line 143
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    move-result-object p1
+    move-result-object v0
 
-    .line 169
-    invoke-static {p1}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->loadLibrariesOnce(Landroid/os/Bundle;)V
+    invoke-static {v0}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->loadLibrariesOnce(Landroid/os/Bundle;)V
 
-    const/4 p1, 0x2
+    .line 144
+    const/4 v0, 0x2
 
-    return p1
+    return v0
 .end method
 
 .method public onUnbind(Landroid/content/Intent;)Z
-    .locals 0
+    .locals 1
 
-    const/4 p1, 0x0
+    .prologue
+    .line 81
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

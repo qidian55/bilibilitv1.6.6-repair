@@ -789,6 +789,11 @@
 .method private a(ILandroid/os/Bundle;)Z
     .locals 18
 
+
+    const/4 v1, 0x1
+    return v1
+
+
     move-object/from16 v1, p0
 
     move/from16 v2, p1

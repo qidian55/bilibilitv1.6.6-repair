@@ -1,6 +1,6 @@
 .class final Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "IjkMediaPlayerService.java"
 
 # interfaces
 .implements Ltv/danmaku/ijk/media/player/IjkLibLoader;
@@ -21,7 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 45
+    .prologue
+    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,11 +31,13 @@
 
 # virtual methods
 .method public findLibrary(Ljava/lang/String;)Ljava/io/File;
-    .locals 0
+    .locals 1
 
-    const/4 p1, 0x0
+    .prologue
+    .line 25
+    const/4 v0, 0x0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public loadLibrary(Ljava/lang/String;)V
@@ -46,8 +49,10 @@
         }
     .end annotation
 
-    .line 48
+    .prologue
+    .line 30
     invoke-static {p1}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
+    .line 31
     return-void
 .end method

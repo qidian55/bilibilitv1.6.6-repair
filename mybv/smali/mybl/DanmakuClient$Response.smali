@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 157
+    .line 155
     invoke-direct {p0}, Lbl/qe;-><init>()V
 
     return-void
@@ -33,7 +33,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 161
+    .line 159
     :try_start_1
     invoke-virtual {p0}, Lmybl/DanmakuClient$Response;->a()Z
 
@@ -61,22 +61,22 @@
 
     if-eqz v0, :cond_1c
 
-    .line 166
+    .line 164
     :goto_1b
     return-object v0
 
     :cond_1c
     move-object v0, v1
 
-    .line 164
+    .line 162
     goto :goto_1b
 
-    .line 165
+    .line 163
     :catch_1e
     move-exception v0
 
     move-object v0, v1
 
-    .line 166
+    .line 164
     goto :goto_1b
 .end method

@@ -1,6 +1,6 @@
 .class public Lbl/qh;
 .super Ljava/lang/Object;
-.source "BL"
+.source "qh.java"
 
 # interfaces
 .implements Lcom/bilibili/lib/media/resolver/resolve/IMediaResolver;
@@ -10,7 +10,8 @@
 .field static final a:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/util/SparseArray<",
+            "Landroid/util/SparseArray",
+            "<",
             "Lbl/qn;",
             ">;"
         }
@@ -24,23 +25,49 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 39
+    .locals 16
 
-    .line 66
+    .prologue
+    .line 19
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     sput-object v0, Lbl/qh;->a:Landroid/util/SparseArray;
 
-    .line 67
+    .line 23
     new-instance v0, Lbl/qn;
+
+    const-string v1, "bb2api"
+
+    const/16 v2, 0xf
+
+    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "\u6d41\u7545 360P"
+
+    const-string v4, "MPEG-4"
+
+    const-string v5, "MP4A"
+
+    const-string v6, "H264"
+
+    const/4 v7, 0x1
+
+    const/16 v8, 0x5a
+
+    invoke-direct/range {v0 .. v8}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
+
+    .line 24
+    new-instance v1, Lbl/qn;
 
     const-string v2, "bb2api"
 
-    const/16 v10, 0xf
+    const/16 v3, 0x10
 
-    invoke-static {v10}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v3
 
@@ -54,278 +81,223 @@
 
     const/4 v8, 0x1
 
-    const/16 v9, 0x5a
-
-    move-object v1, v0
+    const/16 v9, 0x64
 
     invoke-direct/range {v1 .. v9}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
 
-    .line 69
-    new-instance v1, Lbl/qn;
+    .line 25
+    new-instance v2, Lbl/qn;
 
-    const-string v12, "bb2api"
-
-    const/16 v2, 0x10
-
-    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v13
-
-    const-string v14, "\u6d41\u7545 360P"
-
-    const-string v15, "MPEG-4"
-
-    const-string v16, "MP4A"
-
-    const-string v17, "H264"
-
-    const/16 v18, 0x1
-
-    const/16 v19, 0x64
-
-    move-object v11, v1
-
-    invoke-direct/range {v11 .. v19}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
-
-    .line 71
-    new-instance v3, Lbl/qn;
-
-    const-string v21, "bb2api"
+    const-string v3, "bb2api"
 
     const/16 v4, 0x20
 
     invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v4
 
-    const-string v23, "\u6e05\u6670 480P"
+    const-string v5, "\u6e05\u6670 480P"
 
-    const-string v24, "FLV"
+    const-string v6, "FLV"
 
-    const-string v25, "MP4A"
+    const-string v7, "MP4A"
 
-    const-string v26, "H264"
+    const-string v8, "H264"
 
-    const/16 v27, 0x2
+    const/4 v9, 0x2
 
-    const/16 v28, 0x96
+    const/16 v10, 0x96
 
-    move-object/from16 v20, v3
+    invoke-direct/range {v2 .. v10}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
 
-    invoke-direct/range {v20 .. v28}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
+    .line 26
+    new-instance v3, Lbl/qn;
 
-    .line 73
-    new-instance v5, Lbl/qn;
+    const-string v4, "bb2api"
 
-    const-string v12, "bb2api"
+    const/16 v5, 0x30
 
-    const/16 v6, 0x30
+    invoke-static {v5}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "\u9ad8\u6e05 720P"
+
+    const-string v7, "MPEG-4"
+
+    const-string v8, "MP4A"
+
+    const-string v9, "H264"
+
+    const/4 v10, 0x3
+
+    const/16 v11, 0xaf
+
+    invoke-direct/range {v3 .. v11}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
+
+    .line 27
+    new-instance v4, Lbl/qn;
+
+    const-string v5, "bb2api"
+
+    const/16 v6, 0x40
 
     invoke-static {v6}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v6
 
-    const-string v14, "\u9ad8\u6e05 720P"
+    const-string v7, "\u9ad8\u6e05 720P"
 
-    const-string v15, "MPEG-4"
+    const-string v8, "FLV"
 
-    const-string v16, "MP4A"
+    const-string v9, "MP4A"
 
-    const-string v17, "H264"
+    const-string v10, "H264"
 
-    const/16 v18, 0x3
+    const/4 v11, 0x4
 
-    const/16 v19, 0xaf
+    const/16 v12, 0xc8
 
-    move-object v11, v5
+    invoke-direct/range {v4 .. v12}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
 
-    invoke-direct/range {v11 .. v19}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
+    .line 28
+    new-instance v5, Lbl/qn;
 
-    .line 75
+    const-string v6, "bb2api"
+
+    const/16 v7, 0x50
+
+    invoke-static {v7}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string v8, "\u9ad8\u6e05 1080P"
+
+    const-string v9, "FLV"
+
+    const-string v10, "MP4A"
+
+    const-string v11, "H264"
+
+    const/4 v12, 0x5
+
+    const/16 v13, 0x190
+
+    invoke-direct/range {v5 .. v13}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
+
+    .line 29
+    new-instance v6, Lbl/qn;
+
+    const-string v7, "bb2api"
+
+    const-string v8, "bd"
+
+    const-string v9, "\u9ad8\u6e05 1080P+"
+
+    const-string v10, "FLV"
+
+    const-string v11, "MP4A"
+
+    const-string v12, "H264"
+
+    const/16 v13, 0xb
+
+    const/16 v14, 0x320
+
+    invoke-direct/range {v6 .. v14}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
+
+    .line 30
     new-instance v7, Lbl/qn;
 
-    const-string v21, "bb2api"
+    const-string v8, "bb2api"
 
-    const/16 v8, 0x40
+    const-string v9, "unknown"
 
-    invoke-static {v8}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    const-string v10, "unknown"
 
-    move-result-object v22
+    const-string v11, "unknown"
 
-    const-string v23, "\u9ad8\u6e05 720P"
+    const-string v12, ""
 
-    const-string v24, "FLV"
+    const-string v13, ""
 
-    const-string v25, "MP4A"
+    const/4 v14, 0x6
 
-    const-string v26, "H264"
+    const v15, -0x186a0
 
-    const/16 v27, 0x4
+    invoke-direct/range {v7 .. v15}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
 
-    const/16 v28, 0xc8
+    .line 31
+    invoke-virtual {v2, v1}, Lbl/qn;->a(Lbl/qn;)V
 
-    move-object/from16 v20, v7
+    .line 32
+    invoke-virtual {v4, v3}, Lbl/qn;->a(Lbl/qn;)V
 
-    invoke-direct/range {v20 .. v28}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
+    .line 33
+    sget-object v8, Lbl/qh;->a:Landroid/util/SparseArray;
 
-    .line 77
-    new-instance v9, Lbl/qn;
+    const/16 v9, 0xf
 
-    const-string v12, "bb2api"
+    invoke-virtual {v8, v9, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    const/16 v15, 0x50
-
-    invoke-static {v15}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v13
-
-    const-string v14, "\u9ad8\u6e05 1080P"
-
-    const-string v16, "FLV"
-
-    const-string v17, "MP4A"
-
-    const-string v18, "H264"
-
-    const/16 v19, 0x5
-
-    const/16 v20, 0x190
-
-    move-object v11, v9
-
-    move-object/from16 v15, v16
-
-    move-object/from16 v16, v17
-
-    move-object/from16 v17, v18
-
-    move/from16 v18, v19
-
-    move/from16 v19, v20
-
-    invoke-direct/range {v11 .. v19}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
-
-    .line 79
-    new-instance v11, Lbl/qn;
-
-    const-string v30, "bb2api"
-
-    const-string v31, "bd"
-
-    const-string v32, "\u9ad8\u6e05 1080P+"
-
-    const-string v33, "FLV"
-
-    const-string v34, "MP4A"
-
-    const-string v35, "H264"
-
-    const/16 v36, 0xb
-
-    const/16 v37, 0x320
-
-    move-object/from16 v29, v11
-
-    invoke-direct/range {v29 .. v37}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
-
-    .line 81
-    new-instance v15, Lbl/qn;
-
-    const-string v13, "bb2api"
-
-    const-string v14, "unknown"
-
-    const-string v16, "unknown"
-
-    const-string v17, "unknown"
-
-    const-string v18, ""
-
-    const-string v19, ""
-
-    const/16 v20, 0x6
-
-    const v21, -0x186a0
-
-    move-object v12, v15
-
-    move-object/from16 v38, v15
-
-    move-object/from16 v15, v16
-
-    move-object/from16 v16, v17
-
-    move-object/from16 v17, v18
-
-    move-object/from16 v18, v19
-
-    move/from16 v19, v20
-
-    move/from16 v20, v21
-
-    invoke-direct/range {v12 .. v20}, Lbl/qn;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
-
-    .line 83
-    invoke-virtual {v3, v1}, Lbl/qn;->a(Lbl/qn;)V
-
-    .line 84
-    invoke-virtual {v7, v5}, Lbl/qn;->a(Lbl/qn;)V
-
-    .line 85
-    sget-object v12, Lbl/qh;->a:Landroid/util/SparseArray;
-
-    invoke-virtual {v12, v10, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    .line 86
+    .line 34
     sget-object v0, Lbl/qh;->a:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    const/16 v8, 0x10
 
-    .line 87
+    invoke-virtual {v0, v8, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    .line 35
     sget-object v0, Lbl/qh;->a:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, v4, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    const/16 v1, 0x20
 
-    .line 88
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    .line 36
     sget-object v0, Lbl/qh;->a:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, v6, v5}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    const/16 v1, 0x30
 
-    .line 89
+    invoke-virtual {v0, v1, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    .line 37
     sget-object v0, Lbl/qh;->a:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, v8, v7}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    const/16 v1, 0x40
 
-    .line 90
+    invoke-virtual {v0, v1, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    .line 38
     sget-object v0, Lbl/qh;->a:Landroid/util/SparseArray;
 
     const/16 v1, 0x50
 
-    invoke-virtual {v0, v1, v9}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v1, v5}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 91
+    .line 39
     sget-object v0, Lbl/qh;->a:Landroid/util/SparseArray;
 
     const/16 v1, 0x70
 
-    invoke-virtual {v0, v1, v11}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v1, v6}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 92
+    .line 40
     sget-object v0, Lbl/qh;->a:Landroid/util/SparseArray;
 
     const/16 v1, -0x3e8
 
-    move-object/from16 v2, v38
+    invoke-virtual {v0, v1, v7}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
+    .line 41
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .line 29
+    .prologue
+    .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -334,232 +306,249 @@
 .method private a(I)I
     .locals 2
 
+    .prologue
+    .line 117
     const/4 v0, 0x0
 
-    .line 214
-    :goto_0
-    sget-object v1, Lbl/qh;->a:Landroid/util/SparseArray;
+    move v1, v0
 
-    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
+    :goto_2
+    sget-object v0, Lbl/qh;->a:Landroid/util/SparseArray;
 
-    move-result v1
+    invoke-virtual {v0}, Landroid/util/SparseArray;->size()I
 
-    if-ge v0, v1, :cond_1
+    move-result v0
 
-    .line 215
-    sget-object v1, Lbl/qh;->a:Landroid/util/SparseArray;
+    if-ge v1, v0, :cond_21
 
-    invoke-virtual {v1, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    .line 118
+    sget-object v0, Lbl/qh;->a:Landroid/util/SparseArray;
 
-    move-result-object v1
-
-    check-cast v1, Lbl/qn;
-
-    iget v1, v1, Lbl/qn;->g:I
-
-    if-ne v1, p1, :cond_0
-
-    .line 216
-    sget-object p1, Lbl/qh;->a:Landroid/util/SparseArray;
-
-    invoke-virtual {p1, v0}, Landroid/util/SparseArray;->keyAt(I)I
-
-    move-result p1
-
-    return p1
-
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/16 p1, 0x40
-
-    return p1
-.end method
-
-.method private a(Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lbl/ps;)I
-    .locals 1
-
-    .line 171
-    invoke-virtual {p1}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->f()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 172
+    check-cast v0, Lbl/qn;
+
+    iget v0, v0, Lbl/qn;->g:I
+
+    if-ne v0, p1, :cond_1d
+
+    .line 119
+    sget-object v0, Lbl/qh;->a:Landroid/util/SparseArray;
+
+    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->keyAt(I)I
+
+    move-result v0
+
+    .line 122
+    :goto_1c
+    return v0
+
+    .line 117
+    :cond_1d
+    add-int/lit8 v0, v1, 0x1
+
+    move v1, v0
+
+    goto :goto_2
+
+    .line 122
+    :cond_21
+    const/16 v0, 0x40
+
+    goto :goto_1c
+.end method
+
+.method private a(Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lbl/ps;)I
+    .locals 7
+
+    .prologue
+    const/16 v6, 0x190
+
+    const/16 v5, 0xc8
+
+    const/16 v4, 0xaf
+
+    const/16 v3, 0x96
+
+    const/16 v2, 0x64
+
+    .line 88
+    invoke-virtual {p1}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->f()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 89
     invoke-virtual {p1}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e()I
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_2
+    .line 90
+    if-nez v0, :cond_41
 
-    .line 175
+    .line 91
     invoke-virtual {p2}, Lbl/ps;->e()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1
-
-    .line 176
-    invoke-virtual {p2}, Lbl/ps;->f()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/16 p1, 0x40
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p1, 0x0
-
-    goto :goto_1
-
-    :cond_2
-    const/16 p2, 0x64
-
-    if-ne p1, p2, :cond_3
-
-    .line 180
-    invoke-direct {p0, p2}, Lbl/qh;->a(I)I
-
-    move-result p1
-
-    goto :goto_1
-
-    :cond_3
-    const/16 p2, 0x96
-
-    if-ne p1, p2, :cond_4
-
-    .line 182
-    invoke-direct {p0, p2}, Lbl/qh;->a(I)I
-
-    move-result p1
-
-    goto :goto_1
-
-    :cond_4
-    const/16 p2, 0xaf
-
-    if-ne p1, p2, :cond_5
-
-    .line 184
-    invoke-direct {p0, p2}, Lbl/qh;->a(I)I
-
-    move-result p1
-
-    goto :goto_1
-
-    :cond_5
-    const/16 p2, 0xc8
-
-    if-ne p1, p2, :cond_6
-
-    .line 186
-    invoke-direct {p0, p2}, Lbl/qh;->a(I)I
-
-    move-result p1
-
-    goto :goto_1
-
-    :cond_6
-    const/16 p2, 0x190
-
-    if-ne p1, p2, :cond_7
-
-    .line 188
-    invoke-direct {p0, p2}, Lbl/qh;->a(I)I
-
-    move-result p1
-
-    goto :goto_1
-
-    :cond_7
-    const/16 p2, 0x320
-
-    if-ne p1, p2, :cond_8
-
-    .line 190
-    invoke-direct {p0, p2}, Lbl/qh;->a(I)I
-
-    move-result p1
-
-    .line 192
-    :cond_8
-    :goto_1
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result p2
+    move-result v0
 
-    if-nez p2, :cond_9
+    if-eqz v0, :cond_3f
 
-    .line 193
-    invoke-static {v0}, Lbl/qn;->a(Ljava/lang/String;)Z
+    invoke-virtual {p2}, Lbl/ps;->f()Ljava/lang/String;
 
-    move-result p2
+    move-result-object v0
 
-    if-eqz p2, :cond_9
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    .line 194
-    invoke-direct {p0, v0}, Lbl/qh;->a(Ljava/lang/String;)I
+    move-result v0
 
-    move-result p2
+    if-eqz v0, :cond_3f
 
-    const/16 v0, -0x3e8
+    const/16 v0, 0x40
 
-    if-eq p2, v0, :cond_9
+    .line 105
+    :cond_2a
+    :goto_2a
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move p1, p2
+    move-result v2
 
-    :cond_9
-    return p1
+    if-nez v2, :cond_3e
+
+    invoke-static {v1}, Lbl/qn;->a(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3e
+
+    invoke-direct {p0, v1}, Lbl/qh;->a(Ljava/lang/String;)I
+
+    move-result v1
+
+    const/16 v2, -0x3e8
+
+    if-ne v1, v2, :cond_6f
+
+    :cond_3e
+    :goto_3e
+    return v0
+
+    .line 91
+    :cond_3f
+    const/4 v0, 0x0
+
+    goto :goto_2a
+
+    .line 92
+    :cond_41
+    if-ne v0, v2, :cond_48
+
+    .line 93
+    invoke-direct {p0, v2}, Lbl/qh;->a(I)I
+
+    move-result v0
+
+    goto :goto_2a
+
+    .line 94
+    :cond_48
+    if-ne v0, v3, :cond_4f
+
+    .line 95
+    invoke-direct {p0, v3}, Lbl/qh;->a(I)I
+
+    move-result v0
+
+    goto :goto_2a
+
+    .line 96
+    :cond_4f
+    if-ne v0, v4, :cond_56
+
+    .line 97
+    invoke-direct {p0, v4}, Lbl/qh;->a(I)I
+
+    move-result v0
+
+    goto :goto_2a
+
+    .line 98
+    :cond_56
+    if-ne v0, v5, :cond_5d
+
+    .line 99
+    invoke-direct {p0, v5}, Lbl/qh;->a(I)I
+
+    move-result v0
+
+    goto :goto_2a
+
+    .line 100
+    :cond_5d
+    if-ne v0, v6, :cond_64
+
+    .line 101
+    invoke-direct {p0, v6}, Lbl/qh;->a(I)I
+
+    move-result v0
+
+    goto :goto_2a
+
+    .line 102
+    :cond_64
+    const/16 v2, 0x320
+
+    if-ne v0, v2, :cond_2a
+
+    .line 103
+    const/16 v0, 0x320
+
+    invoke-direct {p0, v0}, Lbl/qh;->a(I)I
+
+    move-result v0
+
+    goto :goto_2a
+
+    :cond_6f
+    move v0, v1
+
+    .line 105
+    goto :goto_3e
 .end method
 
 .method private a(Ljava/lang/String;)I
-    .locals 2
+    .locals 1
 
-    .line 223
+    .prologue
+    .line 127
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    const/16 v1, -0x3e8
+    if-nez v0, :cond_d
 
-    if-eqz v0, :cond_0
-
-    return v1
-
-    .line 226
-    :cond_0
     invoke-static {p1}, Lbl/qn;->b(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    if-ltz p1, :cond_1
+    if-ltz v0, :cond_d
 
-    return p1
+    .line 130
+    :goto_c
+    return v0
 
-    :cond_1
-    return v1
+    :cond_d
+    const/16 v0, -0x3e8
+
+    goto :goto_c
 .end method
 
 .method private a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lbl/ps;Lbl/pu;Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;Z)Lcom/bilibili/lib/media/resource/MediaResource;
-    .locals 10
+    .locals 9
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -569,94 +558,278 @@
         }
     .end annotation
 
+    .prologue
+    const/4 v8, -0x5
 
-    move-object v6, p2
-    move-object v7, p3
-    move-object v8, p4
-    move-object v9, p5
+    const/4 v1, 0x0
 
-
-    .line 117
+    .line 61
     invoke-direct {p0, p2}, Lbl/qh;->a(Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;)V
 
-    .line 118
+    .line 62
     invoke-direct {p0, p2, p3}, Lbl/qh;->a(Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lbl/ps;)I
 
     move-result v3
 
-    const/4 v0, 0x1
+    .line 63
+    new-instance v0, Lbl/qa$a;
 
-    if-eqz p5, :cond_0
+    const-class v2, Lbl/qi;
 
-    .line 119
-    invoke-virtual {p5}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h()Z
+    invoke-direct {v0, v2}, Lbl/qa$a;-><init>(Ljava/lang/Class;)V
 
-    move-result v1
+    const-string v2, "https://api.bilibili.com/pgc/player/web/playurl"
 
-    if-eqz v1, :cond_0
-
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v1, 0x0
-
-    .line 120
-    :goto_0
-    new-instance v2, Lbl/qa$a;
-
-    const-class v4, Lbl/qi;
-
-    invoke-direct {v2, v4}, Lbl/qa$a;-><init>(Ljava/lang/Class;)V
-
-    if-eqz v1, :cond_1
-
-    const-string v1, "http://bangumi.bilibili.com/player/api/v2/playurl"
-
-    goto :goto_1
-
-    :cond_1
-
-
-    if-eqz p6, :cond_00
-    const-string v1, "https://api.bilibili.com/pgc/player/web/playurl"
-    goto :goto_1
-    :cond_00
-
-
-    const-string v1, "https://api.snm0516.aisee.tv/x/tv/playurl"
-
-    .line 122
-    :goto_1
-    invoke-virtual {v2, v1}, Lbl/qa$a;->a(Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object v1
-
-    const-string v2, "Bilibili Freedoooooom/MarkII"
-
-    .line 123
-    invoke-virtual {v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object v1
-
-    .line 124
-    invoke-virtual {v1, v0}, Lbl/qa$a;->a(Z)Lbl/qa$a;
+    invoke-virtual {v0, v2}, Lbl/qa$a;->a(Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v0
 
+    const-string v2, "Bilibili Freedoooooom/MarkII"
 
-    const-string v1, "playurl_type"
-    const-string v2, "2"
-    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+    invoke-virtual {v0, v2}, Lbl/qa$a;->b(Ljava/lang/String;)Lbl/qa$a;
 
+    move-result-object v0
 
-    const-string v1, "cid"
+    const/4 v2, 0x1
 
-    .line 125
+    invoke-virtual {v0, v2}, Lbl/qa$a;->a(Z)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v2, "cid"
+
     invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c()I
 
-    move-result v2
+    move-result v4
+
+    invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v2, v4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v2, "qn"
+
+    invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v2, v4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v2, "appkey"
+
+    const/4 v4, 0x3
+
+    const-string v5, "fSDRQgpusmIbrzyc"
+
+    invoke-static {v4, v5}, Lbl/qy;->a(ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v2, v4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v2, "otype"
+
+    const-string v4, "json"
+
+    invoke-virtual {v0, v2, v4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v2, "platform"
+
+    const-string v4, "android_tv_yst"
+
+    invoke-virtual {v0, v2, v4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v2, "mobi_app"
+
+    invoke-virtual {p3}, Lbl/ps;->d()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v2, v4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v2, "build"
+
+    invoke-virtual {p3}, Lbl/ps;->a()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v2, v4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v2, "buvid"
+
+    invoke-virtual {p3}, Lbl/ps;->b()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v2, v4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v2, "device"
+
+    invoke-virtual {p3}, Lbl/ps;->c()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v2, v4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v2, "type"
+
+    invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->g()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v2, v4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v2
+
+    const-string v4, "access_key"
+
+    if-eqz p4, :cond_132
+
+    iget-object v0, p4, Lbl/pu;->c:Ljava/lang/String;
+
+    :goto_8e
+    invoke-virtual {v2, v4, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v2
+
+    const-string v4, "mid"
+
+    if-eqz p4, :cond_135
+
+    iget-wide v6, p4, Lbl/pu;->b:J
+
+    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_9c
+    invoke-virtual {v2, v4, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v2
+
+    const-string v4, "expire"
+
+    if-eqz p4, :cond_138
+
+    iget-wide v6, p4, Lbl/pu;->a:J
+
+    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_aa
+    invoke-virtual {v2, v4, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v2
+
+    const-string v4, "npcybs"
+
+    invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->d()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_13b
+
+    const-string v0, "1"
+
+    :goto_b8
+    invoke-virtual {v2, v4, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v2, "module"
+
+    invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->b()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v2, v4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v2, "track_path"
+
+    invoke-virtual {p5}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->e()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v2, v4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v2
+
+    const-string v4, "model"
+
+    if-nez v3, :cond_13f
+
+    invoke-virtual {p3}, Lbl/ps;->e()Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_d8
+    invoke-virtual {v2, v4, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v2
+
+    const-string v4, "resolution"
+
+    if-nez v3, :cond_141
+
+    invoke-virtual {p3}, Lbl/ps;->f()Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_e4
+    invoke-virtual {v2, v4, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v2, "unicom_free"
+
+    invoke-virtual {p5}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->f()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_f2
+
+    const-string v1, "1"
+
+    :cond_f2
+    invoke-virtual {v0, v2, v1}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v1, "season_type"
+
+    invoke-virtual {p5}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->g()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v1, "fnval"
+
+    const/16 v2, 0x7d0
 
     invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -666,493 +839,249 @@
 
     move-result-object v0
 
-    const-string v1, "qn"
+    new-instance v1, Lbl/qd;
 
-    .line 126
-    invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-direct {v1}, Lbl/qd;-><init>()V
+
+    invoke-virtual {v0, v1}, Lbl/qa$a;->a(Lbl/qf;)Lbl/qa$a;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lbl/qa$a;->a()Lbl/qa;
+
+    move-result-object v0
+
+    .line 64
+    iget-object v1, p0, Lbl/qh;->b:Lbl/qx;
+
+    invoke-virtual {v0}, Lbl/qa;->g()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+    invoke-virtual {v1, v2}, Lbl/qx;->a(Ljava/lang/String;)V
+
+    .line 65
+    invoke-static {v0}, Lbl/pz;->a(Lbl/qa;)Lbl/qe;
 
     move-result-object v0
 
-    const-string v1, "appkey"
+    check-cast v0, Lbl/qi;
 
-    const/4 v2, 0x3
+    .line 66
+    if-nez v0, :cond_143
 
-    const-string v4, "fSDRQgpusmIbrzyc"
+    .line 67
+    new-instance v0, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
 
-    .line 127
-    invoke-static {v2, v4}, Lbl/qy;->a(ILjava/lang/String;)Ljava/lang/String;
+    const-string v1, "empty response"
 
-    move-result-object v2
+    invoke-direct {v0, v1, v8}, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;-><init>(Ljava/lang/String;I)V
 
-    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+    throw v0
 
-    move-result-object v0
+    :cond_132
+    move-object v0, v1
 
-    const-string v1, "otype"
+    .line 63
+    goto/16 :goto_8e
 
-    const-string v2, "json"
+    :cond_135
+    move-object v0, v1
 
-    .line 128
-    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+    goto/16 :goto_9c
 
-    move-result-object v0
+    :cond_138
+    move-object v0, v1
 
-    const-string v1, "platform"
+    goto/16 :goto_aa
 
-    .line 129
-    #invoke-virtual {p3}, Lbl/ps;->d()Ljava/lang/String;
+    :cond_13b
+    const-string v0, "0"
 
-    #move-result-object v2
+    goto/16 :goto_b8
 
+    :cond_13f
+    move-object v0, v1
 
-    const-string v2, "android_tv_yst"
+    goto :goto_d8
 
+    :cond_141
+    move-object v0, v1
 
-    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+    goto :goto_e4
 
-    move-result-object v0
+    .line 69
+    :cond_143
+    iget-object v1, p0, Lbl/qh;->b:Lbl/qx;
 
-    const-string v1, "mobi_app"
+    invoke-virtual {v0}, Lbl/qi;->b()I
 
-    .line 130
-    invoke-virtual {p3}, Lbl/ps;->d()Ljava/lang/String;
+    move-result v2
 
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object v0
-
-    const-string v1, "build"
-
-    .line 131
-    invoke-virtual {p3}, Lbl/ps;->a()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object v0
-
-    const-string v1, "buvid"
-
-    .line 132
-    invoke-virtual {p3}, Lbl/ps;->b()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object v0
-
-    const-string v1, "device"
-
-    .line 133
-    invoke-virtual {p3}, Lbl/ps;->c()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object v0
-
-    const-string v1, "type"
-
-    .line 134
-    invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->g()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object v0
-
-    const-string v1, "access_key"
-
-    const/4 v2, 0x0
-
-    if-eqz p4, :cond_2
-
-    iget-object v4, p4, Lbl/pu;->c:Ljava/lang/String;
-
-    goto :goto_2
-
-    :cond_2
-    move-object v4, v2
-
-    .line 135
-    :goto_2
-    invoke-virtual {v0, v1, v4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object v0
-
-    const-string v1, "mid"
-
-    if-eqz p4, :cond_3
-
-    iget-wide v4, p4, Lbl/pu;->b:J
-
-    .line 136
-    invoke-static {v4, v5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-virtual {v0}, Lbl/qi;->c()[B
 
     move-result-object v4
 
-    goto :goto_3
+    invoke-virtual {v1, v2, v4}, Lbl/qx;->a(I[B)V
 
-    :cond_3
-    move-object v4, v2
-
-    :goto_3
-    invoke-virtual {v0, v1, v4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object v0
-
-    const-string v1, "expire"
-
-    if-eqz p4, :cond_4
-
-    iget-wide v4, p4, Lbl/pu;->a:J
-
-    .line 137
-    invoke-static {v4, v5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object p4
-
-    goto :goto_4
-
-    :cond_4
-    move-object p4, v2
-
-    :goto_4
-    invoke-virtual {v0, v1, p4}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object p4
-
-    const-string v0, "npcybs"
-
-    .line 138
-    invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->d()Z
+    .line 70
+    invoke-virtual {v0}, Lbl/qi;->a()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-nez v1, :cond_15e
 
-    const-string v1, "1"
+    .line 71
+    new-instance v0, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
 
-    goto :goto_5
+    const-string v1, "connect error"
 
-    :cond_5
-    const-string v1, "0"
+    invoke-direct {v0, v1, v8}, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;-><init>(Ljava/lang/String;I)V
 
-    :goto_5
-    invoke-virtual {p4, v0, v1}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+    throw v0
 
-    move-result-object p4
-
-    const-string v0, "module"
-
-    .line 139
-    invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->b()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p4, v0, v1}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object p4
-
-    const-string v0, "track_path"
-
-    .line 140
-    invoke-virtual {p5}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->e()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p4, v0, v1}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object p4
-
-    const-string v0, "model"
-
-    if-nez v3, :cond_6
-
-    .line 141
-    invoke-virtual {p3}, Lbl/ps;->e()Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_6
-
-    :cond_6
-    move-object v1, v2
-
-    :goto_6
-    invoke-virtual {p4, v0, v1}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object p4
-
-    const-string v0, "resolution"
-
-    if-nez v3, :cond_7
-
-    .line 142
-    invoke-virtual {p3}, Lbl/ps;->f()Ljava/lang/String;
-
-    move-result-object p3
-
-    goto :goto_7
-
-    :cond_7
-    move-object p3, v2
-
-    :goto_7
-    invoke-virtual {p4, v0, p3}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object p3
-
-    const-string p4, "unicom_free"
-
-    .line 143
-    invoke-virtual {p5}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->f()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_8
-
-    const-string v2, "1"
-
-    :cond_8
-    invoke-virtual {p3, p4, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object p3
-
-    const-string p4, "season_type"
-
-    .line 144
-    invoke-virtual {p5}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->g()Ljava/lang/String;
-
-    move-result-object p5
-
-    invoke-virtual {p3, p4, p5}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
-
-    move-result-object p3
-
-    new-instance p4, Lbl/qd;
-
-    invoke-direct {p4}, Lbl/qd;-><init>()V
-
-    .line 145
-    invoke-virtual {p3, p4}, Lbl/qa$a;->a(Lbl/qf;)Lbl/qa$a;
-
-    move-result-object p3
-
-    .line 146
-    invoke-virtual {p3}, Lbl/qa$a;->a()Lbl/qa;
-
-    move-result-object p3
-
-    .line 147
-    iget-object p4, p0, Lbl/qh;->b:Lbl/qx;
-
-    invoke-virtual {p3}, Lbl/qa;->g()Ljava/lang/String;
-
-    move-result-object p5
-
-    invoke-virtual {p4, p5}, Lbl/qx;->a(Ljava/lang/String;)V
-
-    .line 148
-    invoke-static {p3}, Lbl/pz;->a(Lbl/qa;)Lbl/qe;
-
-    move-result-object p3
-
-    check-cast p3, Lbl/qi;
-
-    const/4 p4, -0x5
-
-    if-nez p3, :cond_9
-
-    .line 150
-    new-instance p1, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
-
-    const-string p2, "empty response"
-
-    invoke-direct {p1, p2, p4}, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;-><init>(Ljava/lang/String;I)V
-
-    throw p1
-
-    .line 152
-    :cond_9
-    iget-object p5, p0, Lbl/qh;->b:Lbl/qx;
-
-    invoke-virtual {p3}, Lbl/qi;->b()I
-
-    move-result v0
-
-    invoke-virtual {p3}, Lbl/qi;->c()[B
-
-    move-result-object v1
-
-    invoke-virtual {p5, v0, v1}, Lbl/qx;->a(I[B)V
-
-    .line 153
-    invoke-virtual {p3}, Lbl/qi;->a()Z
-
-    move-result p5
-
-
-    if-eqz p5, :cond_000
-    if-nez p6, :cond_a
-    new-instance v4, Ljava/lang/String;
-    iget-object v5, p3, Lbl/qi;->b:[B
-    invoke-direct {v4, v5}, Ljava/lang/String;-><init>([B)V
-    const-string v5, "720P"
-    invoke-virtual {v4, v5}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-    move-result v4
-    const/4 v5, 0x0
-    if-ge v5, v4, :cond_000
-    goto :cond_a
-    :cond_000
-
-    if-nez p6, :cond_001
-    move-object v4, p0
-    move-object v5, p1
-    const/4 v10, 0x1
-    invoke-direct/range {v4 .. v10}, Lbl/qh;->a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lbl/ps;Lbl/pu;Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;Z)Lcom/bilibili/lib/media/resource/MediaResource;
-    move-result-object v1
-    return-object v1
-    :cond_001
-
-
-    #if-nez p5, :cond_a
-
-    .line 154
-    new-instance p1, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
-
-    const-string p2, "connect error"
-
-    invoke-direct {p1, p2, p4}, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;-><init>(Ljava/lang/String;I)V
-
-    throw p1
-
-    :cond_a
+    .line 74
+    :cond_15e
     const/4 v4, 0x0
 
+    :try_start_15f
+    check-cast v4, Landroid/util/SparseArray;
+
     const/4 v5, 0x0
 
-    move-object v0, p3
+    check-cast v5, [I
 
     move-object v1, p1
 
     move-object v2, p2
 
-    .line 157
-    :try_start_0
     invoke-virtual/range {v0 .. v5}, Lbl/qi;->a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;ILandroid/util/SparseArray;[I)Lcom/bilibili/lib/media/resource/MediaResource;
 
-    move-result-object p1
+    move-result-object v1
 
-    if-nez p1, :cond_b
+    .line 75
+    if-nez v1, :cond_185
 
-    .line 160
-    new-instance p1, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
+    .line 76
+    new-instance v1, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
 
-    const-string p2, "resolve fake"
+    const-string v2, "resolve fake"
 
-    const/4 p4, -0x3
+    const/4 v3, -0x3
 
-    invoke-direct {p1, p2, p4}, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v2, v3}, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;-><init>(Ljava/lang/String;I)V
 
-    throw p1
+    throw v1
+    :try_end_175
+    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_15f .. :try_end_175} :catch_175
 
-    .line 162
-    :cond_b
-    iget-object p2, p0, Lbl/qh;->b:Lbl/qx;
+    .line 80
+    :catch_175
+    move-exception v1
 
-    invoke-virtual {p2, p1}, Lbl/qx;->a(Lcom/bilibili/lib/media/resource/MediaResource;)V
-    :try_end_0
-    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_0 .. :try_end_0} :catch_0
+    .line 81
+    iget-object v2, p0, Lbl/qh;->b:Lbl/qx;
 
-    return-object p1
+    new-instance v3, Ljava/lang/String;
 
-    :catch_0
-    move-exception p1
+    invoke-virtual {v0}, Lbl/qi;->c()[B
 
-    .line 165
-    iget-object p2, p0, Lbl/qh;->b:Lbl/qx;
+    move-result-object v0
 
-    new-instance p4, Ljava/lang/String;
+    invoke-direct {v3, v0}, Ljava/lang/String;-><init>([B)V
 
-    invoke-virtual {p3}, Lbl/qi;->c()[B
+    invoke-virtual {v2, v1, v3}, Lbl/qx;->a(Lcom/bilibili/lib/media/resolver/exception/ResolveException;Ljava/lang/String;)V
 
-    move-result-object p3
+    .line 82
+    throw v1
 
-    invoke-direct {p4, p3}, Ljava/lang/String;-><init>([B)V
+    .line 78
+    :cond_185
+    :try_start_185
+    iget-object v2, p0, Lbl/qh;->b:Lbl/qx;
 
-    invoke-virtual {p2, p1, p4}, Lbl/qx;->a(Lcom/bilibili/lib/media/resolver/exception/ResolveException;Ljava/lang/String;)V
+    invoke-virtual {v2, v1}, Lbl/qx;->a(Lcom/bilibili/lib/media/resource/MediaResource;)V
+    :try_end_18a
+    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_185 .. :try_end_18a} :catch_175
 
-    .line 166
-    throw p1
+    .line 79
+    return-object v1
 .end method
 
 .method private a(Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;)V
     .locals 2
 
-    .line 204
+    .prologue
+    .line 109
     invoke-virtual {p1}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->f()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 205
+    .line 110
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
-    .line 206
     invoke-static {v0}, Lbl/qn;->a(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_11
 
+    .line 114
+    :cond_10
+    :goto_10
+    return-void
+
+    .line 113
+    :cond_11
     const/4 v0, 0x0
 
-    .line 208
+    check-cast v0, Ljava/lang/String;
+
     invoke-virtual {p1, v0}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->a(Ljava/lang/String;)V
 
-    :cond_0
-    return-void
+    goto :goto_10
 .end method
 
 
 # virtual methods
 .method public resolveMediaResource(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lbl/ps;Lbl/pu;Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;)Lcom/bilibili/lib/media/resource/MediaResource;
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/bilibili/lib/media/resolver/exception/ResolveException;
         }
     .end annotation
 
-    if-eqz p2, :cond_1
+    .prologue
+    .line 45
+    if-eqz p2, :cond_a
 
-    .line 100
     invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c()I
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_a
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_13
 
-    goto :goto_0
+    .line 46
+    :cond_a
+    new-instance v0, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
 
-    .line 103
-    :cond_0
+    const-string v1, "invalid resolve params"
+
+    const/4 v2, -0x1
+
+    invoke-direct {v0, v1, v2}, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;-><init>(Ljava/lang/String;I)V
+
+    throw v0
+
+    .line 48
+    :cond_13
     new-instance v0, Lbl/qx;
 
     invoke-virtual {p3}, Lbl/ps;->b()Ljava/lang/String;
@@ -1171,60 +1100,48 @@
 
     iput-object v0, p0, Lbl/qh;->b:Lbl/qx;
 
-    .line 104
+    .line 49
     iget-object v0, p0, Lbl/qh;->b:Lbl/qx;
 
     invoke-virtual {v0}, Lbl/qx;->a()V
 
-    .line 105
+    .line 50
     iget-object v0, p0, Lbl/qh;->b:Lbl/qx;
 
     invoke-virtual {v0}, Lbl/qx;->b()V
 
-    .line 106
+    .line 51
     invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->i()Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
 
-    move-result-object v3
+    move-result-object v2
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    move-object v1, p0
+    move-object v0, p0
 
-    move-object v2, p1
+    move-object v1, p1
 
-    move-object v4, p3
+    move-object v3, p3
 
-    move-object v5, p4
+    move-object v4, p4
 
-    move-object v6, p5
+    move-object v5, p5
 
-    invoke-direct/range {v1 .. v7}, Lbl/qh;->a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lbl/ps;Lbl/pu;Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;Z)Lcom/bilibili/lib/media/resource/MediaResource;
+    invoke-direct/range {v0 .. v6}, Lbl/qh;->a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lbl/ps;Lbl/pu;Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;Z)Lcom/bilibili/lib/media/resource/MediaResource;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
-
-    .line 101
-    :cond_1
-    :goto_0
-    new-instance p1, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
-
-    const-string p2, "invalid resolve params"
-
-    const/4 p3, -0x1
-
-    invoke-direct {p1, p2, p3}, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;-><init>(Ljava/lang/String;I)V
-
-    throw p1
+    return-object v0
 .end method
 
 .method public resolveSegment(Landroid/content/Context;Lbl/pt;Ljava/lang/String;)Lcom/bilibili/lib/media/resource/Segment;
-    .locals 0
+    .locals 1
 
-    .line 111
+    .prologue
+    .line 56
     invoke-virtual {p2}, Lbl/pt;->a()Lcom/bilibili/lib/media/resource/Segment;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
