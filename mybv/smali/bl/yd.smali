@@ -789,11 +789,6 @@
 .method private a(ILandroid/os/Bundle;)Z
     .locals 18
 
-
-    const/4 v1, 0x1
-    return v1
-
-
     move-object/from16 v1, p0
 
     move/from16 v2, p1
@@ -986,6 +981,19 @@
     move-result-object v10
 
     invoke-static {v11, v10}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+
+    const-string v10, ".m4s"
+    invoke-static {v9, v10}, Lbl/yd;->a(Ljava/lang/String;Ljava/lang/String;)Z
+    move-result v10
+    if-eqz v10, :cond_00
+    const-string v2, "PlayerController"
+    const-string v3, "skip all steps for ijkdash"
+    invoke-static {v2, v3}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    const/4 v2, 0x1
+    return v2
+    :cond_00
+
 
     const-string v10, ".ts"
 

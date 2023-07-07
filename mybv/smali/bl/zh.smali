@@ -100,7 +100,7 @@
 .end method
 
 .method private final a(Landroid/content/Context;Landroid/os/Handler;)V
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/bilibili/lib/media/resolver/exception/ResolveException;
@@ -292,6 +292,10 @@
 
     move-result p1
 
+
+    move v6, p1
+
+
     iput p1, v1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mExpectedQuality:I
 
     .line 159
@@ -350,6 +354,10 @@
     iget-object v0, v0, Lcom/bilibili/lib/media/resource/VodIndex;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1, v4}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
+
+
+    iput v6, v3, Lcom/bilibili/lib/media/resource/MediaResource;->quality:I
+
 
     .line 169
     iget-object p1, p2, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
