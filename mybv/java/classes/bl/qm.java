@@ -48,7 +48,6 @@ public class qm extends py {
                 JSONArray optJSONArray4 = jSONObject3.optJSONArray("accept_watermark");
                 if (optJSONArray != null && a2 != null && optJSONArray.length() == a2.length && optJSONArray.length() != 0) {
                     Map<Integer, qn> a3 = a(optJSONArray, a2, optJSONArray3, optJSONArray4);
-                    int[] a4 = a(optJSONArray, optInt4);
                     a(resolveMediaResourceParams, i, a3, optInt);
                     if (e()) {
                         return a(jSONObject2);
@@ -60,6 +59,12 @@ public class qm extends py {
                         throw new ResolveMediaSourceException(optString2, -6);
                     }
                     if (optJSONArray2 != null && optJSONArray2.length() != 0) {
+                        for(int i1=0;i1<optJSONArray2.length();i1++){
+                            int id=optJSONArray2.optJSONObject(i1).optInt("id");
+                            if(id==optInt4){break;}
+                            if(id<optInt4){optInt4=id;break;}
+                        }
+                        int[] a4 = a(optJSONArray, optInt4);
                         if (a4.length == a2.length && (a = a(optString, a2, a4)) != optInt4) {
                             a4 = a(optJSONArray, a);
                             optInt4 = a;
@@ -87,19 +92,15 @@ public class qm extends py {
                         jSONObject4.put("video_codec_id", optInt3);
                         jSONObject4.put("video_project", optBoolean);
                         jSONObject4.put("water_mark", qnVar.h);
-                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                            JSONObject jSONObject6 = optJSONArray2.getJSONObject(i2);
-                            if(jSONObject6.optInt("id") == optInt4){
-                                JSONObject jSONObject5 = new JSONObject();
-                                jSONObject5.put("url", "ijkdash");
-                                jSONObject5.put("bytes", -1);
-                                jSONObject5.put("duration", jSONObject3.optJSONObject("dash").optInt("duration")*1000);
-                                jSONObject5.put("backup_urls", jSONObject6.optJSONArray("backup_url"));
-                                jSONObject5.put("ahead", "");
-                                jSONObject5.put("vhead", "");
-                                jSONArray.put(jSONObject5);
-                                break;
-                            }
+                        {
+                            JSONObject jSONObject5 = new JSONObject();
+                            jSONObject5.put("url", "ijkdash");
+                            jSONObject5.put("bytes", -1);
+                            jSONObject5.put("duration", jSONObject3.optJSONObject("dash").optInt("duration")*1000);
+                            jSONObject5.put("backup_urls", null);
+                            jSONObject5.put("ahead", "");
+                            jSONObject5.put("vhead", "");
+                            jSONArray.put(jSONObject5);
                         }
                         jSONObject4.put("segment_list", jSONArray);
                         JSONArray jSONArray2 = new JSONArray();
