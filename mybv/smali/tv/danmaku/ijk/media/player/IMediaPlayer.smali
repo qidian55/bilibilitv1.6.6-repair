@@ -295,3 +295,7 @@
         }
     .end annotation
 .end method
+
+
+.method public abstract setSpeed(F)V
+.end method

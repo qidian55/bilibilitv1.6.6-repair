@@ -328,3 +328,7 @@
 
 .method public abstract willBeAttachedToService()Z
 .end method
+
+
+.method public abstract setSpeed(F)V
+.end method

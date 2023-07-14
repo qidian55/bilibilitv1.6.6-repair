@@ -1151,3 +1151,17 @@
 
     return p1
 .end method
+
+
+.method public switch_speed(F)V
+    .locals 4
+    sget-object v0, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;->SWITCH_SPEED:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
+    const/4 v1, 0x1
+    new-array v1, v1, [Ljava/lang/Object;
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    move-result-object v2
+    const/4 v3, 0x0
+    aput-object v2, v1, v3
+    invoke-virtual {p0, v0, v1}, Lbl/xw;->a(Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;[Ljava/lang/Object;)V
+    return-void
+.end method

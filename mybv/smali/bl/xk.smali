@@ -746,6 +746,24 @@
 
     .line 259
     :cond_0
+
+
+sget-object v0, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;->SWITCH_SPEED:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
+const/4 v1, 0x0
+const/4 v2, 0x1
+if-ne p1, v0, :cond_00
+iget-object v0, p0, Lbl/xk;->c:Ltv/danmaku/videoplayer/core/context/IPlayerContext;
+if-eqz v0, :cond_5
+iget-object v0, p0, Lbl/xk;->c:Ltv/danmaku/videoplayer/core/context/IPlayerContext;
+aget-object v4, p2, v1
+check-cast v4, Ljava/lang/Float;
+invoke-virtual {v4}, Ljava/lang/Float;->floatValue()F
+move-result v4
+invoke-interface {v0, v4}, Ltv/danmaku/videoplayer/core/context/IPlayerContext;->setSpeed(F)V
+goto/16 :goto_3
+:cond_00
+
+
     sget-object v0, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;->DANMAKU_SIZE:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
 
     const/4 v1, 0x0

@@ -15,6 +15,7 @@
         <item>@string/screen_ratio</item>
         <item>@string/danmaku_size</item>
         <item>@string/danmaku_alpha</item>
+        <item>播放速度</item>
     </string-array>
     <string-array name="player_right_menu_level_1_1">
         <item>@string/episode</item>

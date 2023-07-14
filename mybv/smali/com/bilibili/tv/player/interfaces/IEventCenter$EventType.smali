@@ -56,6 +56,9 @@
 .field public static final enum SWITCH_QUALITY_REMOTE:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
 
 
+.field public static final enum SWITCH_SPEED:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
+
+
 # direct methods
 .method static constructor <clinit>()V
     .locals 17
@@ -218,7 +221,15 @@
 
     sput-object v0, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;->DANMAKU_TOGGLE_REMOTE:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
 
-    const/16 v0, 0xf
+
+new-instance v0, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
+const-string v1, "SWITCH_SPEED"
+const/16 v15, 0xf
+invoke-direct {v0, v1, v15}, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;-><init>(Ljava/lang/String;I)V
+sput-object v0, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;->SWITCH_SPEED:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
+
+
+    const/16 v0, 0x10
 
     .line 9
     new-array v0, v0, [Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
@@ -283,7 +294,14 @@
 
     sget-object v1, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;->DANMAKU_TOGGLE_REMOTE:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
 
-    aput-object v1, v0, v15
+    #aput-object v1, v0, v15
+
+
+const/16 v2, 0xe
+aput-object v1, v0, v2
+sget-object v1, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;->SWITCH_SPEED:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
+aput-object v1, v0, v15
+
 
     sput-object v0, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;->$VALUES:[Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
 

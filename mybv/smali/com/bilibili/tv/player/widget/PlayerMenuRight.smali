@@ -105,9 +105,21 @@
 .field private r:Ljava/lang/Runnable;
 
 
+.field public speed_id:I
+.field public speed_list:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .locals 2
 
     .line 61
     invoke-direct {p0, p1}, Lbl/aay;-><init>(Landroid/content/Context;)V
@@ -135,11 +147,31 @@
     .line 57
     iput p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->q:I
 
+
+new-instance v0, Ljava/util/ArrayList;
+invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+const-string v1, "2.0x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "1.5x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "1.25x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "1.0x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "0.75x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "0.5x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+iput-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_list:Ljava/util/List;
+const/4 v0, 0x3
+iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+
+
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .locals 2
 
     .line 65
     invoke-direct {p0, p1, p2}, Lbl/aay;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -167,11 +199,31 @@
     .line 57
     iput p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->q:I
 
+
+new-instance v0, Ljava/util/ArrayList;
+invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+const-string v1, "2.0x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "1.5x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "1.25x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "1.0x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "0.75x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "0.5x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+iput-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_list:Ljava/util/List;
+const/4 v0, 0x3
+iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+
+
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .locals 2
 
     .line 69
     invoke-direct {p0, p1, p2, p3}, Lbl/aay;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -198,6 +250,26 @@
 
     .line 57
     iput p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->q:I
+
+
+new-instance v0, Ljava/util/ArrayList;
+invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+const-string v1, "2.0x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "1.5x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "1.25x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "1.0x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "0.75x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+const-string v1, "0.5x"
+invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+iput-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_list:Ljava/util/List;
+const/4 v0, 0x3
+iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+
 
     return-void
 .end method
@@ -684,6 +756,17 @@
 
     move-result v0
 
+
+if-nez v0, :cond_3
+iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_list:Ljava/util/List;
+iget v2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+move-result-object v0
+check-cast v0, Ljava/lang/String;
+invoke-virtual {v0, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+move-result v0
+
+
     if-eqz v0, :cond_2
 
     goto :goto_0
@@ -908,6 +991,12 @@
     :pswitch_4
     iget p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->l:I
 
+
+goto :goto_0
+:pswitch_00
+iget p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+
+
     :goto_0
     add-int/lit8 p1, p1, 0x1
 
@@ -925,6 +1014,7 @@
         :pswitch_2
         :pswitch_1
         :pswitch_0
+:pswitch_00
     .end packed-switch
 .end method
 
@@ -954,7 +1044,7 @@
 .end method
 
 .method protected a(IILandroid/view/View;Landroid/view/ViewGroup;Ljava/lang/String;)Z
-    .locals 4
+    .locals 5
 
     .line 190
     invoke-direct {p0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->e()V
@@ -1150,6 +1240,31 @@
 
     .line 231
     :cond_8
+
+
+iget-object v3, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_list:Ljava/util/List;
+invoke-interface {v3, p5}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
+move-result v3
+if-eq v3, v2, :cond_00
+iget-object v3, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_list:Ljava/util/List;
+invoke-interface {v3, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+move-result-object v3
+check-cast v3, Ljava/lang/String;
+const-string p1, "x"
+const-string v4, ""
+invoke-virtual {v3, p1, v4}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+move-result-object v3
+invoke-static {v3}, Ljava/lang/Float;->valueOf(Ljava/lang/String;)Ljava/lang/Float;
+move-result-object v3
+invoke-virtual {v3}, Ljava/lang/Float;->floatValue()F
+move-result v3
+iget-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->d:Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;
+invoke-interface {p1, v3}, Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;->switch_speed(F)V
+iget p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+:cond_00
+
+
     iget-object v3, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->j:Ljava/util/List;
 
     invoke-interface {v3, p5}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
@@ -1450,6 +1565,12 @@
     :pswitch_4
     iget-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->g:Ljava/util/List;
 
+
+goto :goto_0
+:pswitch_00
+iget-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_list:Ljava/util/List;
+
+
     :goto_0
     move-object v1, p1
 
@@ -1489,6 +1610,7 @@
         :pswitch_2
         :pswitch_1
         :pswitch_0
+:pswitch_00
     .end packed-switch
 
     :pswitch_data_1

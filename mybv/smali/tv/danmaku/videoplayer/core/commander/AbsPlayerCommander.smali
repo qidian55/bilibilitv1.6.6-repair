@@ -707,3 +707,11 @@
 
     return-void
 .end method
+
+
+.method public setSpeed(F)V
+    .locals 1
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/AbsPlayerCommander;->mMediaPlayer:Ltv/danmaku/ijk/media/player/IMediaPlayer;
+    invoke-interface {v0, p1}, Ltv/danmaku/ijk/media/player/IMediaPlayer;->setSpeed(F)V
+    return-void
+.end method

@@ -336,3 +336,11 @@
 
     return-void
 .end method
+
+
+.method public setSpeed(F)V
+    .locals 0
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    throw p1
+.end method

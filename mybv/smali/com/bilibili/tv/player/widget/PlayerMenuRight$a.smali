@@ -32,3 +32,7 @@
 
 .method public abstract f(I)V
 .end method
+
+
+.method public abstract switch_speed(F)V
+.end method
