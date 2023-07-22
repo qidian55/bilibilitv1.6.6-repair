@@ -27,7 +27,7 @@
     .locals 0
 
     .prologue
-    .line 86
+    .line 89
     iput-object p1, p0, Lbl/aef$2;->this$0:Lbl/aef;
 
     iput p2, p0, Lbl/aef$2;->val$b3:I
@@ -47,48 +47,48 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 91
+    .line 94
     invoke-virtual {p3, p2}, Landroid/support/v7/widget/RecyclerView;->g(Landroid/view/View;)I
 
     move-result v2
 
-    .line 92
+    .line 95
     const/4 v0, 0x1
 
     if-le v2, v0, :cond_15
 
     iget v0, p0, Lbl/aef$2;->val$b3:I
 
-    .line 93
+    .line 96
     :goto_a
     rem-int/lit8 v2, v2, 0x2
 
     if-nez v2, :cond_17
 
-    .line 94
+    .line 97
     iget v2, p0, Lbl/aef$2;->val$b2:I
 
     move v3, v1
 
-    .line 100
+    .line 103
     :goto_11
     invoke-virtual {p1, v3, v0, v2, v1}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 101
+    .line 104
     return-void
 
     :cond_15
     move v0, v1
 
-    .line 92
+    .line 95
     goto :goto_a
 
-    .line 97
+    .line 100
     :cond_17
     iget v3, p0, Lbl/aef$2;->val$b2:I
 
     move v2, v1
 
-    .line 98
+    .line 101
     goto :goto_11
 .end method

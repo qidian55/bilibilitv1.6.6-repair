@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mybl.BiliLiveEx;
+import mybl.BiliLiveExEx;
+import mybl.BiliLiveContent;
+import com.bilibili.tv.MainApplication;
 import android.util.Log;
 import org.json.JSONObject;
 import java.util.concurrent.Future;
@@ -36,7 +39,7 @@ public class aef extends ady {
     private int f = 1;
     private boolean g = true;
     private boolean h;
-    private int i;
+    private String live_area_id;
 
     static /* synthetic */ int e(aef aefVar) {
         int i = aefVar.f;
@@ -44,9 +47,9 @@ public class aef extends ady {
         return i;
     }
 
-    public static aef b(int i) {
+    public static aef b(Object obj) {
         Bundle bundle = new Bundle();
-        bundle.putInt("live_area_id", i);
+        bundle.putString("live_area_id", obj.toString());
         aef aefVar = new aef();
         aefVar.setArguments(bundle);
         return aefVar;
@@ -57,9 +60,9 @@ public class aef extends ady {
         super.a(recyclerView, bundle);
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.i = arguments.getInt("live_area_id");
+            this.live_area_id = arguments.getString("live_area_id");
         }
-        if (this.i == 0) {
+        if (this.live_area_id.isEmpty()) {
             return;
         }
         this.d = new a();
@@ -118,7 +121,11 @@ public class aef extends ady {
         this.c = new b();
         recyclerView.setAdapter(this.c);
         i();
-        ((aeh) vo.a(aeh.class)).a(this.i, null, "online", this.f, 20).a(this.d);
+        if(this.live_area_id.equals("my")) {
+            ((aeh) vo.a(aeh.class)).getAttentionRoomList(mg.a(MainApplication.a()).e(), "web", 10000).a(new aa());
+        } else {
+            ((aeh) vo.a(aeh.class)).getRoomList(this.live_area_id, "online", this.f, 20).a(this.d);
+        }
     }
 
     @Override // bl.adw
@@ -142,7 +149,9 @@ public class aef extends ady {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         this.h = true;
-        ((aeh) vo.a(aeh.class)).a(this.i, null, "online", this.f, 20).a(this.d);
+        if(!this.live_area_id.equals("my")) {
+            ((aeh) vo.a(aeh.class)).getRoomList(this.live_area_id, "online", this.f, 20).a(this.d);
+        }
     }
 
     public static String getPlayUrl(int roomId) {
@@ -150,7 +159,7 @@ public class aef extends ady {
         Future<String> future = threadPool.submit(new Callable<String>() {
             @Override
             public String call() {
-                d dVar = (d) pz.a(new qa.a(d.class).a("https://api.live.bilibili.com/room/v1/Room/playUrl").a(true).b("cid", String.valueOf(roomId)).b("quality", "10000").b("platform", "h5").a(new qb()).a(), "GET");
+                playUrlResponse dVar = (playUrlResponse) pz.a(new qa.a(playUrlResponse.class).a("https://api.live.bilibili.com/room/v1/Room/playUrl").a(true).b("cid", String.valueOf(roomId)).b("quality", "10000").b("platform", "h5").a(new qb()).a(), "GET");
                 return dVar.e();
             }
         });
@@ -183,12 +192,12 @@ public class aef extends ady {
             }
             aef.this.j();
             aef.this.h = false;
-            if (aef.this.c.a() != 0 || (biliLiveEx != null && !biliLiveEx.getData().isEmpty())) {
+            if (aef.this.c.a() != 0 || (biliLiveEx != null && !biliLiveEx.toContents().isEmpty())) {
                 if (aef.this.f == 1) {
-                    aef.this.c.a(biliLiveEx);
+                    aef.this.c.a(biliLiveEx.toContents());
                     return;
                 } else {
-                    aef.this.c.b(biliLiveEx);
+                    aef.this.c.b(biliLiveEx.toContents());
                     return;
                 }
             }
@@ -211,14 +220,59 @@ public class aef extends ady {
         }
     }
 
+    class aa extends vm<BiliLiveExEx> {
+        @Override
+        public /* synthetic */ void onSuccess(BiliLiveExEx biliLiveExEx) {
+            a(biliLiveExEx);
+        }
+
+        @Override
+        public boolean isCancel() {
+            return !aef.this.isAdded();
+        }
+
+        public void a(@Nullable BiliLiveExEx biliLiveExEx) {
+            if (aef.this.c == null) {
+                return;
+            }
+            aef.this.j();
+            aef.this.h = false;
+            if (aef.this.c.a() != 0 || (biliLiveExEx != null && !biliLiveExEx.toContents().isEmpty())) {
+                if (aef.this.f == 1) {
+                    aef.this.c.a(biliLiveExEx.toContents());
+                    return;
+                } else {
+                    aef.this.c.b(biliLiveExEx.toContents());
+                    return;
+                }
+            }
+            if (aef.this.f == 1) {
+                aef.this.l();
+                aef.this.a(R.string.nothing_show);
+            }
+            aef.this.g = false;
+        }
+
+        @Override
+        public void onError(Throwable th) {
+            if (aef.this.c == null) {
+                return;
+            }
+            aef.this.h = false;
+            if (aef.this.f == 1) {
+                aef.this.k();
+            }
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: BL */
     /* loaded from: classes.dex */
     public static class b extends RecyclerView.a<adv> implements View.OnClickListener {
-        private List<BiliLiveEx.Content> a;
+        private List<BiliLiveContent> a;
 
         private b() {
-            this.a = new ArrayList();
+            this.a = new ArrayList<>();
         }
 
         @Override // android.support.v7.widget.RecyclerView.a
@@ -228,7 +282,7 @@ public class aef extends ady {
 
         @Override // android.support.v7.widget.RecyclerView.a
         public void a(adv advVar, int i) {
-            BiliLiveEx.Content biliLive;
+            BiliLiveContent biliLive;
             if (!(advVar instanceof c) || (biliLive = this.a.get(i)) == null) {
                 return;
             }
@@ -249,15 +303,15 @@ public class aef extends ady {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void a(BiliLiveEx biliLiveEx) {
-            this.a = biliLiveEx.getData();
+        public void a(List<BiliLiveContent> contents) {
+            this.a = contents;
             d();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void b(BiliLiveEx biliLiveEx) {
+        public void b(List<BiliLiveContent> contents) {
             int size = this.a.size();
-            this.a.addAll(biliLiveEx.getData());
+            this.a.addAll(contents);
             d(size);
         }
 
@@ -268,9 +322,9 @@ public class aef extends ady {
                 return;
             }
             Object tag = view.getTag();
-            if (tag instanceof BiliLiveEx.Content) {
-                ((BiliLiveEx.Content) tag).mPlayUrl = aef.getPlayUrl(((BiliLiveEx.Content) tag).mRoomId);
-                a.startActivity(LivePlayerActivity.a(a, (BiliLiveEx.Content) tag));
+            if (tag instanceof BiliLiveContent) {
+                ((BiliLiveContent) tag).mPlayUrl = aef.getPlayUrl(((BiliLiveContent) tag).mRoomId);
+                a.startActivity(LivePlayerActivity.a(a, (BiliLiveContent) tag));
             }
         }
     }
@@ -302,7 +356,7 @@ public class aef extends ady {
         }
     }
 
-    public static class d extends qe {
+    public static class playUrlResponse extends qe {
         public String e() {
             JSONObject optJSONObject;
             try {

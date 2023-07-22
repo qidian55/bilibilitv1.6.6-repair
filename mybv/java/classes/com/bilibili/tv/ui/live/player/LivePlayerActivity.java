@@ -21,11 +21,12 @@ import mybl.BiliLiveEx;
 import u.aly.j;
 
 import mybl.DanmakuClient;
+import mybl.BiliLiveContent;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public class LivePlayerActivity extends BaseActivity implements View.OnClickListener, wr {
-    private BiliLiveEx.Content a;
+    private BiliLiveContent a;
     private String b;
     private String c;
     private int d;
@@ -39,7 +40,7 @@ public class LivePlayerActivity extends BaseActivity implements View.OnClickList
         return R.layout.activity_live_player;
     }
 
-    public static Intent a(Context context, BiliLiveEx.Content biliLive) {
+    public static Intent a(Context context, BiliLiveContent biliLive) {
         Intent intent = new Intent(context, LivePlayerActivity.class);
         intent.putExtra("bili_live", biliLive);
         intent.addFlags(604045312);
@@ -57,7 +58,7 @@ public class LivePlayerActivity extends BaseActivity implements View.OnClickList
     public void a(Bundle bundle) {
         Intent intent = getIntent();
         if (intent != null) {
-            this.a = (BiliLiveEx.Content) intent.getParcelableExtra("bili_live");
+            this.a = (BiliLiveContent) intent.getParcelableExtra("bili_live");
             if (this.a != null) {
                 this.b = this.a.mPlayUrl;
                 this.c = this.a.mTitle;

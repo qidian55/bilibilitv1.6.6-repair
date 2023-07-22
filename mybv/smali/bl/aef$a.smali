@@ -32,12 +32,12 @@
     .locals 0
 
     .prologue
-    .line 167
+    .line 176
     iput-object p1, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     invoke-direct {p0}, Lbl/vm;-><init>()V
 
-    .line 168
+    .line 177
     return-void
 .end method
 
@@ -45,7 +45,7 @@
     .locals 0
 
     .prologue
-    .line 166
+    .line 175
     invoke-direct {p0, p1}, Lbl/aef$a;-><init>(Lbl/aef;)V
 
     return-void
@@ -65,7 +65,7 @@
 
     const/4 v2, 0x0
 
-    .line 181
+    .line 190
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     # getter for: Lbl/aef;->c:Lbl/aef$b;
@@ -75,23 +75,23 @@
 
     if-nez v0, :cond_b
 
-    .line 200
+    .line 209
     :goto_a
     return-void
 
-    .line 184
+    .line 193
     :cond_b
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     invoke-virtual {v0}, Lbl/aef;->j()V
 
-    .line 185
+    .line 194
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     # setter for: Lbl/aef;->h:Z
     invoke-static {v0, v2}, Lbl/aef;->access$302(Lbl/aef;Z)Z
 
-    .line 186
+    .line 195
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     # getter for: Lbl/aef;->c:Lbl/aef$b;
@@ -105,9 +105,9 @@
 
     if-nez v0, :cond_2d
 
-    if-eqz p1, :cond_49
+    if-eqz p1, :cond_51
 
-    invoke-virtual {p1}, Lmybl/BiliLiveEx;->getData()Ljava/util/List;
+    invoke-virtual {p1}, Lmybl/BiliLiveEx;->toContents()Ljava/util/List;
 
     move-result-object v0
 
@@ -115,9 +115,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_49
+    if-nez v0, :cond_51
 
-    .line 187
+    .line 196
     :cond_2d
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
@@ -126,9 +126,9 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_3f
+    if-ne v0, v1, :cond_43
 
-    .line 188
+    .line 197
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     # getter for: Lbl/aef;->c:Lbl/aef$b;
@@ -136,12 +136,16 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lbl/aef$b;->a(Lmybl/BiliLiveEx;)V
+    invoke-virtual {p1}, Lmybl/BiliLiveEx;->toContents()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lbl/aef$b;->a(Ljava/util/List;)V
 
     goto :goto_a
 
-    .line 191
-    :cond_3f
+    .line 200
+    :cond_43
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     # getter for: Lbl/aef;->c:Lbl/aef$b;
@@ -149,12 +153,16 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lbl/aef$b;->b(Lmybl/BiliLiveEx;)V
+    invoke-virtual {p1}, Lmybl/BiliLiveEx;->toContents()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lbl/aef$b;->b(Ljava/util/List;)V
 
     goto :goto_a
 
-    .line 195
-    :cond_49
+    .line 204
+    :cond_51
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     # getter for: Lbl/aef;->f:I
@@ -162,22 +170,22 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_5e
+    if-ne v0, v1, :cond_66
 
-    .line 196
+    .line 205
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     invoke-virtual {v0}, Lbl/aef;->l()V
 
-    .line 197
+    .line 206
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     const v1, 0x7f0c00d8
 
     invoke-virtual {v0, v1}, Lbl/aef;->a(I)V
 
-    .line 199
-    :cond_5e
+    .line 208
+    :cond_66
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     # setter for: Lbl/aef;->g:Z
@@ -190,7 +198,7 @@
     .locals 1
 
     .prologue
-    .line 177
+    .line 186
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     invoke-virtual {v0}, Lbl/aef;->isAdded()Z
@@ -214,7 +222,7 @@
     .locals 2
 
     .prologue
-    .line 204
+    .line 213
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     # getter for: Lbl/aef;->c:Lbl/aef$b;
@@ -224,12 +232,12 @@
 
     if-nez v0, :cond_9
 
-    .line 211
+    .line 220
     :cond_8
     :goto_8
     return-void
 
-    .line 207
+    .line 216
     :cond_9
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
@@ -238,7 +246,7 @@
     # setter for: Lbl/aef;->h:Z
     invoke-static {v0, v1}, Lbl/aef;->access$302(Lbl/aef;Z)Z
 
-    .line 208
+    .line 217
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     # getter for: Lbl/aef;->f:I
@@ -250,7 +258,7 @@
 
     if-ne v0, v1, :cond_8
 
-    .line 209
+    .line 218
     iget-object v0, p0, Lbl/aef$a;->this$0:Lbl/aef;
 
     invoke-virtual {v0}, Lbl/aef;->k()V
@@ -262,7 +270,7 @@
     .locals 0
 
     .prologue
-    .line 166
+    .line 175
     check-cast p1, Lmybl/BiliLiveEx;
 
     invoke-virtual {p0, p1}, Lbl/aef$a;->onSuccess(Lmybl/BiliLiveEx;)V
@@ -274,9 +282,9 @@
     .locals 0
 
     .prologue
-    .line 172
+    .line 181
     invoke-virtual {p0, p1}, Lbl/aef$a;->a(Lmybl/BiliLiveEx;)V
 
-    .line 173
+    .line 182
     return-void
 .end method

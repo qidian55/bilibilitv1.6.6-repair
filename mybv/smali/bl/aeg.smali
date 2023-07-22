@@ -1,6 +1,6 @@
 .class public Lbl/aeg;
 .super Lbl/adx;
-.source "BL"
+.source "aeg.java"
 
 
 # direct methods
@@ -11,9 +11,11 @@
         .end annotation
     .end param
 
-    .line 19
+    .prologue
+    .line 47
     invoke-direct {p0, p1, p2}, Lbl/adx;-><init>(Landroid/support/v4/app/FragmentManager;I)V
 
+    .line 48
     return-void
 .end method
 
@@ -22,224 +24,309 @@
 .method public a()I
     .locals 1
 
-    const/16 v0, 0xb
+    .prologue
+    .line 12
+    const/16 v0, 0xc
 
     return v0
 .end method
 
 .method public a(I)Landroid/support/v4/app/Fragment;
-    .locals 0
+    .locals 1
 
-    packed-switch p1, :pswitch_data_0
+    .prologue
+    .line 52
+    packed-switch p1, :pswitch_data_80
 
-    const/4 p1, 0x0
+    .line 78
+    const/4 v0, 0x0
 
-    return-object p1
+    :goto_4
+    return-object v0
 
-    :pswitch_0
-    const/4 p1, 0x7
-
-    .line 46
-    invoke-static {p1}, Lbl/aef;->b(I)Lbl/aef;
-
-    move-result-object p1
-
-    return-object p1
-
-    :pswitch_1
-    const/4 p1, 0x2
-
-    .line 44
-    invoke-static {p1}, Lbl/aef;->b(I)Lbl/aef;
-
-    move-result-object p1
-
-    return-object p1
-
-    :pswitch_2
-    const/4 p1, 0x4
-
-    .line 42
-    invoke-static {p1}, Lbl/aef;->b(I)Lbl/aef;
-
-    move-result-object p1
-
-    return-object p1
-
-    :pswitch_3
-    const/4 p1, 0x6
-
-    .line 40
-    invoke-static {p1}, Lbl/aef;->b(I)Lbl/aef;
-
-    move-result-object p1
-
-    return-object p1
-
-    :pswitch_4
-    const/4 p1, 0x3
-
-    .line 38
-    invoke-static {p1}, Lbl/aef;->b(I)Lbl/aef;
-
-    move-result-object p1
-
-    return-object p1
-
+    .line 54
     :pswitch_5
-    const/4 p1, 0x1
+    const-string v0, "my"
 
-    .line 36
-    invoke-static {p1}, Lbl/aef;->b(I)Lbl/aef;
+    invoke-static {v0}, Lbl/aef;->b(Ljava/lang/Object;)Lbl/aef;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    goto :goto_4
 
-    :pswitch_6
-    const/16 p1, 0xc
+    .line 56
+    :pswitch_c
+    const/4 v0, 0x0
 
-    .line 34
-    invoke-static {p1}, Lbl/aef;->b(I)Lbl/aef;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    invoke-static {v0}, Lbl/aef;->b(Ljava/lang/Object;)Lbl/aef;
 
-    :pswitch_7
-    const/16 p1, 0xa
+    move-result-object v0
 
-    .line 32
-    invoke-static {p1}, Lbl/aef;->b(I)Lbl/aef;
+    goto :goto_4
 
-    move-result-object p1
+    .line 58
+    :pswitch_16
+    const/4 v0, 0x2
 
-    return-object p1
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    :pswitch_8
-    const/16 p1, 0xb
+    move-result-object v0
 
-    .line 30
-    invoke-static {p1}, Lbl/aef;->b(I)Lbl/aef;
+    invoke-static {v0}, Lbl/aef;->b(Ljava/lang/Object;)Lbl/aef;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    goto :goto_4
 
-    :pswitch_9
-    const/16 p1, 0x9
+    .line 60
+    :pswitch_20
+    const/4 v0, 0x3
 
-    .line 28
-    invoke-static {p1}, Lbl/aef;->b(I)Lbl/aef;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    invoke-static {v0}, Lbl/aef;->b(Ljava/lang/Object;)Lbl/aef;
 
-    :pswitch_a
-    const/16 p1, 0x8
+    move-result-object v0
 
-    .line 26
-    invoke-static {p1}, Lbl/aef;->b(I)Lbl/aef;
+    goto :goto_4
 
-    move-result-object p1
+    .line 62
+    :pswitch_2a
+    const/4 v0, 0x6
 
-    return-object p1
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    :pswitch_data_0
+    move-result-object v0
+
+    invoke-static {v0}, Lbl/aef;->b(Ljava/lang/Object;)Lbl/aef;
+
+    move-result-object v0
+
+    goto :goto_4
+
+    .line 64
+    :pswitch_34
+    const/4 v0, 0x1
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lbl/aef;->b(Ljava/lang/Object;)Lbl/aef;
+
+    move-result-object v0
+
+    goto :goto_4
+
+    .line 66
+    :pswitch_3e
+    const/4 v0, 0x5
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lbl/aef;->b(Ljava/lang/Object;)Lbl/aef;
+
+    move-result-object v0
+
+    goto :goto_4
+
+    .line 68
+    :pswitch_48
+    const/16 v0, 0x9
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lbl/aef;->b(Ljava/lang/Object;)Lbl/aef;
+
+    move-result-object v0
+
+    goto :goto_4
+
+    .line 70
+    :pswitch_53
+    const/16 v0, 0xa
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lbl/aef;->b(Ljava/lang/Object;)Lbl/aef;
+
+    move-result-object v0
+
+    goto :goto_4
+
+    .line 72
+    :pswitch_5e
+    const/16 v0, 0xb
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lbl/aef;->b(Ljava/lang/Object;)Lbl/aef;
+
+    move-result-object v0
+
+    goto :goto_4
+
+    .line 74
+    :pswitch_69
+    const/16 v0, 0xd
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lbl/aef;->b(Ljava/lang/Object;)Lbl/aef;
+
+    move-result-object v0
+
+    goto :goto_4
+
+    .line 76
+    :pswitch_74
+    const/16 v0, 0xc
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lbl/aef;->b(Ljava/lang/Object;)Lbl/aef;
+
+    move-result-object v0
+
+    goto :goto_4
+
+    .line 52
+    nop
+
+    :pswitch_data_80
     .packed-switch 0x0
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
         :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_c
+        :pswitch_16
+        :pswitch_20
+        :pswitch_2a
+        :pswitch_34
+        :pswitch_3e
+        :pswitch_48
+        :pswitch_53
+        :pswitch_5e
+        :pswitch_69
+        :pswitch_74
     .end packed-switch
 .end method
 
 .method public b(I)Ljava/lang/CharSequence;
-    .locals 0
+    .locals 1
 
-    packed-switch p1, :pswitch_data_0
+    .prologue
+    .line 16
+    packed-switch p1, :pswitch_data_2a
 
-    const-string p1, ""
+    .line 42
+    const-string v0, ""
 
-    return-object p1
+    :goto_5
+    return-object v0
 
-    :pswitch_0
-    const-string p1, "\u653e\u6620\u5385"
-
-    return-object p1
-
-    :pswitch_1
-    const-string p1, "\u5fa1\u5b85\u6587\u5316"
-
-    return-object p1
-
-    :pswitch_2
-    const-string p1, "\u7535\u5b50\u7ade\u6280"
-
-    return-object p1
-
-    :pswitch_3
-    const-string p1, "\u751f\u6d3b\u5a31\u4e50"
-
-    return-object p1
-
-    :pswitch_4
-    const-string p1, "\u7f51\u7edc\u6e38\u620f"
-
-    return-object p1
-
-    :pswitch_5
-    const-string p1, "\u5355\u673a\u8054\u673a"
-
-    return-object p1
-
+    .line 18
     :pswitch_6
-    const-string p1, "\u624b\u6e38\u76f4\u64ad"
+    const-string v0, "\u6211\u7684\u5173\u6ce8"
 
-    return-object p1
+    goto :goto_5
 
-    :pswitch_7
-    const-string p1, "\u5531\u89c1\u821e\u89c1"
-
-    return-object p1
-
-    :pswitch_8
-    const-string p1, "\u624b\u673a\u76f4\u64ad"
-
-    return-object p1
-
+    .line 20
     :pswitch_9
-    const-string p1, "\u7ed8\u753b\u4e13\u533a"
+    const-string v0, "\u70ed\u95e8\u76f4\u64ad"
 
-    return-object p1
+    goto :goto_5
 
-    :pswitch_a
-    const-string p1, "\u63a8\u8350\u4e3b\u64ad"
+    .line 22
+    :pswitch_c
+    const-string v0, "\u7f51\u6e38"
 
-    return-object p1
+    goto :goto_5
 
-    nop
+    .line 24
+    :pswitch_f
+    const-string v0, "\u624b\u6e38"
 
-    :pswitch_data_0
+    goto :goto_5
+
+    .line 26
+    :pswitch_12
+    const-string v0, "\u5355\u673a\u6e38\u620f"
+
+    goto :goto_5
+
+    .line 28
+    :pswitch_15
+    const-string v0, "\u5a31\u4e50"
+
+    goto :goto_5
+
+    .line 30
+    :pswitch_18
+    const-string v0, "\u7535\u53f0"
+
+    goto :goto_5
+
+    .line 32
+    :pswitch_1b
+    const-string v0, "\u865a\u62df\u4e3b\u64ad"
+
+    goto :goto_5
+
+    .line 34
+    :pswitch_1e
+    const-string v0, "\u751f\u6d3b"
+
+    goto :goto_5
+
+    .line 36
+    :pswitch_21
+    const-string v0, "\u77e5\u8bc6"
+
+    goto :goto_5
+
+    .line 38
+    :pswitch_24
+    const-string v0, "\u8d5b\u4e8b"
+
+    goto :goto_5
+
+    .line 40
+    :pswitch_27
+    const-string v0, "\u5927\u4e8b\u4ef6"
+
+    goto :goto_5
+
+    .line 16
+    :pswitch_data_2a
     .packed-switch 0x0
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
         :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_9
+        :pswitch_c
+        :pswitch_f
+        :pswitch_12
+        :pswitch_15
+        :pswitch_18
+        :pswitch_1b
+        :pswitch_1e
+        :pswitch_21
+        :pswitch_24
+        :pswitch_27
     .end packed-switch
 .end method

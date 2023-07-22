@@ -12,7 +12,7 @@
 
 
 # instance fields
-.field private data:Ljava/util/List;
+.field public data:Ljava/util/List;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "data"
     .end annotation
@@ -33,7 +33,7 @@
     .locals 0
 
     .prologue
-    .line 11
+    .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,41 +41,25 @@
 
 
 # virtual methods
-.method public final getData()Ljava/util/List;
-    .locals 1
+.method public final toContents()Ljava/util/List;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
             "Ljava/util/List",
             "<",
-            "Lmybl/BiliLiveEx$Content;",
+            "Lmybl/BiliLiveContent;",
             ">;"
         }
     .end annotation
 
     .prologue
-    .line 16
-    iget-object v0, p0, Lmybl/BiliLiveEx;->data:Ljava/util/List;
+    .line 15
+    new-instance v0, Ljava/util/ArrayList;
+
+    iget-object v1, p0, Lmybl/BiliLiveEx;->data:Ljava/util/List;
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     return-object v0
-.end method
-
-.method public final setData(Ljava/util/List;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Lmybl/BiliLiveEx$Content;",
-            ">;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 20
-    iput-object p1, p0, Lmybl/BiliLiveEx;->data:Ljava/util/List;
-
-    .line 21
-    return-void
 .end method

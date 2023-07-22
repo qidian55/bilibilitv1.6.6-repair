@@ -37,6 +37,8 @@ import com.bilibili.tv.widget.FixLinearLayoutManager;
 import com.bilibili.tv.widget.ScalableImageView;
 import java.util.ArrayList;
 
+import mybl.BiliLiveContent;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public class LivePlayerController extends FrameLayout implements View.OnClickListener {
@@ -52,7 +54,7 @@ public class LivePlayerController extends FrameLayout implements View.OnClickLis
     private boolean j;
     private LiveVideoPlayer k;
     private wr l;
-    private BiliLiveEx.Content m;
+    private BiliLiveContent m;
     private PlayControllerOptionType[] n;
     private cj<wn> o;
     private cj<wn> p;
@@ -159,7 +161,7 @@ public class LivePlayerController extends FrameLayout implements View.OnClickLis
         this.k = liveVideoPlayer;
     }
 
-    public void setBiliLive(BiliLiveEx.Content biliLive) {
+    public void setBiliLive(BiliLiveContent biliLive) {
         this.m = biliLive;
     }
 
