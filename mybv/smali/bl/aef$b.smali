@@ -307,7 +307,7 @@
     .line 321
     if-nez v3, :cond_b
 
-    .line 329
+    .line 331
     :cond_a
     :goto_a
     return-void
@@ -328,6 +328,17 @@
     .line 326
     check-cast v0, Lmybl/BiliLiveContent;
 
+    invoke-virtual {v0}, Lmybl/BiliLiveContent;->hasPlayUrl()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2a
+
+    move-object v0, v1
+
+    .line 327
+    check-cast v0, Lmybl/BiliLiveContent;
+
     move-object v2, v1
 
     check-cast v2, Lmybl/BiliLiveContent;
@@ -340,7 +351,8 @@
 
     iput-object v2, v0, Lmybl/BiliLiveContent;->mPlayUrl:Ljava/lang/String;
 
-    .line 327
+    .line 329
+    :cond_2a
     check-cast v1, Lmybl/BiliLiveContent;
 
     invoke-static {v3, v1}, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->a(Landroid/content/Context;Lmybl/BiliLiveContent;)Landroid/content/Intent;

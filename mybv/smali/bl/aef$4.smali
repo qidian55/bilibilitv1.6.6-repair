@@ -108,7 +108,7 @@
 
     const-string v1, "platform"
 
-    const-string v2, "h5"
+    const-string v2, "android"
 
     invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 

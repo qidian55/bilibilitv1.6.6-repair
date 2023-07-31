@@ -414,6 +414,15 @@
     .line 214
     invoke-static {p2}, Lbl/ww;->a(Ljava/lang/String;)V
 
+
+    iget-object p2, p0, Lbl/wm;->h:Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;
+    check-cast p2, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
+    const-string v0, "user_agent"
+    const-string v1, "Bilibili Freedoooooom/MarkII"
+    const/4 v3, 0x1
+    invoke-virtual {p2, v3, v0, v1}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setOption(ILjava/lang/String;Ljava/lang/String;)V
+
+
     .line 215
     iget-object p2, p0, Lbl/wm;->h:Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;
 

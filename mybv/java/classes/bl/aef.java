@@ -159,7 +159,7 @@ public class aef extends ady {
         Future<String> future = threadPool.submit(new Callable<String>() {
             @Override
             public String call() {
-                playUrlResponse dVar = (playUrlResponse) pz.a(new qa.a(playUrlResponse.class).a("https://api.live.bilibili.com/room/v1/Room/playUrl").a(true).b("cid", String.valueOf(roomId)).b("quality", "10000").b("platform", "h5").a(new qb()).a(), "GET");
+                playUrlResponse dVar = (playUrlResponse) pz.a(new qa.a(playUrlResponse.class).a("https://api.live.bilibili.com/room/v1/Room/playUrl").a(true).b("cid", String.valueOf(roomId)).b("quality", "10000").b("platform", "android").a(new qb()).a(), "GET");
                 return dVar.e();
             }
         });
@@ -323,7 +323,9 @@ public class aef extends ady {
             }
             Object tag = view.getTag();
             if (tag instanceof BiliLiveContent) {
-                ((BiliLiveContent) tag).mPlayUrl = aef.getPlayUrl(((BiliLiveContent) tag).mRoomId);
+                if(((BiliLiveContent) tag).hasPlayUrl()){
+                    ((BiliLiveContent) tag).mPlayUrl = aef.getPlayUrl(((BiliLiveContent) tag).mRoomId);
+                }
                 a.startActivity(LivePlayerActivity.a(a, (BiliLiveContent) tag));
             }
         }
