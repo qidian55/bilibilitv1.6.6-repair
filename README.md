@@ -43,7 +43,7 @@
 
 - 添加播放速度调节功能
 - 调整直播分区，添加我的关注
-- 直播源换用flv格式的android源，仅支持ijk硬解
+- 直播源换用flv格式的android源
 
 
 ## todo list
