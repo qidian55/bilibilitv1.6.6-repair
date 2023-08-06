@@ -214,6 +214,14 @@
 .end field
 
 
+.field public mFirstFrame:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "first_frame"
+    .end annotation
+.end field
+
+
+
 # direct methods
 .method static constructor <clinit>()V
     .locals 1

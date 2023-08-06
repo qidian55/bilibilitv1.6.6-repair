@@ -282,6 +282,14 @@
 .method private final a(Lcom/bilibili/tv/api/video/BiliVideoDetail;)Z
     .locals 2
 
+
+    iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mFirstFrame:Ljava/lang/String;
+    check-cast v0, Ljava/lang/CharSequence;
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result v0
+    if-eqz v0, :cond_1
+
+
     if-eqz p1, :cond_0
 
     .line 411
