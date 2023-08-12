@@ -1,10 +1,11 @@
 package mybl;
 
+import java.util.*;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
-import java.util.*;
 
 /* loaded from: classes.dex */
 public class BiliLiveEx {
@@ -35,6 +36,5 @@ public class BiliLiveEx {
         public void setmUid(long mUid) { this.mUid = mUid; }
         @JSONField(name = "uname")
         public void setmUname(String mUname) { this.mUname = mUname; }
-
     }
 }

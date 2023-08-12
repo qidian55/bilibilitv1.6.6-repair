@@ -1,6 +1,6 @@
-.class Lbl/wm$a;
+.class public Lbl/wm$aa;
 .super Ljava/lang/Object;
-.source "BL"
+.source "wm.java"
 
 
 # annotations
@@ -9,8 +9,8 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "a"
+    accessFlags = 0x9
+    name = "aa"
 .end annotation
 
 
@@ -22,23 +22,35 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 76
+    .prologue
+    .line 62
     new-instance v0, Lbl/wm;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, v1}, Lbl/wm;-><init>(Lbl/wm$1;)V
 
-    sput-object v0, Lbl/wm$a;->a:Lbl/wm;
+    sput-object v0, Lbl/wm$aa;->a:Lbl/wm;
 
     return-void
 .end method
 
-.method static synthetic a()Lbl/wm;
+.method public constructor <init>()V
+    .locals 0
+
+    .prologue
+    .line 61
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method static synthetic access$000()Lbl/wm;
     .locals 1
 
-    .line 75
-    sget-object v0, Lbl/wm$a;->a:Lbl/wm;
+    .prologue
+    .line 61
+    sget-object v0, Lbl/wm$aa;->a:Lbl/wm;
 
     return-object v0
 .end method

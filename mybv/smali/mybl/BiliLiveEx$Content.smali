@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 19
+    .line 20
     invoke-direct {p0}, Lmybl/BiliLiveContent;-><init>()V
 
     return-void
@@ -34,7 +34,7 @@
     .end annotation
 
     .prologue
-    .line 21
+    .line 22
     iput-object p1, p0, Lmybl/BiliLiveEx$Content;->mArea:Ljava/lang/String;
 
     return-void
@@ -47,7 +47,7 @@
     .end annotation
 
     .prologue
-    .line 23
+    .line 24
     iput p1, p0, Lmybl/BiliLiveEx$Content;->mAreaId:I
 
     return-void
@@ -60,7 +60,7 @@
     .end annotation
 
     .prologue
-    .line 25
+    .line 26
     iput-object p1, p0, Lmybl/BiliLiveEx$Content;->mCover:Ljava/lang/String;
 
     return-void
@@ -73,7 +73,7 @@
     .end annotation
 
     .prologue
-    .line 27
+    .line 28
     iput-object p1, p0, Lmybl/BiliLiveEx$Content;->mFace:Ljava/lang/String;
 
     return-void
@@ -86,7 +86,7 @@
     .end annotation
 
     .prologue
-    .line 29
+    .line 30
     iput-wide p1, p0, Lmybl/BiliLiveEx$Content;->mOnline:J
 
     return-void
@@ -99,7 +99,7 @@
     .end annotation
 
     .prologue
-    .line 31
+    .line 32
     iput p1, p0, Lmybl/BiliLiveEx$Content;->mRoomId:I
 
     return-void
@@ -112,7 +112,7 @@
     .end annotation
 
     .prologue
-    .line 33
+    .line 34
     iput-object p1, p0, Lmybl/BiliLiveEx$Content;->mTitle:Ljava/lang/String;
 
     return-void
@@ -125,7 +125,7 @@
     .end annotation
 
     .prologue
-    .line 35
+    .line 36
     iput-wide p1, p0, Lmybl/BiliLiveEx$Content;->mUid:J
 
     return-void
@@ -138,7 +138,7 @@
     .end annotation
 
     .prologue
-    .line 37
+    .line 38
     iput-object p1, p0, Lmybl/BiliLiveEx$Content;->mUname:Ljava/lang/String;
 
     return-void

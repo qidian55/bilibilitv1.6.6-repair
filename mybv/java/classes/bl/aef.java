@@ -24,11 +24,6 @@ import mybl.BiliLiveExEx;
 import mybl.BiliLiveContent;
 import com.bilibili.tv.MainApplication;
 import android.util.Log;
-import org.json.JSONObject;
-import java.util.concurrent.Future;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ExecutorService;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -151,22 +146,6 @@ public class aef extends ady {
         this.h = true;
         if(!this.live_area_id.equals("my")) {
             ((aeh) vo.a(aeh.class)).getRoomList(this.live_area_id, "online", this.f, 20).a(this.d);
-        }
-    }
-
-    public static String getPlayUrl(int roomId) {
-        ExecutorService threadPool  = Executors.newSingleThreadExecutor();
-        Future<String> future = threadPool.submit(new Callable<String>() {
-            @Override
-            public String call() {
-                playUrlResponse dVar = (playUrlResponse) pz.a(new qa.a(playUrlResponse.class).a("https://api.live.bilibili.com/room/v1/Room/playUrl").a(true).b("cid", String.valueOf(roomId)).b("quality", "10000").b("platform", "android").a(new qb()).a(), "GET");
-                return dVar.e();
-            }
-        });
-        try {
-            return future.get();
-        } catch (Exception e){
-            return "";
         }
     }
 
@@ -324,7 +303,7 @@ public class aef extends ady {
             Object tag = view.getTag();
             if (tag instanceof BiliLiveContent) {
                 if(((BiliLiveContent) tag).hasPlayUrl()){
-                    ((BiliLiveContent) tag).mPlayUrl = aef.getPlayUrl(((BiliLiveContent) tag).mRoomId);
+                    ((BiliLiveContent) tag).getPlayUrl();
                 }
                 a.startActivity(LivePlayerActivity.a(a, (BiliLiveContent) tag));
             }
@@ -355,20 +334,6 @@ public class aef extends ady {
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
             this.q.setUpEnabled(z);
-        }
-    }
-
-    public static class playUrlResponse extends qe {
-        public String e() {
-            JSONObject optJSONObject;
-            try {
-                if (a() && (optJSONObject = new JSONObject(new String(this.b)).optJSONObject("data")) != null) {
-                    return optJSONObject.optJSONArray("durl").getJSONObject(0).optString("url");
-                }
-                return "";
-            } catch (Exception e) {
-                return "";
-            }
         }
     }
 

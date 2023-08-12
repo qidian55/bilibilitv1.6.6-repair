@@ -1,6 +1,6 @@
 .class Lbl/wm$3;
 .super Ljava/lang/Object;
-.source "BL"
+.source "wm.java"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -18,19 +18,20 @@
 
 
 # instance fields
-.field final synthetic a:I
+.field final synthetic this$0:Lbl/wm;
 
-.field final synthetic b:Lbl/wm;
+.field final synthetic val$i:I
 
 
 # direct methods
 .method constructor <init>(Lbl/wm;I)V
     .locals 0
 
-    .line 305
-    iput-object p1, p0, Lbl/wm$3;->b:Lbl/wm;
+    .prologue
+    .line 311
+    iput-object p1, p0, Lbl/wm$3;->this$0:Lbl/wm;
 
-    iput p2, p0, Lbl/wm$3;->a:I
+    iput p2, p0, Lbl/wm$3;->val$i:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,56 +43,61 @@
 .method public run()V
     .locals 2
 
-    .line 308
-    iget-object v0, p0, Lbl/wm$3;->b:Lbl/wm;
+    .prologue
+    .line 314
+    iget-object v0, p0, Lbl/wm$3;->this$0:Lbl/wm;
 
-    invoke-static {v0}, Lbl/wm;->b(Lbl/wm;)Ljava/lang/ref/WeakReference;
+    # getter for: Lbl/wm;->p:Ljava/lang/ref/WeakReference;
+    invoke-static {v0}, Lbl/wm;->access$400(Lbl/wm;)Ljava/lang/ref/WeakReference;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
-    .line 309
-    iget v0, p0, Lbl/wm$3;->a:I
+    .line 315
+    iget v0, p0, Lbl/wm$3;->val$i:I
 
-    iget-object v1, p0, Lbl/wm$3;->b:Lbl/wm;
+    iget-object v1, p0, Lbl/wm$3;->this$0:Lbl/wm;
 
-    invoke-static {v1}, Lbl/wm;->c(Lbl/wm;)I
+    # getter for: Lbl/wm;->v:I
+    invoke-static {v1}, Lbl/wm;->access$300(Lbl/wm;)I
 
     move-result v1
 
-    if-le v0, v1, :cond_0
+    if-gt v0, v1, :cond_22
 
-    .line 310
-    iget-object v0, p0, Lbl/wm$3;->b:Lbl/wm;
+    .line 316
+    iget-object v0, p0, Lbl/wm$3;->this$0:Lbl/wm;
 
     invoke-virtual {v0}, Lbl/wm;->b()Lbl/ws;
 
     move-result-object v0
 
-    iget v1, p0, Lbl/wm$3;->a:I
+    iget-object v1, p0, Lbl/wm$3;->this$0:Lbl/wm;
 
-    invoke-interface {v0, v1}, Lbl/ws;->a(I)V
-
-    goto :goto_0
-
-    .line 312
-    :cond_0
-    iget-object v0, p0, Lbl/wm$3;->b:Lbl/wm;
-
-    invoke-virtual {v0}, Lbl/wm;->b()Lbl/ws;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lbl/wm$3;->b:Lbl/wm;
-
-    invoke-static {v1}, Lbl/wm;->c(Lbl/wm;)I
+    # getter for: Lbl/wm;->v:I
+    invoke-static {v1}, Lbl/wm;->access$300(Lbl/wm;)I
 
     move-result v1
 
     invoke-interface {v0, v1}, Lbl/ws;->a(I)V
 
-    :cond_1
-    :goto_0
+    .line 321
+    :cond_21
+    :goto_21
     return-void
+
+    .line 318
+    :cond_22
+    iget-object v0, p0, Lbl/wm$3;->this$0:Lbl/wm;
+
+    invoke-virtual {v0}, Lbl/wm;->b()Lbl/ws;
+
+    move-result-object v0
+
+    iget v1, p0, Lbl/wm$3;->val$i:I
+
+    invoke-interface {v0, v1}, Lbl/ws;->a(I)V
+
+    goto :goto_21
 .end method

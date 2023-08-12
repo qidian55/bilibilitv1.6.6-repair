@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliVideoDetail.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;
@@ -24,7 +24,8 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;",
             ">;"
         }
@@ -50,7 +51,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 593
+    .prologue
+    .line 616
     new-instance v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser$1;
 
     invoke-direct {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser$1;-><init>()V
@@ -63,43 +65,48 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 585
+    .prologue
+    .line 651
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 652
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 1
 
-    .line 588
+    .prologue
+    .line 654
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 589
+    .line 655
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mAttention:I
 
-    .line 590
+    .line 656
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_13
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_10
+    iput-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mFavorite:Z
 
-    :cond_0
-    const/4 p1, 0x0
-
-    :goto_0
-    iput-boolean p1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mFavorite:Z
-
+    .line 657
     return-void
+
+    .line 656
+    :cond_13
+    const/4 v0, 0x0
+
+    goto :goto_10
 .end method
 
 
@@ -107,6 +114,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 638
     const/4 v0, 0x0
 
     return v0
@@ -115,36 +124,50 @@
 .method public isAttention()Z
     .locals 2
 
-    .line 571
+    .prologue
+    .line 642
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mAttention:I
 
     const/16 v1, -0x3e7
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_7
+    return v0
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_7
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
+    .locals 1
 
-    .line 581
-    iget p2, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mAttention:I
+    .prologue
+    .line 647
+    iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mAttention:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 582
-    iget-boolean p2, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mFavorite:Z
+    .line 648
+    iget-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mFavorite:Z
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeByte(B)V
+    if-eqz v0, :cond_e
 
+    const/4 v0, 0x1
+
+    :goto_a
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
+
+    .line 649
     return-void
+
+    .line 648
+    :cond_e
+    const/4 v0, 0x0
+
+    goto :goto_a
 .end method

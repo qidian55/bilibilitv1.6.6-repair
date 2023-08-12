@@ -39,6 +39,11 @@ public class BiliLiveExEx {
         public void setmRoomId(int mRoomId) { this.mRoomId = mRoomId; }
         @JSONField(name = "title")
         public void setmTitle(String mTitle) { this.mTitle = mTitle; }
+        
+        @JSONField(name = "accept_quality")
+        public void setmAcceptQuality(int[] mAcceptQuality) { this.mAcceptQuality = mAcceptQuality; }
+        @JSONField(name = "current_quality")
+        public void setmCurrentQuality(int mCurrentQuality) { this.mCurrentQuality = mCurrentQuality; }
     }
 
 }

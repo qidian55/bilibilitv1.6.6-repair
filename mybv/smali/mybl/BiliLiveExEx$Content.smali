@@ -27,6 +27,19 @@
 
 
 # virtual methods
+.method public setmAcceptQuality([I)V
+    .locals 0
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "accept_quality"
+    .end annotation
+
+    .prologue
+    .line 44
+    iput-object p1, p0, Lmybl/BiliLiveExEx$Content;->mAcceptQuality:[I
+
+    return-void
+.end method
+
 .method public setmArea(Ljava/lang/String;)V
     .locals 0
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
@@ -62,6 +75,19 @@
     .prologue
     .line 27
     iput-object p1, p0, Lmybl/BiliLiveExEx$Content;->mCover:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public setmCurrentQuality(I)V
+    .locals 0
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "current_quality"
+    .end annotation
+
+    .prologue
+    .line 46
+    iput p1, p0, Lmybl/BiliLiveExEx$Content;->mCurrentQuality:I
 
     return-void
 .end method

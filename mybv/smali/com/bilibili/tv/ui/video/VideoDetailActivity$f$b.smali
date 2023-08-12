@@ -1,69 +1,76 @@
 .class final Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$b;
 .super Ljava/lang/Object;
-.source "BL"
+.source "VideoDetailActivity.java"
 
 # interfaces
 .implements Landroid/view/View$OnFocusChangeListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;->b(Ljava/lang/Object;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x18
-    name = null
+    name = "b"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
+.field final a:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
 
 
 # direct methods
 .method constructor <init>(Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$b;->a:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
-
+    .prologue
+    .line 951
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 952
+    iput-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$b;->a:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
+
+    .line 953
     return-void
 .end method
 
 
 # virtual methods
 .method public final onFocusChange(Landroid/view/View;Z)V
-    .locals 0
+    .locals 2
 
-    if-eqz p2, :cond_0
+    .prologue
+    .line 957
+    if-eqz p2, :cond_d
 
-    .line 753
-    iget-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$b;->a:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
+    .line 958
+    iget-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$b;->a:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
 
-    invoke-virtual {p1}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;->z()Lcom/bilibili/tv/widget/DrawRelativeLayout;
+    invoke-virtual {v0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;->z()Lcom/bilibili/tv/widget/DrawRelativeLayout;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/4 p2, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {p1, p2}, Lcom/bilibili/tv/widget/DrawRelativeLayout;->setUpEnabled(Z)V
+    invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/DrawRelativeLayout;->setUpEnabled(Z)V
 
-    goto :goto_0
-
-    .line 755
-    :cond_0
-    iget-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$b;->a:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
-
-    invoke-virtual {p1}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;->z()Lcom/bilibili/tv/widget/DrawRelativeLayout;
-
-    move-result-object p1
-
-    const/4 p2, 0x0
-
-    invoke-virtual {p1, p2}, Lcom/bilibili/tv/widget/DrawRelativeLayout;->setUpEnabled(Z)V
-
-    :goto_0
+    .line 962
+    :goto_c
     return-void
+
+    .line 960
+    :cond_d
+    iget-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$b;->a:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
+
+    invoke-virtual {v0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;->z()Lcom/bilibili/tv/widget/DrawRelativeLayout;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/DrawRelativeLayout;->setUpEnabled(Z)V
+
+    goto :goto_c
 .end method

@@ -2039,6 +2039,13 @@
     <public type="drawable" name="notify_panel_notification_icon_bg" id="0x7f0700cb" />
     <public type="drawable" name="ic_player_play_icon_small" id="0x7f070097" />
     <public type="drawable" name="select_left_item_pink" id="0x7f0700da" />
+
+    <public type="drawable" name="ic_coin" id="0x7f0700f8" />
+    <public type="drawable" name="ic_coin_hightlight" id="0x7f0700f9" />
+    <public type="drawable" name="ic_like" id="0x7f0700fa" />
+    <public type="drawable" name="ic_like_hightlight" id="0x7f0700fb" />
+    <public type="drawable" name="ic_round_hd_white_48dp" id="0x7f0700fc" />
+
     <public type="id" name="ALT" id="0x7f080000" />
     <public type="id" name="CTRL" id="0x7f080001" />
     <public type="id" name="FUNCTION" id="0x7f080002" />
@@ -2398,6 +2405,14 @@
     <public type="id" name="withText" id="0x7f080164" />
     <public type="id" name="wrap" id="0x7f080165" />
     <public type="id" name="wrap_content" id="0x7f080166" />
+
+    <public type="id" name="video_detail_like" id="0x7f080167" />
+    <public type="id" name="video_detail_like_img" id="0x7f080168" />
+    <public type="id" name="video_detail_like_text" id="0x7f080169" />
+    <public type="id" name="video_detail_coin" id="0x7f08016a" />
+    <public type="id" name="video_detail_coin_img" id="0x7f08016b" />
+    <public type="id" name="video_detail_coin_text" id="0x7f08016c" />
+
     <public type="integer" name="config_danmaku_fly_duration" id="0x7f090003" />
     <public type="integer" name="config_danmaku_max_danmaku_on_screen" id="0x7f090005" />
     <public type="integer" name="abc_config_activityDefaultDur" id="0x7f090000" />

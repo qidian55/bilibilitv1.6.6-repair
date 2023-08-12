@@ -1,6 +1,6 @@
 .class final Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliVideoDetail.java"
 
 # interfaces
 .implements Landroid/os/Parcelable$Creator;
@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Landroid/os/Parcelable$Creator<",
+        "Landroid/os/Parcelable$Creator",
+        "<",
         "Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;",
         ">;"
     }
@@ -30,7 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 311
+    .prologue
+    .line 292
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,7 +43,8 @@
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
     .locals 1
 
-    .line 313
+    .prologue
+    .line 297
     new-instance v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
 
     invoke-direct {v0, p1}, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;-><init>(Landroid/os/Parcel;)V
@@ -50,32 +53,35 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+    .locals 1
 
-    .line 311
+    .prologue
+    .line 292
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights$1;->createFromParcel(Landroid/os/Parcel;)Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public newArray(I)[Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
-    .locals 0
+    .locals 1
 
-    .line 317
-    new-array p1, p1, [Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
+    .prologue
+    .line 304
+    new-array v0, p1, [Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+    .locals 1
 
-    .line 311
+    .prologue
+    .line 292
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights$1;->newArray(I)[Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

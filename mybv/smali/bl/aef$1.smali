@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 71
+    .line 66
     iput-object p1, p0, Lbl/aef$1;->this$0:Lbl/aef;
 
     iput-object p2, p0, Lbl/aef$1;->val$liveActivity:Lcom/bilibili/tv/ui/live/LiveActivity;
@@ -44,7 +44,7 @@
     .locals 3
 
     .prologue
-    .line 75
+    .line 70
     iget-object v0, p0, Lbl/aef$1;->val$liveActivity:Lcom/bilibili/tv/ui/live/LiveActivity;
 
     if-eqz v0, :cond_e
@@ -59,12 +59,12 @@
 
     if-nez p1, :cond_f
 
-    .line 81
+    .line 76
     :cond_e
     :goto_e
     return-void
 
-    .line 78
+    .line 73
     :cond_f
     iget-object v1, p0, Lbl/aef$1;->val$liveActivity:Lcom/bilibili/tv/ui/live/LiveActivity;
 
@@ -76,7 +76,7 @@
 
     invoke-virtual {v0, v1}, Lbl/agd;->setUpRectDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 79
+    .line 74
     iget-object v1, p0, Lbl/aef$1;->this$0:Lbl/aef;
 
     # getter for: Lbl/aef;->e:Z
@@ -86,7 +86,7 @@
 
     invoke-virtual {v0, p1, p4, p5, v1}, Lbl/agd;->a(Landroid/view/View;IIZ)V
 
-    .line 80
+    .line 75
     iget-object v0, p0, Lbl/aef$1;->this$0:Lbl/aef;
 
     const/4 v1, 0x0

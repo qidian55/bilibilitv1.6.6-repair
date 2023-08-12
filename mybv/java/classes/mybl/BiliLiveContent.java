@@ -5,6 +5,15 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.alibaba.fastjson.annotation.JSONField;
 
+import bl.pz;
+import bl.qa;
+import bl.qb;
+import bl.qe;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.util.*;
+import java.util.concurrent.*;
+
 public class BiliLiveContent implements Parcelable {
     public static final Parcelable.Creator<BiliLiveContent> CREATOR = new Parcelable.Creator<BiliLiveContent>() {
         @Override // android.os.Parcelable.Creator
@@ -36,6 +45,9 @@ public class BiliLiveContent implements Parcelable {
     public int mRoomId;
     public String mTitle;
 
+    public int[] mAcceptQuality;
+    public int mCurrentQuality = 10000;
+
     @Override // android.os.Parcelable
     public int describeContents() {
         return 0;
@@ -57,6 +69,21 @@ public class BiliLiveContent implements Parcelable {
         this.mParsedTime = System.currentTimeMillis();
     }
 
+    public int getPlayUrl() {
+        ExecutorService threadPool  = Executors.newSingleThreadExecutor();
+        Future<Integer> future = threadPool.submit(new Callable<Integer>() {
+            @Override
+            public Integer call() {
+                return ((playUrlResponse) pz.a(new qa.a(playUrlResponse.class).a("https://api.live.bilibili.com/room/v1/Room/playUrl").a(true).b("cid", String.valueOf(BiliLiveContent.this.mRoomId)).b("quality", String.valueOf(BiliLiveContent.this.mCurrentQuality)).b("platform", "web").a(new qb()).a(), "GET")).e(BiliLiveContent.this); 
+            }
+        });
+        try {
+            return future.get();
+        } catch (Exception e){
+            return -1;
+        }
+    }
+
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.mArea);
@@ -71,6 +98,9 @@ public class BiliLiveContent implements Parcelable {
         parcel.writeString(this.mRealUrl);
         parcel.writeInt(this.mRoomId);
         parcel.writeString(this.mTitle);
+        
+        parcel.writeInt(this.mCurrentQuality);
+        parcel.writeSerializable(this.mAcceptQuality);
     }
 
     protected BiliLiveContent(Parcel parcel) {
@@ -86,6 +116,30 @@ public class BiliLiveContent implements Parcelable {
         this.mRealUrl = parcel.readString();
         this.mRoomId = parcel.readInt();
         this.mTitle = parcel.readString();
+
+        this.mCurrentQuality = parcel.readInt();
+        this.mAcceptQuality = (int[])parcel.readSerializable();
+    }
+
+    public static class playUrlResponse extends qe {
+        public int e(BiliLiveContent biliLiveContent) {
+            JSONObject optJSONObject;
+            try {
+                if (a() && (optJSONObject = new JSONObject(new String(this.b)).optJSONObject("data")) != null) {
+                    biliLiveContent.mPlayUrl = optJSONObject.optJSONArray("durl").optJSONObject(0).optString("url");
+                    biliLiveContent.mCurrentQuality = optJSONObject.optInt("current_qn");
+                    if(biliLiveContent.mAcceptQuality!=null)return 0;
+                    biliLiveContent.mAcceptQuality = new int[optJSONObject.optJSONArray("quality_description").length()];
+                    for(int i=0;i<optJSONObject.optJSONArray("quality_description").length();i++){
+                        biliLiveContent.mAcceptQuality[i]=optJSONObject.optJSONArray("quality_description").optJSONObject(i).optInt("qn");
+                    }
+                    return 0;
+                }
+                return -1;
+            } catch (Exception e) {
+                return -1;
+            }
+        }
     }
 
 }

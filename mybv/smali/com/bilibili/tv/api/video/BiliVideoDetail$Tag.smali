@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliVideoDetail.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;
@@ -24,7 +24,8 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;",
             ">;"
         }
@@ -81,7 +82,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 720
+    .prologue
+    .line 728
     new-instance v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag$1;
 
     invoke-direct {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag$1;-><init>()V
@@ -94,56 +96,60 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 710
+    .prologue
+    .line 771
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 747
     const/4 v0, 0x0
 
-    .line 687
     iput-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->hasReport:Z
 
+    .line 772
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 1
 
-    .line 713
+    .prologue
+    .line 774
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 747
     const/4 v0, 0x0
 
-    .line 687
     iput-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->hasReport:Z
 
-    .line 714
+    .line 775
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->id:I
 
-    .line 715
+    .line 776
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->name:Ljava/lang/String;
 
-    .line 716
+    .line 777
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->likeNum:I
 
-    .line 717
+    .line 778
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->hateNum:I
+    iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->hateNum:I
 
+    .line 779
     return-void
 .end method
 
@@ -152,33 +158,37 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 760
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
+    .locals 1
 
-    .line 704
-    iget p2, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->id:I
+    .prologue
+    .line 765
+    iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->id:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 705
-    iget-object p2, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->name:Ljava/lang/String;
+    .line 766
+    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->name:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 706
-    iget p2, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->likeNum:I
+    .line 767
+    iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->likeNum:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 707
-    iget p2, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->hateNum:I
+    .line 768
+    iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->hateNum:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 769
     return-void
 .end method

@@ -1,6 +1,6 @@
-.class final Lbl/aef$4;
+.class Lmybl/BiliLiveContent$2;
 .super Ljava/lang/Object;
-.source "aef.java"
+.source "BiliLiveContent.java"
 
 # interfaces
 .implements Ljava/util/concurrent/Callable;
@@ -8,11 +8,11 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/aef;->getPlayUrl(I)Ljava/lang/String;
+    value = Lmybl/BiliLiveContent;->getPlayUrl()I
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x0
     name = null
 .end annotation
 
@@ -21,23 +21,23 @@
         "Ljava/lang/Object;",
         "Ljava/util/concurrent/Callable",
         "<",
-        "Ljava/lang/String;",
+        "Ljava/lang/Integer;",
         ">;"
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic val$roomId:I
+.field final synthetic this$0:Lmybl/BiliLiveContent;
 
 
 # direct methods
-.method constructor <init>(I)V
+.method constructor <init>(Lmybl/BiliLiveContent;)V
     .locals 0
 
     .prologue
-    .line 159
-    iput p1, p0, Lbl/aef$4;->val$roomId:I
+    .line 74
+    iput-object p1, p0, Lmybl/BiliLiveContent$2;->this$0:Lmybl/BiliLiveContent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,31 +46,14 @@
 
 
 # virtual methods
-.method public bridge synthetic call()Ljava/lang/Object;
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    .prologue
-    .line 159
-    invoke-virtual {p0}, Lbl/aef$4;->call()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public call()Ljava/lang/String;
+.method public call()Ljava/lang/Integer;
     .locals 3
 
     .prologue
-    .line 162
+    .line 77
     new-instance v0, Lbl/qa$a;
 
-    const-class v1, Lbl/aef$playUrlResponse;
+    const-class v1, Lmybl/BiliLiveContent$playUrlResponse;
 
     invoke-direct {v0, v1}, Lbl/qa$a;-><init>(Ljava/lang/Class;)V
 
@@ -88,7 +71,9 @@
 
     const-string v1, "cid"
 
-    iget v2, p0, Lbl/aef$4;->val$roomId:I
+    iget-object v2, p0, Lmybl/BiliLiveContent$2;->this$0:Lmybl/BiliLiveContent;
+
+    iget v2, v2, Lmybl/BiliLiveContent;->mRoomId:I
 
     invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -100,7 +85,13 @@
 
     const-string v1, "quality"
 
-    const-string v2, "10000"
+    iget-object v2, p0, Lmybl/BiliLiveContent$2;->this$0:Lmybl/BiliLiveContent;
+
+    iget v2, v2, Lmybl/BiliLiveContent;->mCurrentQuality:I
+
+    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
@@ -108,7 +99,7 @@
 
     const-string v1, "platform"
 
-    const-string v2, "android"
+    const-string v2, "web"
 
     invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
@@ -132,10 +123,32 @@
 
     move-result-object v0
 
-    check-cast v0, Lbl/aef$playUrlResponse;
+    check-cast v0, Lmybl/BiliLiveContent$playUrlResponse;
 
-    .line 163
-    invoke-virtual {v0}, Lbl/aef$playUrlResponse;->e()Ljava/lang/String;
+    iget-object v1, p0, Lmybl/BiliLiveContent$2;->this$0:Lmybl/BiliLiveContent;
+
+    invoke-virtual {v0, v1}, Lmybl/BiliLiveContent$playUrlResponse;->e(Lmybl/BiliLiveContent;)I
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic call()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    .prologue
+    .line 74
+    invoke-virtual {p0}, Lmybl/BiliLiveContent$2;->call()Ljava/lang/Integer;
 
     move-result-object v0
 

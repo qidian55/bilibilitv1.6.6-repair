@@ -35,9 +35,10 @@ import com.bilibili.tv.ui.auth.AuthSpaceActivity;
 import mybl.BiliLiveEx;
 import com.bilibili.tv.widget.FixLinearLayoutManager;
 import com.bilibili.tv.widget.ScalableImageView;
-import java.util.ArrayList;
 
+import java.util.*;
 import mybl.BiliLiveContent;
+import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -60,6 +61,8 @@ public class LivePlayerController extends FrameLayout implements View.OnClickLis
     private cj<wn> p;
     private Runnable q;
 
+    public cj<wn> qualitys;
+
     public LivePlayerController(Context context) {
         this(context, null);
     }
@@ -70,14 +73,14 @@ public class LivePlayerController extends FrameLayout implements View.OnClickLis
 
     public LivePlayerController(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.n = new PlayControllerOptionType[]{PlayControllerOptionType.AVATAR, PlayControllerOptionType.DANMAKU_DISPLAY, PlayControllerOptionType.DANMAKU_SIZE, PlayControllerOptionType.DANMAKU_ALPHA, PlayControllerOptionType.MIRROR_REVERSAL};
+        this.n = new PlayControllerOptionType[]{PlayControllerOptionType.AVATAR, PlayControllerOptionType.DANMAKU_DISPLAY, PlayControllerOptionType.DANMAKU_SIZE, PlayControllerOptionType.DANMAKU_ALPHA, PlayControllerOptionType.MIRROR_REVERSAL, PlayControllerOptionType.VIDEO_QUALITY};
         a(context);
     }
 
     @RequiresApi(api = 21)
     public LivePlayerController(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
-        this.n = new PlayControllerOptionType[]{PlayControllerOptionType.AVATAR, PlayControllerOptionType.DANMAKU_DISPLAY, PlayControllerOptionType.DANMAKU_SIZE, PlayControllerOptionType.DANMAKU_ALPHA, PlayControllerOptionType.MIRROR_REVERSAL};
+        this.n = new PlayControllerOptionType[]{PlayControllerOptionType.AVATAR, PlayControllerOptionType.DANMAKU_DISPLAY, PlayControllerOptionType.DANMAKU_SIZE, PlayControllerOptionType.DANMAKU_ALPHA, PlayControllerOptionType.MIRROR_REVERSAL, PlayControllerOptionType.VIDEO_QUALITY};
         a(context);
     }
 
@@ -163,6 +166,18 @@ public class LivePlayerController extends FrameLayout implements View.OnClickLis
 
     public void setBiliLive(BiliLiveContent biliLive) {
         this.m = biliLive;
+        this.qualitys = new cj<>(biliLive.mAcceptQuality.length);
+        Map<Integer,String> qualityTable = new HashMap<Integer,String>();
+        qualityTable.put(10000,"原画");
+        qualityTable.put(400,"蓝光");
+        qualityTable.put(250,"超清");
+        qualityTable.put(150,"高清");
+        for (int i=0;i<biliLive.mAcceptQuality.length;i++) {
+            wn wnVar2 = new wn();
+            wnVar2.a = qualityTable.get(biliLive.mAcceptQuality[i]);
+            wnVar2.b = biliLive.mAcceptQuality[i];
+            this.qualitys.b(i, wnVar2);
+        }
     }
 
     public void a() {
@@ -399,6 +414,30 @@ public class LivePlayerController extends FrameLayout implements View.OnClickLis
                     LivePlayerController.this.k.o();
                     b(activity, playControllerOptionType, textView, imageView);
                     return;
+                case VIDEO_QUALITY:
+                    LivePlayerController.this.a(false);
+                    int position=0;
+                    BiliLiveContent biliLiveContent=LivePlayerController.this.m;
+                    for(int i4=0;i4<biliLiveContent.mAcceptQuality.length;i4++){
+                        if(biliLiveContent.mAcceptQuality[i4]==biliLiveContent.mCurrentQuality)position=i4;
+                    }
+                    xa.a aVar3 = new xa.a(activity);
+                    aVar3.a(1).a("画质").b(position).a(LivePlayerController.this.qualitys, new xa.c() { // from class: com.bilibili.tv.newplayer.widget.LivePlayerController.a.1
+                        @Override // bl.xa.c
+                        public void a(xa xaVar, View view, int i5) {
+                            wn wnVar = (wn) LivePlayerController.this.qualitys.a(i5);
+                            if (wnVar.b instanceof Integer) {
+                                biliLiveContent.mCurrentQuality=(Integer)wnVar.b;
+                                biliLiveContent.getPlayUrl();
+                                LivePlayerController.this.k.a(biliLiveContent.mPlayUrl, biliLiveContent.mTitle, Integer.valueOf(biliLiveContent.mRoomId));
+                                LivePlayerController.this.k.m();
+                                LivePlayerController.this.k.requestFocus();
+                            }
+                            xaVar.dismiss();
+                        }
+                    });
+                    aVar3.a().show();
+                    return;
                 default:
                     return;
             }
@@ -431,6 +470,10 @@ public class LivePlayerController extends FrameLayout implements View.OnClickLis
                 case MIRROR_REVERSAL:
                     imageView.setBackgroundResource(R.drawable.ic_hourglass_empty_white_48dp);
                     textView.setText(LivePlayerController.this.k.p() ? "镜像开" : "镜像关");
+                    return;
+                case VIDEO_QUALITY:
+                    imageView.setBackgroundResource(R.drawable.ic_round_hd_white_48dp);
+                    textView.setText("画质");
                     return;
                 default:
                     return;

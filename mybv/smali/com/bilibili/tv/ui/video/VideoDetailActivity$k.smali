@@ -1,34 +1,38 @@
 .class final Lcom/bilibili/tv/ui/video/VideoDetailActivity$k;
 .super Ljava/lang/Object;
-.source "BL"
+.source "VideoDetailActivity.java"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/bilibili/tv/ui/video/VideoDetailActivity;->l()Lcom/bilibili/tv/widget/DrawTextView;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bilibili/tv/ui/video/VideoDetailActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x18
-    name = null
+    name = "k"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/ui/video/VideoDetailActivity;
+.field final a:Lcom/bilibili/tv/ui/video/VideoDetailActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/bilibili/tv/ui/video/VideoDetailActivity;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$k;->a:Lcom/bilibili/tv/ui/video/VideoDetailActivity;
-
+    .prologue
+    .line 374
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 375
+    iput-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$k;->a:Lcom/bilibili/tv/ui/video/VideoDetailActivity;
+
+    .line 376
     return-void
 .end method
 
@@ -37,48 +41,54 @@
 .method public final onClick(Landroid/view/View;)V
     .locals 3
 
+    .prologue
+    .line 380
     const-string v0, "v"
 
-    .line 299
     invoke-static {p1, v0}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 381
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    move-result-object p1
+    move-result-object v0
 
-    const-string v0, "v.context"
+    .line 382
+    const-string v1, "v.context"
 
-    invoke-static {p1, v0}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p1}, Lbl/adl;->a(Landroid/content/Context;)Landroid/app/Activity;
-
-    move-result-object p1
-
-    .line 300
-    iget-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$k;->a:Lcom/bilibili/tv/ui/video/VideoDetailActivity;
-
-    invoke-static {v0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->d(Lcom/bilibili/tv/ui/video/VideoDetailActivity;)Lcom/bilibili/tv/api/video/BiliVideoDetail;
+    .line 383
+    invoke-static {v0}, Lbl/adl;->a(Landroid/content/Context;)Landroid/app/Activity;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    .line 384
+    iget-object v1, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$k;->a:Lcom/bilibili/tv/ui/video/VideoDetailActivity;
 
-    if-eqz p1, :cond_0
+    # getter for: Lcom/bilibili/tv/ui/video/VideoDetailActivity;->f67u:Lcom/bilibili/tv/api/video/BiliVideoDetail;
+    invoke-static {v1}, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->access$200(Lcom/bilibili/tv/ui/video/VideoDetailActivity;)Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
-    .line 302
-    sget-object v1, Lcom/bilibili/tv/ui/video/VideoMoreEpisodeActivity;->Companion:Lcom/bilibili/tv/ui/video/VideoMoreEpisodeActivity$a;
+    move-result-object v1
 
-    move-object v2, p1
+    .line 385
+    if-eqz v1, :cond_1c
 
-    check-cast v2, Landroid/content/Context;
+    if-nez v0, :cond_1d
 
-    invoke-virtual {v1, v2, v0}, Lcom/bilibili/tv/ui/video/VideoMoreEpisodeActivity$a;->a(Landroid/content/Context;Lcom/bilibili/tv/api/video/BiliVideoDetail;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    .line 301
-    invoke-virtual {p1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
-
-    :cond_0
+    .line 389
+    :cond_1c
+    :goto_1c
     return-void
+
+    .line 388
+    :cond_1d
+    sget-object v2, Lcom/bilibili/tv/ui/video/VideoMoreEpisodeActivity;->Companion:Lcom/bilibili/tv/ui/video/VideoMoreEpisodeActivity$a;
+
+    invoke-virtual {v2, v0, v1}, Lcom/bilibili/tv/ui/video/VideoMoreEpisodeActivity$a;->a(Landroid/content/Context;Lcom/bilibili/tv/api/video/BiliVideoDetail;)Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+
+    goto :goto_1c
 .end method

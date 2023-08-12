@@ -1055,7 +1055,7 @@
     :cond_a1
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mOnExtraInfoListener:Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnExtraInfoListener;
 
-    if-eqz v0, :cond_133
+    if-eqz v0, :cond_132
 
     .line 71
     new-instance v0, Landroid/os/Bundle;
@@ -1088,13 +1088,13 @@
 
     move-result v4
 
-    if-nez v4, :cond_133
+    if-nez v4, :cond_132
 
     invoke-static {v1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v4
 
-    if-nez v4, :cond_133
+    if-nez v4, :cond_132
 
     .line 79
     :goto_cb
@@ -1116,7 +1116,7 @@
 
     iget-object v0, v0, Lcom/bilibili/lib/media/resource/MediaResource;->dash:Lorg/json/JSONObject;
 
-    if-eqz v0, :cond_12c
+    if-eqz v0, :cond_12b
 
     move-object v0, p2
 
@@ -1149,18 +1149,27 @@
 
     move-result v0
 
-    if-gez v0, :cond_122
+    if-ltz v0, :cond_102
 
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     const-string v1, "headers"
 
-    const-string v2, "User-Agent: Bilibili Freedoooooom/MarkII\r\n"
+    const-string v2, "Referer: https://www.bilibili.com\r\n"
+
+    invoke-virtual {v0, v3, v1, v2}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setOption(ILjava/lang/String;Ljava/lang/String;)V
+
+    .line 87
+    :cond_102
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
+
+    const-string v1, "user_agent"
+
+    const-string v2, "Bilibili Freedoooooom/MarkII"
 
     invoke-virtual {v0, v3, v1, v2}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setOption(ILjava/lang/String;Ljava/lang/String;)V
 
     .line 88
-    :goto_102
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     const-string v1, "ijkdash"
@@ -1194,27 +1203,15 @@
 
     goto/16 :goto_9b
 
-    .line 87
-    :cond_122
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
-
-    const-string v1, "headers"
-
-    const-string v2, "User-Agent: Bilibili Freedoooooom/MarkII\r\nReferer: https://www.bilibili.com\r\n"
-
-    invoke-virtual {v0, v3, v1, v2}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setOption(ILjava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_102
-
     .line 91
-    :cond_12c
+    :cond_12b
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     invoke-virtual {v0, v1}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setDataSource(Ljava/lang/String;)V
 
     goto/16 :goto_9b
 
-    :cond_133
+    :cond_132
     move-object v0, v1
 
     goto :goto_cb

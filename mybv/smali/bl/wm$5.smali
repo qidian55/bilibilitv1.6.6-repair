@@ -1,6 +1,6 @@
 .class Lbl/wm$5;
 .super Ljava/lang/Object;
-.source "BL"
+.source "wm.java"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -18,23 +18,24 @@
 
 
 # instance fields
-.field final synthetic a:I
+.field final synthetic this$0:Lbl/wm;
 
-.field final synthetic b:I
+.field final synthetic val$i:I
 
-.field final synthetic c:Lbl/wm;
+.field final synthetic val$i2:I
 
 
 # direct methods
 .method constructor <init>(Lbl/wm;II)V
     .locals 0
 
-    .line 333
-    iput-object p1, p0, Lbl/wm$5;->c:Lbl/wm;
+    .prologue
+    .line 339
+    iput-object p1, p0, Lbl/wm$5;->this$0:Lbl/wm;
 
-    iput p2, p0, Lbl/wm$5;->a:I
+    iput p2, p0, Lbl/wm$5;->val$i:I
 
-    iput p3, p0, Lbl/wm$5;->b:I
+    iput p3, p0, Lbl/wm$5;->val$i2:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,28 +47,31 @@
 .method public run()V
     .locals 3
 
-    .line 336
-    iget-object v0, p0, Lbl/wm$5;->c:Lbl/wm;
+    .prologue
+    .line 342
+    iget-object v0, p0, Lbl/wm$5;->this$0:Lbl/wm;
 
-    invoke-static {v0}, Lbl/wm;->b(Lbl/wm;)Ljava/lang/ref/WeakReference;
+    # getter for: Lbl/wm;->p:Ljava/lang/ref/WeakReference;
+    invoke-static {v0}, Lbl/wm;->access$400(Lbl/wm;)Ljava/lang/ref/WeakReference;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
-    .line 337
-    iget-object v0, p0, Lbl/wm$5;->c:Lbl/wm;
+    .line 343
+    iget-object v0, p0, Lbl/wm$5;->this$0:Lbl/wm;
 
     invoke-virtual {v0}, Lbl/wm;->b()Lbl/ws;
 
     move-result-object v0
 
-    iget v1, p0, Lbl/wm$5;->a:I
+    iget v1, p0, Lbl/wm$5;->val$i:I
 
-    iget v2, p0, Lbl/wm$5;->b:I
+    iget v2, p0, Lbl/wm$5;->val$i2:I
 
     invoke-interface {v0, v1, v2}, Lbl/ws;->a(II)V
 
-    :cond_0
+    .line 345
+    :cond_15
     return-void
 .end method

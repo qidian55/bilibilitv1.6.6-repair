@@ -59,7 +59,7 @@
 
     const/4 v1, 0x1
 
-    const/16 v2, 0x14
+    const/16 v2, 0x64
 
     .line 22
     invoke-interface {v0, p1, v1, v2}, Lcom/bilibili/tv/api/rank/RankApiService;->getCategoryRankVideoList(III)Lbl/vp;
@@ -121,7 +121,7 @@
 
     const/4 v1, 0x1
 
-    const/16 v2, 0x14
+    const/16 v2, 0x64
 
     .line 34
     invoke-interface {v0, p1, v1, v2}, Lcom/bilibili/tv/api/rank/RankApiService;->getOriginRankVideoList(Ljava/lang/String;II)Lbl/vp;

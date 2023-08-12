@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliVideoDetail.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;
@@ -24,7 +24,8 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;",
             ">;"
         }
@@ -80,7 +81,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 511
+    .prologue
+    .line 514
     new-instance v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo$1;
 
     invoke-direct {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo$1;-><init>()V
@@ -93,32 +95,36 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 503
+    .prologue
+    .line 555
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 556
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 1
 
-    .line 506
+    .prologue
+    .line 558
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 507
+    .line 559
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;->mSeasonId:Ljava/lang/String;
 
-    .line 508
+    .line 560
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;->mTitle:Ljava/lang/String;
+    iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;->mTitle:Ljava/lang/String;
 
+    .line 561
     return-void
 .end method
 
@@ -127,6 +133,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 546
     const/4 v0, 0x0
 
     return v0
@@ -135,34 +143,37 @@
 .method public isFinish()Z
     .locals 2
 
-    .line 522
-    iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;->mIsFinish:I
+    .prologue
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    .line 564
+    iget v1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;->mIsFinish:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v0, :cond_6
 
-    goto :goto_0
+    :goto_5
+    return v0
 
-    :cond_0
-    const/4 v1, 0x0
+    :cond_6
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    goto :goto_5
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
+    .locals 1
 
-    .line 499
-    iget-object p2, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;->mSeasonId:Ljava/lang/String;
+    .prologue
+    .line 551
+    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;->mSeasonId:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 500
-    iget-object p2, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;->mTitle:Ljava/lang/String;
+    .line 552
+    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;->mTitle:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 553
     return-void
 .end method

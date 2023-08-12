@@ -2061,6 +2061,12 @@ public final class R {
         public static final int triangle = 0x7f0700f5;
         public static final int tv_toggle_button = 0x7f0700f6;
         public static final int upgrade_progress = 0x7f0700f7;
+
+        public static final int ic_coin = 0x7f0700f8;
+        public static final int ic_coin_hightlight = 0x7f0700f9;
+        public static final int ic_like = 0x7f0700fa;
+        public static final int ic_like_hightlight = 0x7f0700fb;
+        public static final int ic_round_hd_white_48dp = 0x7f0700fc;
     }
 
     public static final class id {
@@ -2423,6 +2429,13 @@ public final class R {
         public static final int withText = 0x7f080164;
         public static final int wrap = 0x7f080165;
         public static final int wrap_content = 0x7f080166;
+
+        public static final int video_detail_like = 0x7f080167;
+        public static final int video_detail_like_img = 0x7f080168;
+        public static final int video_detail_like_text = 0x7f080169;
+        public static final int video_detail_coin = 0x7f08016a;
+        public static final int video_detail_coin_img = 0x7f08016b;
+        public static final int video_detail_coin_text = 0x7f08016c;
     }
 
     public static final class integer {

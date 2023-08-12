@@ -33,7 +33,7 @@
     .locals 0
 
     .prologue
-    .line 10
+    .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -54,7 +54,7 @@
     .end annotation
 
     .prologue
-    .line 15
+    .line 16
     new-instance v0, Ljava/util/ArrayList;
 
     iget-object v1, p0, Lmybl/BiliLiveEx;->data:Ljava/util/List;

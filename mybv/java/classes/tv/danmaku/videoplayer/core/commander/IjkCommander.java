@@ -83,8 +83,8 @@ class IjkCommander extends AbsPlayerCommander {
         } else {
             //this.mIjkMediaPlayer.setDataSource(context, Uri.parse(applyUriHookForIjkPlayer));
             if(((com.bilibili.tv.player.basic.context.VideoViewParams)iVideoParams).mMediaResource.dash != null){
-                if(((com.bilibili.tv.player.basic.context.VideoViewParams)iVideoParams).mMediaResource.dash.optJSONArray("video").optJSONObject(0).optString("base_url").indexOf("platform=pc")<0){this.mIjkMediaPlayer.setOption(1, "headers", "User-Agent: Bilibili Freedoooooom/MarkII\r\n");}
-                else{this.mIjkMediaPlayer.setOption(1, "headers", "User-Agent: Bilibili Freedoooooom/MarkII\r\nReferer: https://www.bilibili.com\r\n");}
+                if(((com.bilibili.tv.player.basic.context.VideoViewParams)iVideoParams).mMediaResource.dash.optJSONArray("video").optJSONObject(0).optString("base_url").indexOf("platform=pc")>=0){this.mIjkMediaPlayer.setOption(1, "headers", "Referer: https://www.bilibili.com\r\n");}
+                this.mIjkMediaPlayer.setOption(1, "user_agent", "Bilibili Freedoooooom/MarkII");
                 this.mIjkMediaPlayer.setDataSource("ijkdash");
                 this.mIjkMediaPlayer.setDashDataSource(VideoViewParams.toBundleData(((com.bilibili.tv.player.basic.context.VideoViewParams)iVideoParams).mMediaResource.dash),-1,((com.bilibili.tv.player.basic.context.VideoViewParams)iVideoParams).mMediaResource.quality);
             }
