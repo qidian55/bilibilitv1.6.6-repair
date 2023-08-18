@@ -99,7 +99,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
     private List<BiliVideoDetail.Page> t;
 
     /* renamed from: u  reason: collision with root package name */
-    private BiliVideoDetail f67u;
+    private BiliVideoDetail u;
     private e v;
     private add w;
     private g x;
@@ -362,17 +362,14 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         drawTextView.setText(R.string.video_detail_more_episode);
         drawTextView.getLayoutParams().width = -1;
         drawTextView.getLayoutParams().height = (int) getResources().getDimension(R.dimen.px_144);
-        drawTextView.setOnClickListener(new k(this));
+        drawTextView.setOnClickListener(new k());
         return drawTextView;
     }
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
-    static final class k implements View.OnClickListener {
-        /*synthetic*/ final VideoDetailActivity a;
-
-        k(VideoDetailActivity a) {
-            this.a=a;
+    final class k implements View.OnClickListener {
+        k() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -381,7 +378,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             Context context = view.getContext();
             bbi.a((Object) context, "v.context");
             Activity a = adl.a(context);
-            BiliVideoDetail biliVideoDetail = this.a.f67u;
+            BiliVideoDetail biliVideoDetail = VideoDetailActivity.this.u;
             if (biliVideoDetail == null || a == null) {
                 return;
             }
@@ -439,7 +436,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                     }
                     return true;
                 }
-            } else if (valueOf2 != null && valueOf2.intValue() == 20 && ((currentFocus.getId() == R.id.video_detail_like || currentFocus.getId() == R.id.video_detail_coin || currentFocus.getId() == R.id.video_detail_favorite || currentFocus.getId() == R.id.video_detail_more_btn) && (recyclerView = this.n) != null)) {
+            } else if (valueOf2 != null && valueOf2.intValue() == 20 && ((currentFocus.getId() == R.id.video_detail_favorite || currentFocus.getId() == R.id.video_detail_more_btn) && (recyclerView = this.n) != null)) {
                 if (recyclerView.getChildCount() > 0) {
                     RecyclerView.h layoutManager = recyclerView.getLayoutManager();
                     if (layoutManager == null) {
@@ -527,7 +524,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                 LoginActivity.Companion.a(this, H);
                 return;
             }
-            BiliVideoDetail biliVideoDetail2 = this.f67u;
+            BiliVideoDetail biliVideoDetail2 = this.u;
             if (biliVideoDetail2 != null && biliVideoDetail2.isFavoriteVideo()) {
                 q();
                 ok.a("tv_video_view_click_fav", "action", "取消收藏");
@@ -536,13 +533,13 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             p();
             ok.a("tv_video_view_click_fav", "action", "收藏");
         } else if (id != R.id.video_detail_more_btn) {
-            if (id == R.id.video_detail_up_text && (biliVideoDetail = this.f67u) != null) {
+            if (id == R.id.video_detail_up_text && (biliVideoDetail = this.u) != null) {
                 String author = biliVideoDetail.getAuthor();
                 bbi.a((Object) author, "it.author");
                 AuthSpaceActivity.Companion.a(this, author, biliVideoDetail.getMid());
             }
         } else {
-            BiliVideoDetail biliVideoDetail3 = this.f67u;
+            BiliVideoDetail biliVideoDetail3 = this.u;
             if (biliVideoDetail3 != null) {
                 int i2 = this.s;
                 String str = biliVideoDetail3.mDescription;
@@ -574,7 +571,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void o() {
-        BiliVideoDetail biliVideoDetail = this.f67u;
+        BiliVideoDetail biliVideoDetail = this.u;
         if (biliVideoDetail != null) {
             int i2 = biliVideoDetail.isFavoriteVideo() ? R.string.video_favorited : R.string.video_favorite;
             TextView textView = this.l;
@@ -601,7 +598,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             return;
         }
         this.B = true;
-        BiliVideoDetail biliVideoDetail = this.f67u;
+        BiliVideoDetail biliVideoDetail = this.u;
         if (biliVideoDetail != null) {
             biliVideoDetail.setFavoriteStatus(true);
         }
@@ -609,42 +606,39 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         BiliFavoriteVideoApiService biliFavoriteVideoApiService = (BiliFavoriteVideoApiService) vo.a(BiliFavoriteVideoApiService.class);
         mg a2 = mg.a(this);
         bbi.a((Object) a2, "BiliAccount.get(this)");
-        biliFavoriteVideoApiService.addVideoToList(a2.e(), "0", this.s, "0").a(new l(this));
+        biliFavoriteVideoApiService.addVideoToList(a2.e(), "0", this.s, "0").a(new l());
     }
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
-    public static final class l extends vn<Void> {
-        /*synthetic*/ final VideoDetailActivity a;
-
+    public final class l extends vn<Void> {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        l(VideoDetailActivity a) {
-            this.a=a;
+        l() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // bl.vn
         public void a(Void r2) {
-            this.a.B = false;
-            lr.a(this.a.getApplicationContext(), (int) R.string.video_favored1);
+            VideoDetailActivity.this.B = false;
+            lr.a(VideoDetailActivity.this.getApplicationContext(), (int) R.string.video_favored1);
         }
 
         @Override // bl.vm
         public void onError(Throwable th) {
             bbi.b(th, "t");
-            adl.a.a(th, this.a);
-            this.a.B = false;
-            BiliVideoDetail biliVideoDetail = this.a.f67u;
+            adl.a.a(th, VideoDetailActivity.this);
+            VideoDetailActivity.this.B = false;
+            BiliVideoDetail biliVideoDetail = VideoDetailActivity.this.u;
             if (biliVideoDetail != null) {
                 biliVideoDetail.setFavoriteStatus(false);
             }
-            this.a.o();
-            lr.a(this.a.getApplicationContext(), (int) R.string.video_favored_failed);
+            VideoDetailActivity.this.o();
+            lr.a(VideoDetailActivity.this.getApplicationContext(), (int) R.string.video_favored_failed);
         }
 
         @Override // bl.vm
         public boolean isCancel() {
-            return this.a.o == null;
+            return VideoDetailActivity.this.o == null;
         }
     }
 
@@ -653,55 +647,52 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             return;
         }
         this.B = true;
-        BiliVideoDetail biliVideoDetail = this.f67u;
+        BiliVideoDetail biliVideoDetail = this.u;
         if (biliVideoDetail != null) {
             biliVideoDetail.setFavoriteStatus(false);
         }
         o();
         mg a2 = mg.a(this);
         bbi.a((Object) a2, "BiliAccount.get(this)");
-        ((BiliFavoriteVideoApiService) vo.a(BiliFavoriteVideoApiService.class)).deleteVideoFromList(a2.e(), "0", this.s).a(new m(this));
+        ((BiliFavoriteVideoApiService) vo.a(BiliFavoriteVideoApiService.class)).deleteVideoFromList(a2.e(), "0", this.s).a(new m());
     }
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
-    public static final class m extends vn<Void> {
-        /*synthetic*/ final VideoDetailActivity a;
-
+    public final class m extends vn<Void> {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        m(VideoDetailActivity a) {
-            this.a=a;
+        m() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // bl.vn
         public void a(Void r2) {
-            this.a.B = false;
-            lr.a(this.a.getApplicationContext(), (int) R.string.video_unsubscribe_success);
+            VideoDetailActivity.this.B = false;
+            lr.a(VideoDetailActivity.this.getApplicationContext(), (int) R.string.video_unsubscribe_success);
         }
 
         @Override // bl.vm
         public void onError(Throwable th) {
             bbi.b(th, "t");
-            adl.a.a(th, this.a);
-            this.a.B = false;
-            BiliVideoDetail biliVideoDetail = this.a.f67u;
+            adl.a.a(th, VideoDetailActivity.this);
+            VideoDetailActivity.this.B = false;
+            BiliVideoDetail biliVideoDetail = VideoDetailActivity.this.u;
             if (biliVideoDetail != null) {
                 biliVideoDetail.setFavoriteStatus(true);
             }
-            this.a.o();
-            lr.a(this.a.getApplicationContext(), (int) R.string.video_unsubscribe_failed);
+            VideoDetailActivity.this.o();
+            lr.a(VideoDetailActivity.this.getApplicationContext(), (int) R.string.video_unsubscribe_failed);
         }
 
         @Override // bl.vm
         public boolean isCancel() {
-            return this.a.o == null;
+            return VideoDetailActivity.this.o == null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void a(BiliVideoDetail.Page page) {
-        aft.a.a(this, this.f67u, page);
+        aft.a.a(this, this.u, page);
     }
 
     /* compiled from: BL */
@@ -935,7 +926,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                 }
                 View view = this.a;
                 bbi.a((Object) view, "itemView");
-                view.setOnFocusChangeListener(new b(this));
+                view.setOnFocusChangeListener(new b());
                 View view2 = this.a;
                 bbi.a((Object) view2, "itemView");
                 view2.setTag(obj);
@@ -945,19 +936,16 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
 
         /* compiled from: BL */
         /* loaded from: classes.dex */
-        static final class b implements View.OnFocusChangeListener {
-            /*synthetic*/ final f a;
-
-            b(f a) {
-                this.a=a;
+        final class b implements View.OnFocusChangeListener {
+            b() {
             }
 
             @Override // android.view.View.OnFocusChangeListener
             public final void onFocusChange(View view, boolean z) {
                 if (z) {
-                    this.a.z().setUpEnabled(true);
+                    f.this.z().setUpEnabled(true);
                 } else {
-                    this.a.z().setUpEnabled(false);
+                    f.this.z().setUpEnabled(false);
                 }
             }
         }
@@ -1214,7 +1202,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             if (loadingImageView3 != null) {
                 loadingImageView3.b();
             }
-            VideoDetailActivity.this.f67u = biliVideoDetail;
+            VideoDetailActivity.this.u = biliVideoDetail;
             VideoDetailActivity.this.a(ach.c(VideoDetailActivity.this.getApplicationContext(), biliVideoDetail.mCover));
             VideoDetailActivity.this.o();
             TextView textView = VideoDetailActivity.this.cc;
@@ -1350,6 +1338,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                         if (addVar != null) {
                             addVar.a(l);
                         }
+                        break;
                     } else {
                         List list2 = VideoDetailActivity.this.t;
                         if (list2 != null) {

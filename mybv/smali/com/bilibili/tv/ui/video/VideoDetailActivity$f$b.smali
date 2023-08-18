@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x10
     name = "b"
 .end annotation
 
 
 # instance fields
-.field final a:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
+.field final synthetic this$0:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
 
 
 # direct methods
@@ -26,13 +26,12 @@
     .locals 0
 
     .prologue
-    .line 951
+    .line 940
+    iput-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$b;->this$0:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 952
-    iput-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$b;->a:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
-
-    .line 953
+    .line 941
     return-void
 .end method
 
@@ -42,11 +41,11 @@
     .locals 2
 
     .prologue
-    .line 957
+    .line 945
     if-eqz p2, :cond_d
 
-    .line 958
-    iget-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$b;->a:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
+    .line 946
+    iget-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$b;->this$0:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;->z()Lcom/bilibili/tv/widget/DrawRelativeLayout;
 
@@ -56,13 +55,13 @@
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/DrawRelativeLayout;->setUpEnabled(Z)V
 
-    .line 962
+    .line 950
     :goto_c
     return-void
 
-    .line 960
+    .line 948
     :cond_d
-    iget-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$b;->a:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
+    iget-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$b;->this$0:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;->z()Lcom/bilibili/tv/widget/DrawRelativeLayout;
 
