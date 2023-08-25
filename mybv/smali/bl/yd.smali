@@ -787,7 +787,7 @@
 .end method
 
 .method private a(ILandroid/os/Bundle;)Z
-    .locals 18
+    .locals 19
 
     move-object/from16 v1, p0
 
@@ -961,7 +961,12 @@
     .line 493
     invoke-virtual {v3, v9}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v9
+    #move-result-object v9
+
+
+    move-result-object v18
+    move-object/from16 v9, v18
+
 
     const-string v11, "PlayerController"
 
@@ -981,19 +986,6 @@
     move-result-object v10
 
     invoke-static {v11, v10}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-
-    const-string v10, ".m4s"
-    invoke-static {v9, v10}, Lbl/yd;->a(Ljava/lang/String;Ljava/lang/String;)Z
-    move-result v10
-    if-eqz v10, :cond_00
-    const-string v2, "PlayerController"
-    const-string v3, "skip all steps for ijkdash"
-    invoke-static {v2, v3}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-    const/4 v2, 0x1
-    return v2
-    :cond_00
-
 
     const-string v10, ".ts"
 
@@ -1247,6 +1239,26 @@
     :cond_e
     :goto_6
     if-eqz v5, :cond_13
+
+
+    move-object/from16 v8, v18
+    const-string v9, ".m4s"
+    invoke-static {v8, v9}, Lbl/yd;->a(Ljava/lang/String;Ljava/lang/String;)Z
+    move-result v0
+    if-eqz v0, :cond_00
+    iget-object v9, v5, Lcom/bilibili/lib/media/resource/MediaResource;->dash:Lorg/json/JSONObject;
+    invoke-static {v8, v9}, Lmybl/VideoViewParams;->CloestURL(Ljava/lang/String;Lorg/json/JSONObject;)Ljava/lang/String;
+    move-result-object v9
+    const-string v8, "url"
+    invoke-virtual {v3, v8, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v8, "PlayerController"
+    const-string v9, "skip other steps for ijkdash"
+    invoke-static {v8, v9}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct/range {p0 .. p0}, Lbl/yd;->i()V
+    const/4 v8, 0x1
+    return v8
+    :cond_00
+
 
     .line 544
     invoke-virtual {v5}, Lcom/bilibili/lib/media/resource/MediaResource;->d()Lcom/bilibili/lib/media/resource/PlayIndex;

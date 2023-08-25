@@ -213,16 +213,32 @@ public class BiliVideoDetail implements Parcelable {
         if (this.mRequestUser == null) {
             return;
         }
-        this.mRequestUser.mFavorite = z;
-        if (this.mStat != null) {
-            if (z) {
-                this.mStat.mFavorites++;
-                return;
-            }
-            Stat stat = this.mStat;
-            stat.mFavorites--;
+        if (this.mStat != null && this.mRequestUser.mFavorite!=z) {
+            if(z)this.mStat.mFavorites++;
+            else this.mStat.mFavorites--;
         }
+        this.mRequestUser.mFavorite = z;
     }
+
+
+    public void setLikeStatus(boolean z) {
+        if (this.mRequestUser == null) {
+            return;
+        }
+        if (this.mStat != null && this.mRequestUser.mLike!=z) {
+            if(z)this.mStat.mLikes++;
+            else this.mStat.mLikes--;
+        }
+        this.mRequestUser.mLike = z;
+    }
+
+    public void setCoinStatus(boolean z) {
+        if (this.mRequestUser == null) {
+            return;
+        }
+        this.mRequestUser.mCoin = z;
+    }
+
 
     public boolean isValidAvid() {
         return this.mAvid > 0;
@@ -230,6 +246,14 @@ public class BiliVideoDetail implements Parcelable {
 
     public boolean isFavoriteVideo() {
         return this.mRequestUser != null && this.mRequestUser.mFavorite;
+    }
+
+    public boolean isLikeVideo() {
+        return this.mRequestUser != null && this.mRequestUser.mLike;
+    }
+
+    public boolean isCoinVideo() {
+        return this.mRequestUser != null && this.mRequestUser.mCoin;
     }
 
     public boolean isAttention() {
@@ -375,6 +399,9 @@ public class BiliVideoDetail implements Parcelable {
         @JSONField(name = "share")
         public int mShares;
 
+        @JSONField(name = "like")
+        public int mLikes;
+
         @Override // android.os.Parcelable
         public int describeContents() {
             return 0;
@@ -388,6 +415,7 @@ public class BiliVideoDetail implements Parcelable {
             parcel.writeInt(this.mFavorites);
             parcel.writeInt(this.mCoins);
             parcel.writeInt(this.mShares);
+            parcel.writeInt(this.mLikes);
         }
 
         public Stat() {
@@ -400,6 +428,7 @@ public class BiliVideoDetail implements Parcelable {
             this.mFavorites = parcel.readInt();
             this.mCoins = parcel.readInt();
             this.mShares = parcel.readInt();
+            this.mLikes = parcel.readInt();
         }
     }
 
@@ -632,6 +661,10 @@ public class BiliVideoDetail implements Parcelable {
         public int mAttention;
         @JSONField(name = "favorite")
         public boolean mFavorite;
+        @JSONField(name = "like")
+        public boolean mLike;
+        @JSONField(name = "coin")
+        public boolean mCoin;
 
         @Override // android.os.Parcelable
         public int describeContents() {
@@ -646,6 +679,8 @@ public class BiliVideoDetail implements Parcelable {
         public void writeToParcel(Parcel parcel, int i) {
             parcel.writeInt(this.mAttention);
             parcel.writeByte(this.mFavorite ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.mLike ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.mCoin ? (byte) 1 : (byte) 0);
         }
 
         public RequestUser() {
@@ -654,6 +689,8 @@ public class BiliVideoDetail implements Parcelable {
         protected RequestUser(Parcel parcel) {
             this.mAttention = parcel.readInt();
             this.mFavorite = parcel.readByte() != 0;
+            this.mLike = parcel.readByte() != 0;
+            this.mCoin = parcel.readByte() != 0;
         }
     }
 

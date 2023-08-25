@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 664
+    .line 701
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -44,7 +44,7 @@
     .locals 1
 
     .prologue
-    .line 669
+    .line 706
     new-instance v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$MovieRecommend;
 
     invoke-direct {v0, p1}, Lcom/bilibili/tv/api/video/BiliVideoDetail$MovieRecommend;-><init>(Landroid/os/Parcel;)V
@@ -56,7 +56,7 @@
     .locals 1
 
     .prologue
-    .line 664
+    .line 701
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/video/BiliVideoDetail$MovieRecommend$1;->createFromParcel(Landroid/os/Parcel;)Lcom/bilibili/tv/api/video/BiliVideoDetail$MovieRecommend;
 
     move-result-object v0
@@ -68,7 +68,7 @@
     .locals 1
 
     .prologue
-    .line 676
+    .line 713
     new-array v0, p1, [Lcom/bilibili/tv/api/video/BiliVideoDetail$MovieRecommend;
 
     return-object v0
@@ -78,7 +78,7 @@
     .locals 1
 
     .prologue
-    .line 664
+    .line 701
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/video/BiliVideoDetail$MovieRecommend$1;->newArray(I)[Lcom/bilibili/tv/api/video/BiliVideoDetail$MovieRecommend;
 
     move-result-object v0

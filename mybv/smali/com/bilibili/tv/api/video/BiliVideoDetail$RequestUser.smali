@@ -40,9 +40,21 @@
     .end annotation
 .end field
 
+.field public mCoin:Z
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "coin"
+    .end annotation
+.end field
+
 .field public mFavorite:Z
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "favorite"
+    .end annotation
+.end field
+
+.field public mLike:Z
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "like"
     .end annotation
 .end field
 
@@ -52,7 +64,7 @@
     .locals 1
 
     .prologue
-    .line 616
+    .line 645
     new-instance v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser$1;
 
     invoke-direct {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser$1;-><init>()V
@@ -66,47 +78,85 @@
     .locals 0
 
     .prologue
-    .line 651
+    .line 686
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 652
+    .line 687
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .locals 3
 
     .prologue
-    .line 654
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 689
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 655
+    .line 690
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mAttention:I
 
-    .line 656
+    .line 691
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_26
 
-    const/4 v0, 0x1
+    move v0, v1
 
-    :goto_10
+    :goto_12
     iput-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mFavorite:Z
 
-    .line 657
+    .line 692
+    invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
+
+    move-result v0
+
+    if-eqz v0, :cond_28
+
+    move v0, v1
+
+    :goto_1b
+    iput-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mLike:Z
+
+    .line 693
+    invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
+
+    move-result v0
+
+    if-eqz v0, :cond_2a
+
+    :goto_23
+    iput-boolean v1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mCoin:Z
+
+    .line 694
     return-void
 
-    .line 656
-    :cond_13
-    const/4 v0, 0x0
+    :cond_26
+    move v0, v2
 
-    goto :goto_10
+    .line 691
+    goto :goto_12
+
+    :cond_28
+    move v0, v2
+
+    .line 692
+    goto :goto_1b
+
+    :cond_2a
+    move v1, v2
+
+    .line 693
+    goto :goto_23
 .end method
 
 
@@ -115,7 +165,7 @@
     .locals 1
 
     .prologue
-    .line 638
+    .line 671
     const/4 v0, 0x0
 
     return v0
@@ -125,7 +175,7 @@
     .locals 2
 
     .prologue
-    .line 642
+    .line 675
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mAttention:I
 
     const/16 v1, -0x3e7
@@ -144,30 +194,64 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .locals 3
 
     .prologue
-    .line 647
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 680
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mAttention:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 648
+    .line 681
     iget-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mFavorite:Z
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_1f
 
-    const/4 v0, 0x1
+    move v0, v1
 
-    :goto_a
+    :goto_c
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 649
+    .line 682
+    iget-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mLike:Z
+
+    if-eqz v0, :cond_21
+
+    move v0, v1
+
+    :goto_14
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
+
+    .line 683
+    iget-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;->mCoin:Z
+
+    if-eqz v0, :cond_23
+
+    :goto_1b
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeByte(B)V
+
+    .line 684
     return-void
 
-    .line 648
-    :cond_e
-    const/4 v0, 0x0
+    :cond_1f
+    move v0, v2
 
-    goto :goto_a
+    .line 681
+    goto :goto_c
+
+    :cond_21
+    move v0, v2
+
+    .line 682
+    goto :goto_14
+
+    :cond_23
+    move v1, v2
+
+    .line 683
+    goto :goto_1b
 .end method

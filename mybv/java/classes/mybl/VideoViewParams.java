@@ -11,6 +11,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class VideoViewParams {
+    public static String CloestURL(String url,JSONObject dash){
+        JSONArray videos=dash.optJSONArray("video");
+        JSONArray audios=dash.optJSONArray("audio");
+        String[] info=url.split("\\?")[0].split("/");
+        String name=info[info.length-1];
+        for(int i=0;i<videos.length();i++){
+            String s=videos.optJSONObject(i).optString("base_url");
+            info=s.split("\\?")[0].split("/");
+            if(info[info.length-1].equals(name))url=s;
+        }
+        for(int i=0;i<audios.length();i++){
+            String s=audios.optJSONObject(i).optString("base_url");
+            info=s.split("\\?")[0].split("/");
+            if(info[info.length-1].equals(name))url=s;
+        }
+        return url;
+    }
+
     public static Bundle toBundleData(JSONObject dash) {
         Bundle bundle = new Bundle();
         bundle.putBundle(IjkMediaMeta.IJKM_DASH_KEY_AUDIO, a(-1, false, dash.optJSONArray("audio")));
