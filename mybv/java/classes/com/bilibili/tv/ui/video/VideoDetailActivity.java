@@ -918,15 +918,15 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             if (view == null) {
                 return;
             }
-            if(view.getId()==R.id.video_detail_like){
+            if(view.getId()==R.id.video_detail_like && view.findViewById(R.id.video_detail_like_text)!=null){
                 if(z)view.findViewById(R.id.video_detail_like_text).setVisibility(0);
                 else view.findViewById(R.id.video_detail_like_text).setVisibility(8);
             }
-            if(view.getId()==R.id.video_detail_coin){
+            if(view.getId()==R.id.video_detail_coin && view.findViewById(R.id.video_detail_coin_text)!=null){
                 if(z)view.findViewById(R.id.video_detail_coin_text).setVisibility(0);
                 else view.findViewById(R.id.video_detail_coin_text).setVisibility(8);
             }
-            if(view.getId()==R.id.video_detail_favorite){
+            if(view.getId()==R.id.video_detail_favorite && view.findViewById(R.id.video_detail_favorite_text)!=null){
                 if(z)view.findViewById(R.id.video_detail_favorite_text).setVisibility(0);
                 else view.findViewById(R.id.video_detail_favorite_text).setVisibility(8);
             }

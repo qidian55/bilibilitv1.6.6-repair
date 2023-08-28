@@ -60,10 +60,16 @@
 
     const v1, 0x7f080167
 
-    if-ne v0, v1, :cond_21
+    if-ne v0, v1, :cond_27
+
+    invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_27
 
     .line 922
-    if-eqz p2, :cond_4f
+    if-eqz p2, :cond_61
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -72,18 +78,24 @@
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 925
-    :cond_21
-    :goto_21
+    :cond_27
+    :goto_27
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
     const v1, 0x7f08016a
 
-    if-ne v0, v1, :cond_33
+    if-ne v0, v1, :cond_3f
+
+    invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_3f
 
     .line 926
-    if-eqz p2, :cond_57
+    if-eqz p2, :cond_69
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -92,18 +104,24 @@
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 929
-    :cond_33
-    :goto_33
+    :cond_3f
+    :goto_3f
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
     const v1, 0x7f08014d
 
-    if-ne v0, v1, :cond_45
+    if-ne v0, v1, :cond_57
+
+    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_57
 
     .line 930
-    if-eqz p2, :cond_5f
+    if-eqz p2, :cond_71
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -112,11 +130,11 @@
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 933
-    :cond_45
-    :goto_45
+    :cond_57
+    :goto_57
     instance-of v0, p1, Lbl/afz;
 
-    if-eqz v0, :cond_67
+    if-eqz v0, :cond_79
 
     .line 934
     check-cast p1, Lbl/afz;
@@ -126,37 +144,37 @@
     goto :goto_e
 
     .line 923
-    :cond_4f
+    :cond_61
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_21
+    goto :goto_27
 
     .line 927
-    :cond_57
+    :cond_69
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_33
+    goto :goto_3f
 
     .line 931
-    :cond_5f
+    :cond_71
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_45
+    goto :goto_57
 
     .line 935
-    :cond_67
+    :cond_79
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
@@ -178,5 +196,5 @@
     .line 937
     invoke-virtual {v0, p2}, Lcom/bilibili/tv/widget/DrawTextView;->setUpEnabled(Z)V
 
-    goto :goto_e
+    goto/16 :goto_e
 .end method
