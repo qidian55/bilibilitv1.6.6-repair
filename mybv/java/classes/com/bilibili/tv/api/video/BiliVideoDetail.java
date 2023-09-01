@@ -80,6 +80,9 @@ public class BiliVideoDetail implements Parcelable {
     @JSONField(name = "owner_ext")
     public OwnerExt ownerExt;
 
+    @JSONField(name = "duration")
+    public int mDuration;
+
     @Override // android.os.Parcelable
     public int describeContents() {
         return 0;

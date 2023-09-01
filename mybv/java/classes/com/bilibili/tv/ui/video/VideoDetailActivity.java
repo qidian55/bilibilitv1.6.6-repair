@@ -488,13 +488,13 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             }
             if (valueOf2 != null && valueOf2.intValue() == 19) {
                 if (currentFocus.getId() == R.id.tag_view) {
-                    DrawLinearLayout drawLinearLayout = this.j;
+                    DrawLinearLayout drawLinearLayout = (DrawLinearLayout) d(R.id.video_detail_like);
                     if (drawLinearLayout != null) {
                         drawLinearLayout.requestFocus();
                     }
                     return true;
                 }
-            } else if (valueOf2 != null && valueOf2.intValue() == 20 && ((currentFocus.getId() == R.id.video_detail_favorite || currentFocus.getId() == R.id.video_detail_more_btn) && (recyclerView = this.n) != null)) {
+            } else if (valueOf2 != null && valueOf2.intValue() == 20 && ((currentFocus.getId() == R.id.video_detail_like || currentFocus.getId() == R.id.video_detail_coin || currentFocus.getId() == R.id.video_detail_favorite || currentFocus.getId() == R.id.video_detail_more_btn) && (recyclerView = this.n) != null)) {
                 if (recyclerView.getChildCount() > 0) {
                     RecyclerView.h layoutManager = recyclerView.getLayoutManager();
                     if (layoutManager == null) {
@@ -1050,12 +1050,11 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             if (vVar instanceof h) {
                 String str = this.b.get(i);
                 bbi.a((Object) str, "mList[position]");
-                String str2 = str;
-                ((h) vVar).z().setText(str2);
+                ((h) vVar).z().setText(str);
                 View view = vVar.a;
                 bbi.a((Object) view, "infoVH.itemView");
-                view.setTag(str2);
-                vVar.a.setTag(R.id.video_tag_id, this.c.get(str2));
+                view.setTag(str);
+                vVar.a.setTag(R.id.video_tag_id, this.c.get(str));
             }
         }
 
@@ -1456,21 +1455,23 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         }
 
         private final void b(BiliVideoDetail biliVideoDetail) {
-            if (biliVideoDetail.mCreatedTimestamp == 0) {
-                TextView textView = VideoDetailActivity.this.g;
-                if (textView != null) {
-                    textView.setVisibility(8);
-                    return;
+            TextView textView = (TextView) VideoDetailActivity.this.d(R.id.video_detail_duration);
+            if(textView != null){
+                if(biliVideoDetail.mDuration>=3600){
+                    textView.setText(String.format("%d:%02d:%02d",biliVideoDetail.mDuration/3600,(biliVideoDetail.mDuration%3600)/60,biliVideoDetail.mDuration%60));
+                }else{
+                    textView.setText(String.format("%02d:%02d",biliVideoDetail.mDuration/60,biliVideoDetail.mDuration%60));
                 }
-                return;
             }
             TextView textView2 = VideoDetailActivity.this.g;
             if (textView2 != null) {
-                textView2.setVisibility(0);
-            }
-            TextView textView3 = VideoDetailActivity.this.g;
-            if (textView3 != null) {
-                textView3.setText(DateUtils.getRelativeTimeSpanString(biliVideoDetail.mCreatedTimestamp * ((long) IjkMediaCodecInfo.RANK_MAX), System.currentTimeMillis(), 1000L));
+                if (biliVideoDetail.mCreatedTimestamp == 0) {
+                    textView2.setVisibility(8);
+                }
+                else{
+                    textView2.setVisibility(0);
+                    textView2.setText(DateUtils.getRelativeTimeSpanString(biliVideoDetail.mCreatedTimestamp * ((long) IjkMediaCodecInfo.RANK_MAX), System.currentTimeMillis(), 1000L));
+                }
             }
         }
 
