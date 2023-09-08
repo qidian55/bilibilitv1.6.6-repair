@@ -82,6 +82,8 @@ public class BiliVideoDetail implements Parcelable {
 
     @JSONField(name = "duration")
     public int mDuration;
+    @JSONField(name = "history")
+    public History mHistory;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -818,6 +820,45 @@ public class BiliVideoDetail implements Parcelable {
             this.hateNum = parcel.readInt();
         }
     }
+
+
+    public static class History implements Parcelable {
+        public static final Parcelable.Creator<History> CREATOR = new Parcelable.Creator<History>() {
+            @Override // android.os.Parcelable.Creator
+            public History createFromParcel(Parcel parcel) {
+                return new History(parcel);
+            }
+
+            @Override // android.os.Parcelable.Creator
+            public History[] newArray(int i) {
+                return new History[i];
+            }
+        };
+        @JSONField(name = "cid")
+        public int mCid;
+        @JSONField(name = "progress")
+        public int mProgress;
+
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override // android.os.Parcelable
+        public void writeToParcel(Parcel parcel, int i) {
+            parcel.writeInt(this.mCid);
+            parcel.writeInt(this.mProgress);
+        }
+
+        public History() {
+        }
+
+        protected History(Parcel parcel) {
+            this.mCid = parcel.readInt();
+            this.mProgress = parcel.readInt();
+        }
+    }
+
 
     public static BiliVideoDetail create(int i, String str, String str2) {
         BiliVideoDetail biliVideoDetail = new BiliVideoDetail();

@@ -2045,6 +2045,13 @@
     <public type="drawable" name="ic_like" id="0x7f0700fa" />
     <public type="drawable" name="ic_like_hightlight" id="0x7f0700fb" />
     <public type="drawable" name="ic_round_hd_white_48dp" id="0x7f0700fc" />
+    <public type="drawable" name="ic_tips_and_updates_180" id="0x7f0700fd" />
+    <public type="drawable" name="ic_ramen_dining_180" id="0x7f0700fe" />
+    <public type="drawable" name="ic_movie_filter_180" id="0x7f0700ff" />
+    <public type="drawable" name="ic_sports_soccer_180" id="0x7f070100" />
+    <public type="drawable" name="ic_pets_180" id="0x7f070101" />
+    <public type="drawable" name="ic_directions_car_180" id="0x7f070102" />
+    <public type="drawable" name="ic_live_tv_180" id="0x7f070103" />
 
     <public type="id" name="ALT" id="0x7f080000" />
     <public type="id" name="CTRL" id="0x7f080001" />

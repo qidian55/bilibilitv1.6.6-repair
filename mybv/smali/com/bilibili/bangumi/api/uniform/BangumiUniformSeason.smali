@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BangumiUniformSeason.java"
 
 
 # annotations
@@ -10,17 +10,17 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;,
-        Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Notice;,
         Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$VideoPlayerIcon;,
-        Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$OperationActivity;,
-        Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$PayPack;,
-        Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Payment;,
         Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$UpInfo;,
+        Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Stat;,
+        Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Right;,
         Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Rating;,
         Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Publish;,
-        Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$NewestEp;,
-        Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Right;,
-        Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Stat;
+        Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Payment;,
+        Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$PayPack;,
+        Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$OperationActivity;,
+        Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Notice;,
+        Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$NewestEp;
     }
 .end annotation
 
@@ -39,7 +39,8 @@
 .field public episodes:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;",
             ">;"
         }
@@ -139,7 +140,8 @@
 .field public seasons:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason;",
             ">;"
         }
@@ -193,26 +195,66 @@
 .end field
 
 .field public userStatus:Lcom/bilibili/bangumi/api/uniform/BangumiUserStatus;
-    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
-        name = "user_status"
-    .end annotation
-.end field
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 1
 
-    .line 23
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
+    .prologue
     const/4 v0, 0x2
 
-    .line 45
+    .line 16
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 71
     iput v0, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason;->status:I
 
-    .line 51
+    .line 73
     iput v0, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason;->mode:I
 
+    return-void
+.end method
+
+
+# virtual methods
+.method public setuser_status(Lcom/bilibili/bangumi/api/uniform/BangumiUserStatus;)V
+    .locals 3
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "user_status"
+    .end annotation
+
+    .prologue
+    .line 77
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason;->episodes:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_6
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_17
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;
+
+    iget-object v2, p1, Lcom/bilibili/bangumi/api/uniform/BangumiUserStatus;->watchProgress:Lcom/bilibili/bangumi/api/uniform/BangumiUserStatus$WatchProgress;
+
+    iput-object v2, v0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->progress:Lcom/bilibili/bangumi/api/uniform/BangumiUserStatus$WatchProgress;
+
+    goto :goto_6
+
+    .line 78
+    :cond_17
+    iput-object p1, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason;->userStatus:Lcom/bilibili/bangumi/api/uniform/BangumiUserStatus;
+
+    .line 79
     return-void
 .end method

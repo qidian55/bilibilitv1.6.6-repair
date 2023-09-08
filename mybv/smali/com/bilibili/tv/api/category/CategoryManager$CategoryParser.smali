@@ -1,6 +1,6 @@
 .class Lcom/bilibili/tv/api/category/CategoryManager$CategoryParser;
 .super Ljava/lang/Object;
-.source "BL"
+.source "CategoryManager.java"
 
 # interfaces
 .implements Lbl/vu;
@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lbl/vu<",
+        "Lbl/vu",
+        "<",
         "Lcom/bilibili/tv/api/category/CategoryMeta;",
         ">;"
     }
@@ -34,77 +35,80 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
-    .line 309
+    .prologue
+    .line 307
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 310
+    .line 308
     iput-object p1, p0, Lcom/bilibili/tv/api/category/CategoryManager$CategoryParser;->mContext:Landroid/content/Context;
 
+    .line 309
     return-void
 .end method
 
 .method private saveToFile(Ljava/lang/String;)V
-    .locals 2
+    .locals 3
 
-    .line 327
+    .prologue
+    .line 323
+    # getter for: Lcom/bilibili/tv/api/category/CategoryManager;->sFileLock:Ljava/lang/Object;
     invoke-static {}, Lcom/bilibili/tv/api/category/CategoryManager;->access$100()Ljava/lang/Object;
+
+    move-result-object v1
+
+    monitor-enter v1
+
+    .line 325
+    :try_start_5
+    iget-object v0, p0, Lcom/bilibili/tv/api/category/CategoryManager$CategoryParser;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/bilibili/tv/api/category/CategoryManager;->getCateJsonFile(Landroid/content/Context;)Ljava/io/File;
 
     move-result-object v0
 
-    monitor-enter v0
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    .line 328
-    :try_start_0
-    iget-object v1, p0, Lcom/bilibili/tv/api/category/CategoryManager$CategoryParser;->mContext:Landroid/content/Context;
+    move-result-object v0
 
-    invoke-static {v1}, Lcom/bilibili/tv/api/category/CategoryManager;->getCateJsonFile(Landroid/content/Context;)Ljava/io/File;
+    invoke-static {v0, p1}, Lbl/lj;->a(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_12
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_12} :catch_14
+    .catchall {:try_start_5 .. :try_end_12} :catchall_1b
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .line 329
+    :goto_12
+    :try_start_12
+    monitor-exit v1
 
     .line 330
-    :try_start_1
-    invoke-static {v1, p1}, Lbl/lj;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p1
-
-    :try_start_2
-    const-string v1, "write region.json failed."
-
-    .line 332
-    invoke-static {v1, p1}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    .line 334
-    :goto_0
-    monitor-exit v0
-
     return-void
 
-    :catchall_0
-    move-exception p1
+    .line 326
+    :catch_14
+    move-exception v0
 
-    monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .line 327
+    const-string v2, "write region.json failed."
 
-    throw p1
+    invoke-static {v2, v0}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    goto :goto_12
+
+    .line 329
+    :catchall_1b
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_1d
+    .catchall {:try_start_12 .. :try_end_1d} :catchall_1b
+
+    throw v0
 .end method
 
 
 # virtual methods
 .method public convert(Lbl/bia;)Lcom/bilibili/tv/api/category/CategoryMeta;
-    .locals 2
+    .locals 3
     .annotation build Landroid/support/annotation/WorkerThread;
     .end annotation
 
@@ -114,59 +118,40 @@
         }
     .end annotation
 
-    .line 316
+    .prologue
+    .line 314
     invoke-virtual {p1}, Lbl/bia;->f()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 317
-    invoke-static {p1}, Lcom/alibaba/fastjson/JSON;->parseObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
 
     move-result-object v0
 
-    const-string v1, "code"
+    .line 315
+    invoke-static {v0}, Lcom/alibaba/fastjson/JSON;->parseObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
+
+    move-result-object v1
+
+    .line 316
+    const-string v2, "code"
+
+    invoke-virtual {v1, v2}, Lcom/alibaba/fastjson/JSONObject;->getIntValue(Ljava/lang/String;)I
+
+    move-result v2
+
+    if-nez v2, :cond_13
+
+    .line 317
+    invoke-direct {p0, v0}, Lcom/bilibili/tv/api/category/CategoryManager$CategoryParser;->saveToFile(Ljava/lang/String;)V
 
     .line 319
-    invoke-virtual {v0, v1}, Lcom/alibaba/fastjson/JSONObject;->getIntValue(Ljava/lang/String;)I
+    :cond_13
+    invoke-static {v1}, Lcom/bilibili/tv/api/category/CategoryManager;->getResult(Lcom/alibaba/fastjson/JSONObject;)Lcom/bilibili/tv/api/category/CategoryMeta;
 
-    move-result v1
+    move-result-object v0
 
-    if-nez v1, :cond_0
-
-    .line 320
-    invoke-direct {p0, p1}, Lcom/bilibili/tv/api/category/CategoryManager$CategoryParser;->saveToFile(Ljava/lang/String;)V
-
-    .line 323
-    :cond_0
-    invoke-static {v0}, Lcom/bilibili/tv/api/category/CategoryManager;->getResult(Lcom/alibaba/fastjson/JSONObject;)Lcom/bilibili/tv/api/category/CategoryMeta;
-
-    move-result-object p1
-
-    return-object p1
-.end method
-
-.method public bridge synthetic convert(Lbl/bia;)Ljava/lang/Object;
-    .locals 0
-    .annotation build Landroid/support/annotation/WorkerThread;
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;,
-            Ljava/lang/RuntimeException;
-        }
-    .end annotation
-
-    .line 306
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/category/CategoryManager$CategoryParser;->convert(Lbl/bia;)Lcom/bilibili/tv/api/category/CategoryMeta;
-
-    move-result-object p1
-
-    return-object p1
+    return-object v0
 .end method
 
 .method public bridge synthetic convert(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .locals 1
     .annotation build Landroid/support/annotation/WorkerThread;
     .end annotation
 
@@ -176,12 +161,13 @@
         }
     .end annotation
 
-    .line 306
+    .prologue
+    .line 304
     check-cast p1, Lbl/bia;
 
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/category/CategoryManager$CategoryParser;->convert(Lbl/bia;)Lcom/bilibili/tv/api/category/CategoryMeta;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

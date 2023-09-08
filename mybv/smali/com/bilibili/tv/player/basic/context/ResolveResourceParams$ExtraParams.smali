@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/bilibili/tv/player/basic/context/ResolveResourceParams$ExtraParams;
 .super Ljava/lang/Object;
-.source "BL"
+.source "ResolveResourceParams.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;

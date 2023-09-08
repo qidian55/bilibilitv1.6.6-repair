@@ -1,6 +1,6 @@
 .class public Lbl/yt$b;
 .super Ljava/lang/Object;
-.source "BL"
+.source "yt.java"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -18,18 +18,20 @@
 
 
 # instance fields
-.field final synthetic a:Lbl/yt;
+.field final synthetic this$0:Lbl/yt;
 
 
 # direct methods
 .method public constructor <init>(Lbl/yt;)V
     .locals 0
 
-    .line 241
-    iput-object p1, p0, Lbl/yt$b;->a:Lbl/yt;
+    .prologue
+    .line 197
+    iput-object p1, p0, Lbl/yt$b;->this$0:Lbl/yt;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 198
     return-void
 .end method
 
@@ -38,8 +40,9 @@
 .method public run()V
     .locals 4
 
-    .line 244
-    iget-object v0, p0, Lbl/yt$b;->a:Lbl/yt;
+    .prologue
+    .line 202
+    iget-object v0, p0, Lbl/yt$b;->this$0:Lbl/yt;
 
     iget-object v0, v0, Lbl/yt;->a:Ljava/lang/ref/WeakReference;
 
@@ -49,31 +52,36 @@
 
     check-cast v0, Landroid/os/Handler;
 
-    if-nez v0, :cond_0
+    .line 203
+    if-nez v0, :cond_d
 
+    .line 213
+    :goto_c
     return-void
 
-    :cond_0
+    .line 206
+    :cond_d
     const/16 v1, 0x27e2
 
-    .line 247
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 249
-    :try_start_0
-    iget-object v1, p0, Lbl/yt$b;->a:Lbl/yt;
+    .line 208
+    :try_start_12
+    iget-object v1, p0, Lbl/yt$b;->this$0:Lbl/yt;
 
-    invoke-static {v1}, Lbl/yt;->c(Lbl/yt;)Lbl/yj;
+    # getter for: Lbl/yt;->h:Lbl/yj;
+    invoke-static {v1}, Lbl/yt;->access$300(Lbl/yt;)Lbl/yj;
 
     move-result-object v1
 
-    iget-object v2, p0, Lbl/yt$b;->a:Lbl/yt;
+    iget-object v2, p0, Lbl/yt$b;->this$0:Lbl/yt;
 
-    invoke-static {v2}, Lbl/yt;->a(Lbl/yt;)Landroid/content/Context;
+    # getter for: Lbl/yt;->c:Landroid/content/Context;
+    invoke-static {v2}, Lbl/yt;->access$100(Lbl/yt;)Landroid/content/Context;
 
     move-result-object v2
 
-    iget-object v3, p0, Lbl/yt$b;->a:Lbl/yt;
+    iget-object v3, p0, Lbl/yt$b;->this$0:Lbl/yt;
 
     iget-object v3, v3, Lbl/yt;->b:Lbl/yh;
 
@@ -83,21 +91,23 @@
 
     invoke-interface {v1, v2, v3}, Lbl/yj;->a(Landroid/content/Context;Lcom/bilibili/tv/player/basic/context/VideoViewParams;)V
 
+    .line 209
     const/16 v1, 0x27e3
 
-    .line 250
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-    :try_end_0
-    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2e
+    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_12 .. :try_end_2e} :catch_2f
 
-    goto :goto_0
+    goto :goto_c
 
-    :catch_0
+    .line 210
+    :catch_2f
+    move-exception v1
+
+    .line 211
     const/16 v1, 0x27e4
 
-    .line 252
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    :goto_0
-    return-void
+    goto :goto_c
 .end method

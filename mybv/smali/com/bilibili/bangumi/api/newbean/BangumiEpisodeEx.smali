@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BangumiEpisodeEx.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;
@@ -23,7 +23,8 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;",
             ">;"
         }
@@ -112,6 +113,8 @@
     .end annotation
 .end field
 
+.field public progress:Lcom/bilibili/bangumi/api/uniform/BangumiUserStatus$WatchProgress;
+
 .field public releaseDate:Ljava/lang/String;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "release_date"
@@ -171,7 +174,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 92
+    .prologue
+    .line 14
     new-instance v0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx$1;
 
     invoke-direct {v0}, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx$1;-><init>()V
@@ -184,151 +188,155 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 15
+    .prologue
+    .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 81
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 2
 
-    .line 70
+    .prologue
+    .line 83
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 71
+    .line 84
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->aid:I
 
-    .line 72
+    .line 85
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->badge:Ljava/lang/String;
 
-    .line 73
+    .line 86
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->badgeType:I
 
-    .line 74
+    .line 87
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->bvid:Ljava/lang/String;
 
-    .line 75
+    .line 88
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cid:I
 
-    .line 76
+    .line 89
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cover:Ljava/lang/String;
 
-    .line 77
+    .line 90
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->from:Ljava/lang/String;
 
-    .line 78
+    .line 91
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->epid:J
 
-    .line 79
+    .line 92
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->link:Ljava/lang/String;
 
-    .line 80
+    .line 93
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->long_title:Ljava/lang/String;
 
-    .line 81
+    .line 94
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->movieTitle:Ljava/lang/String;
 
-    .line 82
+    .line 95
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->releaseDate:Ljava/lang/String;
 
-    .line 83
+    .line 96
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->shareCopy:Ljava/lang/String;
 
-    .line 84
+    .line 97
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->shareUrl:Ljava/lang/String;
 
-    .line 85
+    .line 98
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->shortLink:Ljava/lang/String;
 
-    .line 86
+    .line 99
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->status:I
 
-    .line 87
+    .line 100
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->subTitle:Ljava/lang/String;
 
-    .line 88
+    .line 101
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->index:Ljava/lang/String;
 
-    .line 89
+    .line 102
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->vid:Ljava/lang/String;
+    iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->vid:Ljava/lang/String;
 
+    .line 103
     return-void
 .end method
 
@@ -337,6 +345,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 77
     const/4 v0, 0x0
 
     return v0
@@ -345,100 +355,102 @@
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
 
-    .line 111
-    iget p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->aid:I
+    .prologue
+    .line 107
+    iget v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->aid:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 108
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->badge:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 109
+    iget v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->badgeType:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 110
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->bvid:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 111
+    iget v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cid:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 112
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->badge:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cover:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 113
-    iget p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->badgeType:I
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->from:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 114
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->bvid:Ljava/lang/String;
-
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 115
-    iget p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cid:I
-
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 116
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cover:Ljava/lang/String;
-
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 117
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->from:Ljava/lang/String;
-
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 118
     iget-wide v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->epid:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 119
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->link:Ljava/lang/String;
+    .line 115
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->link:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 116
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->long_title:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 117
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->movieTitle:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 118
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->releaseDate:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 119
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->shareCopy:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 120
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->long_title:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->shareUrl:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 121
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->movieTitle:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->shortLink:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 122
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->releaseDate:Ljava/lang/String;
+    iget v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->status:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 123
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->shareCopy:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->subTitle:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 124
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->shareUrl:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->index:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 125
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->shortLink:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->vid:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 126
-    iget p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->status:I
-
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 127
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->subTitle:Ljava/lang/String;
-
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 128
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->index:Ljava/lang/String;
-
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 129
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->vid:Ljava/lang/String;
-
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
     return-void
 .end method

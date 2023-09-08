@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BangumiUniformSeason.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;
@@ -24,7 +24,8 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;",
             ">;"
         }
@@ -50,7 +51,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 235
+    .prologue
+    .line 218
     new-instance v0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster$1;
 
     invoke-direct {v0}, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster$1;-><init>()V
@@ -63,57 +65,62 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 225
+    .prologue
+    .line 242
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 243
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 1
 
-    .line 228
+    .prologue
+    .line 245
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 229
+    .line 246
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;->cid:I
 
-    .line 230
+    .line 247
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;->duration:I
 
-    .line 231
+    .line 248
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;->type:I
 
-    .line 232
+    .line 249
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_1f
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_1c
+    iput-boolean v0, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;->allowJump:Z
 
-    :cond_0
-    const/4 p1, 0x0
-
-    :goto_0
-    iput-boolean p1, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;->allowJump:Z
-
+    .line 250
     return-void
+
+    .line 249
+    :cond_1f
+    const/4 v0, 0x0
+
+    goto :goto_1c
 .end method
 
 
@@ -121,35 +128,48 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 239
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
+    .locals 1
 
+    .prologue
     .line 254
-    iget p2, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;->cid:I
+    iget v0, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;->cid:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 255
-    iget p2, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;->duration:I
+    iget v0, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;->duration:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 256
-    iget p2, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;->type:I
+    iget v0, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;->type:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 257
-    iget-boolean p2, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;->allowJump:Z
+    iget-boolean v0, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Paster;->allowJump:Z
 
-    int-to-byte p2, p2
+    if-eqz v0, :cond_18
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeByte(B)V
+    const/4 v0, 0x1
 
+    :goto_14
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
+
+    .line 258
     return-void
+
+    .line 257
+    :cond_18
+    const/4 v0, 0x0
+
+    goto :goto_14
 .end method

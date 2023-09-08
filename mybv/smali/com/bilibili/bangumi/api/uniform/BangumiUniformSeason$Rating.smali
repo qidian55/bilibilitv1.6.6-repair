@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Rating;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BangumiUniformSeason.java"
 
 
 # annotations
@@ -27,7 +27,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 139
+    .prologue
+    .line 160
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

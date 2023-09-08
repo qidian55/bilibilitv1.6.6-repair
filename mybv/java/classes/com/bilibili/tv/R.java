@@ -2067,6 +2067,13 @@ public final class R {
         public static final int ic_like = 0x7f0700fa;
         public static final int ic_like_hightlight = 0x7f0700fb;
         public static final int ic_round_hd_white_48dp = 0x7f0700fc;
+        public static final int ic_tips_and_updates_180 = 0x7f0700fd;
+        public static final int ic_ramen_dining_180 = 0x7f0700fe;
+        public static final int ic_movie_filter_180 = 0x7f0700ff;
+        public static final int ic_sports_soccer_180 = 0x7f070100;
+        public static final int ic_pets_180 = 0x7f070101;
+        public static final int ic_directions_car_180 = 0x7f070102;
+        public static final int ic_live_tv_180 = 0x7f070103;
     }
 
     public static final class id {

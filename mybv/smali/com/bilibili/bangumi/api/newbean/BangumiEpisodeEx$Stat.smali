@@ -1,6 +1,6 @@
 .class Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx$Stat;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BangumiEpisodeEx.java"
 
 
 # annotations
@@ -49,10 +49,12 @@
 .method public constructor <init>(Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;)V
     .locals 0
 
-    .line 150
+    .prologue
+    .line 167
     iput-object p1, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx$Stat;->this$0:Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 168
     return-void
 .end method

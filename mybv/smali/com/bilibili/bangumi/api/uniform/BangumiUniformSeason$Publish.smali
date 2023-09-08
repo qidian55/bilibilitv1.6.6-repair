@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Publish;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BangumiUniformSeason.java"
 
 
 # annotations
@@ -49,12 +49,13 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 125
+    .prologue
+    .line 145
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 154
     const/4 v0, -0x1
 
-    .line 134
     iput v0, p0, Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason$Publish;->weekday:I
 
     return-void

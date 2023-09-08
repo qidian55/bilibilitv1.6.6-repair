@@ -12,6 +12,7 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/bilibili/tv/api/video/BiliVideoDetail$History;,
         Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;,
         Lcom/bilibili/tv/api/video/BiliVideoDetail$MovieRecommend;,
         Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;,
@@ -95,6 +96,12 @@
 .field public mFirstFrame:Ljava/lang/String;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "first_frame"
+    .end annotation
+.end field
+
+.field public mHistory:Lcom/bilibili/tv/api/video/BiliVideoDetail$History;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "history"
     .end annotation
 .end field
 
@@ -250,10 +257,10 @@
     .locals 0
 
     .prologue
-    .line 860
+    .line 901
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 861
+    .line 902
     return-void
 .end method
 
@@ -261,66 +268,66 @@
     .locals 2
 
     .prologue
-    .line 891
+    .line 932
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 892
+    .line 933
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
 
-    .line 893
+    .line 934
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTid:I
 
-    .line 894
+    .line 935
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTypeName:Ljava/lang/String;
 
-    .line 895
+    .line 936
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTitle:Ljava/lang/String;
 
-    .line 896
+    .line 937
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mArcType:I
 
-    .line 897
+    .line 938
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mCover:Ljava/lang/String;
 
-    .line 898
+    .line 939
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mCreatedTimestamp:J
 
-    .line 899
+    .line 940
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mDescription:Ljava/lang/String;
 
-    .line 900
+    .line 941
     const-class v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -335,7 +342,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRights:Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
 
-    .line 901
+    .line 942
     const-class v0, Lcom/bilibili/tv/api/video/BiliUser;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -350,7 +357,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mOwner:Lcom/bilibili/tv/api/video/BiliUser;
 
-    .line 902
+    .line 943
     const-class v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -365,7 +372,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
-    .line 903
+    .line 944
     sget-object v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Tag;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
@@ -374,7 +381,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTags:Ljava/util/List;
 
-    .line 904
+    .line 945
     sget-object v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
@@ -383,7 +390,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mPageList:Ljava/util/List;
 
-    .line 905
+    .line 946
     const-class v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -398,7 +405,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
-    .line 906
+    .line 947
     const-class v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -413,7 +420,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBangumiInfo:Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;
 
-    .line 907
+    .line 948
     const-class v0, Lcom/bilibili/bangumi/api/BangumiSponsorRankList;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -428,7 +435,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBangumiSponsorRankList:Lcom/bilibili/bangumi/api/BangumiSponsorRankList;
 
-    .line 908
+    .line 949
     const-class v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Special;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -443,7 +450,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mSp:Lcom/bilibili/tv/api/video/BiliVideoDetail$Special;
 
-    .line 909
+    .line 950
     const-class v0, Lcom/bilibili/tv/api/video/BiliMovie;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -458,7 +465,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mMovie:Lcom/bilibili/tv/api/video/BiliMovie;
 
-    .line 910
+    .line 951
     sget-object v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
@@ -467,28 +474,28 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRelatedList:Ljava/util/List;
 
-    .line 911
+    .line 952
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mDownloadableInfo:Ljava/lang/String;
 
-    .line 912
+    .line 953
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mJumpAid:I
 
-    .line 913
+    .line 954
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mViewAt:J
 
-    .line 914
+    .line 955
     sget-object v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$MovieRecommend;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
@@ -497,7 +504,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->movieRecommendList:Ljava/util/List;
 
-    .line 915
+    .line 956
     const-class v0, Lcom/bilibili/tv/api/video/OwnerExt;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -512,7 +519,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->ownerExt:Lcom/bilibili/tv/api/video/OwnerExt;
 
-    .line 916
+    .line 957
     return-void
 .end method
 
@@ -520,21 +527,21 @@
     .locals 1
 
     .prologue
-    .line 823
+    .line 864
     new-instance v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
     invoke-direct {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail;-><init>()V
 
-    .line 824
+    .line 865
     iput p0, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
 
-    .line 825
+    .line 866
     iput-object p2, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mCover:Ljava/lang/String;
 
-    .line 826
+    .line 867
     iput-object p1, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTitle:Ljava/lang/String;
 
-    .line 827
+    .line 868
     return-object v0
 .end method
 
@@ -544,7 +551,7 @@
     .locals 1
 
     .prologue
-    .line 104
+    .line 106
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRights:Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
 
     if-eqz v0, :cond_10
@@ -577,7 +584,7 @@
     .locals 1
 
     .prologue
-    .line 100
+    .line 102
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRights:Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
 
     if-eqz v0, :cond_c
@@ -603,7 +610,7 @@
     .locals 1
 
     .prologue
-    .line 120
+    .line 122
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRights:Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
 
     if-eqz v0, :cond_c
@@ -629,20 +636,20 @@
     .locals 2
 
     .prologue
-    .line 831
+    .line 872
     if-ne p1, p0, :cond_3
 
-    .line 858
+    .line 899
     :goto_2
     return-void
 
-    .line 834
+    .line 875
     :cond_3
     iget v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
 
-    .line 835
+    .line 876
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mCover:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -651,108 +658,108 @@
 
     if-eqz v0, :cond_13
 
-    .line 836
+    .line 877
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mCover:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mCover:Ljava/lang/String;
 
-    .line 838
+    .line 879
     :cond_13
     iget v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTid:I
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTid:I
 
-    .line 839
+    .line 880
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTypeName:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTypeName:Ljava/lang/String;
 
-    .line 840
+    .line 881
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTitle:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTitle:Ljava/lang/String;
 
-    .line 841
+    .line 882
     iget v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mArcType:I
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mArcType:I
 
-    .line 842
+    .line 883
     iget-wide v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mCreatedTimestamp:J
 
     iput-wide v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mCreatedTimestamp:J
 
-    .line 843
+    .line 884
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mDescription:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mDescription:Ljava/lang/String;
 
-    .line 844
+    .line 885
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mDownloadableInfo:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mDownloadableInfo:Ljava/lang/String;
 
-    .line 845
+    .line 886
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRights:Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRights:Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
 
-    .line 846
+    .line 887
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mOwner:Lcom/bilibili/tv/api/video/BiliUser;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mOwner:Lcom/bilibili/tv/api/video/BiliUser;
 
-    .line 847
+    .line 888
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
-    .line 848
+    .line 889
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTags:Ljava/util/List;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTags:Ljava/util/List;
 
-    .line 849
+    .line 890
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mPageList:Ljava/util/List;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mPageList:Ljava/util/List;
 
-    .line 850
+    .line 891
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
-    .line 851
+    .line 892
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBangumiInfo:Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBangumiInfo:Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;
 
-    .line 852
+    .line 893
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBangumiSponsorRankList:Lcom/bilibili/bangumi/api/BangumiSponsorRankList;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBangumiSponsorRankList:Lcom/bilibili/bangumi/api/BangumiSponsorRankList;
 
-    .line 853
+    .line 894
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mSp:Lcom/bilibili/tv/api/video/BiliVideoDetail$Special;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mSp:Lcom/bilibili/tv/api/video/BiliVideoDetail$Special;
 
-    .line 854
+    .line 895
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mMovie:Lcom/bilibili/tv/api/video/BiliMovie;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mMovie:Lcom/bilibili/tv/api/video/BiliMovie;
 
-    .line 855
+    .line 896
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRelatedList:Ljava/util/List;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRelatedList:Ljava/util/List;
 
-    .line 856
+    .line 897
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->movieRecommendList:Ljava/util/List;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->movieRecommendList:Ljava/util/List;
 
-    .line 857
+    .line 898
     iget-object v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->ownerExt:Lcom/bilibili/tv/api/video/OwnerExt;
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->ownerExt:Lcom/bilibili/tv/api/video/OwnerExt;
@@ -764,7 +771,7 @@
     .locals 1
 
     .prologue
-    .line 88
+    .line 90
     const/4 v0, 0x0
 
     return v0
@@ -776,10 +783,10 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 305
+    .line 307
     if-ne p0, p1, :cond_4
 
-    .line 308
+    .line 310
     :cond_3
     :goto_3
     return v0
@@ -809,21 +816,21 @@
     .end annotation
 
     .prologue
-    .line 289
+    .line 291
     invoke-virtual {p0}, Lcom/bilibili/tv/api/video/BiliVideoDetail;->isPageListEmpty()Z
 
     move-result v0
 
     if-eqz v0, :cond_8
 
-    .line 290
+    .line 292
     const/4 v0, 0x0
 
-    .line 297
+    .line 299
     :goto_7
     return-object v0
 
-    .line 292
+    .line 294
     :cond_8
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mPageList:Ljava/util/List;
 
@@ -844,14 +851,14 @@
 
     check-cast v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;
 
-    .line 293
+    .line 295
     iget v2, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mCid:I
 
     if-ne v2, p1, :cond_e
 
     goto :goto_7
 
-    .line 297
+    .line 299
     :cond_1f
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mPageList:Ljava/util/List;
 
@@ -870,7 +877,7 @@
     .locals 1
 
     .prologue
-    .line 169
+    .line 171
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mOwner:Lcom/bilibili/tv/api/video/BiliUser;
 
     if-eqz v0, :cond_9
@@ -892,7 +899,7 @@
     .locals 1
 
     .prologue
-    .line 165
+    .line 167
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mOwner:Lcom/bilibili/tv/api/video/BiliUser;
 
     if-eqz v0, :cond_9
@@ -914,17 +921,17 @@
     .locals 1
 
     .prologue
-    .line 154
+    .line 156
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
     if-eqz v0, :cond_9
 
-    .line 155
+    .line 157
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
     iget v0, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mCoins:I
 
-    .line 157
+    .line 159
     :goto_8
     return v0
 
@@ -938,7 +945,7 @@
     .locals 1
 
     .prologue
-    .line 136
+    .line 138
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
     if-eqz v0, :cond_9
@@ -960,17 +967,17 @@
     .locals 1
 
     .prologue
-    .line 147
+    .line 149
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
     if-eqz v0, :cond_9
 
-    .line 148
+    .line 150
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
     iget v0, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mFavorites:I
 
-    .line 150
+    .line 152
     :goto_8
     return v0
 
@@ -984,17 +991,17 @@
     .locals 2
 
     .prologue
-    .line 173
+    .line 175
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mOwner:Lcom/bilibili/tv/api/video/BiliUser;
 
     if-eqz v0, :cond_9
 
-    .line 174
+    .line 176
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mOwner:Lcom/bilibili/tv/api/video/BiliUser;
 
     iget-wide v0, v0, Lcom/bilibili/tv/api/video/BiliUser;->mid:J
 
-    .line 176
+    .line 178
     :goto_8
     return-wide v0
 
@@ -1008,7 +1015,7 @@
     .locals 1
 
     .prologue
-    .line 132
+    .line 134
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
     if-eqz v0, :cond_9
@@ -1030,7 +1037,7 @@
     .locals 1
 
     .prologue
-    .line 128
+    .line 130
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
     if-eqz v0, :cond_9
@@ -1052,7 +1059,7 @@
     .locals 1
 
     .prologue
-    .line 187
+    .line 189
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBangumiInfo:Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;
 
     if-eqz v0, :cond_9
@@ -1076,12 +1083,12 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 191
+    .line 193
     iget-object v1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBangumiInfo:Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;
 
     if-eqz v1, :cond_11
 
-    .line 193
+    .line 195
     :try_start_5
     iget-object v1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBangumiInfo:Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;
 
@@ -1097,12 +1104,12 @@
 
     move-result v0
 
-    .line 198
+    .line 200
     :cond_11
     :goto_11
     return v0
 
-    .line 194
+    .line 196
     :catch_12
     move-exception v1
 
@@ -1113,17 +1120,17 @@
     .locals 1
 
     .prologue
-    .line 140
+    .line 142
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
     if-eqz v0, :cond_9
 
-    .line 141
+    .line 143
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
     iget v0, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mShares:I
 
-    .line 143
+    .line 145
     :goto_8
     return v0
 
@@ -1137,7 +1144,7 @@
     .locals 1
 
     .prologue
-    .line 161
+    .line 163
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mSp:Lcom/bilibili/tv/api/video/BiliVideoDetail$Special;
 
     if-eqz v0, :cond_9
@@ -1159,17 +1166,17 @@
     .locals 1
 
     .prologue
-    .line 180
+    .line 182
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mSp:Lcom/bilibili/tv/api/video/BiliVideoDetail$Special;
 
     if-eqz v0, :cond_9
 
-    .line 181
+    .line 183
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mSp:Lcom/bilibili/tv/api/video/BiliVideoDetail$Special;
 
     iget v0, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Special;->mSpid:I
 
-    .line 183
+    .line 185
     :goto_8
     return v0
 
@@ -1183,7 +1190,7 @@
     .locals 1
 
     .prologue
-    .line 124
+    .line 126
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRights:Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
 
     if-eqz v0, :cond_c
@@ -1209,7 +1216,7 @@
     .locals 1
 
     .prologue
-    .line 312
+    .line 314
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
 
     return v0
@@ -1219,16 +1226,16 @@
     .locals 2
 
     .prologue
-    .line 209
+    .line 211
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
     if-nez v0, :cond_5
 
-    .line 213
+    .line 215
     :goto_4
     return-void
 
-    .line 212
+    .line 214
     :cond_5
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
@@ -1245,16 +1252,16 @@
     .locals 2
 
     .prologue
-    .line 202
+    .line 204
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
     if-nez v0, :cond_5
 
-    .line 206
+    .line 208
     :goto_4
     return-void
 
-    .line 205
+    .line 207
     :cond_5
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
@@ -1273,7 +1280,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 280
+    .line 282
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mPageList:Ljava/util/List;
 
     if-eqz v0, :cond_17
@@ -1299,15 +1306,15 @@
     :cond_17
     move v0, v1
 
-    .line 284
+    .line 286
     :goto_18
     return v0
 
-    .line 283
+    .line 285
     :cond_19
     iget-object v0, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mFrom:Ljava/lang/String;
 
-    .line 284
+    .line 286
     const-string v2, "vupload"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1355,7 +1362,7 @@
     .locals 1
 
     .prologue
-    .line 263
+    .line 265
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
     if-eqz v0, :cond_e
@@ -1383,7 +1390,7 @@
     .locals 1
 
     .prologue
-    .line 259
+    .line 261
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
     if-eqz v0, :cond_c
@@ -1409,7 +1416,7 @@
     .locals 1
 
     .prologue
-    .line 251
+    .line 253
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
     if-eqz v0, :cond_c
@@ -1437,7 +1444,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 108
+    .line 110
     iget v1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mArcType:I
 
     if-ne v1, v0, :cond_10
@@ -1465,7 +1472,7 @@
     .locals 1
 
     .prologue
-    .line 255
+    .line 257
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
     if-eqz v0, :cond_c
@@ -1491,7 +1498,7 @@
     .locals 1
 
     .prologue
-    .line 112
+    .line 114
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->ownerExt:Lcom/bilibili/tv/api/video/OwnerExt;
 
     if-eqz v0, :cond_e
@@ -1521,7 +1528,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 275
+    .line 277
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mPageList:Ljava/util/List;
 
     if-eqz v0, :cond_23
@@ -1571,7 +1578,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 96
+    .line 98
     iget v1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mArcType:I
 
     if-ne v1, v0, :cond_6
@@ -1589,7 +1596,7 @@
     .locals 1
 
     .prologue
-    .line 92
+    .line 94
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mPageList:Ljava/util/List;
 
     if-eqz v0, :cond_c
@@ -1618,7 +1625,7 @@
     .locals 1
 
     .prologue
-    .line 116
+    .line 118
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->ownerExt:Lcom/bilibili/tv/api/video/OwnerExt;
 
     if-eqz v0, :cond_e
@@ -1646,7 +1653,7 @@
     .locals 1
 
     .prologue
-    .line 247
+    .line 249
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
 
     if-lez v0, :cond_6
@@ -1666,16 +1673,16 @@
     .locals 2
 
     .prologue
-    .line 267
+    .line 269
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
     if-nez v0, :cond_5
 
-    .line 271
+    .line 273
     :goto_4
     return-void
 
-    .line 270
+    .line 272
     :cond_5
     iget-object v1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
@@ -1698,16 +1705,16 @@
     .locals 1
 
     .prologue
-    .line 239
+    .line 241
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
     if-nez v0, :cond_5
 
-    .line 243
+    .line 245
     :goto_4
     return-void
 
-    .line 242
+    .line 244
     :cond_5
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
@@ -1720,16 +1727,16 @@
     .locals 2
 
     .prologue
-    .line 216
+    .line 218
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
     if-nez v0, :cond_5
 
-    .line 224
+    .line 226
     :goto_4
     return-void
 
-    .line 219
+    .line 221
     :cond_5
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
@@ -1741,7 +1748,7 @@
 
     if-eq v0, p1, :cond_19
 
-    .line 220
+    .line 222
     if-eqz p1, :cond_1e
 
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
@@ -1752,7 +1759,7 @@
 
     iput v1, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mFavorites:I
 
-    .line 223
+    .line 225
     :cond_19
     :goto_19
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
@@ -1761,7 +1768,7 @@
 
     goto :goto_4
 
-    .line 221
+    .line 223
     :cond_1e
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
@@ -1778,16 +1785,16 @@
     .locals 2
 
     .prologue
-    .line 228
+    .line 230
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
     if-nez v0, :cond_5
 
-    .line 236
+    .line 238
     :goto_4
     return-void
 
-    .line 231
+    .line 233
     :cond_5
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
@@ -1799,7 +1806,7 @@
 
     if-eq v0, p1, :cond_19
 
-    .line 232
+    .line 234
     if-eqz p1, :cond_1e
 
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
@@ -1810,7 +1817,7 @@
 
     iput v1, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mLikes:I
 
-    .line 235
+    .line 237
     :cond_19
     :goto_19
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
@@ -1819,7 +1826,7 @@
 
     goto :goto_4
 
-    .line 233
+    .line 235
     :cond_1e
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
@@ -1836,7 +1843,7 @@
     .locals 2
 
     .prologue
-    .line 301
+    .line 303
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1882,126 +1889,126 @@
     .locals 2
 
     .prologue
-    .line 865
+    .line 906
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 866
+    .line 907
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTid:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 867
+    .line 908
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTypeName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 868
+    .line 909
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTitle:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 869
+    .line 910
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mArcType:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 870
+    .line 911
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mCover:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 871
+    .line 912
     iget-wide v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mCreatedTimestamp:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 872
+    .line 913
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mDescription:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 873
+    .line 914
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRights:Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 874
+    .line 915
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mOwner:Lcom/bilibili/tv/api/video/BiliUser;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 875
+    .line 916
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mStat:Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 876
+    .line 917
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTags:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 877
+    .line 918
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mPageList:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 878
+    .line 919
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRequestUser:Lcom/bilibili/tv/api/video/BiliVideoDetail$RequestUser;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 879
+    .line 920
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBangumiInfo:Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 880
+    .line 921
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBangumiSponsorRankList:Lcom/bilibili/bangumi/api/BangumiSponsorRankList;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 881
+    .line 922
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mSp:Lcom/bilibili/tv/api/video/BiliVideoDetail$Special;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 882
+    .line 923
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mMovie:Lcom/bilibili/tv/api/video/BiliMovie;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 883
+    .line 924
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mRelatedList:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 884
+    .line 925
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mDownloadableInfo:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 885
+    .line 926
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mJumpAid:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 886
+    .line 927
     iget-wide v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mViewAt:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 887
+    .line 928
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->movieRecommendList:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 888
+    .line 929
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->ownerExt:Lcom/bilibili/tv/api/video/OwnerExt;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 889
+    .line 930
     return-void
 .end method

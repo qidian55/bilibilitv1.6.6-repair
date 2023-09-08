@@ -1,866 +1,1505 @@
-[
-  {
+//https://app.bilibili.com/x/v2/region/index?build=0
+[{
     "tid": 65537,
     "reid": 0,
     "name": "直播",
     "logo": "http://i0.hdslb.com/bfs/archive/1b0ac7eafd51b03a0dc5b2390eec2fbffb25adf7.png",
-    "goto": "",
+    "goto": "0",
     "param": "",
-    "uri": "bilibili://livearea",
-    "type": 1
-  },
-  {
+    "uri": "bilibili://home/?tab=直播",
+    "type": 0,
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }]
+}, {
     "tid": 13,
     "reid": 0,
     "name": "番剧",
     "logo": "http://i0.hdslb.com/bfs/archive/6f629bd0dcd71d7b9911803f8e4f94fd0e5b4bfd.png",
-    "goto": "",
+    "goto": "0",
     "param": "",
     "uri": "bilibili://pgc/bangumi",
     "type": 1,
     "is_bangumi": 1,
-    "children": [
-      {
+    "children": [{
         "tid": 33,
         "reid": 13,
         "name": "连载动画",
         "logo": "http://i0.hdslb.com/bfs/archive/02c1ddbe698c4cba3c6db941047957d17b7910d7.png",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 32,
         "reid": 13,
         "name": "完结动画",
         "logo": "http://i0.hdslb.com/bfs/archive/efb691127ea5b547b64431a59b27b278d6803172.png",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 51,
         "reid": 13,
         "name": "资讯",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 152,
         "reid": 13,
         "name": "官方延伸",
         "logo": "http://i0.hdslb.com/bfs/archive/8eb0bf53223544526bf99ec6f636758e2afed503.png",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      }
-    ]
-  },
-  {
-    "tid": 1,
-    "reid": 0,
-    "name": "动画",
-    "logo": "http://i0.hdslb.com/bfs/archive/9b3bb8cfc8d87809ffa409bc65def8d8c3eaf72b.png",
-    "goto": "",
-    "param": "",
-    "uri": "bilibili://region/1",
-    "type": 0,
-    "children": [
-      {
-        "tid": 24,
-        "reid": 1,
-        "name": "MAD·AMV",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      },
-      {
-        "tid": 25,
-        "reid": 1,
-        "name": "MMD·3D",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      },
-      {
-        "tid": 47,
-        "reid": 1,
-        "name": "短片·手书·配音",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      },
-      {
-        "tid": 27,
-        "reid": 1,
-        "name": "综合",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      }
-    ]
-  },
-  {
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "top"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
     "tid": 167,
     "reid": 0,
     "name": "国创",
     "logo": "http://i0.hdslb.com/bfs/archive/1586ec926eac1ea876cb74d32df51394d8e72341.png",
-    "goto": "",
+    "goto": "0",
     "param": "",
     "uri": "bilibili://pgc/domestic",
     "type": 1,
-    "children": [
-      {
+    "is_bangumi": 1,
+    "children": [{
         "tid": 153,
         "reid": 167,
         "name": "国产动画",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 168,
         "reid": 167,
         "name": "国产原创相关",
-        "logo": "http://i0.hdslb.com/bfs/archive/a542484038f03840a1fbc5c2308f5507cd11a656.png",
-        "goto": "",
+        "logo": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 169,
         "reid": 167,
         "name": "布袋戏",
-        "logo": "http://i0.hdslb.com/bfs/archive/6d9a9c0df52d7149d09343e2263b864d24935a33.png",
-        "goto": "",
+        "logo": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
+        "tid": 195,
+        "reid": 167,
+        "name": "动态漫·广播剧",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
         "tid": 170,
         "reid": 167,
         "name": "资讯",
-        "logo": "http://i0.hdslb.com/bfs/archive/bd90ef39b40c88336a60cb886f8781ecc19df243.png",
-        "goto": "",
+        "logo": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      }
-    ]
-  },
-  {
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "top"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
+    "tid": 168,
+    "reid": 0,
+    "name": "国创相关",
+    "logo": "",
+    "goto": "0",
+    "param": "",
+    "type": 0,
+    "config": [{
+        "scenes_name": "rank"
+    }]
+}, {
+    "tid": 1,
+    "reid": 0,
+    "name": "动画",
+    "logo": "http://i0.hdslb.com/bfs/archive/9b3bb8cfc8d87809ffa409bc65def8d8c3eaf72b.png",
+    "goto": "0",
+    "param": "",
+    "uri": "bilibili://region/1",
+    "type": 0,
+    "children": [{
+        "tid": 24,
+        "reid": 1,
+        "name": "MAD·AMV",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 25,
+        "reid": 1,
+        "name": "MMD·3D",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 47,
+        "reid": 1,
+        "name": "短片·手书",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 257,
+        "reid": 1,
+        "name": "配音",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 210,
+        "reid": 1,
+        "name": "手办·模玩",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 86,
+        "reid": 1,
+        "name": "特摄",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 253,
+        "reid": 1,
+        "name": "动漫杂谈",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 27,
+        "reid": 1,
+        "name": "综合",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "tag"
+    }, {
+        "scenes_name": "search"
+    }]
+}, {
+    "tid": 65545,
+    "reid": 0,
+    "name": "放映厅",
+    "logo": "http://i0.hdslb.com/bfs/archive/3dfba664353bb2349917eaf81b60db34b2d4c61a.png",
+    "goto": "0",
+    "param": "",
+    "uri": "bilibili://pgc/cinema",
+    "type": 1,
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "top"
+    }]
+}, {
+    "tid": 65541,
+    "reid": 0,
+    "name": "专栏",
+    "logo": "http://i0.hdslb.com/bfs/archive/a0c0e133644c47d6263cf24cf8364e2106c102c3.png",
+    "goto": "0",
+    "param": "",
+    "uri": "bilibili://article/category/",
+    "type": 1,
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "top"
+    }, {
+        "scenes_name": "search"
+    }]
+}, {
+
     "tid": 3,
     "reid": 0,
     "name": "音乐",
     "logo": "http://i0.hdslb.com/bfs/archive/3a99c51d00038ced3989686b6f3c49d01aa34207.png",
-    "goto": "",
+    "goto": "0",
     "param": "",
     "uri": "bilibili://region/3",
     "type": 0,
-    "children": [
-      {
-        "tid": 31,
-        "reid": 3,
-        "name": "翻唱",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      },
-      {
-        "tid": 30,
-        "reid": 3,
-        "name": "VOCALOID·UTAU",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      },
-      {
-        "tid": 59,
-        "reid": 3,
-        "name": "演奏",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      },
-      {
-        "tid": 54,
-        "reid": 3,
-        "name": "OP/ED/OST",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      },
-      {
+    "children": [{
         "tid": 28,
         "reid": 3,
         "name": "原创音乐",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
+        "tid": 31,
+        "reid": 3,
+        "name": "翻唱",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 59,
+        "reid": 3,
+        "name": "演奏",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 30,
+        "reid": 3,
+        "name": "VOCALOID·UTAU",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
         "tid": 29,
         "reid": 3,
-        "name": "三次元音乐",
+        "name": "音乐现场",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
+        "tid": 193,
+        "reid": 3,
+        "name": "MV",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 243,
+        "reid": 3,
+        "name": "乐评盘点",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 244,
+        "reid": 3,
+        "name": "音乐教学",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
         "tid": 130,
         "reid": 3,
-        "name": "音乐选集",
+        "name": "音乐综合",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      }
-    ]
-  },
-  {
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "tag"
+    }, {
+        "scenes_name": "search"
+    }]
+}, {
     "tid": 129,
     "reid": 0,
     "name": "舞蹈",
     "logo": "http://i0.hdslb.com/bfs/archive/4769a6faa9ccfde4a029eca36b979bac486afd14.png",
-    "goto": "",
+    "goto": "0",
     "param": "",
     "uri": "bilibili://region/129",
     "type": 0,
-    "children": [
-      {
+    "children": [{
         "tid": 20,
         "reid": 129,
         "name": "宅舞",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
+        "tid": 198,
+        "reid": 129,
+        "name": "街舞",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 199,
+        "reid": 129,
+        "name": "明星舞蹈",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 200,
+        "reid": 129,
+        "name": "国风舞蹈",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 255,
+        "reid": 129,
+        "name": "手势·网红舞",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
         "tid": 154,
         "reid": 129,
-        "name": "三次元舞蹈",
+        "name": "舞蹈综合",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 156,
         "reid": 129,
         "name": "舞蹈教程",
         "logo": "http://i0.hdslb.com/bfs/archive/c4a42b0d7df5e4eed9fa0980445f45fff6903c5c.png",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      }
-    ]
-  },
-  {
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
     "tid": 4,
     "reid": 0,
     "name": "游戏",
     "logo": "http://i0.hdslb.com/bfs/archive/9c88ce1adaecf31e27121bdbb5a29824d655d0a6.png",
-    "goto": "",
+    "goto": "0",
     "param": "",
     "uri": "bilibili://region/4",
     "type": 0,
-    "children": [
-      {
+    "children": [{
         "tid": 17,
         "reid": 4,
         "name": "单机游戏",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 171,
         "reid": 4,
         "name": "电子竞技",
         "logo": "http://i0.hdslb.com/bfs/archive/0511bbb27a1f175a91bf34cfd46a8a8303e607bd.png",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 172,
         "reid": 4,
         "name": "手机游戏",
         "logo": "http://i0.hdslb.com/bfs/archive/572945562c8f04437564ba37083f1c2c5ca9432b.png",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 65,
         "reid": 4,
         "name": "网络游戏",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 173,
         "reid": 4,
         "name": "桌游棋牌",
         "logo": "http://i0.hdslb.com/bfs/archive/95acf71eacc1cf1fa542d0dcbf3480bafaa6005c.png",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 121,
         "reid": 4,
         "name": "GMV",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 136,
         "reid": 4,
         "name": "音游",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 19,
         "reid": 4,
         "name": "Mugen",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      }
-    ]
-  },
-  {
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
     "tid": 36,
     "reid": 0,
-    "name": "科技",
-    "logo": "http://i0.hdslb.com/bfs/archive/4a687a86b49feea68d423fd1bf2c461acfe59b70.png",
-    "goto": "",
+    "name": "知识",
+    "logo": "http://i0.hdslb.com/bfs/archive/d5bb279936dbe661f958683231566214056987b2.png",
+    "goto": "0",
     "param": "",
     "uri": "bilibili://region/36",
     "type": 0,
-    "children": [
-      {
+    "children": [{
+        "tid": 201,
+        "reid": 36,
+        "name": "科学科普",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
         "tid": 124,
         "reid": 36,
-        "name": "趣味科普人文",
+        "name": "社科·法律·心理",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
+        "tid": 228,
+        "reid": 36,
+        "name": "人文历史",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 207,
+        "reid": 36,
+        "name": "财经商业",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 208,
+        "reid": 36,
+        "name": "校园学习",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 209,
+        "reid": 36,
+        "name": "职业职场",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 229,
+        "reid": 36,
+        "name": "设计·创意",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
         "tid": 122,
         "reid": 36,
-        "name": "野生技术协会",
+        "name": "野生技能协会",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
-        "tid": 39,
-        "reid": 36,
-        "name": "演讲·公开课",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      },
-      {
-        "tid": 96,
-        "reid": 36,
-        "name": "星海",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      },
-      {
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "tag"
+    }, {
+        "scenes_name": "search"
+    }]
+}, {
+    "tid": 188,
+    "reid": 0,
+    "name": "科技",
+    "logo": "http://i0.hdslb.com/bfs/feed-admin/4a687a86b49feea68d423fd1bf2c461acfe59b70.png",
+    "goto": "0",
+    "param": "",
+    "uri": "bilibili://region/188",
+    "type": 0,
+    "children": [{
         "tid": 95,
-        "reid": 36,
+        "reid": 188,
         "name": "数码",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
-        "tid": 98,
-        "reid": 36,
-        "name": "机械",
+    }, {
+        "tid": 230,
+        "reid": 188,
+        "name": "软件应用",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
+        "tid": 231,
+        "reid": 188,
+        "name": "计算机技术",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 232,
+        "reid": 188,
+        "name": "科工机械",
+        "logo": "6",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 233,
+        "reid": 188,
+        "name": "极客DIY",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }, {
+        "scenes_name": "attention"
+    }]
+}, {
+    "tid": 202,
+    "reid": 0,
+    "name": "资讯",
+    "logo": "https://i0.hdslb.com/bfs/legacy/d71e70e1bfcb7b27ffe88e6cb82868c68b084464.png",
+    "goto": "0",
+    "param": "",
+    "uri": "bilibili://region/202",
+    "type": 0,
+    "children": [{
+        "tid": 203,
+        "reid": 202,
+        "name": "热点",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 204,
+        "reid": 202,
+        "name": "环球",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 205,
+        "reid": 202,
+        "name": "社会",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 206,
+        "reid": 202,
+        "name": "综合",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }, {
+        "scenes_name": "attention"
+    }]
+}, {
+    "tid": 223,
+    "reid": 0,
+    "name": "汽车",
+    "logo": "http://i0.hdslb.com/bfs/feed-admin/1515d944550494abf81b552a84484dce80287242.png",
+    "goto": "0",
+    "param": "",
+    "uri": "bilibili://region/223",
+    "type": 0,
+    "children": [{
+        "tid": 245,
+        "reid": 223,
+        "name": "赛车",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 246,
+        "reid": 223,
+        "name": "改装玩车",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 247,
+        "reid": 223,
+        "name": "新能源车",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 248,
+        "reid": 223,
+        "name": "房车",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 240,
+        "reid": 223,
+        "name": "摩托车",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 227,
+        "reid": 223,
+        "name": "购车攻略",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
         "tid": 176,
-        "reid": 36,
-        "name": "汽车",
-        "logo": "http://i0.hdslb.com/bfs/archive/6f4b11c8b28741872c667f427b8a8e6237903cdd.png",
-        "goto": "",
+        "reid": 223,
+        "name": "汽车生活",
+        "logo": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      }
-    ]
-  },
-  {
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
+    "tid": 234,
+    "reid": 0,
+    "name": "运动",
+    "logo": "http://i0.hdslb.com/bfs/feed-admin/56a67fa38d8d7378ab4154307d26cffce2d1ae3f.png",
+    "goto": "0",
+    "param": "",
+    "uri": "bilibili://region/234",
+    "type": 0,
+    "children": [{
+        "tid": 235,
+        "reid": 234,
+        "name": "篮球",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 249,
+        "reid": 234,
+        "name": "足球",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 164,
+        "reid": 234,
+        "name": "健身",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 236,
+        "reid": 234,
+        "name": "竞技体育",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 237,
+        "reid": 234,
+        "name": "运动文化",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 238,
+        "reid": 234,
+        "name": "运动综合",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
     "tid": 160,
     "reid": 0,
     "name": "生活",
     "logo": "http://i0.hdslb.com/bfs/archive/50731fc4b9ec487ef2e3861a97e0eb4671b7bcef.png",
-    "goto": "",
+    "goto": "0",
     "param": "",
     "uri": "bilibili://region/160",
     "type": 0,
-    "children": [
-      {
+    "children": [{
         "tid": 138,
         "reid": 160,
         "name": "搞笑",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
-        "tid": 21,
+    }, {
+        "tid": 254,
         "reid": 160,
-        "name": "日常",
+        "name": "亲子",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
-        "tid": 76,
+    }, {
+        "tid": 250,
         "reid": 160,
-        "name": "美食圈",
+        "name": "出行",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
-        "tid": 75,
+    }, {
+        "tid": 251,
         "reid": 160,
-        "name": "动物圈",
+        "name": "三农",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
+        "tid": 239,
+        "reid": 160,
+        "name": "家居房产",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
         "tid": 161,
         "reid": 160,
         "name": "手工",
         "logo": "http://i0.hdslb.com/bfs/archive/f87bb34913e8f7eeef216aba813961c47117e783.png",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 162,
         "reid": 160,
         "name": "绘画",
         "logo": "http://i0.hdslb.com/bfs/archive/e6b66a76eb07f2acffd00b8f8c1cc0ff57e75e53.png",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
-        "tid": 163,
+    }, {
+        "tid": 21,
         "reid": 160,
-        "name": "运动",
-        "logo": "http://i0.hdslb.com/bfs/archive/5cfa7ac649cc6b292e876a483062c04c4a2d9b6c.png",
-        "goto": "",
+        "name": "日常",
+        "logo": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
-        "tid": 174,
-        "reid": 160,
-        "name": "其他",
-        "logo": "http://i0.hdslb.com/bfs/archive/4ab0bc6a44ea9ec60777641067ce02dcdaa2d6fe.png",
-        "goto": "",
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
+    "tid": 211,
+    "reid": 0,
+    "name": "美食",
+    "logo": "http://i0.hdslb.com/bfs/archive/0f5e21f08616f9c02d706433ba1c00bd5b889c7b.png",
+    "goto": "0",
+    "param": "",
+    "uri": "bilibili://region/211",
+    "type": 0,
+    "children": [{
+        "tid": 76,
+        "reid": 211,
+        "name": "美食制作",
+        "logo": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      }
-    ]
-  },
-  {
+    }, {
+        "tid": 212,
+        "reid": 211,
+        "name": "美食侦探",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 213,
+        "reid": 211,
+        "name": "美食测评",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 214,
+        "reid": 211,
+        "name": "田园美食",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 215,
+        "reid": 211,
+        "name": "美食记录",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
+    "tid": 217,
+    "reid": 0,
+    "name": "动物圈",
+    "logo": "http://i0.hdslb.com/bfs/archive/9f3303b20e12ac874c379da09bca9ce4d0b2f88c.png",
+    "goto": "0",
+    "param": "",
+    "uri": "bilibili://region/217",
+    "type": 0,
+    "children": [{
+        "tid": 218,
+        "reid": 217,
+        "name": "喵星人",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 219,
+        "reid": 217,
+        "name": "汪星人",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 222,
+        "reid": 217,
+        "name": "小宠异宠",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 221,
+        "reid": 217,
+        "name": "野生动物",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 220,
+        "reid": 217,
+        "name": "动物二创",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 75,
+        "reid": 217,
+        "name": "动物综合",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
     "tid": 119,
     "reid": 0,
     "name": "鬼畜",
     "logo": "http://i0.hdslb.com/bfs/archive/de50290b11c65108eb70766fa887032b948d2e4b.png",
-    "goto": "",
+    "goto": "0",
     "param": "",
     "uri": "bilibili://region/119",
     "type": 0,
-    "children": [
-      {
+    "children": [{
         "tid": 22,
         "reid": 119,
         "name": "鬼畜调教",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 26,
         "reid": 119,
         "name": "音MAD",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 126,
         "reid": 119,
         "name": "人力VOCALOID",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
+        "tid": 216,
+        "reid": 119,
+        "name": "鬼畜剧场",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
         "tid": 127,
         "reid": 119,
         "name": "教程演示",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      }
-    ]
-  },
-  {
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
     "tid": 155,
     "reid": 0,
     "name": "时尚",
     "logo": "http://i0.hdslb.com/bfs/archive/1842562be5ded346d79312b24fafedbc1d78c8e2.png",
-    "goto": "",
+    "goto": "0",
     "param": "",
     "uri": "bilibili://region/155",
     "type": 0,
-    "children": [
-      {
+    "children": [{
         "tid": 157,
         "reid": 155,
-        "name": "美妆",
+        "name": "美妆护肤",
         "logo": "http://i0.hdslb.com/bfs/archive/3f6d8cc081e5dd413eda83527b5ca91fa51f5891.png",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
+        "tid": 252,
+        "reid": 155,
+        "name": "仿妆cos",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
         "tid": 158,
         "reid": 155,
-        "name": "服饰",
+        "name": "穿搭",
         "logo": "http://i0.hdslb.com/bfs/archive/5df77c1b13f20af22ec9f595f6a83f8b65d469a0.png",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 159,
         "reid": 155,
-        "name": "资讯",
-        "logo": "http://i0.hdslb.com/bfs/archive/5d5767ed736a2808e7bf9e74a58f1eb5eea963cd.png",
-        "goto": "",
+        "name": "时尚潮流",
+        "logo": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
-        "tid": 164,
-        "reid": 155,
-        "name": "健身",
-        "logo": "http://i0.hdslb.com/bfs/archive/c5da2d170056227118594ab2c70d40ad9d0eed5c.png",
-        "goto": "",
-        "param": "",
-        "type": 0
-      }
-    ]
-  },
-  {
-    "tid": 165,
-    "reid": 0,
-    "name": "广告",
-    "logo": "http://i0.hdslb.com/bfs/archive/01d9bd2c43c2ff4526a819081b89176a651ae80b.png",
-    "goto": "",
-    "param": "",
-    "uri": "bilibili://advertise/home?tid=165",
-    "type": 1,
-    "children": [
-      {
-        "tid": 166,
-        "reid": 165,
-        "name": "广告",
-        "logo": "http://i0.hdslb.com/bfs/archive/f3db906a1f66938ae2542ca06266f8aa471e2788.png",
-        "goto": "",
-        "param": "",
-        "type": 0
-      }
-    ]
-  },
-  {
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
     "tid": 5,
     "reid": 0,
     "name": "娱乐",
     "logo": "http://i0.hdslb.com/bfs/archive/a9bcb4cb7e216c2ea28ba3dc10acd2d210f739bd.png",
-    "goto": "",
+    "goto": "0",
     "param": "",
     "uri": "bilibili://region/5",
     "type": 0,
-    "children": [
-      {
+    "children": [{
         "tid": 71,
         "reid": 5,
         "name": "综艺",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
+        "tid": 241,
+        "reid": 5,
+        "name": "娱乐杂谈",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 242,
+        "reid": 5,
+        "name": "粉丝创作",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
         "tid": 137,
         "reid": 5,
-        "name": "明星",
+        "name": "明星综合",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
-        "tid": 131,
-        "reid": 5,
-        "name": "Korea相关",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      }
-    ]
-  },
-  {
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
+    "tid": 65563,
+    "reid": 0,
+    "name": "新歌热榜",
+    "logo": "http://i0.hdslb.com/bfs/archive/518ba4a46b8ca94c0f29397e09acb345020fb867.png",
+    "goto": "0",
+    "param": "",
+    "uri": "https://www.bilibili.com/h5/musicplus?navhide=1",
+    "type": 0,
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }]
+}, {
     "tid": 181,
     "reid": 0,
     "name": "影视",
     "logo": "http://i0.hdslb.com/bfs/archive/f90bb1ef59630ad9765486c6088a4944b96e88a3.png",
-    "goto": "",
+    "goto": "0",
     "param": "",
     "uri": "bilibili://region/181",
     "type": 0,
-    "children": [
-      {
+    "children": [{
         "tid": 182,
         "reid": 181,
         "name": "影视杂谈",
-        "logo": "10",
-        "goto": "",
+        "logo": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 183,
         "reid": 181,
         "name": "影视剪辑",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 85,
+        "reid": 181,
+        "name": "小剧场",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 256,
         "reid": 181,
         "name": "短片",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 184,
         "reid": 181,
         "name": "预告·资讯",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
-        "tid": 86,
-        "reid": 181,
-        "name": "特摄",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      }
-    ]
-  },
-  {
-    "tid": 177,
-    "reid": 0,
-    "name": "纪录片",
-    "logo": "http://i0.hdslb.com/bfs/archive/884a644c6bb4b8bb16f9746ef35fbaba396e0b8c.png",
-    "goto": "",
-    "param": "",
-    "uri": "bilibili://region/177",
-    "type": 0,
-    "is_bangumi": 1,
-    "children": [
-      {
-        "tid": 37,
-        "reid": 177,
-        "name": "人文·历史",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      },
-      {
-        "tid": 178,
-        "reid": 177,
-        "name": "科学·探索·自然",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      },
-      {
-        "tid": 179,
-        "reid": 177,
-        "name": "军事",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      },
-      {
-        "tid": 180,
-        "reid": 177,
-        "name": "社会·美食·旅行",
-        "logo": "",
-        "goto": "",
-        "param": "",
-        "type": 0
-      }
-    ]
-  },
-  {
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
     "tid": 23,
     "reid": 0,
     "name": "电影",
     "logo": "http://i0.hdslb.com/bfs/archive/137edde9deb7dfcdf610ed2d1ec63bae6ef3ba0a.png",
-    "goto": "",
+    "goto": "0",
     "param": "",
-    "uri": "bilibili://pgc/cinema/movie",
+    "uri": "bilibili://pgc/partition_page?page_name=movie-operation&title=%E7%94%B5%E5%BD%B1&select_id=1",
     "type": 1,
     "is_bangumi": 1,
-    "children": [
-      {
+    "children": [{
         "tid": 147,
         "reid": 23,
         "name": "华语电影",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 145,
         "reid": 23,
         "name": "欧美电影",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 146,
         "reid": 23,
         "name": "日本电影",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 83,
         "reid": 23,
         "name": "其他国家",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      }
-    ]
-  },
-  {
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
     "tid": 11,
     "reid": 0,
     "name": "电视剧",
     "logo": "http://i0.hdslb.com/bfs/archive/30779a6904875754762e666b7076014528ef4834.png",
-    "goto": "",
+    "goto": "0",
     "param": "",
     "uri": "bilibili://pgc/cinema/tv",
     "type": 1,
     "is_bangumi": 1,
-    "children": [
-      {
+    "children": [{
         "tid": 185,
         "reid": 11,
         "name": "国产剧",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      },
-      {
+    }, {
         "tid": 187,
         "reid": 11,
         "name": "海外剧",
         "logo": "",
-        "goto": "",
+        "goto": "0",
         "param": "",
         "type": 0
-      }
-    ]
-  },
-  {
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }, {
+        "scenes_name": "rank"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }]
+}, {
+    "tid": 177,
+    "reid": 0,
+    "name": "纪录片",
+    "logo": "http://i0.hdslb.com/bfs/archive/884a644c6bb4b8bb16f9746ef35fbaba396e0b8c.png",
+    "goto": "0",
+    "param": "",
+    "uri": "bilibili://pgc/cinema/doc",
+    "type": 1,
+    "children": [{
+        "tid": 37,
+        "reid": 177,
+        "name": "人文·历史",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 178,
+        "reid": 177,
+        "name": "科学·探索·自然",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 179,
+        "reid": 177,
+        "name": "军事",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }, {
+        "tid": 180,
+        "reid": 177,
+        "name": "社会·美食·旅行",
+        "logo": "",
+        "goto": "0",
+        "param": "",
+        "type": 0
+    }],
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "top"
+    }, {
+        "scenes_name": "search"
+    }, {
+        "scenes_name": "tag"
+    }, {
+        "scenes_name": "rank"
+    }]
+}, {
+    "tid": 65546,
+    "reid": 0,
+    "name": "会员购",
+    "logo": "http://i0.hdslb.com/bfs/archive/389e0309673355d865e4a6c49cbb5e1cfcd35a04.png",
+    "goto": "0",
+    "param": "",
+    "uri": "bilibili://mall/home?msource=category",
+    "type": 1,
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }]
+}, {
     "tid": 65539,
     "reid": 0,
     "name": "游戏中心",
-    "logo": "http://i0.hdslb.com/bfs/archive/54113f2f01b87467c13f06dd8878ee7b1adbeb18.png",
-    "goto": "",
+    "logo": "http://i0.hdslb.com/bfs/archive/656df3124c81dd0e19bdc0a3e017091268b3db73.jpg",
+    "goto": "0",
     "param": "",
     "uri": "bilibili://game_center",
-    "type": 1
-  }
-]
+    "type": 1,
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }]
+}, {
+    "tid": 65550,
+    "reid": 0,
+    "name": "游戏赛事",
+    "logo": "http://i0.hdslb.com/bfs/archive/a93687a7f29da88ee375109389b0634412847bd1.png",
+    "goto": "0",
+    "param": "",
+    "uri": "https://www.bilibili.com/h5/match/data/home?navhide=1",
+    "type": 0,
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }]
+}, {
+    "tid": 65543,
+    "reid": 0,
+    "name": "音频",
+    "logo": "http://i0.hdslb.com/bfs/archive/85d6dddbdc9746fed91c65c2c3eb3a0a453eadaf.png",
+    "goto": "0",
+    "param": "",
+    "uri": "bilibili://music/homesub/0?isDefault=YES",
+    "type": 1,
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "top"
+    }, {
+        "scenes_name": "search"
+    }]
+}, {
+    "tid": 65557,
+    "reid": 0,
+    "name": "公开课",
+    "logo": "http://i0.hdslb.com/bfs/feed-admin/99366a6ea47d7790f57699112bc1d0c6d5f0d302.png",
+    "goto": "0",
+    "param": "",
+    "uri": "https://www.bilibili.com/h5/mooc?navhide=1",
+    "type": 0,
+    "config": [{
+        "scenes_name": "region",
+        "scenes_type": "bottom"
+    }]
+}]

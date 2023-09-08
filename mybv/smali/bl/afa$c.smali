@@ -72,7 +72,7 @@
 
     iput-object v0, p0, Lbl/afa$c;->a:Ljava/lang/ref/WeakReference;
 
-    const/16 v0, 0x12
+    const/16 v0, 0x18
 
     .line 143
     new-array v0, v0, [I
@@ -270,6 +270,12 @@
         0x7f05003e
         0x7f05003d
         0x7f050039
+        0x7f05003c
+        0x7f050038
+        0x7f05003a
+        0x7f05003b
+        0x7f05003e
+        0x7f05003f
     .end array-data
 .end method
 

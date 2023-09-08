@@ -1,13 +1,14 @@
 .class public final Lbl/afg;
 .super Lbl/adx;
-.source "BL"
+.source "afg.java"
 
 
 # instance fields
 .field private final a:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/bilibili/tv/api/category/CategoryMeta;",
             ">;"
         }
@@ -17,121 +18,67 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v4/app/FragmentActivity;I)V
-    .locals 3
+    .locals 4
     .param p2    # I
         .annotation build Landroid/support/annotation/IdRes;
         .end annotation
     .end param
 
-    const-string v0, "activity"
+    .prologue
+    const/4 v3, 0x0
 
-    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 20
+    .line 23
     invoke-virtual {p1}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
 
     move-result-object v0
 
+    invoke-direct {p0, v0, p2}, Lbl/adx;-><init>(Landroid/support/v4/app/FragmentManager;I)V
+
+    .line 24
+    const-string v0, "activity"
+
+    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 25
+    invoke-virtual {p1}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+
+    move-result-object v0
+
+    .line 26
     const-string v1, "activity.supportFragmentManager"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-direct {p0, v0, p2}, Lbl/adx;-><init>(Landroid/support/v4/app/FragmentManager;I)V
-
-    .line 21
-    new-instance p2, Ljava/util/ArrayList;
-
-    const/16 v0, 0xc
-
-    invoke-direct {p2, v0}, Ljava/util/ArrayList;-><init>(I)V
-
-    iput-object p2, p0, Lbl/afg;->a:Ljava/util/ArrayList;
-
-    .line 24
-    check-cast p1, Landroid/content/Context;
-
-    invoke-static {p1}, Lcom/bilibili/tv/api/category/CategoryManager;->getRootCategory(Landroid/content/Context;)Lcom/bilibili/tv/api/category/CategoryMeta;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_3
-
-    const p2, 0x10001
-
-    .line 26
-    invoke-virtual {p1, p2}, Lcom/bilibili/tv/api/category/CategoryMeta;->getChild(I)Lcom/bilibili/tv/api/category/CategoryMeta;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
     .line 27
-    new-array v0, v0, [I
+    new-instance v0, Ljava/util/ArrayList;
 
-    aput p2, v0, v1
+    const/16 v1, 0xc
 
-    invoke-virtual {p1, v0}, Lcom/bilibili/tv/api/category/CategoryMeta;->remove([I)V
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 29
-    :cond_0
-    invoke-virtual {p1}, Lcom/bilibili/tv/api/category/CategoryMeta;->getChildren()Ljava/util/List;
+    iput-object v0, p0, Lbl/afg;->a:Ljava/util/ArrayList;
 
-    move-result-object p1
-
-    if-eqz p1, :cond_2
-
-    .line 31
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object p1
-
-    :goto_0
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result p2
-
-    if-eqz p2, :cond_2
-
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object p2
-
-    check-cast p2, Lcom/bilibili/tv/api/category/CategoryMeta;
-
-    .line 33
-    iget v0, p2, Lcom/bilibili/tv/api/category/CategoryMeta;->mTid:I
-
-    const/16 v2, 0xa5
-
-    if-ne v0, v2, :cond_1
-
-    goto :goto_0
-
-    .line 36
-    :cond_1
+    .line 28
     iget-object v0, p0, Lbl/afg;->a:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static {p1}, Lcom/bilibili/tv/api/category/CategoryManager;->getRealPrimaryCategories(Landroid/content/Context;)Ljava/util/List;
 
-    goto :goto_0
+    move-result-object v1
 
-    .line 39
-    :cond_2
-    iget-object p1, p0, Lbl/afg;->a:Ljava/util/ArrayList;
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    new-instance p2, Lcom/bilibili/tv/api/category/CategoryMeta;
+    .line 29
+    iget-object v0, p0, Lbl/afg;->a:Ljava/util/ArrayList;
 
-    const-string v0, "\u5168\u7ad9"
+    new-instance v1, Lcom/bilibili/tv/api/category/CategoryMeta;
 
-    invoke-direct {p2, v1, v0, v1}, Lcom/bilibili/tv/api/category/CategoryMeta;-><init>(ILjava/lang/String;I)V
+    const-string v2, "\u5168\u7ad9"
 
-    invoke-virtual {p1, v1, p2}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    invoke-direct {v1, v3, v2, v3}, Lcom/bilibili/tv/api/category/CategoryMeta;-><init>(ILjava/lang/String;I)V
 
-    :cond_3
+    invoke-virtual {v0, v3, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    .line 30
     return-void
 .end method
 
@@ -140,7 +87,8 @@
 .method public a()I
     .locals 1
 
-    .line 48
+    .prologue
+    .line 39
     iget-object v0, p0, Lbl/afg;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -153,83 +101,85 @@
 .method public a(I)Landroid/support/v4/app/Fragment;
     .locals 2
 
-    .line 44
-    sget-object v0, Lbl/aff;->Companion:Lbl/aff$a;
+    .prologue
+    .line 34
+    sget-object v1, Lbl/aff;->Companion:Lbl/aff$a;
 
-    iget-object v1, p0, Lbl/afg;->a:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/bilibili/tv/api/category/CategoryMeta;
-
-    iget p1, p1, Lcom/bilibili/tv/api/category/CategoryMeta;->mTid:I
-
-    invoke-virtual {v0, p1}, Lbl/aff$a;->a(I)Lbl/aff;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/support/v4/app/Fragment;
-
-    return-object p1
-.end method
-
-.method public b(I)Ljava/lang/CharSequence;
-    .locals 1
-
-    .line 52
     iget-object v0, p0, Lbl/afg;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/bilibili/tv/api/category/CategoryMeta;
+    check-cast v0, Lcom/bilibili/tv/api/category/CategoryMeta;
 
-    iget-object p1, p1, Lcom/bilibili/tv/api/category/CategoryMeta;->mTypeName:Ljava/lang/String;
+    iget v0, v0, Lcom/bilibili/tv/api/category/CategoryMeta;->mTid:I
 
-    const-string v0, "mCategoryMetas[position].mTypeName"
+    invoke-virtual {v1, v0}, Lbl/aff$a;->a(I)Lbl/aff;
 
-    invoke-static {p1, v0}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/CharSequence;
+    return-object v0
+.end method
 
-    return-object p1
+.method public b(I)Ljava/lang/CharSequence;
+    .locals 2
+
+    .prologue
+    .line 43
+    iget-object v0, p0, Lbl/afg;->a:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/bilibili/tv/api/category/CategoryMeta;
+
+    iget-object v0, v0, Lcom/bilibili/tv/api/category/CategoryMeta;->mTypeName:Ljava/lang/String;
+
+    .line 44
+    const-string v1, "mCategoryMetas[position].mTypeName"
+
+    invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 45
+    return-object v0
 .end method
 
 .method public c(I)V
     .locals 4
 
-    .line 56
+    .prologue
+    .line 50
     invoke-super {p0, p1}, Lbl/adx;->c(I)V
 
+    .line 51
     const-string v0, "tv_ranking_click"
 
     const/4 v1, 0x2
 
-    .line 57
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string v2, "name"
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    const-string v3, "name"
 
-    aput-object v2, v1, v3
-
-    invoke-virtual {p0, p1}, Lbl/afg;->b(I)Ljava/lang/CharSequence;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object p1
+    aput-object v3, v1, v2
 
     const/4 v2, 0x1
 
-    aput-object p1, v1, v2
+    invoke-virtual {p0, p1}, Lbl/afg;->b(I)Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    aput-object v3, v1, v2
 
     invoke-static {v0, v1}, Lbl/ok;->a(Ljava/lang/String;[Ljava/lang/String;)V
 
+    .line 52
     return-void
 .end method

@@ -41,7 +41,7 @@
 
 .field public watchProgress:Lcom/bilibili/bangumi/api/uniform/BangumiUserStatus$WatchProgress;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
-        name = "watch_progress"
+        name = "progress"
     .end annotation
 .end field
 
