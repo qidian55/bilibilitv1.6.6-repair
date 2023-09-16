@@ -1,6 +1,6 @@
 .class final Lcom/bilibili/tv/ui/main/MainActivity$b;
 .super Ljava/lang/Object;
-.source "BL"
+.source "MainActivity.java"
 
 # interfaces
 .implements Lbl/mn;
@@ -21,7 +21,8 @@
 .field private final a:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/lang/ref/WeakReference<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
             "Lcom/bilibili/tv/ui/main/MainActivity;",
             ">;"
         }
@@ -35,88 +36,99 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/lang/ref/WeakReference<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
             "Lcom/bilibili/tv/ui/main/MainActivity;",
             ">;)V"
         }
     .end annotation
 
+    .prologue
+    .line 821
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 822
     const-string v0, "activity"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 510
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
+    .line 823
     iput-object p1, p0, Lcom/bilibili/tv/ui/main/MainActivity$b;->a:Ljava/lang/ref/WeakReference;
 
+    .line 824
     return-void
 .end method
 
 
 # virtual methods
 .method public a(Lcom/bilibili/lib/account/subscribe/Topic;)V
-    .locals 1
+    .locals 2
 
-    if-nez p1, :cond_0
+    .prologue
+    .line 828
+    if-nez p1, :cond_3
 
-    goto :goto_0
+    .line 848
+    :cond_2
+    :goto_2
+    return-void
 
-    .line 512
-    :cond_0
-    sget-object v0, Lbl/aex;->a:[I
+    .line 831
+    :cond_3
+    sget-object v0, Lcom/bilibili/tv/ui/main/MainActivity$2;->$SwitchMap$com$bilibili$lib$account$subscribe$Topic:[I
 
     invoke-virtual {p1}, Lcom/bilibili/lib/account/subscribe/Topic;->ordinal()I
 
-    move-result p1
+    move-result v1
 
-    aget p1, v0, p1
+    aget v0, v0, v1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch v0, :pswitch_data_2c
 
-    goto :goto_0
+    goto :goto_2
 
-    .line 520
-    :pswitch_0
-    iget-object p1, p0, Lcom/bilibili/tv/ui/main/MainActivity$b;->a:Ljava/lang/ref/WeakReference;
+    .line 836
+    :pswitch_f
+    iget-object v0, p0, Lcom/bilibili/tv/ui/main/MainActivity$b;->a:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/bilibili/tv/ui/main/MainActivity;
+    check-cast v0, Lcom/bilibili/tv/ui/main/MainActivity;
 
-    if-eqz p1, :cond_1
+    .line 837
+    if-eqz v0, :cond_2
 
-    invoke-virtual {p1}, Lcom/bilibili/tv/ui/main/MainActivity;->m()V
+    .line 838
+    invoke-virtual {v0}, Lcom/bilibili/tv/ui/main/MainActivity;->l()V
 
-    goto :goto_0
+    goto :goto_2
 
-    .line 517
-    :pswitch_1
-    iget-object p1, p0, Lcom/bilibili/tv/ui/main/MainActivity$b;->a:Ljava/lang/ref/WeakReference;
+    .line 843
+    :pswitch_1d
+    iget-object v0, p0, Lcom/bilibili/tv/ui/main/MainActivity$b;->a:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/bilibili/tv/ui/main/MainActivity;
+    check-cast v0, Lcom/bilibili/tv/ui/main/MainActivity;
 
-    if-eqz p1, :cond_1
+    .line 844
+    if-eqz v0, :cond_2
 
-    invoke-virtual {p1}, Lcom/bilibili/tv/ui/main/MainActivity;->l()V
+    .line 845
+    invoke-virtual {v0}, Lcom/bilibili/tv/ui/main/MainActivity;->m()V
 
-    :cond_1
-    :goto_0
-    :pswitch_2
-    return-void
+    goto :goto_2
 
+    .line 831
     nop
 
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+    :pswitch_data_2c
+    .packed-switch 0x2
+        :pswitch_f
+        :pswitch_1d
     .end packed-switch
 .end method

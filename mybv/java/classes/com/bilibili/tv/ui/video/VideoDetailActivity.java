@@ -486,7 +486,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             if (currentFocus == null) {
                 return super.dispatchKeyEvent(keyEvent);
             }
-            if (valueOf2 != null && valueOf2.intValue() == 19) {
+            if (valueOf2 != null && valueOf2.intValue() == KeyEvent.KEYCODE_DPAD_UP) {
                 if (currentFocus.getId() == R.id.tag_view) {
                     DrawLinearLayout drawLinearLayout = (DrawLinearLayout) d(R.id.video_detail_like);
                     if (drawLinearLayout != null) {
@@ -494,7 +494,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                     }
                     return true;
                 }
-            } else if (valueOf2 != null && valueOf2.intValue() == 20 && ((currentFocus.getId() == R.id.video_detail_like || currentFocus.getId() == R.id.video_detail_coin || currentFocus.getId() == R.id.video_detail_favorite || currentFocus.getId() == R.id.video_detail_more_btn) && (recyclerView = this.n) != null)) {
+            } else if (valueOf2 != null && valueOf2.intValue() == KeyEvent.KEYCODE_DPAD_DOWN && ((currentFocus.getId() == R.id.video_detail_like || currentFocus.getId() == R.id.video_detail_coin || currentFocus.getId() == R.id.video_detail_favorite || currentFocus.getId() == R.id.video_detail_more_btn) && (recyclerView = this.n) != null)) {
                 if (recyclerView.getChildCount() > 0) {
                     RecyclerView.h layoutManager = recyclerView.getLayoutManager();
                     if (layoutManager == null) {
@@ -513,6 +513,12 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                     if (c3 != null) {
                         c3.requestFocus();
                     }
+                }
+                return true;
+            } else if (valueOf2 != null && valueOf2.intValue() == KeyEvent.KEYCODE_DPAD_RIGHT && (recyclerView = this.n) != null && recyclerView.getChildCount()>0 && currentFocus==recyclerView.getChildAt(recyclerView.getChildCount()-1)) {
+                DrawTextView drawTextView = (DrawTextView) d(R.id.video_detail_more_btn);
+                if (drawTextView != null) {
+                    drawTextView.requestFocus();
                 }
                 return true;
             }

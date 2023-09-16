@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 284
+    .line 285
     iput-object p1, p0, Lcom/bilibili/tv/api/category/CategoryManager$1;->val$context:Landroid/content/Context;
 
     invoke-direct {p0}, Lbl/vm;-><init>()V
@@ -46,14 +46,14 @@
     .locals 2
 
     .prologue
-    .line 295
+    .line 296
     iget-object v0, p0, Lcom/bilibili/tv/api/category/CategoryManager$1;->val$context:Landroid/content/Context;
 
     instance-of v0, v0, Landroid/app/Activity;
 
     if-eqz v0, :cond_f
 
-    .line 296
+    .line 297
     sget-object v1, Lbl/adl;->a:Lbl/adl;
 
     iget-object v0, p0, Lcom/bilibili/tv/api/category/CategoryManager$1;->val$context:Landroid/content/Context;
@@ -62,7 +62,7 @@
 
     invoke-virtual {v1, p1, v0}, Lbl/adl;->a(Ljava/lang/Throwable;Landroid/app/Activity;)V
 
-    .line 298
+    .line 299
     :cond_f
     return-void
 .end method
@@ -71,7 +71,7 @@
     .locals 2
 
     .prologue
-    .line 287
+    .line 288
     if-eqz p1, :cond_8
 
     # getter for: Lcom/bilibili/tv/api/category/CategoryManager;->sRoot:Lcom/bilibili/tv/api/category/CategoryMeta;
@@ -81,12 +81,12 @@
 
     if-nez v0, :cond_9
 
-    .line 291
+    .line 292
     :cond_8
     :goto_8
     return-void
 
-    .line 290
+    .line 291
     :cond_9
     # getter for: Lcom/bilibili/tv/api/category/CategoryManager;->sRoot:Lcom/bilibili/tv/api/category/CategoryMeta;
     invoke-static {}, Lcom/bilibili/tv/api/category/CategoryManager;->access$000()Lcom/bilibili/tv/api/category/CategoryMeta;
@@ -104,7 +104,7 @@
     .locals 0
 
     .prologue
-    .line 284
+    .line 285
     check-cast p1, Lcom/bilibili/tv/api/category/CategoryMeta;
 
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/category/CategoryManager$1;->onSuccess(Lcom/bilibili/tv/api/category/CategoryMeta;)V

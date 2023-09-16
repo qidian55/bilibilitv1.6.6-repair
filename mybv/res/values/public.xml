@@ -2944,6 +2944,9 @@
     <public type="string" name="year" id="0x7f0c0176" />
     <public type="string" name="year_specific" id="0x7f0c0177" />
     <public type="string" name="years_ago" id="0x7f0c0178" />
+
+    <public type="string" name="personal_recommend" id="0x7f0c0179" />
+
     <public type="style" name="AlertDialog.AppCompat" id="0x7f0d0000" />
     <public type="style" name="AlertDialog.AppCompat.Light" id="0x7f0d0001" />
     <public type="style" name="Animation.AppCompat.Dialog" id="0x7f0d0002" />

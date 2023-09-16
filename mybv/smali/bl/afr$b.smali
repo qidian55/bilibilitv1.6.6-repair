@@ -1,6 +1,6 @@
 .class final Lbl/afr$b;
 .super Ljava/lang/Object;
-.source "BL"
+.source "afr.java"
 
 # interfaces
 .implements Lcom/tencent/bugly/beta/upgrade/UpgradeListener;
@@ -13,7 +13,7 @@
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x18
-    name = null
+    name = "b"
 .end annotation
 
 
@@ -25,6 +25,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 128
     new-instance v0, Lbl/afr$b;
 
     invoke-direct {v0}, Lbl/afr$b;-><init>()V
@@ -37,62 +39,74 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 130
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 131
     return-void
 .end method
 
 
 # virtual methods
 .method public final a(ILcom/tencent/bugly/beta/UpgradeInfo;ZZ)V
-    .locals 0
+    .locals 5
 
-    const/4 p1, 0x0
+    .prologue
+    const/4 v1, 0x0
 
-    if-eqz p2, :cond_1
+    .line 135
+    if-nez p2, :cond_10
 
-    .line 76
-    new-instance p3, Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;
+    .line 136
+    sget-object v0, Lbl/afr;->Companion:Lbl/afr$a;
 
-    invoke-direct {p3, p2}, Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;-><init>(Lcom/tencent/bugly/beta/UpgradeInfo;)V
+    invoke-virtual {v0}, Lbl/afr$a;->a()Lbl/afr;
 
-    .line 77
-    invoke-virtual {p3}, Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;->getVersionCode()I
+    move-result-object v2
 
-    move-result p2
+    const/4 v0, 0x0
+
+    check-cast v0, Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;
+
+    invoke-virtual {v2, v0, v1}, Lbl/afr;->a(Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;Z)V
+
+    .line 141
+    :goto_f
+    return-void
+
+    .line 139
+    :cond_10
+    new-instance v2, Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;
+
+    invoke-direct {v2, p2}, Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;-><init>(Lcom/tencent/bugly/beta/UpgradeInfo;)V
+
+    .line 140
+    sget-object v0, Lbl/afr;->Companion:Lbl/afr$a;
+
+    invoke-virtual {v0}, Lbl/afr$a;->a()Lbl/afr;
+
+    move-result-object v3
+
+    invoke-virtual {v2}, Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;->getVersionCode()I
+
+    move-result v0
 
     invoke-static {}, Lcom/bilibili/api/BiliConfig;->c()I
 
-    move-result p4
+    move-result v4
 
-    if-le p2, p4, :cond_0
+    if-le v0, v4, :cond_2a
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    .line 78
-    :cond_0
-    sget-object p2, Lbl/afr;->Companion:Lbl/afr$a;
+    :goto_26
+    invoke-virtual {v3, v2, v0}, Lbl/afr;->a(Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;Z)V
 
-    invoke-virtual {p2}, Lbl/afr$a;->a()Lbl/afr;
+    goto :goto_f
 
-    move-result-object p2
+    :cond_2a
+    move v0, v1
 
-    invoke-static {p2, p3, p1}, Lbl/afr;->a(Lbl/afr;Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;Z)V
-
-    goto :goto_0
-
-    .line 80
-    :cond_1
-    sget-object p2, Lbl/afr;->Companion:Lbl/afr$a;
-
-    invoke-virtual {p2}, Lbl/afr$a;->a()Lbl/afr;
-
-    move-result-object p2
-
-    const/4 p3, 0x0
-
-    invoke-static {p2, p3, p1}, Lbl/afr;->a(Lbl/afr;Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;Z)V
-
-    :goto_0
-    return-void
+    goto :goto_26
 .end method

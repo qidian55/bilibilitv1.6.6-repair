@@ -1,19 +1,19 @@
-.class final Lcom/bilibili/tv/ui/main/MainActivity$m;
+.class public final Lcom/bilibili/tv/ui/main/MainActivity$m;
 .super Ljava/lang/Object;
-.source "BL"
+.source "MainActivity.java"
 
 # interfaces
 .implements Lbl/agb$b;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/bilibili/tv/ui/main/MainActivity;->p()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bilibili/tv/ui/main/MainActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
+    accessFlags = 0x19
+    name = "m"
 .end annotation
 
 
@@ -25,6 +25,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 760
     new-instance v0, Lcom/bilibili/tv/ui/main/MainActivity$m;
 
     invoke-direct {v0}, Lcom/bilibili/tv/ui/main/MainActivity$m;-><init>()V
@@ -37,8 +39,11 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 762
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 763
     return-void
 .end method
 
@@ -47,8 +52,10 @@
 .method public final a(Lbl/agb;Landroid/view/View;)V
     .locals 0
 
-    .line 493
+    .prologue
+    .line 767
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
+    .line 768
     return-void
 .end method

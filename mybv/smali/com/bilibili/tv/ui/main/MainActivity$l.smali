@@ -1,49 +1,54 @@
-.class final Lcom/bilibili/tv/ui/main/MainActivity$l;
+.class public final Lcom/bilibili/tv/ui/main/MainActivity$l;
 .super Ljava/lang/Object;
-.source "BL"
+.source "MainActivity.java"
 
 # interfaces
 .implements Lbl/agb$b;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/bilibili/tv/ui/main/MainActivity;->p()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bilibili/tv/ui/main/MainActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
+    accessFlags = 0x11
+    name = "l"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/ui/main/MainActivity;
+.field final synthetic this$0:Lcom/bilibili/tv/ui/main/MainActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/bilibili/tv/ui/main/MainActivity;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bilibili/tv/ui/main/MainActivity$l;->a:Lcom/bilibili/tv/ui/main/MainActivity;
+    .prologue
+    .line 747
+    iput-object p1, p0, Lcom/bilibili/tv/ui/main/MainActivity$l;->this$0:Lcom/bilibili/tv/ui/main/MainActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 748
     return-void
 .end method
 
 
 # virtual methods
 .method public final a(Lbl/agb;Landroid/view/View;)V
-    .locals 0
+    .locals 1
 
-    .line 490
+    .prologue
+    .line 752
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
-    .line 491
-    iget-object p1, p0, Lcom/bilibili/tv/ui/main/MainActivity$l;->a:Lcom/bilibili/tv/ui/main/MainActivity;
+    .line 753
+    iget-object v0, p0, Lcom/bilibili/tv/ui/main/MainActivity$l;->this$0:Lcom/bilibili/tv/ui/main/MainActivity;
 
-    invoke-virtual {p1}, Lcom/bilibili/tv/ui/main/MainActivity;->onBackPressed()V
+    invoke-virtual {v0}, Lcom/bilibili/tv/ui/main/MainActivity;->onBackPressed()V
 
+    .line 754
     return-void
 .end method

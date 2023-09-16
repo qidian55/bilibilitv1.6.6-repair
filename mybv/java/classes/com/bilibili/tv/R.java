@@ -2981,6 +2981,8 @@ public final class R {
         public static final int year = 0x7f0c0176;
         public static final int year_specific = 0x7f0c0177;
         public static final int years_ago = 0x7f0c0178;
+
+        public static final int personal_recommend = 0x7f0c0179;
     }
 
     public static final class style {

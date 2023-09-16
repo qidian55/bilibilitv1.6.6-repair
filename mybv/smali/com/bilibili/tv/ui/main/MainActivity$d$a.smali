@@ -1,6 +1,6 @@
 .class public final Lcom/bilibili/tv/ui/main/MainActivity$d$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "MainActivity.java"
 
 
 # annotations
@@ -18,17 +18,21 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 445
+    .prologue
+    .line 657
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 658
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 445
+    .prologue
+    .line 661
     invoke-direct {p0}, Lcom/bilibili/tv/ui/main/MainActivity$d$a;-><init>()V
 
+    .line 662
     return-void
 .end method

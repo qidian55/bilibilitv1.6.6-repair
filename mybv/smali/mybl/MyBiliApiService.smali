@@ -5,7 +5,7 @@
 
 # annotations
 .annotation runtime Lretrofit2/http/BaseUrl;
-    a = "https://app.bilibili.com"
+    a = "https://api.bilibili.com/"
 .end annotation
 
 
@@ -49,7 +49,7 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/v2/view/coin/add"
+        a = "https://app.bilibili.com/x/v2/view/coin/add"
     .end annotation
 .end method
 
@@ -87,7 +87,37 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/v2/view/like"
+        a = "https://app.bilibili.com/x/v2/view/like"
+    .end annotation
+.end method
+
+.method public abstract recommendVideos(ILjava/lang/String;)Lbl/vp;
+    .param p1    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "ps"
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "access_key"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/lang/String;",
+            ")",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/x/web-interface/wbi/index/top/feed/rcmd"
     .end annotation
 .end method
 
@@ -120,6 +150,6 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/v2/view/like/triple"
+        a = "https://app.bilibili.com/x/v2/view/like/triple"
     .end annotation
 .end method

@@ -167,6 +167,7 @@ public final class CategoryManager {
         if (sRoot == null) {
             throw new AssertionError("null root category");
         }
+        sRoot.remove(T1_PROMO, T1_GAME_CENTER, T1_ARTICLE, T1_MUSIC_HOMESUB, T1_CINEMA, T1_MALL, T1_MATCH, T1_MOOC, T1_MUSICPLUS);
         //tryUpdate(context);
         return sRoot.clone();
     }

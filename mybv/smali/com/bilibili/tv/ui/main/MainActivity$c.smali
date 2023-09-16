@@ -1,6 +1,6 @@
-.class final Lcom/bilibili/tv/ui/main/MainActivity$c;
+.class public final Lcom/bilibili/tv/ui/main/MainActivity$c;
 .super Lbl/adv;
-.source "BL"
+.source "MainActivity.java"
 
 
 # annotations
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "c"
 .end annotation
 
@@ -32,6 +32,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 705
     new-instance v0, Lcom/bilibili/tv/ui/main/MainActivity$c$a;
 
     const/4 v1, 0x0
@@ -46,24 +48,27 @@
 .method public constructor <init>(Landroid/view/View;)V
     .locals 1
 
+    .prologue
+    .line 710
+    invoke-direct {p0, p1}, Lbl/adv;-><init>(Landroid/view/View;)V
+
+    .line 711
     const-string v0, "itemView"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 468
-    invoke-direct {p0, p1}, Lbl/adv;-><init>(Landroid/view/View;)V
-
+    .line 712
     const v0, 0x7f08009c
 
-    .line 469
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/main/MainActivity$c;->a(Landroid/view/View;I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/widget/ImageView;
+    check-cast v0, Landroid/widget/ImageView;
 
-    iput-object p1, p0, Lcom/bilibili/tv/ui/main/MainActivity$c;->n:Landroid/widget/ImageView;
+    iput-object v0, p0, Lcom/bilibili/tv/ui/main/MainActivity$c;->n:Landroid/widget/ImageView;
 
+    .line 713
     return-void
 .end method
 
@@ -72,7 +77,8 @@
 .method public final z()Landroid/widget/ImageView;
     .locals 1
 
-    .line 469
+    .prologue
+    .line 716
     iget-object v0, p0, Lcom/bilibili/tv/ui/main/MainActivity$c;->n:Landroid/widget/ImageView;
 
     return-object v0
