@@ -1,108 +1,108 @@
 .class public final Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$e;
 .super Landroid/support/v7/widget/RecyclerView$g;
-.source "BL"
+.source "AuthSpaceActivity.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;->a(Landroid/os/Bundle;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x19
-    name = null
+    name = "e"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:I
+.field final a:I
 
-.field final synthetic b:I
+.field final b:I
 
 
 # direct methods
 .method constructor <init>(II)V
     .locals 0
 
-    .line 117
-    iput p1, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$e;->a:I
-
-    iput p2, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$e;->b:I
-
+    .prologue
+    .line 210
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$g;-><init>()V
 
+    .line 211
+    iput p1, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$e;->a:I
+
+    .line 212
+    iput p2, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$e;->b:I
+
+    .line 213
     return-void
 .end method
 
 
 # virtual methods
 .method public a(Landroid/graphics/Rect;Landroid/view/View;Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$s;)V
-    .locals 1
+    .locals 4
 
-    const-string p4, "outRect"
+    .prologue
+    const/4 v1, 0x0
 
-    invoke-static {p1, p4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    .line 219
+    const-string v0, "outRect"
 
-    const-string p4, "view"
+    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p2, p4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    .line 220
+    const-string v0, "view"
 
-    const-string p4, "parent"
+    invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p3, p4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    .line 221
+    const-string v0, "parent"
 
-    .line 119
+    invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 222
     invoke-virtual {p3, p2}, Landroid/support/v7/widget/RecyclerView;->g(Landroid/view/View;)I
 
-    move-result p2
+    move-result v2
 
-    .line 124
-    invoke-static {}, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;->h()I
+    .line 223
+    const/4 v0, 0x1
 
-    move-result p3
+    if-le v2, v0, :cond_24
 
-    add-int/lit8 p3, p3, -0x1
+    iget v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$e;->a:I
 
-    const/4 p4, 0x0
+    .line 224
+    :goto_19
+    rem-int/lit8 v2, v2, 0x2
 
-    if-le p2, p3, :cond_0
+    if-nez v2, :cond_26
 
-    .line 125
-    iget p3, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$e;->a:I
+    .line 225
+    iget v2, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$e;->b:I
 
-    goto :goto_0
+    move v3, v1
 
-    :cond_0
-    const/4 p3, 0x0
+    .line 231
+    :goto_20
+    invoke-virtual {p1, v3, v0, v2, v1}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 127
-    :goto_0
-    invoke-static {}, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;->h()I
-
-    move-result v0
-
-    rem-int/2addr p2, v0
-
-    if-nez p2, :cond_1
-
-    .line 128
-    iget p2, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$e;->b:I
-
-    move v0, p2
-
-    const/4 p2, 0x0
-
-    goto :goto_1
-
-    .line 130
-    :cond_1
-    iget p2, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$e;->b:I
-
-    const/4 v0, 0x0
-
-    .line 132
-    :goto_1
-    invoke-virtual {p1, p2, p3, v0, p4}, Landroid/graphics/Rect;->set(IIII)V
-
+    .line 232
     return-void
+
+    :cond_24
+    move v0, v1
+
+    .line 223
+    goto :goto_19
+
+    .line 228
+    :cond_26
+    iget v3, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$e;->b:I
+
+    move v2, v1
+
+    .line 229
+    goto :goto_20
 .end method

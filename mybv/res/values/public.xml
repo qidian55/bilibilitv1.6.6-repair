@@ -2420,6 +2420,8 @@
     <public type="id" name="video_detail_coin_img" id="0x7f08016b" />
     <public type="id" name="video_detail_coin_text" id="0x7f08016c" />
     <public type="id" name="video_detail_duration" id="0x7f08016d" />
+    <public type="id" name="attention" id="0x7f08016e" />
+    <public type="id" name="medium_quality" id="0x7f08016f" />
 
     <public type="integer" name="config_danmaku_fly_duration" id="0x7f090003" />
     <public type="integer" name="config_danmaku_max_danmaku_on_screen" id="0x7f090005" />

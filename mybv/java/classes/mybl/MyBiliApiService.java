@@ -26,4 +26,11 @@ public interface MyBiliApiService {
 
     @GET(a = "/x/web-interface/wbi/index/top/feed/rcmd")
     vp<GeneralResponse<JSONObject>> recommendVideos(@Query(a = "ps") int page_size, @Query(a = "access_key") String access_key);
+
+    @GET(a = "/x/relation")
+    vp<GeneralResponse<JSONObject>> getRelation(@Query(a = "access_key") String access_key, @Query(a = "fid") long fid);
+
+    @FormUrlEncoded
+    @POST(a = "/x/relation/modify")
+    vp<GeneralResponse<JSONObject>> modifyRelation(@Field(a = "access_key") String access_key, @Field(a = "fid") long fid, @Field(a = "act") int act, @Field(a = "re_src") int re_src);
 }

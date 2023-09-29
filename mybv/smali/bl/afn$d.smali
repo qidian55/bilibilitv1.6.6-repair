@@ -1,100 +1,130 @@
 .class final Lbl/afn$d;
 .super Ljava/lang/Object;
-.source "BL"
+.source "afn.java"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/afn;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lbl/afn;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
+    accessFlags = 0x10
+    name = "d"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lbl/afn;
+.field final synthetic this$0:Lbl/afn;
 
 
 # direct methods
 .method constructor <init>(Lbl/afn;)V
     .locals 0
 
-    iput-object p1, p0, Lbl/afn$d;->a:Lbl/afn;
+    .prologue
+    .line 144
+    iput-object p1, p0, Lbl/afn$d;->this$0:Lbl/afn;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 145
     return-void
 .end method
 
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 1
+    .locals 3
 
-    .line 60
-    iget-object p1, p0, Lbl/afn$d;->a:Lbl/afn;
+    .prologue
+    const v2, 0x7f0700ef
 
-    invoke-virtual {p1}, Lbl/afn;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    .line 149
+    iget-object v0, p0, Lbl/afn$d;->this$0:Lbl/afn;
 
-    move-result-object p1
+    invoke-virtual {v0}, Lbl/afn;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    check-cast p1, Landroid/content/Context;
+    move-result-object v0
 
-    const/16 v0, 0x50
+    const/16 v1, 0x50
 
-    invoke-static {p1, v0}, Lbl/abd;->a(Landroid/content/Context;I)V
+    invoke-static {v0, v1}, Lbl/abd;->a(Landroid/content/Context;I)V
 
-    .line 61
-    iget-object p1, p0, Lbl/afn$d;->a:Lbl/afn;
+    .line 150
+    iget-object v0, p0, Lbl/afn$d;->this$0:Lbl/afn;
 
-    invoke-static {p1}, Lbl/afn;->a(Lbl/afn;)Lcom/bilibili/tv/widget/DrawFrameLayout;
+    # getter for: Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    invoke-static {v0}, Lbl/afn;->access$000(Lbl/afn;)Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-nez p1, :cond_0
+    .line 151
+    if-nez v0, :cond_19
 
+    .line 152
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_0
-    const v0, 0x7f0700ef
+    .line 154
+    :cond_19
+    invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setBackgroundResource(I)V
 
-    invoke-virtual {p1, v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setBackgroundResource(I)V
+    .line 155
+    iget-object v0, p0, Lbl/afn$d;->this$0:Lbl/afn;
 
-    .line 62
-    iget-object p1, p0, Lbl/afn$d;->a:Lbl/afn;
+    # getter for: Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    invoke-static {v0}, Lbl/afn;->access$100(Lbl/afn;)Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    invoke-static {p1}, Lbl/afn;->b(Lbl/afn;)Lcom/bilibili/tv/widget/DrawFrameLayout;
+    move-result-object v0
 
-    move-result-object p1
+    .line 156
+    if-nez v0, :cond_27
 
-    if-nez p1, :cond_1
-
+    .line 157
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_1
-    invoke-virtual {p1, v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setBackgroundResource(I)V
+    .line 159
+    :cond_27
+    invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setBackgroundResource(I)V
 
-    .line 63
-    iget-object p1, p0, Lbl/afn$d;->a:Lbl/afn;
+    .line 160
+    iget-object v0, p0, Lbl/afn$d;->this$0:Lbl/afn;
 
-    invoke-static {p1}, Lbl/afn;->c(Lbl/afn;)Lcom/bilibili/tv/widget/DrawFrameLayout;
+    # getter for: Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    invoke-static {v0}, Lbl/afn;->access$200(Lbl/afn;)Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-nez p1, :cond_2
+    .line 161
+    if-nez v0, :cond_35
 
+    .line 162
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_2
-    const v0, 0x7f0700f0
+    .line 164
+    :cond_35
+    const v1, 0x7f0700f0
 
-    invoke-virtual {p1, v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setBackgroundResource(I)V
 
+    .line 165
+    iget-object v0, p0, Lbl/afn$d;->this$0:Lbl/afn;
+
+    iget-object v0, v0, Lbl/afn;->e:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    .line 166
+    if-nez v0, :cond_44
+
+    .line 167
+    invoke-static {}, Lbl/bbi;->a()V
+
+    .line 169
+    :cond_44
+    invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setBackgroundResource(I)V
+
+    .line 170
     return-void
 .end method

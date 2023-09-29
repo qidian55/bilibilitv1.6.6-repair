@@ -2444,6 +2444,8 @@ public final class R {
         public static final int video_detail_coin_img = 0x7f08016b;
         public static final int video_detail_coin_text = 0x7f08016c;
         public static final int video_detail_duration = 0x7f08016d;
+        public static final int attention = 0x7f08016e;
+        public static final int medium_quality = 0x7f08016f;
     }
 
     public static final class integer {

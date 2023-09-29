@@ -38,7 +38,7 @@ public class qm extends py {
                 int optInt = jSONObject3.optInt("code", 0);
                 int optInt2 = jSONObject3.optInt("timelength");
                 int optInt3 = jSONObject3.optInt("video_codecid");
-                int optInt4 = jSONObject3.optInt("quality", i);
+                int optInt4 = i;//jSONObject3.optInt("quality", i);
                 String optString = jSONObject3.optString("format");
                 String optString2 = jSONObject3.optString("message");
                 String[] a2 = a(jSONObject3.optString("accept_format"));

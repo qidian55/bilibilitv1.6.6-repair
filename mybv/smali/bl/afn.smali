@@ -1,6 +1,6 @@
 .class public final Lbl/afn;
 .super Lbl/adw;
-.source "BL"
+.source "afn.java"
 
 # interfaces
 .implements Landroid/view/View$OnFocusChangeListener;
@@ -9,7 +9,11 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lbl/afn$a;
+        Lbl/afn$a;,
+        Lbl/afn$e;,
+        Lbl/afn$d;,
+        Lbl/afn$c;,
+        Lbl/afn$b;
     }
 .end annotation
 
@@ -25,11 +29,15 @@
 
 .field private d:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
+.field public e:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 14
     new-instance v0, Lbl/afn$a;
 
     const/4 v1, 0x0
@@ -44,37 +52,41 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 20
+    .prologue
+    .line 13
     invoke-direct {p0}, Lbl/adw;-><init>()V
 
     return-void
 .end method
 
-.method public static final synthetic a(Lbl/afn;)Lcom/bilibili/tv/widget/DrawFrameLayout;
-    .locals 0
+.method static synthetic access$000(Lbl/afn;)Lcom/bilibili/tv/widget/DrawFrameLayout;
+    .locals 1
 
-    .line 20
-    iget-object p0, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    .prologue
+    .line 13
+    iget-object v0, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    return-object p0
+    return-object v0
 .end method
 
-.method public static final synthetic b(Lbl/afn;)Lcom/bilibili/tv/widget/DrawFrameLayout;
-    .locals 0
+.method static synthetic access$100(Lbl/afn;)Lcom/bilibili/tv/widget/DrawFrameLayout;
+    .locals 1
 
-    .line 20
-    iget-object p0, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    .prologue
+    .line 13
+    iget-object v0, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    return-object p0
+    return-object v0
 .end method
 
-.method public static final synthetic c(Lbl/afn;)Lcom/bilibili/tv/widget/DrawFrameLayout;
-    .locals 0
+.method static synthetic access$200(Lbl/afn;)Lcom/bilibili/tv/widget/DrawFrameLayout;
+    .locals 1
 
-    .line 20
-    iget-object p0, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    .prologue
+    .line 13
+    iget-object v0, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    return-object p0
+    return-object v0
 .end method
 
 
@@ -82,111 +94,125 @@
 .method public final a()Z
     .locals 2
 
-    .line 69
-    iget-object v0, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    .prologue
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    .line 204
+    iget-object v1, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_6
 
-    return v1
-
-    .line 72
-    :cond_0
-    iget-object v0, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
-
-    if-nez v0, :cond_1
-
-    invoke-static {}, Lbl/bbi;->a()V
-
-    :cond_1
-    invoke-virtual {v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->hasFocus()Z
-
-    move-result v0
-
-    if-nez v0, :cond_6
-
-    iget-object v0, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
-
-    if-nez v0, :cond_2
-
-    invoke-static {}, Lbl/bbi;->a()V
-
-    :cond_2
-    invoke-virtual {v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->hasFocus()Z
-
-    move-result v0
-
-    if-nez v0, :cond_6
-
-    iget-object v0, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
-
-    if-nez v0, :cond_3
-
-    invoke-static {}, Lbl/bbi;->a()V
-
-    :cond_3
-    invoke-virtual {v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->hasFocus()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    goto :goto_0
-
-    .line 75
-    :cond_4
-    iget-object v0, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
-
-    if-nez v0, :cond_5
-
-    invoke-static {}, Lbl/bbi;->a()V
-
+    .line 231
     :cond_5
-    invoke-virtual {v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->requestFocus()Z
-
-    const/4 v0, 0x1
-
+    :goto_5
     return v0
 
+    .line 207
     :cond_6
-    :goto_0
-    return v1
+    iget-object v1, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    .line 208
+    if-nez v1, :cond_d
+
+    .line 209
+    invoke-static {}, Lbl/bbi;->a()V
+
+    .line 211
+    :cond_d
+    invoke-virtual {v1}, Lcom/bilibili/tv/widget/DrawFrameLayout;->hasFocus()Z
+
+    move-result v1
+
+    if-nez v1, :cond_5
+
+    .line 212
+    iget-object v1, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    .line 213
+    if-nez v1, :cond_1a
+
+    .line 214
+    invoke-static {}, Lbl/bbi;->a()V
+
+    .line 216
+    :cond_1a
+    invoke-virtual {v1}, Lcom/bilibili/tv/widget/DrawFrameLayout;->hasFocus()Z
+
+    move-result v1
+
+    if-nez v1, :cond_5
+
+    .line 217
+    iget-object v1, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    .line 218
+    if-nez v1, :cond_27
+
+    .line 219
+    invoke-static {}, Lbl/bbi;->a()V
+
+    .line 221
+    :cond_27
+    invoke-virtual {v1}, Lcom/bilibili/tv/widget/DrawFrameLayout;->hasFocus()Z
+
+    move-result v1
+
+    if-nez v1, :cond_5
+
+    .line 222
+    iget-object v0, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    .line 223
+    if-nez v0, :cond_34
+
+    .line 224
+    invoke-static {}, Lbl/bbi;->a()V
+
+    .line 226
+    :cond_34
+    invoke-virtual {v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->requestFocus()Z
+
+    .line 227
+    const/4 v0, 0x1
+
+    goto :goto_5
 .end method
 
 .method public final b()Z
-    .locals 1
+    .locals 2
 
-    .line 81
-    iget-object v0, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
-
-    if-nez v0, :cond_0
-
+    .prologue
     const/4 v0, 0x0
 
+    .line 235
+    iget-object v1, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    if-nez v1, :cond_6
+
+    .line 238
+    :cond_5
+    :goto_5
     return v0
 
-    .line 84
-    :cond_0
-    iget-object v0, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    :cond_6
+    iget-object v1, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    if-nez v0, :cond_1
+    invoke-virtual {v1}, Lcom/bilibili/tv/widget/DrawFrameLayout;->hasFocus()Z
 
-    invoke-static {}, Lbl/bbi;->a()V
+    move-result v1
 
-    :cond_1
-    invoke-virtual {v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->hasFocus()Z
+    if-nez v1, :cond_5
 
-    move-result v0
+    const/4 v0, 0x1
 
-    xor-int/lit8 v0, v0, 0x1
-
-    return v0
+    goto :goto_5
 .end method
 
 .method public c()Z
     .locals 1
 
+    .prologue
+    .line 23
     const/4 v0, 0x1
 
     return v0
@@ -195,261 +221,278 @@
 .method public d_()V
     .locals 0
 
+    .prologue
+    .line 28
     return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 1
+    .locals 4
 
-    const-string p3, "inflater"
+    .prologue
+    const v3, 0x7f0700f0
 
-    invoke-static {p1, p3}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const p3, 0x7f0a003a
-
-    const/4 v0, 0x0
-
-    .line 26
-    invoke-virtual {p1, p3, p2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object p1
-
-    const-string p2, "view"
-
-    .line 28
-    invoke-static {p1, p2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const p2, 0x7f0800bb
-
-    invoke-virtual {p0, p1, p2}, Lbl/afn;->a(Landroid/view/View;I)Landroid/view/View;
-
-    move-result-object p2
-
-    check-cast p2, Lcom/bilibili/tv/widget/DrawFrameLayout;
-
-    iput-object p2, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
-
-    const p2, 0x7f080096
-
-    .line 29
-    invoke-virtual {p0, p1, p2}, Lbl/afn;->a(Landroid/view/View;I)Landroid/view/View;
-
-    move-result-object p2
-
-    check-cast p2, Lcom/bilibili/tv/widget/DrawFrameLayout;
-
-    iput-object p2, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
-
-    const p2, 0x7f080120
-
-    .line 30
-    invoke-virtual {p0, p1, p2}, Lbl/afn;->a(Landroid/view/View;I)Landroid/view/View;
-
-    move-result-object p2
-
-    check-cast p2, Lcom/bilibili/tv/widget/DrawFrameLayout;
-
-    iput-object p2, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    const v2, 0x7f0700e8
 
     .line 32
-    iget-object p2, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    const-string v0, "inflater"
 
-    if-nez p2, :cond_0
-
-    invoke-static {}, Lbl/bbi;->a()V
-
-    :cond_0
-    const p3, 0x7f0700e8
-
-    invoke-virtual {p2, p3}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setUpDrawable(I)V
+    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 33
-    iget-object p2, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    const v0, 0x7f0a003a
 
-    if-nez p2, :cond_1
+    const/4 v1, 0x0
 
-    invoke-static {}, Lbl/bbi;->a()V
+    invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    :cond_1
-    invoke-virtual {p2, p3}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setUpDrawable(I)V
+    move-result-object v1
 
     .line 34
-    iget-object p2, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    const-string v0, "view"
 
-    if-nez p2, :cond_2
+    invoke-static {v1, v0}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {}, Lbl/bbi;->a()V
+    .line 35
+    const v0, 0x7f0800bb
 
-    :cond_2
-    invoke-virtual {p2, p3}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setUpDrawable(I)V
+    invoke-virtual {p0, v1, v0}, Lbl/afn;->a(Landroid/view/View;I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    iput-object v0, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
     .line 36
-    iget-object p2, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    const v0, 0x7f08016f
 
-    if-nez p2, :cond_3
+    invoke-virtual {p0, v1, v0}, Lbl/afn;->a(Landroid/view/View;I)Landroid/view/View;
 
-    invoke-static {}, Lbl/bbi;->a()V
+    move-result-object v0
 
-    :cond_3
-    move-object p3, p0
+    check-cast v0, Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    check-cast p3, Landroid/view/View$OnFocusChangeListener;
-
-    invoke-virtual {p2, p3}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+    iput-object v0, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
     .line 37
-    iget-object p2, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    const v0, 0x7f080096
 
-    if-nez p2, :cond_4
+    invoke-virtual {p0, v1, v0}, Lbl/afn;->a(Landroid/view/View;I)Landroid/view/View;
 
-    invoke-static {}, Lbl/bbi;->a()V
+    move-result-object v0
 
-    :cond_4
-    invoke-virtual {p2, p3}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+    check-cast v0, Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    iput-object v0, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
     .line 38
-    iget-object p2, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    const v0, 0x7f080120
 
-    if-nez p2, :cond_5
+    invoke-virtual {p0, v1, v0}, Lbl/afn;->a(Landroid/view/View;I)Landroid/view/View;
 
-    invoke-static {}, Lbl/bbi;->a()V
+    move-result-object v0
 
-    :cond_5
-    invoke-virtual {p2, p3}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+    check-cast v0, Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    iput-object v0, p0, Lbl/afn;->e:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    .line 39
+    iget-object v0, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    if-nez v0, :cond_4b
 
     .line 40
-    invoke-virtual {p0}, Lbl/afn;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object p2
-
-    check-cast p2, Landroid/content/Context;
-
-    invoke-static {p2}, Lbl/abd;->d(Landroid/content/Context;)I
-
-    move-result p2
-
-    const/16 p3, 0x20
-
-    const v0, 0x7f0700f0
-
-    if-eq p2, p3, :cond_a
-
-    const/16 p3, 0x40
-
-    if-eq p2, p3, :cond_8
-
-    const/16 p3, 0x50
-
-    if-eq p2, p3, :cond_6
-
-    goto :goto_0
-
-    .line 44
-    :cond_6
-    iget-object p2, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
-
-    if-nez p2, :cond_7
-
     invoke-static {}, Lbl/bbi;->a()V
-
-    :cond_7
-    invoke-virtual {p2, v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setBackgroundResource(I)V
-
-    goto :goto_0
-
-    .line 43
-    :cond_8
-    iget-object p2, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
-
-    if-nez p2, :cond_9
-
-    invoke-static {}, Lbl/bbi;->a()V
-
-    :cond_9
-    invoke-virtual {p2, v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setBackgroundResource(I)V
-
-    goto :goto_0
 
     .line 42
-    :cond_a
-    iget-object p2, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    :cond_4b
+    iget-object v0, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    if-nez p2, :cond_b
+    invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setUpDrawable(I)V
 
+    .line 43
+    iget-object v0, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    if-nez v0, :cond_57
+
+    .line 44
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_b
-    invoke-virtual {p2, v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setBackgroundResource(I)V
+    .line 46
+    :cond_57
+    iget-object v0, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setUpDrawable(I)V
 
     .line 47
-    :goto_0
-    iget-object p2, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    iget-object v0, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    if-nez p2, :cond_c
+    if-nez v0, :cond_63
 
+    .line 48
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_c
-    new-instance p3, Lbl/afn$b;
+    .line 50
+    :cond_63
+    iget-object v0, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    invoke-direct {p3, p0}, Lbl/afn$b;-><init>(Lbl/afn;)V
+    invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setUpDrawable(I)V
 
-    check-cast p3, Landroid/view/View$OnClickListener;
+    .line 51
+    iget-object v0, p0, Lbl/afn;->e:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    invoke-virtual {p2, p3}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    if-nez v0, :cond_6f
 
-    .line 53
-    iget-object p2, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
-
-    if-nez p2, :cond_d
-
+    .line 52
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_d
-    new-instance p3, Lbl/afn$c;
+    .line 54
+    :cond_6f
+    iget-object v0, p0, Lbl/afn;->e:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    invoke-direct {p3, p0}, Lbl/afn$c;-><init>(Lbl/afn;)V
+    invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setUpDrawable(I)V
 
-    check-cast p3, Landroid/view/View$OnClickListener;
+    .line 56
+    iget-object v0, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    invoke-virtual {p2, p3}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, p0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+
+    .line 57
+    iget-object v0, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    invoke-virtual {v0, p0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+
+    .line 58
+    iget-object v0, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    invoke-virtual {v0, p0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
     .line 59
-    iget-object p2, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    iget-object v0, p0, Lbl/afn;->e:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    if-nez p2, :cond_e
+    invoke-virtual {v0, p0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    invoke-static {}, Lbl/bbi;->a()V
+    .line 60
+    invoke-virtual {p0}, Lbl/afn;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    :cond_e
-    new-instance p3, Lbl/afn$d;
+    move-result-object v0
 
-    invoke-direct {p3, p0}, Lbl/afn$d;-><init>(Lbl/afn;)V
+    invoke-static {v0}, Lbl/abd;->d(Landroid/content/Context;)I
 
-    check-cast p3, Landroid/view/View$OnClickListener;
+    move-result v0
 
-    invoke-virtual {p2, p3}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    .line 61
+    const/16 v2, 0x10
 
-    return-object p1
+    if-ne v0, v2, :cond_c2
+
+    .line 62
+    iget-object v0, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    invoke-virtual {v0, v3}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setBackgroundResource(I)V
+
+    .line 70
+    :cond_99
+    :goto_99
+    iget-object v0, p0, Lbl/afn;->b:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    new-instance v2, Lbl/afn$b;
+
+    invoke-direct {v2, p0}, Lbl/afn$b;-><init>(Lbl/afn;)V
+
+    invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 71
+    iget-object v0, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    new-instance v2, Lbl/afn$c;
+
+    invoke-direct {v2, p0}, Lbl/afn$c;-><init>(Lbl/afn;)V
+
+    invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 72
+    iget-object v0, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    new-instance v2, Lbl/afn$d;
+
+    invoke-direct {v2, p0}, Lbl/afn$d;-><init>(Lbl/afn;)V
+
+    invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 73
+    iget-object v0, p0, Lbl/afn;->e:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    new-instance v2, Lbl/afn$e;
+
+    invoke-direct {v2, p0}, Lbl/afn$e;-><init>(Lbl/afn;)V
+
+    invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 74
+    return-object v1
+
+    .line 63
+    :cond_c2
+    const/16 v2, 0x20
+
+    if-ne v0, v2, :cond_cc
+
+    .line 64
+    iget-object v0, p0, Lbl/afn;->c:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    invoke-virtual {v0, v3}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setBackgroundResource(I)V
+
+    goto :goto_99
+
+    .line 65
+    :cond_cc
+    const/16 v2, 0x50
+
+    if-ne v0, v2, :cond_d6
+
+    .line 66
+    iget-object v0, p0, Lbl/afn;->d:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    invoke-virtual {v0, v3}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setBackgroundResource(I)V
+
+    goto :goto_99
+
+    .line 67
+    :cond_d6
+    const/16 v2, 0x78
+
+    if-ne v0, v2, :cond_99
+
+    .line 68
+    iget-object v0, p0, Lbl/afn;->e:Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    invoke-virtual {v0, v3}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setBackgroundResource(I)V
+
+    goto :goto_99
 .end method
 
 .method public onFocusChange(Landroid/view/View;Z)V
     .locals 1
 
+    .prologue
+    .line 243
     const-string v0, "v"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 98
+    .line 244
     instance-of v0, p1, Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
-    .line 99
+    .line 245
     check-cast p1, Lcom/bilibili/tv/widget/DrawFrameLayout;
 
     invoke-virtual {p1, p2}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setUpEnabled(Z)V
 
-    :cond_0
+    .line 247
+    :cond_e
     return-void
 .end method

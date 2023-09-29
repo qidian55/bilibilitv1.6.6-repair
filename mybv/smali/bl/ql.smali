@@ -645,7 +645,7 @@
 
     const-string v3, "access_key"
 
-    if-eqz p4, :cond_12e
+    if-eqz p4, :cond_144
 
     iget-object v0, p4, Lbl/pu;->c:Ljava/lang/String;
 
@@ -656,7 +656,7 @@
 
     const-string v3, "mid"
 
-    if-eqz p4, :cond_131
+    if-eqz p4, :cond_147
 
     iget-wide v4, p4, Lbl/pu;->b:J
 
@@ -671,7 +671,7 @@
 
     const-string v3, "expire"
 
-    if-eqz p4, :cond_134
+    if-eqz p4, :cond_14a
 
     iget-wide v4, p4, Lbl/pu;->a:J
 
@@ -690,7 +690,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_136
+    if-eqz v0, :cond_14d
 
     const-string v0, "1"
 
@@ -711,7 +711,7 @@
 
     const-string v3, "model"
 
-    if-nez v2, :cond_139
+    if-nez v2, :cond_151
 
     invoke-virtual {p3}, Lbl/ps;->e()Ljava/lang/String;
 
@@ -724,7 +724,7 @@
 
     const-string v3, "resolution"
 
-    if-nez v2, :cond_13b
+    if-nez v2, :cond_153
 
     invoke-virtual {p3}, Lbl/ps;->f()Ljava/lang/String;
 
@@ -741,7 +741,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13d
+    if-eqz v0, :cond_155
 
     const-string v0, "1"
 
@@ -759,6 +759,30 @@
     move-result-object v3
 
     invoke-virtual {v0, v1, v3}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v1
+
+    const-string v3, "try_look"
+
+    if-eqz p4, :cond_116
+
+    iget-object v0, p4, Lbl/pu;->c:Ljava/lang/String;
+
+    if-eqz v0, :cond_116
+
+    iget-object v0, p4, Lbl/pu;->c:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_157
+
+    :cond_116
+    const-string v0, "1"
+
+    :goto_118
+    invoke-virtual {v1, v3, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v0
 
@@ -794,7 +818,7 @@
     const/4 v0, -0x5
 
     .line 64
-    if-nez v3, :cond_13f
+    if-nez v3, :cond_159
 
     .line 65
     new-instance v0, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
@@ -808,48 +832,53 @@
     throw v0
 
     .line 60
-    :cond_12e
+    :cond_144
     const/4 v0, 0x0
 
     goto/16 :goto_9c
 
-    :cond_131
+    :cond_147
     const/4 v0, 0x0
 
     goto/16 :goto_aa
 
-    :cond_134
+    :cond_14a
     const/4 v0, 0x0
 
-    goto :goto_b8
+    goto/16 :goto_b8
 
-    :cond_136
+    :cond_14d
     const-string v0, "0"
 
-    goto :goto_c6
+    goto/16 :goto_c6
 
-    :cond_139
+    :cond_151
     const/4 v0, 0x0
 
     goto :goto_dc
 
-    :cond_13b
+    :cond_153
     const/4 v0, 0x0
 
     goto :goto_e8
 
-    :cond_13d
+    :cond_155
     const/4 v0, 0x0
 
     goto :goto_f6
 
+    :cond_157
+    const/4 v0, 0x0
+
+    goto :goto_118
+
     .line 67
-    :cond_13f
+    :cond_159
     invoke-virtual {v3}, Lbl/qm;->a()Z
 
     move-result v1
 
-    if-nez v1, :cond_15a
+    if-nez v1, :cond_174
 
     .line 68
     iget-object v1, p0, Lbl/ql;->b:Lbl/qx;
@@ -874,7 +903,7 @@
     throw v1
 
     .line 71
-    :cond_15a
+    :cond_174
     iget-object v0, p0, Lbl/ql;->b:Lbl/qx;
 
     invoke-virtual {v3}, Lbl/qm;->b()I
@@ -898,13 +927,13 @@
 
     move v6, v2
 
-    :try_start_16c
+    :try_start_186
     invoke-virtual/range {v3 .. v8}, Lbl/qm;->a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;ILandroid/util/SparseArray;[I)Lcom/bilibili/lib/media/resource/MediaResource;
 
     move-result-object v0
 
     .line 74
-    if-nez v0, :cond_18b
+    if-nez v0, :cond_1a5
 
     .line 75
     new-instance v0, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
@@ -916,11 +945,11 @@
     invoke-direct {v0, v1, v2}, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;-><init>(Ljava/lang/String;I)V
 
     throw v0
-    :try_end_17b
-    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_16c .. :try_end_17b} :catch_17b
+    :try_end_195
+    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_186 .. :try_end_195} :catch_195
 
     .line 79
-    :catch_17b
+    :catch_195
     move-exception v0
 
     .line 80
@@ -940,13 +969,13 @@
     throw v0
 
     .line 77
-    :cond_18b
-    :try_start_18b
+    :cond_1a5
+    :try_start_1a5
     iget-object v1, p0, Lbl/ql;->b:Lbl/qx;
 
     invoke-virtual {v1, v0}, Lbl/qx;->a(Lcom/bilibili/lib/media/resource/MediaResource;)V
-    :try_end_190
-    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_18b .. :try_end_190} :catch_17b
+    :try_end_1aa
+    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_1a5 .. :try_end_1aa} :catch_195
 
     .line 78
     return-object v0

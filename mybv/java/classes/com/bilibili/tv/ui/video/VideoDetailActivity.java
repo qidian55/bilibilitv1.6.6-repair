@@ -225,14 +225,14 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         final VideoDetailActivity videoDetailActivity2 = this;
         FixLinearLayoutManager fixLinearLayoutManager = new FixLinearLayoutManager(videoDetailActivity2, 0, false) { // from class: com.bilibili.tv.ui.video.VideoDetailActivity$initView$linearLayoutManager$1
             @Override // android.support.v7.widget.RecyclerView.h
-            public View d(View view, int i2) {
+            public View d(View view, int direction) {
                 RecyclerView recyclerView;
                 if (view != null) {
                     int d2 = d(view);
-                    if (i2 != 17) {
-                        if (i2 != 33) {
-                            if (i2 != 66) {
-                                if (i2 == 130 && (recyclerView = VideoDetailActivity.this.o) != null) {
+                    if (direction != View.FOCUS_LEFT) {
+                        if (direction != View.FOCUS_UP) {
+                            if (direction != View.FOCUS_RIGHT) {
+                                if (direction == View.FOCUS_DOWN && (recyclerView = VideoDetailActivity.this.o) != null) {
                                     RecyclerView.h layoutManager = recyclerView.getLayoutManager();
                                     if (layoutManager == null) {
                                         throw new TypeCastException("null cannot be cast to non-null type android.support.v7.widget.GridLayoutManager");
@@ -247,7 +247,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                     } else if (d2 == 0) {
                         return view;
                     }
-                    return super.d(view, i2);
+                    return super.d(view, direction);
                 }
                 return null;
             }
@@ -265,14 +265,14 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         final int i2 = E;
         FixGridLayoutManager fixGridLayoutManager = new FixGridLayoutManager(videoDetailActivity2, i2, 1, false) { // from class: com.bilibili.tv.ui.video.VideoDetailActivity$initView$gridLayoutManager$1
             @Override // android.support.v7.widget.RecyclerView.h
-            public View d(View view, int i3) {
+            public View d(View view, int direction) {
                 RecyclerView recyclerView3;
                 if (view != null) {
                     int d2 = d(view);
-                    if (i3 != 17) {
-                        if (i3 != 33) {
-                            if (i3 != 66) {
-                                if (i3 == 130 && (recyclerView3 = VideoDetailActivity.this.r) != null) {
+                    if (direction != View.FOCUS_LEFT) {
+                        if (direction != View.FOCUS_UP) {
+                            if (direction != View.FOCUS_RIGHT) {
+                                if (direction == View.FOCUS_DOWN && (recyclerView3 = VideoDetailActivity.this.r) != null) {
                                     RecyclerView.h layoutManager = recyclerView3.getLayoutManager();
                                     if (layoutManager == null) {
                                         throw new TypeCastException("null cannot be cast to non-null type android.support.v7.widget.LinearLayoutManager");
@@ -287,7 +287,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                     } else if (d2 == 0) {
                         return view;
                     }
-                    return super.d(view, i3);
+                    return super.d(view, direction);
                 }
                 return null;
             }
@@ -310,17 +310,17 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         this.r = (RecyclerView) d(R.id.video_detail_relate_video);
         FixLinearLayoutManager fixLinearLayoutManager2 = new FixLinearLayoutManager(videoDetailActivity2, 0, false) { // from class: com.bilibili.tv.ui.video.VideoDetailActivity$initView$relativeLinearLayoutManager$1
             @Override // android.support.v7.widget.RecyclerView.h
-            public View d(View view, int i3) {
+            public View d(View view, int direction) {
                 if (view != null) {
                     int d2 = d(view);
-                    if (i3 != 17) {
-                        if (i3 == 33) {
+                    if (direction != View.FOCUS_LEFT) {
+                        if (direction == View.FOCUS_UP) {
                             RecyclerView recyclerView6 = VideoDetailActivity.this.o;
                             if (recyclerView6 != null) {
                                 return recyclerView6.getChildCount() > 0 ? recyclerView6.getChildAt(0) : view;
                             }
-                        } else if (i3 != 66) {
-                            if (i3 == 130) {
+                        } else if (direction != View.FOCUS_RIGHT) {
+                            if (direction == View.FOCUS_DOWN) {
                                 return view;
                             }
                         } else if (d2 == H() - 1) {
@@ -329,7 +329,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                     } else if (d2 == 0) {
                         return view;
                     }
-                    return super.d(view, i3);
+                    return super.d(view, direction);
                 }
                 return null;
             }

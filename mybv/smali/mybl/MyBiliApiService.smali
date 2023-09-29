@@ -53,6 +53,36 @@
     .end annotation
 .end method
 
+.method public abstract getRelation(Ljava/lang/String;J)Lbl/vp;
+    .param p1    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "access_key"
+        .end annotation
+    .end param
+    .param p2    # J
+        .annotation runtime Lretrofit2/http/Query;
+            a = "fid"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "J)",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/x/relation"
+    .end annotation
+.end method
+
 .method public abstract likeVideo(Ljava/lang/String;JI)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
@@ -88,6 +118,49 @@
 
     .annotation runtime Lretrofit2/http/POST;
         a = "https://app.bilibili.com/x/v2/view/like"
+    .end annotation
+.end method
+
+.method public abstract modifyRelation(Ljava/lang/String;JII)Lbl/vp;
+    .param p1    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Field;
+            a = "access_key"
+        .end annotation
+    .end param
+    .param p2    # J
+        .annotation runtime Lretrofit2/http/Field;
+            a = "fid"
+        .end annotation
+    .end param
+    .param p4    # I
+        .annotation runtime Lretrofit2/http/Field;
+            a = "act"
+        .end annotation
+    .end param
+    .param p5    # I
+        .annotation runtime Lretrofit2/http/Field;
+            a = "re_src"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "JII)",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/FormUrlEncoded;
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/POST;
+        a = "/x/relation/modify"
     .end annotation
 .end method
 

@@ -1,6 +1,6 @@
 .class public final Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;
 .super Lbl/adv;
-.source "BL"
+.source "AuthSpaceActivity.java"
 
 
 # annotations
@@ -40,6 +40,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 520
     new-instance v0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d$a;
 
     const/4 v1, 0x0
@@ -52,18 +54,24 @@
 .end method
 
 .method public constructor <init>(Landroid/view/View;)V
-    .locals 4
+    .locals 6
 
+    .prologue
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    .line 529
+    invoke-direct {p0, p1}, Lbl/adv;-><init>(Landroid/view/View;)V
+
+    .line 530
     const-string v0, "itemView"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 301
-    invoke-direct {p0, p1}, Lbl/adv;-><init>(Landroid/view/View;)V
-
+    .line 531
     const v0, 0x7f0800a1
 
-    .line 302
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object v0
@@ -72,9 +80,9 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->n:Lcom/bilibili/tv/widget/ScalableImageView;
 
+    .line 532
     const v0, 0x7f080132
 
-    .line 303
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object v0
@@ -83,9 +91,9 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->o:Landroid/widget/TextView;
 
+    .line 533
     const v0, 0x7f08013f
 
-    .line 304
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object v0
@@ -94,9 +102,9 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->p:Landroid/widget/TextView;
 
+    .line 534
     const v0, 0x7f0800d4
 
-    .line 305
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object v0
@@ -105,101 +113,98 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->q:Landroid/widget/TextView;
 
+    .line 535
     const v0, 0x7f08006c
 
-    .line 306
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
-    iput-object p1, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->r:Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->r:Landroid/widget/TextView;
 
-    .line 309
-    sget-object p1, Lbl/adl;->a:Lbl/adl;
-
-    const v0, 0x7f0700b2
-
-    invoke-virtual {p1, v0}, Lbl/adl;->c(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    .line 310
+    .line 536
     sget-object v0, Lbl/adl;->a:Lbl/adl;
 
-    const v1, 0x7f0700b1
+    const v1, 0x7f0700b2
 
     invoke-virtual {v0, v1}, Lbl/adl;->c(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 311
+    .line 537
     sget-object v1, Lbl/adl;->a:Lbl/adl;
 
-    const v2, 0x7f0700b0
+    const v2, 0x7f0700b1
 
     invoke-virtual {v1, v2}, Lbl/adl;->c(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    const v2, 0x7f060179
+    .line 538
+    sget-object v2, Lbl/adl;->a:Lbl/adl;
 
-    .line 313
-    invoke-static {v2}, Lbl/adl;->b(I)I
+    const v3, 0x7f0700b0
 
-    move-result v2
+    invoke-virtual {v2, v3}, Lbl/adl;->c(I)Landroid/graphics/drawable/Drawable;
 
-    const/4 v3, 0x0
+    move-result-object v2
 
-    .line 314
-    invoke-virtual {p1, v3, v3, v2, v2}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    .line 539
+    const v3, 0x7f060179
 
-    .line 315
-    invoke-virtual {v0, v3, v3, v2, v2}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-static {v3}, Lbl/adl;->b(I)I
 
-    .line 316
-    invoke-virtual {v1, v3, v3, v2, v2}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    move-result v3
 
-    const v2, 0x7f0500a7
+    .line 540
+    invoke-virtual {v0, v4, v4, v3, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 318
-    invoke-static {v2}, Lbl/adl;->d(I)I
+    .line 541
+    invoke-virtual {v1, v4, v4, v3, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    move-result v2
+    .line 542
+    invoke-virtual {v2, v4, v4, v3, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 319
-    sget-object v3, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
+    .line 543
+    const v3, 0x7f0500a7
 
-    invoke-virtual {p1, v2, v3}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    invoke-static {v3}, Lbl/adl;->d(I)I
 
-    .line 320
-    sget-object v3, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
+    move-result v3
 
-    invoke-virtual {v0, v2, v3}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    .line 544
+    sget-object v4, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
 
-    .line 321
-    sget-object v3, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
+    invoke-virtual {v0, v3, v4}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    invoke-virtual {v1, v2, v3}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    .line 545
+    sget-object v4, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
 
-    .line 323
-    iget-object v2, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->p:Landroid/widget/TextView;
+    invoke-virtual {v1, v3, v4}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    const/4 v3, 0x0
+    .line 546
+    sget-object v4, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
 
-    invoke-virtual {v2, p1, v3, v3, v3}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v2, v3, v4}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 324
-    iget-object p1, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->q:Landroid/widget/TextView;
+    .line 547
+    iget-object v3, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->p:Landroid/widget/TextView;
 
-    invoke-virtual {p1, v0, v3, v3, v3}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v3, v0, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 325
-    iget-object p1, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->r:Landroid/widget/TextView;
+    .line 548
+    iget-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->q:Landroid/widget/TextView;
 
-    invoke-virtual {p1, v1, v3, v3, v3}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v1, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
+    .line 549
+    iget-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->r:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v2, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+
+    .line 550
     return-void
 .end method
 
@@ -208,7 +213,8 @@
 .method public final A()Landroid/widget/TextView;
     .locals 1
 
-    .line 303
+    .prologue
+    .line 557
     iget-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->o:Landroid/widget/TextView;
 
     return-object v0
@@ -217,7 +223,8 @@
 .method public final B()Landroid/widget/TextView;
     .locals 1
 
-    .line 304
+    .prologue
+    .line 561
     iget-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->p:Landroid/widget/TextView;
 
     return-object v0
@@ -226,7 +233,8 @@
 .method public final C()Landroid/widget/TextView;
     .locals 1
 
-    .line 305
+    .prologue
+    .line 565
     iget-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->q:Landroid/widget/TextView;
 
     return-object v0
@@ -235,7 +243,8 @@
 .method public final D()Landroid/widget/TextView;
     .locals 1
 
-    .line 306
+    .prologue
+    .line 569
     iget-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->r:Landroid/widget/TextView;
 
     return-object v0
@@ -244,7 +253,8 @@
 .method public final z()Lcom/bilibili/tv/widget/ScalableImageView;
     .locals 1
 
-    .line 302
+    .prologue
+    .line 553
     iget-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$d;->n:Lcom/bilibili/tv/widget/ScalableImageView;
 
     return-object v0
