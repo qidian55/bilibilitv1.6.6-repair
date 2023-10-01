@@ -262,8 +262,6 @@
     .locals 6
 
     .prologue
-    const/4 v3, 0x1
-
     .line 207
     new-instance v0, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
@@ -281,10 +279,10 @@
     invoke-virtual {v0, v1}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->setAudioStreamType(I)V
 
     .line 209
-    if-eqz p2, :cond_3b
+    if-eqz p2, :cond_3a
 
     .line 211
-    :try_start_12
+    :try_start_11
     const-string v0, "enable mediaCodec"
 
     invoke-static {v0}, Lbl/ww;->a(Ljava/lang/String;)V
@@ -327,52 +325,12 @@
     const-wide/16 v4, 0x1
 
     invoke-virtual {v0, v1, v2, v4, v5}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setOption(ILjava/lang/String;J)V
-    :try_end_3b
-    .catch Ljava/lang/Exception; {:try_start_12 .. :try_end_3b} :catch_b7
-
-    .line 220
-    :cond_3b
-    iget-object v0, p0, Lbl/wm;->h:Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;
-
-    check-cast v0, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
-
-    const-string v1, "user_agent"
-
-    const-string v2, "Bilibili Freedoooooom/MarkII"
-
-    invoke-virtual {v0, v3, v1, v2}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setOption(ILjava/lang/String;Ljava/lang/String;)V
-
-    .line 221
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Lbl/wo;
-
-    invoke-virtual {v0}, Lbl/wo;->a()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "platform=web"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v0
-
-    if-ltz v0, :cond_61
-
-    .line 222
-    iget-object v0, p0, Lbl/wm;->h:Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;
-
-    check-cast v0, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
-
-    const-string v1, "headers"
-
-    const-string v2, "Referer: https://www.bilibili.com\r\n"
-
-    invoke-virtual {v0, v3, v1, v2}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setOption(ILjava/lang/String;Ljava/lang/String;)V
+    :try_end_3a
+    .catch Ljava/lang/Exception; {:try_start_11 .. :try_end_3a} :catch_90
 
     .line 225
-    :cond_61
-    :try_start_61
+    :cond_3a
+    :try_start_3a
     iget-object v0, p0, Lbl/wm;->h:Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;
 
     check-cast v0, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
@@ -394,11 +352,11 @@
     move-result-object v1
 
     invoke-virtual {v0, v2, v1}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setDataSource(Ljava/lang/String;Ljava/util/Map;)V
-    :try_end_78
-    .catch Ljava/lang/Exception; {:try_start_61 .. :try_end_78} :catch_bc
+    :try_end_51
+    .catch Ljava/lang/Exception; {:try_start_3a .. :try_end_51} :catch_95
 
     .line 227
-    :goto_78
+    :goto_51
     iget-object v1, p0, Lbl/wm;->h:Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -424,7 +382,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-eqz v0, :cond_af
+    if-eqz v0, :cond_88
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -438,7 +396,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_af
+    if-lez v0, :cond_88
 
     .line 229
     iget-object v0, p0, Lbl/wm;->h:Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;
@@ -456,7 +414,7 @@
     invoke-virtual {v0, v1}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setSpeed(F)V
 
     .line 231
-    :cond_af
+    :cond_88
     iget-object v0, p0, Lbl/wm;->h:Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;
 
     check-cast v0, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
@@ -464,23 +422,23 @@
     invoke-direct {p0, v0}, Lbl/wm;->a(Ltv/danmaku/ijk/media/player/IjkMediaPlayer;)V
 
     .line 232
-    :goto_b6
+    :goto_8f
     return-void
 
     .line 215
-    :catch_b7
+    :catch_90
     move-exception v0
 
     .line 216
     invoke-static {v0}, Lbl/att;->a(Ljava/lang/Throwable;)V
 
-    goto :goto_b6
+    goto :goto_8f
 
     .line 226
-    :catch_bc
+    :catch_95
     move-exception v0
 
-    goto :goto_78
+    goto :goto_51
 .end method
 
 .method private a(Ltv/danmaku/ijk/media/player/IjkMediaPlayer;)V

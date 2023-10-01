@@ -23,13 +23,13 @@
     .locals 0
 
     .prologue
-    .line 170
+    .line 172
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$g;-><init>()V
 
-    .line 171
+    .line 173
     iput p1, p0, Lbl/afd$g;->a:I
 
-    .line 172
+    .line 174
     return-void
 .end method
 
@@ -45,27 +45,27 @@
 
     const/4 v2, 0x0
 
-    .line 182
+    .line 184
     const-string v0, "outRect"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 183
+    .line 185
     const-string v0, "view"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 184
+    .line 186
     const-string v0, "parent"
 
     invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 185
+    .line 187
     invoke-virtual {p3, p2}, Landroid/support/v7/widget/RecyclerView;->f(Landroid/view/View;)I
 
     move-result v3
 
-    .line 186
+    .line 188
     div-int/lit8 v0, v3, 0x5
 
     int-to-double v4, v0
@@ -80,14 +80,14 @@
 
     sub-int v4, v3, v0
 
-    .line 187
+    .line 189
     rem-int/lit8 v0, v3, 0x5
 
     if-nez v0, :cond_51
 
     move-object v0, v1
 
-    .line 188
+    .line 190
     check-cast v0, Lbl/afd$c;
 
     sget-object v0, Lbl/afd$c;->b:Ljava/util/List;
@@ -114,11 +114,11 @@
 
     invoke-virtual {p1, v2, v2, v2, v2}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 197
+    .line 199
     :goto_42
     return-void
 
-    .line 189
+    .line 191
     :cond_43
     if-lez v3, :cond_4f
 
@@ -138,7 +138,7 @@
 
     goto :goto_49
 
-    .line 190
+    .line 192
     :cond_51
     rem-int/lit8 v0, v4, 0x2
 
@@ -146,7 +146,7 @@
 
     move-object v0, v1
 
-    .line 191
+    .line 193
     check-cast v0, Lbl/afd$c;
 
     sget-object v0, Lbl/afd$c;->a:Ljava/util/List;
@@ -171,7 +171,7 @@
 
     goto :goto_42
 
-    .line 192
+    .line 194
     :cond_6e
     if-lez v3, :cond_7c
 
@@ -196,7 +196,7 @@
     :cond_7e
     move-object v0, v1
 
-    .line 194
+    .line 196
     check-cast v0, Lbl/afd$c;
 
     sget-object v0, Lbl/afd$c;->a:Ljava/util/List;
@@ -221,7 +221,7 @@
 
     goto :goto_42
 
-    .line 195
+    .line 197
     :cond_97
     if-lez v3, :cond_a5
 

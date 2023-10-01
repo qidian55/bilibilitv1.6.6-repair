@@ -616,9 +616,11 @@
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .locals 4
+    .locals 5
 
     .prologue
+    const/16 v4, 0x52
+
     const/4 v3, 0x1
 
     .line 109
@@ -636,18 +638,27 @@
     .line 111
     const/4 v2, 0x4
 
-    if-eq p1, v2, :cond_25
+    if-eq p1, v2, :cond_2f
 
     .line 112
-    const/16 v2, 0x52
-
-    if-eq p1, v2, :cond_12
+    if-eq p1, v4, :cond_12
 
     .line 116
     :cond_12
-    if-nez v0, :cond_1b
+    if-eq p1, v4, :cond_1c
 
-    if-eqz v1, :cond_1b
+    const/16 v2, 0x42
+
+    if-eq p1, v2, :cond_1c
+
+    const/16 v2, 0x17
+
+    if-ne p1, v2, :cond_25
+
+    :cond_1c
+    if-nez v0, :cond_25
+
+    if-eqz v1, :cond_25
 
     .line 117
     iget-object v0, p0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->h:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
@@ -655,13 +666,13 @@
     invoke-virtual {v0, v3}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->a(Z)V
 
     .line 119
-    :cond_1b
+    :cond_25
     iget-object v0, p0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->h:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
     invoke-virtual {v0, p1, p2}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->a(ILandroid/view/KeyEvent;)V
 
     .line 126
-    :goto_20
+    :goto_2a
     invoke-direct {p0}, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->h()Z
 
     move-result v0
@@ -669,24 +680,24 @@
     return v0
 
     .line 120
-    :cond_25
-    if-eqz v0, :cond_2d
+    :cond_2f
+    if-eqz v0, :cond_37
 
     .line 121
     iget-object v0, p0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->h:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->a()V
 
-    goto :goto_20
+    goto :goto_2a
 
     .line 123
-    :cond_2d
+    :cond_37
     invoke-direct {p0}, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->i()V
 
     .line 124
     iput-boolean v3, p0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->f:Z
 
-    goto :goto_20
+    goto :goto_2a
 .end method
 
 .method public onPause()V

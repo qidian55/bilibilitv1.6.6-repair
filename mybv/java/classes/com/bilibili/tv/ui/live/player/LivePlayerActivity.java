@@ -108,12 +108,12 @@ public class LivePlayerActivity extends BaseActivity implements View.OnClickList
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
         boolean show = this.h.getShow();
         boolean e = wm.e();
-        if (i != 4) {
-            if (i != 82) {
+        if (i != KeyEvent.KEYCODE_BACK) {
+            if (i != KeyEvent.KEYCODE_MENU) {
                 switch (i) {
                 }
             }
-            if (!show && e) {
+            if ((i==KeyEvent.KEYCODE_MENU||i==KeyEvent.KEYCODE_ENTER||i==KeyEvent.KEYCODE_DPAD_CENTER) && !show && e) {
                 this.h.a(true);
             }
             this.h.a(i, keyEvent);

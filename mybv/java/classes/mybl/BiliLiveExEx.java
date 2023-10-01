@@ -33,17 +33,17 @@ public class BiliLiveExEx {
         public void setmUname(String mUname) { this.mUname = mUname; }
         @JSONField(name = "face")
         public void setmFace(String mFace) { this.mFace = mFace; }
-        @JSONField(name = "playurl")
-        public void setmPlayUrl(String mPlayUrl) { this.mPlayUrl = mPlayUrl; }
+        //@JSONField(name = "playurl")
+        //public void setmPlayUrl(String mPlayUrl) { this.mPlayUrl = mPlayUrl; }
         @JSONField(name = "roomid")
         public void setmRoomId(int mRoomId) { this.mRoomId = mRoomId; }
         @JSONField(name = "title")
         public void setmTitle(String mTitle) { this.mTitle = mTitle; }
         
-        @JSONField(name = "accept_quality")
-        public void setmAcceptQuality(int[] mAcceptQuality) { this.mAcceptQuality = mAcceptQuality; }
-        @JSONField(name = "current_quality")
-        public void setmCurrentQuality(int mCurrentQuality) { this.mCurrentQuality = mCurrentQuality; }
+        //@JSONField(name = "accept_quality")
+        //public void setmAcceptQuality(int[] mAcceptQuality) { this.mAcceptQuality = mAcceptQuality; }
+        //@JSONField(name = "current_quality")
+        //public void setmCurrentQuality(int mCurrentQuality) { this.mCurrentQuality = mCurrentQuality; }
     }
 
 }

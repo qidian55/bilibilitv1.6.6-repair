@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 124
+    .line 125
     invoke-direct {p0}, Lbl/qe;-><init>()V
 
     return-void
@@ -28,20 +28,20 @@
 
 # virtual methods
 .method public e(Lmybl/BiliLiveContent;)I
-    .locals 7
+    .locals 6
 
     .prologue
     const/4 v1, -0x1
 
     const/4 v0, 0x0
 
-    .line 128
+    .line 129
     :try_start_2
     invoke-virtual {p0}, Lmybl/BiliLiveContent$playUrlResponse;->a()Z
 
     move-result v2
 
-    if-eqz v2, :cond_6e
+    if-eqz v2, :cond_bc
 
     new-instance v2, Lorg/json/JSONObject;
 
@@ -57,32 +57,125 @@
 
     invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
+    move-result-object v2
+
+    if-eqz v2, :cond_bc
+
+    .line 137
+    const-string v3, "playurl_info"
+
+    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v2
+
+    const-string v3, "playurl"
+
+    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v2
+
+    const-string v3, "stream"
+
+    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+
+    move-result-object v2
+
+    const-string v3, "format"
+
+    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+
+    move-result-object v2
+
+    const-string v3, "codec"
+
+    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+
     move-result-object v3
 
-    if-eqz v3, :cond_6e
+    .line 138
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    .line 129
-    const-string v2, "durl"
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v2}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    const-string v4, "url_info"
+
+    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v4, v5}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+
+    move-result-object v4
+
+    const-string v5, "host"
+
+    invoke-virtual {v4, v5}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const/4 v4, 0x0
+    const-string v4, "base_url"
 
-    invoke-virtual {v2, v4}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const-string v4, "url"
+    const-string v4, "url_info"
 
-    invoke-virtual {v2, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v4, v5}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+
+    move-result-object v4
+
+    const-string v5, "extra"
+
+    invoke-virtual {v4, v5}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, p1, Lmybl/BiliLiveContent;->mPlayUrl:Ljava/lang/String;
 
-    .line 130
+    .line 139
     const-string v2, "current_qn"
 
     invoke-virtual {v3, v2}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
@@ -91,19 +184,8 @@
 
     iput v2, p1, Lmybl/BiliLiveContent;->mCurrentQuality:I
 
-    .line 131
-    iget-object v2, p1, Lmybl/BiliLiveContent;->mAcceptQuality:[I
-
-    if-eqz v2, :cond_3c
-
     .line 140
-    :cond_3b
-    :goto_3b
-    return v0
-
-    .line 132
-    :cond_3c
-    const-string v2, "quality_description"
+    const-string v2, "accept_qn"
 
     invoke-virtual {v3, v2}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
@@ -119,9 +201,9 @@
 
     move v2, v0
 
-    .line 133
-    :goto_4b
-    const-string v4, "quality_description"
+    .line 141
+    :goto_9f
+    const-string v4, "accept_qn"
 
     invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
@@ -131,48 +213,44 @@
 
     move-result v4
 
-    if-ge v2, v4, :cond_3b
+    if-ge v2, v4, :cond_bd
 
-    .line 134
+    .line 142
     iget-object v4, p1, Lmybl/BiliLiveContent;->mAcceptQuality:[I
 
-    const-string v5, "quality_description"
+    const-string v5, "accept_qn"
 
     invoke-virtual {v3, v5}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v5
 
-    invoke-virtual {v5, v2}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
-
-    move-result-object v5
-
-    const-string v6, "qn"
-
-    invoke-virtual {v5, v6}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+    invoke-virtual {v5, v2}, Lorg/json/JSONArray;->optInt(I)I
 
     move-result v5
 
     aput v5, v4, v2
-    :try_end_6b
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_6b} :catch_70
+    :try_end_b9
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_b9} :catch_be
 
-    .line 133
+    .line 141
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_4b
+    goto :goto_9f
 
-    :cond_6e
+    :cond_bc
     move v0, v1
 
-    .line 138
-    goto :goto_3b
+    .line 148
+    :cond_bd
+    :goto_bd
+    return v0
 
-    .line 139
-    :catch_70
+    .line 147
+    :catch_be
     move-exception v0
 
     move v0, v1
 
-    .line 140
-    goto :goto_3b
+    .line 148
+    goto :goto_bd
 .end method

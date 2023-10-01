@@ -45,6 +45,7 @@ public final class afd extends adu implements aez, wf {
     private int c;
 
     public static afd _this;
+    public static int fresh_idx=0;
 
     @Override // bl.wf
     public String a() {
@@ -147,7 +148,8 @@ public final class afd extends adu implements aez, wf {
     }
 
     public void getRecommendVideos(){
-        ((MyBiliApiService) vo.a(MyBiliApiService.class)).recommendVideos(8,mg.a(MainApplication.a()).e()).a(new RecommendsResponse());
+        String access_key = mg.a(MainApplication.a()).e();
+        ((MyBiliApiService) vo.a(MyBiliApiService.class)).recommendVideos(8,access_key,(access_key==null||access_key.isEmpty())?this.fresh_idx++:0).a(new RecommendsResponse());
     }
 
     /* compiled from: BL */

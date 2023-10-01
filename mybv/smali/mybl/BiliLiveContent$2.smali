@@ -50,14 +50,14 @@
     .locals 3
 
     .prologue
-    .line 77
+    .line 78
     new-instance v0, Lbl/qa$a;
 
     const-class v1, Lmybl/BiliLiveContent$playUrlResponse;
 
     invoke-direct {v0, v1}, Lbl/qa$a;-><init>(Ljava/lang/Class;)V
 
-    const-string v1, "https://api.live.bilibili.com/room/v1/Room/playUrl"
+    const-string v1, "https://api.live.bilibili.com/xlive/web-room/v2/index/getRoomPlayInfo"
 
     invoke-virtual {v0, v1}, Lbl/qa$a;->a(Ljava/lang/String;)Lbl/qa$a;
 
@@ -69,7 +69,7 @@
 
     move-result-object v0
 
-    const-string v1, "cid"
+    const-string v1, "room_id"
 
     iget-object v2, p0, Lmybl/BiliLiveContent$2;->this$0:Lmybl/BiliLiveContent;
 
@@ -83,7 +83,7 @@
 
     move-result-object v0
 
-    const-string v1, "quality"
+    const-string v1, "qn"
 
     iget-object v2, p0, Lmybl/BiliLiveContent$2;->this$0:Lmybl/BiliLiveContent;
 
@@ -97,9 +97,25 @@
 
     move-result-object v0
 
-    const-string v1, "platform"
+    const-string v1, "protocol"
 
-    const-string v2, "web"
+    const-string v2, "1"
+
+    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v1, "format"
+
+    const-string v2, "1,2"
+
+    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v1, "codec"
+
+    const-string v2, "0"
 
     invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 

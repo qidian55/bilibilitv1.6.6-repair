@@ -92,27 +92,27 @@ public class LivePlayerController extends FrameLayout implements View.OnClickLis
         this.c = (RecyclerView) findViewById(R.id.recycler_view);
         this.c.setLayoutManager(new FixLinearLayoutManager(context, 0, false) { // from class: com.bilibili.tv.newplayer.widget.LivePlayerController.1
             @Override // android.support.v7.widget.RecyclerView.h
-            public View d(View view, int i) {
+            public View d(View view, int direction) {
                 if (LivePlayerController.this.c == null || view == null) {
-                    return super.d(view, i);
+                    return super.d(view, direction);
                 }
-                int d = d((View) view.getParent());
-                if (i != 17) {
-                    if (i != 33) {
-                        if (i != 66) {
-                            if (i == 130) {
+                int pos = d((View) view.getParent());
+                if (direction != View.FOCUS_LEFT) {
+                    if (direction != View.FOCUS_UP) {
+                        if (direction != View.FOCUS_RIGHT) {
+                            if (direction == View.FOCUS_DOWN) {
                                 return view;
                             }
-                        } else if (d >= H() - 1) {
+                        } else if (pos >= H() - 1) {
                             return view;
                         }
                     } else if (LivePlayerController.this.e != null) {
                         LivePlayerController.this.e.requestFocus();
                     }
-                } else if (d <= 0) {
+                } else if (pos <= 0) {
                     return view;
                 }
-                return super.d(view, i);
+                return super.d(view, direction);
             }
         });
         ArrayList arrayList = new ArrayList();
@@ -193,7 +193,7 @@ public class LivePlayerController extends FrameLayout implements View.OnClickLis
             return;
         }
         if (z) {
-            setVisibility(0);
+            setVisibility(View.VISIBLE);
             aap.a(this.e);
             if (this.h == null) {
                 this.h = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_bottom);
@@ -231,7 +231,7 @@ public class LivePlayerController extends FrameLayout implements View.OnClickLis
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    LivePlayerController.this.setVisibility(4);
+                    LivePlayerController.this.setVisibility(View.INVISIBLE);
                     LivePlayerController.this.setBackgroundResource(R.color.transparent);
                 }
             });

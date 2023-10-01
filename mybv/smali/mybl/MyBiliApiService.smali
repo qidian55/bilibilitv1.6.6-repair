@@ -164,7 +164,7 @@
     .end annotation
 .end method
 
-.method public abstract recommendVideos(ILjava/lang/String;)Lbl/vp;
+.method public abstract recommendVideos(ILjava/lang/String;I)Lbl/vp;
     .param p1    # I
         .annotation runtime Lretrofit2/http/Query;
             a = "ps"
@@ -175,11 +175,16 @@
             a = "access_key"
         .end annotation
     .end param
+    .param p3    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "fresh_idx"
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
             "Ljava/lang/String;",
-            ")",
+            "I)",
             "Lbl/vp",
             "<",
             "Lcom/bilibili/okretro/GeneralResponse",

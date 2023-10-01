@@ -28,6 +28,8 @@
 
 .field public static _this:Lbl/afd;
 
+.field public static fresh_idx:I
+
 
 # instance fields
 .field private a:Lbl/afd$c;
@@ -50,6 +52,11 @@
     invoke-direct {v0, v1}, Lbl/afd$b;-><init>(Lbl/bbg;)V
 
     sput-object v0, Lbl/afd;->Companion:Lbl/afd$b;
+
+    .line 48
+    const/4 v0, 0x0
+
+    sput v0, Lbl/afd;->fresh_idx:I
 
     return-void
 .end method
@@ -90,7 +97,7 @@
     .locals 1
 
     .prologue
-    .line 51
+    .line 52
     const-string v0, "ott-platform.home.0.0.pv"
 
     return-object v0
@@ -102,39 +109,39 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 82
+    .line 83
     const-string v0, "recyclerView"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 83
+    .line 84
     invoke-super {p0, p1, p2}, Lbl/adu;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
 
-    .line 84
+    .line 85
     const-string v0, "tv_home_recommend_pageview"
 
     new-array v1, v4, [Ljava/lang/String;
 
     invoke-static {v0, v1}, Lbl/ok;->a(Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 85
+    .line 86
     const v0, 0x7f060085
 
     invoke-static {v0}, Lbl/adl;->b(I)I
 
     move-result v6
 
-    .line 86
+    .line 87
     const v0, 0x7f06022b
 
     invoke-static {v0}, Lbl/adl;->b(I)I
 
     move-result v0
 
-    .line 87
+    .line 88
     invoke-virtual {p1, v0, v0, v0, v0}, Landroid/support/v7/widget/RecyclerView;->setPadding(IIII)V
 
-    .line 88
+    .line 89
     new-instance v0, Lbl/afd$1;
 
     invoke-virtual {p0}, Lbl/afd;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -151,28 +158,28 @@
 
     iput-object v0, p0, Lbl/afd;->b:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
-    .line 126
+    .line 127
     new-instance v0, Lbl/afd$c;
 
     invoke-direct {v0, p0}, Lbl/afd$c;-><init>(Lbl/afd;)V
 
     iput-object v0, p0, Lbl/afd;->a:Lbl/afd$c;
 
-    .line 127
+    .line 128
     iget-object v0, p0, Lbl/afd;->b:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$h;)V
 
-    .line 128
+    .line 129
     iget-object v0, p0, Lbl/afd;->b:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
-    .line 129
+    .line 130
     if-nez v0, :cond_42
 
-    .line 130
+    .line 131
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 132
+    .line 133
     :cond_42
     new-instance v1, Lbl/afd$f;
 
@@ -180,22 +187,22 @@
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->a(Landroid/support/v7/widget/GridLayoutManager$c;)V
 
-    .line 133
+    .line 134
     new-instance v0, Lbl/afd$g;
 
     invoke-direct {v0, v6}, Lbl/afd$g;-><init>(I)V
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->a(Landroid/support/v7/widget/RecyclerView$g;)V
 
-    .line 134
+    .line 135
     invoke-virtual {p1, v4}, Landroid/support/v7/widget/RecyclerView;->setFocusable(Z)V
 
-    .line 135
+    .line 136
     iget-object v0, p0, Lbl/afd;->a:Lbl/afd$c;
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$a;)V
 
-    .line 136
+    .line 137
     const-class v0, Lbl/kh;
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
@@ -214,14 +221,14 @@
 
     invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
 
-    .line 138
+    .line 139
     new-instance v0, Lbl/afd$MyRecycledViewPool;
 
     invoke-direct {v0}, Lbl/afd$MyRecycledViewPool;-><init>()V
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setRecycledViewPool(Landroid/support/v7/widget/RecyclerView$n;)V
 
-    .line 139
+    .line 140
     return-void
 .end method
 
@@ -229,7 +236,7 @@
     .locals 1
 
     .prologue
-    .line 56
+    .line 57
     invoke-static {p0}, Lbl/wg;->a(Lbl/wf;)Z
 
     move-result v0
@@ -241,7 +248,7 @@
     .locals 1
 
     .prologue
-    .line 61
+    .line 62
     const/4 v0, 0x0
 
     return-object v0
@@ -253,21 +260,21 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 234
+    .line 236
     iget-object v1, p0, Lbl/afd;->a:Lbl/afd$c;
 
     if-eqz v1, :cond_12
 
-    .line 235
+    .line 237
     iget-object v1, p0, Lbl/afd;->a:Lbl/afd$c;
 
-    .line 236
+    .line 238
     if-nez v1, :cond_c
 
-    .line 237
+    .line 239
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 239
+    .line 241
     :cond_c
     invoke-virtual {v1}, Lbl/afd$c;->a()I
 
@@ -275,23 +282,23 @@
 
     if-nez v1, :cond_13
 
-    .line 254
+    .line 256
     :cond_12
     :goto_12
     return-object v0
 
-    .line 242
+    .line 244
     :cond_13
     iget-object v1, p0, Lbl/afd;->b:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
     if-nez v1, :cond_1b
 
-    .line 243
+    .line 245
     invoke-static {}, Lbl/bbi;->a()V
 
     goto :goto_12
 
-    .line 247
+    .line 249
     :cond_1b
     iget-object v0, p0, Lbl/afd;->b:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
@@ -301,19 +308,19 @@
 
     move-result-object v0
 
-    .line 248
+    .line 250
     invoke-virtual {v0}, Landroid/view/View;->isFocusable()Z
 
     move-result v1
 
     if-nez v1, :cond_12
 
-    .line 249
+    .line 251
     const/4 v0, 0x1
 
     iput v0, p0, Lbl/afd;->c:I
 
-    .line 250
+    .line 252
     iget-object v0, p0, Lbl/afd;->b:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
     iget v1, p0, Lbl/afd;->c:I
@@ -326,10 +333,23 @@
 .end method
 
 .method public getRecommendVideos()V
-    .locals 3
+    .locals 5
 
     .prologue
-    .line 150
+    .line 151
+    invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lbl/mg;->e()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 152
     const-class v0, Lmybl/MyBiliApiService;
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
@@ -338,21 +358,25 @@
 
     check-cast v0, Lmybl/MyBiliApiService;
 
-    const/16 v1, 0x8
+    const/16 v3, 0x8
 
-    invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
+    if-eqz v2, :cond_1e
 
-    move-result-object v2
+    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
 
-    invoke-static {v2}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
+    move-result v1
 
-    move-result-object v2
+    if-eqz v1, :cond_31
 
-    invoke-virtual {v2}, Lbl/mg;->e()Ljava/lang/String;
+    :cond_1e
+    sget v1, Lbl/afd;->fresh_idx:I
 
-    move-result-object v2
+    add-int/lit8 v4, v1, 0x1
 
-    invoke-interface {v0, v1, v2}, Lmybl/MyBiliApiService;->recommendVideos(ILjava/lang/String;)Lbl/vp;
+    sput v4, Lbl/afd;->fresh_idx:I
+
+    :goto_24
+    invoke-interface {v0, v3, v2, v1}, Lmybl/MyBiliApiService;->recommendVideos(ILjava/lang/String;I)Lbl/vp;
 
     move-result-object v0
 
@@ -362,23 +386,29 @@
 
     invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
 
-    .line 151
+    .line 153
     return-void
+
+    .line 152
+    :cond_31
+    const/4 v1, 0x0
+
+    goto :goto_24
 .end method
 
 .method public onDestroyView()V
     .locals 1
 
     .prologue
-    .line 202
+    .line 204
     invoke-super {p0}, Lbl/adu;->onDestroyView()V
 
-    .line 203
+    .line 205
     const/4 v0, 0x0
 
     iput-object v0, p0, Lbl/afd;->a:Lbl/afd$c;
 
-    .line 204
+    .line 206
     return-void
 .end method
 
@@ -386,10 +416,10 @@
     .locals 2
 
     .prologue
-    .line 676
+    .line 678
     invoke-super {p0, p1}, Lbl/adu;->onHiddenChanged(Z)V
 
-    .line 677
+    .line 679
     invoke-static {}, Lbl/wh;->a()Lbl/wh;
 
     move-result-object v1
@@ -401,10 +431,10 @@
     :goto_a
     invoke-virtual {v1, p0, v0}, Lbl/wh;->a(Landroid/support/v4/app/Fragment;Z)V
 
-    .line 678
+    .line 680
     return-void
 
-    .line 677
+    .line 679
     :cond_e
     const/4 v0, 0x0
 
@@ -415,10 +445,10 @@
     .locals 3
 
     .prologue
-    .line 208
+    .line 210
     invoke-super {p0, p1}, Lbl/adu;->setUserVisibleHint(Z)V
 
-    .line 209
+    .line 211
     if-eqz p1, :cond_b
 
     invoke-virtual {p0}, Lbl/afd;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -427,21 +457,21 @@
 
     if-nez v0, :cond_c
 
-    .line 230
+    .line 232
     :cond_b
     :goto_b
     return-void
 
-    .line 212
+    .line 214
     :cond_c
     invoke-virtual {p0}, Lbl/afd;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    .line 213
+    .line 215
     if-nez v0, :cond_1a
 
-    .line 214
+    .line 216
     new-instance v0, Lkotlin/TypeCastException;
 
     const-string v1, "null cannot be cast to non-null type com.bilibili.tv.ui.main.MainActivity"
@@ -450,36 +480,36 @@
 
     throw v0
 
-    .line 216
+    .line 218
     :cond_1a
     check-cast v0, Lcom/bilibili/tv/ui/main/MainActivity;
 
-    .line 217
+    .line 219
     invoke-virtual {p0}, Lbl/afd;->d()Landroid/support/v7/widget/RecyclerView;
 
     move-result-object v1
 
-    .line 218
+    .line 220
     if-eqz v1, :cond_27
 
-    .line 219
+    .line 221
     iget v2, p0, Lbl/afd;->c:I
 
     invoke-virtual {v1, v2}, Landroid/support/v7/widget/RecyclerView;->a(I)V
 
-    .line 221
+    .line 223
     :cond_27
     invoke-virtual {p0}, Lbl/afd;->d()Landroid/support/v7/widget/RecyclerView;
 
     move-result-object v1
 
-    .line 222
+    .line 224
     if-nez v1, :cond_30
 
-    .line 223
+    .line 225
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 225
+    .line 227
     :cond_30
     invoke-virtual {v1}, Landroid/support/v7/widget/RecyclerView;->getLayoutManager()Landroid/support/v7/widget/RecyclerView$h;
 
@@ -491,7 +521,7 @@
 
     move-result-object v1
 
-    .line 226
+    .line 228
     if-eqz v1, :cond_b
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/main/MainActivity;->h()Z
@@ -500,7 +530,7 @@
 
     if-eqz v0, :cond_b
 
-    .line 229
+    .line 231
     invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
 
     goto :goto_b

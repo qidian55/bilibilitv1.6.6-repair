@@ -79,7 +79,7 @@
     .locals 2
 
     .prologue
-    .line 342
+    .line 344
     new-instance v0, Lbl/afd$c$aa;
 
     const/4 v1, 0x0
@@ -95,15 +95,15 @@
     .locals 2
 
     .prologue
-    .line 355
+    .line 357
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$a;-><init>()V
 
-    .line 356
+    .line 358
     const-string v0, "fragment"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 357
+    .line 359
     new-instance v0, Ljava/util/ArrayList;
 
     const/16 v1, 0x14
@@ -112,7 +112,7 @@
 
     sput-object v0, Lbl/afd$c;->a:Ljava/util/List;
 
-    .line 358
+    .line 360
     new-instance v0, Ljava/util/ArrayList;
 
     const/4 v1, 0x5
@@ -121,14 +121,14 @@
 
     sput-object v0, Lbl/afd$c;->b:Ljava/util/List;
 
-    .line 359
+    .line 361
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lbl/afd$c;->c:Ljava/lang/ref/WeakReference;
 
-    .line 360
+    .line 362
     new-instance v0, Landroid/content/UriMatcher;
 
     const/4 v1, -0x1
@@ -137,7 +137,7 @@
 
     iput-object v0, p0, Lbl/afd$c;->d:Landroid/content/UriMatcher;
 
-    .line 361
+    .line 363
     const v0, 0x7f060239
 
     invoke-static {v0}, Lbl/adl;->b(I)I
@@ -146,7 +146,7 @@
 
     iput v0, p0, Lbl/afd$c;->e:I
 
-    .line 362
+    .line 364
     const v0, 0x7f060174
 
     invoke-static {v0}, Lbl/adl;->b(I)I
@@ -155,7 +155,7 @@
 
     iput v0, p0, Lbl/afd$c;->f:I
 
-    .line 363
+    .line 365
     return-void
 .end method
 
@@ -165,7 +165,7 @@
     .locals 1
 
     .prologue
-    .line 352
+    .line 354
     const/16 v0, 0x19
 
     return v0
@@ -175,7 +175,7 @@
     .locals 1
 
     .prologue
-    .line 443
+    .line 445
     rem-int/lit8 v0, p1, 0x5
 
     if-nez v0, :cond_6
@@ -195,7 +195,7 @@
     .locals 1
 
     .prologue
-    .line 341
+    .line 343
     invoke-virtual {p0, p1, p2}, Lbl/afd$c;->a(Landroid/view/ViewGroup;I)Lbl/adv;
 
     move-result-object v0
@@ -207,17 +207,17 @@
     .locals 2
 
     .prologue
-    .line 367
+    .line 369
     const-string v0, "parent"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 368
+    .line 370
     const/4 v0, 0x1
 
     if-ne p2, v0, :cond_14
 
-    .line 369
+    .line 371
     const/4 v0, 0x0
 
     check-cast v0, Lbl/afd$a;
@@ -230,7 +230,7 @@
 
     move-result-object v0
 
-    .line 371
+    .line 373
     :goto_13
     return-object v0
 
@@ -250,7 +250,7 @@
     .locals 0
 
     .prologue
-    .line 341
+    .line 343
     check-cast p1, Lbl/adv;
 
     invoke-virtual {p0, p1, p2}, Lbl/afd$c;->a(Lbl/adv;I)V
@@ -272,17 +272,17 @@
 
     const/4 v3, 0x0
 
-    .line 376
+    .line 378
     const-string v0, "viewHolder"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 377
+    .line 379
     instance-of v0, p1, Lbl/afd$a;
 
     if-eqz v0, :cond_bc
 
-    .line 378
+    .line 380
     iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -291,7 +291,7 @@
 
     invoke-virtual {v0, v5, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
-    .line 379
+    .line 381
     sget-object v0, Lbl/afd$c;->b:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -302,7 +302,7 @@
 
     if-ge v0, v1, :cond_2f
 
-    .line 380
+    .line 382
     check-cast p1, Lbl/afd$a;
 
     invoke-virtual {p1}, Lbl/afd$a;->B()Lcom/bilibili/tv/widget/ScalableImageView;
@@ -311,28 +311,28 @@
 
     invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/ScalableImageView;->setVisibility(I)V
 
-    .line 439
+    .line 441
     :cond_2e
     :goto_2e
     return-void
 
-    .line 383
+    .line 385
     :cond_2f
     div-int/lit8 v2, p2, 0x5
 
     move-object v0, p1
 
-    .line 384
+    .line 386
     check-cast v0, Lbl/afd$a;
 
-    .line 385
+    .line 387
     invoke-virtual {v0}, Lbl/afd$a;->B()Lcom/bilibili/tv/widget/ScalableImageView;
 
     move-result-object v1
 
     invoke-virtual {v1, v3}, Lcom/bilibili/tv/widget/ScalableImageView;->setVisibility(I)V
 
-    .line 386
+    .line 388
     sget-object v1, Lbl/afd$c;->b:Ljava/util/List;
 
     invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -341,20 +341,20 @@
 
     check-cast v1, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;
 
-    .line 387
+    .line 389
     if-nez v1, :cond_58
 
-    .line 388
+    .line 390
     iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setFocusable(Z)V
 
-    .line 389
+    .line 391
     iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
     invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 390
+    .line 392
     iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -365,7 +365,7 @@
 
     goto :goto_2e
 
-    .line 393
+    .line 395
     :cond_58
     invoke-virtual {v1}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getTitle()Ljava/lang/String;
 
@@ -377,7 +377,7 @@
 
     if-nez v3, :cond_6d
 
-    .line 394
+    .line 396
     invoke-virtual {v0}, Lbl/afd$a;->z()Landroid/widget/TextView;
 
     move-result-object v3
@@ -388,7 +388,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 396
+    .line 398
     :cond_6d
     invoke-virtual {v1}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getCover()Ljava/lang/String;
 
@@ -400,22 +400,22 @@
 
     if-nez v3, :cond_97
 
-    .line 397
+    .line 399
     invoke-static {}, Lbl/nv;->a()Lbl/nv;
 
     move-result-object v3
 
-    .line 398
+    .line 400
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v4
 
-    .line 399
+    .line 401
     const-string v5, "MainApplication.getInstance()"
 
     invoke-static {v4, v5}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 400
+    .line 402
     invoke-virtual {v4}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v4
@@ -434,7 +434,7 @@
 
     invoke-virtual {v3, v4, v0}, Lbl/nv;->a(Ljava/lang/String;Landroid/widget/ImageView;)V
 
-    .line 402
+    .line 404
     :cond_97
     invoke-virtual {v1}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getUri()Ljava/lang/String;
 
@@ -446,22 +446,22 @@
 
     if-nez v0, :cond_af
 
-    .line 403
+    .line 405
     iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
-    .line 404
+    .line 406
     const-string v3, "viewHolder.itemView"
 
     invoke-static {v0, v3}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 405
+    .line 407
     invoke-virtual {v1}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getUri()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 407
+    .line 409
     :cond_af
     iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
@@ -475,13 +475,13 @@
 
     goto/16 :goto_2e
 
-    .line 408
+    .line 410
     :cond_bc
     instance-of v0, p1, Lbl/afd$e;
 
     if-eqz v0, :cond_2e
 
-    .line 409
+    .line 411
     iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -490,7 +490,7 @@
 
     invoke-virtual {v0, v5, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
-    .line 410
+    .line 412
     sget-object v0, Lbl/afd$c;->a:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -501,7 +501,7 @@
 
     if-ge v0, v1, :cond_de
 
-    .line 411
+    .line 413
     check-cast p1, Lbl/afd$e;
 
     invoke-virtual {p1}, Lbl/afd$e;->B()Lcom/bilibili/tv/widget/ScalableImageView;
@@ -515,17 +515,17 @@
     :cond_de
     move-object v0, p1
 
-    .line 414
+    .line 416
     check-cast v0, Lbl/afd$e;
 
-    .line 415
+    .line 417
     invoke-virtual {v0}, Lbl/afd$e;->B()Lcom/bilibili/tv/widget/ScalableImageView;
 
     move-result-object v1
 
     invoke-virtual {v1, v3}, Lcom/bilibili/tv/widget/ScalableImageView;->setVisibility(I)V
 
-    .line 416
+    .line 418
     sget-object v1, Lbl/afd$c;->a:Ljava/util/List;
 
     div-int/lit8 v2, p2, 0x5
@@ -540,20 +540,20 @@
 
     check-cast v1, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;
 
-    .line 417
+    .line 419
     if-nez v1, :cond_10c
 
-    .line 418
+    .line 420
     iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setFocusable(Z)V
 
-    .line 419
+    .line 421
     iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
     invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 420
+    .line 422
     iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -564,7 +564,7 @@
 
     goto/16 :goto_2e
 
-    .line 423
+    .line 425
     :cond_10c
     invoke-virtual {v1}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getTitle()Ljava/lang/String;
 
@@ -576,7 +576,7 @@
 
     if-nez v2, :cond_121
 
-    .line 424
+    .line 426
     invoke-virtual {v0}, Lbl/afd$e;->z()Landroid/widget/TextView;
 
     move-result-object v2
@@ -587,7 +587,7 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 426
+    .line 428
     :cond_121
     invoke-virtual {v1}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getCover()Ljava/lang/String;
 
@@ -599,22 +599,22 @@
 
     if-nez v2, :cond_14f
 
-    .line 427
+    .line 429
     invoke-static {}, Lbl/nv;->a()Lbl/nv;
 
     move-result-object v2
 
-    .line 428
+    .line 430
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v3
 
-    .line 429
+    .line 431
     const-string v4, "MainApplication.getInstance()"
 
     invoke-static {v3, v4}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 430
+    .line 432
     invoke-virtual {v3}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v3
@@ -637,7 +637,7 @@
 
     invoke-virtual {v2, v3, v0}, Lbl/nv;->a(Ljava/lang/String;Landroid/widget/ImageView;)V
 
-    .line 432
+    .line 434
     :cond_14f
     invoke-virtual {v1}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getUri()Ljava/lang/String;
 
@@ -649,22 +649,22 @@
 
     if-nez v0, :cond_167
 
-    .line 433
+    .line 435
     iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
-    .line 434
+    .line 436
     const-string v2, "viewHolder.itemView"
 
     invoke-static {v0, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 435
+    .line 437
     invoke-virtual {v1}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->getUri()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 437
+    .line 439
     :cond_167
     iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
@@ -712,17 +712,17 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 448
+    .line 450
     const-string v0, "ogvList"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 449
+    .line 451
     const-string v0, "ugcList"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 450
+    .line 452
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
@@ -731,13 +731,13 @@
 
     if-lt v0, v2, :cond_25
 
-    .line 451
+    .line 453
     sput-object p1, Lbl/afd$c;->b:Ljava/util/List;
 
-    .line 452
+    .line 454
     const/4 v0, 0x1
 
-    .line 456
+    .line 458
     :goto_15
     invoke-interface {p2}, Ljava/util/List;->size()I
 
@@ -747,29 +747,29 @@
 
     if-lt v2, v3, :cond_27
 
-    .line 457
+    .line 459
     sput-object p2, Lbl/afd$c;->a:Ljava/util/List;
 
-    .line 461
+    .line 463
     :goto_1f
     if-eqz v0, :cond_24
 
-    .line 462
+    .line 464
     invoke-virtual {p0}, Lbl/afd$c;->d()V
 
-    .line 464
+    .line 466
     :cond_24
     return v0
 
     :cond_25
     move v0, v1
 
-    .line 454
+    .line 456
     goto :goto_15
 
     :cond_27
     move v0, v1
 
-    .line 459
+    .line 461
     goto :goto_1f
 .end method

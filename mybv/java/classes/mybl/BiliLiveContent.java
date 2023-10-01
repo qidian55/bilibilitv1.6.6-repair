@@ -74,7 +74,8 @@ public class BiliLiveContent implements Parcelable {
         Future<Integer> future = threadPool.submit(new Callable<Integer>() {
             @Override
             public Integer call() {
-                return ((playUrlResponse) pz.a(new qa.a(playUrlResponse.class).a("https://api.live.bilibili.com/room/v1/Room/playUrl").a(true).b("cid", String.valueOf(BiliLiveContent.this.mRoomId)).b("quality", String.valueOf(BiliLiveContent.this.mCurrentQuality)).b("platform", "web").a(new qb()).a(), "GET")).e(BiliLiveContent.this); 
+                //return ((playUrlResponse) pz.a(new qa.a(playUrlResponse.class).a("https://api.live.bilibili.com/room/v1/Room/playUrl").a(true).b("cid", String.valueOf(BiliLiveContent.this.mRoomId)).b("quality",String.valueOf(BiliLiveContent.this.mCurrentQuality)).b("platform","web").a(new qb()).a(),"GET")).e(BiliLiveContent.this);
+                return ((playUrlResponse) pz.a(new qa.a(playUrlResponse.class).a("https://api.live.bilibili.com/xlive/web-room/v2/index/getRoomPlayInfo").a(true).b("room_id", String.valueOf(BiliLiveContent.this.mRoomId)).b("qn",String.valueOf(BiliLiveContent.this.mCurrentQuality)).b("protocol","1").b("format","1,2").b("codec","0").a(new qb()).a(),"GET")).e(BiliLiveContent.this);
             }
         });
         try {
@@ -126,12 +127,19 @@ public class BiliLiveContent implements Parcelable {
             JSONObject optJSONObject;
             try {
                 if (a() && (optJSONObject = new JSONObject(new String(this.b)).optJSONObject("data")) != null) {
-                    biliLiveContent.mPlayUrl = optJSONObject.optJSONArray("durl").optJSONObject(0).optString("url");
+                    /*biliLiveContent.mPlayUrl = optJSONObject.optJSONArray("durl").optJSONObject(0).optString("url");
                     biliLiveContent.mCurrentQuality = optJSONObject.optInt("current_qn");
                     if(biliLiveContent.mAcceptQuality!=null)return 0;
                     biliLiveContent.mAcceptQuality = new int[optJSONObject.optJSONArray("quality_description").length()];
                     for(int i=0;i<optJSONObject.optJSONArray("quality_description").length();i++){
                         biliLiveContent.mAcceptQuality[i]=optJSONObject.optJSONArray("quality_description").optJSONObject(i).optInt("qn");
+                    }*/
+                    JSONObject codec = optJSONObject.optJSONObject("playurl_info").optJSONObject("playurl").optJSONArray("stream").optJSONObject(0).optJSONArray("format").optJSONObject(0).optJSONArray("codec").optJSONObject(0);
+                    biliLiveContent.mPlayUrl = codec.optJSONArray("url_info").optJSONObject(0).optString("host")+codec.optString("base_url")+codec.optJSONArray("url_info").optJSONObject(0).optString("extra");
+                    biliLiveContent.mCurrentQuality = codec.optInt("current_qn");
+                    biliLiveContent.mAcceptQuality = new int[codec.optJSONArray("accept_qn").length()];
+                    for(int i=0;i<codec.optJSONArray("accept_qn").length();i++){
+                        biliLiveContent.mAcceptQuality[i]=codec.optJSONArray("accept_qn").optInt(i);
                     }
                     return 0;
                 }

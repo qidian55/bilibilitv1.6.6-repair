@@ -217,10 +217,10 @@ public class wm implements IMediaPlayer.OnBufferingUpdateListener, IMediaPlayer.
                 return;
             }
         }
-        ((IjkMediaPlayer) this.h).setOption(1, "user_agent", "Bilibili Freedoooooom/MarkII");
-        if(((wo) message.obj).a().indexOf("platform=web")>=0){
-            ((IjkMediaPlayer) this.h).setOption(1, "headers", "Referer: https://www.bilibili.com\r\n");
-        }
+        //((IjkMediaPlayer) this.h).setOption(1, "user_agent", "Bilibili Freedoooooom/MarkII");
+        //if(((wo) message.obj).a().indexOf("platform=web")>=0){
+        //    ((IjkMediaPlayer) this.h).setOption(1, "headers", "Referer: https://www.bilibili.com\r\n");
+        //}
         try{
             ((IjkMediaPlayer) this.h).setDataSource(((wo) message.obj).a(), ((wo) message.obj).b());
         }catch(Exception e){}

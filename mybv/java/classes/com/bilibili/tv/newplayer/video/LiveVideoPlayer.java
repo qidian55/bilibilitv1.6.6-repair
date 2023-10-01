@@ -50,7 +50,7 @@ public class LiveVideoPlayer extends wy {
 
     @Override // bl.wy
     public int getLayoutId() {
-        return 2131361859;
+        return com.bilibili.tv.R.layout.layout_live_video_player_t;
     }
 
     public void setCallBack(wt wtVar) {
@@ -107,11 +107,11 @@ public class LiveVideoPlayer extends wy {
     @Override // bl.wy
     public void a(Context context) {
         super.a(context);
-        this.B = (TextView) findViewById(2131231034);
-        this.C = (ViewGroup) findViewById(2131230937);
-        ((TextView) this.C.findViewById(2131231035)).setText(2131493087);
-        this.D = (ViewGroup) findViewById(2131230788);
-        this.ai = (ViewGroup) findViewById(2131230830);
+        this.B = (TextView) findViewById(com.bilibili.tv.R.id.tv_loading);
+        this.C = (ViewGroup) findViewById(com.bilibili.tv.R.id.preparing);
+        ((TextView) this.C.findViewById(com.bilibili.tv.R.id.tv_tips)).setText(com.bilibili.tv.R.string.player_loading_live_tips);
+        this.D = (ViewGroup) findViewById(com.bilibili.tv.R.id.buffering_group);
+        this.ai = (ViewGroup) findViewById(com.bilibili.tv.R.id.danmaku_view);
         this.ah = getResources().getDisplayMetrics().widthPixels;
         this.aj = new aeu();
         this.ak = new aei(this.aj, new a());

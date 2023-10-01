@@ -25,7 +25,7 @@ public interface MyBiliApiService {
     vp<GeneralResponse<JSONObject>> tripleVideo(@Field(a = "access_key") String access_key, @Field(a = "aid") long aid);
 
     @GET(a = "/x/web-interface/wbi/index/top/feed/rcmd")
-    vp<GeneralResponse<JSONObject>> recommendVideos(@Query(a = "ps") int page_size, @Query(a = "access_key") String access_key);
+    vp<GeneralResponse<JSONObject>> recommendVideos(@Query(a = "ps") int page_size, @Query(a = "access_key") String access_key, @Query(a = "fresh_idx") int fresh_idx);
 
     @GET(a = "/x/relation")
     vp<GeneralResponse<JSONObject>> getRelation(@Query(a = "access_key") String access_key, @Query(a = "fid") long fid);
