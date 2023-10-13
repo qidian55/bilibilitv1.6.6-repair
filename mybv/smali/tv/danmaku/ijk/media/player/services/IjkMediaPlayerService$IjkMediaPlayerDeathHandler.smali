@@ -28,15 +28,15 @@
     .locals 0
 
     .prologue
-    .line 115
+    .line 112
     iput-object p1, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$IjkMediaPlayerDeathHandler;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 116
+    .line 113
     iput p2, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$IjkMediaPlayerDeathHandler;->mConnId:I
 
-    .line 117
+    .line 114
     return-void
 .end method
 
@@ -46,7 +46,7 @@
     .locals 4
 
     .prologue
-    .line 121
+    .line 118
     iget-object v1, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$IjkMediaPlayerDeathHandler;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
 
     # getter for: Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mClients:Landroid/util/SparseArray;
@@ -56,7 +56,7 @@
 
     monitor-enter v3
 
-    .line 122
+    .line 119
     :try_start_7
     iget-object v1, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$IjkMediaPlayerDeathHandler;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
 
@@ -73,24 +73,24 @@
 
     check-cast v1, Ljava/lang/ref/WeakReference;
 
-    .line 123
+    .line 120
     if-eqz v1, :cond_3a
 
-    .line 124
+    .line 121
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ltv/danmaku/ijk/media/player/IIjkMediaPlayer;
 
-    .line 125
+    .line 122
     if-eqz v1, :cond_2f
 
     instance-of v2, v1, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;
 
     if-eqz v2, :cond_2f
 
-    .line 126
+    .line 123
     move-object v0, v1
 
     check-cast v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;
@@ -99,12 +99,12 @@
 
     invoke-virtual {v2}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;->unlinkDeathHandler()V
 
-    .line 127
+    .line 124
     check-cast v1, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;
 
     invoke-virtual {v1}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerClient;->clientDeathHandle()V
 
-    .line 129
+    .line 126
     :cond_2f
     iget-object v1, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService$IjkMediaPlayerDeathHandler;->this$0:Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;
 
@@ -117,14 +117,14 @@
 
     invoke-virtual {v1, v2}, Landroid/util/SparseArray;->remove(I)V
 
-    .line 131
+    .line 128
     :cond_3a
     monitor-exit v3
 
-    .line 132
+    .line 129
     return-void
 
-    .line 131
+    .line 128
     :catchall_3c
     move-exception v1
 

@@ -19,8 +19,9 @@ import tv.danmaku.videoplayer.core.media.resource.SegmentSource;
 import tv.danmaku.videoplayer.core.videoview.IVideoParams;
 import tv.danmaku.videoplayer.core.videoview.IVideoView;
 
+import tv.danmaku.ijk.media.player.IjkCodecHelper;
+import android.util.Log;
 import mybl.VideoViewParams;
-import java.util.Base64;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -83,14 +84,24 @@ class IjkCommander extends AbsPlayerCommander {
         } else {
             //this.mIjkMediaPlayer.setDataSource(context, Uri.parse(applyUriHookForIjkPlayer));
             if(((com.bilibili.tv.player.basic.context.VideoViewParams)iVideoParams).mMediaResource.dash != null){
-                if(((com.bilibili.tv.player.basic.context.VideoViewParams)iVideoParams).mMediaResource.dash.optJSONArray("video").optJSONObject(0).optString("base_url").indexOf("platform=pc")>=0){this.mIjkMediaPlayer.setOption(1, "headers", "Referer: https://www.bilibili.com\r\n");}
-                this.mIjkMediaPlayer.setOption(1, "user_agent", "Bilibili Freedoooooom/MarkII");
+                if(((com.bilibili.tv.player.basic.context.VideoViewParams)iVideoParams).mMediaResource.dash.optJSONArray("video").optJSONObject(0).optString("base_url").indexOf("platform=pc")>=0){this.mIjkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "headers", "Referer: https://www.bilibili.com\r\n");}
+                this.mIjkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "user_agent", "Bilibili Freedoooooom/MarkII");
+                this.mIjkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "mediacodec-all-videos", 1);
+                this.mIjkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "mediacodec-hevc", 1);
+
                 this.mIjkMediaPlayer.setDataSource("ijkdash");
                 this.mIjkMediaPlayer.setDashDataSource(VideoViewParams.toBundleData(((com.bilibili.tv.player.basic.context.VideoViewParams)iVideoParams).mMediaResource.dash),-1,((com.bilibili.tv.player.basic.context.VideoViewParams)iVideoParams).mMediaResource.quality);
             }
             else{this.mIjkMediaPlayer.setDataSource(applyUriHookForIjkPlayer);}
         }
         this.mMediaPlayer.prepareAsync();
+    }
+
+    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
+    public void start() throws IllegalStateException {
+        this.mMediaPlayer.start();
+        Log.d("MyBv","Video CodecName: "+this.mIjkMediaPlayer.getCodecName());
+        //Log.d("MyBv","Max Memory: "+String.valueOf(Runtime.getRuntime().maxMemory()));
     }
 
     @Override // tv.danmaku.videoplayer.core.commander.AbsPlayerCommander, tv.danmaku.videoplayer.core.commander.IPlayerCommander

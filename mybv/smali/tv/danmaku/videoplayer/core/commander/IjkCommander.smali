@@ -20,10 +20,10 @@
     .locals 1
 
     .prologue
-    .line 35
+    .line 36
     invoke-direct {p0, p1}, Ltv/danmaku/videoplayer/core/commander/AbsPlayerCommander;-><init>(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V
 
-    .line 36
+    .line 37
     instance-of v0, p1, Ltv/danmaku/ijk/media/player/MediaPlayerProxy;
 
     if-eqz v0, :cond_1b
@@ -41,20 +41,20 @@
 
     iput-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
-    .line 37
+    .line 38
     new-instance v0, Ltv/danmaku/videoplayer/core/media/ijk/IjkInfoStatistics;
 
     invoke-direct {v0}, Ltv/danmaku/videoplayer/core/media/ijk/IjkInfoStatistics;-><init>()V
 
     iput-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkInfoStatistics:Ltv/danmaku/videoplayer/core/media/ijk/IjkInfoStatistics;
 
-    .line 38
+    .line 39
     return-void
 
     :cond_1b
     move-object v0, p1
 
-    .line 36
+    .line 37
     goto :goto_d
 .end method
 
@@ -66,24 +66,24 @@
 
     const/4 v2, 0x0
 
-    .line 280
+    .line 291
     invoke-virtual {p0}, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->getCurrentPosition()J
 
     move-result-wide v0
 
     long-to-int v3, v0
 
-    .line 281
+    .line 292
     const/4 v1, 0x0
 
-    .line 282
+    .line 293
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mMediaPlayer:Ltv/danmaku/ijk/media/player/IMediaPlayer;
 
     instance-of v0, v0, Ltv/danmaku/videoplayer/core/media/TextureMediaPlayer;
 
     if-eqz v0, :cond_39
 
-    .line 283
+    .line 294
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mMediaPlayer:Ltv/danmaku/ijk/media/player/IMediaPlayer;
 
     check-cast v0, Ltv/danmaku/videoplayer/core/media/TextureMediaPlayer;
@@ -92,39 +92,39 @@
 
     move-result-object v0
 
-    .line 284
+    .line 295
     instance-of v4, v0, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     if-eqz v4, :cond_4a
 
-    .line 285
+    .line 296
     check-cast v0, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
-    .line 290
+    .line 301
     :goto_1d
     if-eqz v0, :cond_48
 
-    .line 291
+    .line 302
     invoke-virtual {v0}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->getAsyncStatisticBufForwards()J
 
     move-result-wide v4
 
-    .line 292
+    .line 303
     cmp-long v1, v4, v6
 
     if-lez v1, :cond_46
 
-    .line 293
+    .line 304
     invoke-virtual {v0}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->getBitRate()J
 
     move-result-wide v0
 
-    .line 294
+    .line 305
     cmp-long v6, v0, v6
 
     if-lez v6, :cond_44
 
-    .line 295
+    .line 306
     const-wide/16 v6, 0x8
 
     mul-long/2addr v4, v6
@@ -137,11 +137,11 @@
 
     add-int/2addr v0, v3
 
-    .line 301
+    .line 312
     :goto_38
     return v0
 
-    .line 287
+    .line 298
     :cond_39
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mMediaPlayer:Ltv/danmaku/ijk/media/player/IMediaPlayer;
 
@@ -149,7 +149,7 @@
 
     if-eqz v0, :cond_4a
 
-    .line 288
+    .line 299
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mMediaPlayer:Ltv/danmaku/ijk/media/player/IMediaPlayer;
 
     check-cast v0, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
@@ -159,19 +159,19 @@
     :cond_44
     move v0, v2
 
-    .line 297
+    .line 308
     goto :goto_38
 
     :cond_46
     move v0, v2
 
-    .line 299
+    .line 310
     goto :goto_38
 
     :cond_48
     move v0, v2
 
-    .line 301
+    .line 312
     goto :goto_38
 
     :cond_4a
@@ -184,7 +184,7 @@
     .locals 4
 
     .prologue
-    .line 276
+    .line 287
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     invoke-virtual {v0}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->getAudioCachedDuration()J
@@ -208,7 +208,7 @@
     .locals 2
 
     .prologue
-    .line 247
+    .line 258
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     const/high16 v1, 0x3f800000    # 1.0f
@@ -224,12 +224,12 @@
     .locals 1
 
     .prologue
-    .line 305
+    .line 316
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     invoke-virtual {v0}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->httphookReconnect()V
 
-    .line 306
+    .line 317
     return-void
 .end method
 
@@ -239,14 +239,14 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 265
+    .line 276
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-eqz v1, :cond_16
 
-    .line 266
+    .line 277
     if-eqz p2, :cond_15
 
     iget-object v1, p2, Ltv/danmaku/videoplayer/core/media/resource/MediaSource;->mSegmentList:Ljava/util/ArrayList;
@@ -261,12 +261,12 @@
 
     if-eqz v1, :cond_2e
 
-    .line 272
+    .line 283
     :cond_15
     :goto_15
     return v0
 
-    .line 269
+    .line 280
     :cond_16
     const-string v1, "vsl://"
 
@@ -292,7 +292,7 @@
 
     if-eqz v1, :cond_15
 
-    .line 272
+    .line 283
     :cond_2e
     const/4 v0, 0x1
 
@@ -305,7 +305,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 309
+    .line 320
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
@@ -334,7 +334,7 @@
     .locals 1
 
     .prologue
-    .line 232
+    .line 243
     :try_start_0
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
@@ -344,15 +344,15 @@
 
     move-result v0
 
-    .line 234
+    .line 245
     :goto_6
     return v0
 
-    .line 233
+    .line 244
     :catch_7
     move-exception v0
 
-    .line 234
+    .line 245
     const/4 v0, -0x1
 
     goto :goto_6
@@ -362,12 +362,12 @@
     .locals 1
 
     .prologue
-    .line 243
+    .line 254
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     invoke-virtual {v0, p1}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setCacheShare(I)V
 
-    .line 244
+    .line 255
     return-void
 .end method
 
@@ -375,10 +375,10 @@
     .locals 2
 
     .prologue
-    .line 251
+    .line 262
     iput-object p1, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mOnExtraInfoListener:Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnExtraInfoListener;
 
-    .line 252
+    .line 263
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     new-instance v1, Ltv/danmaku/videoplayer/core/commander/IjkCommander$1;
@@ -387,7 +387,7 @@
 
     invoke-virtual {v0, v1}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setOnNativeInvokeListener(Ltv/danmaku/ijk/media/player/IjkMediaPlayer$OnNativeInvokeListener;)V
 
-    .line 262
+    .line 273
     return-void
 .end method
 
@@ -395,12 +395,12 @@
     .locals 1
 
     .prologue
-    .line 239
+    .line 250
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     invoke-virtual {v0, p1}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setSpeed(F)V
 
-    .line 240
+    .line 251
     return-void
 .end method
 
@@ -420,25 +420,25 @@
 
     const/4 v1, 0x0
 
-    .line 139
+    .line 150
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
     move-result v4
 
     sparse-switch v4, :sswitch_data_12e
 
-    .line 186
+    .line 197
     :cond_e
     :goto_e
     packed-switch v0, :pswitch_data_148
 
     move-object v0, v10
 
-    .line 220
+    .line 231
     :goto_12
     return-object v0
 
-    .line 141
+    .line 152
     :sswitch_13
     const-string v4, "resolveFd"
 
@@ -448,13 +448,13 @@
 
     if-eqz v4, :cond_e
 
-    .line 142
+    .line 153
     const/4 v0, 0x3
 
-    .line 143
+    .line 154
     goto :goto_e
 
-    .line 148
+    .line 159
     :sswitch_1d
     const-string v4, "SetOnExtraInfoListener"
 
@@ -466,10 +466,10 @@
 
     move v0, v2
 
-    .line 150
+    .line 161
     goto :goto_e
 
-    .line 155
+    .line 166
     :sswitch_27
     const-string v4, "SetPlaybackSpeed"
 
@@ -481,10 +481,10 @@
 
     move v0, v1
 
-    .line 157
+    .line 168
     goto :goto_e
 
-    .line 162
+    .line 173
     :sswitch_31
     const-string v4, "httphookReconnect"
 
@@ -494,13 +494,13 @@
 
     if-eqz v4, :cond_e
 
-    .line 163
+    .line 174
     const/4 v0, 0x4
 
-    .line 164
+    .line 175
     goto :goto_e
 
-    .line 169
+    .line 180
     :sswitch_3b
     const-string v4, "SetCacheShare"
 
@@ -512,10 +512,10 @@
 
     move v0, v3
 
-    .line 171
+    .line 182
     goto :goto_e
 
-    .line 176
+    .line 187
     :sswitch_45
     const-string v4, "initIjkTracker"
 
@@ -525,13 +525,13 @@
 
     if-eqz v4, :cond_e
 
-    .line 177
+    .line 188
     const/4 v0, 0x5
 
-    .line 178
+    .line 189
     goto :goto_e
 
-    .line 188
+    .line 199
     :pswitch_4f
     array-length v0, p2
 
@@ -546,10 +546,10 @@
     :cond_58
     move-object v0, v10
 
-    .line 189
+    .line 200
     goto :goto_12
 
-    .line 191
+    .line 202
     :cond_5a
     aget-object v0, p2, v1
 
@@ -563,10 +563,10 @@
 
     move-object v0, v10
 
-    .line 192
+    .line 203
     goto :goto_12
 
-    .line 194
+    .line 205
     :pswitch_67
     array-length v0, p2
 
@@ -581,10 +581,10 @@
     :cond_70
     move-object v0, v10
 
-    .line 195
+    .line 206
     goto :goto_12
 
-    .line 197
+    .line 208
     :cond_72
     aget-object v0, p2, v1
 
@@ -594,10 +594,10 @@
 
     move-object v0, v10
 
-    .line 198
+    .line 209
     goto :goto_12
 
-    .line 200
+    .line 211
     :pswitch_7b
     array-length v0, p2
 
@@ -612,10 +612,10 @@
     :cond_84
     move-object v0, v10
 
-    .line 201
+    .line 212
     goto :goto_12
 
-    .line 203
+    .line 214
     :cond_86
     aget-object v0, p2, v1
 
@@ -629,10 +629,10 @@
 
     move-object v0, v10
 
-    .line 204
+    .line 215
     goto :goto_12
 
-    .line 206
+    .line 217
     :pswitch_93
     array-length v0, p2
 
@@ -647,10 +647,10 @@
     :cond_9c
     move-object v0, v10
 
-    .line 207
+    .line 218
     goto/16 :goto_12
 
-    .line 209
+    .line 220
     :cond_9f
     aget-object v0, p2, v1
 
@@ -666,16 +666,16 @@
 
     goto/16 :goto_12
 
-    .line 211
+    .line 222
     :pswitch_ad
     invoke-direct {p0}, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->httpHookReconnect()V
 
     move-object v0, v10
 
-    .line 212
+    .line 223
     goto/16 :goto_12
 
-    .line 214
+    .line 225
     :pswitch_b3
     array-length v0, p2
 
@@ -741,7 +741,7 @@
 
     if-eqz v0, :cond_12a
 
-    .line 215
+    .line 226
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     aget-object v1, p2, v1
@@ -806,16 +806,16 @@
 
     move-object v0, v10
 
-    .line 216
+    .line 227
     goto/16 :goto_12
 
     :cond_12a
     move-object v0, v10
 
-    .line 218
+    .line 229
     goto/16 :goto_12
 
-    .line 139
+    .line 150
     nop
 
     :sswitch_data_12e
@@ -828,7 +828,7 @@
         0x5bc0b99e -> :sswitch_45
     .end sparse-switch
 
-    .line 186
+    .line 197
     :pswitch_data_148
     .packed-switch 0x0
         :pswitch_4f
@@ -844,20 +844,20 @@
     .locals 1
 
     .prologue
-    .line 226
+    .line 237
     invoke-super {p0}, Ltv/danmaku/videoplayer/core/commander/AbsPlayerCommander;->onRelease()V
 
-    .line 227
+    .line 238
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkInfoStatistics:Ltv/danmaku/videoplayer/core/media/ijk/IjkInfoStatistics;
 
     invoke-virtual {v0}, Ltv/danmaku/videoplayer/core/media/ijk/IjkInfoStatistics;->stopUpdateInfoStatistics()V
 
-    .line 228
+    .line 239
     return-void
 .end method
 
 .method public openVideo(Landroid/content/Context;Ltv/danmaku/videoplayer/core/videoview/IVideoParams;Landroid/net/Uri;)V
-    .locals 7
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -865,11 +865,15 @@
     .end annotation
 
     .prologue
+    const-wide/16 v8, 0x1
+
+    const/4 v7, 0x4
+
     const/4 v2, 0x0
 
     const/4 v3, 0x1
 
-    .line 43
+    .line 44
     const-string v0, "IjkCommander"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -904,46 +908,46 @@
 
     invoke-static {v0, v1}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 44
+    .line 45
     invoke-direct {p0, p1}, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->logEnabled(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_36
 
-    .line 45
+    .line 46
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkInfoStatistics:Ltv/danmaku/videoplayer/core/media/ijk/IjkInfoStatistics;
 
     iget-object v1, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     invoke-virtual {v0, v1}, Ltv/danmaku/videoplayer/core/media/ijk/IjkInfoStatistics;->updateInfoStatistics(Ltv/danmaku/ijk/media/player/IjkMediaPlayer;)V
 
-    .line 47
-    :cond_33
+    .line 48
+    :cond_36
     invoke-virtual {p3}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 48
+    .line 49
     invoke-interface {p2}, Ltv/danmaku/videoplayer/core/videoview/IVideoParams;->getMediaSource()Ltv/danmaku/videoplayer/core/media/resource/MediaSource;
 
     move-result-object v0
 
-    .line 50
+    .line 51
     invoke-direct {p0, v1, v0}, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->isMultiSegmentVideo(Ljava/lang/String;Ltv/danmaku/videoplayer/core/media/resource/MediaSource;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_a1
+    if-eqz v4, :cond_a4
 
-    .line 51
+    .line 52
     new-instance v4, Ljava/lang/StringBuilder;
 
     const-string v1, "ffconcat version 1.0\n"
 
     invoke-direct {v4, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 52
+    .line 53
     iget-object v0, v0, Ltv/danmaku/videoplayer/core/media/resource/MediaSource;->mSegmentList:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -952,129 +956,129 @@
 
     move v1, v2
 
-    .line 53
-    :goto_4f
+    .line 54
+    :goto_52
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_8f
+    if-eqz v0, :cond_92
 
-    .line 54
+    .line 55
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ltv/danmaku/videoplayer/core/media/resource/SegmentSource;
 
-    .line 55
+    .line 56
     const-string v6, "file ijksegment:"
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 56
+    .line 57
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 57
+    .line 58
     const-string v6, "\n"
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 58
+    .line 59
     const-string v6, "duration "
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 59
+    .line 60
     iget v6, v0, Ltv/danmaku/videoplayer/core/media/resource/SegmentSource;->mDuration:I
 
     div-int/lit16 v6, v6, 0x3e8
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 60
+    .line 61
     iget v6, v0, Ltv/danmaku/videoplayer/core/media/resource/SegmentSource;->mDuration:I
 
     rem-int/lit16 v6, v6, 0x3e8
 
-    if-eqz v6, :cond_86
+    if-eqz v6, :cond_89
 
-    .line 61
+    .line 62
     const-string v6, "."
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 62
+    .line 63
     iget v0, v0, Ltv/danmaku/videoplayer/core/media/resource/SegmentSource;->mDuration:I
 
     rem-int/lit16 v0, v0, 0x3e8
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 64
-    :cond_86
+    .line 65
+    :cond_89
     const-string v0, "\n"
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 65
+    .line 66
     add-int/lit8 v0, v1, 0x1
 
     move v1, v0
 
-    .line 66
-    goto :goto_4f
-
     .line 67
-    :cond_8f
+    goto :goto_52
+
+    .line 68
+    :cond_92
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
     move v0, v3
 
-    .line 81
-    :goto_94
-    if-eqz v0, :cond_d1
-
     .line 82
+    :goto_97
+    if-eqz v0, :cond_d4
+
+    .line 83
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     invoke-virtual {v0, v1}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setDataSourceBase64(Ljava/lang/String;)V
 
-    .line 93
-    :goto_9b
+    .line 97
+    :goto_9e
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mMediaPlayer:Ltv/danmaku/ijk/media/player/IMediaPlayer;
 
     invoke-interface {v0}, Ltv/danmaku/ijk/media/player/IMediaPlayer;->prepareAsync()V
 
-    .line 94
+    .line 98
     return-void
 
-    .line 70
-    :cond_a1
+    .line 71
+    :cond_a4
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mOnExtraInfoListener:Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnExtraInfoListener;
 
-    if-eqz v0, :cond_132
+    if-eqz v0, :cond_143
 
-    .line 71
+    .line 72
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 72
+    .line 73
     const-string v4, "url"
 
     invoke-virtual {v0, v4, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 73
+    .line 74
     iget-object v4, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mOnExtraInfoListener:Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnExtraInfoListener;
 
     const v5, 0x10026
 
     invoke-interface {v4, v5, v0}, Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnExtraInfoListener;->onNativeInvoke(ILandroid/os/Bundle;)Z
 
-    .line 74
+    .line 75
     const-string v4, "url"
 
     const-string v5, ""
@@ -1083,44 +1087,44 @@
 
     move-result-object v0
 
-    .line 75
+    .line 76
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
-    if-nez v4, :cond_132
+    if-nez v4, :cond_143
 
     invoke-static {v1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v4
 
-    if-nez v4, :cond_132
+    if-nez v4, :cond_143
 
-    .line 79
-    :goto_cb
+    .line 80
+    :goto_ce
     invoke-interface {p2, v0}, Ltv/danmaku/videoplayer/core/videoview/IVideoParams;->applyUriHookForIjkPlayer(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
     move v0, v2
 
-    goto :goto_94
+    goto :goto_97
 
-    :cond_d1
+    :cond_d4
     move-object v0, p2
 
-    .line 85
+    .line 86
     check-cast v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     iget-object v0, v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mMediaResource:Lcom/bilibili/lib/media/resource/MediaResource;
 
     iget-object v0, v0, Lcom/bilibili/lib/media/resource/MediaResource;->dash:Lorg/json/JSONObject;
 
-    if-eqz v0, :cond_12b
+    if-eqz v0, :cond_13c
 
     move-object v0, p2
 
-    .line 86
+    .line 87
     check-cast v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     iget-object v0, v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mMediaResource:Lcom/bilibili/lib/media/resource/MediaResource;
@@ -1149,7 +1153,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_102
+    if-ltz v0, :cond_105
 
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
@@ -1159,8 +1163,8 @@
 
     invoke-virtual {v0, v3, v1, v2}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setOption(ILjava/lang/String;Ljava/lang/String;)V
 
-    .line 87
-    :cond_102
+    .line 88
+    :cond_105
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     const-string v1, "user_agent"
@@ -1169,14 +1173,28 @@
 
     invoke-virtual {v0, v3, v1, v2}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setOption(ILjava/lang/String;Ljava/lang/String;)V
 
-    .line 88
+    .line 89
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
+
+    const-string v1, "mediacodec-all-videos"
+
+    invoke-virtual {v0, v7, v1, v8, v9}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setOption(ILjava/lang/String;J)V
+
+    .line 90
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
+
+    const-string v1, "mediacodec-hevc"
+
+    invoke-virtual {v0, v7, v1, v8, v9}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setOption(ILjava/lang/String;J)V
+
+    .line 92
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     const-string v1, "ijkdash"
 
     invoke-virtual {v0, v1}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setDataSource(Ljava/lang/String;)V
 
-    .line 89
+    .line 93
     iget-object v1, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     move-object v0, p2
@@ -1201,20 +1219,20 @@
 
     invoke-virtual {v1, v0, v2, v3}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setDashDataSource(Landroid/os/Bundle;II)V
 
-    goto/16 :goto_9b
+    goto/16 :goto_9e
 
-    .line 91
-    :cond_12b
+    .line 95
+    :cond_13c
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     invoke-virtual {v0, v1}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->setDataSource(Ljava/lang/String;)V
 
-    goto/16 :goto_9b
+    goto/16 :goto_9e
 
-    :cond_132
+    :cond_143
     move-object v0, v1
 
-    goto :goto_cb
+    goto :goto_ce
 .end method
 
 .method public require(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
@@ -1232,17 +1250,17 @@
     .prologue
     const v2, 0xffff
 
-    .line 99
+    .line 110
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
     move-result v0
 
-    .line 100
+    .line 111
     const v1, -0x2c46c472
 
     if-ne v0, v1, :cond_18
 
-    .line 101
+    .line 112
     const-string v0, "GetAsyncPos"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1251,22 +1269,22 @@
 
     if-eqz v0, :cond_14
 
-    .line 121
+    .line 132
     :cond_14
     :goto_14
     packed-switch v2, :pswitch_data_74
 
-    .line 131
+    .line 142
     :goto_17
     return-object p2
 
-    .line 105
+    .line 116
     :cond_18
     const v1, -0x1eca4254
 
     if-ne v0, v1, :cond_26
 
-    .line 106
+    .line 117
     const-string v0, "GetCachedDuration"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1277,13 +1295,13 @@
 
     goto :goto_14
 
-    .line 110
+    .line 121
     :cond_26
     const v1, 0x2700d5d
 
     if-eq v0, v1, :cond_39
 
-    .line 111
+    .line 122
     const v1, 0x53b0d356
 
     if-ne v0, v1, :cond_14
@@ -1298,7 +1316,7 @@
 
     goto :goto_14
 
-    .line 116
+    .line 127
     :cond_39
     const-string v0, "PlaybackSpeedAvailable"
 
@@ -1310,7 +1328,7 @@
 
     goto :goto_14
 
-    .line 123
+    .line 134
     :pswitch_42
     const/4 v0, 0x1
 
@@ -1324,7 +1342,7 @@
 
     goto :goto_17
 
-    .line 125
+    .line 136
     :pswitch_4c
     invoke-direct {p0}, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->getPlaybackSpeed()F
 
@@ -1340,7 +1358,7 @@
 
     goto :goto_17
 
-    .line 127
+    .line 138
     :pswitch_59
     invoke-direct {p0}, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->getCachedDuration()J
 
@@ -1356,7 +1374,7 @@
 
     goto :goto_17
 
-    .line 129
+    .line 140
     :pswitch_66
     invoke-direct {p0}, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->getAsyncPos()I
 
@@ -1372,7 +1390,7 @@
 
     goto :goto_17
 
-    .line 121
+    .line 132
     nop
 
     :pswitch_data_74
@@ -1382,4 +1400,51 @@
         :pswitch_59
         :pswitch_66
     .end packed-switch
+.end method
+
+.method public start()V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalStateException;
+        }
+    .end annotation
+
+    .prologue
+    .line 102
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mMediaPlayer:Ltv/danmaku/ijk/media/player/IMediaPlayer;
+
+    invoke-interface {v0}, Ltv/danmaku/ijk/media/player/IMediaPlayer;->start()V
+
+    .line 103
+    const-string v0, "MyBv"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Video CodecName: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander;->mIjkMediaPlayer:Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
+
+    invoke-virtual {v2}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->getCodecName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 105
+    return-void
 .end method

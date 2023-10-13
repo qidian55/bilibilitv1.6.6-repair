@@ -85,9 +85,6 @@ public class IjkMediaPlayerService extends Service {
     public static void loadLibrariesOnce(Bundle bundle) {
         synchronized (IjkMediaPlayerService.class) {
             if (!mIsLibLoaded) {
-                //try{
-                //Thread.sleep(10000);
-                //}catch(Exception e){}
                 if (bundle != null && bundle.get("ijkffmpeg") != null && bundle.get("ijksdl") != null && bundle.get("ijkplayer") != null) {
                     System.load(bundle.get("ijkffmpeg").toString());
                     System.load(bundle.get("ijksdl").toString());

@@ -105,7 +105,7 @@
 
     if-nez v0, :cond_4b
 
-    .line 91
+    .line 88
     if-eqz p0, :cond_4d
 
     const-string v0, "ijkffmpeg"
@@ -132,7 +132,7 @@
 
     if-eqz v0, :cond_4d
 
-    .line 92
+    .line 89
     const-string v0, "ijkffmpeg"
 
     invoke-virtual {p0, v0}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
@@ -145,7 +145,7 @@
 
     invoke-static {v0}, Ljava/lang/System;->load(Ljava/lang/String;)V
 
-    .line 93
+    .line 90
     const-string v0, "ijksdl"
 
     invoke-virtual {p0, v0}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
@@ -158,7 +158,7 @@
 
     invoke-static {v0}, Ljava/lang/System;->load(Ljava/lang/String;)V
 
-    .line 94
+    .line 91
     const-string v0, "ijkplayer"
 
     invoke-virtual {p0, v0}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
@@ -171,20 +171,20 @@
 
     invoke-static {v0}, Ljava/lang/System;->load(Ljava/lang/String;)V
 
-    .line 100
+    .line 97
     :goto_48
     const/4 v0, 0x1
 
     sput-boolean v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mIsLibLoaded:Z
 
-    .line 102
+    .line 99
     :cond_4b
     monitor-exit v1
 
-    .line 103
+    .line 100
     return-void
 
-    .line 96
+    .line 93
     :cond_4d
     sget-object v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->sLocalLibLoader:Ltv/danmaku/ijk/media/player/IjkLibLoader;
 
@@ -192,14 +192,14 @@
 
     invoke-interface {v0, v2}, Ltv/danmaku/ijk/media/player/IjkLibLoader;->loadLibrary(Ljava/lang/String;)V
 
-    .line 97
+    .line 94
     sget-object v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->sLocalLibLoader:Ltv/danmaku/ijk/media/player/IjkLibLoader;
 
     const-string v2, "ijksdl"
 
     invoke-interface {v0, v2}, Ltv/danmaku/ijk/media/player/IjkLibLoader;->loadLibrary(Ljava/lang/String;)V
 
-    .line 98
+    .line 95
     sget-object v0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->sLocalLibLoader:Ltv/danmaku/ijk/media/player/IjkLibLoader;
 
     const-string v2, "ijkplayer"
@@ -208,7 +208,7 @@
 
     goto :goto_48
 
-    .line 102
+    .line 99
     :catchall_63
     move-exception v0
 
@@ -225,14 +225,14 @@
     .locals 1
 
     .prologue
-    .line 137
+    .line 134
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v0
 
     invoke-static {v0}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->loadLibrariesOnce(Landroid/os/Bundle;)V
 
-    .line 138
+    .line 135
     iget-object v0, p0, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->mBinder:Ltv/danmaku/ijk/media/player/IIjkMediaPlayerService$Stub;
 
     return-object v0
@@ -242,10 +242,10 @@
     .locals 0
 
     .prologue
-    .line 107
+    .line 104
     invoke-super {p0}, Landroid/app/Service;->onCreate()V
 
-    .line 108
+    .line 105
     return-void
 .end method
 
@@ -253,10 +253,10 @@
     .locals 0
 
     .prologue
-    .line 149
+    .line 146
     invoke-super {p0}, Landroid/app/Service;->onDestroy()V
 
-    .line 150
+    .line 147
     return-void
 .end method
 
@@ -264,14 +264,14 @@
     .locals 1
 
     .prologue
-    .line 143
+    .line 140
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v0
 
     invoke-static {v0}, Ltv/danmaku/ijk/media/player/services/IjkMediaPlayerService;->loadLibrariesOnce(Landroid/os/Bundle;)V
 
-    .line 144
+    .line 141
     const/4 v0, 0x2
 
     return v0
