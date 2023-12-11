@@ -53,6 +53,53 @@
     .end annotation
 .end method
 
+.method public abstract getFollowings(Ljava/lang/String;JLjava/lang/String;II)Lbl/vp;
+    .param p1    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "access_key"
+        .end annotation
+    .end param
+    .param p2    # J
+        .annotation runtime Lretrofit2/http/Query;
+            a = "vmid"
+        .end annotation
+    .end param
+    .param p4    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "order_type"
+        .end annotation
+    .end param
+    .param p5    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "ps"
+        .end annotation
+    .end param
+    .param p6    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "pn"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "J",
+            "Ljava/lang/String;",
+            "II)",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/x/relation/followings"
+    .end annotation
+.end method
+
 .method public abstract getRelation(Ljava/lang/String;J)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;

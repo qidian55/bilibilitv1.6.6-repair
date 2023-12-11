@@ -30,6 +30,9 @@ public interface MyBiliApiService {
     @GET(a = "/x/relation")
     vp<GeneralResponse<JSONObject>> getRelation(@Query(a = "access_key") String access_key, @Query(a = "fid") long fid);
 
+    @GET(a = "/x/relation/followings")
+    vp<GeneralResponse<JSONObject>> getFollowings(@Query(a = "access_key") String access_key, @Query(a = "vmid") long vmid, @Query(a = "order_type") String order_type, @Query(a = "ps") int page_size, @Query(a = "pn") int page);
+
     @FormUrlEncoded
     @POST(a = "/x/relation/modify")
     vp<GeneralResponse<JSONObject>> modifyRelation(@Field(a = "access_key") String access_key, @Field(a = "fid") long fid, @Field(a = "act") int act, @Field(a = "re_src") int re_src);

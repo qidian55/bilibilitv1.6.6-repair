@@ -1,6 +1,6 @@
 .class public final Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "AttentionDynamicActivity.java"
 
 
 # annotations
@@ -18,18 +18,22 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 55
+    .prologue
+    .line 87
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 88
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 55
+    .prologue
+    .line 91
     invoke-direct {p0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$a;-><init>()V
 
+    .line 92
     return-void
 .end method
 
@@ -38,19 +42,21 @@
 .method public final a(Landroid/content/Context;)V
     .locals 2
 
+    .prologue
+    .line 95
     const-string v0, "context"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 60
+    .line 97
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 61
     invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
+    .line 98
     return-void
 .end method

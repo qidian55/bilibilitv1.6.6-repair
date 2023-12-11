@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 125
+    .line 129
     invoke-direct {p0}, Lbl/qe;-><init>()V
 
     return-void
@@ -33,17 +33,17 @@
     .prologue
     const/4 v1, -0x1
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    .line 129
+    .line 133
     :try_start_2
     invoke-virtual {p0}, Lmybl/BiliLiveContent$playUrlResponse;->a()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_bc
+    if-eqz v0, :cond_c6
 
-    new-instance v2, Lorg/json/JSONObject;
+    new-instance v0, Lorg/json/JSONObject;
 
     new-instance v3, Ljava/lang/String;
 
@@ -51,69 +51,69 @@
 
     invoke-direct {v3, v4}, Ljava/lang/String;-><init>([B)V
 
-    invoke-direct {v2, v3}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v3}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
     const-string v3, "data"
 
-    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
-    move-result-object v2
+    move-result-object v0
 
-    if-eqz v2, :cond_bc
+    if-eqz v0, :cond_c6
 
-    .line 137
+    .line 142
     const-string v3, "playurl_info"
 
-    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
-    move-result-object v2
+    move-result-object v0
 
     const-string v3, "playurl"
 
-    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
-    move-result-object v2
+    move-result-object v0
 
     const-string v3, "stream"
 
-    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
-    move-result-object v2
+    move-result-object v0
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+    invoke-virtual {v0, v3}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
 
-    move-result-object v2
+    move-result-object v0
 
     const-string v3, "format"
 
-    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
-    move-result-object v2
+    move-result-object v0
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+    invoke-virtual {v0, v3}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
 
-    move-result-object v2
+    move-result-object v0
 
     const-string v3, "codec"
 
-    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
-    move-result-object v2
+    move-result-object v0
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+    invoke-virtual {v0, v3}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
 
     move-result-object v3
 
-    .line 138
-    new-instance v2, Ljava/lang/StringBuilder;
+    .line 143
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v4, "url_info"
 
@@ -133,9 +133,9 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v0
 
     const-string v4, "base_url"
 
@@ -143,9 +143,9 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v0
 
     const-string v4, "url_info"
 
@@ -165,44 +165,40 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput-object v2, p1, Lmybl/BiliLiveContent;->mPlayUrl:Ljava/lang/String;
+    iput-object v0, p1, Lmybl/BiliLiveContent;->mPlayUrl:Ljava/lang/String;
 
-    .line 139
-    const-string v2, "current_qn"
+    .line 144
+    iget v0, p1, Lmybl/BiliLiveContent;->mCurrentQuality:I
 
-    invoke-virtual {v3, v2}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+    const-string v4, "current_qn"
 
-    move-result v2
+    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
-    iput v2, p1, Lmybl/BiliLiveContent;->mCurrentQuality:I
+    move-result v4
 
-    .line 140
-    const-string v2, "accept_qn"
+    if-eq v0, v4, :cond_cb
 
-    invoke-virtual {v3, v2}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    const/4 v0, 0x1
 
-    move-result-object v2
+    .line 145
+    :goto_93
+    const-string v4, "current_qn"
 
-    invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
+    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
-    move-result v2
+    move-result v4
 
-    new-array v2, v2, [I
+    iput v4, p1, Lmybl/BiliLiveContent;->mCurrentQuality:I
 
-    iput-object v2, p1, Lmybl/BiliLiveContent;->mAcceptQuality:[I
-
-    move v2, v0
-
-    .line 141
-    :goto_9f
+    .line 146
     const-string v4, "accept_qn"
 
     invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
@@ -213,9 +209,25 @@
 
     move-result v4
 
-    if-ge v2, v4, :cond_bd
+    new-array v4, v4, [I
 
-    .line 142
+    iput-object v4, p1, Lmybl/BiliLiveContent;->mAcceptQuality:[I
+
+    .line 147
+    :goto_a9
+    const-string v4, "accept_qn"
+
+    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lorg/json/JSONArray;->length()I
+
+    move-result v4
+
+    if-ge v2, v4, :cond_c7
+
+    .line 148
     iget-object v4, p1, Lmybl/BiliLiveContent;->mAcceptQuality:[I
 
     const-string v5, "accept_qn"
@@ -229,28 +241,33 @@
     move-result v5
 
     aput v5, v4, v2
-    :try_end_b9
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_b9} :catch_be
-
-    .line 141
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_9f
-
-    :cond_bc
-    move v0, v1
-
-    .line 148
-    :cond_bd
-    :goto_bd
-    return v0
+    :try_end_c3
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_c3} :catch_c8
 
     .line 147
-    :catch_be
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_a9
+
+    :cond_c6
+    move v0, v1
+
+    .line 154
+    :cond_c7
+    :goto_c7
+    return v0
+
+    .line 153
+    :catch_c8
     move-exception v0
 
     move v0, v1
 
-    .line 148
-    goto :goto_bd
+    .line 154
+    goto :goto_c7
+
+    :cond_cb
+    move v0, v2
+
+    goto :goto_93
 .end method

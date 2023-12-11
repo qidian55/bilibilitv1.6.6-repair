@@ -36,6 +36,7 @@ import mybl.BiliLiveEx;
 import com.bilibili.tv.widget.FixLinearLayoutManager;
 import com.bilibili.tv.widget.ScalableImageView;
 
+import bl.lr;
 import java.util.*;
 import mybl.BiliLiveContent;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
@@ -428,7 +429,8 @@ public class LivePlayerController extends FrameLayout implements View.OnClickLis
                             wn wnVar = (wn) LivePlayerController.this.qualitys.a(i5);
                             if (wnVar.b instanceof Integer) {
                                 biliLiveContent.mCurrentQuality=(Integer)wnVar.b;
-                                biliLiveContent.getPlayUrl();
+                                if(biliLiveContent.getPlayUrl()==1){lr.b(activity.getApplicationContext(), "登录后可获取更高画质");
+;}
                                 LivePlayerController.this.k.a(biliLiveContent.mPlayUrl, biliLiveContent.mTitle, Integer.valueOf(biliLiveContent.mRoomId));
                                 LivePlayerController.this.k.m();
                                 LivePlayerController.this.k.requestFocus();

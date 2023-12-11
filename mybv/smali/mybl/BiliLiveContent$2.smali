@@ -36,7 +36,7 @@
     .locals 0
 
     .prologue
-    .line 74
+    .line 78
     iput-object p1, p0, Lmybl/BiliLiveContent$2;->this$0:Lmybl/BiliLiveContent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
     .locals 3
 
     .prologue
-    .line 78
+    .line 82
     new-instance v0, Lbl/qa$a;
 
     const-class v1, Lmybl/BiliLiveContent$playUrlResponse;
@@ -66,6 +66,34 @@
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lbl/qa$a;->a(Z)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v1, "appkey"
+
+    invoke-static {}, Lcom/bilibili/api/BiliConfig;->a()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
+    const-string v1, "access_key"
+
+    invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lbl/mg;->e()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v0
 
@@ -163,7 +191,7 @@
     .end annotation
 
     .prologue
-    .line 74
+    .line 78
     invoke-virtual {p0}, Lmybl/BiliLiveContent$2;->call()Ljava/lang/Integer;
 
     move-result-object v0
