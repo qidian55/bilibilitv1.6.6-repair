@@ -10,7 +10,7 @@ doNotCompress:
 isFrameworkApk: false
 packageInfo:
   forcedPackageId: '127'
-  renameManifestPackage: null
+  renameManifestPackage: com.bilibili.tv.repair
 sdkInfo:
   minSdkVersion: '17'
   targetSdkVersion: '27'

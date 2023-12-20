@@ -6,5 +6,8 @@ bv2/
 bv3/
 bv4/
 
+mybv/build/
+mybv/dist/
+
 diff*.txt
 log.txt
