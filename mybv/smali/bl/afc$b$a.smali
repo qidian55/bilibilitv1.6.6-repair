@@ -1,49 +1,55 @@
 .class final Lbl/afc$b$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "afc.java"
 
 # interfaces
 .implements Lbl/agb$b;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/afc$b;->onClick(Landroid/view/View;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lbl/afc$b;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
+    accessFlags = 0x10
+    name = "a"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lbl/afc$b;
+.field final b:Landroid/app/Activity;
 
-.field final synthetic b:Landroid/app/Activity;
+.field final synthetic this$0:Lbl/afc$b;
 
 
 # direct methods
 .method constructor <init>(Lbl/afc$b;Landroid/app/Activity;)V
     .locals 0
 
-    iput-object p1, p0, Lbl/afc$b$a;->a:Lbl/afc$b;
-
-    iput-object p2, p0, Lbl/afc$b$a;->b:Landroid/app/Activity;
+    .prologue
+    .line 456
+    iput-object p1, p0, Lbl/afc$b$a;->this$0:Lbl/afc$b;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 457
+    iput-object p2, p0, Lbl/afc$b$a;->b:Landroid/app/Activity;
+
+    .line 458
     return-void
 .end method
 
 
 # virtual methods
 .method public final a(Lbl/agb;Landroid/view/View;)V
-    .locals 2
+    .locals 3
 
-    .line 357
-    sget-object p2, Lbl/abn;->a:Lbl/abn;
+    .prologue
+    .line 462
+    sget-object v1, Lbl/abn;->a:Lbl/abn;
 
+    .line 463
     iget-object v0, p0, Lbl/afc$b$a;->b:Landroid/app/Activity;
 
     check-cast v0, Lcom/bilibili/tv/ui/main/MainActivity;
@@ -56,26 +62,24 @@
 
     move-result-object v0
 
-    const-string v1, "BiliAccount.get(activity.applicationContext)"
+    .line 464
+    const-string v2, "BiliAccount.get(activity.applicationContext)"
 
-    invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-virtual {p2, v0}, Lbl/abn;->a(Lbl/mg;)Lbl/jb;
+    .line 465
+    invoke-virtual {v1, v0}, Lbl/abn;->a(Lbl/mg;)Lbl/jb;
 
-    move-result-object p2
+    move-result-object v0
 
-    .line 358
-    new-instance v0, Lbl/afc$b$a$1;
+    new-instance v1, Lbl/afc$b$a$1;
 
-    invoke-direct {v0, p0, p1}, Lbl/afc$b$a$1;-><init>(Lbl/afc$b$a;Lbl/agb;)V
+    invoke-direct {v1, p0, p1}, Lbl/afc$b$a$1;-><init>(Lbl/afc$b$a;Lbl/agb;)V
 
-    check-cast v0, Lbl/ja;
+    sget-object v2, Lbl/jb;->b:Ljava/util/concurrent/Executor;
 
-    .line 364
-    sget-object p1, Lbl/jb;->b:Ljava/util/concurrent/Executor;
+    invoke-virtual {v0, v1, v2}, Lbl/jb;->a(Lbl/ja;Ljava/util/concurrent/Executor;)Lbl/jb;
 
-    .line 358
-    invoke-virtual {p2, v0, p1}, Lbl/jb;->a(Lbl/ja;Ljava/util/concurrent/Executor;)Lbl/jb;
-
+    .line 475
     return-void
 .end method

@@ -53,7 +53,7 @@
     .locals 2
 
     .prologue
-    .line 51
+    .line 52
     new-instance v0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$a;
 
     const/4 v1, 0x0
@@ -62,7 +62,7 @@
 
     sput-object v0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->Companion:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$a;
 
-    .line 62
+    .line 63
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->uperMode:Z
@@ -76,13 +76,13 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 50
+    .line 51
     invoke-direct {p0}, Lcom/bilibili/tv/ui/base/BaseReloadActivity;-><init>()V
 
-    .line 58
+    .line 59
     iput v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->f:I
 
-    .line 59
+    .line 60
     iput-boolean v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->g:Z
 
     return-void
@@ -92,7 +92,7 @@
     .locals 1
 
     .prologue
-    .line 50
+    .line 51
     iget-boolean v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->h:Z
 
     return v0
@@ -102,7 +102,7 @@
     .locals 0
 
     .prologue
-    .line 50
+    .line 51
     iput-boolean p1, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->h:Z
 
     return p1
@@ -112,7 +112,7 @@
     .locals 1
 
     .prologue
-    .line 50
+    .line 51
     iget-boolean v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->g:Z
 
     return v0
@@ -122,7 +122,7 @@
     .locals 0
 
     .prologue
-    .line 50
+    .line 51
     iput-boolean p1, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->g:Z
 
     return p1
@@ -132,7 +132,7 @@
     .locals 1
 
     .prologue
-    .line 50
+    .line 51
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->a:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
 
     return-object v0
@@ -142,7 +142,7 @@
     .locals 1
 
     .prologue
-    .line 50
+    .line 51
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->b:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
     return-object v0
@@ -152,7 +152,7 @@
     .locals 1
 
     .prologue
-    .line 50
+    .line 51
     iget v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->f:I
 
     return v0
@@ -162,7 +162,7 @@
     .locals 2
 
     .prologue
-    .line 50
+    .line 51
     iget v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->f:I
 
     add-int/lit8 v1, v0, 0x1
@@ -176,7 +176,7 @@
     .locals 1
 
     .prologue
-    .line 50
+    .line 51
     invoke-virtual {p0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->l()Z
 
     move-result v0
@@ -188,7 +188,7 @@
     .locals 0
 
     .prologue
-    .line 50
+    .line 51
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->b(Z)V
 
     return-void
@@ -198,7 +198,7 @@
     .locals 1
 
     .prologue
-    .line 50
+    .line 51
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->c:Lcom/bilibili/tv/ui/base/LoadingImageView;
 
     return-object v0
@@ -208,7 +208,7 @@
     .locals 1
 
     .prologue
-    .line 50
+    .line 51
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->d:Landroid/support/v7/widget/RecyclerView;
 
     return-object v0
@@ -220,7 +220,7 @@
     .locals 1
 
     .prologue
-    .line 66
+    .line 67
     const-string v0, "ott-dynamic.dynamic.0.0.pv"
 
     return-object v0
@@ -448,7 +448,7 @@
     .locals 1
 
     .prologue
-    .line 71
+    .line 72
     invoke-static {p0}, Lbl/wg;->a(Lbl/wf;)Z
 
     move-result v0
@@ -460,7 +460,7 @@
     .locals 1
 
     .prologue
-    .line 76
+    .line 77
     const/4 v0, 0x0
 
     return-object v0
@@ -481,7 +481,7 @@
     .locals 1
 
     .prologue
-    .line 81
+    .line 82
     const v0, 0x7f0a002a
 
     return v0

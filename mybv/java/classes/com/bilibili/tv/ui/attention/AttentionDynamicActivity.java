@@ -42,6 +42,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mybl.MyBiliApiService;
+import android.text.TextUtils;
 import com.alibaba.fastjson.JSONObject;
 import com.bilibili.tv.ui.auth.AuthSpaceActivity;
 
@@ -93,7 +94,6 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
 
         public final void a(Context context) {
             bbi.b(context, "context");
-            //AttentionDynamicActivity.uperMode = !AttentionDynamicActivity.uperMode;
             context.startActivity(new Intent(context, AttentionDynamicActivity.class));
         }
     }
@@ -406,7 +406,7 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: BL */
     /* loaded from: classes.dex */
-    public static final class c extends adz<adv> implements View.OnClickListener {
+    public static final class c extends adz<adv> implements View.OnClickListener,View.OnFocusChangeListener {
         private final ArrayList<Object> a = new ArrayList<>();
 
         @Override // bl.adz
@@ -430,8 +430,14 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
                     JSONObject followingItem = (JSONObject)this.a.get(i);
                     bbi.a((Object) followingItem, "mFollowings[position]");
                     dVar.A().setText(followingItem.getString("uname"));
-                    dVar.B().setText(adh.a(0) + "粉丝");
-                    dVar.C().setText(adh.a(0) + "个视频");
+                    String desc = followingItem.getJSONObject("official_verify").getString("desc");
+                    if(desc.isEmpty())desc = followingItem.getString("sign");
+                    if(desc.isEmpty())desc = "这个人没有填简介啊~~~ ";
+                    dVar.B().setText(desc);
+                    dVar.B().setHorizontallyScrolling(true);
+                    dVar.B().setEllipsize(TextUtils.TruncateAt.MARQUEE);
+
+                    //dVar.C().setText("");
                     if (followingItem.getString("face") != null) {
                         nv.a().a(ach.c(MainApplication.a(), followingItem.getString("face")), dVar.z());
                     }
@@ -450,6 +456,8 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
                 bbi.a((Object) view, "holder.itemView");
                 view.setTag(this.a.get(i));
                 advVar.a.setOnClickListener(this);
+
+                advVar.a.setOnFocusChangeListener(this);
             }
         }
 
@@ -488,6 +496,16 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
                 AuthSpaceActivity.Companion.a(a, ((JSONObject)tag).getString("uname"), ((JSONObject)tag).getIntValue("mid"));
             }
         }
+
+        @Override // android.view.View.OnFocusChangeListener
+        public void onFocusChange(View view, boolean hasFocus) {
+            TextView t = (TextView) view.findViewById(R.id.fans);
+            if(t != null){
+                if(hasFocus)t.setSelected(true);
+                else t.setSelected(false);
+            }
+        }
+
     }
 
     /* compiled from: BL */

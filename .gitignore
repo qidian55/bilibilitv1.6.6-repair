@@ -8,6 +8,7 @@ bv4/
 
 mybv/build/
 mybv/dist/
+*.class
 
 diff*.txt
 log.txt

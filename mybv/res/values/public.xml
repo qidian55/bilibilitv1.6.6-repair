@@ -2052,6 +2052,7 @@
     <public type="drawable" name="ic_pets_180" id="0x7f070101" />
     <public type="drawable" name="ic_directions_car_180" id="0x7f070102" />
     <public type="drawable" name="ic_live_tv_180" id="0x7f070103" />
+    <public type="drawable" name="ic_group_180" id="0x7f070104" />
 
     <public type="id" name="ALT" id="0x7f080000" />
     <public type="id" name="CTRL" id="0x7f080001" />
@@ -2948,6 +2949,7 @@
     <public type="string" name="years_ago" id="0x7f0c0178" />
 
     <public type="string" name="personal_recommend" id="0x7f0c0179" />
+    <public type="string" name="my_follow" id="0x7f0c017a" />
 
     <public type="style" name="AlertDialog.AppCompat" id="0x7f0d0000" />
     <public type="style" name="AlertDialog.AppCompat.Light" id="0x7f0d0001" />

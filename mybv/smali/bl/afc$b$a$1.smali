@@ -1,6 +1,6 @@
-.class final Lbl/afc$b$a$1;
+.class Lbl/afc$b$a$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "afc.java"
 
 # interfaces
 .implements Lbl/ja;
@@ -12,19 +12,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x0
     name = null
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "<TTaskResult:",
         "Ljava/lang/Object;",
-        "TContinuationResult:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lbl/ja<",
+        "Lbl/ja",
+        "<",
         "Ljava/lang/Void;",
         "Ljava/lang/Void;",
         ">;"
@@ -33,18 +29,20 @@
 
 
 # instance fields
-.field final synthetic a:Lbl/afc$b$a;
+.field final synthetic this$1:Lbl/afc$b$a;
 
-.field final synthetic b:Lbl/agb;
+.field final synthetic val$agbVar:Lbl/agb;
 
 
 # direct methods
 .method constructor <init>(Lbl/afc$b$a;Lbl/agb;)V
     .locals 0
 
-    iput-object p1, p0, Lbl/afc$b$a$1;->a:Lbl/afc$b$a;
+    .prologue
+    .line 465
+    iput-object p1, p0, Lbl/afc$b$a$1;->this$1:Lbl/afc$b$a;
 
-    iput-object p2, p0, Lbl/afc$b$a$1;->b:Lbl/agb;
+    iput-object p2, p0, Lbl/afc$b$a$1;->val$agbVar:Lbl/agb;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -53,60 +51,69 @@
 
 
 # virtual methods
-.method public synthetic a(Lbl/jb;)Ljava/lang/Object;
-    .locals 0
+.method public bridge synthetic a(Lbl/jb;)Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
 
-    .line 182
-    invoke-virtual {p0, p1}, Lbl/afc$b$a$1;->b(Lbl/jb;)Ljava/lang/Void;
+    .prologue
+    .line 465
+    invoke-virtual {p0, p1}, Lbl/afc$b$a$1;->a(Lbl/jb;)Ljava/lang/Void;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
-.method public final b(Lbl/jb;)Ljava/lang/Void;
-    .locals 1
+.method public final a(Lbl/jb;)Ljava/lang/Void;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lbl/jb<",
+            "Lbl/jb",
+            "<",
             "Ljava/lang/Void;",
             ">;)",
             "Ljava/lang/Void;"
         }
     .end annotation
 
-    .line 359
-    iget-object p1, p0, Lbl/afc$b$a$1;->a:Lbl/afc$b$a;
+    .prologue
+    const/4 v1, 0x0
 
-    iget-object p1, p1, Lbl/afc$b$a;->a:Lbl/afc$b;
+    .line 468
+    iget-object v0, p0, Lbl/afc$b$a$1;->this$1:Lbl/afc$b$a;
 
+    iget-object v0, v0, Lbl/afc$b$a;->this$0:Lbl/afc$b;
+
+    invoke-virtual {v0, v1}, Lbl/afc$b;->e(I)V
+
+    .line 469
+    iget-object v0, p0, Lbl/afc$b$a$1;->this$1:Lbl/afc$b$a;
+
+    iget-object v0, v0, Lbl/afc$b$a;->b:Landroid/app/Activity;
+
+    check-cast v0, Lcom/bilibili/tv/ui/main/MainActivity;
+
+    invoke-virtual {v0}, Lcom/bilibili/tv/ui/main/MainActivity;->l()V
+
+    .line 470
+    const-string v0, "tv_my_signout_click"
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lbl/ok;->a(Ljava/lang/String;[Ljava/lang/String;)V
+
+    .line 471
+    iget-object v0, p0, Lbl/afc$b$a$1;->val$agbVar:Lbl/agb;
+
+    invoke-virtual {v0}, Lbl/agb;->dismiss()V
+
+    .line 472
     const/4 v0, 0x0
 
-    invoke-virtual {p1, v0}, Lbl/afc$b;->e(I)V
-
-    .line 360
-    iget-object p1, p0, Lbl/afc$b$a$1;->a:Lbl/afc$b$a;
-
-    iget-object p1, p1, Lbl/afc$b$a;->b:Landroid/app/Activity;
-
-    check-cast p1, Lcom/bilibili/tv/ui/main/MainActivity;
-
-    invoke-virtual {p1}, Lcom/bilibili/tv/ui/main/MainActivity;->l()V
-
-    const-string p1, "tv_my_signout_click"
-
-    .line 361
-    new-array v0, v0, [Ljava/lang/String;
-
-    invoke-static {p1, v0}, Lbl/ok;->a(Ljava/lang/String;[Ljava/lang/String;)V
-
-    .line 362
-    iget-object p1, p0, Lbl/afc$b$a$1;->b:Lbl/agb;
-
-    invoke-virtual {p1}, Lbl/agb;->dismiss()V
-
-    const/4 p1, 0x0
-
-    return-object p1
+    return-object v0
 .end method
