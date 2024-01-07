@@ -19,6 +19,8 @@ import tv.danmaku.videoplayer.core.media.resource.SegmentSource;
 import tv.danmaku.videoplayer.core.videoview.IVideoParams;
 import tv.danmaku.videoplayer.core.videoview.IVideoView;
 
+import bl.abd;
+import com.bilibili.tv.MainApplication;
 import tv.danmaku.ijk.media.player.IjkCodecHelper;
 import android.util.Log;
 import mybl.VideoViewParams;
@@ -94,6 +96,7 @@ class IjkCommander extends AbsPlayerCommander {
             }
             else{this.mIjkMediaPlayer.setDataSource(applyUriHookForIjkPlayer);}
         }
+        this.mIjkMediaPlayer.setSpeed(abd.get_speed(MainApplication.a().getApplicationContext()));
         this.mMediaPlayer.prepareAsync();
     }
 

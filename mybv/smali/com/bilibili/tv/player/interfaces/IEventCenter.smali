@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/bilibili/tv/player/interfaces/IEventCenter;
 .super Ljava/lang/Object;
-.source "BL"
+.source "IEventCenter.java"
 
 
 # annotations

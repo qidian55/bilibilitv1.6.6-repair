@@ -1,14 +1,11 @@
 .class Lcom/bilibili/tv/player/widget/PlayerMenuRight$2;
-.super Ljava/lang/Object;
-.source "BL"
-
-# interfaces
-.implements Landroid/view/animation/Animation$AnimationListener;
+.super Lbl/aax;
+.source "PlayerMenuRight.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/bilibili/tv/player/widget/PlayerMenuRight;->a(Z)V
+    value = Lcom/bilibili/tv/player/widget/PlayerMenuRight;->a(I)Lbl/aaw;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -16,51 +13,62 @@
     name = null
 .end annotation
 
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lbl/aax",
+        "<",
+        "Ljava/lang/String;",
+        ">;"
+    }
+.end annotation
+
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/player/widget/PlayerMenuRight;
+.field final synthetic this$0:Lcom/bilibili/tv/player/widget/PlayerMenuRight;
+
+.field final synthetic val$i:I
 
 
 # direct methods
-.method constructor <init>(Lcom/bilibili/tv/player/widget/PlayerMenuRight;)V
+.method constructor <init>(Lcom/bilibili/tv/player/widget/PlayerMenuRight;Landroid/content/Context;II)V
     .locals 0
 
-    .line 354
-    iput-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight$2;->a:Lcom/bilibili/tv/player/widget/PlayerMenuRight;
+    .prologue
+    .line 161
+    iput-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight$2;->this$0:Lcom/bilibili/tv/player/widget/PlayerMenuRight;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p4, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight$2;->val$i:I
+
+    invoke-direct {p0, p2, p3}, Lbl/aax;-><init>(Landroid/content/Context;I)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/view/animation/Animation;)V
+.method public bridge synthetic a(Lbl/aaz;ILjava/lang/Object;)V
     .locals 0
 
-    .line 362
-    iget-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight$2;->a:Lcom/bilibili/tv/player/widget/PlayerMenuRight;
+    .prologue
+    .line 161
+    check-cast p3, Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->a(Lcom/bilibili/tv/player/widget/PlayerMenuRight;)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/bilibili/tv/player/widget/PlayerMenuRight$2;->a(Lbl/aaz;ILjava/lang/String;)V
 
     return-void
 .end method
 
-.method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .locals 0
+.method public a(Lbl/aaz;ILjava/lang/String;)V
+    .locals 2
 
-    return-void
-.end method
+    .prologue
+    .line 164
+    iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight$2;->this$0:Lcom/bilibili/tv/player/widget/PlayerMenuRight;
 
-.method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .locals 1
+    iget v1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight$2;->val$i:I
 
-    .line 357
-    iget-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight$2;->a:Lcom/bilibili/tv/player/widget/PlayerMenuRight;
+    invoke-virtual {v0, v1, p2, p1, p3}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->a(IILbl/aaz;Ljava/lang/String;)V
 
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->setVisibility(I)V
-
+    .line 165
     return-void
 .end method

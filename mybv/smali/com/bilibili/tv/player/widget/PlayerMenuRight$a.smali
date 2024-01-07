@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "PlayerMenuRight.java"
 
 
 # annotations
@@ -32,7 +32,6 @@
 
 .method public abstract f(I)V
 .end method
-
 
 .method public abstract switch_speed(F)V
 .end method
