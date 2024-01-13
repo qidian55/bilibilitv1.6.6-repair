@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.bilibili.tv.widget.DrawLinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/frame" android:focusable="true" android:focusableInTouchMode="true" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="@dimen/px_540"
+<com.bilibili.tv.widget.DrawLinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/frame" android:focusable="true" android:focusableInTouchMode="true" android:clipChildren="false" android:layout_width="@dimen/px_406" android:layout_height="@dimen/px_540"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <FrameLayout android:layout_width="@dimen/px_180" android:layout_height="@dimen/px_180" android:layout_marginTop="@dimen/px_120">
         <com.bilibili.tv.widget.CircleImageView android:layout_gravity="center_horizontal" android:id="@id/img_icon" android:focusable="false" android:layout_width="@dimen/px_180" android:layout_height="@dimen/px_180" />

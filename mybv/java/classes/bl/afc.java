@@ -30,6 +30,9 @@ import com.bilibili.tv.widget.DrawLinearLayout;
 import com.bilibili.tv.widget.FixGridLayoutManager;
 import kotlin.TypeCastException;
 
+import com.bilibili.tv.widget.border.BorderGridLayoutManager;
+import com.bilibili.tv.widget.side.SideRightGridLayoutManger;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public final class afc extends adu implements aez, wf {
@@ -110,7 +113,7 @@ public final class afc extends adu implements aez, wf {
         int b2 = adl.b(R.dimen.px_24);
         int b3 = adl.b(R.dimen.px_48);
         recyclerView.setPadding(b2, b3, b2, b3);
-        this.a = new FixGridLayoutManager(getActivity(), e) { // from class: com.bilibili.tv.ui.main.content.MainMyFragment$onViewCreated$1
+        this.a = new BorderGridLayoutManager(getActivity(), 1, 0, false) { // from class: com.bilibili.tv.ui.main.content.MainMyFragment$onViewCreated$1
             @Override // android.support.v7.widget.RecyclerView.h
             public View d(View view, int direction) {
                 if (direction != View.FOCUS_LEFT) {
@@ -131,7 +134,7 @@ public final class afc extends adu implements aez, wf {
         };
         this.b = new b();
         recyclerView.setLayoutManager(this.a);
-        recyclerView.a(new d(b2));
+        recyclerView.a(new ItemDecoration(b2));
         recyclerView.setFocusable(false);
         recyclerView.setAdapter(this.b);
         recyclerView.addOnLayoutChangeListener(new e());
@@ -139,19 +142,19 @@ public final class afc extends adu implements aez, wf {
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
-    public static final class d extends RecyclerView.g {
-        final /* synthetic */ int a;
+    public static final class ItemDecoration extends RecyclerView.g {
+        final /* synthetic */ int space;
 
-        d(int i) {
-            this.a = i;
+        ItemDecoration(int space) {
+            this.space = space;
         }
 
         @Override // android.support.v7.widget.RecyclerView.g
-        public void a(Rect rect, View view, RecyclerView recyclerView, RecyclerView.s sVar) {
-            bbi.b(rect, "outRect");
+        public void a(Rect outRect, View view, RecyclerView parent, RecyclerView.s state) {
+            bbi.b(outRect, "outRect");
             bbi.b(view, "view");
-            bbi.b(recyclerView, "parent");
-            rect.set(this.a, 0, this.a, 0);
+            bbi.b(parent, "parent");
+            outRect.set(this.space, 0, 0, 0);
         }
     }
 

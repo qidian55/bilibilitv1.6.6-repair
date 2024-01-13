@@ -131,7 +131,7 @@ public final class afd extends adu implements aez, wf {
             bbi.a();
         }
         borderGridLayoutManager.a(new f());
-        recyclerView.a(new g(b2));
+        recyclerView.a(new ItemDecoration(b2));
         recyclerView.setFocusable(false);
         recyclerView.setAdapter(this.a);
         ((kh) vo.a(kh.class)).a().a(new d());
@@ -166,11 +166,11 @@ public final class afd extends adu implements aez, wf {
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
-    public static final class g extends RecyclerView.g {
-        final /* synthetic */ int a;
+    public static final class ItemDecoration extends RecyclerView.g {
+        final /* synthetic */ int space;
 
-        g(int i) {
-            this.a = i;
+        ItemDecoration(int space) {
+            this.space = space;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:17:0x003f  */
@@ -178,23 +178,23 @@ public final class afd extends adu implements aez, wf {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void a(Rect rect, View view, RecyclerView recyclerView, RecyclerView.s sVar) {
+        public void a(Rect outRect, View view, RecyclerView parent, RecyclerView.s state) {
             int i;
             int i2;
-            bbi.b(rect, "outRect");
+            bbi.b(outRect, "outRect");
             bbi.b(view, "view");
-            bbi.b(recyclerView, "parent");
-            int f = recyclerView.f(view);
+            bbi.b(parent, "parent");
+            int f = parent.f(view);
             int floor = f - (((int) Math.floor(f / 5)) + 1);
             if (f%5==0) {
-                if(((afd.c)null).b.size()==5 && ((afd.c)null).b.get(f/5)==null)rect.set(0, 0, 0, 0);
-                else rect.set(f > 0 ? this.a * 2 : 0, 0, this.a, 0);
+                if(((afd.c)null).b.size()==5 && ((afd.c)null).b.get(f/5)==null)outRect.set(0, 0, 0, 0);
+                else outRect.set(f > 0 ? this.space * 2 : 0, 0, this.space, 0);
             } else if (floor % 2 == 0) {
-                if(((afd.c)null).a.size()==20 && ((afd.c)null).a.get(floor)==null)rect.set(0, 0, 0, 0);
-                else rect.set(f > 0 ? this.a * 2 : 0, 0, this.a, this.a);
+                if(((afd.c)null).a.size()==20 && ((afd.c)null).a.get(floor)==null)outRect.set(0, 0, 0, 0);
+                else outRect.set(f > 0 ? this.space * 2 : 0, 0, this.space, this.space);
             } else {
-                if(((afd.c)null).a.size()==20 && ((afd.c)null).a.get(floor)==null)rect.set(0, 0, 0, 0);
-                else rect.set(f > 0 ? this.a * 2 : 0, this.a, this.a, 0);
+                if(((afd.c)null).a.size()==20 && ((afd.c)null).a.get(floor)==null)outRect.set(0, 0, 0, 0);
+                else outRect.set(f > 0 ? this.space * 2 : 0, this.space, this.space, 0);
             }
         }
     }

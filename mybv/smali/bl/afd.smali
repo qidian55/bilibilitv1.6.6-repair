@@ -15,7 +15,7 @@
         Lbl/afd$c;,
         Lbl/afd$RecommendsResponse;,
         Lbl/afd$d;,
-        Lbl/afd$g;,
+        Lbl/afd$ItemDecoration;,
         Lbl/afd$f;,
         Lbl/afd$MyRecycledViewPool;,
         Lbl/afd$b;
@@ -188,9 +188,9 @@
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->a(Landroid/support/v7/widget/GridLayoutManager$c;)V
 
     .line 134
-    new-instance v0, Lbl/afd$g;
+    new-instance v0, Lbl/afd$ItemDecoration;
 
-    invoke-direct {v0, v6}, Lbl/afd$g;-><init>(I)V
+    invoke-direct {v0, v6}, Lbl/afd$ItemDecoration;-><init>(I)V
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->a(Landroid/support/v7/widget/RecyclerView$g;)V
 

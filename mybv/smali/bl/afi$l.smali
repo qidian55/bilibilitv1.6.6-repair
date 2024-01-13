@@ -373,9 +373,10 @@
 
     invoke-static {v2, v3}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    iget v0, v0, Lcom/bilibili/tv/api/search/BiliSearchResultUper;->mid:I
+    iget-wide v3, v0, Lcom/bilibili/tv/api/search/BiliSearchResultUper;->mid:J
+    #iget v0, v0, Lcom/bilibili/tv/api/search/BiliSearchResultUper;->mid:I
 
-    int-to-long v3, v0
+    #int-to-long v3, v0
 
     invoke-virtual {v1, p1, v2, v3, v4}, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$a;->a(Landroid/content/Context;Ljava/lang/String;J)V
 

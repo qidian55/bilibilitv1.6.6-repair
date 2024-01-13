@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/search/BiliSearchResultUper$UpVerify;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliSearchResultUper.java"
 
 
 # annotations
@@ -26,10 +26,12 @@
 .method public constructor <init>(Lcom/bilibili/tv/api/search/BiliSearchResultUper;)V
     .locals 0
 
-    .line 29
+    .prologue
+    .line 33
     iput-object p1, p0, Lcom/bilibili/tv/api/search/BiliSearchResultUper$UpVerify;->this$0:Lcom/bilibili/tv/api/search/BiliSearchResultUper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 34
     return-void
 .end method

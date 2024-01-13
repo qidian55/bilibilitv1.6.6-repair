@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/search/BiliSearchResultUper;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliSearchResultUper.java"
 
 
 # annotations
@@ -27,7 +27,7 @@
 
 .field public level:I
 
-.field public mid:I
+.field public mid:J
 
 .field public officialVerify:Lcom/bilibili/tv/api/search/BiliSearchResultUper$UpVerify;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
@@ -58,7 +58,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 11
+    .prologue
+    .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
