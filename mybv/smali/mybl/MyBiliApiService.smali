@@ -130,6 +130,51 @@
     .end annotation
 .end method
 
+.method public abstract getSeasonsArchives(JLjava/lang/String;ZII)Lbl/vp;
+    .param p1    # J
+        .annotation runtime Lretrofit2/http/Query;
+            a = "mid"
+        .end annotation
+    .end param
+    .param p3    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "season_id"
+        .end annotation
+    .end param
+    .param p4    # Z
+        .annotation runtime Lretrofit2/http/Query;
+            a = "sort_reverse"
+        .end annotation
+    .end param
+    .param p5    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "page_num"
+        .end annotation
+    .end param
+    .param p6    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "page_size"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(J",
+            "Ljava/lang/String;",
+            "ZII)",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/x/polymer/space/seasons_archives_list"
+    .end annotation
+.end method
+
 .method public abstract likeVideo(Ljava/lang/String;JI)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;

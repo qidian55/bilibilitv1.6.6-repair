@@ -36,4 +36,7 @@ public interface MyBiliApiService {
     @FormUrlEncoded
     @POST(a = "/x/relation/modify")
     vp<GeneralResponse<JSONObject>> modifyRelation(@Field(a = "access_key") String access_key, @Field(a = "fid") long fid, @Field(a = "act") int act, @Field(a = "re_src") int re_src);
+
+    @GET(a = "/x/polymer/space/seasons_archives_list")
+    vp<GeneralResponse<JSONObject>> getSeasonsArchives(@Query(a = "mid") long mid, @Query(a = "season_id") String season_id, @Query(a = "sort_reverse") boolean sort_reverse, @Query(a = "page_num") int page_num, @Query(a = "page_size") int page_size);
 }

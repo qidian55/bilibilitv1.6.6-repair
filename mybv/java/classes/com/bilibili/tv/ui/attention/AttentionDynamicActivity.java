@@ -493,7 +493,7 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
                 }
                 a.startActivity(VideoDetailActivity.Companion.a(a, valueOf.intValue()));
             }else if((tag instanceof JSONObject) && a != null){
-                AuthSpaceActivity.Companion.a(a, ((JSONObject)tag).getString("uname"), ((JSONObject)tag).getIntValue("mid"));
+                AuthSpaceActivity.Companion.a(a, ((JSONObject)tag).getString("uname"), ((JSONObject)tag).getLongValue("mid"));
             }
         }
 
