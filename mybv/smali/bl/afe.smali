@@ -1,6 +1,6 @@
 .class public final Lbl/afe;
 .super Ljava/lang/Object;
-.source "BL"
+.source "afe.java"
 
 
 # static fields
@@ -11,7 +11,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 15
+    .prologue
+    .line 10
     new-instance v0, Lbl/afe;
 
     invoke-direct {v0}, Lbl/afe;-><init>()V
@@ -24,31 +25,37 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 15
+    .prologue
+    .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 13
     return-void
 .end method
 
 
 # virtual methods
-.method public final a(ILbl/vn;)V
-    .locals 3
+.method public final a(IILbl/vn;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(I",
-            "Lbl/vn<",
-            "Ljava/util/List<",
+            "(II",
+            "Lbl/vn",
+            "<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/rank/BiliRankV2;",
             ">;>;)V"
         }
     .end annotation
 
+    .prologue
+    .line 16
     const-string v0, "cb"
 
-    invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 21
+    .line 17
     const-class v0, Lcom/bilibili/tv/api/rank/RankApiService;
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
@@ -57,60 +64,48 @@
 
     check-cast v0, Lcom/bilibili/tv/api/rank/RankApiService;
 
-    const/4 v1, 0x1
+    const/16 v1, 0x63
 
-    const/16 v2, 0x63
+    invoke-interface {v0, p1, p2, v1}, Lcom/bilibili/tv/api/rank/RankApiService;->getCategoryRankVideoList(III)Lbl/vp;
 
-    .line 22
-    invoke-interface {v0, p1, v1, v2}, Lcom/bilibili/tv/api/rank/RankApiService;->getCategoryRankVideoList(III)Lbl/vp;
+    move-result-object v0
 
-    move-result-object p1
+    invoke-virtual {v0, p3}, Lbl/vp;->a(Lbl/bkz;)V
 
-    .line 23
-    check-cast p2, Lbl/bkz;
-
-    invoke-virtual {p1, p2}, Lbl/vp;->a(Lbl/bkz;)V
-
+    .line 18
     return-void
 .end method
 
-.method public final b(ILbl/vn;)V
+.method public final b(IILbl/vn;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(I",
-            "Lbl/vn<",
-            "Ljava/util/List<",
+            "(II",
+            "Lbl/vn",
+            "<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/rank/BiliRankV2;",
             ">;>;)V"
         }
     .end annotation
 
+    .prologue
+    .line 22
     const-string v0, "cb"
 
-    invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    packed-switch p1, :pswitch_data_0
+    .line 23
+    packed-switch p1, :pswitch_data_2a
 
-    const-string p1, "all"
+    .line 34
+    const-string v0, "all"
 
-    goto :goto_0
+    move-object v1, v0
 
-    :pswitch_0
-    const-string p1, "bangumi"
-
-    goto :goto_0
-
-    :pswitch_1
-    const-string p1, "all"
-
-    goto :goto_0
-
-    :pswitch_2
-    const-string p1, "origin"
-
-    .line 33
-    :goto_0
+    .line 37
+    :goto_b
     const-class v0, Lcom/bilibili/tv/api/rank/RankApiService;
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
@@ -119,26 +114,51 @@
 
     check-cast v0, Lcom/bilibili/tv/api/rank/RankApiService;
 
-    const/4 v1, 0x1
-
     const/16 v2, 0x63
 
-    .line 34
-    invoke-interface {v0, p1, v1, v2}, Lcom/bilibili/tv/api/rank/RankApiService;->getOriginRankVideoList(Ljava/lang/String;II)Lbl/vp;
+    invoke-interface {v0, v1, p2, v2}, Lcom/bilibili/tv/api/rank/RankApiService;->getOriginRankVideoList(Ljava/lang/String;II)Lbl/vp;
 
-    move-result-object p1
+    move-result-object v0
 
-    .line 35
-    check-cast p2, Lbl/bkz;
+    invoke-virtual {v0, p3}, Lbl/vp;->a(Lbl/bkz;)V
 
-    invoke-virtual {p1, p2}, Lbl/vp;->a(Lbl/bkz;)V
-
+    .line 38
     return-void
 
-    :pswitch_data_0
+    .line 25
+    :pswitch_1d
+    const-string v0, "origin"
+
+    move-object v1, v0
+
+    .line 26
+    goto :goto_b
+
+    .line 28
+    :pswitch_21
+    const-string v0, "all"
+
+    move-object v1, v0
+
+    .line 29
+    goto :goto_b
+
+    .line 31
+    :pswitch_25
+    const-string v0, "bangumi"
+
+    move-object v1, v0
+
+    .line 32
+    goto :goto_b
+
+    .line 23
+    nop
+
+    :pswitch_data_2a
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1d
+        :pswitch_21
+        :pswitch_25
     .end packed-switch
 .end method

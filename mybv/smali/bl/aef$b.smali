@@ -292,7 +292,7 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 3
+    .locals 4
 
     .prologue
     .line 299
@@ -307,7 +307,7 @@
     .line 300
     if-nez v2, :cond_b
 
-    .line 310
+    .line 309
     :cond_a
     :goto_a
     return-void
@@ -323,26 +323,25 @@
 
     if-eqz v0, :cond_a
 
+    .line 305
+    iget-object v0, p0, Lbl/aef$b;->a:Ljava/util/List;
+
+    sput-object v0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->lives:Ljava/util/List;
+
+    .line 306
+    iget-object v3, p0, Lbl/aef$b;->a:Ljava/util/List;
+
     move-object v0, v1
 
-    .line 305
     check-cast v0, Lmybl/BiliLiveContent;
 
-    invoke-virtual {v0}, Lmybl/BiliLiveContent;->hasPlayUrl()Z
+    invoke-interface {v3, v0}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
 
     move-result v0
 
-    if-eqz v0, :cond_22
+    sput v0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->live_index:I
 
-    move-object v0, v1
-
-    .line 306
-    check-cast v0, Lmybl/BiliLiveContent;
-
-    invoke-virtual {v0}, Lmybl/BiliLiveContent;->getPlayUrl()I
-
-    .line 308
-    :cond_22
+    .line 307
     check-cast v1, Lmybl/BiliLiveContent;
 
     invoke-static {v2, v1}, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->a(Landroid/content/Context;Lmybl/BiliLiveContent;)Landroid/content/Intent;

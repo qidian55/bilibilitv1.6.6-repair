@@ -20,6 +20,7 @@ import com.bilibili.tv.ui.base.BaseActivity;
 import mybl.BiliLiveEx;
 import u.aly.j;
 
+import java.util.List;
 import mybl.DanmakuClient;
 import mybl.BiliLiveContent;
 
@@ -34,6 +35,9 @@ public class LivePlayerActivity extends BaseActivity implements View.OnClickList
     private boolean f = false;
     private LiveVideoPlayer g;
     private LivePlayerController h;
+
+    public static List<BiliLiveContent> lives = null;
+    public static int live_index = -1;
 
     @Override // com.bilibili.tv.ui.base.BaseActivity
     public int g() {
@@ -59,6 +63,9 @@ public class LivePlayerActivity extends BaseActivity implements View.OnClickList
         Intent intent = getIntent();
         if (intent != null) {
             this.a = (BiliLiveContent) intent.getParcelableExtra("bili_live");
+            if(this.a.hasPlayUrl()){
+                this.a.getPlayUrl();
+            }
             if (this.a != null) {
                 this.b = this.a.mPlayUrl;
                 this.c = this.a.mTitle;
@@ -115,6 +122,24 @@ public class LivePlayerActivity extends BaseActivity implements View.OnClickList
             }
             if ((i==KeyEvent.KEYCODE_MENU||i==KeyEvent.KEYCODE_ENTER||i==KeyEvent.KEYCODE_DPAD_CENTER) && !show && e) {
                 this.h.a(true);
+            }
+            if(i==KeyEvent.KEYCODE_DPAD_UP && !show){
+                if(LivePlayerActivity.live_index>0){
+                    LivePlayerActivity.live_index-=1;
+                    LivePlayerActivity.this.f = false;
+                    LivePlayerActivity.this.finish();
+                    LivePlayerActivity.this.startActivity(LivePlayerActivity.a(LivePlayerActivity.this, LivePlayerActivity.lives.get(LivePlayerActivity.live_index)));
+                }
+                else lr.b(this,"已经到顶了");
+            }
+            if(i==KeyEvent.KEYCODE_DPAD_DOWN && !show){
+                if(LivePlayerActivity.live_index<LivePlayerActivity.lives.size()-1){
+                    LivePlayerActivity.live_index+=1;
+                    LivePlayerActivity.this.f = false;
+                    LivePlayerActivity.this.finish();
+                    LivePlayerActivity.this.startActivity(LivePlayerActivity.a(LivePlayerActivity.this, LivePlayerActivity.lives.get(LivePlayerActivity.live_index)));
+                }
+                else lr.b(this,"已经到底了");
             }
             this.h.a(i, keyEvent);
         } else if (show) {

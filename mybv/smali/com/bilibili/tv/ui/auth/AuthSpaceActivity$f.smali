@@ -23,12 +23,12 @@
     .locals 0
 
     .prologue
-    .line 238
+    .line 240
     iput-object p1, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$f;->this$0:Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$m;-><init>()V
 
-    .line 239
+    .line 241
     return-void
 .end method
 
@@ -38,7 +38,7 @@
     .locals 3
 
     .prologue
-    .line 243
+    .line 245
     iget-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$f;->this$0:Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;
 
     # getter for: Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;->c:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
@@ -46,10 +46,10 @@
 
     move-result-object v0
 
-    .line 244
+    .line 246
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView$m;->a(Landroid/support/v7/widget/RecyclerView;I)V
 
-    .line 245
+    .line 247
     iget-object v1, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$f;->this$0:Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;
 
     # getter for: Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;->h:Z
@@ -77,35 +77,35 @@
 
     if-nez v1, :cond_22
 
-    .line 262
+    .line 264
     :cond_21
     :goto_21
     return-void
 
-    .line 248
+    .line 250
     :cond_22
     if-nez v0, :cond_27
 
-    .line 249
+    .line 251
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 251
+    .line 253
     :cond_27
     invoke-virtual {v0}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->p()I
 
     move-result v1
 
-    .line 252
+    .line 254
     invoke-virtual {v0}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->x()I
 
     move-result v2
 
     if-lez v2, :cond_21
 
-    .line 253
+    .line 255
     add-int/lit8 v1, v1, 0x1
 
-    .line 254
+    .line 256
     invoke-virtual {v0}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->H()I
 
     move-result v2
@@ -114,25 +114,25 @@
 
     if-lt v1, v2, :cond_21
 
-    .line 255
+    .line 257
     invoke-virtual {v0}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->H()I
 
     move-result v1
 
-    .line 256
+    .line 258
     invoke-virtual {v0}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->x()I
 
     move-result v0
 
     if-le v1, v0, :cond_21
 
-    .line 257
+    .line 259
     iget-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$f;->this$0:Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;
 
     # operator++ for: Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;->g:I
     invoke-static {v0}, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;->access$608(Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;)I
 
-    .line 258
+    .line 260
     iget-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$f;->this$0:Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;->k()V

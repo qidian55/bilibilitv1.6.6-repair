@@ -302,9 +302,8 @@ public class aef extends ady {
             }
             Object tag = view.getTag();
             if (tag instanceof BiliLiveContent) {
-                if(((BiliLiveContent) tag).hasPlayUrl()){
-                    ((BiliLiveContent) tag).getPlayUrl();
-                }
+                LivePlayerActivity.lives = this.a;
+                LivePlayerActivity.live_index = this.a.indexOf((BiliLiveContent) tag);
                 a.startActivity(LivePlayerActivity.a(a, (BiliLiveContent) tag));
             }
         }

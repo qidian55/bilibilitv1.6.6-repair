@@ -46,8 +46,10 @@ import tv.danmaku.videoplayer.core.pluginapk.PluginApk;
 import android.util.Log;
 import mybl.MyBiliApiService;
 import com.alibaba.fastjson.JSONObject;
+import com.bilibili.api.BiliApiException;
 import com.bilibili.tv.widget.DrawTextView;
 import com.bilibili.tv.widget.DrawRelativeLayout;
+
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -366,12 +368,21 @@ public final class AuthSpaceActivity extends BaseReloadActivity {
                 return;
             }
             AuthSpaceActivity.this.i = false;
+            LoadingImageView loadingImageView = AuthSpaceActivity.this.d;
+            if (loadingImageView == null) {
+                bbi.a();
+            }
+            if (th instanceof BiliApiException) {
+                BiliApiException biliApiException = (BiliApiException) th;
+                if (biliApiException.mCode == -404) {
+                    AuthSpaceActivity.this.a(false);
+                    loadingImageView.c();
+                    loadingImageView.a(R.string.nothing_show);
+                }
+                return;
+            }
             if (AuthSpaceActivity.this.g == 1) {
                 AuthSpaceActivity.this.a(true);
-                LoadingImageView loadingImageView = AuthSpaceActivity.this.d;
-                if (loadingImageView == null) {
-                    bbi.a();
-                }
                 //LoadingImageView.a(loadingImageView, false, 1, null);
                 loadingImageView.setRefreshError(true);
             }
@@ -396,16 +407,8 @@ public final class AuthSpaceActivity extends BaseReloadActivity {
             AuthSpaceActivity.this.i = false;
             if (biliSpaceVideoList == null || biliSpaceVideoList.videos == null || biliSpaceVideoList.videos.size() == 0) {
                 if (AuthSpaceActivity.this.g == 1) {
-                    LoadingImageView loadingImageView2 = AuthSpaceActivity.this.d;
-                    if (loadingImageView2 == null) {
-                        bbi.a();
-                    }
-                    loadingImageView2.c();
-                    LoadingImageView loadingImageView3 = AuthSpaceActivity.this.d;
-                    if (loadingImageView3 == null) {
-                        bbi.a();
-                    }
-                    loadingImageView3.a(R.string.nothing_show);
+                    loadingImageView.c();
+                    loadingImageView.a(R.string.nothing_show);
                 }
                 AuthSpaceActivity.this.h = false;
                 return;

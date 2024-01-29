@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 141
+    .line 166
     iput-object p1, p0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity$1;->this$0:Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .locals 2
 
     .prologue
-    .line 144
+    .line 169
     iget-object v0, p0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity$1;->this$0:Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;
 
     # getter for: Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->e:Lbl/agb;
@@ -50,7 +50,7 @@
 
     invoke-virtual {v0}, Lbl/agb;->dismiss()V
 
-    .line 145
+    .line 170
     iget-object v0, p0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity$1;->this$0:Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;
 
     const/4 v1, 0x0
@@ -58,11 +58,11 @@
     # setter for: Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->f:Z
     invoke-static {v0, v1}, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->access$102(Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;Z)Z
 
-    .line 146
+    .line 171
     iget-object v0, p0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity$1;->this$0:Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->finish()V
 
-    .line 147
+    .line 172
     return-void
 .end method

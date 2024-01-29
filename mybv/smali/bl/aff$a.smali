@@ -1,6 +1,6 @@
 .class public final Lbl/aff$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "aff.java"
 
 
 # annotations
@@ -18,18 +18,22 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 42
+    .prologue
+    .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 45
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 42
+    .prologue
+    .line 48
     invoke-direct {p0}, Lbl/aff$a;-><init>()V
 
+    .line 49
     return-void
 .end method
 
@@ -38,40 +42,37 @@
 .method public final a(I)Lbl/aff;
     .locals 2
 
-    .line 47
+    .prologue
+    .line 56
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 48
-    move-object v1, p0
-
-    check-cast v1, Lbl/aff$a;
-
-    invoke-virtual {v1}, Lbl/aff$a;->a()Ljava/lang/String;
+    .line 57
+    invoke-virtual {p0}, Lbl/aff$a;->a()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 49
-    new-instance p1, Lbl/aff;
+    .line 58
+    new-instance v1, Lbl/aff;
 
-    invoke-direct {p1}, Lbl/aff;-><init>()V
+    invoke-direct {v1}, Lbl/aff;-><init>()V
 
-    .line 50
-    invoke-virtual {p1, v0}, Lbl/aff;->setArguments(Landroid/os/Bundle;)V
+    .line 59
+    invoke-virtual {v1, v0}, Lbl/aff;->setArguments(Landroid/os/Bundle;)V
 
-    return-object p1
+    .line 60
+    return-object v1
 .end method
 
 .method public final a()Ljava/lang/String;
     .locals 1
 
-    .line 43
-    invoke-static {}, Lbl/aff;->b()Ljava/lang/String;
-
-    move-result-object v0
+    .prologue
+    .line 52
+    const-string v0, "ranking_type_or_tid"
 
     return-object v0
 .end method
