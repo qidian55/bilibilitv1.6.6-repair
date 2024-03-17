@@ -13,6 +13,8 @@ import com.bilibili.tv.player.basic.context.PlayerParams;
 import com.bilibili.tv.player.basic.context.ResolveResourceParams;
 import java.util.List;
 
+import org.json.JSONObject;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public class xg {
@@ -90,6 +92,9 @@ public class xg {
         yr.c(a, biliVideoDetail.getAuthor());
         int i2 = biliVideoDetail.mAvid;
         yr.b(a, biliVideoDetail.mTitle);
+
+        biliVideoDetail.getUGCseason();
+
         ResolveResourceParams obtainResolveParams = a.mVideoParams.obtainResolveParams();
         obtainResolveParams.mSpid = biliVideoDetail.getSpid();
         obtainResolveParams.mAvid = i2;
@@ -114,6 +119,33 @@ public class xg {
         if (TextUtils.isEmpty(yr.a(a))) {
             yr.b(a, page.mTitle);
         }
+
+        if (biliVideoDetail.episodes != null) {
+            int size = biliVideoDetail.episodes.length();
+            ResolveResourceParams[] obtainResolveParamsArray = a.mVideoParams.obtainResolveParamsArray(size);
+            for (int i3 = 0; i3 < size; i3++) {
+                JSONObject episode = biliVideoDetail.episodes.optJSONObject(i3);
+                ResolveResourceParams resolveResourceParams = new ResolveResourceParams();
+                resolveResourceParams.mSpid = biliVideoDetail.getSpid();
+                resolveResourceParams.mAvid = episode.optInt("aid");
+                resolveResourceParams.mPage = episode.optJSONObject("page").optInt("page");
+                resolveResourceParams.mFrom = episode.optJSONObject("page").optString("from");
+                resolveResourceParams.mVid = episode.optJSONObject("page").optString("vid");
+                resolveResourceParams.mCid = episode.optInt("cid");
+                resolveResourceParams.mWeb = episode.optJSONObject("page").optString("weblink");
+                resolveResourceParams.mPageTitle = episode.optString("title");
+                resolveResourceParams.mSeasonId = a.mVideoParams.obtainResolveParams().mSeasonId;
+                if (i > 0) {
+                    resolveResourceParams.mExpectedQuality = i;
+                } else {
+                    resolveResourceParams.mExpectedQuality = a.mVideoParams.obtainResolveParams().mExpectedQuality;
+                }
+                obtainResolveParamsArray[i3] = resolveResourceParams;
+            }
+            a(context, a, bundle);
+            return;
+        }
+
         if (biliVideoDetail.mPageList != null) {
             int size = biliVideoDetail.mPageList.size();
             ResolveResourceParams[] obtainResolveParamsArray = a.mVideoParams.obtainResolveParamsArray(size);

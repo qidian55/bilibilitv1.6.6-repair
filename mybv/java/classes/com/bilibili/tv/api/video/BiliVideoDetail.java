@@ -10,6 +10,13 @@ import com.bilibili.bangumi.api.BangumiSponsorRankList;
 import java.util.List;
 import u.aly.au;
 
+import bl.pz;
+import bl.qa;
+import bl.qb;
+import bl.qe;
+import org.json.*;
+import java.util.concurrent.*;
+
 /* compiled from: BL */
 @Keep
 /* loaded from: classes.dex */
@@ -53,7 +60,7 @@ public class BiliVideoDetail implements Parcelable {
     public BiliMovie mMovie;
     @JSONField(name = "owner")
     public BiliUser mOwner;
-    @JSONField(name = au.U)
+    @JSONField(name = "pages")
     public List<Page> mPageList;
     @JSONField(name = "relates")
     public List<BiliVideoDetail> mRelatedList;
@@ -84,6 +91,40 @@ public class BiliVideoDetail implements Parcelable {
     public int mDuration;
     @JSONField(name = "history")
     public History mHistory;
+    @JSONField(name = "season_id")
+    public int mSeasonOId;
+
+    public JSONArray episodes;
+
+    public static class DetailResponse extends qe {
+        public JSONArray e() {
+            JSONObject optJSONObject;
+            try {
+                if (a() && (optJSONObject = new JSONObject(new String(this.b)).optJSONObject("data")) != null) {
+                    return optJSONObject.optJSONObject("View").optJSONObject("ugc_season").optJSONArray("sections").optJSONObject(0).optJSONArray("episodes");
+                }
+                return null;
+            } catch (Exception e) {
+                return null;
+            }
+        }
+    }
+
+    public void getUGCseason() {
+        if(this.mSeasonOId == 0 || this.mPageList.size() > 1 || this.episodes != null)return;
+        ExecutorService threadPool  = Executors.newSingleThreadExecutor();
+        Future<JSONArray> future = threadPool.submit(new Callable<JSONArray>() {
+            @Override
+            public JSONArray call() {
+                return ((DetailResponse) pz.a(new qa.a(DetailResponse.class).a("https://api.bilibili.com/x/web-interface/view/detail").a(true).b("aid", String.valueOf(BiliVideoDetail.this.mAvid)).a(new qb()).a(), "GET")).e();
+            }
+        });
+        try{
+            this.episodes = future.get();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 
     @Override // android.os.Parcelable
     public int describeContents() {

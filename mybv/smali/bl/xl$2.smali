@@ -1,14 +1,14 @@
 .class Lbl/xl$2;
 .super Ljava/lang/Object;
-.source "BL"
+.source "xl.java"
 
 # interfaces
-.implements Landroid/view/animation/Animation$AnimationListener;
+.implements Lbl/aax$a;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/xl;->U()V
+    value = Lbl/xl;->a(Landroid/view/ViewGroup;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,15 +18,32 @@
 
 
 # instance fields
-.field final synthetic a:Lbl/xl;
+.field final synthetic this$0:Lbl/xl;
+
+.field final synthetic val$color:I
+
+.field final synthetic val$color2:I
+
+.field final synthetic val$dimension:F
+
+.field final synthetic val$dimension2:F
 
 
 # direct methods
-.method constructor <init>(Lbl/xl;)V
+.method constructor <init>(Lbl/xl;IIFF)V
     .locals 0
 
-    .line 348
-    iput-object p1, p0, Lbl/xl$2;->a:Lbl/xl;
+    .prologue
+    .line 243
+    iput-object p1, p0, Lbl/xl$2;->this$0:Lbl/xl;
+
+    iput p2, p0, Lbl/xl$2;->val$color:I
+
+    iput p3, p0, Lbl/xl$2;->val$color2:I
+
+    iput p4, p0, Lbl/xl$2;->val$dimension:F
+
+    iput p5, p0, Lbl/xl$2;->val$dimension2:F
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -35,163 +52,29 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 2
+.method public a(Landroid/view/View;IZ)V
+    .locals 8
 
-    .line 356
-    iget-object p1, p0, Lbl/xl$2;->a:Lbl/xl;
+    .prologue
+    .line 246
+    iget-object v0, p0, Lbl/xl$2;->this$0:Lbl/xl;
 
-    const/4 v0, 0x0
+    iget v1, p0, Lbl/xl$2;->val$color:I
 
-    invoke-static {p1, v0}, Lbl/xl;->a(Lbl/xl;I)V
+    iget v2, p0, Lbl/xl$2;->val$color2:I
 
-    .line 357
-    iget-object p1, p0, Lbl/xl$2;->a:Lbl/xl;
+    iget v3, p0, Lbl/xl$2;->val$dimension:F
 
-    invoke-static {p1}, Lbl/xl;->a(Lbl/xl;)I
+    iget v4, p0, Lbl/xl$2;->val$dimension2:F
 
-    move-result p1
+    move-object v5, p1
 
-    iget-object v1, p0, Lbl/xl$2;->a:Lbl/xl;
+    move v6, p2
 
-    invoke-static {v1}, Lbl/xl;->d(Lbl/xl;)Landroid/support/v7/widget/LinearLayoutManager;
+    move v7, p3
 
-    move-result-object v1
+    invoke-virtual/range {v0 .. v7}, Lbl/xl;->a(IIFFLandroid/view/View;IZ)V
 
-    invoke-virtual {v1}, Landroid/support/v7/widget/LinearLayoutManager;->n()I
-
-    move-result v1
-
-    if-ge p1, v1, :cond_0
-
-    .line 358
-    iget-object p1, p0, Lbl/xl$2;->a:Lbl/xl;
-
-    invoke-static {p1}, Lbl/xl;->d(Lbl/xl;)Landroid/support/v7/widget/LinearLayoutManager;
-
-    move-result-object p1
-
-    iget-object v1, p0, Lbl/xl$2;->a:Lbl/xl;
-
-    invoke-static {v1}, Lbl/xl;->a(Lbl/xl;)I
-
-    move-result v1
-
-    invoke-virtual {p1, v1}, Landroid/support/v7/widget/LinearLayoutManager;->d(I)V
-
-    .line 359
-    iget-object p1, p0, Lbl/xl$2;->a:Lbl/xl;
-
-    invoke-static {p1, v0}, Lbl/xl;->a(Lbl/xl;I)V
-
-    goto :goto_0
-
-    .line 360
-    :cond_0
-    iget-object p1, p0, Lbl/xl$2;->a:Lbl/xl;
-
-    invoke-static {p1}, Lbl/xl;->a(Lbl/xl;)I
-
-    move-result p1
-
-    iget-object v0, p0, Lbl/xl$2;->a:Lbl/xl;
-
-    invoke-static {v0}, Lbl/xl;->d(Lbl/xl;)Landroid/support/v7/widget/LinearLayoutManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/support/v7/widget/LinearLayoutManager;->p()I
-
-    move-result v0
-
-    if-le p1, v0, :cond_1
-
-    .line 361
-    iget-object p1, p0, Lbl/xl$2;->a:Lbl/xl;
-
-    invoke-static {p1}, Lbl/xl;->d(Lbl/xl;)Landroid/support/v7/widget/LinearLayoutManager;
-
-    move-result-object p1
-
-    iget-object v0, p0, Lbl/xl$2;->a:Lbl/xl;
-
-    invoke-static {v0}, Lbl/xl;->a(Lbl/xl;)I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Landroid/support/v7/widget/LinearLayoutManager;->d(I)V
-
-    .line 362
-    iget-object p1, p0, Lbl/xl$2;->a:Lbl/xl;
-
-    iget-object v0, p0, Lbl/xl$2;->a:Lbl/xl;
-
-    invoke-static {v0}, Lbl/xl;->b(Lbl/xl;)Landroid/support/v7/widget/RecyclerView;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->getChildCount()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    invoke-static {p1, v0}, Lbl/xl;->a(Lbl/xl;I)V
-
-    goto :goto_0
-
-    .line 364
-    :cond_1
-    iget-object p1, p0, Lbl/xl$2;->a:Lbl/xl;
-
-    iget-object v0, p0, Lbl/xl$2;->a:Lbl/xl;
-
-    invoke-static {v0}, Lbl/xl;->a(Lbl/xl;)I
-
-    move-result v0
-
-    iget-object v1, p0, Lbl/xl$2;->a:Lbl/xl;
-
-    invoke-static {v1}, Lbl/xl;->d(Lbl/xl;)Landroid/support/v7/widget/LinearLayoutManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/support/v7/widget/LinearLayoutManager;->n()I
-
-    move-result v1
-
-    sub-int/2addr v0, v1
-
-    invoke-static {p1, v0}, Lbl/xl;->a(Lbl/xl;I)V
-
-    .line 366
-    :goto_0
-    iget-object p1, p0, Lbl/xl$2;->a:Lbl/xl;
-
-    invoke-static {p1}, Lbl/xl;->e(Lbl/xl;)V
-
-    return-void
-.end method
-
-.method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .locals 1
-
-    .line 351
-    iget-object p1, p0, Lbl/xl$2;->a:Lbl/xl;
-
-    invoke-static {p1}, Lbl/xl;->c(Lbl/xl;)Landroid/view/ViewGroup;
-
-    move-result-object p1
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->setVisibility(I)V
-
+    .line 247
     return-void
 .end method
