@@ -1,68 +1,73 @@
 .class final Lcom/bilibili/tv/ui/history/VideoHistoryActivity$i;
 .super Ljava/lang/Object;
-.source "BL"
+.source "VideoHistoryActivity.java"
 
 # interfaces
 .implements Lbl/agb$b;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->onLongClick(Landroid/view/View;)Z
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
+    accessFlags = 0x10
+    name = "i"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
+.field final synthetic this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/bilibili/tv/ui/history/VideoHistoryActivity;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$i;->a:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
+    .prologue
+    .line 274
+    iput-object p1, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$i;->this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 275
     return-void
 .end method
 
 
 # virtual methods
 .method public final a(Lbl/agb;Landroid/view/View;)V
-    .locals 2
+    .locals 3
 
-    .line 168
-    new-instance p2, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$a;
+    .prologue
+    .line 279
+    new-instance v0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$a;
 
-    iget-object v0, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$i;->a:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
+    iget-object v1, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$i;->this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
-    invoke-direct {p2, v0}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$a;-><init>(Lcom/bilibili/tv/ui/history/VideoHistoryActivity;)V
+    invoke-direct {v0, v1}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$a;-><init>(Lcom/bilibili/tv/ui/history/VideoHistoryActivity;)V
 
-    sget-object v0, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+    sget-object v1, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    new-array v1, v1, [Ljava/lang/Void;
+    new-array v2, v2, [Ljava/lang/Void;
 
-    invoke-virtual {p2, v0, v1}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$a;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, v1, v2}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$a;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 169
-    iget-object p2, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$i;->a:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
+    .line 280
+    iget-object v0, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$i;->this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
-    invoke-static {p2}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->c(Lcom/bilibili/tv/ui/history/VideoHistoryActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
+    invoke-static {v0}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->c(Lcom/bilibili/tv/ui/history/VideoHistoryActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-virtual {p2}, Lcom/bilibili/tv/ui/base/LoadingImageView;->c()V
+    invoke-virtual {v0}, Lcom/bilibili/tv/ui/base/LoadingImageView;->c()V
 
-    .line 170
+    .line 281
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
+    .line 282
     return-void
 .end method

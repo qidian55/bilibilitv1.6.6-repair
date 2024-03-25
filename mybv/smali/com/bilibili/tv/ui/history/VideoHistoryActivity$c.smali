@@ -1,6 +1,6 @@
 .class final Lcom/bilibili/tv/ui/history/VideoHistoryActivity$c;
 .super Ljava/lang/Object;
-.source "BL"
+.source "VideoHistoryActivity.java"
 
 # interfaces
 .implements Ljava/util/Comparator;
@@ -13,7 +13,7 @@
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x18
-    name = null
+    name = "c"
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
@@ -22,7 +22,8 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
+        "Ljava/util/Comparator",
+        "<",
         "Lcom/bilibili/tv/api/video/BiliVideoDetail;",
         ">;"
     }
@@ -37,6 +38,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 671
     new-instance v0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$c;
 
     invoke-direct {v0}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$c;-><init>()V
@@ -49,67 +52,74 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 673
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 674
     return-void
 .end method
 
 
 # virtual methods
-.method public final a(Lcom/bilibili/tv/api/video/BiliVideoDetail;Lcom/bilibili/tv/api/video/BiliVideoDetail;)I
-    .locals 5
+.method public final compare(Lcom/bilibili/tv/api/video/BiliVideoDetail;Lcom/bilibili/tv/api/video/BiliVideoDetail;)I
+    .locals 8
+
+    .prologue
+    const-wide/16 v6, 0x0
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_2
+    .line 679
+    if-eqz p1, :cond_7
 
-    if-eqz p2, :cond_2
+    if-nez p2, :cond_8
 
-    .line 370
-    iget-wide v1, p2, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mViewAt:J
-
-    iget-wide p1, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mViewAt:J
-
-    sub-long v3, v1, p1
-
-    const-wide/16 p1, 0x0
-
-    cmp-long v1, v3, p1
-
-    if-nez v1, :cond_0
-
+    .line 686
+    :cond_7
+    :goto_7
     return v0
 
-    :cond_0
-    cmp-long v0, v3, p1
+    .line 682
+    :cond_8
+    iget-wide v2, p2, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mViewAt:J
 
-    if-lez v0, :cond_1
+    iget-wide v4, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mViewAt:J
 
-    const/4 p1, 0x1
+    sub-long/2addr v2, v4
 
-    goto :goto_0
+    .line 683
+    cmp-long v1, v2, v6
 
-    :cond_1
-    const/4 p1, -0x1
+    if-eqz v1, :cond_7
 
-    :goto_0
-    return p1
+    .line 686
+    cmp-long v0, v2, v6
 
-    :cond_2
-    return v0
+    if-lez v0, :cond_17
+
+    const/4 v0, 0x1
+
+    goto :goto_7
+
+    :cond_17
+    const/4 v0, -0x1
+
+    goto :goto_7
 .end method
 
-.method public synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 1
 
-    .line 354
+    .prologue
+    .line 670
     check-cast p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
     check-cast p2, Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
-    invoke-virtual {p0, p1, p2}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$c;->a(Lcom/bilibili/tv/api/video/BiliVideoDetail;Lcom/bilibili/tv/api/video/BiliVideoDetail;)I
+    invoke-virtual {p0, p1, p2}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$c;->compare(Lcom/bilibili/tv/api/video/BiliVideoDetail;Lcom/bilibili/tv/api/video/BiliVideoDetail;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

@@ -1,108 +1,108 @@
 .class public final Lcom/bilibili/tv/ui/history/VideoHistoryActivity$h;
 .super Landroid/support/v7/widget/RecyclerView$g;
-.source "BL"
+.source "VideoHistoryActivity.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->a(Landroid/os/Bundle;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x19
-    name = null
+    name = "h"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:I
+.field final a:I
 
-.field final synthetic b:I
+.field final b:I
 
 
 # direct methods
 .method constructor <init>(II)V
     .locals 0
 
-    .line 107
-    iput p1, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$h;->a:I
-
-    iput p2, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$h;->b:I
-
+    .prologue
+    .line 163
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$g;-><init>()V
 
+    .line 164
+    iput p1, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$h;->a:I
+
+    .line 165
+    iput p2, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$h;->b:I
+
+    .line 166
     return-void
 .end method
 
 
 # virtual methods
 .method public a(Landroid/graphics/Rect;Landroid/view/View;Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$s;)V
-    .locals 1
+    .locals 4
 
-    const-string p4, "outRect"
+    .prologue
+    const/4 v1, 0x0
 
-    invoke-static {p1, p4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    .line 172
+    const-string v0, "outRect"
 
-    const-string p4, "view"
+    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p2, p4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    .line 173
+    const-string v0, "view"
 
-    const-string p4, "parent"
+    invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p3, p4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    .line 174
+    const-string v0, "parent"
 
-    .line 109
+    invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 175
     invoke-virtual {p3, p2}, Landroid/support/v7/widget/RecyclerView;->g(Landroid/view/View;)I
 
-    move-result p2
+    move-result v2
 
-    .line 114
-    invoke-static {}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->i()I
+    .line 176
+    const/4 v0, 0x1
 
-    move-result p3
+    if-le v2, v0, :cond_24
 
-    add-int/lit8 p3, p3, -0x1
+    iget v0, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$h;->a:I
 
-    const/4 p4, 0x0
+    .line 177
+    :goto_19
+    rem-int/lit8 v2, v2, 0x2
 
-    if-le p2, p3, :cond_0
+    if-nez v2, :cond_26
 
-    .line 115
-    iget p3, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$h;->a:I
+    .line 178
+    iget v2, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$h;->b:I
 
-    goto :goto_0
+    move v3, v1
 
-    :cond_0
-    const/4 p3, 0x0
+    .line 184
+    :goto_20
+    invoke-virtual {p1, v3, v0, v2, v1}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 117
-    :goto_0
-    invoke-static {}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->i()I
-
-    move-result v0
-
-    rem-int/2addr p2, v0
-
-    if-nez p2, :cond_1
-
-    .line 118
-    iget p2, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$h;->b:I
-
-    move v0, p2
-
-    const/4 p2, 0x0
-
-    goto :goto_1
-
-    .line 120
-    :cond_1
-    iget p2, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$h;->b:I
-
-    const/4 v0, 0x0
-
-    .line 122
-    :goto_1
-    invoke-virtual {p1, p2, p3, v0, p4}, Landroid/graphics/Rect;->set(IIII)V
-
+    .line 185
     return-void
+
+    :cond_24
+    move v0, v1
+
+    .line 176
+    goto :goto_19
+
+    .line 181
+    :cond_26
+    iget v3, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$h;->b:I
+
+    move v2, v1
+
+    .line 182
+    goto :goto_20
 .end method

@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/bilibili/tv/api/history/BiliPlayerHistoryService;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliPlayerHistoryService.java"
 
 
 # annotations
@@ -21,7 +21,8 @@
             "(",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
+            "Lbl/vp",
+            "<",
             "Lcom/alibaba/fastjson/JSONObject;",
             ">;"
         }
@@ -29,6 +30,35 @@
 
     .annotation runtime Lretrofit2/http/POST;
         a = "/x/v2/history/clear"
+    .end annotation
+.end method
+
+.method public abstract clearVideoHistories(Ljava/lang/String;Ljava/lang/String;)Lbl/vp;
+    .param p1    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "access_key"
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "kid"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ")",
+            "Lbl/vp",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/POST;
+        a = "/x/v2/history/delete"
     .end annotation
 .end method
 
@@ -43,9 +73,12 @@
             "(",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
-            "Ljava/util/List<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/video/BiliVideoDetail;",
             ">;>;>;"
         }
@@ -102,8 +135,10 @@
             "(",
             "Ljava/lang/String;",
             "JIJJJIJ)",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Ljava/lang/Void;",
             ">;>;"
         }
