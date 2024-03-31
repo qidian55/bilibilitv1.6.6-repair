@@ -82,7 +82,7 @@
     .locals 1
 
     .prologue
-    .line 589
+    .line 592
     new-instance v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo$1;
 
     invoke-direct {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo$1;-><init>()V
@@ -96,10 +96,10 @@
     .locals 0
 
     .prologue
-    .line 630
+    .line 633
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 631
+    .line 634
     return-void
 .end method
 
@@ -107,24 +107,24 @@
     .locals 1
 
     .prologue
-    .line 633
+    .line 636
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 634
+    .line 637
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;->mSeasonId:Ljava/lang/String;
 
-    .line 635
+    .line 638
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;->mTitle:Ljava/lang/String;
 
-    .line 636
+    .line 639
     return-void
 .end method
 
@@ -134,7 +134,7 @@
     .locals 1
 
     .prologue
-    .line 621
+    .line 624
     const/4 v0, 0x0
 
     return v0
@@ -146,7 +146,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 639
+    .line 642
     iget v1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;->mIsFinish:I
 
     if-ne v1, v0, :cond_6
@@ -164,16 +164,16 @@
     .locals 1
 
     .prologue
-    .line 626
+    .line 629
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;->mSeasonId:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 627
+    .line 630
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;->mTitle:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 628
+    .line 631
     return-void
 .end method

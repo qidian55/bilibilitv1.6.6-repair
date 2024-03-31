@@ -71,6 +71,7 @@ import tv.danmaku.videoplayer.core.pluginapk.PluginApk;
 import u.aly.au;
 
 import mybl.MyBiliApiService;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 /* compiled from: BL */
@@ -113,6 +114,10 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
     private static final int F = E * 2;
     private static final int G = 10066;
     private static final int H = G + 1;
+
+    public TextView episodes_title;
+    public RecyclerView episodes_video;
+    public EpisodesVideoAdapter episodes_video_adapter;
 
     @Override // bl.wf
     public String a() {
@@ -165,6 +170,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         this.g = (TextView) d(R.id.video_detail_uptime);
         this.hh = (TextView) d(R.id.video_detail_ep_title);
         this.i = (TextView) d(R.id.video_detail_relate_title);
+        this.episodes_title = (TextView) d(R.id.video_detail_episodes_title);
         this.m = d(R.id.content_layout);
         this.j = (DrawLinearLayout) d(R.id.video_detail_favorite);
         this.k = (ImageView) d(R.id.video_detail_favorite_img);
@@ -196,21 +202,13 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
 
         DrawTextView drawTextView = (DrawTextView) d(R.id.video_detail_more_btn);
         drawTextView.setUpDrawable(R.drawable.shadow_red_rect);
-        d dVar2 = dVar;
-        drawTextView.setOnFocusChangeListener(dVar2);
-        VideoDetailActivity videoDetailActivity = this;
-        drawTextView.setOnClickListener(videoDetailActivity);
+        drawTextView.setOnFocusChangeListener(dVar);
+        drawTextView.setOnClickListener(this);
         DrawTextView drawTextView2 = this.d;
         if (drawTextView2 != null) {
             drawTextView2.setUpDrawable(R.drawable.shadow_red_rect);
-        }
-        DrawTextView drawTextView3 = this.d;
-        if (drawTextView3 != null) {
-            drawTextView3.setOnFocusChangeListener(dVar2);
-        }
-        DrawTextView drawTextView4 = this.d;
-        if (drawTextView4 != null) {
-            drawTextView4.setOnClickListener(videoDetailActivity);
+            drawTextView2.setOnFocusChangeListener(dVar);
+            drawTextView2.setOnClickListener(this);
         }
         this.q = (FrameLayout) d(R.id.video_detail_layout);
         FrameLayout frameLayout = this.q;
@@ -222,8 +220,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             }
         }
         this.n = (RecyclerView) d(R.id.flow_tag_view);
-        final VideoDetailActivity videoDetailActivity2 = this;
-        FixLinearLayoutManager fixLinearLayoutManager = new FixLinearLayoutManager(videoDetailActivity2, 0, false) { // from class: com.bilibili.tv.ui.video.VideoDetailActivity$initView$linearLayoutManager$1
+        FixLinearLayoutManager fixLinearLayoutManager = new FixLinearLayoutManager(this, 0, false) { // from class: com.bilibili.tv.ui.video.VideoDetailActivity$initView$linearLayoutManager$1
             @Override // android.support.v7.widget.RecyclerView.h
             public View d(View view, int direction) {
                 RecyclerView recyclerView;
@@ -262,86 +259,25 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             recyclerView2.setAdapter(this.x);
         }
         this.o = (RecyclerView) d(R.id.video_detail_ep_layout);
-        final int i2 = E;
-        FixGridLayoutManager fixGridLayoutManager = new FixGridLayoutManager(videoDetailActivity2, i2, 1, false) { // from class: com.bilibili.tv.ui.video.VideoDetailActivity$initView$gridLayoutManager$1
-            @Override // android.support.v7.widget.RecyclerView.h
-            public View d(View view, int direction) {
-                RecyclerView recyclerView3;
-                if (view != null) {
-                    int d2 = d(view);
-                    if (direction != View.FOCUS_LEFT) {
-                        if (direction != View.FOCUS_UP) {
-                            if (direction != View.FOCUS_RIGHT) {
-                                if (direction == View.FOCUS_DOWN && (recyclerView3 = VideoDetailActivity.this.r) != null) {
-                                    RecyclerView.h layoutManager = recyclerView3.getLayoutManager();
-                                    if (layoutManager == null) {
-                                        throw new TypeCastException("null cannot be cast to non-null type android.support.v7.widget.LinearLayoutManager");
-                                    }
-                                    LinearLayoutManager linearLayoutManager = (LinearLayoutManager) layoutManager;
-                                    return linearLayoutManager.c(linearLayoutManager.o());
-                                }
-                            } else if (d2 == H() - 1) {
-                                return view;
-                            }
-                        }
-                    } else if (d2 == 0) {
-                        return view;
-                    }
-                    return super.d(view, direction);
-                }
-                return null;
-            }
-        };
-        RecyclerView recyclerView3 = this.o;
-        if (recyclerView3 != null) {
-            recyclerView3.setLayoutManager(fixGridLayoutManager);
-        }
         int dimension = (int) getResources().getDimension(R.dimen.px_24);
-        RecyclerView recyclerView4 = this.o;
-        if (recyclerView4 != null) {
-            recyclerView4.a(new j(dimension));
-        }
         this.t = new ArrayList();
         this.w = new add(new b(this.t));
-        RecyclerView recyclerView5 = this.o;
-        if (recyclerView5 != null) {
-            recyclerView5.setAdapter(this.w);
+        if (this.o != null) {
+            this.o.setLayoutManager(new FixGridLayoutManager(this, E, 1, false));
+            this.o.a(new j(dimension));
+            this.o.setAdapter(this.w);
         }
         this.r = (RecyclerView) d(R.id.video_detail_relate_video);
-        FixLinearLayoutManager fixLinearLayoutManager2 = new FixLinearLayoutManager(videoDetailActivity2, 0, false) { // from class: com.bilibili.tv.ui.video.VideoDetailActivity$initView$relativeLinearLayoutManager$1
-            @Override // android.support.v7.widget.RecyclerView.h
-            public View d(View view, int direction) {
-                if (view != null) {
-                    int d2 = d(view);
-                    if (direction != View.FOCUS_LEFT) {
-                        if (direction == View.FOCUS_UP) {
-                            RecyclerView recyclerView6 = VideoDetailActivity.this.o;
-                            if (recyclerView6 != null) {
-                                return recyclerView6.getChildCount() > 0 ? recyclerView6.getChildAt(0) : view;
-                            }
-                        } else if (direction != View.FOCUS_RIGHT) {
-                            if (direction == View.FOCUS_DOWN) {
-                                return view;
-                            }
-                        } else if (d2 == H() - 1) {
-                            return view;
-                        }
-                    } else if (d2 == 0) {
-                        return view;
-                    }
-                    return super.d(view, direction);
-                }
-                return null;
-            }
-        };
-        RecyclerView recyclerView6 = this.r;
-        if (recyclerView6 != null) {
-            recyclerView6.setLayoutManager(fixLinearLayoutManager2);
-        }
         this.v = new e();
-        RecyclerView recyclerView7 = this.r;
-        if (recyclerView7 != null) {
-            recyclerView7.setAdapter(this.v);
+        if (this.r != null) {
+            this.r.setLayoutManager(new FixLinearLayoutManager(this, 0, false));
+            this.r.setAdapter(this.v);
+        }
+        this.episodes_video = (RecyclerView) d(R.id.video_detail_episodes_video);
+        this.episodes_video_adapter = new EpisodesVideoAdapter();
+        if(this.episodes_video != null){
+            this.episodes_video.setLayoutManager(new FixLinearLayoutManager(this, 0, false));
+            this.episodes_video.setAdapter(this.episodes_video_adapter);
         }
     }
 
@@ -962,18 +898,18 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         }
 
         @Override // android.support.v7.widget.RecyclerView.a
-        public RecyclerView.v a(ViewGroup viewGroup, int i) {
-            bbi.b(viewGroup, "parent");
-            return c.Companion.a(viewGroup);
+        public RecyclerView.v a(ViewGroup parent, int i) {
+            bbi.b(parent, "parent");
+            return c.Companion.a(parent);
         }
 
         @Override // bl.adz, android.support.v7.widget.RecyclerView.a
-        public void a(RecyclerView.v vVar, int i) {
-            bbi.b(vVar, "holder");
-            if (!(vVar instanceof c)) {
-                vVar = null;
+        public void a(RecyclerView.v holder, int i) {
+            bbi.b(holder, "holder");
+            if (!(holder instanceof c)) {
+                holder = null;
             }
-            c cVar = (c) vVar;
+            c cVar = (c) holder;
             if (cVar != null) {
                 List<BiliVideoDetail.Page> list = this.b;
                 cVar.b(list != null ? list.get(i) : null);
@@ -1000,18 +936,18 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         }
 
         @Override // android.support.v7.widget.RecyclerView.a
-        public RecyclerView.v a(ViewGroup viewGroup, int i) {
-            bbi.b(viewGroup, "parent");
-            return f.Companion.a(viewGroup);
+        public RecyclerView.v a(ViewGroup parent, int i) {
+            bbi.b(parent, "parent");
+            return f.Companion.a(parent);
         }
 
         @Override // android.support.v7.widget.RecyclerView.a
-        public void a(RecyclerView.v vVar, int i) {
-            bbi.b(vVar, "holder");
-            if (!(vVar instanceof f)) {
-                vVar = null;
+        public void a(RecyclerView.v holder, int i) {
+            bbi.b(holder, "holder");
+            if (!(holder instanceof f)) {
+                holder = null;
             }
-            f fVar = (f) vVar;
+            f fVar = (f) holder;
             if (fVar != null) {
                 List<? extends BiliVideoDetail> list = this.b;
                 fVar.b(list != null ? list.get(i) : null);
@@ -1034,6 +970,46 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         }
     }
 
+    final class EpisodesVideoAdapter extends RecyclerView.a<RecyclerView.v> {
+        private List<BiliVideoDetail> data = new ArrayList();
+
+        public EpisodesVideoAdapter() {}
+
+        @Override // android.support.v7.widget.RecyclerView.a
+        public RecyclerView.v a(ViewGroup parent, int position) {
+            bbi.b(parent, "parent");
+            return f.Companion.a(parent);
+        }
+
+        @Override // android.support.v7.widget.RecyclerView.a
+        public void a(RecyclerView.v holder, int position) {
+            bbi.b(holder, "holder");
+            if (!(holder instanceof f)) {
+                holder = null;
+            }
+            f fVar = (f) holder;
+            if (fVar != null) {
+                List<BiliVideoDetail> list = this.data;
+                fVar.b(list != null ? list.get(position) : null);
+            }
+        }
+
+        @Override // android.support.v7.widget.RecyclerView.a
+        public int a() {
+            List<BiliVideoDetail> list = this.data;
+            if (list == null || list.isEmpty()) {
+                return 0;
+            }
+            return list.size();
+        }
+
+        public final void setData(List<BiliVideoDetail> list) {
+            bbi.b(list, "list");
+            this.data = list;
+            d();
+        }
+    }
+
     /* compiled from: BL */
     /* loaded from: classes.dex */
     final class g extends RecyclerView.a<RecyclerView.v> {
@@ -1045,22 +1021,22 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         }
 
         @Override // android.support.v7.widget.RecyclerView.a
-        public RecyclerView.v a(ViewGroup viewGroup, int i) {
-            bbi.b(viewGroup, "parent");
-            return h.Companion.a(viewGroup);
+        public RecyclerView.v a(ViewGroup parent, int i) {
+            bbi.b(parent, "parent");
+            return h.Companion.a(parent);
         }
 
         @Override // android.support.v7.widget.RecyclerView.a
-        public void a(RecyclerView.v vVar, int i) {
-            bbi.b(vVar, "holder");
-            if (vVar instanceof h) {
+        public void a(RecyclerView.v holder, int i) {
+            bbi.b(holder, "holder");
+            if (holder instanceof h) {
                 String str = this.b.get(i);
                 bbi.a((Object) str, "mList[position]");
-                ((h) vVar).z().setText(str);
-                View view = vVar.a;
+                ((h) holder).z().setText(str);
+                View view = holder.a;
                 bbi.a((Object) view, "infoVH.itemView");
                 view.setTag(str);
-                vVar.a.setTag(R.id.video_tag_id, this.c.get(str));
+                holder.a.setTag(R.id.video_tag_id, this.c.get(str));
             }
         }
 
@@ -1455,7 +1431,8 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             b(biliVideoDetail);
             a((List<? extends BiliVideoDetail.Tag>) biliVideoDetail.mTags);
             d(biliVideoDetail);
-            c(biliVideoDetail);
+            showEpisodes(biliVideoDetail);
+            if(biliVideoDetail.episodes == null)c(biliVideoDetail);
             VideoDetailActivity.this.a((Activity) VideoDetailActivity.this, biliVideoDetail);
             abi.a.a("tv_detail_view2_resp", abi.a.a(String.valueOf(VideoDetailActivity.this.s), String.valueOf(mg.a(VideoDetailActivity.this).d()), "success", "0"));
         }
@@ -1495,6 +1472,39 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             }
         }
 
+        private final void showEpisodes(BiliVideoDetail biliVideoDetail) {
+            biliVideoDetail.getUGCseason();
+            if (biliVideoDetail.episodes == null) {
+                TextView textView = VideoDetailActivity.this.episodes_title;
+                if (textView != null) {
+                    textView.setVisibility(8);
+                }
+                RecyclerView recyclerView = VideoDetailActivity.this.episodes_video;
+                if (recyclerView != null) {
+                    recyclerView.setVisibility(8);
+                }
+                return;
+            }
+            if (VideoDetailActivity.this.episodes_video_adapter != null) {
+                List<BiliVideoDetail> list = new ArrayList<BiliVideoDetail>();
+                for(int i=0;i<biliVideoDetail.episodes.length();i++){
+                    BiliVideoDetail t = JSON.parseObject(biliVideoDetail.episodes.optJSONObject(i).optJSONObject("arc").toString(), BiliVideoDetail.class);
+                    t.mOwner = biliVideoDetail.mOwner;
+                    list.add(t);
+                }
+                VideoDetailActivity.this.episodes_video_adapter.setData(list);
+            }
+            TextView textView2 = VideoDetailActivity.this.episodes_title;
+            if (textView2 != null) {
+                if(biliVideoDetail.episode_title!=null)textView2.setText(biliVideoDetail.episode_title);
+                textView2.setVisibility(0);
+            }
+            RecyclerView recyclerView2 = VideoDetailActivity.this.episodes_video;
+            if (recyclerView2 != null) {
+                recyclerView2.setVisibility(0);
+            }
+        }
+
         private final void c(BiliVideoDetail biliVideoDetail) {
             if (biliVideoDetail.mRelatedList == null || biliVideoDetail.mRelatedList.isEmpty()) {
                 TextView textView = VideoDetailActivity.this.i;
@@ -1508,11 +1518,10 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                 }
                 return;
             }
-            e eVar = VideoDetailActivity.this.v;
-            if (eVar != null) {
+            if (VideoDetailActivity.this.v != null) {
                 List<BiliVideoDetail> list = biliVideoDetail.mRelatedList;
                 bbi.a((Object) list, "response.mRelatedList");
-                eVar.a(list);
+                VideoDetailActivity.this.v.a(list);
             }
             TextView textView2 = VideoDetailActivity.this.i;
             if (textView2 != null) {

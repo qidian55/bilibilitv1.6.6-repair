@@ -82,22 +82,22 @@ public class BangumiEpisodeEx implements Parcelable {
 
     protected BangumiEpisodeEx(Parcel parcel) {
         this.aid = parcel.readInt();
-        this.badge = parcel.readString();
-        this.badgeType = parcel.readInt();
-        this.bvid = parcel.readString();
+        //this.badge = parcel.readString();
+        //this.badgeType = parcel.readInt();
+        //this.bvid = parcel.readString();
         this.cid = parcel.readInt();
         this.cover = parcel.readString();
         this.from = parcel.readString();
         this.epid = parcel.readLong();
-        this.link = parcel.readString();
+        //this.link = parcel.readString();
         this.long_title = parcel.readString();
-        this.movieTitle = parcel.readString();
-        this.releaseDate = parcel.readString();
-        this.shareCopy = parcel.readString();
-        this.shareUrl = parcel.readString();
-        this.shortLink = parcel.readString();
+        //this.movieTitle = parcel.readString();
+        //this.releaseDate = parcel.readString();
+        //this.shareCopy = parcel.readString();
+        //this.shareUrl = parcel.readString();
+        //this.shortLink = parcel.readString();
         this.status = parcel.readInt();
-        this.subTitle = parcel.readString();
+        //this.subTitle = parcel.readString();
         this.index = parcel.readString();
         this.vid = parcel.readString();
     }
@@ -105,22 +105,22 @@ public class BangumiEpisodeEx implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.aid);
-        parcel.writeString(this.badge);
-        parcel.writeInt(this.badgeType);
-        parcel.writeString(this.bvid);
+        //parcel.writeString(this.badge);
+        //parcel.writeInt(this.badgeType);
+        //parcel.writeString(this.bvid);
         parcel.writeInt(this.cid);
         parcel.writeString(this.cover);
         parcel.writeString(this.from);
         parcel.writeLong(this.epid);
-        parcel.writeString(this.link);
+        //parcel.writeString(this.link);
         parcel.writeString(this.long_title);
-        parcel.writeString(this.movieTitle);
-        parcel.writeString(this.releaseDate);
-        parcel.writeString(this.shareCopy);
-        parcel.writeString(this.shareUrl);
-        parcel.writeString(this.shortLink);
+        //parcel.writeString(this.movieTitle);
+        //parcel.writeString(this.releaseDate);
+        //parcel.writeString(this.shareCopy);
+        //parcel.writeString(this.shareUrl);
+        //parcel.writeString(this.shortLink);
         parcel.writeInt(this.status);
-        parcel.writeString(this.subTitle);
+        //parcel.writeString(this.subTitle);
         parcel.writeString(this.index);
         parcel.writeString(this.vid);
     }

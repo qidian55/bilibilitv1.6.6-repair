@@ -26,12 +26,12 @@
     .locals 0
 
     .prologue
-    .line 427
+    .line 363
     iput-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$CoinButtonListener;->this$0:Lcom/bilibili/tv/ui/video/VideoDetailActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 428
+    .line 364
     return-void
 .end method
 
@@ -43,44 +43,44 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 432
+    .line 368
     iget-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$CoinButtonListener;->this$0:Lcom/bilibili/tv/ui/video/VideoDetailActivity;
 
     # getter for: Lcom/bilibili/tv/ui/video/VideoDetailActivity;->u:Lcom/bilibili/tv/api/video/BiliVideoDetail;
-    invoke-static {v0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->access$200(Lcom/bilibili/tv/ui/video/VideoDetailActivity;)Lcom/bilibili/tv/api/video/BiliVideoDetail;
+    invoke-static {v0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->access$100(Lcom/bilibili/tv/ui/video/VideoDetailActivity;)Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
-    .line 433
+    .line 369
     const-string v0, "v"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 434
+    .line 370
     iget-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$CoinButtonListener;->this$0:Lcom/bilibili/tv/ui/video/VideoDetailActivity;
 
     invoke-static {v0}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
     move-result-object v0
 
-    .line 435
+    .line 371
     const-string v1, "BiliAccount.get(this)"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 436
+    .line 372
     invoke-virtual {v0}, Lbl/mg;->a()Z
 
     move-result v0
 
     if-nez v0, :cond_2e
 
-    .line 437
+    .line 373
     iget-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$CoinButtonListener;->this$0:Lcom/bilibili/tv/ui/video/VideoDetailActivity;
 
     const v1, 0x7f0c0062
 
     invoke-static {v0, v1}, Lbl/lr;->a(Landroid/content/Context;I)V
 
-    .line 438
+    .line 374
     sget-object v0, Lcom/bilibili/tv/ui/account/LoginActivity;->Companion:Lcom/bilibili/tv/ui/account/LoginActivity$a;
 
     iget-object v1, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$CoinButtonListener;->this$0:Lcom/bilibili/tv/ui/video/VideoDetailActivity;
@@ -89,18 +89,18 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/bilibili/tv/ui/account/LoginActivity$a;->a(Landroid/app/Activity;I)V
 
-    .line 442
+    .line 378
     :goto_2d
     return v3
 
-    .line 441
+    .line 377
     :cond_2e
     iget-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$CoinButtonListener;->this$0:Lcom/bilibili/tv/ui/video/VideoDetailActivity;
 
     const/4 v1, 0x2
 
     # invokes: Lcom/bilibili/tv/ui/video/VideoDetailActivity;->coinVideo(II)V
-    invoke-static {v0, v1, v3}, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->access$400(Lcom/bilibili/tv/ui/video/VideoDetailActivity;II)V
+    invoke-static {v0, v1, v3}, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->access$300(Lcom/bilibili/tv/ui/video/VideoDetailActivity;II)V
 
     goto :goto_2d
 .end method

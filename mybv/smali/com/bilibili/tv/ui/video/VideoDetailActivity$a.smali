@@ -19,10 +19,10 @@
     .locals 0
 
     .prologue
-    .line 1599
+    .line 1608
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1600
+    .line 1609
     return-void
 .end method
 
@@ -30,10 +30,10 @@
     .locals 0
 
     .prologue
-    .line 1603
+    .line 1612
     invoke-direct {p0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;-><init>()V
 
-    .line 1604
+    .line 1613
     return-void
 .end method
 
@@ -43,34 +43,34 @@
     .locals 3
 
     .prologue
-    .line 1611
+    .line 1620
     const-string v0, "context"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1612
+    .line 1621
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/bilibili/tv/ui/video/VideoDetailActivity;
 
     invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 1613
+    .line 1622
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 1614
+    .line 1623
     invoke-virtual {p0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;->a()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 1615
+    .line 1624
     invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
-    .line 1616
+    .line 1625
     return-object v0
 .end method
 
@@ -78,7 +78,7 @@
     .locals 1
 
     .prologue
-    .line 1607
+    .line 1616
     const-string v0, "bundle_ac_id"
 
     return-object v0

@@ -95,13 +95,14 @@ public class BiliVideoDetail implements Parcelable {
     public int mSeasonOId;
 
     public JSONArray episodes;
+    public String episode_title;
 
     public static class DetailResponse extends qe {
-        public JSONArray e() {
+        public JSONObject e() {
             JSONObject optJSONObject;
             try {
                 if (a() && (optJSONObject = new JSONObject(new String(this.b)).optJSONObject("data")) != null) {
-                    return optJSONObject.optJSONObject("View").optJSONObject("ugc_season").optJSONArray("sections").optJSONObject(0).optJSONArray("episodes");
+                    return optJSONObject;
                 }
                 return null;
             } catch (Exception e) {
@@ -113,14 +114,16 @@ public class BiliVideoDetail implements Parcelable {
     public void getUGCseason() {
         if(this.mSeasonOId == 0 || this.mPageList.size() > 1 || this.episodes != null)return;
         ExecutorService threadPool  = Executors.newSingleThreadExecutor();
-        Future<JSONArray> future = threadPool.submit(new Callable<JSONArray>() {
+        Future<JSONObject> future = threadPool.submit(new Callable<JSONObject>() {
             @Override
-            public JSONArray call() {
+            public JSONObject call() {
                 return ((DetailResponse) pz.a(new qa.a(DetailResponse.class).a("https://api.bilibili.com/x/web-interface/view/detail").a(true).b("aid", String.valueOf(BiliVideoDetail.this.mAvid)).a(new qb()).a(), "GET")).e();
             }
         });
         try{
-            this.episodes = future.get();
+            JSONObject detail_infos = future.get();
+            this.episodes = detail_infos.optJSONObject("View").optJSONObject("ugc_season").optJSONArray("sections").optJSONObject(0).optJSONArray("episodes");
+            this.episode_title = detail_infos.optJSONObject("View").optJSONObject("ugc_season").optString("title");
         }catch(Exception e){
             e.printStackTrace();
         }

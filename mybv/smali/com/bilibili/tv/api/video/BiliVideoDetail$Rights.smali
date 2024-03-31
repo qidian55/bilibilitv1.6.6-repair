@@ -76,7 +76,7 @@
     .locals 1
 
     .prologue
-    .line 362
+    .line 365
     new-instance v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights$1;
 
     invoke-direct {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights$1;-><init>()V
@@ -90,10 +90,10 @@
     .locals 0
 
     .prologue
-    .line 404
+    .line 407
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 405
+    .line 408
     return-void
 .end method
 
@@ -105,10 +105,10 @@
 
     const/4 v2, 0x0
 
-    .line 407
+    .line 410
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 408
+    .line 411
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
@@ -120,7 +120,7 @@
     :goto_c
     iput-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;->mCanBp:Z
 
-    .line 409
+    .line 412
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
@@ -132,7 +132,7 @@
     :goto_15
     iput-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;->mCanCharge:Z
 
-    .line 410
+    .line 413
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
@@ -144,7 +144,7 @@
     :goto_1e
     iput-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;->mCanDownload:Z
 
-    .line 411
+    .line 414
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
@@ -156,7 +156,7 @@
     :goto_27
     iput-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;->mCanMovie:Z
 
-    .line 412
+    .line 415
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
@@ -166,37 +166,37 @@
     :goto_2f
     iput-boolean v1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;->vipQuality:Z
 
-    .line 413
+    .line 416
     return-void
 
     :cond_32
     move v0, v2
 
-    .line 408
+    .line 411
     goto :goto_c
 
     :cond_34
     move v0, v2
 
-    .line 409
+    .line 412
     goto :goto_15
 
     :cond_36
     move v0, v2
 
-    .line 410
+    .line 413
     goto :goto_1e
 
     :cond_38
     move v0, v2
 
-    .line 411
+    .line 414
     goto :goto_27
 
     :cond_3a
     move v1, v2
 
-    .line 412
+    .line 415
     goto :goto_2f
 .end method
 
@@ -206,7 +206,7 @@
     .locals 1
 
     .prologue
-    .line 392
+    .line 395
     const/4 v0, 0x0
 
     return v0
@@ -220,7 +220,7 @@
 
     const/4 v2, 0x0
 
-    .line 397
+    .line 400
     iget-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;->mCanBp:Z
 
     if-eqz v0, :cond_2a
@@ -230,7 +230,7 @@
     :goto_7
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 398
+    .line 401
     iget-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;->mCanCharge:Z
 
     if-eqz v0, :cond_2c
@@ -240,7 +240,7 @@
     :goto_f
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 399
+    .line 402
     iget-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;->mCanDownload:Z
 
     if-eqz v0, :cond_2e
@@ -250,7 +250,7 @@
     :goto_17
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 400
+    .line 403
     iget-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;->mCanMovie:Z
 
     if-eqz v0, :cond_30
@@ -260,7 +260,7 @@
     :goto_1f
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 401
+    .line 404
     iget-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;->vipQuality:Z
 
     if-eqz v0, :cond_32
@@ -268,36 +268,36 @@
     :goto_26
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 402
+    .line 405
     return-void
 
     :cond_2a
     move v0, v2
 
-    .line 397
+    .line 400
     goto :goto_7
 
     :cond_2c
     move v0, v2
 
-    .line 398
+    .line 401
     goto :goto_f
 
     :cond_2e
     move v0, v2
 
-    .line 399
+    .line 402
     goto :goto_17
 
     :cond_30
     move v0, v2
 
-    .line 400
+    .line 403
     goto :goto_1f
 
     :cond_32
     move v1, v2
 
-    .line 401
+    .line 404
     goto :goto_26
 .end method

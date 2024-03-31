@@ -21,7 +21,7 @@
         "Ljava/lang/Object;",
         "Ljava/util/concurrent/Callable",
         "<",
-        "Lorg/json/JSONArray;",
+        "Lorg/json/JSONObject;",
         ">;"
     }
 .end annotation
@@ -36,7 +36,7 @@
     .locals 0
 
     .prologue
-    .line 116
+    .line 117
     iput-object p1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$2;->this$0:Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,19 +55,19 @@
     .end annotation
 
     .prologue
-    .line 116
-    invoke-virtual {p0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$2;->call()Lorg/json/JSONArray;
+    .line 117
+    invoke-virtual {p0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$2;->call()Lorg/json/JSONObject;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public call()Lorg/json/JSONArray;
+.method public call()Lorg/json/JSONObject;
     .locals 3
 
     .prologue
-    .line 119
+    .line 120
     new-instance v0, Lbl/qa$a;
 
     const-class v1, Lcom/bilibili/tv/api/video/BiliVideoDetail$DetailResponse;
@@ -120,7 +120,7 @@
 
     check-cast v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$DetailResponse;
 
-    invoke-virtual {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$DetailResponse;->e()Lorg/json/JSONArray;
+    invoke-virtual {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$DetailResponse;->e()Lorg/json/JSONObject;
 
     move-result-object v0
 
