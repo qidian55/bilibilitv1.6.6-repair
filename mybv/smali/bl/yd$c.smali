@@ -1,6 +1,6 @@
 .class public interface abstract Lbl/yd$c;
 .super Ljava/lang/Object;
-.source "BL"
+.source "yd.java"
 
 
 # annotations

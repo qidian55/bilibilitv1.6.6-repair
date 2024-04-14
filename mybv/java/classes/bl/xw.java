@@ -244,6 +244,7 @@ public class xw extends xh implements bbb<Message, Boolean>, PlayerMenuRight.a {
             arrayList3.add(String.valueOf(f3) + "x");
         }
         this.c.init_speed(arrayList3, abd.get_speed_id(p()));
+        this.c.init_mode(Arrays.asList(resources.getStringArray(R.array.player_mode)), 0);
     }
 
     private int T() {

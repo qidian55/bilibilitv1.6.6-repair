@@ -24,6 +24,7 @@ import com.bilibili.tv.MainApplication;
 import tv.danmaku.ijk.media.player.IjkCodecHelper;
 import android.util.Log;
 import mybl.VideoViewParams;
+import com.bilibili.tv.player.widget.PlayerMenuRight;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -96,7 +97,8 @@ class IjkCommander extends AbsPlayerCommander {
             }
             else{this.mIjkMediaPlayer.setDataSource(applyUriHookForIjkPlayer);}
         }
-        this.mIjkMediaPlayer.setSpeed(abd.get_speed(MainApplication.a().getApplicationContext()));
+        int speed_id = PlayerMenuRight.speed_id>=0?PlayerMenuRight.speed_id:abd.get_speed_id(MainApplication.a().getApplicationContext());
+        this.mIjkMediaPlayer.setSpeed(abd.get_speed(speed_id));
         this.mMediaPlayer.prepareAsync();
     }
 

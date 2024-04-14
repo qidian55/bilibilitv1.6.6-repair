@@ -20,6 +20,14 @@
 .end annotation
 
 
+# static fields
+.field public static _this:Lcom/bilibili/tv/player/widget/PlayerMenuRight;
+
+.field public static mode_id:I
+
+.field public static speed_id:I
+
+
 # instance fields
 .field private a:Landroid/view/animation/Animation;
 
@@ -101,6 +109,17 @@
 
 .field private m:I
 
+.field public mode_list:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private n:I
 
 .field private o:I
@@ -110,8 +129,6 @@
 .field private q:I
 
 .field private r:Ljava/lang/Runnable;
-
-.field public speed_id:I
 
 .field public speed_list:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -126,116 +143,149 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
+.method static constructor <clinit>()V
     .locals 1
 
     .prologue
-    const/4 v0, 0x0
-
-    .line 83
-    invoke-direct {p0, p1}, Lbl/aay;-><init>(Landroid/content/Context;)V
-
-    .line 84
-    iput-boolean v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->c:Z
-
-    .line 85
-    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->l:I
-
-    .line 86
-    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->m:I
-
-    .line 87
-    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->n:I
-
-    .line 88
-    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->o:I
-
-    .line 89
-    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->p:I
-
-    .line 90
-    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->q:I
-
-    .line 91
     const/4 v0, -0x1
 
-    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+    .line 55
+    sput v0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+
+    .line 56
+    sput v0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_id:I
+
+    .line 59
+    const/4 v0, 0x0
+
+    sput-object v0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->_this:Lcom/bilibili/tv/player/widget/PlayerMenuRight;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 2
+
+    .prologue
+    const/4 v1, -0x1
+
+    const/4 v0, 0x0
+
+    .line 86
+    invoke-direct {p0, p1}, Lbl/aay;-><init>(Landroid/content/Context;)V
+
+    .line 87
+    iput-boolean v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->c:Z
+
+    .line 88
+    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->l:I
+
+    .line 89
+    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->m:I
+
+    .line 90
+    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->n:I
+
+    .line 91
+    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->o:I
 
     .line 92
+    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->p:I
+
+    .line 93
+    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->q:I
+
+    .line 94
+    sput v1, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+
+    .line 95
+    sput v1, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_id:I
+
+    .line 96
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .locals 2
 
     .prologue
+    const/4 v1, -0x1
+
     const/4 v0, 0x0
 
-    .line 95
+    .line 99
     invoke-direct {p0, p1, p2}, Lbl/aay;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 96
+    .line 100
     iput-boolean v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->c:Z
 
-    .line 97
+    .line 101
     iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->l:I
 
-    .line 98
+    .line 102
     iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->m:I
 
-    .line 99
+    .line 103
     iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->n:I
 
-    .line 100
+    .line 104
     iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->o:I
 
-    .line 101
+    .line 105
     iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->p:I
 
-    .line 102
+    .line 106
     iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->q:I
 
-    .line 103
-    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+    .line 107
+    sput v1, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
 
-    .line 104
+    .line 108
+    sput v1, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_id:I
+
+    .line 109
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .locals 2
 
     .prologue
+    const/4 v1, -0x1
+
     const/4 v0, 0x0
 
-    .line 107
+    .line 112
     invoke-direct {p0, p1, p2, p3}, Lbl/aay;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 108
+    .line 113
     iput-boolean v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->c:Z
 
-    .line 109
+    .line 114
     iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->l:I
 
-    .line 110
+    .line 115
     iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->m:I
 
-    .line 111
+    .line 116
     iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->n:I
 
-    .line 112
+    .line 117
     iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->o:I
 
-    .line 113
+    .line 118
     iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->p:I
 
-    .line 114
+    .line 119
     iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->q:I
 
-    .line 115
-    iput v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+    .line 120
+    sput v1, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
 
-    .line 116
+    .line 121
+    sput v1, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_id:I
+
+    .line 122
     return-void
 .end method
 
@@ -253,14 +303,14 @@
     .locals 1
 
     .prologue
-    .line 307
+    .line 317
     packed-switch p1, :pswitch_data_14
 
-    .line 318
+    .line 328
     :goto_3
     return-void
 
-    .line 309
+    .line 319
     :pswitch_4
     const/4 v0, 0x2
 
@@ -268,7 +318,7 @@
 
     goto :goto_3
 
-    .line 312
+    .line 322
     :pswitch_9
     const/4 v0, 0x1
 
@@ -276,7 +326,7 @@
 
     goto :goto_3
 
-    .line 315
+    .line 325
     :pswitch_e
     const/4 v0, 0x3
 
@@ -284,7 +334,7 @@
 
     goto :goto_3
 
-    .line 307
+    .line 317
     nop
 
     :pswitch_data_14
@@ -299,7 +349,7 @@
     .locals 1
 
     .prologue
-    .line 303
+    .line 313
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->e:Ljava/util/List;
 
     if-eqz v0, :cond_10
@@ -343,7 +393,7 @@
     .end annotation
 
     .prologue
-    .line 158
+    .line 164
     invoke-virtual {p0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -354,7 +404,7 @@
 
     move-result v5
 
-    .line 159
+    .line 165
     invoke-virtual {p0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -365,7 +415,7 @@
 
     move-result v2
 
-    .line 160
+    .line 166
     invoke-virtual {p0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -376,7 +426,7 @@
 
     move-result v3
 
-    .line 161
+    .line 167
     new-instance v6, Lcom/bilibili/tv/player/widget/PlayerMenuRight$2;
 
     invoke-virtual {p0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->getContext()Landroid/content/Context;
@@ -389,14 +439,14 @@
 
     invoke-direct {v6, p0, v0, v1, p1}, Lcom/bilibili/tv/player/widget/PlayerMenuRight$2;-><init>(Lcom/bilibili/tv/player/widget/PlayerMenuRight;Landroid/content/Context;II)V
 
-    .line 167
+    .line 173
     new-instance v0, Lbl/aas;
 
     invoke-direct {v0, p0, v6}, Lbl/aas;-><init>(Lcom/bilibili/tv/player/widget/PlayerMenuRight;Lbl/aax;)V
 
     invoke-virtual {v6, v0}, Lbl/aax;->a(Lbl/aax$b;)V
 
-    .line 168
+    .line 174
     new-instance v0, Lbl/aat;
 
     move-object v1, p0
@@ -407,7 +457,7 @@
 
     invoke-virtual {v6, v0}, Lbl/aax;->a(Lbl/aax$a;)V
 
-    .line 169
+    .line 175
     return-object v6
 .end method
 
@@ -415,7 +465,7 @@
     .locals 2
 
     .prologue
-    .line 404
+    .line 420
     const/4 v0, 0x1
 
     iget v1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->q:I
@@ -424,19 +474,19 @@
 
     move-result-object v0
 
-    .line 405
+    .line 421
     if-eqz v0, :cond_d
 
-    .line 406
+    .line 422
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setSelected(Z)V
 
-    .line 408
+    .line 424
     :cond_d
     invoke-super {p0}, Lbl/aay;->a()V
 
-    .line 409
+    .line 425
     return-void
 .end method
 
@@ -446,48 +496,48 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 195
+    .line 201
     move-object v0, p5
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 196
+    .line 202
     invoke-virtual {p5}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v1
 
     check-cast v1, Landroid/view/ViewGroup;
 
-    .line 197
+    .line 203
     invoke-virtual {v0}, Landroid/widget/TextView;->isFocused()Z
 
     move-result v2
 
     if-nez v2, :cond_1a
 
-    .line 198
+    .line 204
     const/4 v1, 0x2
 
     if-ne p3, v1, :cond_19
 
-    .line 199
+    .line 205
     invoke-virtual {v0, v4, p1}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    .line 200
+    .line 206
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 219
+    .line 225
     :cond_19
     :goto_19
     return-void
 
-    .line 205
+    .line 211
     :cond_1a
     invoke-virtual {p0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->e()V
 
     move v3, v4
 
-    .line 206
+    .line 212
     :goto_1e
     invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -495,36 +545,36 @@
 
     if-ge v3, v2, :cond_34
 
-    .line 207
+    .line 213
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
     check-cast v2, Landroid/widget/TextView;
 
-    .line 208
+    .line 214
     invoke-virtual {v2, v4, p1}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    .line 209
+    .line 215
     invoke-virtual {v2, p2}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 206
+    .line 212
     add-int/lit8 v2, v3, 0x1
 
     move v3, v2
 
     goto :goto_1e
 
-    .line 211
+    .line 217
     :cond_34
     const/4 v2, 0x1
 
     if-ne p3, v2, :cond_4b
 
-    .line 212
+    .line 218
     invoke-virtual {v0, v4, p4}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    .line 213
+    .line 219
     iget v2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->q:I
 
     invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
@@ -533,7 +583,7 @@
 
     if-ge v2, v3, :cond_4b
 
-    .line 214
+    .line 220
     iget v2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->q:I
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -542,11 +592,11 @@
 
     invoke-virtual {v1, v4}, Landroid/view/View;->setSelected(Z)V
 
-    .line 217
+    .line 223
     :cond_4b
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setSelected(Z)V
 
-    .line 218
+    .line 224
     const/4 v1, -0x1
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
@@ -558,14 +608,14 @@
     .locals 1
 
     .prologue
-    .line 508
+    .line 529
     new-instance v0, Lbl/aav;
 
     invoke-direct {v0, p0, p1, p2}, Lbl/aav;-><init>(Lcom/bilibili/tv/player/widget/PlayerMenuRight;II)V
 
     invoke-virtual {p0, v0, p3, p4}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 509
+    .line 530
     return-void
 .end method
 
@@ -585,7 +635,7 @@
     .locals 3
 
     .prologue
-    .line 126
+    .line 132
     invoke-direct {p0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->f()Z
 
     move-result v0
@@ -602,12 +652,12 @@
 
     if-nez v0, :cond_12
 
-    .line 153
+    .line 159
     :cond_11
     :goto_11
     return-void
 
-    .line 129
+    .line 135
     :cond_12
     iget-object v1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_list:Ljava/util/List;
 
@@ -617,20 +667,20 @@
 
     if-eqz v1, :cond_22
 
-    .line 130
+    .line 136
     new-instance v1, Lcom/bilibili/tv/player/widget/PlayerMenuRight$1;
 
     invoke-direct {v1, p0, p2, p1, p4}, Lcom/bilibili/tv/player/widget/PlayerMenuRight$1;-><init>(Lcom/bilibili/tv/player/widget/PlayerMenuRight;IILjava/lang/String;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
-    .line 139
+    .line 145
     :cond_22
     const/4 v1, 0x2
 
-    if-ne p1, v1, :cond_90
+    if-ne p1, v1, :cond_a0
 
-    .line 141
+    .line 147
     :try_start_25
     iget-object v1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->g:Ljava/util/List;
 
@@ -646,7 +696,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_95
+    if-nez v1, :cond_a5
 
     iget-object v1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->h:Ljava/util/List;
 
@@ -662,7 +712,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_95
+    if-nez v1, :cond_a5
 
     iget-object v1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->k:Ljava/util/List;
 
@@ -678,7 +728,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_95
+    if-nez v1, :cond_a5
 
     iget-object v1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->i:Ljava/util/List;
 
@@ -694,7 +744,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_95
+    if-nez v1, :cond_a5
 
     iget-object v1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->j:Ljava/util/List;
 
@@ -710,11 +760,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_95
+    if-nez v1, :cond_a5
 
     iget-object v1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_list:Ljava/util/List;
 
-    iget v2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+    sget v2, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
 
     invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -726,9 +776,25 @@
 
     move-result v1
 
-    if-nez v1, :cond_95
+    if-nez v1, :cond_a5
 
-    .line 142
+    iget-object v1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_list:Ljava/util/List;
+
+    sget v2, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_id:I
+
+    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    invoke-virtual {v1, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_a5
+
+    .line 148
     invoke-virtual {v0}, Landroid/widget/TextView;->getCompoundDrawables()[Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
@@ -740,19 +806,19 @@
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
-    :try_end_90
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_25 .. :try_end_90} :catch_a5
+    :try_end_a0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_25 .. :try_end_a0} :catch_b5
 
-    .line 152
-    :cond_90
-    :goto_90
+    .line 158
+    :cond_a0
+    :goto_a0
     invoke-virtual {v0, p4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_11
 
-    .line 145
-    :cond_95
-    :try_start_95
+    .line 151
+    :cond_a5
+    :try_start_a5
     invoke-virtual {v0}, Landroid/widget/TextView;->getCompoundDrawables()[Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
@@ -765,25 +831,25 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    .line 146
+    .line 152
     invoke-virtual {p0, p1, p2}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->e(II)V
-    :try_end_a4
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_95 .. :try_end_a4} :catch_a5
+    :try_end_b4
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_a5 .. :try_end_b4} :catch_b5
 
-    goto :goto_90
+    goto :goto_a0
 
-    .line 148
-    :catch_a5
+    .line 154
+    :catch_b5
     move-exception v1
 
-    .line 149
+    .line 155
     const-string v1, "PlayerMenuRight"
 
     const-string v2, "Menu data error, why?"
 
     invoke-static {v1, v2}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_90
+    goto :goto_a0
 .end method
 
 .method public a(Ljava/util/List;I)V
@@ -799,13 +865,13 @@
     .end annotation
 
     .prologue
-    .line 474
+    .line 490
     iput-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->g:Ljava/util/List;
 
-    .line 475
+    .line 491
     iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->l:I
 
-    .line 476
+    .line 492
     return-void
 .end method
 
@@ -813,27 +879,27 @@
     .locals 2
 
     .prologue
-    .line 412
+    .line 428
     invoke-direct {p0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->f()Z
 
     move-result v0
 
     if-eqz v0, :cond_7
 
-    .line 462
+    .line 478
     :goto_6
     return-void
 
-    .line 415
+    .line 431
     :cond_7
     if-eqz p1, :cond_34
 
-    .line 416
+    .line 432
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->a:Landroid/view/animation/Animation;
 
     if-nez v0, :cond_24
 
-    .line 417
+    .line 433
     invoke-virtual {p0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -846,7 +912,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->a:Landroid/view/animation/Animation;
 
-    .line 418
+    .line 434
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->a:Landroid/view/animation/Animation;
 
     new-instance v1, Lcom/bilibili/tv/player/widget/PlayerMenuRight$3;
@@ -855,34 +921,34 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 434
+    .line 450
     :cond_24
     invoke-virtual {p0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->c()V
 
-    .line 435
+    .line 451
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->setVisibility(I)V
 
-    .line 436
+    .line 452
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->a:Landroid/view/animation/Animation;
 
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 437
+    .line 453
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->c:Z
 
     goto :goto_6
 
-    .line 440
+    .line 456
     :cond_34
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->b:Landroid/view/animation/Animation;
 
     if-nez v0, :cond_4f
 
-    .line 441
+    .line 457
     invoke-virtual {p0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -895,7 +961,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->b:Landroid/view/animation/Animation;
 
-    .line 442
+    .line 458
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->b:Landroid/view/animation/Animation;
 
     new-instance v1, Lcom/bilibili/tv/player/widget/PlayerMenuRight$4;
@@ -904,18 +970,18 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 459
+    .line 475
     :cond_4f
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->b:Landroid/view/animation/Animation;
 
     invoke-virtual {v0}, Landroid/view/animation/Animation;->cancel()V
 
-    .line 460
+    .line 476
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->b:Landroid/view/animation/Animation;
 
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 461
+    .line 477
     invoke-static {p0}, Lbl/aap;->b(Landroid/view/View;)V
 
     goto :goto_6
@@ -925,64 +991,72 @@
     .locals 3
 
     .prologue
-    .line 326
+    .line 336
     invoke-super {p0, p1, p2}, Lbl/aay;->a(II)Z
 
     move-result v1
 
-    .line 327
-    packed-switch p2, :pswitch_data_20
+    .line 337
+    packed-switch p2, :pswitch_data_24
 
-    .line 347
+    .line 360
     const/4 v0, 0x0
 
-    .line 350
+    .line 363
     :goto_8
     add-int/lit8 v2, p1, 0x1
 
     invoke-virtual {p0, v2, v0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->e(II)V
 
-    .line 351
+    .line 364
     return v1
 
-    .line 329
+    .line 339
     :pswitch_e
     iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->l:I
 
     goto :goto_8
 
-    .line 332
+    .line 342
     :pswitch_11
     iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->m:I
 
     goto :goto_8
 
-    .line 335
+    .line 345
     :pswitch_14
     iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->p:I
 
     goto :goto_8
 
-    .line 338
+    .line 348
     :pswitch_17
     iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->n:I
 
     goto :goto_8
 
-    .line 341
+    .line 351
     :pswitch_1a
     iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->o:I
 
     goto :goto_8
 
-    .line 344
+    .line 354
     :pswitch_1d
-    iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+    sget v0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
 
     goto :goto_8
 
-    .line 327
-    :pswitch_data_20
+    .line 357
+    :pswitch_20
+    sget v0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_id:I
+
+    goto :goto_8
+
+    .line 337
+    nop
+
+    :pswitch_data_24
     .packed-switch 0x0
         :pswitch_e
         :pswitch_11
@@ -990,6 +1064,7 @@
         :pswitch_17
         :pswitch_1a
         :pswitch_1d
+        :pswitch_20
     .end packed-switch
 .end method
 
@@ -1029,40 +1104,40 @@
 
     const/4 v1, 0x0
 
-    .line 238
+    .line 244
     invoke-virtual {p0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->e()V
 
-    .line 239
+    .line 245
     invoke-super/range {p0 .. p5}, Lbl/aay;->a(IILandroid/view/View;Landroid/view/ViewGroup;Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1b
 
-    .line 240
+    .line 246
     iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->q:I
 
-    .line 241
+    .line 247
     invoke-virtual {p0, v2, p2}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->d(II)Landroid/view/View;
 
     move-result-object v0
 
-    .line 242
+    .line 248
     if-eqz v0, :cond_17
 
-    .line 243
+    .line 249
     invoke-virtual {v0, v2}, Landroid/view/View;->setSelected(Z)V
 
-    .line 245
+    .line 251
     :cond_17
     invoke-direct {p0, p2}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->d(I)V
 
-    .line 299
+    .line 309
     :cond_1a
     :goto_1a
     return v2
 
-    .line 248
+    .line 254
     :cond_1b
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->d:Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;
 
@@ -1070,7 +1145,7 @@
 
     move v0, v1
 
-    .line 292
+    .line 302
     :cond_20
     :goto_20
     invoke-virtual {p4, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -1079,10 +1154,10 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 293
+    .line 303
     if-eqz v0, :cond_31
 
-    .line 294
+    .line 304
     invoke-virtual {v0}, Landroid/widget/TextView;->getCompoundDrawables()[Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -1091,13 +1166,13 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    .line 296
+    .line 306
     :cond_31
     instance-of v0, p3, Landroid/widget/TextView;
 
     if-eqz v0, :cond_1a
 
-    .line 297
+    .line 307
     check-cast p3, Landroid/widget/TextView;
 
     invoke-virtual {p3}, Landroid/widget/TextView;->getCompoundDrawables()[Landroid/graphics/drawable/Drawable;
@@ -1112,7 +1187,7 @@
 
     goto :goto_1a
 
-    .line 250
+    .line 256
     :cond_43
     invoke-direct {p0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->f()Z
 
@@ -1122,10 +1197,10 @@
 
     move v2, v1
 
-    .line 251
+    .line 257
     goto :goto_1a
 
-    .line 253
+    .line 259
     :cond_4b
     const-string v0, "\u5206\u96c6"
 
@@ -1135,17 +1210,17 @@
 
     if-eqz v0, :cond_5c
 
-    .line 254
+    .line 260
     invoke-virtual {p0, v1}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->a(Z)V
 
-    .line 255
+    .line 261
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->d:Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;
 
     invoke-interface {v0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;->P()V
 
     goto :goto_1a
 
-    .line 258
+    .line 264
     :cond_5c
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->g:Ljava/util/List;
 
@@ -1157,12 +1232,12 @@
 
     iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->l:I
 
-    if-ne p2, v0, :cond_103
+    if-ne p2, v0, :cond_10f
 
     :cond_68
     move v0, v1
 
-    .line 266
+    .line 272
     :goto_69
     iget-object v3, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->h:Ljava/util/List;
 
@@ -1172,23 +1247,23 @@
 
     if-eq v3, v6, :cond_7d
 
-    .line 267
+    .line 273
     iget-object v3, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->d:Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;
 
-    if-nez p2, :cond_111
+    if-nez p2, :cond_11d
 
     move v0, v2
 
     :goto_76
     invoke-interface {v3, v0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;->c(Z)V
 
-    .line 268
+    .line 274
     iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->m:I
 
-    .line 269
+    .line 275
     iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->m:I
 
-    .line 271
+    .line 277
     :cond_7d
     iget-object v3, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->k:Ljava/util/List;
 
@@ -1198,18 +1273,18 @@
 
     if-eq v3, v6, :cond_8e
 
-    .line 272
+    .line 278
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->d:Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;
 
     invoke-interface {v0, p2}, Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;->f(I)V
 
-    .line 273
+    .line 279
     iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->p:I
 
-    .line 274
+    .line 280
     iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->p:I
 
-    .line 276
+    .line 282
     :cond_8e
     iget-object v3, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->i:Ljava/util/List;
 
@@ -1219,7 +1294,7 @@
 
     if-eq v3, v6, :cond_af
 
-    .line 277
+    .line 283
     iget-object v3, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->d:Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;
 
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->i:Ljava/util/List;
@@ -1240,13 +1315,13 @@
 
     invoke-interface {v3, v0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;->a(F)V
 
-    .line 278
+    .line 284
     iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->n:I
 
-    .line 279
+    .line 285
     iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->n:I
 
-    .line 281
+    .line 287
     :cond_af
     iget-object v3, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_list:Ljava/util/List;
 
@@ -1256,7 +1331,7 @@
 
     if-eq v3, v6, :cond_d8
 
-    .line 282
+    .line 288
     iget-object v3, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->d:Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;
 
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_list:Ljava/util/List;
@@ -1285,14 +1360,30 @@
 
     invoke-interface {v3, v0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;->switch_speed(F)V
 
-    .line 283
-    iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+    .line 289
+    sget v0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
 
-    .line 284
-    iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+    .line 290
+    sput p2, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
 
-    .line 286
+    .line 292
     :cond_d8
+    iget-object v3, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_list:Ljava/util/List;
+
+    invoke-interface {v3, p5}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
+
+    move-result v3
+
+    if-eq v3, v6, :cond_e4
+
+    .line 293
+    sget v0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_id:I
+
+    .line 294
+    sput p2, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_id:I
+
+    .line 296
+    :cond_e4
     iget-object v3, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->j:Ljava/util/List;
 
     invoke-interface {v3, p5}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
@@ -1301,7 +1392,7 @@
 
     if-eq v3, v6, :cond_20
 
-    .line 287
+    .line 297
     iget-object v3, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->d:Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;
 
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->j:Ljava/util/List;
@@ -1330,35 +1421,35 @@
 
     invoke-interface {v3, v0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;->b(F)V
 
-    .line 288
+    .line 298
     iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->o:I
 
-    .line 289
+    .line 299
     iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->o:I
 
     goto/16 :goto_20
 
-    .line 261
-    :cond_103
+    .line 267
+    :cond_10f
     invoke-virtual {p0, v1}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->a(Z)V
 
-    .line 262
+    .line 268
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->d:Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;
 
     invoke-interface {v0, p2}, Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;->e(I)V
 
-    .line 263
+    .line 269
     iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->l:I
 
-    .line 264
+    .line 270
     iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->l:I
 
     goto/16 :goto_69
 
-    :cond_111
+    :cond_11d
     move v0, v1
 
-    .line 267
+    .line 273
     goto/16 :goto_76
 .end method
 
@@ -1370,7 +1461,7 @@
 
     const/4 v6, 0x1
 
-    .line 173
+    .line 179
     instance-of v1, p2, Landroid/support/v7/widget/RecyclerView;
 
     if-eqz v1, :cond_2b
@@ -1381,15 +1472,15 @@
 
     if-nez v1, :cond_2b
 
-    .line 174
+    .line 180
     invoke-virtual {p0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->e()V
 
-    .line 175
+    .line 181
     const/16 v1, 0x15
 
     if-ne p5, v1, :cond_2c
 
-    .line 176
+    .line 182
     invoke-virtual {p0, p2}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->a(Landroid/view/View;)I
 
     move-result v1
@@ -1418,52 +1509,52 @@
 
     move v0, v6
 
-    .line 191
+    .line 197
     :cond_2b
     :goto_2b
     return v0
 
-    .line 178
+    .line 184
     :cond_2c
     const/16 v1, 0x16
 
     if-ne p5, v1, :cond_47
 
-    .line 179
+    .line 185
     invoke-virtual {p0, p2}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->a(Landroid/view/View;)I
 
     move-result v1
 
-    .line 180
+    .line 186
     const/4 v2, 0x2
 
     if-ne v1, v2, :cond_41
 
-    .line 181
+    .line 187
     iget v1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->q:I
 
     invoke-virtual {p0, v6, v1}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->e(II)V
 
-    .line 182
+    .line 188
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->removeViewAt(I)V
 
     :cond_3f
     :goto_3f
     move v0, v6
 
-    .line 186
+    .line 192
     goto :goto_2b
 
-    .line 183
+    .line 189
     :cond_41
     if-ne v1, v6, :cond_3f
 
-    .line 184
+    .line 190
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->a(Z)V
 
     goto :goto_3f
 
-    .line 187
+    .line 193
     :cond_47
     if-nez p4, :cond_4d
 
@@ -1489,7 +1580,7 @@
     :cond_5b
     move v0, v6
 
-    .line 188
+    .line 194
     goto :goto_2b
 .end method
 
@@ -1497,7 +1588,7 @@
     .locals 1
 
     .prologue
-    .line 79
+    .line 82
     const/4 v0, 0x2
 
     if-eq p1, v0, :cond_7
@@ -1530,23 +1621,23 @@
 
     const/4 v0, 0x0
 
-    .line 358
+    .line 371
     if-le p1, v1, :cond_5
 
-    .line 398
+    .line 414
     :goto_4
     return-object v0
 
-    .line 361
+    .line 374
     :cond_5
     if-ge p1, v1, :cond_a
 
-    .line 362
+    .line 375
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->e:Ljava/util/List;
 
     goto :goto_4
 
-    .line 364
+    .line 377
     :cond_a
     iget-object v1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->f:Ljava/lang/String;
 
@@ -1554,77 +1645,81 @@
 
     move-result v1
 
-    if-eqz v1, :cond_28
+    if-eqz v1, :cond_2b
 
-    .line 365
-    packed-switch p2, :pswitch_data_36
+    .line 378
+    packed-switch p2, :pswitch_data_38
 
     goto :goto_4
 
-    .line 367
+    .line 380
     :pswitch_16
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->g:Ljava/util/List;
 
     goto :goto_4
 
-    .line 370
+    .line 383
     :pswitch_19
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->h:Ljava/util/List;
 
     goto :goto_4
 
-    .line 373
+    .line 386
     :pswitch_1c
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->k:Ljava/util/List;
 
     goto :goto_4
 
-    .line 376
+    .line 389
     :pswitch_1f
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->i:Ljava/util/List;
 
     goto :goto_4
 
-    .line 379
+    .line 392
     :pswitch_22
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->j:Ljava/util/List;
 
     goto :goto_4
 
-    .line 382
+    .line 395
     :pswitch_25
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_list:Ljava/util/List;
 
     goto :goto_4
 
-    .line 389
-    :cond_28
-    packed-switch p2, :pswitch_data_46
+    .line 398
+    :pswitch_28
+    iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_list:Ljava/util/List;
 
     goto :goto_4
 
-    .line 394
-    :pswitch_2c
+    .line 405
+    :cond_2b
+    packed-switch p2, :pswitch_data_4a
+
+    goto :goto_4
+
+    .line 410
+    :pswitch_2f
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->g:Ljava/util/List;
 
     goto :goto_4
 
-    .line 396
-    :pswitch_2f
+    .line 412
+    :pswitch_32
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->h:Ljava/util/List;
 
     goto :goto_4
 
-    .line 398
-    :pswitch_32
+    .line 414
+    :pswitch_35
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->k:Ljava/util/List;
 
     goto :goto_4
 
-    .line 365
-    nop
-
-    :pswitch_data_36
+    .line 378
+    :pswitch_data_38
     .packed-switch 0x0
         :pswitch_16
         :pswitch_19
@@ -1632,14 +1727,15 @@
         :pswitch_1f
         :pswitch_22
         :pswitch_25
+        :pswitch_28
     .end packed-switch
 
-    .line 389
-    :pswitch_data_46
+    .line 405
+    :pswitch_data_4a
     .packed-switch 0x1
-        :pswitch_2c
         :pswitch_2f
         :pswitch_32
+        :pswitch_35
     .end packed-switch
 .end method
 
@@ -1647,12 +1743,12 @@
     .locals 1
 
     .prologue
-    .line 231
+    .line 237
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->a(Z)V
 
-    .line 232
+    .line 238
     return-void
 .end method
 
@@ -1669,10 +1765,10 @@
     .end annotation
 
     .prologue
-    .line 479
+    .line 495
     iput-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->e:Ljava/util/List;
 
-    .line 480
+    .line 496
     return-void
 .end method
 
@@ -1682,43 +1778,43 @@
     .prologue
     const/4 v1, 0x2
 
-    .line 512
+    .line 533
     packed-switch p1, :pswitch_data_1a
 
-    .line 528
+    .line 549
     :cond_4
     :goto_4
     return-void
 
-    .line 514
+    .line 535
     :pswitch_5
     iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->l:I
 
     if-eq v0, p2, :cond_4
 
-    .line 515
+    .line 536
     iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->l:I
 
-    .line 516
+    .line 537
     invoke-virtual {p0, v1}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->c(I)V
 
     goto :goto_4
 
-    .line 521
+    .line 542
     :pswitch_f
     iget v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->m:I
 
     if-eq v0, p2, :cond_4
 
-    .line 522
+    .line 543
     iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->m:I
 
-    .line 523
+    .line 544
     invoke-virtual {p0, v1}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->c(I)V
 
     goto :goto_4
 
-    .line 512
+    .line 533
     nop
 
     :pswitch_data_1a
@@ -1741,13 +1837,13 @@
     .end annotation
 
     .prologue
-    .line 483
+    .line 499
     iput-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->h:Ljava/util/List;
 
-    .line 484
+    .line 500
     iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->m:I
 
-    .line 485
+    .line 501
     return-void
 .end method
 
@@ -1764,13 +1860,13 @@
     .end annotation
 
     .prologue
-    .line 488
+    .line 504
     iput-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->i:Ljava/util/List;
 
-    .line 489
+    .line 505
     iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->n:I
 
-    .line 490
+    .line 506
     return-void
 .end method
 
@@ -1778,32 +1874,32 @@
     .locals 4
 
     .prologue
-    .line 223
+    .line 229
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->r:Ljava/lang/Runnable;
 
     if-nez v0, :cond_b
 
-    .line 224
+    .line 230
     new-instance v0, Lbl/aau;
 
     invoke-direct {v0, p0}, Lbl/aau;-><init>(Lcom/bilibili/tv/player/widget/PlayerMenuRight;)V
 
     iput-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->r:Ljava/lang/Runnable;
 
-    .line 226
+    .line 232
     :cond_b
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->r:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 227
+    .line 233
     iget-object v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->r:Ljava/lang/Runnable;
 
     const-wide/16 v2, 0x1388
 
     invoke-virtual {p0, v0, v2, v3}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 228
+    .line 234
     return-void
 .end method
 
@@ -1820,13 +1916,13 @@
     .end annotation
 
     .prologue
-    .line 493
+    .line 509
     iput-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->j:Ljava/util/List;
 
-    .line 494
+    .line 510
     iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->o:I
 
-    .line 495
+    .line 511
     return-void
 .end method
 
@@ -1843,13 +1939,36 @@
     .end annotation
 
     .prologue
-    .line 498
+    .line 514
     iput-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->k:Ljava/util/List;
 
-    .line 499
+    .line 515
     iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->p:I
 
-    .line 500
+    .line 516
+    return-void
+.end method
+
+.method public init_mode(Ljava/util/List;I)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;I)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 524
+    iput-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_list:Ljava/util/List;
+
+    .line 525
+    sput p2, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_id:I
+
+    .line 526
     return-void
 .end method
 
@@ -1866,13 +1985,13 @@
     .end annotation
 
     .prologue
-    .line 503
+    .line 519
     iput-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_list:Ljava/util/List;
 
-    .line 504
-    iput p2, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
+    .line 520
+    sput p2, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->speed_id:I
 
-    .line 505
+    .line 521
     return-void
 .end method
 
@@ -1880,7 +1999,7 @@
     .locals 1
 
     .prologue
-    .line 466
+    .line 482
     iget-boolean v0, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->c:Z
 
     return v0
@@ -1890,10 +2009,10 @@
     .locals 0
 
     .prologue
-    .line 470
+    .line 486
     iput-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->f:Ljava/lang/String;
 
-    .line 471
+    .line 487
     return-void
 .end method
 
@@ -1901,9 +2020,9 @@
     .locals 0
 
     .prologue
-    .line 119
+    .line 125
     iput-object p1, p0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->d:Lcom/bilibili/tv/player/widget/PlayerMenuRight$a;
 
-    .line 120
+    .line 126
     return-void
 .end method

@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 266
+    .line 268
     iput-object p1, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander$1;->this$0:Ltv/danmaku/videoplayer/core/commander/IjkCommander;
 
     iput-object p2, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander$1;->val$onExtraInfoListener:Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnExtraInfoListener;
@@ -44,7 +44,7 @@
     .locals 3
 
     .prologue
-    .line 269
+    .line 271
     const-string v0, "IjkCommander"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -81,19 +81,19 @@
 
     invoke-static {v0, v1}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 270
+    .line 272
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander$1;->val$onExtraInfoListener:Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnExtraInfoListener;
 
     if-eqz v0, :cond_31
 
-    .line 271
+    .line 273
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/commander/IjkCommander$1;->val$onExtraInfoListener:Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnExtraInfoListener;
 
     invoke-interface {v0, p1, p2}, Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnExtraInfoListener;->onNativeInvoke(ILandroid/os/Bundle;)Z
 
     move-result v0
 
-    .line 273
+    .line 275
     :goto_30
     return v0
 

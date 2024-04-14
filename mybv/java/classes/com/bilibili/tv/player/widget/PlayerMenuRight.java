@@ -52,8 +52,11 @@ public class PlayerMenuRight extends aay<String> {
     private int q;
     private Runnable r;
 
-    public int speed_id;
+    public static int speed_id = -1;
+    public static int mode_id = -1;
     public List<String> speed_list;
+    public List<String> mode_list;
+    public static PlayerMenuRight _this = null;
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
@@ -89,6 +92,7 @@ public class PlayerMenuRight extends aay<String> {
         this.p = 0;
         this.q = 0;
         this.speed_id = -1;
+        this.mode_id = -1;
     }
 
     public PlayerMenuRight(Context context, AttributeSet attributeSet) {
@@ -100,7 +104,8 @@ public class PlayerMenuRight extends aay<String> {
         this.o = 0;
         this.p = 0;
         this.q = 0;
-        this.speed_id = 0;
+        this.speed_id = -1;
+        this.mode_id = -1;
     }
 
     public PlayerMenuRight(Context context, AttributeSet attributeSet, int i) {
@@ -112,7 +117,8 @@ public class PlayerMenuRight extends aay<String> {
         this.o = 0;
         this.p = 0;
         this.q = 0;
-        this.speed_id = 0;
+        this.speed_id = -1;
+        this.mode_id = -1;
     }
 
     public void setListener(a aVar) {
@@ -138,7 +144,7 @@ public class PlayerMenuRight extends aay<String> {
         }
         if (i == 2) {
             try {
-                if (!this.g.get(this.l).equals(str) && !this.h.get(this.m).equals(str) && !this.k.get(this.p).equals(str) && !this.i.get(this.n).equals(str) && !this.j.get(this.o).equals(str) && !this.speed_list.get(this.speed_id).equals(str)) {
+                if (!this.g.get(this.l).equals(str) && !this.h.get(this.m).equals(str) && !this.k.get(this.p).equals(str) && !this.i.get(this.n).equals(str) && !this.j.get(this.o).equals(str) && !this.speed_list.get(this.speed_id).equals(str) && !this.mode_list.get(this.mode_id).equals(str)) {
                     textView.getCompoundDrawables()[0].setAlpha(0);
                 }
                 else {
@@ -283,6 +289,10 @@ public class PlayerMenuRight extends aay<String> {
                 i3 = this.speed_id;
                 this.speed_id = i2;
             }
+            if (this.mode_list.indexOf(str) != -1) {
+                i3 = this.mode_id;
+                this.mode_id = i2;
+            }
             if (this.j.indexOf(str) != -1) {
                 this.d.b(Float.valueOf(this.j.get(i2).replace("f", "")).floatValue());
                 i3 = this.o;
@@ -343,6 +353,9 @@ public class PlayerMenuRight extends aay<String> {
             case 5:
                 i3 = this.speed_id;
                 break;
+            case 6:
+                i3 = this.mode_id;
+                break;
             default:
                 i3 = 0;
                 break;
@@ -380,6 +393,9 @@ public class PlayerMenuRight extends aay<String> {
                     break;
                 case 5:
                     list = this.speed_list;
+                    break;
+                case 6:
+                    list = this.mode_list;
                     break;
                 default:
                     return null;
@@ -502,6 +518,11 @@ public class PlayerMenuRight extends aay<String> {
     public void init_speed(List<String> list, int i) {
         this.speed_list = list;
         this.speed_id = i;
+    }
+
+    public void init_mode(List<String> list, int i) {
+        this.mode_list = list;
+        this.mode_id = i;
     }
 
     public void a(int i, int i2, long j) {

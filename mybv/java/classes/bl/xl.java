@@ -26,7 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 
+import java.util.Random;
 import android.text.TextUtils;
+import com.bilibili.tv.player.widget.PlayerMenuRight;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -67,6 +69,12 @@ public class xl extends xh implements aaw.a, View.OnFocusChangeListener {
     @Override // bl.xh
     protected boolean e(int i, KeyEvent keyEvent) {
         return P();
+    }
+
+    @Override // bl.xh
+    public void i() {
+        PlayerMenuRight.speed_id=-1;
+        PlayerMenuRight.mode_id=-1;
     }
 
     @Override // bl.xh
@@ -132,7 +140,7 @@ public class xl extends xh implements aaw.a, View.OnFocusChangeListener {
     @Override // bl.aaw.a
     public void a(ViewGroup viewGroup, View view, int i) {
         yh c;
-        if (this.j == null || i < 0 || i >= this.j.length || (c = c()) == null || c.e == i) {
+        if (this.j == null || i < 0 || i >= this.j.length || (c = c()) == null) {
             return;
         }
         if (i == this.i) {
@@ -169,7 +177,27 @@ public class xl extends xh implements aaw.a, View.OnFocusChangeListener {
     @Override // bl.xh, tv.danmaku.ijk.media.player.IMediaPlayer.OnCompletionListener
     public void onCompletion(IMediaPlayer iMediaPlayer) {
         super.onCompletion(iMediaPlayer);
-        if (!X() || this.i < 0 || this.i >= this.j.length - 1) {
+        int i;
+        int mode_id = PlayerMenuRight.mode_id>=0?PlayerMenuRight.mode_id:0;
+        switch(mode_id){
+            case 1:
+                i=this.i-1;
+                break;
+            case 2:
+                i=new Random().nextInt(this.j.length);
+                break;
+            case 3:
+                i=this.i;
+                break;
+            case 5:
+                i=(this.i+1)%this.j.length;
+                break;
+            default:
+                i=this.i+1;
+                break;
+        }
+        this.i = i;
+        if (!X() || this.i < 0 || this.i >= this.j.length || mode_id==4) {
             Activity o = o();
             if (o != null) {
                 o.finish();
@@ -177,8 +205,6 @@ public class xl extends xh implements aaw.a, View.OnFocusChangeListener {
             }
             return;
         }
-        int i = this.i + 1;
-        this.i = i;
         a((ViewGroup) null, (View) null, i);
     }
 

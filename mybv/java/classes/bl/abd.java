@@ -179,7 +179,7 @@ public class abd {
         return speed_id;
     }
 
-    public static float get_speed(Context context) {
-        return speeds[get_speed_id(context)];
+    public static float get_speed(int id) {
+        return speeds[id];
     }
 }

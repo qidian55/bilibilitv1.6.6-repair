@@ -16,6 +16,7 @@
         <item>@string/danmaku_size</item>
         <item>@string/danmaku_alpha</item>
         <item>播放速度</item>
+        <item>播放模式</item>
     </string-array>
     <string-array name="player_right_menu_level_1_1">
         <item>@string/episode</item>
@@ -28,5 +29,13 @@
         <item>@string/ratio_4_3</item>
         <item>@string/adjust_screen</item>
         <item>@string/adjust_content</item>
+    </string-array>
+    <string-array name="player_mode">
+        <item>顺序播放</item>
+        <item>逆序播放</item>
+        <item>随机播放</item>
+        <item>单集循环</item>
+        <item>单集退出</item>
+        <item>列表循环</item>
     </string-array>
 </resources>

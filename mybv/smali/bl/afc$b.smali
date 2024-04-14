@@ -988,7 +988,7 @@
 
     invoke-direct {v4, p0, v2}, Lbl/afc$b$a;-><init>(Lbl/afc$b;Landroid/app/Activity;)V
 
-    invoke-virtual {v1, v3, v4}, Lbl/agb$a;->b(Ljava/lang/String;Lbl/agb$b;)Lbl/agb$a;
+    invoke-virtual {v1, v3, v4}, Lbl/agb$a;->a(Ljava/lang/String;Lbl/agb$b;)Lbl/agb$a;
 
     move-result-object v1
 
@@ -1000,7 +1000,7 @@
 
     sget-object v3, Lbl/afc$b$bb;->a:Lbl/afc$b$bb;
 
-    invoke-virtual {v1, v2, v3}, Lbl/agb$a;->a(Ljava/lang/String;Lbl/agb$b;)Lbl/agb$a;
+    invoke-virtual {v1, v2, v3}, Lbl/agb$a;->b(Ljava/lang/String;Lbl/agb$b;)Lbl/agb$a;
 
     .line 429
     invoke-virtual {v0}, Lbl/agb$a;->a()Lbl/agb;

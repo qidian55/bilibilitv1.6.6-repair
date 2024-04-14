@@ -1,6 +1,6 @@
 .class public Lbl/yd$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "yd.java"
 
 
 # annotations
@@ -14,19 +14,35 @@
 .end annotation
 
 
-# virtual methods
-.method public a(IILandroid/os/Bundle;Lcom/bilibili/lib/media/resource/MediaResource;)Z
+# direct methods
+.method public constructor <init>()V
     .locals 0
 
-    const/4 p1, 0x0
+    .prologue
+    .line 68
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    return p1
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(IILandroid/os/Bundle;Lcom/bilibili/lib/media/resource/MediaResource;)Z
+    .locals 1
+
+    .prologue
+    .line 70
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public a(ILandroid/os/Bundle;Ljava/lang/String;)Z
-    .locals 0
+    .locals 1
 
-    const/4 p1, 0x0
+    .prologue
+    .line 74
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

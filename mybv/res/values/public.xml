@@ -23,6 +23,9 @@
     <public type="array" name="player_right_menu_level_1" id="0x7f020002" />
     <public type="array" name="player_right_menu_level_1_1" id="0x7f020003" />
     <public type="array" name="player_screen_ratio" id="0x7f020004" />
+
+    <public type="array" name="player_mode" id="0x7f020005" />
+
     <public type="attr" name="actionBarDivider" id="0x7f030000" />
     <public type="attr" name="actionBarItemBackground" id="0x7f030001" />
     <public type="attr" name="actionBarPopupTheme" id="0x7f030002" />

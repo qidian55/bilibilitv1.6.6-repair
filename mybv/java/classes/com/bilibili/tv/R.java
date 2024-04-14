@@ -30,6 +30,8 @@ public final class R {
         public static final int player_right_menu_level_1 = 0x7f020002;
         public static final int player_right_menu_level_1_1 = 0x7f020003;
         public static final int player_screen_ratio = 0x7f020004;
+
+        public static final int player_mode = 0x7f020005;
     }
 
     public static final class attr {

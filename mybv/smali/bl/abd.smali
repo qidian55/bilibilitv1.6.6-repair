@@ -738,18 +738,14 @@
     goto :goto_19
 .end method
 
-.method public static get_speed(Landroid/content/Context;)F
-    .locals 2
+.method public static get_speed(I)F
+    .locals 1
 
     .prologue
     .line 183
     sget-object v0, Lbl/abd;->speeds:[F
 
-    invoke-static {p0}, Lbl/abd;->get_speed_id(Landroid/content/Context;)I
-
-    move-result v1
-
-    aget v0, v0, v1
+    aget v0, v0, p0
 
     return v0
 .end method

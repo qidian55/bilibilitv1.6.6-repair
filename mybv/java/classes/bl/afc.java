@@ -425,7 +425,7 @@ public final class afc extends adu implements aez, wf {
                 } else if (intValue == 0) {
                     if (a2 instanceof MainActivity) {
                         agb.a aVar = new agb.a(a2);
-                        aVar.a(1).a(adl.e(R.string.is_really_confirmed_to_logout)).b(adl.e(R.string.logout), new a(a2)).a(adl.e(R.string.logout_cancel), bb.a);
+                        aVar.a(1).a(adl.e(R.string.is_really_confirmed_to_logout)).a(adl.e(R.string.logout), new a(a2)).b(adl.e(R.string.logout_cancel), bb.a);
                         aVar.a().show();
                     }
                 } else {
