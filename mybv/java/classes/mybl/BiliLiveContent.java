@@ -45,6 +45,7 @@ public class BiliLiveContent implements Parcelable {
     public String mFace;
     public long mParsedTime;
     public String mPlayUrl;
+    public List<String> mPlayUrls;
     public String mRealUrl;
     public int mRoomId;
     public String mTitle;
@@ -140,7 +141,11 @@ public class BiliLiveContent implements Parcelable {
                     }*/
                     int code=0;
                     JSONObject codec = optJSONObject.optJSONObject("playurl_info").optJSONObject("playurl").optJSONArray("stream").optJSONObject(0).optJSONArray("format").optJSONObject(0).optJSONArray("codec").optJSONObject(0);
-                    biliLiveContent.mPlayUrl = codec.optJSONArray("url_info").optJSONObject(0).optString("host")+codec.optString("base_url")+codec.optJSONArray("url_info").optJSONObject(0).optString("extra");
+                    biliLiveContent.mPlayUrls = new ArrayList<String>();
+                    for(int i=0;i<codec.optJSONArray("url_info").length();i++){
+                        biliLiveContent.mPlayUrls.add(codec.optJSONArray("url_info").optJSONObject(i).optString("host")+codec.optString("base_url")+codec.optJSONArray("url_info").optJSONObject(i).optString("extra"));
+                    }
+                    biliLiveContent.mPlayUrl = biliLiveContent.mPlayUrls.get(biliLiveContent.mPlayUrls.size()-1);
                     if(biliLiveContent.mCurrentQuality != codec.optInt("current_qn"))code=1;
                     biliLiveContent.mCurrentQuality = codec.optInt("current_qn");
                     biliLiveContent.mAcceptQuality = new int[codec.optJSONArray("accept_qn").length()];

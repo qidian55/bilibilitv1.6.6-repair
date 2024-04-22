@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 58
+    .line 115
     iput-object p1, p0, Lmybl/DanmakuClient$3;->this$0:Lmybl/DanmakuClient;
 
     iput-object p2, p0, Lmybl/DanmakuClient$3;->val$inFromServer:Ljava/io/DataInputStream;
@@ -44,13 +44,13 @@
     .locals 2
 
     .prologue
-    .line 61
+    .line 118
     iget-object v0, p0, Lmybl/DanmakuClient$3;->this$0:Lmybl/DanmakuClient;
 
     iget-object v1, p0, Lmybl/DanmakuClient$3;->val$inFromServer:Ljava/io/DataInputStream;
 
     invoke-virtual {v0, v1}, Lmybl/DanmakuClient;->readClient(Ljava/io/DataInputStream;)V
 
-    .line 62
+    .line 119
     return-void
 .end method
