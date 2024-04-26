@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
+import mybl.DanmakuClient;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public class abd {
@@ -122,6 +124,7 @@ public class abd {
     public static void a(Context context, float f2) {
         a(context).a().edit().putFloat("danmaku_text_size", f2).apply();
         j = f2;
+        DanmakuClient.mScale = f2;
     }
 
     public static float f(Context context) {
@@ -136,6 +139,7 @@ public class abd {
     public static void b(Context context, float f2) {
         a(context).a().edit().putFloat("danmaku_text_alpha", f2).apply();
         k = f2;
+        DanmakuClient.mAlpha = (int)(f2*255);
     }
 
     public static float g(Context context) {

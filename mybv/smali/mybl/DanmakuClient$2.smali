@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 58
+    .line 107
     iput-object p1, p0, Lmybl/DanmakuClient$2;->this$0:Lmybl/DanmakuClient;
 
     iput-object p2, p0, Lmybl/DanmakuClient$2;->val$data:Lorg/json/JSONObject;
@@ -46,14 +46,14 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 61
+    .line 110
     iget-object v0, p0, Lmybl/DanmakuClient$2;->this$0:Lmybl/DanmakuClient;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "wss://"
+    const-string v2, "ws://"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -99,7 +99,7 @@
 
     move-result-object v2
 
-    const-string v3, "wss_port"
+    const-string v3, "ws_port"
 
     invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
@@ -121,6 +121,6 @@
 
     invoke-virtual {v0, v1}, Lmybl/DanmakuClient;->startClient(Ljava/lang/String;)V
 
-    .line 62
+    .line 111
     return-void
 .end method

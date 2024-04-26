@@ -8,11 +8,24 @@ import bl.yl;
 import java.io.*;
 import java.net.*;
 import java.nio.*;
-import org.json.JSONObject;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.zip.InflaterOutputStream;
+import tv.danmaku.videoplayer.core.danmaku.DanmakuConfig;
 import tv.danmaku.videoplayer.core.danmaku.IDanmakuPlayer;
 import tv.danmaku.videoplayer.core.danmaku.comment.CommentItem;
+import tv.danmaku.videoplayer.core.danmaku.comment.DrawableItem;
+
+import bl.abd;
+import org.json.*;
+import android.text.*;
+import android.util.*;
+import android.graphics.*;
+import android.text.style.*;
+import android.content.Context;
+import com.bilibili.tv.MainApplication;
+import android.graphics.drawable.Drawable;
+
 
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
@@ -37,12 +50,48 @@ class DanmakuWebSocketClient extends WebSocketClient {
     public void onMessage(String arg0) {}
 }
 
+class StrokedSpan extends ReplacementSpan {
+    int mAlpha,mForegroundColor,mBackgroundColor;
+
+    public StrokedSpan(int alpha, int foregroundColor, int backgroundColor) {
+        this.mAlpha = alpha;
+        this.mForegroundColor = foregroundColor;
+        this.mBackgroundColor = backgroundColor;
+    }
+
+    @Override
+    public int getSize(Paint paint, CharSequence text, int start, int end, Paint.FontMetricsInt fm) {
+        return (int) (paint.measureText(text, start, end));
+    }
+
+    @Override
+    public void draw(Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, Paint paint) {
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        paint.setColor((this.mBackgroundColor&0xffffff)|(this.mAlpha<<24));
+        canvas.drawText(text, start, end, x, y, paint);
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor((this.mForegroundColor&0xffffff)|(this.mAlpha<<24));
+        canvas.drawText(text, start, end, x, y, paint);
+    }
+}
+
 public class DanmakuClient {
-    public static int roomId;
-    public static String token;
-    public static DanmakuWebSocketClient client;
+    public int roomId;
+    public String token;
+    public DanmakuWebSocketClient client;
     public static IDanmakuPlayer player;
+    public static float baseScreenScale=0, densityScale=0, mScale ;
+    public static int mAlpha;
+
     public DanmakuClient(int rid) {
+        if(baseScreenScale==0){
+            Context c = MainApplication.a().getApplicationContext();
+            DisplayMetrics dm = c.getResources().getDisplayMetrics();
+            baseScreenScale = dm.heightPixels / 15.0f / 25.0f;
+            densityScale = dm.density;
+            mScale = abd.f(c);
+            mAlpha = (int)(abd.g(c)*255);
+        }
         roomId = rid;
         ExecutorService threadPool  = Executors.newSingleThreadExecutor();
         Future<JSONObject> future = threadPool.submit(new Callable<JSONObject>() {
@@ -58,7 +107,7 @@ public class DanmakuClient {
             new Thread(new Runnable(){
                 @Override
                 public void run() {
-                    startClient("wss://" + data.optJSONArray("host_list").optJSONObject(0).optString("host") + ":"  + data.optJSONArray("host_list").optJSONObject(0).optInt("wss_port") + "/sub");
+                    startClient("ws://" + data.optJSONArray("host_list").optJSONObject(0).optString("host") + ":"  + data.optJSONArray("host_list").optJSONObject(0).optInt("ws_port") + "/sub");
                 }
             }).start();
         }catch(Exception e){
@@ -114,24 +163,51 @@ public class DanmakuClient {
                     parse(decompress_zlib(result));
                 }
                 if (version == 0) {
-                    try{
-                        JSONObject info = new JSONObject(new String(result));
-                        if(info.optString("cmd").equals("DANMU_MSG")) {
-                            JSONObject extra = new JSONObject(info.optJSONArray("info").getJSONArray(0).getJSONObject(15).optString("extra"));
-                            int color = extra.optInt("color");
-                            int mode = extra.optInt("mode");
-                            if(mode==0)mode=1;
-                            int font_size = extra.optInt("font_size");
-                            String content = extra.optString("content");
-                            CommentItem commentItem = yl.a(mode, content, 0, font_size, color);
-                            player.onDanmakuAppended(commentItem);
+                    JSONObject info = new JSONObject(new String(result));
+                    if(!info.optString("cmd").equals("DANMU_MSG"))continue;
+                    JSONObject extra = new JSONObject(info.optJSONArray("info").getJSONArray(0).getJSONObject(15).optString("extra"));
+                    int color = extra.optInt("color");
+                    int mode = extra.optInt("mode");
+                    if(mode==0)mode=1;
+                    int dm_type = extra.optInt("dm_type");
+                    int font_size = extra.optInt("font_size");
+                    JSONObject emots = extra.optJSONObject("emots");
+                    String content = extra.optString("content");
+                    //CommentItem commentItem = yl.a(mode, content, 0, font_size, color);
+                    //player.onDanmakuAppended(commentItem);
+
+                    DrawableItem drawableItem = new DrawableItem();
+                    SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(content+" ");
+                    spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int)(font_size*baseScreenScale*mScale)), 0, content.length()+1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    spannableStringBuilder.setSpan(new StrokedSpan(mAlpha, (color&0xffffff)|0xff000000, Color.BLACK), 0, content.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    if(emots!=null){
+                        Iterator<String> i = emots.keys();
+                        while (i.hasNext()){
+                            String key =  i.next();
+                            int count = emots.optJSONObject(key).optInt("count");
+                            Bitmap originalBitmap = BitmapFactory.decodeStream(new URL(emots.optJSONObject(key).optString("url")).openStream());
+                            float scale = font_size*baseScreenScale*densityScale*mScale/originalBitmap.getHeight();
+                            Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, (int)(scale*originalBitmap.getWidth()), (int)(scale*originalBitmap.getHeight()), true);
+                            int w=0;
+                            for(int j=0;j<count;j++){
+                                spannableStringBuilder.setSpan(new ImageSpan(scaledBitmap),content.indexOf(key,w),content.indexOf(key,w)+key.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                w=content.indexOf(key,w)+key.length();
+                            }
                         }
-                    }catch(Exception e){
-                        e.printStackTrace();
                     }
+                    if(dm_type==1){
+                        Bitmap originalBitmap = BitmapFactory.decodeStream(new URL(info.optJSONArray("info").getJSONArray(0).getJSONObject(13).optString("url")).openStream());
+                        float scale = 1.5f*font_size*baseScreenScale*densityScale*mScale/originalBitmap.getHeight();
+                        Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, (int)(scale*originalBitmap.getWidth()), (int)(scale*originalBitmap.getHeight()), true);
+                        spannableStringBuilder.setSpan(new ImageSpan(scaledBitmap),0,content.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    }
+                    drawableItem.mSpannableString=spannableStringBuilder;
+                    player.onDanmakuAppended(drawableItem);
+                    Thread.sleep(100);
+
                 }
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

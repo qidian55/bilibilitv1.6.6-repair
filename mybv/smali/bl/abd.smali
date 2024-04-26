@@ -42,21 +42,21 @@
     .prologue
     const/16 v1, 0x8
 
-    .line 10
+    .line 12
     new-array v0, v1, [F
 
     fill-array-data v0, :array_1c
 
     sput-object v0, Lbl/abd;->a:[F
 
-    .line 11
+    .line 13
     new-array v0, v1, [F
 
     fill-array-data v0, :array_30
 
     sput-object v0, Lbl/abd;->b:[F
 
-    .line 23
+    .line 25
     const/4 v0, 0x6
 
     new-array v0, v0, [F
@@ -65,14 +65,14 @@
 
     sput-object v0, Lbl/abd;->speeds:[F
 
-    .line 24
+    .line 26
     const/4 v0, -0x1
 
     sput v0, Lbl/abd;->speed_id:I
 
     return-void
 
-    .line 10
+    .line 12
     :array_1c
     .array-data 4
         0x3f000000    # 0.5f
@@ -85,7 +85,7 @@
         0x3f99999a    # 1.2f
     .end array-data
 
-    .line 11
+    .line 13
     :array_30
     .array-data 4
         0x3e99999a    # 0.3f
@@ -98,7 +98,7 @@
         0x3f800000    # 1.0f
     .end array-data
 
-    .line 23
+    .line 25
     :array_44
     .array-data 4
         0x40000000    # 2.0f
@@ -120,10 +120,10 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 26
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
+    .line 29
     const-string v0, "bili_preference"
 
     invoke-virtual {p1, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
@@ -132,7 +132,7 @@
 
     iput-object v0, p0, Lbl/abd;->d:Landroid/content/SharedPreferences;
 
-    .line 28
+    .line 30
     const-string v0, "bili_upgrade"
 
     invoke-virtual {p1, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
@@ -141,7 +141,7 @@
 
     iput-object v0, p0, Lbl/abd;->e:Landroid/content/SharedPreferences;
 
-    .line 29
+    .line 31
     return-void
 .end method
 
@@ -153,15 +153,15 @@
     .end param
 
     .prologue
-    .line 32
+    .line 34
     sget-object v0, Lbl/abd;->c:Lbl/abd;
 
     if-nez v0, :cond_7
 
-    .line 33
+    .line 35
     invoke-static {p0}, Lbl/abd;->j(Landroid/content/Context;)V
 
-    .line 35
+    .line 37
     :cond_7
     sget-object v0, Lbl/abd;->c:Lbl/abd;
 
@@ -172,7 +172,7 @@
     .locals 2
 
     .prologue
-    .line 123
+    .line 125
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v0
@@ -193,10 +193,13 @@
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 124
+    .line 126
     sput p1, Lbl/abd;->j:F
 
-    .line 125
+    .line 127
+    sput p1, Lmybl/DanmakuClient;->mScale:F
+
+    .line 128
     return-void
 .end method
 
@@ -204,7 +207,7 @@
     .locals 2
 
     .prologue
-    .line 95
+    .line 97
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v0
@@ -225,10 +228,10 @@
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 96
+    .line 98
     sput p1, Lbl/abd;->h:I
 
-    .line 97
+    .line 99
     return-void
 .end method
 
@@ -236,7 +239,7 @@
     .locals 2
 
     .prologue
-    .line 51
+    .line 53
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v0
@@ -257,19 +260,19 @@
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 52
+    .line 54
     if-eqz p1, :cond_1b
 
-    .line 53
+    .line 55
     const/4 v0, 0x1
 
     sput v0, Lbl/abd;->f:I
 
-    .line 57
+    .line 59
     :goto_1a
     return-void
 
-    .line 55
+    .line 57
     :cond_1b
     const/4 v0, 0x2
 
@@ -282,7 +285,7 @@
     .locals 2
 
     .prologue
-    .line 137
+    .line 140
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v0
@@ -303,10 +306,19 @@
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 138
+    .line 141
     sput p1, Lbl/abd;->k:F
 
-    .line 139
+    .line 142
+    const/high16 v0, 0x437f0000    # 255.0f
+
+    mul-float/2addr v0, p1
+
+    float-to-int v0, v0
+
+    sput v0, Lmybl/DanmakuClient;->mAlpha:I
+
+    .line 143
     return-void
 .end method
 
@@ -314,7 +326,7 @@
     .locals 2
 
     .prologue
-    .line 151
+    .line 155
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v0
@@ -335,17 +347,17 @@
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 152
+    .line 156
     sput p1, Lbl/abd;->l:I
 
-    .line 153
+    .line 157
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lbl/wm;->d(I)V
 
-    .line 154
+    .line 158
     return-void
 .end method
 
@@ -353,7 +365,7 @@
     .locals 2
 
     .prologue
-    .line 73
+    .line 75
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v0
@@ -374,19 +386,19 @@
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 74
+    .line 76
     if-eqz p1, :cond_1b
 
-    .line 75
+    .line 77
     const/4 v0, 0x1
 
     sput v0, Lbl/abd;->g:I
 
-    .line 79
+    .line 81
     :goto_1a
     return-void
 
-    .line 77
+    .line 79
     :cond_1b
     const/4 v0, 0x2
 
@@ -403,27 +415,27 @@
 
     const/4 v0, 0x1
 
-    .line 60
+    .line 62
     sget v2, Lbl/abd;->f:I
 
     if-eqz v2, :cond_d
 
-    .line 61
+    .line 63
     sget v2, Lbl/abd;->f:I
 
     if-ne v2, v0, :cond_b
 
-    .line 69
+    .line 71
     :goto_a
     return v0
 
     :cond_b
     move v0, v1
 
-    .line 61
+    .line 63
     goto :goto_a
 
-    .line 63
+    .line 65
     :cond_d
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
@@ -439,19 +451,19 @@
 
     move-result v1
 
-    .line 64
+    .line 66
     if-eqz v1, :cond_21
 
-    .line 65
+    .line 67
     sput v0, Lbl/abd;->f:I
 
     :goto_1f
     move v0, v1
 
-    .line 69
+    .line 71
     goto :goto_a
 
-    .line 67
+    .line 69
     :cond_21
     const/4 v0, 0x2
 
@@ -464,17 +476,17 @@
     .locals 3
 
     .prologue
-    .line 109
+    .line 111
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v1
 
-    .line 110
+    .line 112
     if-eqz p1, :cond_1b
 
     const/4 v0, 0x1
 
-    .line 111
+    .line 113
     :goto_7
     invoke-virtual {v1}, Lbl/abd;->a()Landroid/content/SharedPreferences;
 
@@ -492,13 +504,13 @@
 
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 112
+    .line 114
     sput v0, Lbl/abd;->i:I
 
-    .line 113
+    .line 115
     return-void
 
-    .line 110
+    .line 112
     :cond_1b
     const/4 v0, 0x2
 
@@ -513,27 +525,27 @@
 
     const/4 v0, 0x1
 
-    .line 82
+    .line 84
     sget v2, Lbl/abd;->g:I
 
     if-eqz v2, :cond_d
 
-    .line 83
+    .line 85
     sget v2, Lbl/abd;->g:I
 
     if-ne v2, v0, :cond_b
 
-    .line 91
+    .line 93
     :goto_a
     return v0
 
     :cond_b
     move v0, v1
 
-    .line 83
+    .line 85
     goto :goto_a
 
-    .line 85
+    .line 87
     :cond_d
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
@@ -549,19 +561,19 @@
 
     move-result v1
 
-    .line 86
+    .line 88
     if-eqz v1, :cond_21
 
-    .line 87
+    .line 89
     sput v0, Lbl/abd;->g:I
 
     :goto_1f
     move v0, v1
 
-    .line 91
+    .line 93
     goto :goto_a
 
-    .line 89
+    .line 91
     :cond_21
     const/4 v0, 0x2
 
@@ -574,12 +586,12 @@
     .locals 3
 
     .prologue
-    .line 100
+    .line 102
     sget v0, Lbl/abd;->h:I
 
     if-nez v0, :cond_17
 
-    .line 101
+    .line 103
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v0
@@ -596,10 +608,10 @@
 
     move-result v0
 
-    .line 102
+    .line 104
     sput v0, Lbl/abd;->h:I
 
-    .line 105
+    .line 107
     :goto_16
     return v0
 
@@ -615,12 +627,12 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 116
+    .line 118
     sget v1, Lbl/abd;->i:I
 
     if-nez v1, :cond_15
 
-    .line 117
+    .line 119
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v1
@@ -637,7 +649,7 @@
 
     sput v1, Lbl/abd;->i:I
 
-    .line 119
+    .line 121
     :cond_15
     sget v1, Lbl/abd;->i:I
 
@@ -656,7 +668,7 @@
     .locals 3
 
     .prologue
-    .line 128
+    .line 131
     sget v0, Lbl/abd;->j:F
 
     const/4 v1, 0x0
@@ -665,7 +677,7 @@
 
     if-nez v0, :cond_1b
 
-    .line 129
+    .line 132
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v0
@@ -682,10 +694,10 @@
 
     move-result v0
 
-    .line 130
+    .line 133
     sput v0, Lbl/abd;->j:F
 
-    .line 133
+    .line 136
     :goto_1a
     return v0
 
@@ -699,7 +711,7 @@
     .locals 3
 
     .prologue
-    .line 142
+    .line 146
     sget v0, Lbl/abd;->k:F
 
     const/4 v1, 0x0
@@ -708,7 +720,7 @@
 
     if-nez v0, :cond_1a
 
-    .line 143
+    .line 147
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v0
@@ -725,10 +737,10 @@
 
     move-result v0
 
-    .line 144
+    .line 148
     sput v0, Lbl/abd;->k:F
 
-    .line 147
+    .line 151
     :goto_19
     return v0
 
@@ -742,7 +754,7 @@
     .locals 1
 
     .prologue
-    .line 183
+    .line 187
     sget-object v0, Lbl/abd;->speeds:[F
 
     aget v0, v0, p0
@@ -754,14 +766,14 @@
     .locals 3
 
     .prologue
-    .line 176
+    .line 180
     sget v0, Lbl/abd;->speed_id:I
 
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_16
 
-    .line 177
+    .line 181
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v0
@@ -780,7 +792,7 @@
 
     sput v0, Lbl/abd;->speed_id:I
 
-    .line 179
+    .line 183
     :cond_16
     sget v0, Lbl/abd;->speed_id:I
 
@@ -791,12 +803,12 @@
     .locals 3
 
     .prologue
-    .line 157
+    .line 161
     sget v0, Lbl/abd;->l:I
 
     if-nez v0, :cond_16
 
-    .line 158
+    .line 162
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v0
@@ -813,10 +825,10 @@
 
     move-result v0
 
-    .line 159
+    .line 163
     sput v0, Lbl/abd;->l:I
 
-    .line 162
+    .line 166
     :goto_15
     return v0
 
@@ -830,7 +842,7 @@
     .locals 3
 
     .prologue
-    .line 166
+    .line 170
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v0
@@ -854,7 +866,7 @@
     .locals 3
 
     .prologue
-    .line 39
+    .line 41
     const-class v1, Lbl/abd;
 
     monitor-enter v1
@@ -866,31 +878,31 @@
     :try_end_6
     .catchall {:try_start_3 .. :try_end_6} :catchall_17
 
-    .line 40
+    .line 42
     :try_start_6
     sget-object v0, Lbl/abd;->c:Lbl/abd;
 
     if-nez v0, :cond_11
 
-    .line 41
+    .line 43
     new-instance v0, Lbl/abd;
 
     invoke-direct {v0, p0}, Lbl/abd;-><init>(Landroid/content/Context;)V
 
     sput-object v0, Lbl/abd;->c:Lbl/abd;
 
-    .line 43
+    .line 45
     :cond_11
     monitor-exit v2
     :try_end_12
     .catchall {:try_start_6 .. :try_end_12} :catchall_14
 
-    .line 44
+    .line 46
     monitor-exit v1
 
     return-void
 
-    .line 43
+    .line 45
     :catchall_14
     move-exception v0
 
@@ -904,7 +916,7 @@
     :try_end_17
     .catchall {:try_start_16 .. :try_end_17} :catchall_17
 
-    .line 39
+    .line 41
     :catchall_17
     move-exception v0
 
@@ -917,7 +929,7 @@
     .locals 2
 
     .prologue
-    .line 171
+    .line 175
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v0
@@ -938,10 +950,10 @@
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 172
+    .line 176
     sput p1, Lbl/abd;->speed_id:I
 
-    .line 173
+    .line 177
     return-void
 .end method
 
@@ -951,7 +963,7 @@
     .locals 1
 
     .prologue
-    .line 47
+    .line 49
     iget-object v0, p0, Lbl/abd;->d:Landroid/content/SharedPreferences;
 
     return-object v0

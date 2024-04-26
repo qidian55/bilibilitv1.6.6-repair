@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 22
+    .line 35
     invoke-direct {p0, p1}, Lorg/java_websocket/client/WebSocketClient;-><init>(Ljava/net/URI;)V
 
     return-void
@@ -20,7 +20,7 @@
     .locals 0
 
     .prologue
-    .line 28
+    .line 41
     return-void
 .end method
 
@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 31
+    .line 44
     return-void
 .end method
 
@@ -36,7 +36,7 @@
     .locals 0
 
     .prologue
-    .line 37
+    .line 50
     return-void
 .end method
 
@@ -44,7 +44,7 @@
     .locals 1
 
     .prologue
-    .line 34
+    .line 47
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
 
     move-result-object v0
@@ -58,6 +58,6 @@
     .locals 0
 
     .prologue
-    .line 25
+    .line 38
     return-void
 .end method
