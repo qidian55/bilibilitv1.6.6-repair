@@ -45,12 +45,17 @@
 
     .prologue
     .line 47
+    sget-object v0, Lmybl/DanmakuClient;->player:Ltv/danmaku/videoplayer/core/danmaku/IDanmakuPlayer;
+
+    if-eqz v0, :cond_b
+
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
 
     move-result-object v0
 
     invoke-static {v0}, Lmybl/DanmakuClient;->parse([B)V
 
+    :cond_b
     return-void
 .end method
 

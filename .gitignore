@@ -8,6 +8,7 @@ bv4/
 
 mybv/build/
 mybv/dist/
+mybv/java/out.dex
 *.class
 
 diff*.txt

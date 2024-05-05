@@ -248,7 +248,7 @@
 
     move-result v4
 
-    if-lez v4, :cond_1fa
+    if-lez v4, :cond_1fe
 
     .line 155
     invoke-virtual {v7}, Ljava/io/DataInputStream;->readInt()I
@@ -268,6 +268,8 @@
     .line 158
     invoke-virtual {v7}, Ljava/io/DataInputStream;->readInt()I
 
+    move-result v8
+
     .line 159
     invoke-virtual {v7}, Ljava/io/DataInputStream;->readInt()I
 
@@ -282,7 +284,7 @@
     .line 162
     const/4 v5, 0x2
 
-    if-ne v6, v5, :cond_34
+    if-ne v6, v5, :cond_35
 
     .line 163
     invoke-static {v4}, Lmybl/DanmakuClient;->decompress_zlib([B)[B
@@ -292,8 +294,12 @@
     invoke-static {v5}, Lmybl/DanmakuClient;->parse([B)V
 
     .line 165
-    :cond_34
+    :cond_35
     if-nez v6, :cond_c
+
+    const/4 v5, 0x3
+
+    if-eq v8, v5, :cond_c
 
     .line 166
     new-instance v8, Lorg/json/JSONObject;
@@ -363,10 +369,10 @@
     move-result v6
 
     .line 171
-    if-nez v6, :cond_78
+    if-nez v6, :cond_7c
 
     .line 172
-    :cond_78
+    :cond_7c
     const-string v6, "dm_type"
 
     invoke-virtual {v4, v6}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
@@ -481,7 +487,7 @@
     invoke-virtual {v14, v4, v5, v6, v15}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
 
     .line 183
-    if-eqz v11, :cond_18c
+    if-eqz v11, :cond_190
 
     .line 184
     invoke-virtual {v11}, Lorg/json/JSONObject;->keys()Ljava/util/Iterator;
@@ -489,12 +495,12 @@
     move-result-object v15
 
     .line 185
-    :cond_e8
+    :cond_ec
     invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_18c
+    if-eqz v4, :cond_190
 
     .line 186
     invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -615,10 +621,10 @@
     .line 192
     const/4 v5, 0x0
 
-    :goto_157
+    :goto_15b
     move/from16 v0, v16
 
-    if-ge v5, v0, :cond_e8
+    if-ge v5, v0, :cond_ec
 
     .line 193
     new-instance v18, Landroid/text/style/ImageSpan;
@@ -669,13 +675,13 @@
     .line 192
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_157
+    goto :goto_15b
 
     .line 198
-    :cond_18c
+    :cond_190
     const/4 v4, 0x1
 
-    if-ne v9, v4, :cond_1e8
+    if-ne v9, v4, :cond_1ec
 
     .line 199
     new-instance v4, Ljava/net/URL;
@@ -784,7 +790,7 @@
     invoke-virtual {v14, v5, v4, v6, v8}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
 
     .line 204
-    :cond_1e8
+    :cond_1ec
     iput-object v14, v13, Ltv/danmaku/videoplayer/core/danmaku/comment/DrawableItem;->mSpannableString:Landroid/text/SpannableStringBuilder;
 
     .line 205
@@ -796,20 +802,20 @@
     const-wide/16 v4, 0x64
 
     invoke-static {v4, v5}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_1f4
-    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_1f4} :catch_1f6
+    :try_end_1f8
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_1f8} :catch_1fa
 
     goto/16 :goto_c
 
     .line 210
-    :catch_1f6
+    :catch_1fa
     move-exception v4
 
     .line 211
     invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 214
-    :cond_1fa
+    :cond_1fe
     return-void
 .end method
 

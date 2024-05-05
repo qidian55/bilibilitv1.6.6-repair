@@ -44,7 +44,7 @@ class DanmakuWebSocketClient extends WebSocketClient {
     public void onError(Exception arg0) {}
 
     @Override
-    public void onMessage(ByteBuffer arg0) { DanmakuClient.parse(arg0.array()); }
+    public void onMessage(ByteBuffer arg0) { if(DanmakuClient.player!=null)DanmakuClient.parse(arg0.array()); }
 
     @Override
     public void onMessage(String arg0) {}
@@ -162,7 +162,7 @@ public class DanmakuClient {
                 if (version == 2) {
                     parse(decompress_zlib(result));
                 }
-                if (version == 0) {
+                if (version == 0 && operation != 3) {
                     JSONObject info = new JSONObject(new String(result));
                     if(!info.optString("cmd").equals("DANMU_MSG"))continue;
                     JSONObject extra = new JSONObject(info.optJSONArray("info").getJSONArray(0).getJSONObject(15).optString("extra"));
