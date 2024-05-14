@@ -27,9 +27,9 @@ package org.java_websocket.util;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.CharacterCodingException;
+import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CodingErrorAction;
-import java.nio.charset.StandardCharsets;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.CloseFrame;
 
@@ -47,14 +47,14 @@ public class Charsetfunctions {
    * @return UTF-8 encoding in bytes
    */
   public static byte[] utf8Bytes(String s) {
-    return s.getBytes(StandardCharsets.UTF_8);
+    return s.getBytes(Charset.forName("UTF-8"));
   }
 
   /*
    * @return ASCII encoding in bytes
    */
   public static byte[] asciiBytes(String s) {
-    return s.getBytes(StandardCharsets.US_ASCII);
+    return s.getBytes(Charset.forName("ASCII"));
   }
 
   public static String stringAscii(byte[] bytes) {
@@ -62,7 +62,7 @@ public class Charsetfunctions {
   }
 
   public static String stringAscii(byte[] bytes, int offset, int length) {
-    return new String(bytes, offset, length, StandardCharsets.US_ASCII);
+    return new String(bytes, offset, length, Charset.forName("ASCII"));
   }
 
   public static String stringUtf8(byte[] bytes) throws InvalidDataException {
@@ -70,7 +70,7 @@ public class Charsetfunctions {
   }
 
   public static String stringUtf8(ByteBuffer bytes) throws InvalidDataException {
-    CharsetDecoder decode = StandardCharsets.UTF_8.newDecoder();
+    CharsetDecoder decode = Charset.forName("UTF-8").newDecoder();
     decode.onMalformedInput(codingErrorAction);
     decode.onUnmappableCharacter(codingErrorAction);
     String s;

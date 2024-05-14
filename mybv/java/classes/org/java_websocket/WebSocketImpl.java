@@ -59,7 +59,7 @@ import org.java_websocket.handshake.ServerHandshake;
 import org.java_websocket.handshake.ServerHandshakeBuilder;
 import org.java_websocket.interfaces.ISSLChannel;
 import org.java_websocket.protocols.IProtocol;
-import org.java_websocket.server.WebSocketServer.WebSocketWorker;
+//import org.java_websocket.server.WebSocketServer.WebSocketWorker;
 import org.java_websocket.util.Charsetfunctions;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
@@ -120,7 +120,7 @@ public class WebSocketImpl implements WebSocket {
    * Helper variable meant to store the thread which ( exclusively ) triggers this objects decode
    * method.
    **/
-  private WebSocketWorker workerThread;
+  //private WebSocketWorker workerThread;
   /**
    * When true no further frames may be submitted to be sent
    */
@@ -908,13 +908,13 @@ public class WebSocketImpl implements WebSocket {
     this.channel = channel;
   }
 
-  public WebSocketWorker getWorkerThread() {
-    return workerThread;
-  }
+  //public WebSocketWorker getWorkerThread() {
+  //  return workerThread;
+  //}
 
-  public void setWorkerThread(WebSocketWorker workerThread) {
-    this.workerThread = workerThread;
-  }
+  //public void setWorkerThread(WebSocketWorker workerThread) {
+  //  this.workerThread = workerThread;
+  //}
 
 
 }

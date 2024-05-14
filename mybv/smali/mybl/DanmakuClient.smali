@@ -990,7 +990,7 @@
     if-nez v0, :cond_ab
 
     .line 135
-    const-wide/16 v0, 0x7d0
+    const-wide/16 v0, 0x4e20
 
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
 

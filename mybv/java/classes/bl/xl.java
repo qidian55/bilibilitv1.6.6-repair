@@ -197,7 +197,7 @@ public class xl extends xh implements aaw.a, View.OnFocusChangeListener {
                 break;
         }
         this.i = i;
-        if (!X() || this.i < 0 || this.i >= this.j.length || mode_id==4) {
+        if (this.i < 0 || this.i >= this.j.length || mode_id==4) {
             Activity o = o();
             if (o != null) {
                 o.finish();

@@ -451,7 +451,11 @@
 
     .prologue
     .line 57
-    sget-object v0, Ljava/nio/charset/StandardCharsets;->US_ASCII:Ljava/nio/charset/Charset;
+    const-string v0, "ASCII"
+
+    invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
+
+    move-result-object v0
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
@@ -561,7 +565,11 @@
     .line 65
     new-instance v0, Ljava/lang/String;
 
-    sget-object v1, Ljava/nio/charset/StandardCharsets;->US_ASCII:Ljava/nio/charset/Charset;
+    const-string v1, "ASCII"
+
+    invoke-static {v1}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
+
+    move-result-object v1
 
     invoke-direct {v0, p0, p1, p2, v1}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
 
@@ -578,7 +586,11 @@
 
     .prologue
     .line 73
-    sget-object v0, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+    const-string v0, "UTF-8"
+
+    invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/nio/charset/Charset;->newDecoder()Ljava/nio/charset/CharsetDecoder;
 
@@ -595,7 +607,7 @@
     invoke-virtual {v0, v1}, Ljava/nio/charset/CharsetDecoder;->onUnmappableCharacter(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetDecoder;
 
     .line 78
-    :try_start_10
+    :try_start_14
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->mark()Ljava/nio/Buffer;
 
     .line 79
@@ -609,14 +621,14 @@
 
     .line 80
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->reset()Ljava/nio/Buffer;
-    :try_end_1e
-    .catch Ljava/nio/charset/CharacterCodingException; {:try_start_10 .. :try_end_1e} :catch_1f
+    :try_end_22
+    .catch Ljava/nio/charset/CharacterCodingException; {:try_start_14 .. :try_end_22} :catch_23
 
     .line 84
     return-object v0
 
     .line 81
-    :catch_1f
+    :catch_23
     move-exception v0
 
     .line 82
@@ -655,7 +667,11 @@
 
     .prologue
     .line 50
-    sget-object v0, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+    const-string v0, "UTF-8"
+
+    invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
+
+    move-result-object v0
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 

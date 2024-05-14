@@ -80,8 +80,6 @@
 
 .field private tmpHandshakeBytes:Ljava/nio/ByteBuffer;
 
-.field private workerThread:Lorg/java_websocket/server/WebSocketServer$WebSocketWorker;
-
 .field private final wsl:Lorg/java_websocket/WebSocketListener;
 
 
@@ -2492,16 +2490,6 @@
     return-object v0
 .end method
 
-.method public getWorkerThread()Lorg/java_websocket/server/WebSocketServer$WebSocketWorker;
-    .locals 1
-
-    .prologue
-    .line 912
-    iget-object v0, p0, Lorg/java_websocket/WebSocketImpl;->workerThread:Lorg/java_websocket/server/WebSocketServer$WebSocketWorker;
-
-    return-object v0
-.end method
-
 .method public hasBufferedData()Z
     .locals 1
 
@@ -2844,17 +2832,6 @@
     iput-object p1, p0, Lorg/java_websocket/WebSocketImpl;->key:Ljava/nio/channels/SelectionKey;
 
     .line 803
-    return-void
-.end method
-
-.method public setWorkerThread(Lorg/java_websocket/server/WebSocketServer$WebSocketWorker;)V
-    .locals 0
-
-    .prologue
-    .line 916
-    iput-object p1, p0, Lorg/java_websocket/WebSocketImpl;->workerThread:Lorg/java_websocket/server/WebSocketServer$WebSocketWorker;
-
-    .line 917
     return-void
 .end method
 

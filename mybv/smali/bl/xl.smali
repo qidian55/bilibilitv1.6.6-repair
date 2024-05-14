@@ -1328,7 +1328,7 @@
     .line 181
     sget v0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_id:I
 
-    if-ltz v0, :cond_33
+    if-ltz v0, :cond_2d
 
     sget v0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->mode_id:I
 
@@ -1336,7 +1336,7 @@
 
     .line 182
     :goto_b
-    packed-switch v3, :pswitch_data_62
+    packed-switch v3, :pswitch_data_5c
 
     .line 196
     :pswitch_e
@@ -1351,15 +1351,9 @@
     iput v2, p0, Lbl/xl;->i:I
 
     .line 200
-    invoke-direct {p0}, Lbl/xl;->X()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_29
-
     iget v0, p0, Lbl/xl;->i:I
 
-    if-ltz v0, :cond_29
+    if-ltz v0, :cond_23
 
     iget v0, p0, Lbl/xl;->i:I
 
@@ -1367,31 +1361,31 @@
 
     array-length v4, v4
 
-    if-ge v0, v4, :cond_29
+    if-ge v0, v4, :cond_23
 
     const/4 v0, 0x4
 
-    if-ne v3, v0, :cond_58
+    if-ne v3, v0, :cond_52
 
     .line 201
-    :cond_29
+    :cond_23
     invoke-virtual {p0}, Lbl/xl;->o()Landroid/app/Activity;
 
     move-result-object v0
 
     .line 202
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_2c
 
     .line 203
     invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
     .line 209
-    :cond_32
-    :goto_32
+    :cond_2c
+    :goto_2c
     return-void
 
     .line 181
-    :cond_33
+    :cond_2d
     const/4 v0, 0x0
 
     move v3, v0
@@ -1399,7 +1393,7 @@
     goto :goto_b
 
     .line 184
-    :pswitch_36
+    :pswitch_30
     iget v0, p0, Lbl/xl;->i:I
 
     add-int/lit8 v0, v0, -0x1
@@ -1410,7 +1404,7 @@
     goto :goto_13
 
     .line 187
-    :pswitch_3c
+    :pswitch_36
     new-instance v0, Ljava/util/Random;
 
     invoke-direct {v0}, Ljava/util/Random;-><init>()V
@@ -1429,7 +1423,7 @@
     goto :goto_13
 
     .line 190
-    :pswitch_4a
+    :pswitch_44
     iget v0, p0, Lbl/xl;->i:I
 
     move v2, v0
@@ -1438,7 +1432,7 @@
     goto :goto_13
 
     .line 193
-    :pswitch_4e
+    :pswitch_48
     iget v0, p0, Lbl/xl;->i:I
 
     add-int/lit8 v0, v0, 0x1
@@ -1454,7 +1448,7 @@
     .line 194
     goto :goto_13
 
-    :cond_58
+    :cond_52
     move-object v0, v1
 
     .line 208
@@ -1464,18 +1458,18 @@
 
     invoke-virtual {p0, v0, v1, v2}, Lbl/xl;->a(Landroid/view/ViewGroup;Landroid/view/View;I)V
 
-    goto :goto_32
+    goto :goto_2c
 
     .line 182
     nop
 
-    :pswitch_data_62
+    :pswitch_data_5c
     .packed-switch 0x1
+        :pswitch_30
         :pswitch_36
-        :pswitch_3c
-        :pswitch_4a
+        :pswitch_44
         :pswitch_e
-        :pswitch_4e
+        :pswitch_48
     .end packed-switch
 .end method
 

@@ -132,7 +132,7 @@ public class DanmakuClient {
             outToServer.write(info.getBytes());
             client.send(baos.toByteArray());
             while (!client.isClosed()) {
-                Thread.sleep(2000);
+                Thread.sleep(20000);
                 baos = new ByteArrayOutputStream();
                 outToServer = new DataOutputStream(baos);
                 outToServer.writeInt(16);
