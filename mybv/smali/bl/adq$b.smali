@@ -1,6 +1,6 @@
 .class public final Lbl/adq$b;
 .super Ljava/lang/Object;
-.source "BL"
+.source "adq.java"
 
 
 # annotations
@@ -18,18 +18,22 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 56
+    .prologue
+    .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 65
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 56
+    .prologue
+    .line 68
     invoke-direct {p0}, Lbl/adq$b;-><init>()V
 
+    .line 69
     return-void
 .end method
 
@@ -38,40 +42,37 @@
 .method public final a(I)Lbl/adq;
     .locals 2
 
-    .line 63
+    .prologue
+    .line 80
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 64
-    move-object v1, p0
-
-    check-cast v1, Lbl/adq$b;
-
-    invoke-virtual {v1}, Lbl/adq$b;->a()Ljava/lang/String;
+    .line 81
+    invoke-virtual {p0}, Lbl/adq$b;->a()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 65
-    new-instance p1, Lbl/adq;
+    .line 82
+    new-instance v1, Lbl/adq;
 
-    invoke-direct {p1}, Lbl/adq;-><init>()V
+    invoke-direct {v1}, Lbl/adq;-><init>()V
 
-    .line 66
-    invoke-virtual {p1, v0}, Lbl/adq;->setArguments(Landroid/os/Bundle;)V
+    .line 83
+    invoke-virtual {v1, v0}, Lbl/adq;->setArguments(Landroid/os/Bundle;)V
 
-    return-object p1
+    .line 84
+    return-object v1
 .end method
 
 .method public final a()Ljava/lang/String;
     .locals 1
 
-    .line 59
-    invoke-static {}, Lbl/adq;->e()Ljava/lang/String;
-
-    move-result-object v0
+    .prologue
+    .line 72
+    const-string v0, "sub_tid"
 
     return-object v0
 .end method
@@ -79,10 +80,9 @@
 .method public final b()I
     .locals 1
 
-    .line 60
-    invoke-static {}, Lbl/adq;->f()I
-
-    move-result v0
+    .prologue
+    .line 76
+    const/4 v0, 0x2
 
     return v0
 .end method

@@ -38,5 +38,8 @@ public interface MyBiliApiService {
     vp<GeneralResponse<JSONObject>> modifyRelation(@Field(a = "access_key") String access_key, @Field(a = "fid") long fid, @Field(a = "act") int act, @Field(a = "re_src") int re_src);
 
     @GET(a = "/x/web-interface/view/detail")
-    vp<GeneralResponse<JSONObject>> getVideoDetail(@Field(a = "aid") long aid);
+    vp<GeneralResponse<JSONObject>> getVideoDetail(@Query(a = "aid") long aid);
+
+    @GET(a = "/x/web-interface/dynamic/region")
+    vp<GeneralResponse<JSONObject>> getRegionHotVideo(@Query(a = "rid") int rid, @Query(a = "ps") int page_size);
 }

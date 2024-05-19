@@ -1,83 +1,94 @@
 .class public final Lbl/adq$k;
 .super Landroid/support/v7/widget/GridLayoutManager$c;
-.source "BL"
+.source "adq.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/adq;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lbl/adq;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
+    accessFlags = 0x11
+    name = "k"
 .end annotation
 
 
 # instance fields
-.field final synthetic b:Lbl/adq;
+.field final synthetic this$0:Lbl/adq;
 
 
 # direct methods
 .method constructor <init>(Lbl/adq;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    .line 166
-    iput-object p1, p0, Lbl/adq$k;->b:Lbl/adq;
+    .prologue
+    .line 210
+    iput-object p1, p0, Lbl/adq$k;->this$0:Lbl/adq;
 
     invoke-direct {p0}, Landroid/support/v7/widget/GridLayoutManager$c;-><init>()V
 
+    .line 211
     return-void
 .end method
 
 
 # virtual methods
 .method public a(I)I
-    .locals 2
+    .locals 4
 
-    .line 168
-    iget-object v0, p0, Lbl/adq$k;->b:Lbl/adq;
+    .prologue
+    const/4 v1, 0x0
 
-    invoke-virtual {v0}, Lbl/adq;->a()Lbl/adq$j;
+    const/4 v2, 0x1
 
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    if-nez v0, :cond_0
-
-    return v1
-
-    .line 171
-    :cond_0
-    iget-object v0, p0, Lbl/adq$k;->b:Lbl/adq;
+    .line 215
+    iget-object v0, p0, Lbl/adq$k;->this$0:Lbl/adq;
 
     invoke-virtual {v0}, Lbl/adq;->a()Lbl/adq$j;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_b
 
+    .line 223
+    :goto_a
+    return v2
+
+    .line 218
+    :cond_b
+    iget-object v0, p0, Lbl/adq$k;->this$0:Lbl/adq;
+
+    invoke-virtual {v0}, Lbl/adq;->a()Lbl/adq$j;
+
+    move-result-object v0
+
+    .line 219
+    if-nez v0, :cond_16
+
+    .line 220
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_1
+    .line 222
+    :cond_16
     invoke-virtual {v0, p1}, Lbl/adq$j;->a(I)I
 
-    move-result p1
+    move-result v3
 
-    .line 173
+    move-object v0, v1
+
+    .line 223
+    check-cast v0, Lbl/adq$j;
+
     sget-object v0, Lbl/adq$j;->Companion:Lbl/adq$j$a;
 
     invoke-virtual {v0}, Lbl/adq$j$a;->a()I
 
     move-result v0
 
-    if-eq p1, v0, :cond_3
+    if-eq v3, v0, :cond_2f
+
+    check-cast v1, Lbl/adq$j;
 
     sget-object v0, Lbl/adq$j;->Companion:Lbl/adq$j$a;
 
@@ -85,16 +96,18 @@
 
     move-result v0
 
-    if-ne p1, v0, :cond_2
+    if-ne v3, v0, :cond_32
 
-    goto :goto_0
+    :cond_2f
+    const/4 v0, 0x2
 
-    :cond_2
-    return v1
+    :goto_30
+    move v2, v0
 
-    :cond_3
-    :goto_0
-    const/4 p1, 0x2
+    goto :goto_a
 
-    return p1
+    :cond_32
+    move v0, v2
+
+    goto :goto_30
 .end method

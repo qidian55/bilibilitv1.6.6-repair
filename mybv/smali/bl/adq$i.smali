@@ -1,6 +1,6 @@
-.class final Lbl/adq$i;
+.class public final Lbl/adq$i;
 .super Lbl/vn;
-.source "BL"
+.source "adq.java"
 
 
 # annotations
@@ -9,15 +9,16 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "i"
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lbl/vn<",
-        "Ljava/util/List<",
-        "+",
+        "Lbl/vn",
+        "<",
+        "Ljava/util/List",
+        "<",
         "Lcom/bilibili/tv/api/area/BiliVideoV2;",
         ">;>;"
     }
@@ -25,23 +26,20 @@
 
 
 # instance fields
-.field final synthetic a:Lbl/adq;
+.field final synthetic this$0:Lbl/adq;
 
 
 # direct methods
 .method public constructor <init>(Lbl/adq;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    .line 389
-    iput-object p1, p0, Lbl/adq$i;->a:Lbl/adq;
+    .prologue
+    .line 521
+    iput-object p1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     invoke-direct {p0}, Lbl/vn;-><init>()V
 
+    .line 522
     return-void
 .end method
 
@@ -50,7 +48,8 @@
 .method public bridge synthetic a(Ljava/lang/Object;)V
     .locals 0
 
-    .line 389
+    .prologue
+    .line 520
     check-cast p1, Ljava/util/List;
 
     invoke-virtual {p0, p1}, Lbl/adq$i;->a(Ljava/util/List;)V
@@ -63,257 +62,292 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
-            "+",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/area/BiliVideoV2;",
             ">;)V"
         }
     .end annotation
 
-    .line 392
-    iget-object v0, p0, Lbl/adq$i;->a:Lbl/adq;
+    .prologue
+    const v4, 0x7f0c00b1
+
+    const/4 v3, 0x0
+
+    .line 531
+    iget-object v0, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     invoke-virtual {v0}, Lbl/adq;->a()Lbl/adq$j;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
+    .line 575
+    :goto_c
     return-void
 
-    .line 396
-    :cond_0
-    iget-object v0, p0, Lbl/adq$i;->a:Lbl/adq;
+    .line 534
+    :cond_d
+    iget-object v0, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
-    const/4 v1, 0x0
+    # setter for: Lbl/adq;->k:Z
+    invoke-static {v0, v3}, Lbl/adq;->access$202(Lbl/adq;Z)Z
 
-    invoke-static {v0, v1}, Lbl/adq;->a(Lbl/adq;Z)V
+    .line 535
+    iget-object v0, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
-    .line 397
-    iget-object v0, p0, Lbl/adq$i;->a:Lbl/adq;
-
-    invoke-static {v0}, Lbl/adq;->b(Lbl/adq;)Landroid/support/v7/widget/RecyclerView;
+    invoke-virtual {v0}, Lbl/adq;->h()Landroid/support/v7/widget/RecyclerView;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
 
-    if-eqz p1, :cond_a
+    .line 536
+    if-eqz p1, :cond_23
 
-    .line 399
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
-    goto/16 :goto_2
+    .line 537
+    :cond_23
+    iget-object v0, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
-    :cond_1
-    const v0, 0x7f0c00b1
+    # setter for: Lbl/adq;->j:Z
+    invoke-static {v0, v3}, Lbl/adq;->access$102(Lbl/adq;Z)Z
 
-    .line 403
-    invoke-static {v0}, Lbl/adl;->e(I)Ljava/lang/String;
+    goto :goto_c
 
-    move-result-object v2
-
-    .line 405
-    iget-object v3, p0, Lbl/adq$i;->a:Lbl/adq;
-
-    invoke-static {v3}, Lbl/adq;->d(Lbl/adq;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_8
-
-    .line 406
-    iget-object v3, p0, Lbl/adq$i;->a:Lbl/adq;
-
-    invoke-virtual {v3}, Lbl/adq;->b()Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;->SENDDATE:Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
-
-    if-ne v3, v4, :cond_2
-
-    .line 407
-    invoke-static {v0}, Lbl/adl;->e(I)Ljava/lang/String;
+    .line 540
+    :cond_29
+    invoke-static {v4}, Lbl/adl;->e(I)Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
-    move-object v2, v0
+    .line 541
+    iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
-    goto :goto_1
+    # getter for: Lbl/adq;->l:Z
+    invoke-static {v1}, Lbl/adq;->access$500(Lbl/adq;)Z
 
-    .line 408
-    :cond_2
-    iget-object v0, p0, Lbl/adq$i;->a:Lbl/adq;
+    move-result v1
 
-    invoke-virtual {v0}, Lbl/adq;->b()Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
+    if-eqz v1, :cond_58
+
+    .line 542
+    iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
+
+    invoke-virtual {v1}, Lbl/adq;->b()Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;->SENDDATE:Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
+
+    if-ne v1, v2, :cond_6c
+
+    .line 543
+    invoke-static {v4}, Lbl/adl;->e(I)Ljava/lang/String;
 
     move-result-object v0
 
-    sget-object v3, Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;->VIEW:Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
+    .line 562
+    :goto_43
+    iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
-    if-ne v0, v3, :cond_3
+    invoke-virtual {v1}, Lbl/adq;->m()V
 
+    .line 563
+    iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
+
+    invoke-virtual {v1}, Lbl/adq;->a()Lbl/adq$j;
+
+    move-result-object v1
+
+    .line 564
+    if-nez v1, :cond_50
+
+    .line 566
+    :cond_50
+    invoke-virtual {v1}, Lbl/adq$j;->h()V
+
+    .line 567
+    iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
+
+    # setter for: Lbl/adq;->l:Z
+    invoke-static {v1, v3}, Lbl/adq;->access$502(Lbl/adq;Z)Z
+
+    .line 569
+    :cond_58
+    iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
+
+    invoke-virtual {v1}, Lbl/adq;->j()V
+
+    .line 570
+    iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
+
+    invoke-virtual {v1}, Lbl/adq;->a()Lbl/adq$j;
+
+    move-result-object v1
+
+    .line 571
+    if-nez v1, :cond_68
+
+    .line 572
+    invoke-static {}, Lbl/bbi;->a()V
+
+    .line 574
+    :cond_68
+    invoke-virtual {v1, v0, p1}, Lbl/adq$j;->a(Ljava/lang/String;Ljava/util/List;)V
+
+    goto :goto_c
+
+    .line 544
+    :cond_6c
+    iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
+
+    invoke-virtual {v1}, Lbl/adq;->b()Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;->VIEW:Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
+
+    if-ne v1, v2, :cond_7e
+
+    .line 545
     const v0, 0x7f0c00b0
 
-    .line 409
     invoke-static {v0}, Lbl/adl;->e(I)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_43
 
-    .line 410
-    :cond_3
-    iget-object v0, p0, Lbl/adq$i;->a:Lbl/adq;
+    .line 546
+    :cond_7e
+    iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
-    invoke-virtual {v0}, Lbl/adq;->b()Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
+    invoke-virtual {v1}, Lbl/adq;->b()Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
 
-    move-result-object v0
+    move-result-object v1
 
-    sget-object v3, Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;->DANMAKU:Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
+    sget-object v2, Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;->DANMAKU:Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
 
-    if-ne v0, v3, :cond_4
+    if-ne v1, v2, :cond_90
 
+    .line 547
     const v0, 0x7f0c00af
 
-    .line 411
     invoke-static {v0}, Lbl/adl;->e(I)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_43
 
-    .line 412
-    :cond_4
-    iget-object v0, p0, Lbl/adq$i;->a:Lbl/adq;
+    .line 548
+    :cond_90
+    iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
-    invoke-virtual {v0}, Lbl/adq;->b()Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
+    invoke-virtual {v1}, Lbl/adq;->b()Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
 
-    move-result-object v0
+    move-result-object v1
 
-    sget-object v3, Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;->REPLY:Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
+    sget-object v2, Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;->REPLY:Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
 
-    if-ne v0, v3, :cond_5
+    if-ne v1, v2, :cond_a2
 
+    .line 549
     const v0, 0x7f0c00b2
 
-    .line 413
     invoke-static {v0}, Lbl/adl;->e(I)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_43
 
-    .line 414
-    :cond_5
-    iget-object v0, p0, Lbl/adq$i;->a:Lbl/adq;
+    .line 551
+    :cond_a2
+    iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
-    invoke-virtual {v0}, Lbl/adq;->b()Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
+    invoke-virtual {v1}, Lbl/adq;->b()Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
 
-    move-result-object v0
+    move-result-object v1
 
-    sget-object v3, Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;->FAVORITE:Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
+    sget-object v2, Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;->FAVORITE:Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
 
-    if-ne v0, v3, :cond_6
+    if-ne v1, v2, :cond_b3
 
+    .line 552
     const v0, 0x7f0c00b3
 
-    .line 415
     invoke-static {v0}, Lbl/adl;->e(I)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    .line 554
+    :cond_b3
+    iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
-    .line 417
-    :cond_6
-    :goto_1
-    iget-object v0, p0, Lbl/adq$i;->a:Lbl/adq;
+    invoke-virtual {v1}, Lbl/adq;->m()V
 
-    invoke-virtual {v0}, Lbl/adq;->m()V
+    .line 555
+    iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
-    .line 418
-    iget-object v0, p0, Lbl/adq$i;->a:Lbl/adq;
+    invoke-virtual {v1}, Lbl/adq;->a()Lbl/adq$j;
 
-    invoke-virtual {v0}, Lbl/adq;->a()Lbl/adq$j;
+    move-result-object v1
 
-    move-result-object v0
+    .line 556
+    if-nez v1, :cond_c3
 
-    if-nez v0, :cond_7
-
+    .line 557
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_7
-    invoke-virtual {v0}, Lbl/adq$j;->h()V
+    .line 559
+    :cond_c3
+    invoke-virtual {v1}, Lbl/adq$j;->h()V
 
-    .line 419
-    iget-object v0, p0, Lbl/adq$i;->a:Lbl/adq;
+    .line 560
+    iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
-    invoke-static {v0, v1}, Lbl/adq;->c(Lbl/adq;Z)V
+    # setter for: Lbl/adq;->l:Z
+    invoke-static {v1, v3}, Lbl/adq;->access$502(Lbl/adq;Z)Z
 
-    .line 421
-    :cond_8
-    iget-object v0, p0, Lbl/adq$i;->a:Lbl/adq;
-
-    invoke-virtual {v0}, Lbl/adq;->j()V
-
-    .line 422
-    iget-object v0, p0, Lbl/adq$i;->a:Lbl/adq;
-
-    invoke-virtual {v0}, Lbl/adq;->a()Lbl/adq$j;
-
-    move-result-object v0
-
-    if-nez v0, :cond_9
-
-    invoke-static {}, Lbl/bbi;->a()V
-
-    :cond_9
-    invoke-virtual {v0, v2, p1}, Lbl/adq$j;->a(Ljava/lang/String;Ljava/util/List;)V
-
-    return-void
-
-    .line 400
-    :cond_a
-    :goto_2
-    iget-object p1, p0, Lbl/adq$i;->a:Lbl/adq;
-
-    invoke-static {p1, v1}, Lbl/adq;->b(Lbl/adq;Z)V
-
-    return-void
+    goto/16 :goto_43
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 1
+    .locals 2
 
+    .prologue
+    .line 579
     const-string v0, "t"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 426
-    iget-object p1, p0, Lbl/adq$i;->a:Lbl/adq;
+    .line 580
+    iget-object v0, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
-    invoke-virtual {p1}, Lbl/adq;->a()Lbl/adq$j;
+    invoke-virtual {v0}, Lbl/adq;->a()Lbl/adq$j;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-nez p1, :cond_0
+    if-nez v0, :cond_e
 
+    .line 584
+    :goto_d
     return-void
 
-    .line 429
-    :cond_0
-    iget-object p1, p0, Lbl/adq$i;->a:Lbl/adq;
+    .line 583
+    :cond_e
+    iget-object v0, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p1, v0}, Lbl/adq;->a(Lbl/adq;Z)V
+    # setter for: Lbl/adq;->k:Z
+    invoke-static {v0, v1}, Lbl/adq;->access$202(Lbl/adq;Z)Z
 
-    return-void
+    goto :goto_d
 .end method

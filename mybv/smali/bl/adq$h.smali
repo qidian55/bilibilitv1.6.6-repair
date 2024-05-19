@@ -1,6 +1,6 @@
 .class public final Lbl/adq$h;
 .super Lbl/adc$a;
-.source "BL"
+.source "adq.java"
 
 
 # annotations
@@ -34,6 +34,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 848
     new-instance v0, Lbl/adq$h$a;
 
     const/4 v1, 0x0
@@ -48,16 +50,18 @@
 .method public constructor <init>(Landroid/view/View;)V
     .locals 1
 
+    .prologue
+    .line 854
+    invoke-direct {p0, p1}, Lbl/adc$a;-><init>(Landroid/view/View;)V
+
+    .line 855
     const-string v0, "itemView"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 607
-    invoke-direct {p0, p1}, Lbl/adc$a;-><init>(Landroid/view/View;)V
-
+    .line 856
     const v0, 0x7f080132
 
-    .line 612
     invoke-virtual {p0, p1, v0}, Lbl/adq$h;->a(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object v0
@@ -66,17 +70,18 @@
 
     iput-object v0, p0, Lbl/adq$h;->n:Landroid/widget/TextView;
 
+    .line 857
     const v0, 0x7f080097
 
-    .line 613
     invoke-virtual {p0, p1, v0}, Lbl/adq$h;->a(Landroid/view/View;I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
-    iput-object p1, p0, Lbl/adq$h;->o:Landroid/widget/TextView;
+    iput-object v0, p0, Lbl/adq$h;->o:Landroid/widget/TextView;
 
+    .line 858
     return-void
 .end method
 
@@ -85,49 +90,50 @@
 .method public b(Ljava/lang/Object;)V
     .locals 2
 
-    .line 617
+    .prologue
+    .line 862
     instance-of v0, p1, Lbl/adq$f;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
-    .line 618
-    iget-object v0, p0, Lbl/adq$h;->n:Landroid/widget/TextView;
-
+    .line 863
     check-cast p1, Lbl/adq$f;
+
+    .line 864
+    iget-object v0, p0, Lbl/adq$h;->n:Landroid/widget/TextView;
 
     invoke-virtual {p1}, Lbl/adq$f;->a()Ljava/lang/String;
 
     move-result-object v1
 
-    check-cast v1, Ljava/lang/CharSequence;
-
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 619
+    .line 865
     invoke-virtual {p1}, Lbl/adq$f;->b()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_1c
 
-    .line 620
-    iget-object p1, p0, Lbl/adq$h;->o:Landroid/widget/TextView;
+    .line 866
+    iget-object v0, p0, Lbl/adq$h;->o:Landroid/widget/TextView;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_0
-
-    .line 622
-    :cond_0
-    iget-object p1, p0, Lbl/adq$h;->o:Landroid/widget/TextView;
-
-    const/16 v0, 0x8
-
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setVisibility(I)V
-
-    :cond_1
-    :goto_0
+    .line 871
+    :cond_1b
+    :goto_1b
     return-void
+
+    .line 868
+    :cond_1c
+    iget-object v0, p0, Lbl/adq$h;->o:Landroid/widget/TextView;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_1b
 .end method

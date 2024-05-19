@@ -80,6 +80,9 @@
 - 升级直播弹幕协议
 - 支持表情包及图片直播弹幕
 
+### v10.0 test
+- 分区视频默认页调整为分区热门推荐
+
 
 ## todo list
 - [x] 似乎6月1日后web源只能拿到720P，继续寻找可用源。。。
@@ -92,16 +95,11 @@
 
 
 ## 编译
+- 环境安装
 ```bash
-#环境安装
 sudo apt install apktool signapk openjdk-8-jdk
 sudo update-alternatives --set javac /usr/lib/jvm/java-8-openjdk-amd64/bin/javac
-#编译java类
-cd mybv/java
-./build.sh
-cd ../..
-#编译apk
-./build.sh
 ```
-如需修改包名，可修改`build_special.sh`文件并将最后一步替换为`./build_special.sh`。
+- 普通编译：`./build.sh`
+- 特殊编译：`./build.sh -s 包名`
 > PS: 修改包名可能导致程序运行时出现部分错误。

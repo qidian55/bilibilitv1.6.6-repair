@@ -1,6 +1,6 @@
 .class public final Lbl/adq$j;
 .super Lbl/adc;
-.source "BL"
+.source "adq.java"
 
 
 # annotations
@@ -15,13 +15,15 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lbl/adq$j$a;
+        Lbl/adq$j$a;,
+        Lbl/adq$j$b;
     }
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lbl/adc<",
+        "Lbl/adc",
+        "<",
         "Lbl/adc$a;",
         ">;"
     }
@@ -48,6 +50,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 590
     new-instance v0, Lbl/adq$j$a;
 
     const/4 v1, 0x0
@@ -62,52 +66,96 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 433
+    .prologue
+    .line 589
     invoke-direct {p0}, Lbl/adc;-><init>()V
 
     return-void
 .end method
 
-.method public static final synthetic i()I
-    .locals 1
-
-    .line 433
-    sget v0, Lbl/adq$j;->c:I
-
-    return v0
-.end method
-
-.method public static final synthetic j()I
-    .locals 1
-
-    .line 433
-    sget v0, Lbl/adq$j;->d:I
-
-    return v0
-.end method
-
-.method public static final synthetic k()I
-    .locals 1
-
-    .line 433
-    sget v0, Lbl/adq$j;->e:I
-
-    return v0
-.end method
-
 
 # virtual methods
-.method public synthetic a(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$v;
-    .locals 0
+.method public bridge synthetic a(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$v;
+    .locals 1
 
-    .line 433
-    invoke-virtual {p0, p1, p2}, Lbl/adq$j;->c(Landroid/view/ViewGroup;I)Lbl/adc$a;
+    .prologue
+    .line 589
+    invoke-virtual {p0, p1, p2}, Lbl/adq$j;->a(Landroid/view/ViewGroup;I)Lbl/adc$a;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/support/v7/widget/RecyclerView$v;
+    return-object v0
+.end method
 
-    return-object p1
+.method public a(Landroid/view/ViewGroup;I)Lbl/adc$a;
+    .locals 3
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 600
+    const-string v1, "parent"
+
+    invoke-static {p1, v1}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 601
+    const/4 v1, 0x1
+
+    if-ne p2, v1, :cond_12
+
+    check-cast v0, Lbl/adq$e;
+
+    sget-object v0, Lbl/adq$e;->Companion:Lbl/adq$e$a;
+
+    invoke-virtual {v0, p1}, Lbl/adq$e$a;->a(Landroid/view/ViewGroup;)Lbl/adq$e;
+
+    move-result-object v0
+
+    :goto_11
+    return-object v0
+
+    :cond_12
+    const/4 v1, 0x2
+
+    if-ne p2, v1, :cond_1e
+
+    check-cast v0, Lbl/adq$h;
+
+    sget-object v0, Lbl/adq$h;->Companion:Lbl/adq$h$a;
+
+    invoke-virtual {v0, p1}, Lbl/adq$h$a;->a(Landroid/view/ViewGroup;)Lbl/adq$h;
+
+    move-result-object v0
+
+    goto :goto_11
+
+    :cond_1e
+    const/4 v0, 0x3
+
+    if-ne p2, v0, :cond_28
+
+    sget-object v0, Lbl/aeb;->Companion:Lbl/aeb$b;
+
+    invoke-virtual {v0, p1}, Lbl/aeb$b;->a(Landroid/view/ViewGroup;)Lbl/aeb;
+
+    move-result-object v0
+
+    goto :goto_11
+
+    :cond_28
+    new-instance v0, Lbl/adq$j$b;
+
+    new-instance v1, Landroid/view/View;
+
+    invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/view/View;-><init>(Landroid/content/Context;)V
+
+    invoke-direct {v0, p1, v1}, Lbl/adq$j$b;-><init>(Landroid/view/ViewGroup;Landroid/view/View;)V
+
+    goto :goto_11
 .end method
 
 .method public final a(Ljava/lang/String;Ljava/util/List;)V
@@ -116,65 +164,70 @@
         value = {
             "(",
             "Ljava/lang/String;",
-            "Ljava/util/List<",
-            "+",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/area/BiliVideoV2;",
             ">;)V"
         }
     .end annotation
 
+    .prologue
+    .line 633
     const-string v0, "title"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 634
     const-string v0, "otherList"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 466
+    .line 635
     iget-object v0, p0, Lbl/adq$j;->b:Lbl/adq$g;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
-    .line 467
+    .line 636
     new-instance v0, Lbl/adq$g;
 
     invoke-direct {v0, p1, p2}, Lbl/adq$g;-><init>(Ljava/lang/String;Ljava/util/List;)V
 
     iput-object v0, p0, Lbl/adq$j;->b:Lbl/adq$g;
 
-    .line 468
-    iget-object p1, p0, Lbl/adq$j;->b:Lbl/adq$g;
+    .line 637
+    iget-object v0, p0, Lbl/adq$j;->b:Lbl/adq$g;
 
-    check-cast p1, Lbl/ade;
+    invoke-virtual {p0, v0}, Lbl/adq$j;->a(Lbl/ade;)V
 
-    invoke-virtual {p0, p1}, Lbl/adq$j;->a(Lbl/ade;)V
+    .line 638
+    const/4 v0, 0x1
 
-    const/4 p1, 0x1
+    invoke-virtual {p0, v0}, Lbl/adq$j;->b(Z)V
 
-    .line 469
-    invoke-virtual {p0, p1}, Lbl/adq$j;->b(Z)V
+    .line 647
+    :goto_1e
+    return-void
 
-    goto :goto_0
+    .line 640
+    :cond_1f
+    iget-object v0, p0, Lbl/adq$j;->b:Lbl/adq$g;
 
-    .line 471
-    :cond_0
-    iget-object p1, p0, Lbl/adq$j;->b:Lbl/adq$g;
+    .line 641
+    if-nez v0, :cond_26
 
-    if-nez p1, :cond_1
-
+    .line 642
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_1
-    invoke-virtual {p1, p2}, Lbl/adq$g;->a(Ljava/util/List;)V
+    .line 644
+    :cond_26
+    invoke-virtual {v0, p2}, Lbl/adq$g;->a(Ljava/util/List;)V
 
-    const/4 p1, 0x0
+    .line 645
+    const/4 v0, 0x0
 
-    .line 472
-    invoke-virtual {p0, p1}, Lbl/adq$j;->b(Z)V
+    invoke-virtual {p0, v0}, Lbl/adq$j;->b(Z)V
 
-    :goto_0
-    return-void
+    goto :goto_1e
 .end method
 
 .method public final a(Ljava/util/List;)V
@@ -182,33 +235,37 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
-            "+",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/area/BiliVideoV2;",
             ">;)V"
         }
     .end annotation
 
+    .prologue
+    .line 621
     const-string v0, "hotList"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 454
+    .line 622
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
+    .line 630
+    :goto_b
     return-void
 
-    .line 458
-    :cond_0
+    .line 625
+    :cond_c
     iget-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
-    .line 459
+    .line 626
     new-instance v0, Lbl/adq$d;
 
     const v1, 0x7f0c009e
@@ -221,112 +278,39 @@
 
     iput-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
 
-    .line 461
-    :cond_1
+    .line 628
+    :cond_1e
     invoke-super {p0}, Lbl/adc;->g()V
 
-    .line 462
-    iget-object p1, p0, Lbl/adq$j;->a:Lbl/adq$d;
+    .line 629
+    iget-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
 
-    check-cast p1, Lbl/ade;
+    invoke-virtual {p0, v0}, Lbl/adq$j;->a(Lbl/ade;)V
 
-    invoke-virtual {p0, p1}, Lbl/adq$j;->a(Lbl/ade;)V
-
-    return-void
-.end method
-
-.method public c(Landroid/view/ViewGroup;I)Lbl/adc$a;
-    .locals 2
-
-    const-string v0, "parent"
-
-    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 443
-    sget v0, Lbl/adq$j;->c:I
-
-    if-ne p2, v0, :cond_0
-
-    sget-object p2, Lbl/adq$e;->Companion:Lbl/adq$e$a;
-
-    invoke-virtual {p2, p1}, Lbl/adq$e$a;->a(Landroid/view/ViewGroup;)Lbl/adq$e;
-
-    move-result-object p1
-
-    check-cast p1, Lbl/adc$a;
-
-    return-object p1
-
-    .line 444
-    :cond_0
-    sget v0, Lbl/adq$j;->d:I
-
-    if-ne p2, v0, :cond_1
-
-    sget-object p2, Lbl/adq$h;->Companion:Lbl/adq$h$a;
-
-    invoke-virtual {p2, p1}, Lbl/adq$h$a;->a(Landroid/view/ViewGroup;)Lbl/adq$h;
-
-    move-result-object p1
-
-    check-cast p1, Lbl/adc$a;
-
-    return-object p1
-
-    .line 445
-    :cond_1
-    sget v0, Lbl/adq$j;->e:I
-
-    if-ne p2, v0, :cond_2
-
-    sget-object p2, Lbl/aeb;->Companion:Lbl/aeb$b;
-
-    invoke-virtual {p2, p1}, Lbl/aeb$b;->a(Landroid/view/ViewGroup;)Lbl/aeb;
-
-    move-result-object p1
-
-    check-cast p1, Lbl/adc$a;
-
-    return-object p1
-
-    .line 447
-    :cond_2
-    new-instance p2, Lbl/adq$j$b;
-
-    new-instance v0, Landroid/view/View;
-
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
-
-    invoke-direct {p2, p1, v0}, Lbl/adq$j$b;-><init>(Landroid/view/ViewGroup;Landroid/view/View;)V
-
-    check-cast p2, Lbl/adc$a;
-
-    return-object p2
+    goto :goto_b
 .end method
 
 .method public final h()V
     .locals 2
 
-    .line 477
+    .prologue
+    const/4 v1, 0x0
+
+    .line 650
     invoke-super {p0}, Lbl/adc;->g()V
 
-    const/4 v0, 0x0
+    move-object v0, v1
 
-    .line 478
-    move-object v1, v0
+    .line 651
+    check-cast v0, Lbl/adq$d;
 
-    check-cast v1, Lbl/adq$d;
+    iput-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
 
-    iput-object v1, p0, Lbl/adq$j;->a:Lbl/adq$d;
+    .line 652
+    check-cast v1, Lbl/adq$g;
 
-    .line 479
-    check-cast v0, Lbl/adq$g;
+    iput-object v1, p0, Lbl/adq$j;->b:Lbl/adq$g;
 
-    iput-object v0, p0, Lbl/adq$j;->b:Lbl/adq$g;
-
+    .line 653
     return-void
 .end method

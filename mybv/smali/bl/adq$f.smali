@@ -1,6 +1,6 @@
 .class final Lbl/adq$f;
 .super Ljava/lang/Object;
-.source "BL"
+.source "adq.java"
 
 
 # annotations
@@ -21,10 +21,11 @@
 
 
 # direct methods
-.method public constructor <init>()V
+.method constructor <init>()V
     .locals 0
 
-    .line 666
+    .prologue
+    .line 946
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,7 +36,8 @@
 .method public final a()Ljava/lang/String;
     .locals 1
 
-    .line 667
+    .prologue
+    .line 951
     iget-object v0, p0, Lbl/adq$f;->a:Ljava/lang/String;
 
     return-object v0
@@ -44,25 +46,30 @@
 .method public final a(Ljava/lang/String;)V
     .locals 0
 
-    .line 667
+    .prologue
+    .line 955
     iput-object p1, p0, Lbl/adq$f;->a:Ljava/lang/String;
 
+    .line 956
     return-void
 .end method
 
 .method public final a(Z)V
     .locals 0
 
-    .line 668
+    .prologue
+    .line 959
     iput-boolean p1, p0, Lbl/adq$f;->b:Z
 
+    .line 960
     return-void
 .end method
 
 .method public final b()Z
     .locals 1
 
-    .line 668
+    .prologue
+    .line 963
     iget-boolean v0, p0, Lbl/adq$f;->b:Z
 
     return v0

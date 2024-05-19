@@ -1,208 +1,224 @@
 .class public final Lbl/adq$l;
 .super Landroid/support/v7/widget/RecyclerView$g;
-.source "BL"
+.source "adq.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/adq;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lbl/adq;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x19
-    name = null
+    name = "l"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/ui/area/AreaFragment$onViewCreated$layoutManager$1;
+.field final a:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
-.field final synthetic b:I
+.field final b:I
 
-.field final synthetic c:I
+.field final c:I
 
-.field final synthetic d:I
+.field final d:I
 
-.field final synthetic e:I
+.field final e:I
 
 
 # direct methods
-.method constructor <init>(Lcom/bilibili/tv/ui/area/AreaFragment$onViewCreated$layoutManager$1;IIII)V
+.method constructor <init>(Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;IIII)V
     .locals 0
 
-    .line 189
-    iput-object p1, p0, Lbl/adq$l;->a:Lcom/bilibili/tv/ui/area/AreaFragment$onViewCreated$layoutManager$1;
-
-    iput p2, p0, Lbl/adq$l;->b:I
-
-    iput p3, p0, Lbl/adq$l;->c:I
-
-    iput p4, p0, Lbl/adq$l;->d:I
-
-    iput p5, p0, Lbl/adq$l;->e:I
-
+    .prologue
+    .line 236
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$g;-><init>()V
 
+    .line 237
+    iput-object p1, p0, Lbl/adq$l;->a:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
+
+    .line 238
+    iput p2, p0, Lbl/adq$l;->b:I
+
+    .line 239
+    iput p3, p0, Lbl/adq$l;->c:I
+
+    .line 240
+    iput p4, p0, Lbl/adq$l;->d:I
+
+    .line 241
+    iput p5, p0, Lbl/adq$l;->e:I
+
+    .line 242
     return-void
 .end method
 
 
 # virtual methods
 .method public a(Landroid/graphics/Rect;Landroid/view/View;Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$s;)V
-    .locals 3
+    .locals 5
 
-    const-string p4, "outRect"
+    .prologue
+    const/4 v1, 0x0
 
-    invoke-static {p1, p4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v2, 0x0
 
-    const-string p4, "view"
+    .line 250
+    const-string v0, "outRect"
 
-    invoke-static {p2, p4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string p4, "parent"
+    .line 251
+    const-string v0, "view"
 
-    invoke-static {p3, p4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 196
+    .line 252
+    const-string v0, "parent"
+
+    invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 253
     invoke-virtual {p3, p2}, Landroid/support/v7/widget/RecyclerView;->g(Landroid/view/View;)I
 
-    move-result p3
+    move-result v3
 
-    .line 197
-    iget-object p4, p0, Lbl/adq$l;->a:Lcom/bilibili/tv/ui/area/AreaFragment$onViewCreated$layoutManager$1;
+    .line 254
+    iget-object v0, p0, Lbl/adq$l;->a:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
-    invoke-virtual {p4, p2}, Lcom/bilibili/tv/ui/area/AreaFragment$onViewCreated$layoutManager$1;->e(Landroid/view/View;)I
+    invoke-virtual {v0, p2}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->e(Landroid/view/View;)I
 
-    move-result p4
+    move-result v4
 
-    .line 204
+    move-object v0, v1
+
+    .line 255
+    check-cast v0, Lbl/adq$j;
+
     sget-object v0, Lbl/adq$j;->Companion:Lbl/adq$j$a;
 
     invoke-virtual {v0}, Lbl/adq$j$a;->a()I
 
     move-result v0
 
-    const/4 v1, 0x0
+    if-ne v4, v0, :cond_31
 
-    if-ne p4, v0, :cond_0
+    .line 256
+    iget v4, p0, Lbl/adq$l;->b:I
 
-    .line 205
-    iget p2, p0, Lbl/adq$l;->b:I
+    .line 257
+    iget v0, p0, Lbl/adq$l;->b:I
 
-    .line 206
-    iget p3, p0, Lbl/adq$l;->b:I
+    .line 258
+    iget v3, p0, Lbl/adq$l;->c:I
 
-    .line 207
-    iget p4, p0, Lbl/adq$l;->c:I
+    move v1, v0
 
-    move v2, p4
+    .line 283
+    :goto_2d
+    invoke-virtual {p1, v4, v3, v1, v2}, Landroid/graphics/Rect;->set(IIII)V
 
-    move p4, p3
+    .line 284
+    return-void
 
-    move p3, v2
+    :cond_31
+    move-object v0, v1
 
-    goto :goto_2
+    .line 259
+    check-cast v0, Lbl/adq$j;
 
-    .line 209
-    :cond_0
     sget-object v0, Lbl/adq$j;->Companion:Lbl/adq$j$a;
 
     invoke-virtual {v0}, Lbl/adq$j$a;->b()I
 
     move-result v0
 
-    if-ne p4, v0, :cond_2
+    if-ne v4, v0, :cond_4a
 
-    .line 210
-    iget p2, p0, Lbl/adq$l;->b:I
+    .line 260
+    iget v4, p0, Lbl/adq$l;->b:I
 
-    .line 211
-    iget p4, p0, Lbl/adq$l;->b:I
+    .line 261
+    iget v0, p0, Lbl/adq$l;->b:I
 
-    if-nez p3, :cond_1
+    .line 262
+    if-nez v3, :cond_46
 
-    .line 213
-    iget p3, p0, Lbl/adq$l;->c:I
+    .line 263
+    iget v3, p0, Lbl/adq$l;->c:I
 
-    goto :goto_2
+    move v1, v0
 
-    .line 215
-    :cond_1
-    iget p3, p0, Lbl/adq$l;->d:I
+    goto :goto_2d
 
-    goto :goto_2
+    .line 265
+    :cond_46
+    iget v3, p0, Lbl/adq$l;->d:I
 
-    .line 218
-    :cond_2
-    sget-object p3, Lbl/adq$j;->Companion:Lbl/adq$j$a;
+    move v1, v0
 
-    invoke-virtual {p3}, Lbl/adq$j$a;->c()I
+    goto :goto_2d
 
-    move-result p3
+    .line 267
+    :cond_4a
+    check-cast v1, Lbl/adq$j;
 
-    if-ne p4, p3, :cond_5
+    sget-object v0, Lbl/adq$j;->Companion:Lbl/adq$j$a;
 
-    const p3, 0x7f0800a6
+    invoke-virtual {v0}, Lbl/adq$j$a;->c()I
 
-    .line 220
-    invoke-virtual {p2, p3}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+    move-result v0
 
-    move-result-object p2
+    if-ne v4, v0, :cond_72
 
-    .line 221
-    instance-of p3, p2, Ljava/lang/Boolean;
+    .line 268
+    const v0, 0x7f0800a6
 
-    if-eqz p3, :cond_3
+    invoke-virtual {p2, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
-    .line 222
-    check-cast p2, Ljava/lang/Boolean;
+    move-result-object v0
 
-    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
+    .line 269
+    instance-of v1, v0, Ljava/lang/Boolean;
 
-    move-result p2
+    if-eqz v1, :cond_6f
 
-    goto :goto_0
+    check-cast v0, Ljava/lang/Boolean;
 
-    :cond_3
-    const/4 p2, 0x0
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    :goto_0
-    if-eqz p2, :cond_4
+    move-result v0
 
-    .line 225
-    iget p2, p0, Lbl/adq$l;->d:I
+    if-eqz v0, :cond_6f
 
-    goto :goto_1
+    .line 270
+    iget v0, p0, Lbl/adq$l;->d:I
 
-    .line 227
-    :cond_4
-    iget p2, p0, Lbl/adq$l;->b:I
+    .line 274
+    :goto_69
+    iget v4, p0, Lbl/adq$l;->e:I
 
-    .line 229
-    :goto_1
-    iget p3, p0, Lbl/adq$l;->e:I
+    .line 275
+    iget v1, p0, Lbl/adq$l;->e:I
 
-    .line 230
-    iget p4, p0, Lbl/adq$l;->e:I
+    move v3, v0
 
-    move v2, p3
+    .line 278
+    goto :goto_2d
 
-    move p3, p2
+    .line 272
+    :cond_6f
+    iget v0, p0, Lbl/adq$l;->b:I
 
-    move p2, v2
+    goto :goto_69
 
-    goto :goto_2
+    :cond_72
+    move v1, v2
 
-    :cond_5
-    const/4 p2, 0x0
+    move v3, v2
 
-    const/4 p3, 0x0
+    move v4, v2
 
-    const/4 p4, 0x0
-
-    .line 233
-    :goto_2
-    invoke-virtual {p1, p2, p3, p4, v1}, Landroid/graphics/Rect;->set(IIII)V
-
-    return-void
+    .line 281
+    goto :goto_2d
 .end method

@@ -1,6 +1,6 @@
 .class public final Lbl/adq$j$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "adq.java"
 
 
 # annotations
@@ -18,18 +18,22 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 482
+    .prologue
+    .line 658
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 659
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 482
+    .prologue
+    .line 662
     invoke-direct {p0}, Lbl/adq$j$a;-><init>()V
 
+    .line 663
     return-void
 .end method
 
@@ -38,10 +42,9 @@
 .method public final a()I
     .locals 1
 
-    .line 484
-    invoke-static {}, Lbl/adq$j;->i()I
-
-    move-result v0
+    .prologue
+    .line 666
+    const/4 v0, 0x1
 
     return v0
 .end method
@@ -49,10 +52,9 @@
 .method public final b()I
     .locals 1
 
-    .line 486
-    invoke-static {}, Lbl/adq$j;->j()I
-
-    move-result v0
+    .prologue
+    .line 670
+    const/4 v0, 0x2
 
     return v0
 .end method
@@ -60,10 +62,9 @@
 .method public final c()I
     .locals 1
 
-    .line 488
-    invoke-static {}, Lbl/adq$j;->k()I
-
-    move-result v0
+    .prologue
+    .line 674
+    const/4 v0, 0x3
 
     return v0
 .end method

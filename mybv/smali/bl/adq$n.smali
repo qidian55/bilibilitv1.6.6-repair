@@ -1,75 +1,87 @@
 .class final Lbl/adq$n;
 .super Ljava/lang/Object;
-.source "BL"
+.source "adq.java"
 
 # interfaces
 .implements Lcom/bilibili/tv/widget/border/BorderGridLayoutManager$a;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/adq;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lbl/adq;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
+    accessFlags = 0x10
+    name = "n"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lbl/adq;
+.field final synthetic this$0:Lbl/adq;
 
 
 # direct methods
 .method constructor <init>(Lbl/adq;)V
     .locals 0
 
-    iput-object p1, p0, Lbl/adq$n;->a:Lbl/adq;
+    .prologue
+    .line 314
+    iput-object p1, p0, Lbl/adq$n;->this$0:Lbl/adq;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 315
     return-void
 .end method
 
 
 # virtual methods
 .method public final a(Landroid/view/View;Landroid/view/View;III)V
-    .locals 2
+    .locals 4
 
-    .line 262
-    new-instance p2, Ljava/lang/StringBuilder;
+    .prologue
+    const/4 v3, 0x0
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    .line 320
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v0, "focus cahnge "
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "focus cahnge "
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object p2
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {p2}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;)V
+    move-result-object v0
 
-    const/4 p2, 0x0
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-nez p3, :cond_0
+    move-result-object v0
 
-    .line 264
-    iget-object p3, p0, Lbl/adq$n;->a:Lbl/adq;
+    invoke-static {v0}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;)V
 
-    invoke-virtual {p3}, Lbl/adq;->a()Lbl/adq$j;
+    .line 321
+    if-nez p3, :cond_30
 
-    move-result-object p3
+    iget-object v0, p0, Lbl/adq$n;->this$0:Lbl/adq;
 
-    if-eqz p3, :cond_0
+    invoke-virtual {v0}, Lbl/adq;->a()Lbl/adq$j;
 
-    invoke-virtual {p3, p2}, Lbl/adq$j;->a(I)I
+    move-result-object v0
 
-    move-result p3
+    if-eqz v0, :cond_30
+
+    invoke-virtual {v0, v3}, Lbl/adq$j;->a(I)I
+
+    move-result v1
+
+    const/4 v0, 0x0
+
+    check-cast v0, Lbl/adq$j;
 
     sget-object v0, Lbl/adq$j;->Companion:Lbl/adq$j$a;
 
@@ -77,81 +89,92 @@
 
     move-result v0
 
-    if-ne p3, v0, :cond_0
+    if-eq v1, v0, :cond_38
 
-    return-void
+    :cond_30
+    iget-object v0, p0, Lbl/adq$n;->this$0:Lbl/adq;
 
-    .line 267
-    :cond_0
-    iget-object p3, p0, Lbl/adq$n;->a:Lbl/adq;
-
-    invoke-static {p3}, Lbl/adq;->e(Lbl/adq;)Lbl/agd;
-
-    move-result-object p3
-
-    if-eqz p3, :cond_4
-
-    .line 268
-    iget-object p3, p0, Lbl/adq$n;->a:Lbl/adq;
-
-    invoke-static {p3}, Lbl/adq;->e(Lbl/adq;)Lbl/agd;
-
-    move-result-object p3
-
-    if-nez p3, :cond_1
-
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 270
-    :cond_1
-    iget-object v0, p0, Lbl/adq$n;->a:Lbl/adq;
-
-    invoke-virtual {v0}, Lbl/adq;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    # getter for: Lbl/adq;->f:Lbl/agd;
+    invoke-static {v0}, Lbl/adq;->access$000(Lbl/adq;)Lbl/agd;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_39
 
-    invoke-static {}, Lbl/bbi;->a()V
+    .line 339
+    :cond_38
+    :goto_38
+    return-void
 
-    :cond_2
-    check-cast v0, Landroid/content/Context;
+    .line 324
+    :cond_39
+    iget-object v0, p0, Lbl/adq$n;->this$0:Lbl/adq;
 
-    const v1, 0x7f0700e8
-
-    .line 269
-    invoke-static {v0, v1}, Lbl/aj;->a(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    # getter for: Lbl/adq;->f:Lbl/agd;
+    invoke-static {v0}, Lbl/adq;->access$000(Lbl/adq;)Lbl/agd;
 
     move-result-object v0
 
-    .line 268
-    invoke-virtual {p3, v0}, Lbl/agd;->setUpRectDrawable(Landroid/graphics/drawable/Drawable;)V
+    .line 325
+    if-nez v0, :cond_44
 
-    .line 274
-    iget-object p3, p0, Lbl/adq$n;->a:Lbl/adq;
-
-    invoke-static {p3}, Lbl/adq;->e(Lbl/adq;)Lbl/agd;
-
-    move-result-object p3
-
-    if-nez p3, :cond_3
-
+    .line 326
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_3
-    iget-object v0, p0, Lbl/adq$n;->a:Lbl/adq;
+    .line 328
+    :cond_44
+    iget-object v1, p0, Lbl/adq$n;->this$0:Lbl/adq;
 
-    invoke-static {v0}, Lbl/adq;->h(Lbl/adq;)Z
+    invoke-virtual {v1}, Lbl/adq;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    move-result v0
+    move-result-object v1
 
-    invoke-virtual {p3, p1, p4, p5, v0}, Lbl/agd;->a(Landroid/view/View;IIZ)V
+    .line 329
+    if-nez v1, :cond_4f
 
-    .line 275
-    iget-object p1, p0, Lbl/adq$n;->a:Lbl/adq;
+    .line 330
+    invoke-static {}, Lbl/bbi;->a()V
 
-    invoke-static {p1, p2}, Lbl/adq;->d(Lbl/adq;Z)V
+    .line 332
+    :cond_4f
+    const v2, 0x7f0700e8
 
-    :cond_4
-    return-void
+    invoke-static {v1, v2}, Lbl/aj;->a(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lbl/agd;->setUpRectDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    .line 333
+    iget-object v0, p0, Lbl/adq$n;->this$0:Lbl/adq;
+
+    # getter for: Lbl/adq;->f:Lbl/agd;
+    invoke-static {v0}, Lbl/adq;->access$000(Lbl/adq;)Lbl/agd;
+
+    move-result-object v0
+
+    .line 334
+    if-nez v0, :cond_64
+
+    .line 335
+    invoke-static {}, Lbl/bbi;->a()V
+
+    .line 337
+    :cond_64
+    iget-object v1, p0, Lbl/adq$n;->this$0:Lbl/adq;
+
+    # getter for: Lbl/adq;->g:Z
+    invoke-static {v1}, Lbl/adq;->access$400(Lbl/adq;)Z
+
+    move-result v1
+
+    invoke-virtual {v0, p1, p4, p5, v1}, Lbl/agd;->a(Landroid/view/View;IIZ)V
+
+    .line 338
+    iget-object v0, p0, Lbl/adq$n;->this$0:Lbl/adq;
+
+    # setter for: Lbl/adq;->g:Z
+    invoke-static {v0, v3}, Lbl/adq;->access$402(Lbl/adq;Z)Z
+
+    goto :goto_38
 .end method

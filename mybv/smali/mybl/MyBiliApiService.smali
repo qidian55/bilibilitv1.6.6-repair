@@ -100,6 +100,34 @@
     .end annotation
 .end method
 
+.method public abstract getRegionHotVideo(II)Lbl/vp;
+    .param p1    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "rid"
+        .end annotation
+    .end param
+    .param p2    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "ps"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(II)",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/x/web-interface/dynamic/region"
+    .end annotation
+.end method
+
 .method public abstract getRelation(Ljava/lang/String;J)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
@@ -132,7 +160,7 @@
 
 .method public abstract getVideoDetail(J)Lbl/vp;
     .param p1    # J
-        .annotation runtime Lretrofit2/http/Field;
+        .annotation runtime Lretrofit2/http/Query;
             a = "aid"
         .end annotation
     .end param

@@ -1,6 +1,6 @@
-.class final Lbl/adq$c;
+.class public final Lbl/adq$c;
 .super Lbl/vn;
-.source "BL"
+.source "adq.java"
 
 
 # annotations
@@ -9,13 +9,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "c"
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lbl/vn<",
+        "Lbl/vn",
+        "<",
         "Lcom/bilibili/tv/api/area/FirstPageVideos;",
         ">;"
     }
@@ -23,122 +24,162 @@
 
 
 # instance fields
-.field final synthetic a:Lbl/adq;
+.field final synthetic this$0:Lbl/adq;
 
 
 # direct methods
 .method public constructor <init>(Lbl/adq;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    .line 359
-    iput-object p1, p0, Lbl/adq$c;->a:Lbl/adq;
+    .prologue
+    .line 429
+    iput-object p1, p0, Lbl/adq$c;->this$0:Lbl/adq;
 
     invoke-direct {p0}, Lbl/vn;-><init>()V
 
+    .line 430
     return-void
 .end method
 
 
 # virtual methods
 .method public a(Lcom/bilibili/tv/api/area/FirstPageVideos;)V
-    .locals 2
+    .locals 3
 
-    .line 362
-    iget-object v0, p0, Lbl/adq$c;->a:Lbl/adq;
+    .prologue
+    const v2, 0x7f0c00b1
+
+    const/4 v1, 0x0
+
+    .line 434
+    iget-object v0, p0, Lbl/adq$c;->this$0:Lbl/adq;
 
     invoke-virtual {v0}, Lbl/adq;->a()Lbl/adq$j;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
+    .line 459
+    :cond_c
+    :goto_c
     return-void
 
-    .line 366
-    :cond_0
-    iget-object v0, p0, Lbl/adq$c;->a:Lbl/adq;
+    .line 437
+    :cond_d
+    iget-object v0, p0, Lbl/adq$c;->this$0:Lbl/adq;
 
-    const/4 v1, 0x0
+    # setter for: Lbl/adq;->k:Z
+    invoke-static {v0, v1}, Lbl/adq;->access$202(Lbl/adq;Z)Z
 
-    invoke-static {v0, v1}, Lbl/adq;->a(Lbl/adq;Z)V
+    .line 438
+    iget-object v0, p0, Lbl/adq$c;->this$0:Lbl/adq;
 
-    .line 367
-    iget-object v0, p0, Lbl/adq$c;->a:Lbl/adq;
-
-    invoke-static {v0}, Lbl/adq;->b(Lbl/adq;)Landroid/support/v7/widget/RecyclerView;
+    invoke-virtual {v0}, Lbl/adq;->h()Landroid/support/v7/widget/RecyclerView;
 
     move-result-object v0
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
 
-    .line 368
-    iget-object v0, p0, Lbl/adq$c;->a:Lbl/adq;
+    .line 439
+    iget-object v0, p0, Lbl/adq$c;->this$0:Lbl/adq;
 
     invoke-virtual {v0}, Lbl/adq;->j()V
 
-    if-nez p1, :cond_1
+    .line 440
+    if-nez p1, :cond_43
 
-    .line 370
-    invoke-static {}, Lbl/bbi;->a()V
-
-    :cond_1
-    iget-object v0, p1, Lcom/bilibili/tv/api/area/FirstPageVideos;->recommendVideo:Ljava/util/List;
-
-    if-eqz v0, :cond_3
-
-    .line 372
-    iget-object v1, p0, Lbl/adq$c;->a:Lbl/adq;
-
-    invoke-virtual {v1}, Lbl/adq;->a()Lbl/adq$j;
-
-    move-result-object v1
-
-    if-nez v1, :cond_2
-
-    invoke-static {}, Lbl/bbi;->a()V
-
-    :cond_2
-    invoke-virtual {v1, v0}, Lbl/adq$j;->a(Ljava/util/List;)V
-
-    .line 374
-    :cond_3
-    iget-object p1, p1, Lcom/bilibili/tv/api/area/FirstPageVideos;->newestVideo:Ljava/util/List;
-
-    if-eqz p1, :cond_5
-
-    .line 376
-    iget-object v0, p0, Lbl/adq$c;->a:Lbl/adq;
+    .line 441
+    iget-object v0, p0, Lbl/adq$c;->this$0:Lbl/adq;
 
     invoke-virtual {v0}, Lbl/adq;->a()Lbl/adq$j;
 
     move-result-object v0
 
-    if-nez v0, :cond_4
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-static {}, Lbl/bbi;->a()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    :cond_4
-    const v1, 0x7f0c00b1
+    invoke-virtual {v0, v1}, Lbl/adq$j;->a(Ljava/util/List;)V
 
-    invoke-static {v1}, Lbl/adl;->e(I)Ljava/lang/String;
+    iget-object v0, p0, Lbl/adq$c;->this$0:Lbl/adq;
+
+    invoke-virtual {v0}, Lbl/adq;->a()Lbl/adq$j;
+
+    move-result-object v0
+
+    invoke-static {v2}, Lbl/adl;->e(I)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1, p1}, Lbl/adq$j;->a(Ljava/lang/String;Ljava/util/List;)V
+    new-instance v2, Ljava/util/ArrayList;
 
-    :cond_5
-    return-void
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-virtual {v0, v1, v2}, Lbl/adq$j;->a(Ljava/lang/String;Ljava/util/List;)V
+
+    goto :goto_c
+
+    .line 443
+    :cond_43
+    iget-object v0, p1, Lcom/bilibili/tv/api/area/FirstPageVideos;->recommendVideo:Ljava/util/List;
+
+    .line 444
+    if-eqz v0, :cond_55
+
+    .line 445
+    iget-object v1, p0, Lbl/adq$c;->this$0:Lbl/adq;
+
+    invoke-virtual {v1}, Lbl/adq;->a()Lbl/adq$j;
+
+    move-result-object v1
+
+    .line 446
+    if-nez v1, :cond_52
+
+    .line 447
+    invoke-static {}, Lbl/bbi;->a()V
+
+    .line 449
+    :cond_52
+    invoke-virtual {v1, v0}, Lbl/adq$j;->a(Ljava/util/List;)V
+
+    .line 451
+    :cond_55
+    iget-object v0, p1, Lcom/bilibili/tv/api/area/FirstPageVideos;->newestVideo:Ljava/util/List;
+
+    .line 452
+    if-eqz v0, :cond_c
+
+    .line 453
+    iget-object v1, p0, Lbl/adq$c;->this$0:Lbl/adq;
+
+    invoke-virtual {v1}, Lbl/adq;->a()Lbl/adq$j;
+
+    move-result-object v1
+
+    .line 454
+    if-nez v1, :cond_64
+
+    .line 455
+    invoke-static {}, Lbl/bbi;->a()V
+
+    .line 457
+    :cond_64
+    invoke-static {v2}, Lbl/adl;->e(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2, v0}, Lbl/adq$j;->a(Ljava/lang/String;Ljava/util/List;)V
+
+    goto :goto_c
 .end method
 
 .method public bridge synthetic a(Ljava/lang/Object;)V
     .locals 0
 
-    .line 359
+    .prologue
+    .line 428
     check-cast p1, Lcom/bilibili/tv/api/area/FirstPageVideos;
 
     invoke-virtual {p0, p1}, Lbl/adq$c;->a(Lcom/bilibili/tv/api/area/FirstPageVideos;)V
@@ -147,35 +188,40 @@
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 1
+    .locals 2
 
+    .prologue
+    .line 463
     const-string v0, "t"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 381
-    iget-object p1, p0, Lbl/adq$c;->a:Lbl/adq;
+    .line 464
+    iget-object v0, p0, Lbl/adq$c;->this$0:Lbl/adq;
 
-    invoke-virtual {p1}, Lbl/adq;->a()Lbl/adq$j;
+    invoke-virtual {v0}, Lbl/adq;->a()Lbl/adq$j;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-nez p1, :cond_0
+    if-nez v0, :cond_e
 
+    .line 469
+    :goto_d
     return-void
 
-    .line 384
-    :cond_0
-    iget-object p1, p0, Lbl/adq$c;->a:Lbl/adq;
+    .line 467
+    :cond_e
+    iget-object v0, p0, Lbl/adq$c;->this$0:Lbl/adq;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p1, v0}, Lbl/adq;->a(Lbl/adq;Z)V
+    # setter for: Lbl/adq;->k:Z
+    invoke-static {v0, v1}, Lbl/adq;->access$202(Lbl/adq;Z)Z
 
-    .line 385
-    iget-object p1, p0, Lbl/adq$c;->a:Lbl/adq;
+    .line 468
+    iget-object v0, p0, Lbl/adq$c;->this$0:Lbl/adq;
 
-    invoke-virtual {p1}, Lbl/adq;->k()V
+    invoke-virtual {v0}, Lbl/adq;->k()V
 
-    return-void
+    goto :goto_d
 .end method
