@@ -31,25 +31,25 @@
     .locals 0
 
     .prologue
-    .line 236
+    .line 223
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$g;-><init>()V
 
-    .line 237
+    .line 224
     iput-object p1, p0, Lbl/adq$l;->a:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
-    .line 238
+    .line 225
     iput p2, p0, Lbl/adq$l;->b:I
 
-    .line 239
+    .line 226
     iput p3, p0, Lbl/adq$l;->c:I
 
-    .line 240
+    .line 227
     iput p4, p0, Lbl/adq$l;->d:I
 
-    .line 241
+    .line 228
     iput p5, p0, Lbl/adq$l;->e:I
 
-    .line 242
+    .line 229
     return-void
 .end method
 
@@ -63,27 +63,27 @@
 
     const/4 v2, 0x0
 
-    .line 250
+    .line 237
     const-string v0, "outRect"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 251
+    .line 238
     const-string v0, "view"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 252
+    .line 239
     const-string v0, "parent"
 
     invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 253
+    .line 240
     invoke-virtual {p3, p2}, Landroid/support/v7/widget/RecyclerView;->g(Landroid/view/View;)I
 
     move-result v3
 
-    .line 254
+    .line 241
     iget-object v0, p0, Lbl/adq$l;->a:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
     invoke-virtual {v0, p2}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->e(Landroid/view/View;)I
@@ -92,7 +92,7 @@
 
     move-object v0, v1
 
-    .line 255
+    .line 242
     check-cast v0, Lbl/adq$j;
 
     sget-object v0, Lbl/adq$j;->Companion:Lbl/adq$j$a;
@@ -103,28 +103,28 @@
 
     if-ne v4, v0, :cond_31
 
-    .line 256
+    .line 243
     iget v4, p0, Lbl/adq$l;->b:I
 
-    .line 257
+    .line 244
     iget v0, p0, Lbl/adq$l;->b:I
 
-    .line 258
+    .line 245
     iget v3, p0, Lbl/adq$l;->c:I
 
     move v1, v0
 
-    .line 283
+    .line 270
     :goto_2d
     invoke-virtual {p1, v4, v3, v1, v2}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 284
+    .line 271
     return-void
 
     :cond_31
     move-object v0, v1
 
-    .line 259
+    .line 246
     check-cast v0, Lbl/adq$j;
 
     sget-object v0, Lbl/adq$j;->Companion:Lbl/adq$j$a;
@@ -135,23 +135,23 @@
 
     if-ne v4, v0, :cond_4a
 
-    .line 260
+    .line 247
     iget v4, p0, Lbl/adq$l;->b:I
 
-    .line 261
+    .line 248
     iget v0, p0, Lbl/adq$l;->b:I
 
-    .line 262
+    .line 249
     if-nez v3, :cond_46
 
-    .line 263
+    .line 250
     iget v3, p0, Lbl/adq$l;->c:I
 
     move v1, v0
 
     goto :goto_2d
 
-    .line 265
+    .line 252
     :cond_46
     iget v3, p0, Lbl/adq$l;->d:I
 
@@ -159,7 +159,7 @@
 
     goto :goto_2d
 
-    .line 267
+    .line 254
     :cond_4a
     check-cast v1, Lbl/adq$j;
 
@@ -171,14 +171,14 @@
 
     if-ne v4, v0, :cond_72
 
-    .line 268
+    .line 255
     const v0, 0x7f0800a6
 
     invoke-virtual {p2, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 269
+    .line 256
     instance-of v1, v0, Ljava/lang/Boolean;
 
     if-eqz v1, :cond_6f
@@ -191,22 +191,22 @@
 
     if-eqz v0, :cond_6f
 
-    .line 270
+    .line 257
     iget v0, p0, Lbl/adq$l;->d:I
 
-    .line 274
+    .line 261
     :goto_69
     iget v4, p0, Lbl/adq$l;->e:I
 
-    .line 275
+    .line 262
     iget v1, p0, Lbl/adq$l;->e:I
 
     move v3, v0
 
-    .line 278
+    .line 265
     goto :goto_2d
 
-    .line 272
+    .line 259
     :cond_6f
     iget v0, p0, Lbl/adq$l;->b:I
 
@@ -219,6 +219,6 @@
 
     move v4, v2
 
-    .line 281
+    .line 268
     goto :goto_2d
 .end method

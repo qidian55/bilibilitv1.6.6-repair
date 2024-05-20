@@ -10,7 +10,6 @@
         Lbl/adq$a;,
         Lbl/adq$h;,
         Lbl/adq$e;,
-        Lbl/adq$g;,
         Lbl/adq$d;,
         Lbl/adq$j;,
         Lbl/adq$i;,
@@ -204,10 +203,10 @@
     .locals 3
 
     .prologue
-    .line 383
+    .line 370
     sget-object v0, Lcom/bilibili/tv/ui/area/RegionApiManager;->a:Lcom/bilibili/tv/ui/area/RegionApiManager;
 
-    .line 384
+    .line 371
     invoke-virtual {p0}, Lbl/adq;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -216,12 +215,12 @@
 
     move-result-object v0
 
-    .line 385
+    .line 372
     const-string v1, "BiliAccount.get(activity)"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 387
+    .line 374
     const-class v0, Lmybl/MyBiliApiService;
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
@@ -244,7 +243,7 @@
 
     invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
 
-    .line 388
+    .line 375
     return-void
 .end method
 
@@ -307,12 +306,11 @@
     move-result v6
 
     .line 100
+    new-instance v0, Lbl/adq$1;
+
     invoke-virtual {p0}, Lbl/adq;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v2
-
-    .line 104
-    new-instance v0, Lbl/adq$1;
 
     const/4 v3, 0x2
 
@@ -324,65 +322,65 @@
 
     invoke-direct/range {v0 .. v7}, Lbl/adq$1;-><init>(Lbl/adq;Landroid/content/Context;IIZILandroid/support/v7/widget/RecyclerView;)V
 
-    .line 185
+    .line 172
     new-instance v1, Lbl/adq$j;
 
     invoke-direct {v1}, Lbl/adq$j;-><init>()V
 
     iput-object v1, p0, Lbl/adq;->c:Lbl/adq$j;
 
-    .line 186
+    .line 173
     new-instance v1, Lbl/adq$k;
 
     invoke-direct {v1, p0}, Lbl/adq$k;-><init>(Lbl/adq;)V
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->a(Landroid/support/v7/widget/GridLayoutManager$c;)V
 
-    .line 187
+    .line 174
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$h;)V
 
-    .line 188
+    .line 175
     invoke-virtual {p1, v4}, Landroid/support/v7/widget/RecyclerView;->setHasFixedSize(Z)V
 
-    .line 189
+    .line 176
     const v1, 0x7f060377
 
     invoke-static {v1}, Lbl/adl;->b(I)I
 
     move-result v6
 
-    .line 190
+    .line 177
     const v1, 0x7f06006e
 
     invoke-static {v1}, Lbl/adl;->b(I)I
 
     move-result v4
 
-    .line 191
+    .line 178
     const v1, 0x7f0600de
 
     invoke-static {v1}, Lbl/adl;->b(I)I
 
     move-result v3
 
-    .line 192
+    .line 179
     const v1, 0x7f06018f
 
     invoke-static {v1}, Lbl/adl;->b(I)I
 
     move-result v5
 
-    .line 193
+    .line 180
     const v1, 0x7f0601bc
 
     invoke-static {v1}, Lbl/adl;->b(I)I
 
     move-result v1
 
-    .line 194
+    .line 181
     invoke-virtual {p1, v1, v1, v1, v1}, Landroid/support/v7/widget/RecyclerView;->setPadding(IIII)V
 
-    .line 195
+    .line 182
     new-instance v1, Lbl/adq$l;
 
     move-object v2, v0
@@ -391,29 +389,29 @@
 
     invoke-virtual {p1, v1}, Landroid/support/v7/widget/RecyclerView;->a(Landroid/support/v7/widget/RecyclerView$g;)V
 
-    .line 196
+    .line 183
     new-instance v1, Lbl/adq$m;
 
     invoke-direct {v1, p0, v0}, Lbl/adq$m;-><init>(Lbl/adq;Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;)V
 
     invoke-virtual {p1, v1}, Landroid/support/v7/widget/RecyclerView;->a(Landroid/support/v7/widget/RecyclerView$m;)V
 
-    .line 197
+    .line 184
     iget-object v1, p0, Lbl/adq;->c:Lbl/adq$j;
 
     invoke-virtual {p1, v1}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$a;)V
 
-    .line 198
+    .line 185
     invoke-virtual {p0}, Lbl/adq;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    .line 199
+    .line 186
     instance-of v2, v1, Lcom/bilibili/tv/ui/base/BaseUpViewActivity;
 
     if-eqz v2, :cond_93
 
-    .line 200
+    .line 187
     check-cast v1, Lcom/bilibili/tv/ui/base/BaseUpViewActivity;
 
     invoke-virtual {v1}, Lcom/bilibili/tv/ui/base/BaseUpViewActivity;->m()Lbl/agd;
@@ -422,7 +420,7 @@
 
     iput-object v1, p0, Lbl/adq;->f:Lbl/agd;
 
-    .line 202
+    .line 189
     :cond_93
     new-instance v1, Lbl/adq$n;
 
@@ -430,13 +428,13 @@
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->a(Lcom/bilibili/tv/widget/border/BorderGridLayoutManager$a;)V
 
-    .line 203
+    .line 190
     invoke-virtual {p0}, Lbl/adq;->i()V
 
-    .line 204
+    .line 191
     invoke-direct {p0}, Lbl/adq;->n()V
 
-    .line 205
+    .line 192
     return-void
 .end method
 
@@ -448,30 +446,30 @@
 
     const/4 v1, 0x1
 
-    .line 401
+    .line 388
     const-string v0, "listOrder"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 402
+    .line 389
     iget-object v0, p0, Lbl/adq;->m:Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
 
     if-ne p1, v0, :cond_15
 
     move v0, v1
 
-    .line 403
+    .line 390
     :goto_c
     iput-object p1, p0, Lbl/adq;->m:Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
 
-    .line 404
+    .line 391
     if-nez v0, :cond_14
 
     iget-object v0, p0, Lbl/adq;->c:Lbl/adq$j;
 
     if-nez v0, :cond_17
 
-    .line 424
+    .line 411
     :cond_14
     :goto_14
     return-void
@@ -479,62 +477,62 @@
     :cond_15
     move v0, v2
 
-    .line 402
+    .line 389
     goto :goto_c
 
-    .line 407
+    .line 394
     :cond_17
     iput v1, p0, Lbl/adq;->i:I
 
-    .line 408
+    .line 395
     iput-boolean v1, p0, Lbl/adq;->j:Z
 
-    .line 409
+    .line 396
     invoke-virtual {p0}, Lbl/adq;->m()V
 
-    .line 410
+    .line 397
     invoke-virtual {p0}, Lbl/adq;->h()Landroid/support/v7/widget/RecyclerView;
 
     move-result-object v0
 
-    const/4 v3, 0x4
+    const/16 v3, 0x8
 
     invoke-virtual {v0, v3}, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
 
-    .line 411
+    .line 398
     invoke-virtual {p0}, Lbl/adq;->i()V
 
-    .line 412
+    .line 399
     sget-object v0, Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;->DEFAULT:Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
 
-    if-ne p1, v0, :cond_3d
+    if-ne p1, v0, :cond_3e
 
-    .line 413
+    .line 400
     iget-object v0, p0, Lbl/adq;->c:Lbl/adq$j;
 
-    .line 414
-    if-nez v0, :cond_34
+    .line 401
+    if-nez v0, :cond_35
 
-    .line 415
+    .line 402
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 417
-    :cond_34
+    .line 404
+    :cond_35
     invoke-virtual {v0}, Lbl/adq$j;->h()V
 
-    .line 418
+    .line 405
     iput-boolean v2, p0, Lbl/adq;->l:Z
 
-    .line 419
+    .line 406
     invoke-direct {p0}, Lbl/adq;->n()V
 
     goto :goto_14
 
-    .line 422
-    :cond_3d
+    .line 409
+    :cond_3e
     iput-boolean v1, p0, Lbl/adq;->l:Z
 
-    .line 423
+    .line 410
     invoke-virtual {p0}, Lbl/adq;->o()V
 
     goto :goto_14
@@ -554,7 +552,7 @@
     .locals 1
 
     .prologue
-    .line 344
+    .line 331
     invoke-virtual {p0}, Lbl/adq;->isVisible()Z
 
     move-result v0
@@ -565,16 +563,16 @@
 
     if-eqz v0, :cond_19
 
-    .line 345
+    .line 332
     iget-object v0, p0, Lbl/adq;->c:Lbl/adq$j;
 
-    .line 346
+    .line 333
     if-nez v0, :cond_11
 
-    .line 347
+    .line 334
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 349
+    .line 336
     :cond_11
     invoke-virtual {v0}, Lbl/adq$j;->a()I
 
@@ -582,10 +580,10 @@
 
     if-lez v0, :cond_19
 
-    .line 350
+    .line 337
     const/4 v0, 0x1
 
-    .line 353
+    .line 340
     :goto_18
     return v0
 
@@ -599,13 +597,13 @@
     .locals 0
 
     .prologue
-    .line 378
+    .line 365
     invoke-super {p0}, Lbl/ady;->d_()V
 
-    .line 379
+    .line 366
     invoke-direct {p0}, Lbl/adq;->n()V
 
-    .line 380
+    .line 367
     return-void
 .end method
 
@@ -613,24 +611,24 @@
     .locals 6
 
     .prologue
-    .line 392
+    .line 379
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lbl/adq;->k:Z
 
-    .line 393
+    .line 380
     sget-object v0, Lcom/bilibili/tv/ui/area/RegionApiManager;->a:Lcom/bilibili/tv/ui/area/RegionApiManager;
 
-    .line 394
+    .line 381
     iget v1, p0, Lbl/adq;->h:I
 
-    .line 395
+    .line 382
     iget v2, p0, Lbl/adq;->i:I
 
-    .line 396
+    .line 383
     iget-object v3, p0, Lbl/adq;->m:Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
 
-    .line 397
+    .line 384
     if-eqz v3, :cond_1c
 
     invoke-virtual {v3}, Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;->toString()Ljava/lang/String;
@@ -648,10 +646,10 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/bilibili/tv/ui/area/RegionApiManager;->a(IILjava/lang/String;Ljava/lang/Integer;Lbl/vn;)V
 
-    .line 398
+    .line 385
     return-void
 
-    .line 397
+    .line 384
     :cond_1c
     const/4 v3, 0x0
 
@@ -662,36 +660,36 @@
     .locals 1
 
     .prologue
-    .line 365
+    .line 352
     iget-object v0, p0, Lbl/adq;->c:Lbl/adq$j;
 
     if-eqz v0, :cond_13
 
-    .line 366
+    .line 353
     iget-object v0, p0, Lbl/adq;->c:Lbl/adq$j;
 
-    .line 367
+    .line 354
     if-nez v0, :cond_b
 
-    .line 368
+    .line 355
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 370
+    .line 357
     :cond_b
     invoke-virtual {v0}, Lbl/adq$j;->h()V
 
-    .line 371
+    .line 358
     const/4 v0, 0x0
 
     check-cast v0, Lbl/adq$j;
 
     iput-object v0, p0, Lbl/adq;->c:Lbl/adq$j;
 
-    .line 373
+    .line 360
     :cond_13
     invoke-super {p0}, Lbl/ady;->onDestroy()V
 
-    .line 374
+    .line 361
     return-void
 .end method
 
@@ -699,16 +697,16 @@
     .locals 1
 
     .prologue
-    .line 359
+    .line 346
     const/4 v0, 0x0
 
     check-cast v0, Lbl/adq$i;
 
     iput-object v0, p0, Lbl/adq;->d:Lbl/adq$i;
 
-    .line 360
+    .line 347
     invoke-super {p0}, Lbl/ady;->onDestroyView()V
 
-    .line 361
+    .line 348
     return-void
 .end method

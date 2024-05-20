@@ -41,7 +41,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 685
+    .line 687
     move-object v0, v1
 
     check-cast v0, Lbl/adq$j;
@@ -62,17 +62,17 @@
 
     invoke-direct {p0, p1, p2, v0, v1}, Lbl/adq$a;-><init>(Ljava/lang/Object;Ljava/util/List;II)V
 
-    .line 686
+    .line 688
     const-string v0, "titleName"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 687
+    .line 689
     const-string v0, "biliVideos"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 688
+    .line 690
     return-void
 .end method
 
@@ -82,33 +82,33 @@
     .locals 2
 
     .prologue
-    .line 715
+    .line 723
     invoke-virtual {p0}, Lbl/adq$d;->b()Ljava/util/List;
 
     move-result-object v0
 
     if-nez v0, :cond_8
 
-    .line 716
+    .line 724
     const/4 v0, 0x0
 
-    .line 722
+    .line 730
     :goto_7
     return v0
 
-    .line 718
+    .line 726
     :cond_8
     invoke-virtual {p0}, Lbl/adq$d;->b()Ljava/util/List;
 
     move-result-object v0
 
-    .line 719
+    .line 727
     if-nez v0, :cond_11
 
-    .line 720
+    .line 728
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 722
+    .line 730
     :cond_11
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -133,7 +133,7 @@
     .locals 2
 
     .prologue
-    .line 735
+    .line 743
     invoke-virtual {p0, p1}, Lbl/adq$d;->c(I)I
 
     move-result v0
@@ -148,19 +148,21 @@
 .end method
 
 .method public b(I)Ljava/lang/Object;
-    .locals 4
+    .locals 5
 
     .prologue
+    const/4 v4, 0x1
+
     const/4 v1, 0x0
 
-    .line 692
+    .line 694
     invoke-virtual {p0, p1}, Lbl/adq$d;->e(I)I
 
     move-result v3
 
     move-object v0, v1
 
-    .line 693
+    .line 695
     check-cast v0, Lbl/adq$a;
 
     sget-object v0, Lbl/adq$a;->Companion:Lbl/adq$a$aa;
@@ -169,49 +171,51 @@
 
     move-result v0
 
-    if-ge v3, v0, :cond_20
-
-    .line 694
-    invoke-virtual {p0}, Lbl/adq$d;->b()Ljava/util/List;
-
-    move-result-object v0
-
-    .line 695
-    if-nez v0, :cond_19
+    if-ge v3, v0, :cond_26
 
     .line 696
-    invoke-static {}, Lbl/bbi;->a()V
+    new-instance v1, Lbl/adq$f;
 
-    .line 698
-    :cond_19
-    const/4 v1, 0x0
+    invoke-direct {v1}, Lbl/adq$f;-><init>()V
 
-    const/4 v2, 0x2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/List;->subList(II)Ljava/util/List;
+    .line 697
+    invoke-virtual {p0}, Lbl/adq$d;->c()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 710
-    :goto_1f
+    check-cast v0, Ljava/lang/String;
+
+    invoke-virtual {v1, v0}, Lbl/adq$f;->a(Ljava/lang/String;)V
+
+    .line 698
+    if-nez p1, :cond_24
+
+    .line 699
+    invoke-virtual {v1, v4}, Lbl/adq$f;->a(Z)V
+
+    :cond_24
+    move-object v0, v1
+
+    .line 718
+    :goto_25
     return-object v0
 
-    .line 700
-    :cond_20
+    .line 708
+    :cond_26
     invoke-virtual {p0}, Lbl/adq$d;->b()Ljava/util/List;
 
     move-result-object v2
 
-    .line 701
-    if-nez v2, :cond_29
+    .line 709
+    if-nez v2, :cond_2f
 
-    .line 702
+    .line 710
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_29
+    :cond_2f
     move-object v0, v1
 
-    .line 704
+    .line 712
     check-cast v0, Lbl/adq$a;
 
     sget-object v0, Lbl/adq$a;->Companion:Lbl/adq$a$aa;
@@ -228,15 +232,15 @@
 
     check-cast v0, Lcom/bilibili/tv/api/area/BiliVideoV2;
 
-    .line 705
+    .line 713
     new-instance v2, Lbl/aeb$a;
 
     invoke-direct {v2}, Lbl/aeb$a;-><init>()V
 
-    .line 706
+    .line 714
     invoke-virtual {v2, v0}, Lbl/aeb$a;->a(Lcom/bilibili/tv/api/area/BiliVideoV2;)V
 
-    .line 707
+    .line 715
     check-cast v1, Lbl/adq$a;
 
     sget-object v0, Lbl/adq$a;->Companion:Lbl/adq$a$aa;
@@ -253,25 +257,23 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_58
+    if-ge v0, v1, :cond_5d
 
-    .line 708
-    const/4 v0, 0x1
+    .line 716
+    invoke-virtual {v2, v4}, Lbl/aeb$a;->a(Z)V
 
-    invoke-virtual {v2, v0}, Lbl/aeb$a;->a(Z)V
-
-    :cond_58
+    :cond_5d
     move-object v0, v2
 
-    .line 710
-    goto :goto_1f
+    .line 718
+    goto :goto_25
 .end method
 
 .method public c(I)I
     .locals 2
 
     .prologue
-    .line 727
+    .line 735
     invoke-virtual {p0, p1}, Lbl/adq$d;->e(I)I
 
     move-result v1
@@ -288,12 +290,12 @@
 
     if-ge v1, v0, :cond_14
 
-    .line 728
+    .line 736
     invoke-virtual {p0}, Lbl/adq$d;->d()I
 
     move-result v0
 
-    .line 730
+    .line 738
     :goto_13
     return v0
 

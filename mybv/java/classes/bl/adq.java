@@ -97,20 +97,16 @@ public final class adq extends ady {
         this.d = new i();
         //this.e = new c();
         final int b2 = adl.b(R.dimen.px_60);
-        final FragmentActivity activity = getActivity();
-        final int i2 = p;
-        final int i3 = 1;
-        final boolean z = false;
-        BorderGridLayoutManager r11 = new BorderGridLayoutManager(activity, i2, i3, z) { // from class: com.bilibili.tv.ui.area.AreaFragment$onViewCreated$layoutManager$1
-            @Override // android.support.v7.widget.GridLayoutManager, android.support.v7.widget.LinearLayoutManager, android.support.v7.widget.RecyclerView.h
-            public View a(View view, int i4, RecyclerView.o oVar, RecyclerView.s sVar) {
+        BorderGridLayoutManager r11 = new BorderGridLayoutManager(getActivity(), p, 1, false) { // from class: com.bilibili.tv.ui.area.AreaFragment$onViewCreated$layoutManager$1
+            @Override // android.support.v7.widget.GridLayoutManager, android.support.v7.widget.LinearLayoutManager, android.support.v7.widget.RecyclerView.h//onFocusSearchFailed
+            public View a(View view, int direction, RecyclerView.o recycler, RecyclerView.s state) {
                 View c2;
                 if (view == null) {
                     bbi.a();
                 }
-                int d2 = d(view);
-                if (i4 == 33 && ((d2 == 1 || d2 == 2) && (c2 = c(d2)) != null && c2.getTop() > 0)) {
-                    b(-(c2.getTop() + b2), oVar, sVar);
+                int position = d(view);
+                if (direction == View.FOCUS_UP && ((position == 1 || position == 2) && (c2 = c(position)) != null && c2.getTop() > 0)) {
+                    b(-(c2.getTop() + b2), recycler, state);
                     if (adq.this.f != null) {
                         agd agdVar = adq.this.f;
                         if (agdVar == null) {
@@ -119,48 +115,39 @@ public final class adq extends ady {
                         agdVar.a(c2, 0, 0, true);
                     }
                 }
-                return super.a(view, i4, oVar, sVar);
+                return super.a(view, direction, recycler, state);
             }
 
-            @Override // android.support.v7.widget.RecyclerView.h
-            public View d(View view, int i4) {
-                if (view == null) {
+            @Override // android.support.v7.widget.RecyclerView.h//onInterceptFocusSearch
+            public View d(View focused, int direction) {
+                if (focused == null) {
                     bbi.a();
                 }
-                int d2 = d(view);
-                int c2 = c();
+                int position = d(focused);
+                int spanCount = c();
                 boolean z2 = adq.this.b() == RegionApiManager.ListOrder.DEFAULT;
-                if (i4 != 17) {
-                    if (i4 != 33) {
-                        if (i4 == 130) {
-                            if (d2 > (H() - c2) - 1) {
-                                return view;
-                            }
-                            if (FocusFinder.getInstance().findNextFocus(recyclerView, view, i4) == null) {
-                                d(d2 + 1);
-                                return view;
-                            }
-                        }
-                    } else if (d2 <= 0) {
-                        return view;
+                if (direction == View.FOCUS_UP) {
+                    if (position <= spanCount) {
+                        return super.d(focused, direction);
                     }
-                } 
-                //else if (z2) {
-                //    if (d2 == 1 || d2 == 3) {
-                //        return q(view);
-                //    }
-                //    if (d2 != 2 && d2 != 4 && d2 % c2 == 0) {
-                //        return q(view);
-                //    }
-                //}
-                else if (d2 % c2 != 0) {
-                    return q(view);
+                    if (FocusFinder.getInstance().findNextFocus(recyclerView, focused, direction) == null) {
+                        return focused;
+                    }
                 }
-                return super.d(view, i4);
+                if (direction == View.FOCUS_DOWN) {
+                    if (position > (H() - spanCount) - 1) {
+                        return focused;
+                    }
+                    if (FocusFinder.getInstance().findNextFocus(recyclerView, focused, direction) == null) {
+                        return focused;
+                    }
+                }
+                if (direction == View.FOCUS_LEFT && position % spanCount != 0) { return q(focused); }
+                return super.d(focused, direction);
             }
 
             private final View q(View view) {
-                View focusSearch = recyclerView.focusSearch(17);
+                View focusSearch = recyclerView.focusSearch(View.FOCUS_LEFT);
                 if (focusSearch instanceof SideLeftSelectLinearLayout) {
                     ViewParent parent = focusSearch.getParent();
                     if (parent instanceof RecyclerView) {
@@ -407,7 +394,7 @@ public final class adq extends ady {
         this.i = 1;
         this.j = true;
         m();
-        h().setVisibility(4);
+        h().setVisibility(View.GONE);
         i();
         if (listOrder == RegionApiManager.ListOrder.DEFAULT) {
             j jVar = this.c;
@@ -436,7 +423,7 @@ public final class adq extends ady {
     //            return;
     //        }
     //        adq.this.k = false;
-    //        adq.this.h().setVisibility(0);
+    //        adq.this.h().setVisibility(View.VISIBLE);
     //        adq.this.j();
     //        if (firstPageVideos == null) {
     //            bbi.a();
@@ -477,7 +464,7 @@ public final class adq extends ady {
                 return;
             }
             adq.this.k = false;
-            adq.this.h().setVisibility(0);
+            adq.this.h().setVisibility(View.VISIBLE);
             adq.this.j();
             List<BiliVideoV2> list = new ArrayList<BiliVideoV2>();
             JSONArray archives = result.getJSONArray("archives");
@@ -486,7 +473,7 @@ public final class adq extends ady {
                 BiliVideoV2 t = new BiliVideoV2();
                 t.cover=s.getString("pic");
                 t.danmaku=s.getJSONObject("stat").getIntValue("danmaku");
-                t.jumpTo=s.getString("redirect_url")!=null?"bangumi":"av";
+                t.jumpTo="av";//s.getString("redirect_url")!=null?"bangumi":"av";
                 t.name=s.getJSONObject("owner").getString("name");
                 t.param=String.valueOf(s.getLongValue("aid"));
                 t.play=s.getJSONObject("stat").getIntValue("view");
@@ -499,7 +486,6 @@ public final class adq extends ady {
                     bbi.a();
                 }
                 a.a(list);
-                a.a(adl.e(R.string.listOrder_new), new ArrayList<BiliVideoV2>());
             }
         }
 
@@ -532,7 +518,7 @@ public final class adq extends ady {
                 return;
             }
             adq.this.k = false;
-            adq.this.h().setVisibility(0);
+            adq.this.h().setVisibility(View.VISIBLE);
             if (list == null || list.size() == 0) {
                 adq.this.j = false;
                 return;
@@ -592,13 +578,14 @@ public final class adq extends ady {
         private static final int d = 2;
         private static final int e = 3;
         private d a;
-        private g b;
+        //private g b;
 
         @Override // android.support.v7.widget.RecyclerView.a
         /* renamed from: c, reason: merged with bridge method [inline-methods] */
         public adc.a a(ViewGroup viewGroup, int i) {
             bbi.b(viewGroup, "parent");
-            return i == c ? ((e)null).Companion.a(viewGroup) : i == d ? ((h)null).Companion.a(viewGroup) : i == e ? aeb.Companion.a(viewGroup) : new b(viewGroup, new View(viewGroup.getContext()));
+            //return i == c ? ((e)null).Companion.a(viewGroup) : i == d ? ((h)null).Companion.a(viewGroup) : i == e ? aeb.Companion.a(viewGroup) : new b(viewGroup, new View(viewGroup.getContext()));
+            return i == c ? ((h)null).Companion.a(viewGroup) : i == d ? ((h)null).Companion.a(viewGroup) : i == e ? aeb.Companion.a(viewGroup) : new b(viewGroup, new View(viewGroup.getContext()));
         }
 
         /* compiled from: BL */
@@ -617,31 +604,45 @@ public final class adq extends ady {
             }
         }
 
-        public final void a(List<BiliVideoV2> list) {
-            bbi.b(list, "hotList");
-            if (list.size() == 0) {
+        public final void a(List<BiliVideoV2> hotList) {
+            bbi.b(hotList, "hotList");
+            if (hotList.size() == 0) {
                 return;
             }
             if (this.a == null) {
-                this.a = new d(adl.e(R.string.hot_video), list);
+                this.a = new d(adl.e(R.string.hot_video), hotList);
             }
             super.g();
             a(this.a);
+            b(true);
         }
 
-        public final void a(String str, List<BiliVideoV2> list) {
-            bbi.b(str, "title");
-            bbi.b(list, "otherList");
-            if (this.b == null) {
-                this.b = new g(str, list);
-                a(this.b);
+        public final void a(String title, List<BiliVideoV2> otherList) {
+            bbi.b(title, "title");
+            bbi.b(otherList, "otherList");
+            //if (this.b == null) {
+            //    this.b = new g(title, otherList);
+            //    a(this.b);
+            //    b(true);
+            //} else {
+            //    g gVar = this.b;
+            //    if (gVar == null) {
+            //        bbi.a();
+            //    }
+            //    gVar.a(otherList);
+            //    b(false);
+            //}
+            if (otherList.size() == 0) {
+                return;
+            }
+            if (this.a == null) {
+                this.a = new d(title, otherList);
+                super.g();
+                a(this.a);
                 b(true);
-            } else {
-                g gVar = this.b;
-                if (gVar == null) {
-                    bbi.a();
-                }
-                gVar.a(list);
+            }
+            else{
+                this.a.b().addAll(otherList);
                 b(false);
             }
         }
@@ -649,7 +650,7 @@ public final class adq extends ady {
         public final void h() {
             super.g();
             this.a = (d) null;
-            this.b = (g) null;
+            //this.b = (g) null;
         }
 
         /* compiled from: BL */
@@ -691,11 +692,17 @@ public final class adq extends ady {
         public Object b(int i) {
             int e = e(i);
             if (e < ((a)null).Companion.a()) {
-                List<BiliVideoV2> b = b();
-                if (b == null) {
-                    bbi.a();
+                f fVar = new f();
+                fVar.a(c());
+                if (i == 0) {
+                    fVar.a(true);
                 }
-                return b.subList(0, 2);
+                return fVar;
+                //List<BiliVideoV2> b = b();
+                //if (b == null) {
+                //    bbi.a();
+                //}
+                //return b.subList(0, 2);
             }
             List<BiliVideoV2> b2 = b();
             if (b2 == null) {
@@ -739,74 +746,74 @@ public final class adq extends ady {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: BL */
     /* loaded from: classes.dex */
-    public static final class g extends a<String, BiliVideoV2> {
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(String str, List<BiliVideoV2> list) {
-            super(str, list, ((j)null).Companion.b(), ((j)null).Companion.c());
-            bbi.b(str, "titleName");
-            bbi.b(list, "biliVideos");
-        }
+    //public static final class g extends a<String, BiliVideoV2> {
+    //    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    //    public g(String str, List<BiliVideoV2> list) {
+    //        super(str, list, ((j)null).Companion.b(), ((j)null).Companion.c());
+    //        bbi.b(str, "titleName");
+    //        bbi.b(list, "biliVideos");
+    //    }
 
-        @Override // bl.ade
-        public Object b(int i) {
-            int e = e(i);
-            if (e < ((a)null).Companion.a()) {
-                f fVar = new f();
-                fVar.a(c());
-                if (i == 0) {
-                    fVar.a(true);
-                }
-                return fVar;
-            }
-            List<BiliVideoV2> b = b();
-            if (b == null) {
-                bbi.a();
-            }
-            BiliVideoV2 biliVideoV2 = b.get(e - ((a)null).Companion.a());
-            aeb.a aVar = new aeb.a();
-            aVar.a(biliVideoV2);
-            if (e - ((a)null).Companion.a() < adq.Companion.b()) {
-                aVar.a(true);
-            }
-            return aVar;
-        }
+    //    @Override // bl.ade
+    //    public Object b(int i) {
+    //        int e = e(i);
+    //        if (e < ((a)null).Companion.a()) {
+    //            f fVar = new f();
+    //            fVar.a(c());
+    //            if (i == 0) {
+    //                fVar.a(true);
+    //            }
+    //            return fVar;
+    //        }
+    //        List<BiliVideoV2> b = b();
+    //        if (b == null) {
+    //            bbi.a();
+    //        }
+    //        BiliVideoV2 biliVideoV2 = b.get(e - ((a)null).Companion.a());
+    //        aeb.a aVar = new aeb.a();
+    //        aVar.a(biliVideoV2);
+    //        if (e - ((a)null).Companion.a() < adq.Companion.b()) {
+    //            aVar.a(true);
+    //        }
+    //        return aVar;
+    //    }
 
-        @Override // bl.ade
-        public int a() {
-            if (b() == null) {
-                return 0;
-            }
-            List<BiliVideoV2> b = b();
-            if (b == null) {
-                bbi.a();
-            }
-            return b.size() + ((a)null).Companion.a();
-        }
+    //    @Override // bl.ade
+    //    public int a() {
+    //        if (b() == null) {
+    //            return 0;
+    //        }
+    //        List<BiliVideoV2> b = b();
+    //        if (b == null) {
+    //            bbi.a();
+    //        }
+    //        return b.size() + ((a)null).Companion.a();
+    //    }
 
-        @Override // bl.ade
-        public int c(int i) {
-            if (e(i) < ((a)null).Companion.a()) {
-                return d();
-            }
-            return e();
-        }
+    //    @Override // bl.ade
+    //    public int c(int i) {
+    //        if (e(i) < ((a)null).Companion.a()) {
+    //            return d();
+    //        }
+    //        return e();
+    //    }
 
-        @Override // bl.adb, bl.ade
-        public long a(int i) {
-            return (c(i) << 32) + i;
-        }
+    //    @Override // bl.adb, bl.ade
+    //    public long a(int i) {
+    //        return (c(i) << 32) + i;
+    //    }
 
-        public final void a(List<BiliVideoV2> list) {
-            bbi.b(list, "biliVideos");
-            if (b() != null) {
-                List<BiliVideoV2> b = b();
-                if (b == null) {
-                    bbi.a();
-                }
-                b.addAll(list);
-            }
-        }
-    }
+    //    public final void a(List<BiliVideoV2> list) {
+    //        bbi.b(list, "biliVideos");
+    //        if (b() != null) {
+    //            List<BiliVideoV2> b = b();
+    //            if (b == null) {
+    //                bbi.a();
+    //            }
+    //            b.addAll(list);
+    //        }
+    //    }
+    //}
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
@@ -863,9 +870,9 @@ public final class adq extends ady {
                 f fVar = (f) obj;
                 this.n.setText(fVar.a());
                 if (fVar.b()) {
-                    this.o.setVisibility(0);
+                    this.o.setVisibility(View.VISIBLE);
                 } else {
-                    this.o.setVisibility(8);
+                    this.o.setVisibility(View.GONE);
                 }
             }
         }

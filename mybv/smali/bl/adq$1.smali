@@ -27,7 +27,7 @@
     .locals 0
 
     .prologue
-    .line 104
+    .line 100
     iput-object p1, p0, Lbl/adq$1;->this$0:Lbl/adq;
 
     iput p6, p0, Lbl/adq$1;->val$b2:I
@@ -45,7 +45,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 163
+    .line 150
     iget-object v0, p0, Lbl/adq$1;->val$recyclerView:Landroid/support/v7/widget/RecyclerView;
 
     const/16 v1, 0x11
@@ -54,46 +54,46 @@
 
     move-result-object v0
 
-    .line 164
+    .line 151
     instance-of v1, v0, Lcom/bilibili/tv/widget/side/SideLeftSelectLinearLayout;
 
     if-eqz v1, :cond_2e
 
-    .line 165
+    .line 152
     invoke-virtual {v0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
-    .line 166
+    .line 153
     instance-of v1, v0, Landroid/support/v7/widget/RecyclerView;
 
     if-eqz v1, :cond_2e
 
-    .line 167
+    .line 154
     check-cast v0, Landroid/support/v7/widget/RecyclerView;
 
-    .line 168
+    .line 155
     invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->getChildCount()I
 
     move-result v4
 
     move v2, v3
 
-    .line 169
+    .line 156
     :goto_1c
     if-ge v2, v4, :cond_33
 
-    .line 170
+    .line 157
     invoke-virtual {v0, v2}, Landroid/support/v7/widget/RecyclerView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
-    .line 171
+    .line 158
     const-string v5, "childView"
 
     invoke-static {v1, v5}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 172
+    .line 159
     invoke-virtual {v1}, Landroid/view/View;->isSelected()Z
 
     move-result v5
@@ -102,12 +102,12 @@
 
     move-object p1, v1
 
-    .line 182
+    .line 169
     :cond_2e
     :goto_2e
     return-object p1
 
-    .line 169
+    .line 156
     :cond_2f
     add-int/lit8 v1, v2, 0x1
 
@@ -115,7 +115,7 @@
 
     goto :goto_1c
 
-    .line 176
+    .line 163
     :cond_33
     invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->getLayoutManager()Landroid/support/v7/widget/RecyclerView$h;
 
@@ -125,12 +125,12 @@
 
     move-result-object v0
 
-    .line 177
+    .line 164
     if-eqz v0, :cond_2e
 
     move-object p1, v0
 
-    .line 178
+    .line 165
     goto :goto_2e
 .end method
 
@@ -144,19 +144,19 @@
 
     const/4 v3, 0x0
 
-    .line 108
+    .line 104
     if-nez p1, :cond_7
 
-    .line 109
+    .line 105
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 111
+    .line 107
     :cond_7
     invoke-virtual {p0, p1}, Lbl/adq$1;->d(Landroid/view/View;)I
 
     move-result v0
 
-    .line 112
+    .line 108
     const/16 v1, 0x21
 
     if-ne p2, v1, :cond_41
@@ -180,7 +180,7 @@
 
     if-lez v1, :cond_41
 
-    .line 113
+    .line 109
     invoke-virtual {v0}, Landroid/view/View;->getTop()I
 
     move-result v1
@@ -193,7 +193,7 @@
 
     invoke-virtual {p0, v1, p3, p4}, Lbl/adq$1;->b(ILandroid/support/v7/widget/RecyclerView$o;Landroid/support/v7/widget/RecyclerView$s;)I
 
-    .line 114
+    .line 110
     iget-object v1, p0, Lbl/adq$1;->this$0:Lbl/adq;
 
     # getter for: Lbl/adq;->f:Lbl/agd;
@@ -203,7 +203,7 @@
 
     if-eqz v1, :cond_41
 
-    .line 115
+    .line 111
     iget-object v1, p0, Lbl/adq$1;->this$0:Lbl/adq;
 
     # getter for: Lbl/adq;->f:Lbl/agd;
@@ -211,17 +211,17 @@
 
     move-result-object v1
 
-    .line 116
+    .line 112
     if-nez v1, :cond_3e
 
-    .line 117
+    .line 113
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 119
+    .line 115
     :cond_3e
     invoke-virtual {v1, v0, v3, v3, v4}, Lbl/agd;->a(Landroid/view/View;IIZ)V
 
-    .line 122
+    .line 118
     :cond_41
     invoke-super {p0, p1, p2, p3, p4}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->a(Landroid/view/View;ILandroid/support/v7/widget/RecyclerView$o;Landroid/support/v7/widget/RecyclerView$s;)Landroid/view/View;
 
@@ -234,24 +234,24 @@
     .locals 4
 
     .prologue
-    .line 127
+    .line 123
     if-nez p1, :cond_5
 
-    .line 128
+    .line 124
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 130
+    .line 126
     :cond_5
     invoke-virtual {p0, p1}, Lbl/adq$1;->d(Landroid/view/View;)I
 
     move-result v0
 
-    .line 131
+    .line 127
     invoke-virtual {p0}, Lbl/adq$1;->c()I
 
     move-result v1
 
-    .line 132
+    .line 128
     iget-object v2, p0, Lbl/adq$1;->this$0:Lbl/adq;
 
     invoke-virtual {v2}, Lbl/adq;->b()Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
@@ -262,81 +262,90 @@
 
     if-ne v2, v3, :cond_17
 
-    .line 133
+    .line 129
     :cond_17
-    const/16 v2, 0x11
-
-    if-eq p2, v2, :cond_47
-
-    .line 134
     const/16 v2, 0x21
 
-    if-eq p2, v2, :cond_40
+    if-ne p2, v2, :cond_2e
 
-    .line 135
-    const/16 v2, 0x82
+    .line 130
+    if-gt v0, v1, :cond_22
 
-    if-ne p2, v2, :cond_42
-
-    .line 136
-    invoke-virtual {p0}, Lbl/adq$1;->H()I
-
-    move-result v2
-
-    sub-int v1, v2, v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    if-le v0, v1, :cond_2e
-
-    .line 159
-    :cond_2d
-    :goto_2d
-    return-object p1
-
-    .line 139
-    :cond_2e
-    invoke-static {}, Landroid/view/FocusFinder;->getInstance()Landroid/view/FocusFinder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lbl/adq$1;->val$recyclerView:Landroid/support/v7/widget/RecyclerView;
-
-    invoke-virtual {v1, v2, p1, p2}, Landroid/view/FocusFinder;->findNextFocus(Landroid/view/ViewGroup;Landroid/view/View;I)Landroid/view/View;
-
-    move-result-object v1
-
-    if-nez v1, :cond_42
-
-    .line 140
-    add-int/lit8 v0, v0, 0x1
-
-    invoke-virtual {p0, v0}, Lbl/adq$1;->d(I)V
-
-    goto :goto_2d
-
-    .line 144
-    :cond_40
-    if-lez v0, :cond_2d
-
-    .line 159
-    :cond_42
+    .line 131
     invoke-super {p0, p1, p2}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->d(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object p1
 
-    goto :goto_2d
+    .line 146
+    :cond_21
+    :goto_21
+    return-object p1
 
-    .line 156
+    .line 133
+    :cond_22
+    invoke-static {}, Landroid/view/FocusFinder;->getInstance()Landroid/view/FocusFinder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lbl/adq$1;->val$recyclerView:Landroid/support/v7/widget/RecyclerView;
+
+    invoke-virtual {v2, v3, p1, p2}, Landroid/view/FocusFinder;->findNextFocus(Landroid/view/ViewGroup;Landroid/view/View;I)Landroid/view/View;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_21
+
+    .line 137
+    :cond_2e
+    const/16 v2, 0x82
+
+    if-ne p2, v2, :cond_47
+
+    .line 138
+    invoke-virtual {p0}, Lbl/adq$1;->H()I
+
+    move-result v2
+
+    sub-int/2addr v2, v1
+
+    add-int/lit8 v2, v2, -0x1
+
+    if-gt v0, v2, :cond_21
+
+    .line 141
+    invoke-static {}, Landroid/view/FocusFinder;->getInstance()Landroid/view/FocusFinder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lbl/adq$1;->val$recyclerView:Landroid/support/v7/widget/RecyclerView;
+
+    invoke-virtual {v2, v3, p1, p2}, Landroid/view/FocusFinder;->findNextFocus(Landroid/view/ViewGroup;Landroid/view/View;I)Landroid/view/View;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_21
+
+    .line 145
     :cond_47
+    const/16 v2, 0x11
+
+    if-ne p2, v2, :cond_53
+
     rem-int/2addr v0, v1
 
-    if-eqz v0, :cond_42
+    if-eqz v0, :cond_53
 
-    .line 157
     invoke-direct {p0, p1}, Lbl/adq$1;->q(Landroid/view/View;)Landroid/view/View;
 
     move-result-object p1
 
-    goto :goto_2d
+    goto :goto_21
+
+    .line 146
+    :cond_53
+    invoke-super {p0, p1, p2}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->d(Landroid/view/View;I)Landroid/view/View;
+
+    move-result-object p1
+
+    goto :goto_21
 .end method

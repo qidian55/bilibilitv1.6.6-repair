@@ -43,15 +43,13 @@
 # instance fields
 .field private a:Lbl/adq$d;
 
-.field private b:Lbl/adq$g;
-
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 2
 
     .prologue
-    .line 590
+    .line 577
     new-instance v0, Lbl/adq$j$a;
 
     const/4 v1, 0x0
@@ -67,7 +65,7 @@
     .locals 0
 
     .prologue
-    .line 589
+    .line 576
     invoke-direct {p0}, Lbl/adc;-><init>()V
 
     return-void
@@ -79,7 +77,7 @@
     .locals 1
 
     .prologue
-    .line 589
+    .line 576
     invoke-virtual {p0, p1, p2}, Lbl/adq$j;->a(Landroid/view/ViewGroup;I)Lbl/adc$a;
 
     move-result-object v0
@@ -93,21 +91,21 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 600
+    .line 587
     const-string v1, "parent"
 
     invoke-static {p1, v1}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 601
+    .line 589
     const/4 v1, 0x1
 
     if-ne p2, v1, :cond_12
 
-    check-cast v0, Lbl/adq$e;
+    check-cast v0, Lbl/adq$h;
 
-    sget-object v0, Lbl/adq$e;->Companion:Lbl/adq$e$a;
+    sget-object v0, Lbl/adq$h;->Companion:Lbl/adq$h$a;
 
-    invoke-virtual {v0, p1}, Lbl/adq$e$a;->a(Landroid/view/ViewGroup;)Lbl/adq$e;
+    invoke-virtual {v0, p1}, Lbl/adq$h$a;->a(Landroid/view/ViewGroup;)Lbl/adq$h;
 
     move-result-object v0
 
@@ -172,62 +170,71 @@
     .end annotation
 
     .prologue
-    .line 633
+    .line 622
     const-string v0, "title"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 634
+    .line 623
     const-string v0, "otherList"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 635
-    iget-object v0, p0, Lbl/adq$j;->b:Lbl/adq$g;
-
-    if-nez v0, :cond_1f
-
     .line 636
-    new-instance v0, Lbl/adq$g;
+    invoke-interface {p2}, Ljava/util/List;->size()I
 
-    invoke-direct {v0, p1, p2}, Lbl/adq$g;-><init>(Ljava/lang/String;Ljava/util/List;)V
+    move-result v0
 
-    iput-object v0, p0, Lbl/adq$j;->b:Lbl/adq$g;
+    if-nez v0, :cond_11
 
-    .line 637
-    iget-object v0, p0, Lbl/adq$j;->b:Lbl/adq$g;
+    .line 649
+    :goto_10
+    return-void
+
+    .line 639
+    :cond_11
+    iget-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
+
+    if-nez v0, :cond_29
+
+    .line 640
+    new-instance v0, Lbl/adq$d;
+
+    invoke-direct {v0, p1, p2}, Lbl/adq$d;-><init>(Ljava/lang/String;Ljava/util/List;)V
+
+    iput-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
+
+    .line 641
+    invoke-super {p0}, Lbl/adc;->g()V
+
+    .line 642
+    iget-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
 
     invoke-virtual {p0, v0}, Lbl/adq$j;->a(Lbl/ade;)V
 
-    .line 638
+    .line 643
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lbl/adq$j;->b(Z)V
 
+    goto :goto_10
+
+    .line 646
+    :cond_29
+    iget-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
+
+    invoke-virtual {v0}, Lbl/adq$d;->b()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0, p2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
     .line 647
-    :goto_1e
-    return-void
-
-    .line 640
-    :cond_1f
-    iget-object v0, p0, Lbl/adq$j;->b:Lbl/adq$g;
-
-    .line 641
-    if-nez v0, :cond_26
-
-    .line 642
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 644
-    :cond_26
-    invoke-virtual {v0, p2}, Lbl/adq$g;->a(Ljava/util/List;)V
-
-    .line 645
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lbl/adq$j;->b(Z)V
 
-    goto :goto_1e
+    goto :goto_10
 .end method
 
 .method public final a(Ljava/util/List;)V
@@ -243,29 +250,29 @@
     .end annotation
 
     .prologue
-    .line 621
+    .line 609
     const-string v0, "hotList"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 622
+    .line 610
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
 
     if-nez v0, :cond_c
 
-    .line 630
+    .line 619
     :goto_b
     return-void
 
-    .line 625
+    .line 613
     :cond_c
     iget-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
 
     if-nez v0, :cond_1e
 
-    .line 626
+    .line 614
     new-instance v0, Lbl/adq$d;
 
     const v1, 0x7f0c009e
@@ -278,39 +285,37 @@
 
     iput-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
 
-    .line 628
+    .line 616
     :cond_1e
     invoke-super {p0}, Lbl/adc;->g()V
 
-    .line 629
+    .line 617
     iget-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
 
     invoke-virtual {p0, v0}, Lbl/adq$j;->a(Lbl/ade;)V
+
+    .line 618
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lbl/adq$j;->b(Z)V
 
     goto :goto_b
 .end method
 
 .method public final h()V
-    .locals 2
+    .locals 1
 
     .prologue
-    const/4 v1, 0x0
-
-    .line 650
+    .line 652
     invoke-super {p0}, Lbl/adc;->g()V
 
-    move-object v0, v1
+    .line 653
+    const/4 v0, 0x0
 
-    .line 651
     check-cast v0, Lbl/adq$d;
 
     iput-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
 
-    .line 652
-    check-cast v1, Lbl/adq$g;
-
-    iput-object v1, p0, Lbl/adq$j;->b:Lbl/adq$g;
-
-    .line 653
+    .line 655
     return-void
 .end method

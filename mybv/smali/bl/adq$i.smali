@@ -34,12 +34,12 @@
     .locals 0
 
     .prologue
-    .line 521
+    .line 508
     iput-object p1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     invoke-direct {p0}, Lbl/vn;-><init>()V
 
-    .line 522
+    .line 509
     return-void
 .end method
 
@@ -49,7 +49,7 @@
     .locals 0
 
     .prologue
-    .line 520
+    .line 507
     check-cast p1, Ljava/util/List;
 
     invoke-virtual {p0, p1}, Lbl/adq$i;->a(Ljava/util/List;)V
@@ -74,7 +74,7 @@
 
     const/4 v3, 0x0
 
-    .line 531
+    .line 518
     iget-object v0, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     invoke-virtual {v0}, Lbl/adq;->a()Lbl/adq$j;
@@ -83,18 +83,18 @@
 
     if-nez v0, :cond_d
 
-    .line 575
+    .line 562
     :goto_c
     return-void
 
-    .line 534
+    .line 521
     :cond_d
     iget-object v0, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     # setter for: Lbl/adq;->k:Z
     invoke-static {v0, v3}, Lbl/adq;->access$202(Lbl/adq;Z)Z
 
-    .line 535
+    .line 522
     iget-object v0, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     invoke-virtual {v0}, Lbl/adq;->h()Landroid/support/v7/widget/RecyclerView;
@@ -103,7 +103,7 @@
 
     invoke-virtual {v0, v3}, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
 
-    .line 536
+    .line 523
     if-eqz p1, :cond_23
 
     invoke-interface {p1}, Ljava/util/List;->size()I
@@ -112,7 +112,7 @@
 
     if-nez v0, :cond_29
 
-    .line 537
+    .line 524
     :cond_23
     iget-object v0, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
@@ -121,13 +121,13 @@
 
     goto :goto_c
 
-    .line 540
+    .line 527
     :cond_29
     invoke-static {v4}, Lbl/adl;->e(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 541
+    .line 528
     iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     # getter for: Lbl/adq;->l:Z
@@ -137,7 +137,7 @@
 
     if-eqz v1, :cond_58
 
-    .line 542
+    .line 529
     iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     invoke-virtual {v1}, Lbl/adq;->b()Lcom/bilibili/tv/ui/area/RegionApiManager$ListOrder;
@@ -148,63 +148,63 @@
 
     if-ne v1, v2, :cond_6c
 
-    .line 543
+    .line 530
     invoke-static {v4}, Lbl/adl;->e(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 562
+    .line 549
     :goto_43
     iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     invoke-virtual {v1}, Lbl/adq;->m()V
 
-    .line 563
+    .line 550
     iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     invoke-virtual {v1}, Lbl/adq;->a()Lbl/adq$j;
 
     move-result-object v1
 
-    .line 564
+    .line 551
     if-nez v1, :cond_50
 
-    .line 566
+    .line 553
     :cond_50
     invoke-virtual {v1}, Lbl/adq$j;->h()V
 
-    .line 567
+    .line 554
     iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     # setter for: Lbl/adq;->l:Z
     invoke-static {v1, v3}, Lbl/adq;->access$502(Lbl/adq;Z)Z
 
-    .line 569
+    .line 556
     :cond_58
     iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     invoke-virtual {v1}, Lbl/adq;->j()V
 
-    .line 570
+    .line 557
     iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     invoke-virtual {v1}, Lbl/adq;->a()Lbl/adq$j;
 
     move-result-object v1
 
-    .line 571
+    .line 558
     if-nez v1, :cond_68
 
-    .line 572
+    .line 559
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 574
+    .line 561
     :cond_68
     invoke-virtual {v1, v0, p1}, Lbl/adq$j;->a(Ljava/lang/String;Ljava/util/List;)V
 
     goto :goto_c
 
-    .line 544
+    .line 531
     :cond_6c
     iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
@@ -216,7 +216,7 @@
 
     if-ne v1, v2, :cond_7e
 
-    .line 545
+    .line 532
     const v0, 0x7f0c00b0
 
     invoke-static {v0}, Lbl/adl;->e(I)Ljava/lang/String;
@@ -225,7 +225,7 @@
 
     goto :goto_43
 
-    .line 546
+    .line 533
     :cond_7e
     iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
@@ -237,7 +237,7 @@
 
     if-ne v1, v2, :cond_90
 
-    .line 547
+    .line 534
     const v0, 0x7f0c00af
 
     invoke-static {v0}, Lbl/adl;->e(I)Ljava/lang/String;
@@ -246,7 +246,7 @@
 
     goto :goto_43
 
-    .line 548
+    .line 535
     :cond_90
     iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
@@ -258,7 +258,7 @@
 
     if-ne v1, v2, :cond_a2
 
-    .line 549
+    .line 536
     const v0, 0x7f0c00b2
 
     invoke-static {v0}, Lbl/adl;->e(I)Ljava/lang/String;
@@ -267,7 +267,7 @@
 
     goto :goto_43
 
-    .line 551
+    .line 538
     :cond_a2
     iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
@@ -279,37 +279,37 @@
 
     if-ne v1, v2, :cond_b3
 
-    .line 552
+    .line 539
     const v0, 0x7f0c00b3
 
     invoke-static {v0}, Lbl/adl;->e(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 554
+    .line 541
     :cond_b3
     iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     invoke-virtual {v1}, Lbl/adq;->m()V
 
-    .line 555
+    .line 542
     iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     invoke-virtual {v1}, Lbl/adq;->a()Lbl/adq$j;
 
     move-result-object v1
 
-    .line 556
+    .line 543
     if-nez v1, :cond_c3
 
-    .line 557
+    .line 544
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 559
+    .line 546
     :cond_c3
     invoke-virtual {v1}, Lbl/adq$j;->h()V
 
-    .line 560
+    .line 547
     iget-object v1, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     # setter for: Lbl/adq;->l:Z
@@ -322,12 +322,12 @@
     .locals 2
 
     .prologue
-    .line 579
+    .line 566
     const-string v0, "t"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 580
+    .line 567
     iget-object v0, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
     invoke-virtual {v0}, Lbl/adq;->a()Lbl/adq$j;
@@ -336,11 +336,11 @@
 
     if-nez v0, :cond_e
 
-    .line 584
+    .line 571
     :goto_d
     return-void
 
-    .line 583
+    .line 570
     :cond_e
     iget-object v0, p0, Lbl/adq$i;->this$0:Lbl/adq;
 
