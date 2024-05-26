@@ -36,7 +36,7 @@
     .locals 0
 
     .prologue
-    .line 117
+    .line 130
     iput-object p1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$2;->this$0:Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
     .end annotation
 
     .prologue
-    .line 117
+    .line 130
     invoke-virtual {p0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$2;->call()Lorg/json/JSONObject;
 
     move-result-object v0
@@ -67,7 +67,7 @@
     .locals 3
 
     .prologue
-    .line 120
+    .line 133
     new-instance v0, Lbl/qa$a;
 
     const-class v1, Lcom/bilibili/tv/api/video/BiliVideoDetail$DetailResponse;

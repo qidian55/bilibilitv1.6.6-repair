@@ -1,6 +1,6 @@
 .class Lbl/xj$1$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "xj.java"
 
 # interfaces
 .implements Landroid/view/animation/Animation$AnimationListener;
@@ -18,15 +18,16 @@
 
 
 # instance fields
-.field final synthetic a:Lbl/xj$1;
+.field final synthetic this$1:Lbl/xj$1;
 
 
 # direct methods
 .method constructor <init>(Lbl/xj$1;)V
     .locals 0
 
-    .line 210
-    iput-object p1, p0, Lbl/xj$1$1;->a:Lbl/xj$1;
+    .prologue
+    .line 177
+    iput-object p1, p0, Lbl/xj$1$1;->this$1:Lbl/xj$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,28 +37,35 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 1
+    .locals 2
 
-    .line 217
-    iget-object p1, p0, Lbl/xj$1$1;->a:Lbl/xj$1;
+    .prologue
+    .line 188
+    iget-object v0, p0, Lbl/xj$1$1;->this$1:Lbl/xj$1;
 
-    iget-object p1, p1, Lbl/xj$1;->b:Lbl/xj;
+    iget-object v0, v0, Lbl/xj$1;->this$0:Lbl/xj;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p1, v0}, Lbl/xj;->a(Lbl/xj;Z)Z
+    # setter for: Lbl/xj;->l:Z
+    invoke-static {v0, v1}, Lbl/xj;->access$102(Lbl/xj;Z)Z
 
+    .line 189
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
 
+    .prologue
+    .line 180
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 0
 
+    .prologue
+    .line 184
     return-void
 .end method

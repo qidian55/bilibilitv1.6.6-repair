@@ -58,7 +58,10 @@ import java.util.Locale;
 import kotlin.TypeCastException;
 import tv.danmaku.ijk.media.player.IjkMediaCodecInfo;
 
+import bl.xg;
+import android.widget.Toast;
 import android.view.KeyEvent;
+import com.bilibili.tv.ui.bangumi.BangumiDetailActivity;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -559,7 +562,22 @@ public final class VideoHistoryActivity extends BaseUpViewActivity implements Vi
                 Object tag2 = view.getTag();
                 if ((tag2 instanceof BiliVideoDetail) && (tag instanceof Integer)) {
                     ok.a("tv_history_click", "row", String.valueOf(((int) Math.floor(((Number) tag).intValue() / VideoHistoryActivity.h)) + 1));
-                    a2.startActivity(VideoDetailActivity.Companion.a(a2, ((BiliVideoDetail) tag2).mAvid));
+                    BiliVideoDetail detail = (BiliVideoDetail) tag2;
+                    switch(detail.mBusinessType){
+                        case "archive":
+                            //xg.a(context, detail, detail.mPage, null);
+                            a2.startActivity(VideoDetailActivity.Companion.a(a2, detail.mAvid));
+                            break;
+                        case "pgc":
+                            //xg.a(context, detail, detail.mPage, null);
+                            a2.startActivity(BangumiDetailActivity.Companion.a(a2, detail.mBangumiInfo.mSeasonId));
+                            break;
+                        case "cheese":
+                            xg.playCheese(context, detail, detail.mPage, -1);
+                            break;
+                        default:
+                            Toast.makeText(context,"暂不支持播放该视频类型",Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         }

@@ -90,14 +90,13 @@ public class xg {
         PlayerParams a = aaj.a(context);
         yr.a(a, biliVideoDetail.mCover);
         yr.c(a, biliVideoDetail.getAuthor());
-        int i2 = biliVideoDetail.mAvid;
         yr.b(a, biliVideoDetail.mTitle);
 
         biliVideoDetail.getUGCseason();
 
         ResolveResourceParams obtainResolveParams = a.mVideoParams.obtainResolveParams();
         obtainResolveParams.mSpid = biliVideoDetail.getSpid();
-        obtainResolveParams.mAvid = i2;
+        obtainResolveParams.mAvid = biliVideoDetail.mAvid;
         obtainResolveParams.mPage = page.mPage;
         obtainResolveParams.mFrom = page.mFrom;
         obtainResolveParams.mPageTitle = page.mTitle;
@@ -154,7 +153,7 @@ public class xg {
                 ResolveResourceParams resolveResourceParams = new ResolveResourceParams();
                 resolveResourceParams.mSpid = biliVideoDetail.getSpid();
                 resolveResourceParams.mTid = page2.mTid;
-                resolveResourceParams.mAvid = i2;
+                resolveResourceParams.mAvid = biliVideoDetail.mAvid;
                 resolveResourceParams.mPage = page2.mPage;
                 resolveResourceParams.mFrom = page2.mFrom;
                 resolveResourceParams.mVid = page2.mVid;
@@ -183,5 +182,42 @@ public class xg {
             playerParams.mVideoParams.mResolveParamsArray[0] = playerParams.mVideoParams.obtainResolveParams();
         }
         context.startActivity(PlayerActivity.a(context, playerParams));
+    }
+
+    public static void playCheese(Context context, BiliVideoDetail biliVideoDetail, BiliVideoDetail.Page page, int i) {
+        PlayerParams a = aaj.a(context);
+        yr.a(a, biliVideoDetail.mCover);
+        yr.c(a, biliVideoDetail.getAuthor());
+        yr.b(a, biliVideoDetail.mTitle);
+
+        ResolveResourceParams obtainResolveParams = a.mVideoParams.obtainResolveParams();
+        obtainResolveParams.mSpid = biliVideoDetail.getSpid();
+        obtainResolveParams.mAvid = biliVideoDetail.mAvid;
+        obtainResolveParams.mPage = page.mPage;
+        obtainResolveParams.mFrom = "cheese";
+        obtainResolveParams.mPageTitle = page.mTitle;
+        obtainResolveParams.mVid = page.mVid;
+        obtainResolveParams.mRawVid = page.mRawVid;
+        obtainResolveParams.mCid = page.mCid;
+        obtainResolveParams.mWeb = page.mWebLink;
+        obtainResolveParams.mHasAlias = page.mHasAlias;
+        obtainResolveParams.mTid = biliVideoDetail.mTid;
+
+        obtainResolveParams.mSeasonId = biliVideoDetail.mCheeseInfo.getString("season_id");
+        obtainResolveParams.mEpisodeId = Long.parseLong(biliVideoDetail.mRedirectLink.split("ep")[1]);
+
+        if(biliVideoDetail.mHistory!=null && page.mCid==biliVideoDetail.mHistory.mCid)obtainResolveParams.mProgress=biliVideoDetail.mHistory.mProgress;
+
+        if (i > 0) {
+            obtainResolveParams.mExpectedQuality = i;
+        }
+        if (TextUtils.isEmpty(yr.a(a))) {
+            yr.b(a, page.mTitle);
+        }
+        if (a.mVideoParams.mResolveParamsArray == null) {
+            a.mVideoParams.mResolveParamsArray = a.mVideoParams.obtainResolveParamsArray(1);
+            a.mVideoParams.mResolveParamsArray[0] = a.mVideoParams.obtainResolveParams();
+        }
+        context.startActivity(PlayerActivity.a(context, a));
     }
 }

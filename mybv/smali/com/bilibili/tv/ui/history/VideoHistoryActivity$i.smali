@@ -26,12 +26,12 @@
     .locals 0
 
     .prologue
-    .line 274
+    .line 277
     iput-object p1, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$i;->this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 275
+    .line 278
     return-void
 .end method
 
@@ -41,7 +41,7 @@
     .locals 3
 
     .prologue
-    .line 279
+    .line 282
     new-instance v0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$a;
 
     iget-object v1, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$i;->this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
@@ -56,7 +56,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$a;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 280
+    .line 283
     iget-object v0, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$i;->this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
     invoke-static {v0}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->c(Lcom/bilibili/tv/ui/history/VideoHistoryActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
@@ -65,9 +65,9 @@
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/base/LoadingImageView;->c()V
 
-    .line 281
+    .line 284
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
-    .line 282
+    .line 285
     return-void
 .end method

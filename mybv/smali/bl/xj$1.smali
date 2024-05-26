@@ -1,6 +1,6 @@
 .class Lbl/xj$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "xj.java"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -18,19 +18,20 @@
 
 
 # instance fields
-.field final synthetic a:Landroid/app/Activity;
+.field final synthetic this$0:Lbl/xj;
 
-.field final synthetic b:Lbl/xj;
+.field final synthetic val$o:Landroid/app/Activity;
 
 
 # direct methods
 .method constructor <init>(Lbl/xj;Landroid/app/Activity;)V
     .locals 0
 
-    .line 205
-    iput-object p1, p0, Lbl/xj$1;->b:Lbl/xj;
+    .prologue
+    .line 172
+    iput-object p1, p0, Lbl/xj$1;->this$0:Lbl/xj;
 
-    iput-object p2, p0, Lbl/xj$1;->a:Landroid/app/Activity;
+    iput-object p2, p0, Lbl/xj$1;->val$o:Landroid/app/Activity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,19 +43,21 @@
 .method public run()V
     .locals 3
 
-    .line 208
-    iget-object v0, p0, Lbl/xj$1;->b:Lbl/xj;
+    .prologue
+    .line 175
+    iget-object v0, p0, Lbl/xj$1;->this$0:Lbl/xj;
 
-    invoke-static {v0}, Lbl/xj;->a(Lbl/xj;)Landroid/view/animation/Animation;
+    # getter for: Lbl/xj;->k:Landroid/view/animation/Animation;
+    invoke-static {v0}, Lbl/xj;->access$000(Lbl/xj;)Landroid/view/animation/Animation;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_24
 
-    .line 209
-    iget-object v0, p0, Lbl/xj$1;->b:Lbl/xj;
+    .line 176
+    iget-object v0, p0, Lbl/xj$1;->this$0:Lbl/xj;
 
-    iget-object v1, p0, Lbl/xj$1;->a:Landroid/app/Activity;
+    iget-object v1, p0, Lbl/xj$1;->val$o:Landroid/app/Activity;
 
     const v2, 0x7f01000e
 
@@ -62,12 +65,14 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lbl/xj;->a(Lbl/xj;Landroid/view/animation/Animation;)Landroid/view/animation/Animation;
+    # setter for: Lbl/xj;->k:Landroid/view/animation/Animation;
+    invoke-static {v0, v1}, Lbl/xj;->access$002(Lbl/xj;Landroid/view/animation/Animation;)Landroid/view/animation/Animation;
 
-    .line 210
-    iget-object v0, p0, Lbl/xj$1;->b:Lbl/xj;
+    .line 177
+    iget-object v0, p0, Lbl/xj$1;->this$0:Lbl/xj;
 
-    invoke-static {v0}, Lbl/xj;->a(Lbl/xj;)Landroid/view/animation/Animation;
+    # getter for: Lbl/xj;->k:Landroid/view/animation/Animation;
+    invoke-static {v0}, Lbl/xj;->access$000(Lbl/xj;)Landroid/view/animation/Animation;
 
     move-result-object v0
 
@@ -77,19 +82,21 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 225
-    :cond_0
-    iget-object v0, p0, Lbl/xj$1;->b:Lbl/xj;
+    .line 192
+    :cond_24
+    iget-object v0, p0, Lbl/xj$1;->this$0:Lbl/xj;
 
     iget-object v0, v0, Lbl/xj;->c:Landroid/widget/TextView;
 
-    iget-object v1, p0, Lbl/xj$1;->b:Lbl/xj;
+    iget-object v1, p0, Lbl/xj$1;->this$0:Lbl/xj;
 
-    invoke-static {v1}, Lbl/xj;->a(Lbl/xj;)Landroid/view/animation/Animation;
+    # getter for: Lbl/xj;->k:Landroid/view/animation/Animation;
+    invoke-static {v1}, Lbl/xj;->access$000(Lbl/xj;)Landroid/view/animation/Animation;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->startAnimation(Landroid/view/animation/Animation;)V
 
+    .line 193
     return-void
 .end method

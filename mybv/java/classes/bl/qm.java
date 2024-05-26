@@ -34,6 +34,9 @@ public class qm extends py {
                 if (optJSONObject != null) {
                     jSONObject3 = optJSONObject;
                 }
+                if(jSONObject3.optJSONArray("accept_description").optString(0).equals("试看")){
+                    throw new ResolveMediaSourceException("暂不支持试看视频",-233);
+                }
                 JSONArray optJSONArray = jSONObject3.optJSONArray("accept_quality");
                 int optInt = jSONObject3.optInt("code", 0);
                 int optInt2 = jSONObject3.optInt("timelength");

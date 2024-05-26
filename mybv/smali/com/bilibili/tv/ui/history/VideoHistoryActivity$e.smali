@@ -34,12 +34,12 @@
     .locals 0
 
     .prologue
-    .line 465
+    .line 468
     iput-object p1, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$e;->this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
     invoke-direct {p0}, Lbl/vn;-><init>()V
 
-    .line 466
+    .line 469
     return-void
 .end method
 
@@ -49,7 +49,7 @@
     .locals 0
 
     .prologue
-    .line 464
+    .line 467
     check-cast p1, Ljava/util/List;
 
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$e;->a(Ljava/util/List;)V
@@ -70,7 +70,7 @@
     .end annotation
 
     .prologue
-    .line 484
+    .line 487
     iget-object v0, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$e;->this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
     # getter for: Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->a:Lcom/bilibili/tv/ui/history/VideoHistoryActivity$g;
@@ -80,11 +80,11 @@
 
     if-nez v0, :cond_9
 
-    .line 491
+    .line 494
     :goto_8
     return-void
 
-    .line 487
+    .line 490
     :cond_9
     if-eqz p1, :cond_1a
 
@@ -94,7 +94,7 @@
 
     if-nez v0, :cond_1a
 
-    .line 488
+    .line 491
     iget-object v0, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$e;->this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
     invoke-static {p1}, Lbl/baf;->b(Ljava/util/Collection;)Ljava/util/List;
@@ -104,7 +104,7 @@
     # setter for: Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->d:Ljava/util/List;
     invoke-static {v0, v1}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->access$202(Lcom/bilibili/tv/ui/history/VideoHistoryActivity;Ljava/util/List;)Ljava/util/List;
 
-    .line 490
+    .line 493
     :cond_1a
     iget-object v0, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$e;->this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
@@ -117,7 +117,7 @@
     .locals 1
 
     .prologue
-    .line 470
+    .line 473
     iget-object v0, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$e;->this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->isFinishing()Z
@@ -131,14 +131,14 @@
     .locals 2
 
     .prologue
-    .line 475
+    .line 478
     sget-object v0, Lbl/adl;->a:Lbl/adl;
 
     iget-object v1, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$e;->this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
     invoke-virtual {v0, p1, v1}, Lbl/adl;->a(Ljava/lang/Throwable;Landroid/app/Activity;)V
 
-    .line 476
+    .line 479
     iget-object v0, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$e;->this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
     # getter for: Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->a:Lcom/bilibili/tv/ui/history/VideoHistoryActivity$g;
@@ -156,12 +156,12 @@
 
     if-nez v0, :cond_18
 
-    .line 480
+    .line 483
     :cond_17
     :goto_17
     return-void
 
-    .line 479
+    .line 482
     :cond_18
     iget-object v0, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$e;->this$0:Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 

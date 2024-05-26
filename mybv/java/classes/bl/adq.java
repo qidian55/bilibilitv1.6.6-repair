@@ -27,6 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 import tv.danmaku.android.log.BLog;
 
+import com.bilibili.api.BiliConfig;
+import com.bilibili.tv.api.area.RegionService;
+
 import mybl.MyBiliApiService;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -371,7 +374,9 @@ public final class adq extends ady {
         mg a2 = mg.a(getActivity());
         bbi.a((Object) a2, "BiliAccount.get(activity)");
         //regionApiManager.a(a2.e(), this.h, 0, this.e);
-        ((MyBiliApiService) vo.a(MyBiliApiService.class)).getRegionHotVideo(this.h, 50).a(new RegionHotVideoResponse());
+        //((MyBiliApiService) vo.a(MyBiliApiService.class)).getRegionHotVideo(this.h, 50).a(new RegionHotVideoResponse());
+        ((RegionService) vo.a(RegionService.class)).getDynamicVideo(this.h, 1, 50, BiliConfig.d()).a(new DynamicVideoResponse());
+        
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -456,6 +461,33 @@ public final class adq extends ady {
     //        adq.this.k();
     //    }
     //}
+
+    public final class DynamicVideoResponse extends vn<List<BiliVideoV2>> {
+        @Override // bl.vn
+        public void a(List<BiliVideoV2> list) {
+            if (adq.this.a() == null) {
+                return;
+            }
+            adq.this.k = false;
+            adq.this.h().setVisibility(View.VISIBLE);
+            if (list == null || list.size() == 0) {
+                adq.this.j = false;
+                return;
+            }
+            adq.this.j();
+            adq.this.a().a(list);
+        }
+
+        @Override // bl.vm
+        public void onError(Throwable th) {
+            bbi.b(th, "t");
+            if (adq.this.a() == null) {
+                return;
+            }
+            adq.this.k = false;
+            adq.this.k();
+        }
+    }
 
     public final class RegionHotVideoResponse extends vn<JSONObject> {
         @Override // bl.vn

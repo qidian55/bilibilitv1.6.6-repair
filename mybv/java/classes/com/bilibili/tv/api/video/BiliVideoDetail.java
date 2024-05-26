@@ -93,6 +93,19 @@ public class BiliVideoDetail implements Parcelable {
     public History mHistory;
     @JSONField(name = "season_id")
     public int mSeasonOId;
+    @JSONField(name = "business")
+    public String mBusinessType;
+    @JSONField(name = "page")
+    public Page mPage;
+    @JSONField(name = "redirect_link")
+    public String mRedirectLink;
+    @JSONField(name = "cheese")
+    public com.alibaba.fastjson.JSONObject mCheeseInfo;
+
+    @JSONField(name = "bangumi")
+    public void setBangumi(com.alibaba.fastjson.JSONObject mBangumiInfo){
+        this.mBangumiInfo=com.alibaba.fastjson.JSON.parseObject(mBangumiInfo.getJSONObject("season").toJSONString(), BangumiInfo.class);
+    }
 
     public JSONArray episodes;
     public String episode_title;

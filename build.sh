@@ -18,7 +18,7 @@ case "$1" in
         echo "./build.sh [-d|-s 包名]"
         exit 0
     ;;
-    -h|--special)
+    -s|--special)
         if [ -n "$2" ]; then
             packageid="$2"
         else

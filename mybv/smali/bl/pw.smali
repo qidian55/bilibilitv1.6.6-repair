@@ -1,6 +1,6 @@
 .class public Lbl/pw;
 .super Ljava/lang/Object;
-.source "BL"
+.source "pw.java"
 
 
 # static fields
@@ -13,150 +13,153 @@
 .method static constructor <clinit>()V
     .locals 10
 
-    .line 44
+    .prologue
+    const/4 v1, 0x0
+
+    .line 34
     const-class v0, Lcom/bilibili/lib/media/resolver/resolve/IMediaResolver;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getMethods()[Ljava/lang/reflect/Method;
 
+    move-result-object v5
+
+    array-length v6, v5
+
+    move v4, v1
+
+    move v3, v1
+
+    move v2, v1
+
+    :goto_b
+    if-ge v4, v6, :cond_61
+
+    aget-object v7, v5, v4
+
+    .line 35
+    invoke-virtual {v7}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
+
     move-result-object v0
-
-    .line 47
-    array-length v1, v0
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    :goto_0
-    if-ge v3, v1, :cond_6
-
-    aget-object v6, v0, v3
-
-    .line 48
-    invoke-virtual {v6}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
-
-    move-result-object v7
 
     const-string v8, "resolveMediaResource"
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v0
 
-    if-eqz v7, :cond_2
+    if-eqz v0, :cond_36
 
-    move v7, v4
+    move v0, v1
 
-    const/4 v4, 0x0
-
-    .line 49
-    :goto_1
-    invoke-virtual {v6}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
+    .line 37
+    :goto_1c
+    invoke-virtual {v7}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
     move-result-object v8
 
     array-length v8, v8
 
-    if-ge v4, v8, :cond_1
+    if-ge v0, v8, :cond_5d
 
-    .line 50
-    invoke-virtual {v6}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
+    .line 38
+    const-class v8, Landroid/content/Context;
 
-    move-result-object v8
+    invoke-virtual {v7}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
-    aget-object v8, v8, v4
+    move-result-object v9
 
-    .line 51
-    const-class v9, Landroid/content/Context;
+    aget-object v9, v9, v0
 
-    invoke-virtual {v9, v8}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v8
 
-    if-nez v8, :cond_0
+    if-nez v8, :cond_33
 
-    add-int/lit8 v7, v7, 0x1
+    .line 39
+    add-int/lit8 v2, v2, 0x1
 
-    :cond_0
-    add-int/lit8 v4, v4, 0x1
+    .line 37
+    :cond_33
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
-    move v4, v7
+    .line 43
+    :cond_36
+    invoke-virtual {v7}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
-    goto :goto_3
-
-    .line 55
-    :cond_2
-    invoke-virtual {v6}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
-
-    move-result-object v7
+    move-result-object v0
 
     const-string v8, "resolveSegment"
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v0
 
-    if-eqz v7, :cond_5
+    if-eqz v0, :cond_5d
 
-    move v7, v5
+    move v0, v1
 
-    const/4 v5, 0x0
-
-    .line 56
-    :goto_2
-    invoke-virtual {v6}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
+    .line 45
+    :goto_43
+    invoke-virtual {v7}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
     move-result-object v8
 
     array-length v8, v8
 
-    if-ge v5, v8, :cond_4
+    if-ge v0, v8, :cond_5d
 
-    .line 57
-    invoke-virtual {v6}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
+    .line 46
+    const-class v8, Landroid/content/Context;
 
-    move-result-object v8
+    invoke-virtual {v7}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
-    aget-object v8, v8, v5
+    move-result-object v9
 
-    .line 58
-    const-class v9, Landroid/content/Context;
+    aget-object v9, v9, v0
 
-    invoke-virtual {v9, v8}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v8
 
-    if-nez v8, :cond_3
+    if-nez v8, :cond_5a
 
-    add-int/lit8 v7, v7, 0x1
-
-    :cond_3
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_2
-
-    :cond_4
-    move v5, v7
-
-    :cond_5
-    :goto_3
+    .line 47
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    .line 45
+    :cond_5a
+    add-int/lit8 v0, v0, 0x1
 
-    .line 64
-    :cond_6
-    sput v4, Lbl/pw;->a:I
+    goto :goto_43
 
-    .line 65
-    sput v5, Lbl/pw;->b:I
+    .line 34
+    :cond_5d
+    add-int/lit8 v0, v4, 0x1
+
+    move v4, v0
+
+    goto :goto_b
+
+    .line 53
+    :cond_61
+    sput v2, Lbl/pw;->a:I
+
+    .line 54
+    sput v3, Lbl/pw;->b:I
+
+    .line 55
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    .prologue
+    .line 10
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -164,7 +167,8 @@
 .method public static a()I
     .locals 1
 
-    .line 69
+    .prologue
+    .line 58
     sget v0, Lbl/pw;->a:I
 
     return v0
@@ -173,98 +177,117 @@
 .method public static a(Ljava/lang/String;)Lcom/bilibili/lib/media/resolver/resolve/IMediaResolver;
     .locals 2
 
-    .line 28
+    .prologue
+    .line 15
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     const-string v0, ""
 
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_0
+    .line 16
+    :goto_8
     const-string v1, "bangumi"
 
-    .line 29
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_18
 
     const-string v1, "movie"
 
     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v1
 
-    if-eqz p0, :cond_1
+    if-eqz v1, :cond_23
 
-    goto :goto_1
+    .line 17
+    :cond_18
+    new-instance v0, Lbl/qh;
 
-    :cond_1
-    const-string p0, "sohu"
+    invoke-direct {v0}, Lbl/qh;-><init>()V
 
-    .line 31
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 28
+    :goto_1d
+    return-object v0
 
-    move-result p0
+    .line 15
+    :cond_1e
+    invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    if-eqz p0, :cond_2
+    move-result-object v0
 
-    .line 32
-    new-instance p0, Lbl/qo;
+    goto :goto_8
 
-    invoke-direct {p0}, Lbl/qo;-><init>()V
+    .line 19
+    :cond_23
+    const-string v1, "sohu"
 
-    return-object p0
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    :cond_2
-    const-string p0, "live"
+    move-result v1
 
-    .line 33
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v1, :cond_31
 
-    move-result p0
+    .line 20
+    new-instance v0, Lbl/qo;
 
-    if-eqz p0, :cond_3
+    invoke-direct {v0}, Lbl/qo;-><init>()V
 
-    .line 34
-    new-instance p0, Lbl/qj;
+    goto :goto_1d
 
-    invoke-direct {p0}, Lbl/qj;-><init>()V
+    .line 22
+    :cond_31
+    const-string v1, "live"
 
-    return-object p0
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 36
-    :cond_3
-    new-instance p0, Lbl/ql;
+    move-result v1
 
-    invoke-direct {p0}, Lbl/ql;-><init>()V
+    if-eqz v1, :cond_3f
 
-    return-object p0
+    .line 23
+    new-instance v0, Lbl/qj;
 
-    .line 30
-    :cond_4
-    :goto_1
-    new-instance p0, Lbl/qh;
+    invoke-direct {v0}, Lbl/qj;-><init>()V
 
-    invoke-direct {p0}, Lbl/qh;-><init>()V
+    goto :goto_1d
 
-    return-object p0
+    .line 25
+    :cond_3f
+    const-string v1, "cheese"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4d
+
+    .line 26
+    new-instance v0, Lbl/ql2;
+
+    invoke-direct {v0}, Lbl/ql2;-><init>()V
+
+    goto :goto_1d
+
+    .line 28
+    :cond_4d
+    new-instance v0, Lbl/ql;
+
+    invoke-direct {v0}, Lbl/ql;-><init>()V
+
+    goto :goto_1d
 .end method
 
 .method public static b()I
     .locals 1
 
-    .line 73
+    .prologue
+    .line 62
     sget v0, Lbl/pw;->b:I
 
     return v0

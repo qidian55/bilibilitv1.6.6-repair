@@ -43,22 +43,22 @@
     .locals 1
 
     .prologue
-    .line 373
+    .line 376
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    .line 374
+    .line 377
     const-string v0, "videoHistoryActivity"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 375
+    .line 378
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$a;->a:Ljava/lang/ref/WeakReference;
 
-    .line 376
+    .line 379
     return-void
 .end method
 
@@ -70,12 +70,12 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 382
+    .line 385
     const-string v0, "params"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 383
+    .line 386
     iget-object v0, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$a;->a:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -84,18 +84,18 @@
 
     check-cast v0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
-    .line 384
+    .line 387
     if-eqz v0, :cond_38
 
-    .line 385
+    .line 388
     const-string v1, "mVideoHistoryActivityWea\u2026ence.get() ?: return null"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 386
+    .line 389
     invoke-static {v0}, Lbl/zp;->a(Landroid/content/Context;)V
 
-    .line 387
+    .line 390
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
@@ -104,12 +104,12 @@
 
     move-result-object v1
 
-    .line 388
+    .line 391
     const-string v0, "BiliAccount.get(MainApplication.getInstance())"
 
     invoke-static {v1, v0}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 389
+    .line 392
     const-class v0, Lcom/bilibili/tv/api/history/BiliPlayerHistoryService;
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
@@ -128,7 +128,7 @@
 
     invoke-virtual {v0}, Lbl/vp;->a()V
 
-    .line 392
+    .line 395
     :cond_38
     return-object v2
 .end method
@@ -137,7 +137,7 @@
     .locals 1
 
     .prologue
-    .line 370
+    .line 373
     check-cast p1, [Ljava/lang/Void;
 
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$a;->doInBackground([Ljava/lang/Void;)Ljava/lang/Exception;
@@ -151,7 +151,7 @@
     .locals 2
 
     .prologue
-    .line 399
+    .line 402
     iget-object v0, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$a;->a:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -160,33 +160,33 @@
 
     check-cast v0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
-    .line 400
+    .line 403
     if-eqz v0, :cond_1c
 
-    .line 401
+    .line 404
     const-string v1, "mVideoHistoryActivityWeakReference.get() ?: return"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 402
+    .line 405
     # getter for: Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->a:Lcom/bilibili/tv/ui/history/VideoHistoryActivity$g;
     invoke-static {v0}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->access$400(Lcom/bilibili/tv/ui/history/VideoHistoryActivity;)Lcom/bilibili/tv/ui/history/VideoHistoryActivity$g;
 
     move-result-object v1
 
-    .line 403
+    .line 406
     if-eqz v1, :cond_18
 
-    .line 404
+    .line 407
     invoke-virtual {v1}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$g;->f()V
 
-    .line 406
+    .line 409
     :cond_18
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->b(I)V
 
-    .line 408
+    .line 411
     :cond_1c
     return-void
 .end method
@@ -195,7 +195,7 @@
     .locals 0
 
     .prologue
-    .line 370
+    .line 373
     check-cast p1, Ljava/lang/Exception;
 
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$a;->onPostExecute(Ljava/lang/Exception;)V
