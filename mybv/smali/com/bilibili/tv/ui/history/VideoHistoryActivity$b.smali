@@ -19,10 +19,10 @@
     .locals 0
 
     .prologue
-    .line 663
+    .line 667
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 664
+    .line 668
     return-void
 .end method
 
@@ -30,10 +30,10 @@
     .locals 0
 
     .prologue
-    .line 667
+    .line 671
     invoke-direct {p0}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$b;-><init>()V
 
-    .line 668
+    .line 672
     return-void
 .end method
 
@@ -43,7 +43,7 @@
     .locals 1
 
     .prologue
-    .line 671
+    .line 675
     const-string v0, "fromType"
 
     return-object v0
@@ -53,29 +53,29 @@
     .locals 2
 
     .prologue
-    .line 679
+    .line 683
     const-string v0, "context"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 680
+    .line 684
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;
 
     invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 681
+    .line 685
     invoke-virtual {p0}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$b;->a()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 682
+    .line 686
     invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 683
+    .line 687
     return-void
 .end method
 
@@ -83,7 +83,7 @@
     .locals 1
 
     .prologue
-    .line 675
+    .line 679
     const/4 v0, 0x2
 
     return v0

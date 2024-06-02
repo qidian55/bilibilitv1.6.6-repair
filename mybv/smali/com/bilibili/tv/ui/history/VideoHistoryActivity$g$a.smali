@@ -19,10 +19,10 @@
     .locals 0
 
     .prologue
-    .line 597
+    .line 601
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 598
+    .line 602
     return-void
 .end method
 
@@ -30,9 +30,9 @@
     .locals 0
 
     .prologue
-    .line 601
+    .line 605
     invoke-direct {p0}, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$g$a;-><init>()V
 
-    .line 602
+    .line 606
     return-void
 .end method

@@ -394,7 +394,7 @@
     move-result-object v7
 
     .line 560
-    if-eqz v7, :cond_65
+    if-eqz v7, :cond_5e
 
     .line 561
     const v0, 0x7f0800d8
@@ -411,11 +411,11 @@
     .line 563
     instance-of v8, v1, Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
-    if-eqz v8, :cond_65
+    if-eqz v8, :cond_5e
 
     instance-of v8, v0, Ljava/lang/Integer;
 
-    if-eqz v8, :cond_65
+    if-eqz v8, :cond_5e
 
     .line 564
     const-string v8, "tv_history_click"
@@ -460,74 +460,9 @@
     .line 566
     iget-object v1, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBusinessType:Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+    if-nez v1, :cond_5f
 
-    move-result v8
-
-    sparse-switch v8, :sswitch_data_a4
-
-    :cond_58
-    move v1, v3
-
-    :goto_59
-    packed-switch v1, :pswitch_data_b2
-
-    .line 579
-    const-string v0, "\u6682\u4e0d\u652f\u6301\u64ad\u653e\u8be5\u89c6\u9891\u7c7b\u578b"
-
-    invoke-static {v6, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-
-    .line 583
-    :cond_65
-    :goto_65
-    return-void
-
-    .line 566
-    :sswitch_66
-    const-string v4, "archive"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_58
-
-    move v1, v2
-
-    goto :goto_59
-
-    :sswitch_70
-    const-string v5, "pgc"
-
-    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_58
-
-    move v1, v4
-
-    goto :goto_59
-
-    :sswitch_7a
-    const-string v4, "cheese"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_58
-
-    move v1, v5
-
-    goto :goto_59
-
-    .line 569
-    :pswitch_84
+    .line 567
     sget-object v1, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->Companion:Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;
 
     iget v0, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
@@ -538,10 +473,94 @@
 
     invoke-virtual {v7, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    goto :goto_65
+    .line 587
+    :cond_5e
+    :goto_5e
+    return-void
+
+    .line 570
+    :cond_5f
+    iget-object v1, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBusinessType:Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v8
+
+    sparse-switch v8, :sswitch_data_b4
+
+    :cond_68
+    move v1, v3
+
+    :goto_69
+    packed-switch v1, :pswitch_data_c2
+
+    .line 583
+    const-string v0, "\u6682\u4e0d\u652f\u6301\u64ad\u653e\u8be5\u89c6\u9891\u7c7b\u578b"
+
+    invoke-static {v6, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    goto :goto_5e
+
+    .line 570
+    :sswitch_76
+    const-string v4, "archive"
+
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_68
+
+    move v1, v2
+
+    goto :goto_69
+
+    :sswitch_80
+    const-string v5, "pgc"
+
+    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_68
+
+    move v1, v4
+
+    goto :goto_69
+
+    :sswitch_8a
+    const-string v4, "cheese"
+
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_68
+
+    move v1, v5
+
+    goto :goto_69
 
     .line 573
-    :pswitch_90
+    :pswitch_94
+    sget-object v1, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->Companion:Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;
+
+    iget v0, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+
+    invoke-virtual {v1, v7, v0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;->a(Landroid/content/Context;I)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {v7, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+
+    goto :goto_5e
+
+    .line 577
+    :pswitch_a0
     sget-object v1, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->Companion:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$a;
 
     iget-object v0, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBangumiInfo:Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;
@@ -554,29 +573,29 @@
 
     invoke-virtual {v7, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    goto :goto_65
+    goto :goto_5e
 
-    .line 576
-    :pswitch_9e
+    .line 580
+    :pswitch_ae
     iget-object v1, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mPage:Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;
 
     invoke-static {v6, v0, v1, v3}, Lbl/xg;->playCheese(Landroid/content/Context;Lcom/bilibili/tv/api/video/BiliVideoDetail;Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;I)V
 
-    goto :goto_65
+    goto :goto_5e
 
-    .line 566
-    :sswitch_data_a4
+    .line 570
+    :sswitch_data_b4
     .sparse-switch
-        -0x51273b29 -> :sswitch_7a
-        -0x2c971f3e -> :sswitch_66
-        0x1b14c -> :sswitch_70
+        -0x51273b29 -> :sswitch_8a
+        -0x2c971f3e -> :sswitch_76
+        0x1b14c -> :sswitch_80
     .end sparse-switch
 
-    :pswitch_data_b2
+    :pswitch_data_c2
     .packed-switch 0x0
-        :pswitch_84
-        :pswitch_90
-        :pswitch_9e
+        :pswitch_94
+        :pswitch_a0
+        :pswitch_ae
     .end packed-switch
 .end method
 
@@ -584,26 +603,26 @@
     .locals 4
 
     .prologue
-    .line 587
+    .line 591
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
-    .line 588
+    .line 592
     if-eqz p2, :cond_17
 
     if-eqz v0, :cond_17
 
-    .line 589
+    .line 593
     iget v1, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
 
     int-to-long v2, v1
 
     sput-wide v2, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->current_avid:J
 
-    .line 590
+    .line 594
     iget-object v1, p0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity$g;->a:Ljava/util/List;
 
     invoke-interface {v1, v0}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
@@ -612,7 +631,7 @@
 
     sput v0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->current_pos:I
 
-    .line 592
+    .line 596
     :cond_17
     return-void
 .end method

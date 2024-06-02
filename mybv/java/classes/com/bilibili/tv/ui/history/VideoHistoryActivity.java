@@ -563,6 +563,10 @@ public final class VideoHistoryActivity extends BaseUpViewActivity implements Vi
                 if ((tag2 instanceof BiliVideoDetail) && (tag instanceof Integer)) {
                     ok.a("tv_history_click", "row", String.valueOf(((int) Math.floor(((Number) tag).intValue() / VideoHistoryActivity.h)) + 1));
                     BiliVideoDetail detail = (BiliVideoDetail) tag2;
+                    if(detail.mBusinessType==null){
+                        a2.startActivity(VideoDetailActivity.Companion.a(a2, detail.mAvid));
+                        return;
+                    }
                     switch(detail.mBusinessType){
                         case "archive":
                             //xg.a(context, detail, detail.mPage, null);
