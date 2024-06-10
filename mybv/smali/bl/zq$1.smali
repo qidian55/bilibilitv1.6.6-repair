@@ -1,11 +1,11 @@
 .class final Lbl/zq$1;
 .super Lbl/vm;
-.source "BL"
+.source "zq.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/zq;->a(Landroid/content/Context;IIJJIJJ)V
+    value = Lbl/zq;->a(Landroid/content/Context;JIJJIJJ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,8 +15,10 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lbl/vm<",
-        "Lcom/bilibili/okretro/GeneralResponse<",
+        "Lbl/vm",
+        "<",
+        "Lcom/bilibili/okretro/GeneralResponse",
+        "<",
         "Ljava/lang/Void;",
         ">;>;"
     }
@@ -27,7 +29,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 129
+    .prologue
+    .line 17
     invoke-direct {p0}, Lbl/vm;-><init>()V
 
     return-void
@@ -35,33 +38,39 @@
 
 
 # virtual methods
-.method public a(Lcom/bilibili/okretro/GeneralResponse;)V
+.method public onError(Ljava/lang/Throwable;)V
+    .locals 0
+
+    .prologue
+    .line 25
+    return-void
+.end method
+
+.method public onSuccess(Lcom/bilibili/okretro/GeneralResponse;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Ljava/lang/Void;",
             ">;)V"
         }
     .end annotation
 
+    .prologue
+    .line 21
     return-void
 .end method
 
-.method public onError(Ljava/lang/Throwable;)V
+.method public bridge synthetic onSuccess(Ljava/lang/Object;)V
     .locals 0
 
-    return-void
-.end method
-
-.method public synthetic onSuccess(Ljava/lang/Object;)V
-    .locals 0
-
-    .line 129
+    .prologue
+    .line 17
     check-cast p1, Lcom/bilibili/okretro/GeneralResponse;
 
-    invoke-virtual {p0, p1}, Lbl/zq$1;->a(Lcom/bilibili/okretro/GeneralResponse;)V
+    invoke-virtual {p0, p1}, Lbl/zq$1;->onSuccess(Lcom/bilibili/okretro/GeneralResponse;)V
 
     return-void
 .end method

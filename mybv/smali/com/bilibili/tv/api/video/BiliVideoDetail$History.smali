@@ -31,7 +31,7 @@
 
 
 # instance fields
-.field public mCid:I
+.field public mCid:J
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "cid"
     .end annotation
@@ -71,18 +71,18 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .locals 2
 
     .prologue
     .line 913
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 914
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result v0
+    move-result-wide v0
 
-    iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$History;->mCid:I
+    iput-wide v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$History;->mCid:J
 
     .line 915
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -108,13 +108,13 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .locals 2
 
     .prologue
     .line 906
-    iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$History;->mCid:I
+    iget-wide v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$History;->mCid:J
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 907
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$History;->mProgress:I

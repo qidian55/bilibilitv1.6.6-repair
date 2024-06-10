@@ -1,6 +1,6 @@
 .class public Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
 .super Ljava/lang/Object;
-.source "BL"
+.source "DanmakuDurationManager.java"
 
 
 # annotations
@@ -18,7 +18,8 @@
 .field datas:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;",
             ">;"
         }
@@ -38,31 +39,33 @@
 .method constructor <init>()V
     .locals 1
 
-    .line 178
+    .prologue
+    .line 167
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 162
     const/4 v0, -0x1
 
-    .line 174
     iput v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->rectFlag:I
 
+    .line 163
     const/4 v0, 0x0
 
-    .line 175
     iput-boolean v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->rectSwitch:Z
 
-    .line 179
+    .line 164
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
 
+    .line 165
     const/4 v0, 0x1
 
-    .line 180
     iput-boolean v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->firstParse:Z
 
+    .line 168
     return-void
 .end method
 
@@ -71,44 +74,47 @@
 .method clear()V
     .locals 1
 
-    .line 184
+    .prologue
+    .line 171
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    .line 185
+    .line 172
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
-    :cond_0
+    .line 174
+    :cond_9
     return-void
 .end method
 
 .method public isFirstDuration()Z
     .locals 2
 
-    .line 190
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
+    .prologue
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    .line 177
+    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_d
 
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
+    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result v1
 
-    if-gt v0, v1, :cond_0
+    if-gt v1, v0, :cond_e
 
-    goto :goto_0
+    :cond_d
+    :goto_d
+    return v0
 
-    :cond_0
-    const/4 v1, 0x0
+    :cond_e
+    const/4 v0, 0x0
 
-    :cond_1
-    :goto_0
-    return v1
+    goto :goto_d
 .end method

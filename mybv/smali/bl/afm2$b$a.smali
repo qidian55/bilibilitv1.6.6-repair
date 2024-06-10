@@ -26,12 +26,12 @@
     .locals 0
 
     .prologue
-    .line 210
+    .line 223
     iput-object p1, p0, Lbl/afm2$b$a;->this$1:Lbl/afm2$b;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 211
+    .line 224
     return-void
 .end method
 
@@ -41,13 +41,13 @@
     .locals 1
 
     .prologue
-    .line 215
+    .line 228
     iget-object v0, p0, Lbl/afm2$b$a;->this$1:Lbl/afm2$b;
 
     iget-object v0, v0, Lbl/afm2$b;->this$0:Lbl/afm2;
 
     invoke-virtual {v0}, Lbl/afm2;->renderInfo()V
 
-    .line 216
+    .line 229
     return-void
 .end method

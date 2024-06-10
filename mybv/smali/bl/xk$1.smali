@@ -1,6 +1,6 @@
 .class Lbl/xk$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "xk.java"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -18,15 +18,16 @@
 
 
 # instance fields
-.field final synthetic a:Lbl/xk;
+.field final synthetic this$0:Lbl/xk;
 
 
 # direct methods
 .method constructor <init>(Lbl/xk;)V
     .locals 0
 
-    .line 54
-    iput-object p1, p0, Lbl/xk$1;->a:Lbl/xk;
+    .prologue
+    .line 29
+    iput-object p1, p0, Lbl/xk$1;->this$0:Lbl/xk;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,60 +37,65 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 4
 
-    .line 58
-    iget-object v0, p0, Lbl/xk$1;->a:Lbl/xk;
+    .prologue
+    .line 32
+    iget-object v0, p0, Lbl/xk$1;->this$0:Lbl/xk;
 
     iget-object v0, v0, Lbl/xk;->c:Ltv/danmaku/videoplayer/core/context/IPlayerContext;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
-    iget-object v0, p0, Lbl/xk$1;->a:Lbl/xk;
-
-    invoke-virtual {v0}, Lbl/xk;->S()Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerInfo;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lbl/xk$1;->a:Lbl/xk;
+    iget-object v0, p0, Lbl/xk$1;->this$0:Lbl/xk;
 
     invoke-virtual {v0}, Lbl/xk;->S()Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerInfo;
 
     move-result-object v0
 
-    iget v0, v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerInfo;->mCid:I
+    if-eqz v0, :cond_28
 
-    iget-object v1, p0, Lbl/xk$1;->a:Lbl/xk;
+    iget-object v0, p0, Lbl/xk$1;->this$0:Lbl/xk;
 
-    invoke-virtual {v1}, Lbl/xk;->b()Lcom/bilibili/tv/player/basic/context/PlayerParams;
+    invoke-virtual {v0}, Lbl/xk;->S()Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerInfo;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget-object v1, v1, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
+    iget-wide v0, v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerInfo;->mCid:J
 
-    invoke-virtual {v1}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+    iget-object v2, p0, Lbl/xk$1;->this$0:Lbl/xk;
 
-    move-result-object v1
+    invoke-virtual {v2}, Lbl/xk;->b()Lcom/bilibili/tv/player/basic/context/PlayerParams;
 
-    iget v1, v1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    move-result-object v2
 
-    if-eq v0, v1, :cond_0
+    iget-object v2, v2, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    .line 59
-    iget-object v0, p0, Lbl/xk$1;->a:Lbl/xk;
+    invoke-virtual {v2}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+
+    move-result-object v2
+
+    iget-wide v2, v2, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
+
+    cmp-long v0, v0, v2
+
+    if-nez v0, :cond_2e
+
+    .line 33
+    :cond_28
+    iget-object v0, p0, Lbl/xk$1;->this$0:Lbl/xk;
+
+    invoke-virtual {v0}, Lbl/xk;->V()V
+
+    .line 37
+    :goto_2d
+    return-void
+
+    .line 35
+    :cond_2e
+    iget-object v0, p0, Lbl/xk$1;->this$0:Lbl/xk;
 
     invoke-virtual {v0}, Lbl/xk;->R()V
 
-    goto :goto_0
-
-    .line 61
-    :cond_0
-    iget-object v0, p0, Lbl/xk$1;->a:Lbl/xk;
-
-    invoke-static {v0}, Lbl/xk;->a(Lbl/xk;)V
-
-    :goto_0
-    return-void
+    goto :goto_2d
 .end method

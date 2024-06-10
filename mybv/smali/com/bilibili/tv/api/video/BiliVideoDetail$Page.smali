@@ -42,7 +42,7 @@
     .end annotation
 .end field
 
-.field public mCid:I
+.field public mCid:J
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "cid"
     .end annotation
@@ -136,7 +136,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 3
+    .locals 6
 
     .prologue
     const/4 v1, 0x1
@@ -147,11 +147,11 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 587
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result v0
+    move-result-wide v4
 
-    iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mCid:I
+    iput-wide v4, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mCid:J
 
     .line 588
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -321,7 +321,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 3
+    .locals 6
 
     .prologue
     const/4 v1, 0x1
@@ -329,9 +329,9 @@
     const/4 v2, 0x0
 
     .line 573
-    iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mCid:I
+    iget-wide v4, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mCid:J
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 574
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mPage:I

@@ -1,6 +1,6 @@
 .class public interface abstract Ltv/danmaku/videoplayer/core/danmaku/IDanmakuPlayer;
 .super Ljava/lang/Object;
-.source "BL"
+.source "IDanmakuPlayer.java"
 
 
 # annotations
@@ -22,7 +22,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;",
             ">;)V"
         }
@@ -33,7 +34,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;",
             ">;"
         }
@@ -44,7 +46,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;",
             ">;"
         }
@@ -129,7 +132,7 @@
 .method public abstract start()V
 .end method
 
-.method public abstract start(Ltv/danmaku/videoplayer/core/danmaku/IDanmakuParams;Ltv/danmaku/videoplayer/core/danmaku/IDanmakuDocument;Ltv/danmaku/videoplayer/core/danmaku/DanmakuAnimationTicker;I)V
+.method public abstract start(Ltv/danmaku/videoplayer/core/danmaku/IDanmakuParams;Ltv/danmaku/videoplayer/core/danmaku/IDanmakuDocument;Ltv/danmaku/videoplayer/core/danmaku/DanmakuAnimationTicker;J)V
 .end method
 
 .method public abstract stop()V

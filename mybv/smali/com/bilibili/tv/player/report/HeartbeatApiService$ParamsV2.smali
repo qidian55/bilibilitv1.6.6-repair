@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;
 .super Lcom/bilibili/api/base/util/ParamsMap;
-.source "BL"
+.source "HeartbeatApiService.java"
 
 
 # annotations
@@ -15,330 +15,453 @@
 
 
 # direct methods
-.method public constructor <init>(JLjava/lang/String;JIILjava/lang/String;JLjava/lang/String;IIJJJJLjava/lang/String;IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 6
+.method public constructor <init>(JLjava/lang/String;JIJLjava/lang/String;JLjava/lang/String;IIJJJJLjava/lang/String;IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 3
 
-    move-object v0, p0
+    .prologue
+    .line 22
+    invoke-direct {p0}, Lcom/bilibili/api/base/util/ParamsMap;-><init>()V
 
-    .line 37
-    invoke-direct {v0}, Lcom/bilibili/api/base/util/ParamsMap;-><init>()V
+    .line 23
+    const/4 v0, 0x2
 
-    const/4 v1, 0x2
+    new-array v0, v0, [Ljava/lang/String;
 
-    .line 38
-    new-array v2, v1, [Ljava/lang/String;
+    const/4 v1, 0x0
 
-    const-string v3, "start_ts"
+    const-string v2, "start_ts"
 
-    const/4 v4, 0x0
+    aput-object v2, v0, v1
 
-    aput-object v3, v2, v4
+    const/4 v1, 0x1
 
     invoke-static {p1, p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    const/4 v5, 0x1
+    aput-object v2, v0, v1
 
-    aput-object v3, v2, v5
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    .line 24
+    const/4 v0, 0x2
 
-    .line 39
-    new-array v2, v1, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    const-string v3, "session"
+    const/4 v1, 0x0
 
-    aput-object v3, v2, v4
+    const-string v2, "session"
 
-    aput-object p3, v2, v5
+    aput-object v2, v0, v1
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    const/4 v1, 0x1
 
-    .line 41
-    new-array v2, v1, [Ljava/lang/String;
+    aput-object p3, v0, v1
 
-    const-string v3, "mid"
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    aput-object v3, v2, v4
+    .line 25
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    const-string v2, "mid"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
 
     invoke-static {p4, p5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    aput-object v3, v2, v5
+    aput-object v2, v0, v1
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    .line 42
-    new-array v2, v1, [Ljava/lang/String;
+    .line 26
+    const/4 v0, 0x2
 
-    const-string v3, "aid"
+    new-array v0, v0, [Ljava/lang/String;
 
-    aput-object v3, v2, v4
+    const/4 v1, 0x0
+
+    const-string v2, "aid"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
 
     invoke-static {p6}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    aput-object v3, v2, v5
+    aput-object v2, v0, v1
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    .line 43
-    new-array v2, v1, [Ljava/lang/String;
+    .line 27
+    const/4 v0, 0x2
 
-    const-string v3, "cid"
+    new-array v0, v0, [Ljava/lang/String;
 
-    aput-object v3, v2, v4
+    const/4 v1, 0x0
 
-    invoke-static {p7}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    const-string v2, "cid"
 
-    move-result-object v3
+    aput-object v2, v0, v1
 
-    aput-object v3, v2, v5
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    invoke-static {p7, p8}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    .line 44
-    new-array v2, v1, [Ljava/lang/String;
+    move-result-object v2
 
-    const-string v3, "sid"
+    aput-object v2, v0, v1
 
-    aput-object v3, v2, v4
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    aput-object p8, v2, v5
+    .line 28
+    const/4 v0, 0x2
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    new-array v0, v0, [Ljava/lang/String;
 
-    .line 45
-    new-array v2, v1, [Ljava/lang/String;
+    const/4 v1, 0x0
 
-    const-string v3, "epid"
+    const-string v2, "sid"
 
-    aput-object v3, v2, v4
+    aput-object v2, v0, v1
 
-    invoke-static/range {p9 .. p10}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    const/4 v1, 0x1
 
-    move-result-object v3
+    aput-object p9, v0, v1
 
-    aput-object v3, v2, v5
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    .line 29
+    const/4 v0, 0x2
 
-    .line 47
-    new-array v2, v1, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    const-string v3, "type"
+    const/4 v1, 0x0
 
-    aput-object v3, v2, v4
+    const-string v2, "epid"
 
-    invoke-static/range {p11 .. p11}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    aput-object v2, v0, v1
 
-    move-result-object v3
+    const/4 v1, 0x1
 
-    aput-object v3, v2, v5
+    invoke-static {p10, p11}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    move-result-object v2
 
-    .line 48
-    new-array v2, v1, [Ljava/lang/String;
+    aput-object v2, v0, v1
 
-    const-string v3, "sub_type"
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    aput-object v3, v2, v4
+    .line 30
+    const/4 v0, 0x2
 
-    invoke-static/range {p12 .. p12}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    move-result-object v3
+    const/4 v1, 0x0
 
-    aput-object v3, v2, v5
+    const-string v2, "type"
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    aput-object v2, v0, v1
 
-    .line 50
-    new-array v2, v1, [Ljava/lang/String;
+    const/4 v1, 0x1
 
-    const-string v3, "quality"
+    invoke-static {p12}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    aput-object v3, v2, v4
+    move-result-object v2
+
+    aput-object v2, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+
+    .line 31
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    const-string v2, "sub_type"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
 
     invoke-static/range {p13 .. p13}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    aput-object v3, v2, v5
+    aput-object v2, v0, v1
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    .line 52
-    new-array v2, v1, [Ljava/lang/String;
+    .line 32
+    const/4 v0, 0x2
 
-    const-string v3, "total_time"
+    new-array v0, v0, [Ljava/lang/String;
 
-    aput-object v3, v2, v4
+    const/4 v1, 0x0
 
-    invoke-static/range {p14 .. p15}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    const-string v2, "quality"
 
-    move-result-object v3
+    aput-object v2, v0, v1
 
-    aput-object v3, v2, v5
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    invoke-static/range {p14 .. p14}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    .line 53
-    new-array v2, v1, [Ljava/lang/String;
+    move-result-object v2
 
-    const-string v3, "paused_time"
+    aput-object v2, v0, v1
 
-    aput-object v3, v2, v4
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    invoke-static/range {p16 .. p17}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    .line 33
+    const/4 v0, 0x2
 
-    move-result-object v3
+    new-array v0, v0, [Ljava/lang/String;
 
-    aput-object v3, v2, v5
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    const-string v2, "total_time"
 
-    .line 54
-    new-array v2, v1, [Ljava/lang/String;
+    aput-object v2, v0, v1
 
-    const-string v3, "played_time"
+    const/4 v1, 0x1
 
-    aput-object v3, v2, v4
+    invoke-static/range {p15 .. p16}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    invoke-static/range {p18 .. p19}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
+    aput-object v2, v0, v1
 
-    aput-object v3, v2, v5
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    .line 34
+    const/4 v0, 0x2
 
-    .line 56
-    new-array v2, v1, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    const-string v3, "video_duration"
+    const/4 v1, 0x0
 
-    aput-object v3, v2, v4
+    const-string v2, "paused_time"
 
-    invoke-static/range {p20 .. p21}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    aput-object v2, v0, v1
 
-    move-result-object v3
+    const/4 v1, 0x1
 
-    aput-object v3, v2, v5
+    invoke-static/range {p17 .. p18}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    move-result-object v2
 
-    .line 58
-    new-array v2, v1, [Ljava/lang/String;
+    aput-object v2, v0, v1
 
-    const-string v3, "play_type"
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    aput-object v3, v2, v4
+    .line 35
+    const/4 v0, 0x2
 
-    invoke-static/range {p22 .. p22}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    move-result-object v3
+    const/4 v1, 0x0
 
-    aput-object v3, v2, v5
+    const-string v2, "played_time"
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    aput-object v2, v0, v1
 
-    .line 59
-    new-array v2, v1, [Ljava/lang/String;
+    const/4 v1, 0x1
 
-    const-string v3, "network_type"
+    invoke-static/range {p19 .. p20}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    aput-object v3, v2, v4
+    move-result-object v2
 
-    invoke-static/range {p23 .. p23}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    aput-object v2, v0, v1
 
-    move-result-object v3
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    aput-object v3, v2, v5
+    .line 36
+    const/4 v0, 0x2
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    new-array v0, v0, [Ljava/lang/String;
 
-    .line 61
-    new-array v2, v1, [Ljava/lang/String;
+    const/4 v1, 0x0
 
-    const-string v3, "last_play_progress_time"
+    const-string v2, "video_duration"
 
-    aput-object v3, v2, v4
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
+
+    invoke-static/range {p21 .. p22}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v2
+
+    aput-object v2, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+
+    .line 37
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    const-string v2, "play_type"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
+
+    invoke-static/range {p23 .. p23}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    aput-object v2, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+
+    .line 38
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    const-string v2, "network_type"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
 
     invoke-static/range {p24 .. p24}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    aput-object v3, v2, v5
+    aput-object v2, v0, v1
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    .line 62
-    new-array v2, v1, [Ljava/lang/String;
+    .line 39
+    const/4 v0, 0x2
 
-    const-string v3, "max_play_progress_time"
+    new-array v0, v0, [Ljava/lang/String;
 
-    aput-object v3, v2, v4
+    const/4 v1, 0x0
+
+    const-string v2, "last_play_progress_time"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
 
     invoke-static/range {p25 .. p25}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    aput-object v3, v2, v5
+    aput-object v2, v0, v1
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    .line 64
-    new-array v2, v1, [Ljava/lang/String;
+    .line 40
+    const/4 v0, 0x2
 
-    const-string v3, "play_mode"
+    new-array v0, v0, [Ljava/lang/String;
 
-    aput-object v3, v2, v4
+    const/4 v1, 0x0
 
-    aput-object p26, v2, v5
+    const-string v2, "max_play_progress_time"
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    aput-object v2, v0, v1
 
-    .line 65
-    invoke-static/range {p27 .. p27}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    const/4 v1, 0x1
 
-    move-result v2
+    invoke-static/range {p26 .. p26}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    if-nez v2, :cond_0
+    move-result-object v2
 
-    .line 66
-    new-array v2, v1, [Ljava/lang/String;
+    aput-object v2, v0, v1
 
-    const-string v3, "auto_play"
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
-    aput-object v3, v2, v4
+    .line 41
+    const/4 v0, 0x2
 
-    aput-object p27, v2, v5
+    new-array v0, v0, [Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    const/4 v1, 0x0
 
-    .line 68
-    :cond_0
+    const-string v2, "play_mode"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
+
+    aput-object p27, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+
+    .line 42
     invoke-static/range {p28 .. p28}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_1
+    if-nez v0, :cond_161
 
-    .line 69
-    new-array v1, v1, [Ljava/lang/String;
+    .line 43
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    const-string v2, "auto_play"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
+
+    aput-object p28, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+
+    .line 45
+    :cond_161
+    invoke-static/range {p29 .. p29}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_168
+
+    .line 49
+    :goto_167
+    return-void
+
+    .line 48
+    :cond_168
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const/4 v1, 0x0
 
     const-string v2, "from"
 
-    aput-object v2, v1, v4
+    aput-object v2, v0, v1
 
-    aput-object p28, v1, v5
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+    aput-object p29, v0, v1
 
-    :cond_1
-    return-void
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
+
+    goto :goto_167
 .end method

@@ -201,7 +201,7 @@
 .end method
 
 .method private a(Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;)V
-    .locals 12
+    .locals 14
 
     .prologue
     const-wide/16 v10, 0x0
@@ -216,10 +216,10 @@
 
     .line 100
     :cond_5
-    iget v1, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    iget-wide v2, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
     .line 101
-    iget v2, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
+    iget v4, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
 
     .line 102
     iget v0, p0, Lbl/xj;->i:I
@@ -230,78 +230,74 @@
     .line 106
     invoke-virtual {p0}, Lbl/xj;->x()I
 
-    move-result v3
+    move-result v1
 
     .line 107
-    sub-int/2addr v0, v3
+    sub-int/2addr v0, v1
 
-    const/16 v4, 0x1388
+    const/16 v5, 0x1388
 
-    if-le v0, v4, :cond_1c
+    if-le v0, v5, :cond_1c
 
     invoke-virtual {p0}, Lbl/xj;->L()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3b
+    if-eqz v0, :cond_3a
 
     :cond_1c
     const/4 v0, -0x1
 
-    move v8, v0
-
     .line 108
-    :goto_1e
+    :goto_1d
     invoke-direct {p0, p1}, Lbl/xj;->b(Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;)I
 
-    move-result v7
+    move-result v9
 
     .line 110
     invoke-virtual {p1}, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->isBangumi()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_3f
+    if-eqz v1, :cond_3d
 
     .line 111
-    iget-object v0, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mSeasonId:Ljava/lang/String;
+    iget-object v1, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mSeasonId:Ljava/lang/String;
 
-    invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    move-result-wide v3
+    move-result-wide v5
 
     .line 112
-    iget-wide v5, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mEpisodeId:J
+    iget-wide v7, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mEpisodeId:J
 
     .line 116
-    :goto_30
+    :goto_2f
     invoke-virtual {p0}, Lbl/xj;->p()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v1
 
-    int-to-long v8, v8
+    int-to-long v10, v0
 
-    const-wide/16 v10, 0x1
+    const-wide/16 v12, 0x1
 
-    invoke-static/range {v0 .. v11}, Lbl/zq;->a(Landroid/content/Context;IIJJIJJ)V
+    invoke-static/range {v1 .. v13}, Lbl/zq;->a(Landroid/content/Context;JIJJIJJ)V
 
     goto :goto_4
 
     .line 107
-    :cond_3b
-    div-int/lit16 v0, v3, 0x3e8
+    :cond_3a
+    div-int/lit16 v0, v1, 0x3e8
 
-    move v8, v0
+    goto :goto_1d
 
-    goto :goto_1e
-
-    :cond_3f
-    move-wide v3, v10
-
+    :cond_3d
     move-wide v5, v10
 
+    move-wide v7, v10
+
     .line 114
-    goto :goto_30
+    goto :goto_2f
 .end method
 
 .method static synthetic access$000(Lbl/xj;)Landroid/view/animation/Animation;
@@ -439,7 +435,7 @@
 
     iget-wide v2, v1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mEpisodeId:J
 
-    invoke-static {v2, v3}, Lbl/zu;->a(J)Ljava/lang/String;
+    invoke-static {v2, v3}, Lbl/zu;->getEp(J)Ljava/lang/String;
 
     move-result-object v1
 
@@ -473,9 +469,9 @@
     :cond_3b
     new-instance v0, Lbl/zt;
 
-    iget v1, v1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    iget-wide v2, v1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
-    invoke-static {v1}, Lbl/zu;->a(I)Ljava/lang/String;
+    invoke-static {v2, v3}, Lbl/zu;->getCid(J)Ljava/lang/String;
 
     move-result-object v1
 
@@ -783,9 +779,9 @@
 
     move-result-object v1
 
-    iget v1, v1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    iget-wide v2, v1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
-    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v2, v3}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v1
 

@@ -287,7 +287,7 @@ public class yd implements Handler.Callback, IMediaPlayer.OnCompletionListener, 
             Message obtain = Message.obtain();
             obtain.what = 10400;
             if (i2 < resolveParamsArray.length) {
-                obtain.obj = new Object[]{Integer.valueOf(i2), Integer.valueOf(i), Integer.valueOf(obtainResolveParams.mPage), Integer.valueOf(resolveResourceParams.mPage), Integer.valueOf(obtainResolveParams.mCid), Integer.valueOf(resolveResourceParams.mCid)};
+                obtain.obj = new Object[]{Integer.valueOf(i2), Integer.valueOf(i), Integer.valueOf(obtainResolveParams.mPage), Integer.valueOf(resolveResourceParams.mPage), Long.valueOf(obtainResolveParams.mCid), Long.valueOf(resolveResourceParams.mCid)};
                 this.l.sendMessage(obtain);
             }
         }

@@ -2365,9 +2365,9 @@
 
     const/4 v0, 0x4
 
-    iget v3, v3, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    iget-wide v6, v3, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v3
 
@@ -2375,9 +2375,9 @@
 
     const/4 v0, 0x5
 
-    iget v3, v4, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    iget-wide v4, v4, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v3
 

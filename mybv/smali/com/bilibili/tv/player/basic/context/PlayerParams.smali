@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/player/basic/context/PlayerParams;
 .super Ljava/lang/Object;
-.source "BL"
+.source "PlayerParams.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;
@@ -15,7 +15,8 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Lcom/bilibili/tv/player/basic/context/PlayerParams;",
             ">;"
         }
@@ -46,7 +47,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 140
+    .prologue
+    .line 16
     new-instance v0, Lcom/bilibili/tv/player/basic/context/PlayerParams$1;
 
     invoke-direct {v0}, Lcom/bilibili/tv/player/basic/context/PlayerParams$1;-><init>()V
@@ -57,19 +59,20 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .locals 2
 
-    .line 131
+    .prologue
+    .line 134
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
+    .line 36
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mExtraStorage:Landroid/os/Bundle;
 
-    .line 132
+    .line 135
     const-class v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -84,7 +87,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    .line 133
+    .line 136
     const-class v0, Ltv/danmaku/videoplayer/core/danmaku/IDanmakuParams;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -99,7 +102,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mDanmakuParams:Ltv/danmaku/videoplayer/core/danmaku/IDanmakuParams;
 
-    .line 134
+    .line 137
     const-class v0, Landroid/os/Bundle;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -108,29 +111,30 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
-    move-result-object p1
-
-    check-cast p1, Landroid/os/Bundle;
-
-    .line 135
-    const-class v0, Lcom/bilibili/tv/player/basic/context/PlayerParams;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
-
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->setClassLoader(Ljava/lang/ClassLoader;)V
+    check-cast v0, Landroid/os/Bundle;
 
-    .line 136
-    iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mExtraStorage:Landroid/os/Bundle;
+    .line 138
+    const-class v1, Lcom/bilibili/tv/player/basic/context/PlayerParams;
 
-    invoke-virtual {v0}, Landroid/os/Bundle;->clear()V
+    invoke-virtual {v1}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    .line 137
-    iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mExtraStorage:Landroid/os/Bundle;
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->setClassLoader(Ljava/lang/ClassLoader;)V
 
+    .line 139
+    iget-object v1, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mExtraStorage:Landroid/os/Bundle;
+
+    invoke-virtual {v1}, Landroid/os/Bundle;->clear()V
+
+    .line 140
+    iget-object v1, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mExtraStorage:Landroid/os/Bundle;
+
+    invoke-virtual {v1, v0}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
+
+    .line 141
     return-void
 .end method
 
@@ -145,22 +149,24 @@
         .end annotation
     .end param
 
-    .line 29
+    .prologue
+    .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
+    .line 36
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mExtraStorage:Landroid/os/Bundle;
 
-    .line 30
+    .line 45
     iput-object p1, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    .line 31
+    .line 46
     iput-object p2, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mDanmakuParams:Ltv/danmaku/videoplayer/core/danmaku/IDanmakuParams;
 
+    .line 47
     return-void
 .end method
 
@@ -169,6 +175,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 41
     const/4 v0, 0x0
 
     return v0
@@ -177,89 +185,101 @@
 .method public getAvid()I
     .locals 1
 
-    .line 99
+    .prologue
+    .line 107
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     iget-object v0, v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mResolveParams:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_c
 
-    .line 100
+    .line 108
+    :cond_a
+    const/4 v0, 0x0
+
+    .line 110
+    :goto_b
+    return v0
+
+    :cond_c
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     iget-object v0, v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mResolveParams:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
     iget v0, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
 
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
+    goto :goto_b
 .end method
 
-.method public getCid()I
-    .locals 1
+.method public getCid()J
+    .locals 2
 
-    .line 106
+    .prologue
+    .line 114
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
-    iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
-
-    iget-object v0, v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mResolveParams:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
-
-    if-eqz v0, :cond_0
-
-    .line 107
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     iget-object v0, v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mResolveParams:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
-    iget v0, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    if-nez v0, :cond_d
 
-    return v0
+    .line 115
+    :cond_a
+    const-wide/16 v0, 0x0
 
-    :cond_0
-    const/4 v0, 0x0
+    .line 117
+    :goto_c
+    return-wide v0
 
-    return v0
+    :cond_d
+    iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
+
+    iget-object v0, v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mResolveParams:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+
+    iget-wide v0, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
+
+    goto :goto_c
 .end method
 
 .method public final getCurrentCompleteAction()I
     .locals 1
 
-    .line 85
+    .prologue
+    .line 93
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
+    .line 94
     const/4 v0, 0x0
 
+    .line 96
+    :goto_5
     return v0
 
-    .line 88
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     iget v0, v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mPlayerCompletionAction:I
 
-    return v0
+    goto :goto_5
 .end method
 
 .method public getDuration()J
     .locals 2
 
-    .line 92
+    .prologue
+    .line 100
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
@@ -267,7 +287,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
@@ -279,9 +299,17 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_1b
 
-    .line 93
+    .line 101
+    :cond_18
+    const-wide/16 v0, 0x0
+
+    .line 103
+    :goto_1a
+    return-wide v0
+
+    :cond_1b
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->getMediaResource()Lcom/bilibili/lib/media/resource/MediaResource;
@@ -296,104 +324,111 @@
 
     move-result-wide v0
 
-    return-wide v0
-
-    :cond_0
-    const-wide/16 v0, 0x0
-
-    return-wide v0
+    goto :goto_1a
 .end method
 
 .method public final getNextCompleteAction()I
     .locals 4
 
-    .line 69
-    iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
+    .prologue
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    .line 79
+    iget-object v1, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_6
 
-    return v1
+    .line 89
+    :goto_5
+    return v0
 
-    .line 72
-    :cond_0
-    iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
+    .line 82
+    :cond_6
+    iget-object v1, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    iget v0, v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mPlayerCompletionAction:I
+    iget v1, v1, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mPlayerCompletionAction:I
 
-    .line 74
+    .line 83
     sget-object v2, Lbl/yg;->a:[I
 
     array-length v2, v2
 
-    :goto_0
-    if-ge v1, v2, :cond_2
+    .line 84
+    :goto_d
+    if-ge v0, v2, :cond_20
 
-    .line 76
+    .line 85
     sget-object v3, Lbl/yg;->a:[I
 
-    aget v3, v3, v1
+    aget v3, v3, v0
 
-    if-ne v0, v3, :cond_1
+    if-ne v1, v3, :cond_1d
 
-    .line 77
-    sget-object v0, Lbl/yg;->a:[I
+    .line 86
+    sget-object v1, Lbl/yg;->a:[I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    rem-int/2addr v1, v2
+    rem-int/2addr v0, v2
 
-    aget v0, v0, v1
+    aget v0, v1, v0
 
-    goto :goto_1
+    goto :goto_5
 
-    :cond_1
-    add-int/lit8 v1, v1, 0x1
+    .line 84
+    :cond_1d
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_2
-    :goto_1
-    return v0
+    :cond_20
+    move v0, v1
+
+    .line 89
+    goto :goto_5
 .end method
 
 .method public getTitle()Ljava/lang/String;
     .locals 1
 
-    .line 113
+    .prologue
+    .line 121
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     iget-object v0, v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mResolveParams:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_c
 
-    .line 114
+    .line 122
+    :cond_a
+    const/4 v0, 0x0
+
+    .line 124
+    :goto_b
+    return-object v0
+
+    :cond_c
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     iget-object v0, v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mResolveParams:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
     iget-object v0, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mPageTitle:Ljava/lang/String;
 
-    return-object v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return-object v0
+    goto :goto_b
 .end method
 
 .method public final isBangumi()Z
-    .locals 5
+    .locals 4
 
-    .line 59
+    .prologue
+    .line 70
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
@@ -405,28 +440,29 @@
 
     const-wide/16 v2, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-lez v4, :cond_0
+    if-lez v0, :cond_14
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_13
+    return v0
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_13
 .end method
 
 .method public final isClip()Z
     .locals 1
 
-    .line 51
+    .prologue
+    .line 62
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
@@ -438,26 +474,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_11
+    return v0
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_11
 .end method
 
 .method public final isEmptyCid()Z
     .locals 1
 
-    .line 35
+    .prologue
+    .line 50
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
@@ -469,26 +506,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_11
+    return v0
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_11
 .end method
 
 .method public final isLive()Z
     .locals 1
 
-    .line 39
+    .prologue
+    .line 54
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
@@ -500,30 +538,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_11
+    return v0
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_11
 .end method
 
 .method public final isNewDanmaku()Z
     .locals 3
 
-    .line 43
+    .prologue
+    .line 58
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mDanmakuParams:Ltv/danmaku/videoplayer/core/danmaku/IDanmakuParams;
 
     invoke-interface {v0}, Ltv/danmaku/videoplayer/core/danmaku/IDanmakuParams;->getDanmakuDocument()Ltv/danmaku/videoplayer/core/danmaku/IDanmakuDocument;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
@@ -543,23 +582,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_1d
+    return v0
 
-    :cond_0
+    :cond_1e
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_1d
 .end method
 
 .method public final isRound()Z
     .locals 1
 
-    .line 55
+    .prologue
+    .line 66
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
@@ -576,7 +616,8 @@
 .method public final isTV()Z
     .locals 2
 
-    .line 63
+    .prologue
+    .line 74
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
@@ -585,46 +626,46 @@
 
     iget v0, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mTid:I
 
+    .line 75
     const/16 v1, 0xf
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_10
 
     const/16 v1, 0x22
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
+    :cond_10
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_11
     return v0
+
+    :cond_12
+    const/4 v0, 0x0
+
+    goto :goto_11
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
-    .line 126
+    .prologue
+    .line 129
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 127
+    .line 130
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mDanmakuParams:Ltv/danmaku/videoplayer/core/danmaku/IDanmakuParams;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 128
+    .line 131
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mExtraStorage:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
+    .line 132
     return-void
 .end method

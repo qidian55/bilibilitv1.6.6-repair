@@ -1,6 +1,6 @@
 .class public interface abstract Ltv/danmaku/videoplayer/core/danmaku/IDanmakuDocument;
 .super Ljava/lang/Object;
-.source "BL"
+.source "IDanmakuDocument.java"
 
 
 # virtual methods
@@ -22,7 +22,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;",
             ">;)V"
         }
@@ -36,9 +37,11 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/SortedMap<",
+            "Ljava/util/SortedMap",
+            "<",
             "Ljava/lang/Long;",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;",
             ">;>;"
         }
@@ -58,7 +61,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;",
             ">;"
         }
@@ -75,8 +79,10 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ)",
-            "Ljava/util/Collection<",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
+            "Ljava/util/Collection",
+            "<",
             "Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;",
             ">;>;"
         }

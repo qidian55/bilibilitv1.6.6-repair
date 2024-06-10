@@ -1,6 +1,6 @@
 .class Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliPlayerContext.java"
 
 # interfaces
 .implements Ltv/danmaku/videoplayer/core/context/AudioFocusPlayHandler;
@@ -25,7 +25,8 @@
 .method constructor <init>(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)V
     .locals 0
 
-    .line 51
+    .prologue
+    .line 34
     iput-object p1, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,19 +39,22 @@
 .method public willPause()Z
     .locals 4
 
-    .line 66
+    .prologue
+    const/4 v1, 0x0
+
+    .line 49
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
+    # getter for: Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mAudioFocusPlayHandler:Ltv/danmaku/videoplayer/core/context/AudioFocusPlayHandler;
     invoke-static {v0}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$000(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/AudioFocusPlayHandler;
 
     move-result-object v0
 
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
+    # getter for: Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mAudioFocusPlayHandler:Ltv/danmaku/videoplayer/core/context/AudioFocusPlayHandler;
     invoke-static {v0}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$000(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/AudioFocusPlayHandler;
 
     move-result-object v0
@@ -59,70 +63,75 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_33
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
+    :cond_15
     const/4 v0, 0x1
 
-    :goto_1
-    if-eqz v0, :cond_3
+    .line 50
+    :goto_16
+    if-eqz v0, :cond_32
 
-    .line 68
+    .line 51
     iget-object v2, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
+    # getter for: Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mDanmakuPlayerContext:Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
     invoke-static {v2}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$100(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_29
 
-    .line 69
+    .line 52
     iget-object v2, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
+    # getter for: Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mDanmakuPlayerContext:Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
     invoke-static {v2}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$100(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
 
     move-result-object v2
 
     invoke-virtual {v2}, Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;->pause()V
 
-    .line 71
-    :cond_2
+    .line 54
+    :cond_29
     iget-object v2, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
     const/16 v3, 0xea
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    invoke-static {v2, v3, v1}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$200(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;I[Ljava/lang/Object;)V
+    invoke-virtual {v2, v3, v1}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->notifyPlayerEvent(I[Ljava/lang/Object;)V
 
-    :cond_3
+    .line 56
+    :cond_32
     return v0
+
+    :cond_33
+    move v0, v1
+
+    .line 49
+    goto :goto_16
 .end method
 
 .method public willStart()Z
     .locals 4
 
-    .line 54
+    .prologue
+    const/4 v1, 0x0
+
+    .line 37
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
+    # getter for: Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mAudioFocusPlayHandler:Ltv/danmaku/videoplayer/core/context/AudioFocusPlayHandler;
     invoke-static {v0}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$000(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/AudioFocusPlayHandler;
 
     move-result-object v0
 
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
+    # getter for: Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mAudioFocusPlayHandler:Ltv/danmaku/videoplayer/core/context/AudioFocusPlayHandler;
     invoke-static {v0}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$000(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/AudioFocusPlayHandler;
 
     move-result-object v0
@@ -131,50 +140,52 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_33
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
+    :cond_15
     const/4 v0, 0x1
 
-    :goto_1
-    if-eqz v0, :cond_3
+    .line 38
+    :goto_16
+    if-eqz v0, :cond_32
 
-    .line 56
+    .line 39
     iget-object v2, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
+    # getter for: Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mDanmakuPlayerContext:Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
     invoke-static {v2}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$100(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_29
 
-    .line 57
+    .line 40
     iget-object v2, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
+    # getter for: Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mDanmakuPlayerContext:Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
     invoke-static {v2}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$100(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
 
     move-result-object v2
 
     invoke-virtual {v2}, Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;->resume()V
 
-    .line 59
-    :cond_2
+    .line 42
+    :cond_29
     iget-object v2, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
     const/16 v3, 0xe9
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    invoke-static {v2, v3, v1}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$200(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;I[Ljava/lang/Object;)V
+    invoke-virtual {v2, v3, v1}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->notifyPlayerEvent(I[Ljava/lang/Object;)V
 
-    :cond_3
+    .line 44
+    :cond_32
     return v0
+
+    :cond_33
+    move v0, v1
+
+    .line 37
+    goto :goto_16
 .end method

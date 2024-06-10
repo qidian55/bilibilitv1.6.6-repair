@@ -1,6 +1,6 @@
-.class Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;
+.class public Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;
 .super Ljava/lang/Object;
-.source "BL"
+.source "DanmakuDurationManager.java"
 
 
 # annotations
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "DanmakuTimeDuration"
 .end annotation
 
@@ -22,16 +22,18 @@
 
 # direct methods
 .method constructor <init>(JJ)V
-    .locals 0
+    .locals 1
 
-    .line 198
+    .prologue
+    .line 188
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 199
+    .line 189
     iput-wide p1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;->start:J
 
-    .line 200
+    .line 190
     iput-wide p3, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;->end:J
 
+    .line 191
     return-void
 .end method

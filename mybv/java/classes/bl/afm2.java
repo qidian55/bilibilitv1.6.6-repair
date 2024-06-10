@@ -95,16 +95,29 @@ public final class afm2 extends adt {
             String isp = data.optString("isp");
             StringBuilder sb = new StringBuilder();
             ConnectivityManager connectivityManager = (ConnectivityManager) MainApplication.a().getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-            if (networkInfo != null && networkInfo.isConnected()) {
-                Network network = connectivityManager.getActiveNetwork();
-                LinkProperties linkProperties = connectivityManager.getLinkProperties(network);
-                List<InetAddress> dnsServers = linkProperties.getDnsServers();
-                for (InetAddress dns : dnsServers) {
-                    if(sb.length()>0)sb.append(", ");
-                    sb.append(dns.getHostAddress());
+            if (connectivityManager != null) {
+                for (Network network : connectivityManager.getAllNetworks()) {
+                    NetworkInfo networkInfo = connectivityManager.getNetworkInfo(network);
+                    if (networkInfo.isConnected()) {
+                        LinkProperties linkProperties = connectivityManager.getLinkProperties(network);
+                        List<InetAddress> dnsServers = linkProperties.getDnsServers();
+                        for (InetAddress dnsServer : dnsServers) {
+                            if(sb.length()>0)sb.append(", ");
+                            sb.append(dnsServer.getHostAddress());
+                        }
+                    }
                 }
             }
+            //NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            //if (networkInfo != null && networkInfo.isConnected()) {
+            //    Network activeNetwork = connectivityManager.getActiveNetwork();
+            //    LinkProperties linkProperties = connectivityManager.getLinkProperties(activeNetwork);
+            //    List<InetAddress> dnsServers = linkProperties.getDnsServers();
+            //    for (InetAddress dnsServer : dnsServers) {
+            //        if(sb.length()>0)sb.append(", ");
+            //        sb.append(dnsServer.getHostAddress());
+            //    }
+            //}
             String text = "IP: " + addr;
             text += "\n" + "归属地: " + zone;
             text += "\n" + "运营商: " + isp;

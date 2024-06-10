@@ -1,6 +1,6 @@
-.class Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$SeekData;
+.class public Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$SeekData;
 .super Ljava/lang/Object;
-.source "BL"
+.source "DanmakuPlayerDFM.java"
 
 
 # annotations
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "SeekData"
 .end annotation
 
@@ -28,25 +28,27 @@
 
 # direct methods
 .method public constructor <init>(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;JJ)V
-    .locals 0
+    .locals 2
 
-    .line 74
+    .prologue
+    .line 144
     iput-object p1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$SeekData;->this$0:Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 75
-    iput-wide p2, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$SeekData;->from:J
-
-    .line 76
-    iput-wide p4, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$SeekData;->to:J
-
-    .line 77
+    .line 139
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide p1
+    move-result-wide v0
 
-    iput-wide p1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$SeekData;->currst:J
+    iput-wide v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$SeekData;->currst:J
 
+    .line 145
+    iput-wide p2, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$SeekData;->from:J
+
+    .line 146
+    iput-wide p4, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$SeekData;->to:J
+
+    .line 147
     return-void
 .end method

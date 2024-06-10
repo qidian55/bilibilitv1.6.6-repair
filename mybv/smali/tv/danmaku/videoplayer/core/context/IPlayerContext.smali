@@ -1,6 +1,6 @@
 .class public interface abstract Ltv/danmaku/videoplayer/core/context/IPlayerContext;
 .super Ljava/lang/Object;
-.source "BL"
+.source "IPlayerContext.java"
 
 
 # annotations
@@ -40,7 +40,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;",
             ">;)V"
         }
@@ -51,7 +52,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;",
             ">;"
         }
@@ -78,7 +80,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;",
             ">;"
         }
@@ -200,7 +203,7 @@
     .end annotation
 .end method
 
-.method public abstract prepareAndStartDanmakuPlayer(I)V
+.method public abstract prepareAndStartDanmakuPlayer(J)V
 .end method
 
 .method public abstract release()V
@@ -327,8 +330,4 @@
 .end method
 
 .method public abstract willBeAttachedToService()Z
-.end method
-
-
-.method public abstract setSpeed(F)V
 .end method

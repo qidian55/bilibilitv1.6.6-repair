@@ -46,9 +46,9 @@ public class xj extends xh {
         if (b != null) {
             ResolveResourceParams obtainResolveParams = b.mVideoParams.obtainResolveParams();
             if (!TextUtils.isEmpty(obtainResolveParams.mSeasonId) && obtainResolveParams.mEpisodeId > 0) {
-                ztVar = new zt(zu.a(obtainResolveParams.mEpisodeId));
+                ztVar = new zt(zu.getEp(obtainResolveParams.mEpisodeId));
             } else {
-                ztVar = new zt(zu.a(obtainResolveParams.mCid));
+                ztVar = new zt(zu.getCid(obtainResolveParams.mCid));
             }
             this.d = ztVar;
             this.e = new zu(p());
@@ -97,7 +97,7 @@ public class xj extends xh {
         if (resolveResourceParams == null) {
             return;
         }
-        int i = resolveResourceParams.mCid;
+        long i = resolveResourceParams.mCid;
         int i2 = resolveResourceParams.mAvid;
         int i3 = this.i;
         if (i3 <= 0) {

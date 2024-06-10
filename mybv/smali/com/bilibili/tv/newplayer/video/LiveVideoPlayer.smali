@@ -428,7 +428,7 @@
 .end method
 
 .method private H()V
-    .locals 6
+    .locals 7
 
     .prologue
     const/4 v3, 0x1
@@ -519,39 +519,43 @@
     const/4 v0, 0x0
 
     .line 383
-    if-eqz v2, :cond_57
+    if-eqz v2, :cond_77
 
     invoke-virtual {v2}, Lbl/mg;->c()Lcom/bilibili/lib/account/model/AccountInfo;
 
     move-result-object v2
 
-    if-eqz v2, :cond_57
+    if-eqz v2, :cond_77
 
     .line 384
     iget-wide v2, v2, Lcom/bilibili/lib/account/model/AccountInfo;->mMid:J
 
     long-to-int v0, v2
 
+    move v6, v0
+
     .line 386
-    :cond_57
-    iget-object v2, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->F:Ltv/danmaku/videoplayer/core/danmaku/IDanmakuPlayer;
+    :goto_58
+    iget-object v0, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->F:Ltv/danmaku/videoplayer/core/danmaku/IDanmakuPlayer;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    new-instance v4, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer$b;
+    new-instance v3, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer$b;
 
-    invoke-direct {v4, p0}, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer$b;-><init>(Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;)V
+    invoke-direct {v3, p0}, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer$b;-><init>(Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;)V
 
-    iget v5, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->af:I
+    iget v4, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->af:I
 
-    invoke-interface {v2, v1, v3, v4, v5}, Ltv/danmaku/videoplayer/core/danmaku/IDanmakuPlayer;->start(Ltv/danmaku/videoplayer/core/danmaku/IDanmakuParams;Ltv/danmaku/videoplayer/core/danmaku/IDanmakuDocument;Ltv/danmaku/videoplayer/core/danmaku/DanmakuAnimationTicker;I)V
+    int-to-long v4, v4
+
+    invoke-interface/range {v0 .. v5}, Ltv/danmaku/videoplayer/core/danmaku/IDanmakuPlayer;->start(Ltv/danmaku/videoplayer/core/danmaku/IDanmakuParams;Ltv/danmaku/videoplayer/core/danmaku/IDanmakuDocument;Ltv/danmaku/videoplayer/core/danmaku/DanmakuAnimationTicker;J)V
 
     .line 387
-    iget-object v1, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->ak:Lbl/aei;
+    iget-object v0, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->ak:Lbl/aei;
 
-    iget v2, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->af:I
+    iget v1, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->af:I
 
-    invoke-virtual {v1, v2, v0}, Lbl/aei;->a(II)V
+    invoke-virtual {v0, v1, v6}, Lbl/aei;->a(II)V
 
     .line 388
     iget-boolean v0, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->G:Z
@@ -564,6 +568,11 @@
     invoke-interface {v0}, Ltv/danmaku/videoplayer/core/danmaku/IDanmakuPlayer;->hide()V
 
     goto :goto_5
+
+    :cond_77
+    move v6, v0
+
+    goto :goto_58
 .end method
 
 .method static synthetic access$000(Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;)I

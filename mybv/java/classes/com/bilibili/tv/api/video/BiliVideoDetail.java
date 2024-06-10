@@ -516,7 +516,7 @@ public class BiliVideoDetail implements Parcelable {
         @JSONField(deserialize = false, serialize = false)
         public boolean mAlreadyPlayed;
         @JSONField(name = "cid")
-        public int mCid;
+        public long mCid;
         @JSONField(name = "from")
         public String mFrom;
         @JSONField(name = "has_alias")
@@ -570,7 +570,7 @@ public class BiliVideoDetail implements Parcelable {
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
-            parcel.writeInt(this.mCid);
+            parcel.writeLong(this.mCid);
             parcel.writeInt(this.mPage);
             parcel.writeString(this.mFrom);
             parcel.writeString(this.mTitle);
@@ -584,7 +584,7 @@ public class BiliVideoDetail implements Parcelable {
         }
 
         protected Page(Parcel parcel) {
-            this.mCid = parcel.readInt();
+            this.mCid = parcel.readLong();
             this.mPage = parcel.readInt();
             this.mFrom = parcel.readString();
             this.mTitle = parcel.readString();
@@ -892,7 +892,7 @@ public class BiliVideoDetail implements Parcelable {
             }
         };
         @JSONField(name = "cid")
-        public int mCid;
+        public long mCid;
         @JSONField(name = "progress")
         public int mProgress;
 
@@ -903,7 +903,7 @@ public class BiliVideoDetail implements Parcelable {
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
-            parcel.writeInt(this.mCid);
+            parcel.writeLong(this.mCid);
             parcel.writeInt(this.mProgress);
         }
 
@@ -911,7 +911,7 @@ public class BiliVideoDetail implements Parcelable {
         }
 
         protected History(Parcel parcel) {
-            this.mCid = parcel.readInt();
+            this.mCid = parcel.readLong();
             this.mProgress = parcel.readInt();
         }
     }

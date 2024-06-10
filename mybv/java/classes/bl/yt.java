@@ -17,6 +17,8 @@ import tv.danmaku.android.log.BLog;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.videoplayer.core.danmaku.IDanmakuDocument;
 
+import tv.danmaku.android.log.BLog;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public final class yt {
@@ -149,9 +151,9 @@ public final class yt {
         zt ztVar;
         zu zuVar = new zu(context);
         if (!TextUtils.isEmpty(obtainResolveParams.mSeasonId) && obtainResolveParams.mEpisodeId > 0) {
-            ztVar = new zt(zu.a(obtainResolveParams.mEpisodeId));
+            ztVar = new zt(zu.getEp(obtainResolveParams.mEpisodeId));
         } else {
-            ztVar = new zt(zu.a(obtainResolveParams.mCid));
+            ztVar = new zt(zu.getCid(obtainResolveParams.mCid));
         }
         if (zuVar.b(ztVar)) {
             this.b.d = ztVar.b;
@@ -200,9 +202,9 @@ public final class yt {
         @Override // java.lang.Runnable
         public void run() {
             Handler handler = yt.this.a.get();
-            if (handler == null) {
-                return;
-            }
+            //if (handler == null) {
+            //    return;
+            //}
             handler.sendEmptyMessage(10210);
             try {
                 yt.this.h.a(yt.this.c, yt.this.b.a.mVideoParams);

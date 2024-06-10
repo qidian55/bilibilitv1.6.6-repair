@@ -46,7 +46,7 @@
 
 .field public mCanProjectionScreen:Z
 
-.field public mCid:I
+.field public mCid:J
 
 .field public mCodecMode:Ljava/lang/String;
 
@@ -162,11 +162,11 @@
     iput-object v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mFrom:Ljava/lang/String;
 
     .line 162
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result v0
+    move-result-wide v4
 
-    iput v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    iput-wide v4, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
     .line 163
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -405,8 +405,8 @@
     goto :goto_ad
 .end method
 
-.method public constructor <init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZIILjava/lang/String;ILjava/lang/String;)V
-    .locals 1
+.method public constructor <init>(Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZIILjava/lang/String;ILjava/lang/String;)V
+    .locals 2
 
     .prologue
     .line 81
@@ -423,34 +423,34 @@
     iput-object p1, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mFrom:Ljava/lang/String;
 
     .line 84
-    iput p2, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    iput-wide p2, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
     .line 85
-    iput-object p3, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mVid:Ljava/lang/String;
+    iput-object p4, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mVid:Ljava/lang/String;
 
     .line 86
-    iput-object p5, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mLink:Ljava/lang/String;
+    iput-object p6, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mLink:Ljava/lang/String;
 
     .line 87
-    iput-object p4, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mRawVid:Ljava/lang/String;
+    iput-object p5, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mRawVid:Ljava/lang/String;
 
     .line 88
-    iput-boolean p6, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mHasAlias:Z
+    iput-boolean p7, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mHasAlias:Z
 
     .line 89
-    iput p7, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
+    iput p8, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
 
     .line 90
-    iput p8, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mPage:I
+    iput p9, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mPage:I
 
     .line 91
-    iput-object p9, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mPageTitle:Ljava/lang/String;
+    iput-object p10, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mPageTitle:Ljava/lang/String;
 
     .line 92
-    iput p10, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mTid:I
+    iput p11, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mTid:I
 
     .line 93
-    iput-object p11, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mType:Ljava/lang/String;
+    iput-object p12, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mType:Ljava/lang/String;
 
     .line 94
     return-void
@@ -529,8 +529,8 @@
     return v0
 .end method
 
-.method public final getLiveCid()I
-    .locals 1
+.method public final getLiveCid()J
+    .locals 2
 
     .prologue
     .line 113
@@ -538,19 +538,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a
 
     .line 114
     iget v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mRoomId:I
 
+    int-to-long v0, v0
+
     .line 116
-    :goto_8
-    return v0
+    :goto_9
+    return-wide v0
 
-    :cond_9
-    iget v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    :cond_a
+    iget-wide v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
-    goto :goto_8
+    goto :goto_9
 .end method
 
 .method public getQualityInt()I
@@ -664,23 +666,27 @@
 .end method
 
 .method public final isEmptyCid()Z
-    .locals 1
+    .locals 4
 
     .prologue
     .line 97
-    iget v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    iget-wide v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
-    if-gtz v0, :cond_6
+    const-wide/16 v2, 0x0
+
+    cmp-long v0, v0, v2
+
+    if-gtz v0, :cond_a
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_9
     return v0
 
-    :cond_6
+    :cond_a
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_9
 .end method
 
 .method public final isLive()Z
@@ -717,13 +723,17 @@
 .end method
 
 .method public isNecessaryParamsCompletly()Z
-    .locals 1
+    .locals 4
 
     .prologue
     .line 124
-    iget v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    iget-wide v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
-    if-lez v0, :cond_e
+    const-wide/16 v2, 0x0
+
+    cmp-long v0, v0, v2
+
+    if-lez v0, :cond_12
 
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mFrom:Ljava/lang/String;
 
@@ -731,17 +741,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_12
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_11
     return v0
 
-    :cond_e
+    :cond_12
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_11
 .end method
 
 .method public final isRound()Z
@@ -765,7 +775,7 @@
 .end method
 
 .method public obtainMediaResourceParams()Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
-    .locals 8
+    .locals 9
 
     .prologue
     .line 192
@@ -773,19 +783,19 @@
 
     iget v1, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
 
-    iget v2, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    iget-wide v2, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
-    iget v3, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mExpectedQuality:I
+    iget v4, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mExpectedQuality:I
 
-    iget-object v4, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mExpectedTypeTag:Ljava/lang/String;
+    iget-object v5, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mExpectedTypeTag:Ljava/lang/String;
 
-    iget-object v5, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mFrom:Ljava/lang/String;
+    iget-object v6, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mFrom:Ljava/lang/String;
 
-    iget-boolean v6, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mRequestFromDownloader:Z
+    iget-boolean v7, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mRequestFromDownloader:Z
 
-    iget-object v7, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mType:Ljava/lang/String;
+    iget-object v8, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mType:Ljava/lang/String;
 
-    invoke-direct/range {v0 .. v7}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;-><init>(IIILjava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V
+    invoke-direct/range {v0 .. v8}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;-><init>(IJILjava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V
 
     return-object v0
 .end method
@@ -866,9 +876,9 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 130
-    iget v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    iget-wide v4, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 131
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mVid:Ljava/lang/String;

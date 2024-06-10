@@ -1,6 +1,6 @@
 .class final Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "ResolveMediaResourceParams.java"
 
 # interfaces
 .implements Landroid/os/Parcelable$Creator;
@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Landroid/os/Parcelable$Creator<",
+        "Landroid/os/Parcelable$Creator",
+        "<",
         "Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;",
         ">;"
     }
@@ -30,7 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 131
+    .prologue
+    .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,10 +40,11 @@
 
 
 # virtual methods
-.method public a(Landroid/os/Parcel;)Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
+.method public createFromParcel(Landroid/os/Parcel;)Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
     .locals 1
 
-    .line 134
+    .prologue
+    .line 15
     new-instance v0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
 
     invoke-direct {v0, p1}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;-><init>(Landroid/os/Parcel;)V
@@ -49,33 +52,36 @@
     return-object v0
 .end method
 
-.method public a(I)[Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
-    .locals 0
+.method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .locals 1
 
-    .line 139
-    new-array p1, p1, [Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
+    .prologue
+    .line 11
+    invoke-virtual {p0, p1}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams$1;->createFromParcel(Landroid/os/Parcel;)Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
 
-    return-object p1
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+.method public newArray(I)[Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
+    .locals 1
 
-    .line 131
-    invoke-virtual {p0, p1}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams$1;->a(Landroid/os/Parcel;)Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
+    .prologue
+    .line 21
+    new-array v0, p1, [Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
 
-    move-result-object p1
-
-    return-object p1
+    return-object v0
 .end method
 
-.method public synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+.method public bridge synthetic newArray(I)[Ljava/lang/Object;
+    .locals 1
 
-    .line 131
-    invoke-virtual {p0, p1}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams$1;->a(I)[Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
+    .prologue
+    .line 11
+    invoke-virtual {p0, p1}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams$1;->newArray(I)[Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

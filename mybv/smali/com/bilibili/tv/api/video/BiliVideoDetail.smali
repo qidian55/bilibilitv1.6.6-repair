@@ -846,7 +846,7 @@
 .end method
 
 .method public findPageByCid(I)Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;
-    .locals 3
+    .locals 6
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -878,7 +878,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_22
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -887,14 +887,18 @@
     check-cast v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;
 
     .line 352
-    iget v2, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mCid:I
+    iget-wide v2, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mCid:J
 
-    if-ne v2, p1, :cond_e
+    int-to-long v4, p1
+
+    cmp-long v2, v2, v4
+
+    if-nez v2, :cond_e
 
     goto :goto_7
 
     .line 356
-    :cond_1f
+    :cond_22
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mPageList:Ljava/util/List;
 
     const/4 v1, 0x0

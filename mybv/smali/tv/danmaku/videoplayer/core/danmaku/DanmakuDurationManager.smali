@@ -1,6 +1,6 @@
 .class public Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;
 .super Ljava/lang/Object;
-.source "BL"
+.source "DanmakuDurationManager.java"
 
 
 # annotations
@@ -19,21 +19,24 @@
 
 
 # instance fields
-.field private final mDanmakuPages:Landroid/util/SparseArray;
+.field private final mDanmakuPages:Landroid/util/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/util/SparseArray<",
-            "Ljava/util/List<",
+            "Landroid/util/LongSparseArray",
+            "<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/Long;",
             ">;>;"
         }
     .end annotation
 .end field
 
-.field private final mExistDanmakuRecommend:Landroid/util/SparseArray;
+.field private final mExistDanmakuRecommend:Landroid/util/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/util/SparseArray<",
+            "Landroid/util/LongSparseArray",
+            "<",
             "Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;",
             ">;"
         }
@@ -47,7 +50,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 20
+    .prologue
+    .line 15
     new-instance v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;
 
     invoke-direct {v0}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;-><init>()V
@@ -60,26 +64,27 @@
 .method private constructor <init>()V
     .locals 3
 
-    .line 29
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 23
-    new-instance v0, Landroid/util/SparseArray;
-
+    .prologue
     const/4 v1, 0x2
 
-    invoke-direct {v0, v1}, Landroid/util/SparseArray;-><init>(I)V
+    .line 20
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/SparseArray;
+    .line 17
+    new-instance v0, Landroid/util/LongSparseArray;
 
-    .line 25
-    new-instance v0, Landroid/util/SparseArray;
+    invoke-direct {v0, v1}, Landroid/util/LongSparseArray;-><init>(I)V
 
-    invoke-direct {v0, v1}, Landroid/util/SparseArray;-><init>(I)V
+    iput-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/LongSparseArray;
 
-    iput-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/SparseArray;
+    .line 18
+    new-instance v0, Landroid/util/LongSparseArray;
 
-    .line 30
+    invoke-direct {v0, v1}, Landroid/util/LongSparseArray;-><init>(I)V
+
+    iput-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/LongSparseArray;
+
+    .line 21
     new-instance v0, Landroid/os/HandlerThread;
 
     const-string v1, "DanmakuDurationManager"
@@ -88,10 +93,10 @@
 
     invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
 
-    .line 32
+    .line 22
     invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
-    .line 33
+    .line 23
     new-instance v1, Landroid/os/Handler;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
@@ -102,13 +107,15 @@
 
     iput-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mHandler:Landroid/os/Handler;
 
+    .line 24
     return-void
 .end method
 
 .method public static getInstance()Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;
     .locals 1
 
-    .line 37
+    .prologue
+    .line 27
     sget-object v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->INSTANCE:Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;
 
     return-object v0
@@ -119,168 +126,191 @@
 .method public add(III)Z
     .locals 10
 
-    .line 64
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/SparseArray;
-
-    monitor-enter v0
+    .prologue
+    const/4 v2, 0x1
 
     const/4 v1, 0x0
 
-    if-ltz p2, :cond_5
+    .line 54
+    iget-object v4, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/LongSparseArray;
 
-    if-ltz p3, :cond_5
+    monitor-enter v4
 
-    if-lt p2, p3, :cond_0
+    .line 55
+    if-ltz p2, :cond_b
 
-    goto :goto_1
+    if-ltz p3, :cond_b
 
-    .line 68
-    :cond_0
-    :try_start_0
-    iget-object v2, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/SparseArray;
+    if-lt p2, p3, :cond_e
 
-    invoke-virtual {v2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    .line 56
+    :cond_b
+    :try_start_b
+    monitor-exit v4
 
-    move-result-object v2
+    move v0, v1
 
-    check-cast v2, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
+    .line 79
+    :goto_d
+    return v0
 
-    if-nez v2, :cond_1
+    .line 58
+    :cond_e
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/LongSparseArray;
 
-    .line 70
-    new-instance v2, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
+    int-to-long v6, p1
 
-    invoke-direct {v2}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;-><init>()V
+    invoke-virtual {v0, v6, v7}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
 
-    .line 71
-    iget-object v3, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/SparseArray;
+    move-result-object v0
 
-    invoke-virtual {v3, p1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    check-cast v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
 
-    .line 74
-    :cond_1
-    iget-object p1, v2, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
+    .line 59
+    if-nez v0, :cond_5f
 
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    .line 60
+    new-instance v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
 
-    move-result-object p1
+    invoke-direct {v0}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;-><init>()V
 
-    :cond_2
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    .line 61
+    iget-object v3, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/LongSparseArray;
 
-    move-result v3
+    int-to-long v6, p1
 
-    const/4 v4, 0x1
+    invoke-virtual {v3, v6, v7, v0}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
-    if-eqz v3, :cond_3
+    move-object v3, v0
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 63
+    :goto_25
+    iget-object v0, v3, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
 
-    move-result-object v3
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    check-cast v3, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;
+    move-result-object v5
 
-    int-to-long v5, p2
+    .line 65
+    :cond_2b
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-nez v0, :cond_37
+
+    move v0, v2
 
     .line 75
-    iget-wide v7, v3, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;->start:J
+    :goto_32
+    if-nez v0, :cond_4d
 
-    cmp-long v9, v5, v7
+    .line 76
+    monitor-exit v4
 
-    if-ltz v9, :cond_2
+    move v0, v1
 
-    int-to-long v5, p3
+    goto :goto_d
 
-    iget-wide v7, v3, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;->end:J
+    .line 69
+    :cond_37
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    cmp-long v3, v5, v7
+    move-result-object v0
 
-    if-gtz v3, :cond_2
+    check-cast v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;
 
-    const/4 p1, 0x0
+    .line 70
+    int-to-long v6, p2
 
-    goto :goto_0
+    iget-wide v8, v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;->start:J
 
-    :cond_3
-    const/4 p1, 0x1
+    cmp-long v6, v6, v8
 
-    :goto_0
-    if-eqz p1, :cond_4
+    if-ltz v6, :cond_2b
 
-    .line 81
-    iget-object p1, v2, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
+    int-to-long v6, p3
+
+    iget-wide v8, v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;->end:J
+
+    cmp-long v0, v6, v8
+
+    if-gtz v0, :cond_2b
+
+    move v0, v1
+
+    .line 72
+    goto :goto_32
+
+    .line 78
+    :cond_4d
+    iget-object v0, v3, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
 
     new-instance v1, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;
 
-    int-to-long v2, p2
+    int-to-long v6, p2
 
-    int-to-long p2, p3
+    int-to-long v8, p3
 
-    invoke-direct {v1, v2, v3, p2, p3}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;-><init>(JJ)V
+    invoke-direct {v1, v6, v7, v8, v9}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;-><init>(JJ)V
 
-    invoke-interface {p1, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 82
-    monitor-exit v0
+    .line 79
+    monitor-exit v4
 
-    return v4
+    move v0, v2
 
-    .line 84
-    :cond_4
-    monitor-exit v0
+    goto :goto_d
 
-    return v1
+    .line 80
+    :catchall_5c
+    move-exception v0
 
-    .line 66
-    :cond_5
-    :goto_1
-    monitor-exit v0
+    monitor-exit v4
+    :try_end_5e
+    .catchall {:try_start_b .. :try_end_5e} :catchall_5c
 
-    return v1
+    throw v0
 
-    :catchall_0
-    move-exception p1
+    :cond_5f
+    move-object v3, v0
 
-    .line 85
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw p1
+    goto :goto_25
 .end method
 
-.method public clear(I)V
+.method public clear(J)V
     .locals 5
 
-    .line 146
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/SparseArray;
+    .prologue
+    .line 139
+    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/LongSparseArray;
 
-    monitor-enter v0
+    monitor-enter v1
 
-    .line 147
-    :try_start_0
-    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/SparseArray;
+    .line 140
+    :try_start_3
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/LongSparseArray;
 
-    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v0}, Landroid/util/LongSparseArray;->size()I
 
-    move-result v1
+    move-result v0
 
-    if-lez v1, :cond_0
+    if-lez v0, :cond_35
 
-    .line 148
-    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/SparseArray;
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/LongSparseArray;
 
-    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
+    check-cast v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_35
 
+    .line 141
     const-string v2, "DanmakuDFM"
 
-    .line 150
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -289,7 +319,11 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v3
+
+    invoke-virtual {v3, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -297,517 +331,551 @@
 
     invoke-static {v2, v3}, Ltv/danmaku/android/log/BLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 151
-    invoke-virtual {v1}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->clear()V
+    .line 142
+    invoke-virtual {v0}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->clear()V
 
-    .line 152
-    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/SparseArray;
+    .line 143
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/LongSparseArray;
 
-    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->remove(I)V
+    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->remove(J)V
 
-    .line 155
-    :cond_0
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    .line 145
+    :cond_35
+    monitor-exit v1
+    :try_end_36
+    .catchall {:try_start_3 .. :try_end_36} :catchall_55
 
-    .line 156
-    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/SparseArray;
+    .line 146
+    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/LongSparseArray;
 
     monitor-enter v1
 
-    .line 157
-    :try_start_1
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/SparseArray;
+    .line 147
+    :try_start_39
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/LongSparseArray;
 
-    invoke-virtual {v0}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v0}, Landroid/util/LongSparseArray;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_53
 
-    .line 158
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/SparseArray;
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/LongSparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/util/List;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_53
 
-    .line 160
+    .line 148
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
-    .line 161
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/SparseArray;
+    .line 149
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/LongSparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->delete(I)V
+    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->delete(J)V
 
-    .line 164
-    :cond_1
+    .line 151
+    :cond_53
     monitor-exit v1
+    :try_end_54
+    .catchall {:try_start_39 .. :try_end_54} :catchall_58
 
+    .line 152
     return-void
 
-    :catchall_0
-    move-exception p1
+    .line 145
+    :catchall_55
+    move-exception v0
 
+    :try_start_56
     monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_57
+    .catchall {:try_start_56 .. :try_end_57} :catchall_55
 
-    throw p1
+    throw v0
 
-    :catchall_1
-    move-exception p1
+    .line 151
+    :catchall_58
+    move-exception v0
 
-    .line 155
-    :try_start_2
-    monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_start_59
+    monitor-exit v1
+    :try_end_5a
+    .catchall {:try_start_59 .. :try_end_5a} :catchall_58
 
-    throw p1
+    throw v0
 .end method
 
 .method public clearRunnable()V
     .locals 2
 
-    .line 168
+    .prologue
+    .line 155
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
+    .line 156
     return-void
 .end method
 
-.method public getDanmakuRecommend(I)Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
+.method public getDanmakuRecommend(J)Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
     .locals 3
 
-    .line 130
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/SparseArray;
+    .prologue
+    .line 121
+    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/LongSparseArray;
 
-    monitor-enter v0
+    monitor-enter v1
 
-    .line 131
-    :try_start_0
-    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/SparseArray;
+    .line 122
+    :try_start_3
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/LongSparseArray;
 
-    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
+    check-cast v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
 
-    if-nez v1, :cond_0
+    .line 123
+    if-nez v0, :cond_17
 
-    .line 133
-    new-instance v1, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
+    .line 124
+    new-instance v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
 
-    invoke-direct {v1}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;-><init>()V
+    invoke-direct {v0}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;-><init>()V
 
-    .line 134
-    iget-object v2, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/SparseArray;
+    .line 125
+    iget-object v2, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/LongSparseArray;
 
-    invoke-virtual {v2, p1, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v2, p1, p2, v0}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
-    .line 136
-    :cond_0
-    monitor-exit v0
+    .line 127
+    :cond_17
+    monitor-exit v1
 
-    return-object v1
+    .line 128
+    return-object v0
 
-    :catchall_0
-    move-exception p1
+    .line 127
+    :catchall_19
+    move-exception v0
 
-    .line 137
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    monitor-exit v1
+    :try_end_1b
+    .catchall {:try_start_3 .. :try_end_1b} :catchall_19
 
-    throw p1
+    throw v0
 .end method
 
 .method public getHandler()Landroid/os/Handler;
     .locals 1
 
-    .line 60
+    .prologue
+    .line 49
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mHandler:Landroid/os/Handler;
 
     return-object v0
 .end method
 
-.method public getLastEnd(I)J
+.method public getLastEnd(J)J
     .locals 3
 
-    .line 118
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/SparseArray;
+    .prologue
+    .line 111
+    iget-object v2, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/LongSparseArray;
 
-    monitor-enter v0
+    monitor-enter v2
 
-    .line 119
-    :try_start_0
-    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/SparseArray;
+    .line 112
+    :try_start_3
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/LongSparseArray;
 
-    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v0}, Landroid/util/LongSparseArray;->size()I
 
-    move-result v1
+    move-result v0
 
-    if-lez v1, :cond_0
+    if-lez v0, :cond_1b
 
-    .line 120
-    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/SparseArray;
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/LongSparseArray;
 
-    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/util/List;
+    check-cast v0, Ljava/util/List;
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_1b
 
-    .line 121
-    invoke-interface {p1}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    if-lez v1, :cond_0
-
-    .line 122
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    add-int/lit8 v1, v1, -0x1
-
-    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/Long;
-
-    invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v1
-
-    monitor-exit v0
-
-    return-wide v1
-
-    :cond_0
-    const-wide/16 v1, 0x0
-
-    .line 125
-    monitor-exit v0
-
-    return-wide v1
-
-    :catchall_0
-    move-exception p1
-
-    .line 126
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw p1
-.end method
-
-.method public getStartTs(JI)J
-    .locals 5
-
-    .line 102
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/SparseArray;
-
-    monitor-enter v0
-
-    .line 103
-    :try_start_0
-    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/SparseArray;
-
-    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
-
-    move-result v1
-
-    if-lez v1, :cond_1
-
-    .line 104
-    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/SparseArray;
-
-    invoke-virtual {v1, p3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object p3
-
-    check-cast p3, Ljava/util/List;
-
-    if-eqz p3, :cond_1
-
-    .line 105
-    invoke-interface {p3}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    if-lez v1, :cond_1
-
-    .line 106
-    invoke-interface {p3}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    :goto_0
-    if-ltz v1, :cond_1
-
-    .line 107
-    invoke-interface {p3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Long;
-
-    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v2
-
-    cmp-long v4, p1, v2
-
-    if-ltz v4, :cond_0
-
-    .line 108
-    invoke-interface {p3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/Long;
-
-    invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide p1
-
-    monitor-exit v0
-
-    return-wide p1
-
-    :cond_0
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_0
-
-    :cond_1
-    const-wide/16 p1, 0x0
+    if-gtz v1, :cond_1f
 
     .line 113
-    monitor-exit v0
+    :cond_1b
+    const-wide/16 v0, 0x0
 
-    return-wide p1
+    monitor-exit v2
 
-    :catchall_0
-    move-exception p1
+    .line 115
+    :goto_1e
+    return-wide v0
 
-    .line 114
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :cond_1f
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    throw p1
+    move-result v1
+
+    add-int/lit8 v1, v1, -0x1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Long;
+
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v0
+
+    monitor-exit v2
+
+    goto :goto_1e
+
+    .line 116
+    :catchall_31
+    move-exception v0
+
+    monitor-exit v2
+    :try_end_33
+    .catchall {:try_start_3 .. :try_end_33} :catchall_31
+
+    throw v0
 .end method
 
-.method public illegal(IJ)Z
-    .locals 6
+.method public getStartTs(JJ)J
+    .locals 7
 
-    .line 41
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/SparseArray;
+    .prologue
+    .line 97
+    iget-object v3, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/LongSparseArray;
 
-    monitor-enter v0
+    monitor-enter v3
 
-    .line 42
-    :try_start_0
-    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/SparseArray;
+    .line 98
+    :try_start_3
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/LongSparseArray;
 
-    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v0}, Landroid/util/LongSparseArray;->size()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x0
+    if-lez v0, :cond_42
 
-    if-gtz v1, :cond_0
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/LongSparseArray;
 
-    .line 43
-    monitor-exit v0
+    invoke-virtual {v0, p3, p4}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
 
-    return v2
+    move-result-object v0
 
-    .line 45
-    :cond_0
-    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/SparseArray;
+    check-cast v0, Ljava/util/List;
 
-    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    if-eqz v0, :cond_42
 
-    move-result-object p1
-
-    check-cast p1, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
-
-    if-eqz p1, :cond_4
-
-    .line 46
-    iget-object v1, p1, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
-
-    if-eqz v1, :cond_4
-
-    iget-object v1, p1, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-gtz v1, :cond_1
+    if-lez v1, :cond_42
 
-    goto :goto_0
-
-    .line 49
-    :cond_1
-    iget-object p1, p1, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
-
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object p1
-
-    :cond_2
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    .line 99
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    add-int/lit8 v1, v1, -0x1
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    move v2, v1
+
+    :goto_22
+    if-ltz v2, :cond_42
+
+    .line 100
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;
+    check-cast v1, Ljava/lang/Long;
 
-    .line 50
-    iget-wide v3, v1, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;->start:J
+    invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
 
-    cmp-long v5, p2, v3
+    move-result-wide v4
 
-    if-ltz v5, :cond_2
+    cmp-long v1, p1, v4
 
-    iget-wide v3, v1, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;->end:J
+    if-ltz v1, :cond_3e
 
-    cmp-long v1, p2, v3
+    .line 101
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    if-gez v1, :cond_2
+    move-result-object v0
 
-    const/4 p1, 0x1
+    check-cast v0, Ljava/lang/Long;
 
-    .line 52
-    monitor-exit v0
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
-    return p1
+    move-result-wide v0
 
-    .line 55
-    :cond_3
-    monitor-exit v0
+    monitor-exit v3
 
-    return v2
+    .line 105
+    :goto_3d
+    return-wide v0
 
-    .line 47
-    :cond_4
-    :goto_0
-    monitor-exit v0
+    .line 99
+    :cond_3e
+    add-int/lit8 v1, v2, -0x1
 
-    return v2
+    move v2, v1
 
-    :catchall_0
-    move-exception p1
+    goto :goto_22
 
-    .line 56
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .line 105
+    :cond_42
+    const-wide/16 v0, 0x0
 
-    throw p1
+    monitor-exit v3
+
+    goto :goto_3d
+
+    .line 106
+    :catchall_46
+    move-exception v0
+
+    monitor-exit v3
+    :try_end_48
+    .catchall {:try_start_3 .. :try_end_48} :catchall_46
+
+    throw v0
+.end method
+
+.method public illegal(JJ)Z
+    .locals 7
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 31
+    iget-object v2, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/LongSparseArray;
+
+    monitor-enter v2
+
+    .line 32
+    :try_start_4
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/LongSparseArray;
+
+    invoke-virtual {v0}, Landroid/util/LongSparseArray;->size()I
+
+    move-result v0
+
+    if-gtz v0, :cond_f
+
+    .line 33
+    monitor-exit v2
+
+    move v0, v1
+
+    .line 44
+    :goto_e
+    return v0
+
+    .line 35
+    :cond_f
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mExistDanmakuRecommend:Landroid/util/LongSparseArray;
+
+    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;
+
+    .line 36
+    if-eqz v0, :cond_4c
+
+    iget-object v3, v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
+
+    if-eqz v3, :cond_4c
+
+    iget-object v3, v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    if-lez v3, :cond_4c
+
+    .line 37
+    iget-object v0, v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuRecommend;->datas:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :cond_2b
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_49
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;
+
+    .line 38
+    iget-wide v4, v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;->start:J
+
+    cmp-long v4, p3, v4
+
+    if-ltz v4, :cond_2b
+
+    iget-wide v4, v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager$DanmakuTimeDuration;->end:J
+
+    cmp-long v0, p3, v4
+
+    if-gez v0, :cond_2b
+
+    .line 39
+    const/4 v0, 0x1
+
+    monitor-exit v2
+
+    goto :goto_e
+
+    .line 45
+    :catchall_46
+    move-exception v0
+
+    monitor-exit v2
+    :try_end_48
+    .catchall {:try_start_4 .. :try_end_48} :catchall_46
+
+    throw v0
+
+    .line 42
+    :cond_49
+    :try_start_49
+    monitor-exit v2
+
+    move v0, v1
+
+    goto :goto_e
+
+    .line 44
+    :cond_4c
+    monitor-exit v2
+    :try_end_4d
+    .catchall {:try_start_49 .. :try_end_4d} :catchall_46
+
+    move v0, v1
+
+    goto :goto_e
 .end method
 
 .method public initPages(IIJ)V
-    .locals 4
+    .locals 7
 
-    .line 89
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/SparseArray;
+    .prologue
+    .line 84
+    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/LongSparseArray;
 
-    monitor-enter v0
+    monitor-enter v1
 
-    .line 90
-    :try_start_0
-    iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/SparseArray;
-
-    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/util/List;
-
-    if-nez v1, :cond_0
-
-    .line 92
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    .line 93
-    iget-object v2, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/SparseArray;
-
-    invoke-virtual {v2, p1, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    const/4 p1, 0x0
-
-    :goto_0
-    if-ge p1, p2, :cond_0
+    .line 85
+    :try_start_3
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/LongSparseArray;
 
     int-to-long v2, p1
 
-    mul-long v2, v2, p3
+    invoke-virtual {v0, v2, v3}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
 
-    .line 95
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    move-result-object v0
 
-    move-result-object v2
+    if-nez v0, :cond_26
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    .line 86
+    new-instance v2, Ljava/util/ArrayList;
 
-    add-int/lit8 p1, p1, 0x1
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    goto :goto_0
+    .line 87
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->mDanmakuPages:Landroid/util/LongSparseArray;
 
-    .line 98
-    :cond_0
-    monitor-exit v0
+    int-to-long v4, p1
 
+    invoke-virtual {v0, v4, v5, v2}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
+
+    .line 88
+    const/4 v0, 0x0
+
+    :goto_18
+    if-ge v0, p2, :cond_26
+
+    .line 89
+    int-to-long v4, v0
+
+    mul-long/2addr v4, p3
+
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 88
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_18
+
+    .line 92
+    :cond_26
+    monitor-exit v1
+
+    .line 93
     return-void
 
-    :catchall_0
-    move-exception p1
+    .line 92
+    :catchall_28
+    move-exception v0
 
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    monitor-exit v1
+    :try_end_2a
+    .catchall {:try_start_3 .. :try_end_2a} :catchall_28
 
-    throw p1
+    throw v0
 .end method
 
-.method public release(I)V
-    .locals 0
+.method public release(J)V
+    .locals 1
 
-    .line 141
-    invoke-virtual {p0, p1}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->clear(I)V
+    .prologue
+    .line 132
+    invoke-virtual {p0, p1, p2}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->clear(J)V
 
-    .line 142
+    .line 133
     invoke-virtual {p0}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuDurationManager;->clearRunnable()V
 
+    .line 134
     return-void
 .end method

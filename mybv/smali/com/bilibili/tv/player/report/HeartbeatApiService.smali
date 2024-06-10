@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/bilibili/tv/player/report/HeartbeatApiService;
 .super Ljava/lang/Object;
-.source "BL"
+.source "HeartbeatApiService.java"
 
 
 # annotations
@@ -26,7 +26,8 @@
             "(",
             "Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;",
             ")",
-            "Lbl/vp<",
+            "Lbl/vp",
+            "<",
             "Ljava/lang/Void;",
             ">;"
         }

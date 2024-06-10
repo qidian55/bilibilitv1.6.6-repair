@@ -1,418 +1,442 @@
 .class public final Lbl/zn;
 .super Ljava/lang/Object;
-.source "BL"
+.source "zn.java"
 
 
 # direct methods
-.method public static final a(ZLandroid/content/Context;Lbl/zo;Lcom/bilibili/tv/player/basic/context/PlayerParams;Lbl/yh;IIZ)V
-    .locals 34
+.method public constructor <init>()V
+    .locals 0
 
-    move-object/from16 v1, p2
-
-    move-object/from16 v2, p3
-
-    move-object/from16 v3, p4
-
-    const-string v4, "reportV2Context"
-
-    invoke-static {v1, v4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v4, "playerParamsHolder"
-
-    invoke-static {v3, v4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 20
-    invoke-virtual/range {p2 .. p2}, Lbl/zo;->a()J
-
-    move-result-wide v4
-
-    const-wide/16 v6, 0x0
-
-    cmp-long v8, v4, v6
-
-    if-nez v8, :cond_0
+    .prologue
+    .line 13
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
+.end method
 
-    :cond_0
-    if-eqz v2, :cond_a
+.method public static final a(ZLandroid/content/Context;Lbl/zo;Lcom/bilibili/tv/player/basic/context/PlayerParams;Lbl/yh;IIZ)V
+    .locals 33
 
-    if-eqz p1, :cond_a
+    .prologue
+    .line 15
+    const-string v2, "reportV2Context"
 
-    .line 26
+    move-object/from16 v0, p2
+
+    invoke-static {v0, v2}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 16
+    const-string v2, "playerParamsHolder"
+
+    move-object/from16 v0, p4
+
+    invoke-static {v0, v2}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 17
+    invoke-virtual/range {p2 .. p2}, Lbl/zo;->a()J
+
+    move-result-wide v2
+
+    const-wide/16 v4, 0x0
+
+    cmp-long v2, v2, v4
+
+    if-eqz v2, :cond_1c
+
+    if-eqz p3, :cond_1c
+
+    if-nez p1, :cond_1d
+
+    .line 47
+    :cond_1c
+    :goto_1c
+    return-void
+
+    .line 20
+    :cond_1d
     invoke-static {}, Lbl/kn;->a()Lbl/kn;
 
-    move-result-object v5
+    move-result-object v2
 
-    const-string v6, "ConnectivityMonitor.getInstance()"
+    .line 21
+    const-string v3, "ConnectivityMonitor.getInstance()"
 
-    invoke-static {v5, v6}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-virtual {v5}, Lbl/kn;->c()Z
+    .line 22
+    invoke-virtual {v2}, Lbl/kn;->c()Z
 
-    move-result v5
+    move-result v2
 
-    if-nez v5, :cond_1
+    if-eqz v2, :cond_1c
 
-    goto/16 :goto_9
-
-    .line 29
-    :cond_1
+    .line 23
     invoke-static/range {p1 .. p1}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v4}, Lbl/mg;->d()J
+    invoke-virtual {v2}, Lbl/mg;->d()J
 
-    move-result-wide v9
+    move-result-wide v7
 
-    .line 30
-    iget-object v4, v2, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
+    .line 24
+    move-object/from16 v0, p3
 
-    invoke-virtual {v4}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
-
-    move-result-object v4
-
-    iget v11, v4, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
-
-    .line 31
-    iget-object v4, v2, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
-
-    invoke-virtual {v4}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
-
-    move-result-object v4
-
-    iget v12, v4, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
-
-    .line 32
-    iget-object v4, v2, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
-
-    invoke-virtual {v4}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
-
-    move-result-object v4
-
-    iget-object v13, v4, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mSeasonId:Ljava/lang/String;
-
-    .line 33
-    iget-object v4, v2, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
-
-    invoke-virtual {v4}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
-
-    move-result-object v4
-
-    iget-wide v14, v4, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mEpisodeId:J
-
-    if-nez v13, :cond_2
-
-    const-string v4, "3"
-
-    :goto_0
-    move-object/from16 v16, v4
-
-    goto :goto_1
-
-    :cond_2
-    const-string v4, "4"
-
-    goto :goto_0
-
-    .line 35
-    :goto_1
-    iget-object v4, v2, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
-
-    if-eqz v4, :cond_3
-
-    invoke-virtual {v4}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
-
-    move-result-object v4
-
-    goto :goto_2
-
-    :cond_3
-    const/4 v4, 0x0
-
-    .line 36
-    :goto_2
-    invoke-static {v2, v4, v3}, Lbl/zn;->a(Lcom/bilibili/tv/player/basic/context/PlayerParams;Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;Lbl/yh;)[I
-
-    move-result-object v3
-
-    const/4 v4, 0x1
-
-    .line 37
-    aget v17, v3, v4
-
-    .line 39
-    iget-object v3, v2, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
-
-    iget-object v3, v3, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mResolveParams:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
-
-    const-string v5, "playerParams.mVideoParams.mResolveParams"
-
-    invoke-static {v3, v5}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {v3}, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->getQualityInt()I
-
-    move-result v18
-
-    move/from16 v3, p5
-
-    int-to-long v5, v3
-
-    const-wide/16 v7, 0x3e8
-
-    .line 41
-    div-long v25, v5, v7
-
-    if-eqz v13, :cond_4
-
-    const-string v3, "2"
-
-    :goto_3
-    move-object/from16 v27, v3
-
-    goto :goto_4
-
-    :cond_4
-    const-string v3, "1"
-
-    goto :goto_3
-
-    :goto_4
-    const-string v3, "downloaded"
-
-    .line 45
-    iget-object v2, v2, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
+    iget-object v2, v0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     invoke-virtual {v2}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mFrom:Ljava/lang/String;
+    iget v9, v2, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
 
-    invoke-static {v3, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
+    .line 25
+    move-object/from16 v0, p3
+
+    iget-object v2, v0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
+
+    invoke-virtual {v2}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+
+    move-result-object v2
+
+    iget-wide v10, v2, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
+
+    .line 26
+    move-object/from16 v0, p3
+
+    iget-object v2, v0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
+
+    invoke-virtual {v2}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+
+    move-result-object v2
+
+    iget-object v12, v2, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mSeasonId:Ljava/lang/String;
+
+    .line 27
+    move-object/from16 v0, p3
+
+    iget-object v2, v0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
+
+    invoke-virtual {v2}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+
+    move-result-object v2
+
+    iget-wide v13, v2, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mEpisodeId:J
+
+    .line 28
+    if-nez v12, :cond_eb
+
+    const-string v15, "3"
+
+    .line 29
+    :goto_60
+    move-object/from16 v0, p3
+
+    iget-object v2, v0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
+
+    .line 30
+    if-eqz v2, :cond_ef
+
+    invoke-virtual {v2}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+
+    move-result-object v2
+
+    :goto_6a
+    move-object/from16 v0, p3
+
+    move-object/from16 v1, p4
+
+    invoke-static {v0, v2, v1}, Lbl/zn;->a(Lcom/bilibili/tv/player/basic/context/PlayerParams;Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;Lbl/yh;)[I
+
+    move-result-object v2
+
+    const/4 v3, 0x1
+
+    aget v16, v2, v3
+
+    .line 31
+    move-object/from16 v0, p3
+
+    iget-object v2, v0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
+
+    iget-object v2, v2, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mResolveParams:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+
+    .line 32
+    const-string v3, "playerParams.mVideoParams.mResolveParams"
+
+    invoke-static {v2, v3}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 33
+    invoke-virtual {v2}, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->getQualityInt()I
+
+    move-result v17
+
+    .line 34
+    move/from16 v0, p5
+
+    div-int/lit16 v2, v0, 0x3e8
+
+    int-to-long v0, v2
+
+    move-wide/from16 v24, v0
+
+    .line 35
+    if-eqz v12, :cond_f2
+
+    const-string v26, "2"
+
+    .line 36
+    :goto_8f
+    const-string v2, "downloaded"
+
+    move-object/from16 v0, p3
+
+    iget-object v3, v0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
+
+    invoke-virtual {v3}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+
+    move-result-object v3
+
+    iget-object v3, v3, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mFrom:Ljava/lang/String;
+
+    invoke-static {v2, v3}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_f5
 
-    const/4 v2, 0x2
+    const/16 v27, 0x2
 
-    const/16 v28, 0x2
+    .line 37
+    :goto_a3
+    move/from16 v0, p6
 
-    goto :goto_5
+    div-int/lit16 v2, v0, 0x3e8
 
-    :cond_5
-    const/16 v28, 0x1
+    move-object/from16 v0, p2
 
-    :goto_5
-    move/from16 v2, p6
+    invoke-virtual {v0, v2}, Lbl/zo;->a(I)V
 
-    .line 51
-    div-int/lit16 v2, v2, 0x3e8
+    .line 38
+    if-nez p0, :cond_b3
 
-    invoke-virtual {v1, v2}, Lbl/zo;->a(I)V
+    .line 39
+    if-eqz p7, :cond_f8
 
-    if-nez p0, :cond_7
-
-    if-eqz p7, :cond_6
-
-    .line 54
+    .line 40
     invoke-virtual/range {p2 .. p2}, Lbl/zo;->h()V
 
-    goto :goto_6
+    .line 45
+    :cond_b3
+    :goto_b3
+    const-class v2, Lcom/bilibili/tv/player/report/HeartbeatApiService;
 
-    .line 56
-    :cond_6
-    invoke-virtual/range {p2 .. p2}, Lbl/zo;->i()V
+    invoke-static {v2}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
 
-    :cond_7
-    :goto_6
-    const-string v31, "1"
+    move-result-object v2
 
-    .line 61
-    new-instance v2, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;
+    check-cast v2, Lcom/bilibili/tv/player/report/HeartbeatApiService;
+
+    new-instance v3, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;
 
     invoke-virtual/range {p2 .. p2}, Lbl/zo;->a()J
 
-    move-result-wide v6
+    move-result-wide v4
 
-    .line 62
     invoke-virtual/range {p2 .. p2}, Lbl/zo;->b()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v6
 
-    .line 65
     invoke-virtual/range {p2 .. p2}, Lbl/zo;->c()J
 
-    move-result-wide v19
+    move-result-wide v18
 
-    .line 66
     invoke-virtual/range {p2 .. p2}, Lbl/zo;->d()J
 
-    move-result-wide v21
+    move-result-wide v20
 
-    .line 67
     invoke-virtual/range {p2 .. p2}, Lbl/zo;->e()J
 
-    move-result-wide v23
+    move-result-wide v22
 
-    const/4 v3, 0x0
+    if-eqz p0, :cond_fc
 
-    if-eqz p0, :cond_8
+    const/16 v28, 0x0
+
+    :goto_d5
+    if-eqz p0, :cond_101
 
     const/16 v29, 0x0
 
-    goto :goto_7
+    :goto_d9
+    const-string v30, "1"
 
-    .line 69
-    :cond_8
-    invoke-virtual/range {p2 .. p2}, Lbl/zo;->f()I
+    const/16 v31, 0x0
 
-    move-result v4
-
-    move/from16 v29, v4
-
-    :goto_7
-    if-eqz p0, :cond_9
-
-    const/16 v30, 0x0
-
-    goto :goto_8
-
-    .line 70
-    :cond_9
-    invoke-virtual/range {p2 .. p2}, Lbl/zo;->f()I
-
-    move-result v0
-
-    move/from16 v30, v0
-
-    :goto_8
     const/16 v32, 0x0
 
-    const/16 v33, 0x0
+    invoke-direct/range {v3 .. v32}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;-><init>(JLjava/lang/String;JIJLjava/lang/String;JLjava/lang/String;IIJJJJLjava/lang/String;IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    move-object v5, v2
+    invoke-interface {v2, v3}, Lcom/bilibili/tv/player/report/HeartbeatApiService;->a(Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;)Lbl/vp;
 
-    .line 61
-    invoke-direct/range {v5 .. v33}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;-><init>(JLjava/lang/String;JIILjava/lang/String;JLjava/lang/String;IIJJJJLjava/lang/String;IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v2
 
-    .line 72
-    const-class v0, Lcom/bilibili/tv/player/report/HeartbeatApiService;
+    invoke-virtual {v2}, Lbl/vp;->a()V
 
-    invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
+    goto/16 :goto_1c
 
-    move-result-object v0
+    .line 28
+    :cond_eb
+    const-string v15, "4"
 
-    check-cast v0, Lcom/bilibili/tv/player/report/HeartbeatApiService;
+    goto/16 :goto_60
 
-    .line 73
-    invoke-interface {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService;->a(Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;)Lbl/vp;
+    .line 30
+    :cond_ef
+    const/4 v2, 0x0
 
-    move-result-object v0
+    goto/16 :goto_6a
 
-    .line 74
-    invoke-virtual {v0}, Lbl/vp;->a()V
+    .line 35
+    :cond_f2
+    const-string v26, "1"
 
-    return-void
+    goto :goto_8f
 
-    :cond_a
-    :goto_9
-    return-void
+    .line 36
+    :cond_f5
+    const/16 v27, 0x1
+
+    goto :goto_a3
+
+    .line 42
+    :cond_f8
+    invoke-virtual/range {p2 .. p2}, Lbl/zo;->i()V
+
+    goto :goto_b3
+
+    .line 45
+    :cond_fc
+    invoke-virtual/range {p2 .. p2}, Lbl/zo;->f()I
+
+    move-result v28
+
+    goto :goto_d5
+
+    :cond_101
+    invoke-virtual/range {p2 .. p2}, Lbl/zo;->f()I
+
+    move-result v29
+
+    goto :goto_d9
 .end method
 
 .method public static final a(Lcom/bilibili/tv/player/basic/context/PlayerParams;Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;Lbl/yh;)[I
-    .locals 5
+    .locals 7
 
-    .line 80
-    invoke-static {p0}, Lbl/yr;->b(Lcom/bilibili/tv/player/basic/context/PlayerParams;)I
+    .prologue
+    const/4 v1, 0x0
 
-    move-result p0
+    const/4 v4, 0x2
 
-    const/4 v0, 0x2
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x4
+    const/4 v5, 0x1
 
     const/4 v3, 0x0
 
-    if-lez p0, :cond_0
+    .line 50
+    invoke-static {p0}, Lbl/yr;->b(Lcom/bilibili/tv/player/basic/context/PlayerParams;)I
 
-    goto :goto_1
+    move-result v6
 
-    :cond_0
-    const/4 p0, 0x0
+    .line 51
+    const/4 v2, 0x4
 
-    if-eqz p1, :cond_1
+    .line 52
+    if-gtz v6, :cond_3b
 
-    .line 83
-    iget-object v4, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mSeasonId:Ljava/lang/String;
+    .line 53
+    if-eqz p1, :cond_2a
 
-    goto :goto_0
+    iget-object v0, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mSeasonId:Ljava/lang/String;
 
-    :cond_1
-    move-object v4, p0
+    :goto_f
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    :goto_0
-    check-cast v4, Ljava/lang/CharSequence;
+    move-result v0
 
-    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    if-eqz v0, :cond_38
 
-    move-result v4
+    .line 54
+    const-string v0, "movie"
 
-    if-nez v4, :cond_2
+    if-eqz p1, :cond_1b
 
-    const/4 p0, 0x1
+    iget-object v1, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mFrom:Ljava/lang/String;
 
-    goto :goto_1
+    :cond_1b
+    invoke-static {v0, v1, v5}, Lbl/bcl;->a(Ljava/lang/String;Ljava/lang/String;Z)Z
 
-    :cond_2
-    const-string v4, "movie"
+    move-result v0
 
-    if-eqz p1, :cond_3
+    if-eqz v0, :cond_2c
 
-    .line 86
-    iget-object p0, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mFrom:Ljava/lang/String;
+    move v0, v2
 
-    :cond_3
-    invoke-static {v4, p0, v1}, Lbl/bcl;->a(Ljava/lang/String;Ljava/lang/String;Z)Z
+    move v1, v4
 
-    move-result p0
+    .line 67
+    :goto_23
+    new-array v2, v4, [I
 
-    if-eqz p0, :cond_4
+    aput v0, v2, v3
 
-    const/4 p0, 0x2
+    aput v1, v2, v5
 
-    goto :goto_1
+    return-object v2
 
-    :cond_4
-    if-eqz p2, :cond_5
+    :cond_2a
+    move-object v0, v1
 
-    .line 89
-    iget-boolean p0, p2, Lbl/yh;->b:Z
+    .line 53
+    goto :goto_f
 
-    if-eqz p0, :cond_5
+    .line 56
+    :cond_2c
+    if-eqz p2, :cond_32
 
-    const/4 p0, 0x0
+    iget-boolean v0, p2, Lbl/yh;->b:Z
 
-    const/4 v2, 0x0
+    if-nez v0, :cond_35
 
-    goto :goto_1
+    .line 57
+    :cond_32
+    const/4 v0, 0x3
 
-    :cond_5
-    const/4 v2, 0x3
+    move v1, v3
 
-    const/4 p0, 0x0
+    .line 58
+    goto :goto_23
 
-    .line 96
-    :goto_1
-    new-array p1, v0, [I
+    :cond_35
+    move v0, v3
 
-    aput v2, p1, v3
+    move v1, v3
 
-    aput p0, p1, v1
+    .line 61
+    goto :goto_23
 
-    return-object p1
+    :cond_38
+    move v0, v2
+
+    move v1, v5
+
+    .line 64
+    goto :goto_23
+
+    :cond_3b
+    move v0, v2
+
+    move v1, v6
+
+    goto :goto_23
 .end method

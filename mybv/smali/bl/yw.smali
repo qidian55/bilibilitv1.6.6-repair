@@ -1,6 +1,6 @@
 .class public final Lbl/yw;
 .super Ljava/lang/Object;
-.source "BL"
+.source "yw.java"
 
 
 # instance fields
@@ -17,19 +17,21 @@
         .end annotation
     .end param
 
-    .line 24
+    .prologue
+    .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 25
+    .line 14
     new-instance v0, Lbl/yv;
 
     invoke-direct {v0}, Lbl/yv;-><init>()V
 
     iput-object v0, p0, Lbl/yw;->b:Lbl/yv;
 
-    .line 26
+    .line 17
     iput-object p1, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
+    .line 18
     return-void
 .end method
 
@@ -43,102 +45,105 @@
         }
     .end annotation
 
-    .line 35
+    .prologue
+    .line 21
     iget-object v0, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->obtainMediaResourceParams()Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
 
     move-result-object v0
 
-    .line 36
     iget-object v1, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
     invoke-virtual {v1}, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->obtainResourceExtra()Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;
 
     move-result-object v1
 
-    .line 37
     invoke-virtual {p0, p1, v0, v1}, Lbl/yw;->a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;)V
 
+    .line 22
     return-void
 .end method
 
 .method public a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;)V
-    .locals 1
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/bilibili/lib/media/resolver/exception/ResolveException;
         }
     .end annotation
 
-    .line 43
+    .prologue
+    .line 26
     :try_start_0
     iget-object v0, p0, Lbl/yw;->b:Lbl/yv;
 
     invoke-virtual {v0, p1, p2, p3}, Lbl/yv;->a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;)V
 
-    .line 44
-    iget-object p1, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+    .line 27
+    iget-object v0, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_35
 
-    .line 45
-    iget-object p1, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+    .line 28
+    iget-object v0, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
-    invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c()I
+    invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c()J
 
-    move-result v0
+    move-result-wide v2
 
-    iput v0, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:I
+    iput-wide v2, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
-    .line 46
-    iget-object p1, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+    .line 29
+    iget-object v0, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
     invoke-virtual {p3}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->b()I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
+    iput v1, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
 
-    .line 47
-    iget-object p1, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+    .line 30
+    iget-object v0, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
     invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->b()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    iput-object p2, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mFrom:Ljava/lang/String;
+    iput-object v1, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mFrom:Ljava/lang/String;
 
-    .line 48
-    iget-object p1, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
-
-    invoke-virtual {p3}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->c()Ljava/lang/String;
-
-    move-result-object p2
-
-    iput-object p2, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mRawVid:Ljava/lang/String;
-
-    .line 49
-    iget-object p1, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+    .line 31
+    iget-object v0, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
     invoke-virtual {p3}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->c()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-static {p2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    iput-object v1, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mRawVid:Ljava/lang/String;
 
-    move-result-object p2
+    .line 32
+    iget-object v0, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
-    iput-object p2, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mVid:Ljava/lang/String;
-    :try_end_0
-    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {p3}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->c()Ljava/lang/String;
 
-    :cond_0
+    move-result-object v1
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mVid:Ljava/lang/String;
+    :try_end_35
+    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_0 .. :try_end_35} :catch_36
+
+    .line 37
+    :cond_35
     return-void
 
-    :catch_0
-    move-exception p1
+    .line 34
+    :catch_36
+    move-exception v0
 
-    .line 52
-    throw p1
+    .line 35
+    throw v0
 .end method

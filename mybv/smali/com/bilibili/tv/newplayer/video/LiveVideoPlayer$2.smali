@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 4
 
     .prologue
     .line 82
@@ -45,7 +45,7 @@
 
     iget-object v0, v0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->F:Ltv/danmaku/videoplayer/core/danmaku/IDanmakuPlayer;
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_25
 
     iget-object v0, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer$2;->this$0:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
 
@@ -55,7 +55,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_25
 
     iget-object v0, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer$2;->this$0:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
 
@@ -65,32 +65,36 @@
 
     move-result-object v0
 
-    iget v0, v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerInfo;->mCid:I
+    iget-wide v0, v0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerInfo;->mCid:J
 
-    iget-object v1, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer$2;->this$0:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
+    iget-object v2, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer$2;->this$0:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
 
     # getter for: Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->af:I
-    invoke-static {v1}, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->access$000(Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;)I
+    invoke-static {v2}, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->access$000(Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;)I
 
-    move-result v1
+    move-result v2
 
-    if-ne v0, v1, :cond_28
+    int-to-long v2, v2
+
+    cmp-long v0, v0, v2
+
+    if-nez v0, :cond_2b
 
     .line 83
-    :cond_22
+    :cond_25
     iget-object v0, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer$2;->this$0:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->G()V
 
     .line 87
-    :goto_27
+    :goto_2a
     return-void
 
     .line 85
-    :cond_28
+    :cond_2b
     iget-object v0, p0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer$2;->this$0:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->l()V
 
-    goto :goto_27
+    goto :goto_2a
 .end method

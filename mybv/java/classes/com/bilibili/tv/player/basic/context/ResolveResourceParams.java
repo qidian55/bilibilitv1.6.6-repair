@@ -33,7 +33,7 @@ public class ResolveResourceParams implements Parcelable, Serializable {
     public AdParams mAdParams;
     public int mAvid;
     public boolean mCanProjectionScreen;
-    public int mCid;
+    public long mCid;
     public String mCodecMode;
     public boolean mEnablePlayUrlHttps;
     public String mEpCover;
@@ -78,7 +78,7 @@ public class ResolveResourceParams implements Parcelable, Serializable {
         this.mExtraParams = new BaseExtraParams();
     }
 
-    public ResolveResourceParams(String str, int i, String str2, String str3, String str4, boolean z, int i2, int i3, String str5, int i4, String str6) {
+    public ResolveResourceParams(String str, long i, String str2, String str3, String str4, boolean z, int i2, int i3, String str5, int i4, String str6) {
         this.mExtraParams = new BaseExtraParams();
         this.mFrom = str;
         this.mCid = i;
@@ -109,7 +109,7 @@ public class ResolveResourceParams implements Parcelable, Serializable {
         return "clip".equalsIgnoreCase(this.mFrom);
     }
 
-    public final int getLiveCid() {
+    public final long getLiveCid() {
         if (isRound()) {
             return this.mRoomId;
         }
@@ -127,7 +127,7 @@ public class ResolveResourceParams implements Parcelable, Serializable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.mFrom);
-        parcel.writeInt(this.mCid);
+        parcel.writeLong(this.mCid);
         parcel.writeString(this.mVid);
         parcel.writeString(this.mLink);
         parcel.writeString(this.mRawVid);
@@ -159,7 +159,7 @@ public class ResolveResourceParams implements Parcelable, Serializable {
     protected ResolveResourceParams(Parcel parcel) {
         this.mExtraParams = new BaseExtraParams();
         this.mFrom = parcel.readString();
-        this.mCid = parcel.readInt();
+        this.mCid = parcel.readLong();
         this.mVid = parcel.readString();
         this.mLink = parcel.readString();
         this.mRawVid = parcel.readString();

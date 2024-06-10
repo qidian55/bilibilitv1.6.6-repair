@@ -81,22 +81,22 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 158
+    .line 171
     invoke-super {p0}, Lbl/adt;->onDestroy()V
 
     move-object v0, v1
 
-    .line 159
+    .line 172
     check-cast v0, Lbl/afm2$b;
 
     iput-object v0, p0, Lbl/afm2;->b:Lbl/afm2$b;
 
-    .line 160
+    .line 173
     check-cast v1, Landroid/opengl/GLSurfaceView;
 
     iput-object v1, p0, Lbl/afm2;->a:Landroid/opengl/GLSurfaceView;
 
-    .line 161
+    .line 174
     return-void
 .end method
 
@@ -104,28 +104,28 @@
     .locals 1
 
     .prologue
-    .line 146
+    .line 159
     invoke-super {p0}, Lbl/adt;->onPause()V
 
-    .line 147
+    .line 160
     iget-object v0, p0, Lbl/afm2;->a:Landroid/opengl/GLSurfaceView;
 
     if-eqz v0, :cond_11
 
-    .line 148
+    .line 161
     iget-object v0, p0, Lbl/afm2;->a:Landroid/opengl/GLSurfaceView;
 
-    .line 149
+    .line 162
     if-nez v0, :cond_e
 
-    .line 150
+    .line 163
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 152
+    .line 165
     :cond_e
     invoke-virtual {v0}, Landroid/opengl/GLSurfaceView;->onPause()V
 
-    .line 154
+    .line 167
     :cond_11
     return-void
 .end method
@@ -134,28 +134,28 @@
     .locals 1
 
     .prologue
-    .line 134
+    .line 147
     invoke-super {p0}, Lbl/adt;->onResume()V
 
-    .line 135
+    .line 148
     iget-object v0, p0, Lbl/afm2;->a:Landroid/opengl/GLSurfaceView;
 
     if-eqz v0, :cond_11
 
-    .line 136
+    .line 149
     iget-object v0, p0, Lbl/afm2;->a:Landroid/opengl/GLSurfaceView;
 
-    .line 137
+    .line 150
     if-nez v0, :cond_e
 
-    .line 138
+    .line 151
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 140
+    .line 153
     :cond_e
     invoke-virtual {v0}, Landroid/opengl/GLSurfaceView;->onResume()V
 
-    .line 142
+    .line 155
     :cond_11
     return-void
 .end method
@@ -314,7 +314,7 @@
 .end method
 
 .method public final renderInfo()V
-    .locals 7
+    .locals 11
 
     .prologue
     .line 80
@@ -328,7 +328,7 @@
 
     if-nez v0, :cond_b
 
-    .line 116
+    .line 129
     :cond_a
     :goto_a
     return-void
@@ -361,177 +361,197 @@
 
     invoke-virtual {v0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
     .line 94
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "country"
+    const-string v2, "country"
 
-    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    const-string v3, " "
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    const-string v2, " "
 
-    const-string v3, "province"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v3
+    const-string v2, "province"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, " "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    const-string v3, "city"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v3
+    const-string v2, " "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "city"
+
+    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
 
     .line 95
-    const-string v3, "isp"
+    const-string v1, "isp"
 
-    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v5
 
     .line 96
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 97
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
 
-    const-string v5, "connectivity"
+    const-string v1, "connectivity"
 
-    invoke-virtual {v0, v5}, Lcom/bilibili/tv/MainApplication;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lcom/bilibili/tv/MainApplication;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/net/ConnectivityManager;
 
     .line 98
-    invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
-
-    move-result-object v5
+    if-eqz v0, :cond_ba
 
     .line 99
-    if-eqz v5, :cond_af
+    invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getAllNetworks()[Landroid/net/Network;
 
-    invoke-virtual {v5}, Landroid/net/NetworkInfo;->isConnected()Z
+    move-result-object v7
 
-    move-result v5
+    array-length v8, v7
 
-    if-eqz v5, :cond_af
+    const/4 v1, 0x0
+
+    move v2, v1
+
+    :goto_77
+    if-ge v2, v8, :cond_ba
+
+    aget-object v1, v7, v2
 
     .line 100
-    invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveNetwork()Landroid/net/Network;
+    invoke-virtual {v0, v1}, Landroid/net/ConnectivityManager;->getNetworkInfo(Landroid/net/Network;)Landroid/net/NetworkInfo;
 
-    move-result-object v5
+    move-result-object v9
 
     .line 101
-    invoke-virtual {v0, v5}, Landroid/net/ConnectivityManager;->getLinkProperties(Landroid/net/Network;)Landroid/net/LinkProperties;
+    invoke-virtual {v9}, Landroid/net/NetworkInfo;->isConnected()Z
 
-    move-result-object v0
+    move-result v9
+
+    if-eqz v9, :cond_b6
 
     .line 102
-    invoke-virtual {v0}, Landroid/net/LinkProperties;->getDnsServers()Ljava/util/List;
+    invoke-virtual {v0, v1}, Landroid/net/ConnectivityManager;->getLinkProperties(Landroid/net/Network;)Landroid/net/LinkProperties;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 103
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Landroid/net/LinkProperties;->getDnsServers()Ljava/util/List;
 
-    move-result-object v5
-
-    :goto_8a
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_af
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/net/InetAddress;
+    move-result-object v1
 
     .line 104
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->length()I
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result v6
+    move-result-object v9
 
-    if-lez v6, :cond_a1
+    :goto_91
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
-    const-string v6, ","
+    move-result v1
 
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v1, :cond_b6
+
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/net/InetAddress;
 
     .line 105
-    :cond_a1
-    invoke-virtual {v0}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->length()I
 
-    move-result-object v0
+    move-result v10
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_a8
-    .catch Ljava/lang/Exception; {:try_start_18 .. :try_end_a8} :catch_a9
+    if-lez v10, :cond_a8
 
-    goto :goto_8a
+    const-string v10, ", "
 
-    .line 113
-    :catch_a9
+    invoke-virtual {v6, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 106
+    :cond_a8
+    invoke-virtual {v1}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :try_end_af
+    .catch Ljava/lang/Exception; {:try_start_18 .. :try_end_af} :catch_b0
+
+    goto :goto_91
+
+    .line 126
+    :catch_b0
     move-exception v0
 
-    .line 114
+    .line 127
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto/16 :goto_a
 
-    .line 108
-    :cond_af
-    :try_start_af
+    .line 99
+    :cond_b6
+    add-int/lit8 v1, v2, 0x1
+
+    move v2, v1
+
+    goto :goto_77
+
+    .line 121
+    :cond_ba
+    :try_start_ba
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "IP: "
+    const-string v1, "IP: "
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -539,7 +559,7 @@
 
     move-result-object v0
 
-    .line 109
+    .line 122
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -554,7 +574,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -562,7 +582,7 @@
 
     move-result-object v0
 
-    .line 110
+    .line 123
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -577,7 +597,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -585,7 +605,7 @@
 
     move-result-object v0
 
-    .line 111
+    .line 124
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -600,7 +620,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -612,12 +632,12 @@
 
     move-result-object v0
 
-    .line 112
+    .line 125
     iget-object v1, p0, Lbl/afm2;->c:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-    :try_end_110
-    .catch Ljava/lang/Exception; {:try_start_af .. :try_end_110} :catch_a9
+    :try_end_11b
+    .catch Ljava/lang/Exception; {:try_start_ba .. :try_end_11b} :catch_b0
 
     goto/16 :goto_a
 .end method

@@ -1,6 +1,6 @@
 .class Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$6;
 .super Lbl/bfs$c;
-.source "BL"
+.source "DanmakuPlayerDFM.java"
 
 
 # annotations
@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lbl/bfs$c<",
+        "Lbl/bfs$c",
+        "<",
         "Lbl/bfk;",
         ">;"
     }
@@ -25,17 +26,18 @@
 # instance fields
 .field final synthetic this$0:Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;
 
-.field final synthetic val$item:Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;
+.field final synthetic val$commentItem:Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;
 
 
 # direct methods
 .method constructor <init>(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;)V
     .locals 0
 
-    .line 928
+    .prologue
+    .line 826
     iput-object p1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$6;->this$0:Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;
 
-    iput-object p2, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$6;->val$item:Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;
+    iput-object p2, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$6;->val$commentItem:Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;
 
     invoke-direct {p0}, Lbl/bfs$c;-><init>()V
 
@@ -45,10 +47,13 @@
 
 # virtual methods
 .method public accept(Lbl/bfk;)I
-    .locals 2
+    .locals 3
 
-    .line 931
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$6;->val$item:Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;
+    .prologue
+    const/4 v2, 0x0
+
+    .line 829
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$6;->val$commentItem:Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;
 
     iget-object v0, v0, Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;->mRemoteDmId:Ljava/lang/String;
 
@@ -62,50 +67,52 @@
 
     move-result v0
 
-    const/4 v1, 0x0
+    if-nez v0, :cond_12
 
-    if-eqz v0, :cond_1
+    .line 840
+    :cond_11
+    :goto_11
+    return v2
 
+    .line 832
+    :cond_12
     const-string v0, ""
 
-    .line 932
     iput-object v0, p1, Lbl/bfk;->b:Ljava/lang/CharSequence;
 
-    .line 933
-    invoke-virtual {p1, v1}, Lbl/bfk;->a(Z)V
+    .line 833
+    invoke-virtual {p1, v2}, Lbl/bfk;->a(Z)V
 
-    .line 934
-    iput v1, p1, Lbl/bfk;->j:I
+    .line 834
+    iput v2, p1, Lbl/bfk;->j:I
 
-    .line 935
-    iput-byte v1, p1, Lbl/bfk;->n:B
+    .line 835
+    iput-byte v2, p1, Lbl/bfk;->n:B
 
-    .line 936
+    .line 836
     invoke-virtual {p1}, Lbl/bfk;->d()Lbl/bfu;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_0
+    .line 837
+    if-eqz v0, :cond_11
 
-    .line 938
-    invoke-interface {p1}, Lbl/bfu;->a()V
+    .line 838
+    invoke-interface {v0}, Lbl/bfu;->a()V
 
-    :cond_0
-    return v1
-
-    :cond_1
-    return v1
+    goto :goto_11
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)I
-    .locals 0
+    .locals 1
 
-    .line 928
+    .prologue
+    .line 826
     check-cast p1, Lbl/bfk;
 
     invoke-virtual {p0, p1}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$6;->accept(Lbl/bfk;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

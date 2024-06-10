@@ -598,11 +598,11 @@
 
     const-string v2, "cid"
 
-    invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c()I
+    invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c()J
 
-    move-result v4
+    move-result-wide v4
 
-    invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v4, v5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v4
 
@@ -1058,18 +1058,22 @@
 
     .prologue
     .line 45
-    if-eqz p2, :cond_a
+    if-eqz p2, :cond_e
 
-    invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c()I
+    invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c()J
 
-    move-result v0
+    move-result-wide v0
 
-    if-lez v0, :cond_a
+    const-wide/16 v2, 0x0
 
-    if-nez p3, :cond_13
+    cmp-long v0, v0, v2
+
+    if-lez v0, :cond_e
+
+    if-nez p3, :cond_17
 
     .line 46
-    :cond_a
+    :cond_e
     new-instance v0, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
 
     const-string v1, "invalid resolve params"
@@ -1081,7 +1085,7 @@
     throw v0
 
     .line 48
-    :cond_13
+    :cond_17
     new-instance v0, Lbl/qx;
 
     invoke-virtual {p3}, Lbl/ps;->b()Ljava/lang/String;
@@ -1092,11 +1096,11 @@
 
     move-result-object v2
 
-    invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c()I
+    invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c()J
 
-    move-result v3
+    move-result-wide v4
 
-    invoke-direct {v0, v1, v2, v3}, Lbl/qx;-><init>(Ljava/lang/String;Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2, v4, v5}, Lbl/qx;-><init>(Ljava/lang/String;Ljava/lang/String;J)V
 
     iput-object v0, p0, Lbl/qh;->b:Lbl/qx;
 
