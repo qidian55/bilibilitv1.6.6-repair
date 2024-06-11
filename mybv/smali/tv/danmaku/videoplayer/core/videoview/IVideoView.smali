@@ -1,16 +1,16 @@
 .class public interface abstract Ltv/danmaku/videoplayer/core/videoview/IVideoView;
 .super Ljava/lang/Object;
-.source "BL"
+.source "IVideoView.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnExtraInfoListener;,
+        Ltv/danmaku/videoplayer/core/videoview/IVideoView$STATE;,
         Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnVideoSizeChangedListener;,
         Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnVideoDefnChangedListener;,
         Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnPreparedStepListener;,
-        Ltv/danmaku/videoplayer/core/videoview/IVideoView$STATE;
+        Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnExtraInfoListener;
     }
 .end annotation
 
@@ -144,6 +144,9 @@
 .method public abstract setPlayParams(Ltv/danmaku/videoplayer/core/videoview/IVideoParams;)V
 .end method
 
+.method public abstract setSpeed(F)V
+.end method
+
 .method public abstract setVideoPath(Ljava/lang/String;)V
 .end method
 
@@ -163,8 +166,4 @@
 .end method
 
 .method public abstract switchQualityDefinition(Ljava/lang/String;)V
-.end method
-
-
-.method public abstract setSpeed(F)V
 .end method

@@ -1,6 +1,6 @@
 .class Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$3;
 .super Landroid/content/BroadcastReceiver;
-.source "BL"
+.source "MediaPlayerContext.java"
 
 
 # annotations
@@ -22,7 +22,8 @@
 .method constructor <init>(Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;)V
     .locals 0
 
-    .line 94
+    .prologue
+    .line 79
     iput-object p1, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$3;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,47 +34,54 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 0
+    .locals 2
 
-    const-string p1, "android.media.AUDIO_BECOMING_NOISY"
+    .prologue
+    .line 82
+    const-string v0, "android.media.AUDIO_BECOMING_NOISY"
 
-    .line 97
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_20
 
-    .line 98
-    iget-object p1, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$3;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$3;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
 
-    invoke-static {p1}, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->access$000(Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;)Ltv/danmaku/videoplayer/core/videoview/IVideoView;
+    # getter for: Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->mVideoView:Ltv/danmaku/videoplayer/core/videoview/IVideoView;
+    invoke-static {v0}, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->access$000(Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;)Ltv/danmaku/videoplayer/core/videoview/IVideoView;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_20
 
-    iget-object p1, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$3;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$3;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
 
-    invoke-static {p1}, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->access$000(Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;)Ltv/danmaku/videoplayer/core/videoview/IVideoView;
+    # getter for: Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->mVideoView:Ltv/danmaku/videoplayer/core/videoview/IVideoView;
+    invoke-static {v0}, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->access$000(Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;)Ltv/danmaku/videoplayer/core/videoview/IVideoView;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Ltv/danmaku/videoplayer/core/videoview/IVideoView;->isPaused()Z
+    invoke-interface {v0}, Ltv/danmaku/videoplayer/core/videoview/IVideoView;->isPaused()Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_0
+    if-eqz v0, :cond_21
 
-    .line 99
-    iget-object p1, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$3;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
-
-    invoke-static {p1}, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->access$200(Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;)V
-
-    :cond_0
+    .line 86
+    :cond_20
+    :goto_20
     return-void
+
+    .line 85
+    :cond_21
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$3;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
+
+    invoke-virtual {v0}, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->pauseWithNotifyListener()V
+
+    goto :goto_20
 .end method

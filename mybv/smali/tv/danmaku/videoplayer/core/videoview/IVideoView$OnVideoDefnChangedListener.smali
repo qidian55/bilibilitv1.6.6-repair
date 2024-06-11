@@ -1,6 +1,6 @@
 .class public interface abstract Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnVideoDefnChangedListener;
 .super Ljava/lang/Object;
-.source "BL"
+.source "IVideoView.java"
 
 
 # annotations
@@ -19,7 +19,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ">;)V"

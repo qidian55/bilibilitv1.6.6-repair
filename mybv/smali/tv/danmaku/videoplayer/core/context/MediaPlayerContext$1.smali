@@ -1,6 +1,6 @@
 .class Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "MediaPlayerContext.java"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -25,7 +25,8 @@
 .method constructor <init>(Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;)V
     .locals 0
 
-    .line 76
+    .prologue
+    .line 61
     iput-object p1, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,38 +39,48 @@
 .method public run()V
     .locals 2
 
-    .line 79
+    .prologue
+    .line 64
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
 
+    # getter for: Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->mVideoView:Ltv/danmaku/videoplayer/core/videoview/IVideoView;
     invoke-static {v0}, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->access$000(Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;)Ltv/danmaku/videoplayer/core/videoview/IVideoView;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
 
+    # getter for: Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->mUrl:Ljava/lang/String;
     invoke-static {v0}, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->access$100(Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_11
 
-    .line 80
+    .line 68
+    :cond_10
+    :goto_10
+    return-void
+
+    .line 67
+    :cond_11
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
 
+    # getter for: Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->mVideoView:Ltv/danmaku/videoplayer/core/videoview/IVideoView;
     invoke-static {v0}, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->access$000(Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;)Ltv/danmaku/videoplayer/core/videoview/IVideoView;
 
     move-result-object v0
 
     iget-object v1, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
 
+    # getter for: Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->mUrl:Ljava/lang/String;
     invoke-static {v1}, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->access$100(Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-interface {v0, v1}, Ltv/danmaku/videoplayer/core/videoview/IVideoView;->setVideoPath(Ljava/lang/String;)V
 
-    :cond_0
-    return-void
+    goto :goto_10
 .end method

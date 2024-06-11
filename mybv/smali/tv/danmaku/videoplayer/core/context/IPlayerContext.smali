@@ -302,6 +302,9 @@
 .method public abstract setPlayerConfig(Ltv/danmaku/videoplayer/core/media/resource/PlayerConfig;)V
 .end method
 
+.method public abstract setSpeed(F)V
+.end method
+
 .method public abstract setVideoViewSize(II)V
 .end method
 

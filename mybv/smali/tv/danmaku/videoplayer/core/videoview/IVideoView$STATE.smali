@@ -1,6 +1,6 @@
 .class public Ltv/danmaku/videoplayer/core/videoview/IVideoView$STATE;
 .super Ljava/lang/Object;
-.source "BL"
+.source "IVideoView.java"
 
 
 # annotations
@@ -34,7 +34,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 25
+    .prologue
+    .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

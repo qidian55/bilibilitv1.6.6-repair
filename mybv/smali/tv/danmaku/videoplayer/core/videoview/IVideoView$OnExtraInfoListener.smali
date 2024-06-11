@@ -1,6 +1,6 @@
 .class public interface abstract Ltv/danmaku/videoplayer/core/videoview/IVideoView$OnExtraInfoListener;
 .super Ljava/lang/Object;
-.source "BL"
+.source "IVideoView.java"
 
 
 # annotations

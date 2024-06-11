@@ -183,6 +183,8 @@ public interface IPlayerContext {
 
     void setPlayerConfig(PlayerConfig playerConfig);
 
+    void setSpeed(float f);
+
     void setVideoViewSize(int i, int i2);
 
     void setVolume(float f, float f2);

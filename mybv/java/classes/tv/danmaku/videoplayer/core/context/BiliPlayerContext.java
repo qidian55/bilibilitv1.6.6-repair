@@ -51,7 +51,7 @@ public class BiliPlayerContext implements IPlayerContext {
                 if (BiliPlayerContext.this.mDanmakuPlayerContext != null) {
                     BiliPlayerContext.this.mDanmakuPlayerContext.pause();
                 }
-                BiliPlayerContext.this.notifyPlayerEvent(PlayerEvents.PLAYER_EVENT_PAUSE, new Object[0]);
+                BiliPlayerContext.this.notifyPlayerEvent(234, new Object[0]);
             }
             return z;
         }
@@ -64,6 +64,13 @@ public class BiliPlayerContext implements IPlayerContext {
     @Override // tv.danmaku.videoplayer.core.context.IPlayerContext
     @Deprecated
     public void addPlayer(IVideoViewPlayerAdapter iVideoViewPlayerAdapter) {
+    }
+
+    @Override // tv.danmaku.videoplayer.core.context.IPlayerContext
+    public void setSpeed(float f) {
+        if (this.mMediaPlayerContext != null) {
+            this.mMediaPlayerContext.setSpeed(f);
+        }
     }
 
     public BiliPlayerContext() {
@@ -255,7 +262,7 @@ public class BiliPlayerContext implements IPlayerContext {
         if (this.mDanmakuPlayerContext != null) {
             this.mDanmakuPlayerContext.pause();
         }
-        notifyPlayerEvent(PlayerEvents.PLAYER_EVENT_PAUSE, new Object[0]);
+        notifyPlayerEvent(234, new Object[0]);
     }
 
     @Override // tv.danmaku.videoplayer.core.context.IPlayerContext

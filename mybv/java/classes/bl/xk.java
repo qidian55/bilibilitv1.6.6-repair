@@ -228,7 +228,8 @@ public class xk extends xh implements bbb<Message, Boolean> {
     public void b(IEventCenter.EventType eventType, Object... objArr) {
         if (eventType == IEventCenter.EventType.SWITCH_EPISODE) {
             R();
-        } else {
+        } else if (eventType != IEventCenter.EventType.SWITCH_SPEED) {
+            int i = 1;
             if (eventType == IEventCenter.EventType.DANMAKU_SIZE) {
                 if (this.c != null) {
                     this.c.setDanmakuOption(IDanmakuPlayer.DanmakuOptionName.TEXTSIZE_SCALE, (Float) objArr[0]);
@@ -255,6 +256,8 @@ public class xk extends xh implements bbb<Message, Boolean> {
             } else if (eventType == IEventCenter.EventType.SEEK && objArr.length >= 3 && this.c != null) {
                 this.c.seekDanmaku(((Long) objArr[1]).longValue(), ((Long) objArr[2]).longValue());
             }
+        } else if (this.c != null) {
+            this.c.setSpeed(((Float) objArr[0]).floatValue());
         }
         super.b(eventType, objArr);
     }
