@@ -1,6 +1,6 @@
 .class public final Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$c;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BoxListInfoActivity.java"
 
 
 # annotations
@@ -18,18 +18,22 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 55
+    .prologue
+    .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 86
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 55
+    .prologue
+    .line 89
     invoke-direct {p0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$c;-><init>()V
 
+    .line 90
     return-void
 .end method
 
@@ -38,43 +42,36 @@
 .method public final a(Landroid/content/Context;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;)V
     .locals 2
 
-    .line 63
+    .prologue
+    .line 93
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
     invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 64
-    invoke-static {}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->i()Ljava/lang/String;
-
-    move-result-object v1
-
-    check-cast p2, Ljava/io/Serializable;
+    .line 94
+    const-string v1, "mid"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
-    .line 65
-    invoke-static {}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->j()Ljava/lang/String;
+    .line 95
+    const-string v1, "box_id"
 
-    move-result-object p2
+    invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
-    check-cast p3, Ljava/io/Serializable;
+    .line 96
+    const-string v1, "box_name"
 
-    invoke-virtual {v0, p2, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
+    invoke-virtual {v0, v1, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 66
-    invoke-static {}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->k()Ljava/lang/String;
+    .line 97
+    if-eqz p1, :cond_1b
 
-    move-result-object p2
-
-    invoke-virtual {v0, p2, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    if-eqz p1, :cond_0
-
-    .line 67
+    .line 98
     invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    :cond_0
+    .line 100
+    :cond_1b
     return-void
 .end method

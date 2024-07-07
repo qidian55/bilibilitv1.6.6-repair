@@ -15,7 +15,7 @@
 .end method
 
 .method public static final a(ZLandroid/content/Context;Lbl/zo;Lcom/bilibili/tv/player/basic/context/PlayerParams;Lbl/yh;IIZ)V
-    .locals 33
+    .locals 34
 
     .prologue
     .line 15
@@ -77,7 +77,7 @@
 
     invoke-virtual {v2}, Lbl/mg;->d()J
 
-    move-result-wide v7
+    move-result-wide v6
 
     .line 24
     move-object/from16 v0, p3
@@ -88,7 +88,7 @@
 
     move-result-object v2
 
-    iget v9, v2, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
+    iget-wide v8, v2, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:J
 
     .line 25
     move-object/from16 v0, p3
@@ -124,7 +124,7 @@
     iget-wide v13, v2, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mEpisodeId:J
 
     .line 28
-    if-nez v12, :cond_eb
+    if-nez v12, :cond_ef
 
     const-string v15, "3"
 
@@ -135,7 +135,7 @@
     iget-object v2, v0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     .line 30
-    if-eqz v2, :cond_ef
+    if-eqz v2, :cond_f3
 
     invoke-virtual {v2}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
@@ -181,7 +181,7 @@
     move-wide/from16 v24, v0
 
     .line 35
-    if-eqz v12, :cond_f2
+    if-eqz v12, :cond_f6
 
     const-string v26, "2"
 
@@ -203,7 +203,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_f5
+    if-eqz v2, :cond_f9
 
     const/16 v27, 0x2
 
@@ -221,7 +221,7 @@
     if-nez p0, :cond_b3
 
     .line 39
-    if-eqz p7, :cond_f8
+    if-eqz p7, :cond_fc
 
     .line 40
     invoke-virtual/range {p2 .. p2}, Lbl/zo;->h()V
@@ -235,17 +235,19 @@
 
     move-result-object v2
 
-    check-cast v2, Lcom/bilibili/tv/player/report/HeartbeatApiService;
+    move-object/from16 v33, v2
 
-    new-instance v3, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;
+    check-cast v33, Lcom/bilibili/tv/player/report/HeartbeatApiService;
+
+    new-instance v2, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;
 
     invoke-virtual/range {p2 .. p2}, Lbl/zo;->a()J
 
-    move-result-wide v4
+    move-result-wide v3
 
     invoke-virtual/range {p2 .. p2}, Lbl/zo;->b()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
     invoke-virtual/range {p2 .. p2}, Lbl/zo;->c()J
 
@@ -259,25 +261,27 @@
 
     move-result-wide v22
 
-    if-eqz p0, :cond_fc
+    if-eqz p0, :cond_100
 
     const/16 v28, 0x0
 
-    :goto_d5
-    if-eqz p0, :cond_101
+    :goto_d7
+    if-eqz p0, :cond_105
 
     const/16 v29, 0x0
 
-    :goto_d9
+    :goto_db
     const-string v30, "1"
 
     const/16 v31, 0x0
 
     const/16 v32, 0x0
 
-    invoke-direct/range {v3 .. v32}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;-><init>(JLjava/lang/String;JIJLjava/lang/String;JLjava/lang/String;IIJJJJLjava/lang/String;IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct/range {v2 .. v32}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;-><init>(JLjava/lang/String;JJJLjava/lang/String;JLjava/lang/String;IIJJJJLjava/lang/String;IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-interface {v2, v3}, Lcom/bilibili/tv/player/report/HeartbeatApiService;->a(Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;)Lbl/vp;
+    move-object/from16 v0, v33
+
+    invoke-interface {v0, v2}, Lcom/bilibili/tv/player/report/HeartbeatApiService;->a(Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;)Lbl/vp;
 
     move-result-object v2
 
@@ -286,49 +290,49 @@
     goto/16 :goto_1c
 
     .line 28
-    :cond_eb
+    :cond_ef
     const-string v15, "4"
 
     goto/16 :goto_60
 
     .line 30
-    :cond_ef
+    :cond_f3
     const/4 v2, 0x0
 
     goto/16 :goto_6a
 
     .line 35
-    :cond_f2
+    :cond_f6
     const-string v26, "1"
 
     goto :goto_8f
 
     .line 36
-    :cond_f5
+    :cond_f9
     const/16 v27, 0x1
 
     goto :goto_a3
 
     .line 42
-    :cond_f8
+    :cond_fc
     invoke-virtual/range {p2 .. p2}, Lbl/zo;->i()V
 
     goto :goto_b3
 
     .line 45
-    :cond_fc
+    :cond_100
     invoke-virtual/range {p2 .. p2}, Lbl/zo;->f()I
 
     move-result v28
 
-    goto :goto_d5
+    goto :goto_d7
 
-    :cond_101
+    :cond_105
     invoke-virtual/range {p2 .. p2}, Lbl/zo;->f()I
 
     move-result v29
 
-    goto :goto_d9
+    goto :goto_db
 .end method
 
 .method public static final a(Lcom/bilibili/tv/player/basic/context/PlayerParams;Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;Lbl/yh;)[I

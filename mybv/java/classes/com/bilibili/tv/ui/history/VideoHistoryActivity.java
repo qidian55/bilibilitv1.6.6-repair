@@ -9,7 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.SparseArray;
+import android.util.LongSparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -331,7 +331,7 @@ public final class VideoHistoryActivity extends BaseUpViewActivity implements Vi
             List<BiliVideoDetail> list;
             super.onPostExecute(biliVideoHistorylList);
             if (biliVideoHistorylList != null && (list = biliVideoHistorylList.mList) != null && !list.isEmpty()) {
-                SparseArray sparseArray = new SparseArray();
+                LongSparseArray sparseArray = new LongSparseArray();
                 for (BiliVideoDetail biliVideoDetail : list) {
                     sparseArray.put(biliVideoDetail.mAvid, biliVideoDetail);
                 }

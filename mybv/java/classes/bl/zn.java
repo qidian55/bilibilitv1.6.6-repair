@@ -21,7 +21,7 @@ public final class zn {
         bbi.a((Object) a, "ConnectivityMonitor.getInstance()");
         if (a.c()) {
             long d = mg.a(context).d();
-            int i3 = playerParams.mVideoParams.obtainResolveParams().mAvid;
+            long i3 = playerParams.mVideoParams.obtainResolveParams().mAvid;
             long i4 = playerParams.mVideoParams.obtainResolveParams().mCid;
             String str = playerParams.mVideoParams.obtainResolveParams().mSeasonId;
             long j = playerParams.mVideoParams.obtainResolveParams().mEpisodeId;

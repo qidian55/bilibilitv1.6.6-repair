@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/BangumiMainEx;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BangumiMainEx.java"
 
 
 # annotations
@@ -22,7 +22,8 @@
 
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BangumiMainEx$Content;",
             ">;"
         }
@@ -34,6 +35,7 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
     .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

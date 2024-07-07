@@ -64,7 +64,7 @@
 .end method
 
 .method public call()Lorg/json/JSONObject;
-    .locals 3
+    .locals 4
 
     .prologue
     .line 133
@@ -90,9 +90,9 @@
 
     iget-object v2, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$2;->this$0:Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
-    iget v2, v2, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v2, v2, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v2, v3}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v2
 

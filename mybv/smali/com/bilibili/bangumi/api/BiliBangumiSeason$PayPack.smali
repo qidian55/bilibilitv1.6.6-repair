@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliBangumiSeason.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;
@@ -24,7 +24,8 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;",
             ">;"
         }
@@ -74,7 +75,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 778
+    .prologue
+    .line 678
     new-instance v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack$1;
 
     invoke-direct {v0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack$1;-><init>()V
@@ -87,71 +89,76 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 745
+    .prologue
+    .line 715
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 716
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 1
 
-    .line 769
+    .prologue
+    .line 734
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 770
+    .line 735
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->id:Ljava/lang/String;
 
-    .line 771
+    .line 736
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->title:Ljava/lang/String;
 
-    .line 772
+    .line 737
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->paidDesc:Ljava/lang/String;
 
-    .line 773
+    .line 738
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->nonPaidDesc:Ljava/lang/String;
 
-    .line 774
+    .line 739
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->payPackUrl:Ljava/lang/String;
 
-    .line 775
+    .line 740
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_2b
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_28
+    iput-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->isPackPaid:Z
 
-    :cond_0
-    const/4 p1, 0x0
-
-    :goto_0
-    iput-boolean p1, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->isPackPaid:Z
-
+    .line 741
     return-void
+
+    .line 740
+    :cond_2b
+    const/4 v0, 0x0
+
+    goto :goto_28
 .end method
 
 
@@ -159,6 +166,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 712
     const/4 v0, 0x0
 
     return v0
@@ -169,59 +178,75 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    .line 755
+    .prologue
+    .line 720
     iget-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->isPackPaid:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->paidDesc:Ljava/lang/String;
 
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->nonPaidDesc:Ljava/lang/String;
-
-    :goto_0
-    if-nez v0, :cond_1
+    .line 721
+    :goto_6
+    if-nez v0, :cond_a
 
     const-string v0, ""
 
-    :cond_1
+    :cond_a
     return-object v0
+
+    .line 720
+    :cond_b
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->nonPaidDesc:Ljava/lang/String;
+
+    goto :goto_6
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
+    .locals 1
 
-    .line 761
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->id:Ljava/lang/String;
+    .prologue
+    .line 726
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->id:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 762
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->title:Ljava/lang/String;
+    .line 727
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->title:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 763
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->paidDesc:Ljava/lang/String;
+    .line 728
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->paidDesc:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 764
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->nonPaidDesc:Ljava/lang/String;
+    .line 729
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->nonPaidDesc:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 765
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->payPackUrl:Ljava/lang/String;
+    .line 730
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->payPackUrl:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 766
-    iget-boolean p2, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->isPackPaid:Z
+    .line 731
+    iget-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;->isPackPaid:Z
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeByte(B)V
+    if-eqz v0, :cond_22
 
+    const/4 v0, 0x1
+
+    :goto_1e
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
+
+    .line 732
     return-void
+
+    .line 731
+    :cond_22
+    const/4 v0, 0x0
+
+    goto :goto_1e
 .end method

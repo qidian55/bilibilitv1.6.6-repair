@@ -1,14 +1,14 @@
 .class Lbl/yo$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "yo.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lbl/ja;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/yo;->c(Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;)V
+    value = Lbl/yo;->a(Landroid/content/Context;Lcom/bilibili/tv/api/danmaku/DanmakuSendData;ZILbl/xh;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,19 +18,24 @@
 
 
 # instance fields
-.field final synthetic a:Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;
+.field final synthetic this$0:Lbl/yo;
 
-.field final synthetic b:Lbl/yo;
+.field final synthetic val$a:Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;
+
+.field final synthetic val$context:Landroid/content/Context;
 
 
 # direct methods
-.method constructor <init>(Lbl/yo;Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;)V
+.method constructor <init>(Lbl/yo;Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;Landroid/content/Context;)V
     .locals 0
 
-    .line 242
-    iput-object p1, p0, Lbl/yo$1;->b:Lbl/yo;
+    .prologue
+    .line 72
+    iput-object p1, p0, Lbl/yo$1;->this$0:Lbl/yo;
 
-    iput-object p2, p0, Lbl/yo$1;->a:Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;
+    iput-object p2, p0, Lbl/yo$1;->val$a:Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;
+
+    iput-object p3, p0, Lbl/yo$1;->val$context:Landroid/content/Context;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,37 +44,25 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 2
+.method public a(Lbl/jb;)Ljava/lang/Object;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
 
-    .line 245
-    iget-object v0, p0, Lbl/yo$1;->b:Lbl/yo;
+    .prologue
+    .line 75
+    iget-object v0, p0, Lbl/yo$1;->this$0:Lbl/yo;
 
-    invoke-static {v0}, Lbl/yo;->a(Lbl/yo;)Z
+    iget-object v1, p0, Lbl/yo$1;->val$a:Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;
 
-    move-result v0
+    iget-object v2, p0, Lbl/yo$1;->val$context:Landroid/content/Context;
 
-    if-nez v0, :cond_0
+    invoke-virtual {v0, v1, v2, p1}, Lbl/yo;->a(Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;Landroid/content/Context;Lbl/jb;)Ljava/lang/Void;
 
-    .line 246
-    iget-object v0, p0, Lbl/yo$1;->b:Lbl/yo;
+    move-result-object v0
 
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lbl/yo;->a(Lbl/yo;Z)Z
-
-    .line 247
-    iget-object v0, p0, Lbl/yo$1;->b:Lbl/yo;
-
-    iget-object v1, p0, Lbl/yo$1;->a:Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;
-
-    invoke-static {v0, v1}, Lbl/yo;->a(Lbl/yo;Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;)V
-
-    .line 248
-    iget-object v0, p0, Lbl/yo$1;->b:Lbl/yo;
-
-    invoke-static {v0}, Lbl/yo;->b(Lbl/yo;)V
-
-    :cond_0
-    return-void
+    return-object v0
 .end method

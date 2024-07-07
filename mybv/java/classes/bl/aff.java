@@ -301,7 +301,7 @@ public final class aff extends ady {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int i;
+            long i;
             bbi.b(view, "v");
             Context context = view.getContext();
             bbi.a((Object) context, "v.context");
@@ -309,11 +309,11 @@ public final class aff extends ady {
             Object tag = view.getTag();
             if (a != null && (tag instanceof BiliRankV2)) {
                 try {
-                    Integer valueOf = Integer.valueOf(((BiliRankV2) tag).getParam());
+                    Long valueOf = Long.valueOf(((BiliRankV2) tag).getParam());
                     if (valueOf == null) {
                         bbi.a();
                     }
-                    i = valueOf.intValue();
+                    i = valueOf.longValue();
                 } catch (NumberFormatException e) {
                     att.a(e);
                     i = 0;

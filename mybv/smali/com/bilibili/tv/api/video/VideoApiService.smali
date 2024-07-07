@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/bilibili/tv/api/video/VideoApiService;
 .super Ljava/lang/Object;
-.source "BL"
+.source "VideoApiService.java"
 
 
 # annotations
@@ -25,11 +25,13 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ">;)",
-            "Lbl/vp<",
+            "Lbl/vp",
+            "<",
             "Ljava/lang/Void;",
             ">;"
         }
@@ -59,8 +61,10 @@
             "Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMapV2;",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lcom/bilibili/tv/api/video/VideoJumpPgc;",
             ">;>;"
         }
@@ -87,8 +91,10 @@
             "Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMapV2;",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lcom/bilibili/tv/api/video/BiliVideoDetail;",
             ">;>;"
         }

@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliMovie.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;
@@ -24,7 +24,8 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Lcom/bilibili/tv/api/video/BiliMovie$PayUser;",
             ">;"
         }
@@ -50,7 +51,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 192
+    .prologue
+    .line 184
     new-instance v0, Lcom/bilibili/tv/api/video/BiliMovie$PayUser$1;
 
     invoke-direct {v0}, Lcom/bilibili/tv/api/video/BiliMovie$PayUser$1;-><init>()V
@@ -63,25 +65,29 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 185
+    .prologue
+    .line 214
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 215
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 0
+    .locals 1
 
-    .line 188
+    .prologue
+    .line 217
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 189
+    .line 218
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;->mStatus:I
+    iput v0, p0, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;->mStatus:I
 
+    .line 219
     return-void
 .end method
 
@@ -90,18 +96,22 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 206
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
+    .locals 1
 
-    .line 182
-    iget p2, p0, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;->mStatus:I
+    .prologue
+    .line 211
+    iget v0, p0, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;->mStatus:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 212
     return-void
 .end method

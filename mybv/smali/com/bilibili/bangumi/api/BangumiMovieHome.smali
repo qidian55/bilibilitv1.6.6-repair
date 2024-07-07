@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/BangumiMovieHome;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BangumiMovieHome.java"
 
 
 # annotations
@@ -9,13 +9,13 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/bilibili/bangumi/api/BangumiMovieHome$ADBanner;,
         Lcom/bilibili/bangumi/api/BangumiMovieHome$Banner;,
+        Lcom/bilibili/bangumi/api/BangumiMovieHome$Video;,
         Lcom/bilibili/bangumi/api/BangumiMovieHome$RecommendItem;,
-        Lcom/bilibili/bangumi/api/BangumiMovieHome$Category;,
         Lcom/bilibili/bangumi/api/BangumiMovieHome$Recommend;,
         Lcom/bilibili/bangumi/api/BangumiMovieHome$Fall;,
-        Lcom/bilibili/bangumi/api/BangumiMovieHome$Video;
+        Lcom/bilibili/bangumi/api/BangumiMovieHome$Category;,
+        Lcom/bilibili/bangumi/api/BangumiMovieHome$ADBanner;
     }
 .end annotation
 
@@ -24,7 +24,8 @@
 .field public ads:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BangumiMovieHome$Banner;",
             ">;"
         }
@@ -34,7 +35,8 @@
 .field public banners:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BangumiMovieHome$ADBanner;",
             ">;"
         }
@@ -44,7 +46,8 @@
 .field public falls:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BangumiMovieHome$Fall;",
             ">;"
         }
@@ -54,7 +57,8 @@
 .field public hots:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BangumiMovie;",
             ">;"
         }
@@ -64,7 +68,8 @@
 .field public recommends:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BangumiMovieHome$Recommend;",
             ">;"
         }
@@ -74,7 +79,8 @@
 .field public relates:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BangumiVideo;",
             ">;"
         }
@@ -86,7 +92,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 17
+    .prologue
+    .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

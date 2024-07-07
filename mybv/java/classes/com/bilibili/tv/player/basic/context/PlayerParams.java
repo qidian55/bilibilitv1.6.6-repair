@@ -103,7 +103,7 @@ public class PlayerParams implements Parcelable {
         return this.mVideoParams.getMediaResource().d().a();
     }
 
-    public int getAvid() {
+    public long getAvid() {
         if (this.mVideoParams == null || this.mVideoParams.mResolveParams == null) {
             return 0;
         }

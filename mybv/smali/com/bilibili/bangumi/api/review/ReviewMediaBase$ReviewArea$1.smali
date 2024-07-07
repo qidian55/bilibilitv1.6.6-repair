@@ -1,6 +1,6 @@
 .class final Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "ReviewMediaBase.java"
 
 # interfaces
 .implements Landroid/os/Parcelable$Creator;
@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Landroid/os/Parcelable$Creator<",
+        "Landroid/os/Parcelable$Creator",
+        "<",
         "Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea;",
         ">;"
     }
@@ -30,7 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 214
+    .prologue
+    .line 204
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,10 +40,11 @@
 
 
 # virtual methods
-.method public a(Landroid/os/Parcel;)Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea;
+.method public createFromParcel(Landroid/os/Parcel;)Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea;
     .locals 1
 
-    .line 217
+    .prologue
+    .line 208
     new-instance v0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea;
 
     invoke-direct {v0, p1}, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea;-><init>(Landroid/os/Parcel;)V
@@ -49,33 +52,36 @@
     return-object v0
 .end method
 
-.method public a(I)[Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea;
-    .locals 0
+.method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .locals 1
 
-    .line 222
-    new-array p1, p1, [Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea;
+    .prologue
+    .line 204
+    invoke-virtual {p0, p1}, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea$1;->createFromParcel(Landroid/os/Parcel;)Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea;
 
-    return-object p1
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+.method public newArray(I)[Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea;
+    .locals 1
 
+    .prologue
     .line 214
-    invoke-virtual {p0, p1}, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea$1;->a(Landroid/os/Parcel;)Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea;
+    new-array v0, p1, [Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea;
 
-    move-result-object p1
-
-    return-object p1
+    return-object v0
 .end method
 
-.method public synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+.method public bridge synthetic newArray(I)[Ljava/lang/Object;
+    .locals 1
 
-    .line 214
-    invoke-virtual {p0, p1}, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea$1;->a(I)[Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea;
+    .prologue
+    .line 204
+    invoke-virtual {p0, p1}, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea$1;->newArray(I)[Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewArea;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

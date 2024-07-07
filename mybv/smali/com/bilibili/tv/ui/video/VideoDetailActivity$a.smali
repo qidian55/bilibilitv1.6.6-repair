@@ -39,8 +39,8 @@
 
 
 # virtual methods
-.method public final a(Landroid/content/Context;I)Landroid/content/Intent;
-    .locals 3
+.method public final a(Landroid/content/Context;J)Landroid/content/Intent;
+    .locals 4
 
     .prologue
     .line 1620
@@ -65,7 +65,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v1, v2, p2, p3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
     .line 1624
     invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;

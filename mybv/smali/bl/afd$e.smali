@@ -252,7 +252,7 @@
     :cond_21
     instance-of v2, v0, Ljava/lang/String;
 
-    if-eqz v2, :cond_41
+    if-eqz v2, :cond_40
 
     .line 649
     check-cast v0, Ljava/lang/String;
@@ -277,16 +277,14 @@
 
     move-result-wide v4
 
-    long-to-int v0, v4
-
-    invoke-virtual {v2, v1, v0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;->a(Landroid/content/Context;I)Landroid/content/Intent;
+    invoke-virtual {v2, v1, v4, v5}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;->a(Landroid/content/Context;J)Landroid/content/Intent;
 
     move-result-object v0
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     .line 655
-    :cond_41
+    :cond_40
     const v0, 0x7f0800ec
 
     invoke-virtual {p1, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;

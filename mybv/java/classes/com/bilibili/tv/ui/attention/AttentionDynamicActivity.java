@@ -487,11 +487,11 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
             bbi.a((Object) context, "v.context");
             Activity a = adl.a(context);
             if ((tag instanceof UpperFeedList.UpperFeedItem) && a != null) {
-                Integer valueOf = Integer.valueOf(((UpperFeedList.UpperFeedItem) tag).param);
+                Long valueOf = Long.valueOf(((UpperFeedList.UpperFeedItem) tag).param);
                 if (valueOf == null) {
                     bbi.a();
                 }
-                a.startActivity(VideoDetailActivity.Companion.a(a, valueOf.intValue()));
+                a.startActivity(VideoDetailActivity.Companion.a(a, valueOf.longValue()));
             }else if((tag instanceof JSONObject) && a != null){
                 AuthSpaceActivity.Companion.a(a, ((JSONObject)tag).getString("uname"), ((JSONObject)tag).getLongValue("mid"));
             }

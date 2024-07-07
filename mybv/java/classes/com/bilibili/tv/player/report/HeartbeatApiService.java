@@ -19,7 +19,7 @@ public interface HeartbeatApiService {
     /* compiled from: BL */
     /* loaded from: classes.dex */
     public static class ParamsV2 extends ParamsMap {
-        public ParamsV2(long j, String str, long j2, int i, long i2, String str2, long j3, String str3, int i3, int i4, long j4, long j5, long j6, long j7, String str4, int i5, int i6, int i7, String str5, String str6, String str7) {
+        public ParamsV2(long j, String str, long j2, long i, long i2, String str2, long j3, String str3, int i3, int i4, long j4, long j5, long j6, long j7, String str4, int i5, int i6, int i7, String str5, String str6, String str7) {
             putParams("start_ts", String.valueOf(j));
             putParams("session", str);
             putParams("mid", String.valueOf(j2));

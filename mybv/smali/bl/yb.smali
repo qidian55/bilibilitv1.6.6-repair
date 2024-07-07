@@ -70,7 +70,7 @@
     move-result-object v3
 
     .line 177
-    if-nez v3, :cond_57
+    if-nez v3, :cond_56
 
     const/4 v2, 0x0
 
@@ -78,7 +78,7 @@
 
     .line 178
     :goto_8
-    if-eqz v8, :cond_56
+    if-eqz v8, :cond_55
 
     .line 179
     move-object/from16 v0, p0
@@ -110,7 +110,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_63
+    if-eqz v2, :cond_62
 
     .line 184
     :try_start_28
@@ -118,7 +118,7 @@
 
     invoke-static {v2}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
     :try_end_2d
-    .catch Ljava/lang/NumberFormatException; {:try_start_28 .. :try_end_2d} :catch_5f
+    .catch Ljava/lang/NumberFormatException; {:try_start_28 .. :try_end_2d} :catch_5e
 
     move-result-wide v2
 
@@ -139,9 +139,7 @@
 
     move-result-object v3
 
-    iget v4, v8, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
-
-    int-to-long v4, v4
+    iget-wide v4, v8, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:J
 
     iget-wide v6, v8, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
@@ -153,11 +151,11 @@
 
     cmp-long v9, v16, v18
 
-    if-eqz v9, :cond_68
+    if-eqz v9, :cond_67
 
     const/4 v8, 0x1
 
-    :goto_49
+    :goto_48
     const/4 v9, 0x0
 
     aget v9, v10, v9
@@ -171,16 +169,16 @@
     const/16 v16, 0x0
 
     invoke-virtual/range {v2 .. v16}, Lbl/zl;->a(Landroid/content/Context;JJIIIJJLjava/lang/String;Ljava/lang/String;)V
-    :try_end_56
-    .catch Ljava/lang/Exception; {:try_start_31 .. :try_end_56} :catch_6b
+    :try_end_55
+    .catch Ljava/lang/Exception; {:try_start_31 .. :try_end_55} :catch_6a
 
     .line 200
-    :cond_56
-    :goto_56
+    :cond_55
+    :goto_55
     return-void
 
     .line 177
-    :cond_57
+    :cond_56
     iget-object v2, v3, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     invoke-virtual {v2}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
@@ -192,7 +190,7 @@
     goto :goto_8
 
     .line 185
-    :catch_5f
+    :catch_5e
     move-exception v2
 
     .line 186
@@ -201,7 +199,7 @@
     goto :goto_2e
 
     .line 191
-    :cond_63
+    :cond_62
     const-wide/16 v11, 0x0
 
     .line 192
@@ -210,16 +208,16 @@
     goto :goto_31
 
     .line 195
-    :cond_68
-    :try_start_68
+    :cond_67
+    :try_start_67
     iget v8, v8, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mPage:I
-    :try_end_6a
-    .catch Ljava/lang/Exception; {:try_start_68 .. :try_end_6a} :catch_6b
+    :try_end_69
+    .catch Ljava/lang/Exception; {:try_start_67 .. :try_end_69} :catch_6a
 
-    goto :goto_49
+    goto :goto_48
 
     .line 196
-    :catch_6b
+    :catch_6a
     move-exception v2
 
     .line 197
@@ -229,7 +227,7 @@
 
     invoke-static {v3, v2}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto :goto_56
+    goto :goto_55
 .end method
 
 .method private Q()V

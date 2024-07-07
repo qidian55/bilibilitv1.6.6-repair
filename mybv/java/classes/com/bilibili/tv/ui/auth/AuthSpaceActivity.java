@@ -490,7 +490,7 @@ public final class AuthSpaceActivity extends BaseReloadActivity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int i;
+            long i;
             bbi.b(view, "v");
             Object tag = view.getTag();
             Context context = view.getContext();
@@ -500,11 +500,11 @@ public final class AuthSpaceActivity extends BaseReloadActivity {
                 return;
             }
             try {
-                Integer valueOf = Integer.valueOf(((BiliSpaceVideo) tag).param);
+                Long valueOf = Long.valueOf(((BiliSpaceVideo) tag).param);
                 if (valueOf == null) {
                     bbi.a();
                 }
-                i = valueOf.intValue();
+                i = valueOf.longValue();
             } catch (NumberFormatException unused) {
                 i = 0;
             }

@@ -1,6 +1,6 @@
 .class public final Lbl/afi$c;
 .super Landroid/support/v7/widget/RecyclerView$a;
-.source "BL"
+.source "afi.java"
 
 # interfaces
 .implements Landroid/view/View$OnFocusChangeListener;
@@ -17,9 +17,16 @@
     name = "c"
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lbl/afi$c$a;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/support/v7/widget/RecyclerView$a<",
+        "Landroid/support/v7/widget/RecyclerView$a",
+        "<",
         "Landroid/support/v7/widget/RecyclerView$v;",
         ">;",
         "Landroid/view/View$OnFocusChangeListener;",
@@ -36,7 +43,8 @@
 .field private final c:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/lang/ref/WeakReference<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
             "Lbl/afi;",
             ">;"
         }
@@ -50,7 +58,8 @@
 .field private final f:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/category/CategoryMeta;",
             ">;"
         }
@@ -67,36 +76,41 @@
         value = {
             "(",
             "Lbl/afi;",
-            "Ljava/util/List<",
-            "+",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/category/CategoryMeta;",
             ">;I)V"
         }
     .end annotation
 
+    .prologue
+    .line 1764
+    invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$a;-><init>()V
+
+    .line 1765
     const-string v0, "fragment"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1151
-    invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$a;-><init>()V
-
+    .line 1766
     iput-object p2, p0, Lbl/afi$c;->f:Ljava/util/List;
 
+    .line 1767
     iput p3, p0, Lbl/afi$c;->g:I
 
-    const/4 p2, 0x1
+    .line 1768
+    const/4 v0, 0x1
 
-    .line 1152
-    iput-boolean p2, p0, Lbl/afi$c;->a:Z
+    iput-boolean v0, p0, Lbl/afi$c;->a:Z
 
-    .line 1155
-    new-instance p2, Ljava/lang/ref/WeakReference;
+    .line 1769
+    new-instance v0, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {p2, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object p2, p0, Lbl/afi$c;->c:Ljava/lang/ref/WeakReference;
+    iput-object v0, p0, Lbl/afi$c;->c:Ljava/lang/ref/WeakReference;
 
+    .line 1770
     return-void
 .end method
 
@@ -105,61 +119,74 @@
 .method public a()I
     .locals 1
 
-    .line 1171
+    .prologue
+    .line 1801
     iget-object v0, p0, Lbl/afi$c;->f:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    .line 1802
+    if-eqz v0, :cond_9
 
+    .line 1803
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
-    goto :goto_0
+    .line 1805
+    :goto_8
+    return v0
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_8
 .end method
 
 .method public a(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$v;
-    .locals 0
+    .locals 1
 
-    const-string p2, "parent"
+    .prologue
+    .line 1778
+    const-string v0, "parent"
 
-    invoke-static {p1, p2}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1160
-    sget-object p2, Lbl/afi$d;->Companion:Lbl/afi$d$a;
+    .line 1779
+    const/4 v0, 0x0
 
-    invoke-virtual {p2, p1}, Lbl/afi$d$a;->a(Landroid/view/ViewGroup;)Lbl/afi$d;
+    check-cast v0, Lbl/afi$d;
 
-    move-result-object p1
+    sget-object v0, Lbl/afi$d;->Companion:Lbl/afi$d$a;
 
-    check-cast p1, Landroid/support/v7/widget/RecyclerView$v;
+    invoke-virtual {v0, p1}, Lbl/afi$d$a;->a(Landroid/view/ViewGroup;)Lbl/afi$d;
 
-    return-object p1
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public a(Landroid/support/v7/widget/RecyclerView$v;I)V
-    .locals 2
+    .locals 3
 
+    .prologue
+    .line 1784
     const-string v0, "holder"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1164
+    .line 1785
     check-cast p1, Lbl/afi$d;
 
-    .line 1165
+    .line 1786
     iget-object v0, p0, Lbl/afi$c;->f:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    .line 1787
+    if-nez v0, :cond_e
 
+    .line 1788
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_0
+    .line 1790
+    :cond_e
     invoke-interface {v0, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -168,59 +195,66 @@
 
     iget-object v0, v0, Lcom/bilibili/tv/api/category/CategoryMeta;->mTypeName:Ljava/lang/String;
 
+    .line 1791
     const-string v1, "mCategoryMetas!![position].mTypeName"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 1792
     invoke-virtual {p1, v0}, Lbl/afi$d;->a(Ljava/lang/String;)V
 
-    .line 1166
+    .line 1793
     iget-object v0, p1, Lbl/afi$d;->a:Landroid/view/View;
 
     const v1, 0x7f080123
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p2
+    move-result-object v2
 
-    invoke-virtual {v0, v1, p2}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+    invoke-virtual {v0, v1, v2}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
-    .line 1167
-    iget-object p1, p1, Lbl/afi$d;->a:Landroid/view/View;
+    .line 1794
+    iget-object v0, p1, Lbl/afi$d;->a:Landroid/view/View;
 
-    const-string p2, "categoryHolder.itemView"
+    .line 1795
+    const-string v1, "categoryHolder.itemView"
 
-    invoke-static {p1, p2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    move-object p2, p0
+    .line 1796
+    invoke-virtual {v0, p0}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    check-cast p2, Landroid/view/View$OnFocusChangeListener;
-
-    invoke-virtual {p1, p2}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
-
+    .line 1797
     return-void
 .end method
 
 .method public final b(Z)V
     .locals 0
 
-    .line 1188
+    .prologue
+    .line 1839
     iput-boolean p1, p0, Lbl/afi$c;->b:Z
 
+    .line 1840
     return-void
 .end method
 
 .method public c(Landroid/support/v7/widget/RecyclerView$v;)V
     .locals 3
 
+    .prologue
+    const/4 v2, 0x0
+
+    .line 1810
     const-string v0, "holder"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1175
+    .line 1811
     iget-boolean v0, p0, Lbl/afi$c;->a:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$v;->f()I
 
@@ -228,257 +262,82 @@
 
     iget v1, p0, Lbl/afi$c;->g:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_24
 
-    const/4 v0, 0x0
+    .line 1812
+    iput-boolean v2, p0, Lbl/afi$c;->b:Z
 
-    .line 1176
-    iput-boolean v0, p0, Lbl/afi$c;->b:Z
+    .line 1813
+    iget v0, p0, Lbl/afi$c;->g:I
 
-    .line 1177
-    iget v1, p0, Lbl/afi$c;->g:I
+    iput v0, p0, Lbl/afi$c;->e:I
 
-    iput v1, p0, Lbl/afi$c;->e:I
+    .line 1814
+    iget-object v0, p1, Landroid/support/v7/widget/RecyclerView$v;->a:Landroid/view/View;
 
-    .line 1178
-    iget-object v1, p1, Landroid/support/v7/widget/RecyclerView$v;->a:Landroid/view/View;
+    new-instance v1, Lbl/afi$c$a;
 
-    new-instance v2, Lbl/afi$c$a;
+    invoke-direct {v1, p1}, Lbl/afi$c$a;-><init>(Landroid/support/v7/widget/RecyclerView$v;)V
 
-    invoke-direct {v2, p1}, Lbl/afi$c$a;-><init>(Landroid/support/v7/widget/RecyclerView$v;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
-    check-cast v2, Ljava/lang/Runnable;
+    .line 1815
+    iput-boolean v2, p0, Lbl/afi$c;->a:Z
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
-
-    .line 1183
-    iput-boolean v0, p0, Lbl/afi$c;->a:Z
-
-    :cond_0
+    .line 1817
+    :cond_24
     return-void
 .end method
 
 .method public final e(I)V
     .locals 0
 
-    .line 1157
+    .prologue
+    .line 1773
     iput p1, p0, Lbl/afi$c;->e:I
 
+    .line 1774
     return-void
 .end method
 
 .method public onFocusChange(Landroid/view/View;Z)V
-    .locals 6
+    .locals 8
 
+    .prologue
+    const-wide/16 v6, 0x12c
+
+    const/4 v5, 0x1
+
+    const/4 v2, 0x0
+
+    .line 1860
     const-string v0, "v"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const/4 v0, 0x0
+    .line 1861
+    if-eqz p2, :cond_87
 
-    if-eqz p2, :cond_8
+    .line 1862
+    const v0, 0x7f080123
 
-    const p2, 0x7f080123
-
-    .line 1205
-    invoke-virtual {p1, p2}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
-
-    move-result-object p2
-
-    if-eqz p2, :cond_0
-
-    .line 1208
-    check-cast p2, Ljava/lang/Integer;
-
-    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
-
-    move-result p2
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p2, 0x0
-
-    .line 1210
-    :goto_0
-    iget-object v1, p0, Lbl/afi$c;->c:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lbl/afi;
-
-    if-eqz v1, :cond_7
-
-    const-string v2, "mWeakReference.get() ?: return"
-
-    invoke-static {v1, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 1211
-    iget v2, p0, Lbl/afi$c;->e:I
-
-    if-eq p2, v2, :cond_2
-
-    .line 1212
-    invoke-static {v1}, Lbl/afi;->j(Lbl/afi;)Landroid/support/v7/widget/LinearLayoutManager;
-
-    move-result-object v2
-
-    if-nez v2, :cond_1
-
-    invoke-static {}, Lbl/bbi;->a()V
-
-    :cond_1
-    iget v3, p0, Lbl/afi$c;->e:I
-
-    invoke-virtual {v2, v3}, Landroid/support/v7/widget/LinearLayoutManager;->c(I)Landroid/view/View;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_2
-
-    .line 1214
-    invoke-virtual {v2, v0}, Landroid/view/View;->setSelected(Z)V
-
-    .line 1218
-    :cond_2
-    iput-boolean v0, p0, Lbl/afi$c;->b:Z
-
-    const/4 v2, 0x1
-
-    .line 1219
-    invoke-virtual {p1, v2}, Landroid/view/View;->setSelected(Z)V
-
-    .line 1221
-    invoke-virtual {p0}, Lbl/afi$c;->a()I
-
-    move-result v3
-
-    sub-int/2addr v3, v2
-
-    if-ne p2, v3, :cond_3
-
-    .line 1222
-    invoke-virtual {v1}, Lbl/afi;->c()Landroid/widget/ImageView;
+    invoke-virtual {p1, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    .line 1863
+    if-eqz v0, :cond_5e
 
-    const/4 v3, 0x4
+    check-cast v0, Ljava/lang/Integer;
 
-    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    goto :goto_1
+    move-result v0
 
-    .line 1224
-    :cond_3
-    invoke-virtual {v1}, Lbl/afi;->c()Landroid/widget/ImageView;
+    move v1, v0
 
-    move-result-object v3
-
-    if-eqz v3, :cond_4
-
-    invoke-virtual {v3, v0}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    .line 1228
-    :cond_4
-    :goto_1
-    iget v0, p0, Lbl/afi$c;->e:I
-
-    if-ne v0, p2, :cond_5
-
-    return-void
-
-    .line 1231
-    :cond_5
-    iput p2, p0, Lbl/afi$c;->e:I
-
-    .line 1232
-    invoke-static {v1, v2}, Lbl/afi;->a(Lbl/afi;Z)V
-
-    .line 1234
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v0
-
-    iget-wide v2, p0, Lbl/afi$c;->d:J
-
-    sub-long v4, v0, v2
-
-    const/16 p2, 0x12c
-
-    int-to-long v0, p2
-
-    cmp-long p2, v4, v0
-
-    if-gez p2, :cond_6
-
-    .line 1235
-    move-object p2, p0
-
-    check-cast p2, Ljava/lang/Runnable;
-
-    invoke-virtual {p1, p2}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
-
-    .line 1237
-    :cond_6
-    move-object p2, p0
-
-    check-cast p2, Ljava/lang/Runnable;
-
-    const-wide/16 v0, 0x12c
-
-    invoke-virtual {p1, p2, v0, v1}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    .line 1238
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide p1
-
-    iput-wide p1, p0, Lbl/afi$c;->d:J
-
-    goto :goto_2
-
-    :cond_7
-    return-void
-
-    .line 1241
-    :cond_8
-    iget-boolean p2, p0, Lbl/afi$c;->b:Z
-
-    if-eqz p2, :cond_b
-
-    .line 1242
-    instance-of p2, p1, Lcom/bilibili/tv/widget/CategoryTextView;
-
-    if-nez p2, :cond_9
-
-    const/4 p1, 0x0
-
-    :cond_9
-    check-cast p1, Lcom/bilibili/tv/widget/CategoryTextView;
-
-    if-eqz p1, :cond_a
-
-    invoke-virtual {p1}, Lcom/bilibili/tv/widget/CategoryTextView;->d()V
-
-    :cond_a
-    return-void
-
-    .line 1245
-    :cond_b
-    invoke-virtual {p1, v0}, Landroid/view/View;->setSelected(Z)V
-
-    :goto_2
-    return-void
-.end method
-
-.method public run()V
-    .locals 5
-
-    .line 1192
+    .line 1864
+    :goto_1b
     iget-object v0, p0, Lbl/afi$c;->c:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -487,16 +346,208 @@
 
     check-cast v0, Lbl/afi;
 
-    if-eqz v0, :cond_1
+    .line 1865
+    if-eqz v0, :cond_5d
 
-    .line 1194
-    iget-object v1, p0, Lbl/afi$c;->f:Ljava/util/List;
+    .line 1866
+    const-string v3, "mWeakReference.get() ?: return"
 
-    if-nez v1, :cond_0
+    invoke-static {v0, v3}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 1867
+    iget v3, p0, Lbl/afi$c;->e:I
+
+    if-eq v1, v3, :cond_42
+
+    .line 1868
+    # getter for: Lbl/afi;->g:Landroid/support/v7/widget/LinearLayoutManager;
+    invoke-static {v0}, Lbl/afi;->access$1100(Lbl/afi;)Landroid/support/v7/widget/LinearLayoutManager;
+
+    move-result-object v3
+
+    .line 1869
+    if-nez v3, :cond_37
+
+    .line 1870
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_0
+    .line 1872
+    :cond_37
+    iget v4, p0, Lbl/afi$c;->e:I
+
+    invoke-virtual {v3, v4}, Landroid/support/v7/widget/LinearLayoutManager;->c(I)Landroid/view/View;
+
+    move-result-object v3
+
+    .line 1873
+    if-eqz v3, :cond_42
+
+    .line 1874
+    invoke-virtual {v3, v2}, Landroid/view/View;->setSelected(Z)V
+
+    .line 1877
+    :cond_42
+    iput-boolean v2, p0, Lbl/afi$c;->b:Z
+
+    .line 1878
+    invoke-virtual {p1, v5}, Landroid/view/View;->setSelected(Z)V
+
+    .line 1879
+    invoke-virtual {p0}, Lbl/afi$c;->a()I
+
+    move-result v3
+
+    add-int/lit8 v3, v3, -0x1
+
+    if-ne v1, v3, :cond_60
+
+    .line 1880
+    invoke-virtual {v0}, Lbl/afi;->c()Landroid/widget/ImageView;
+
+    move-result-object v2
+
+    .line 1881
+    if-eqz v2, :cond_59
+
+    .line 1882
+    const/4 v3, 0x4
+
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    .line 1890
+    :cond_59
+    :goto_59
+    iget v2, p0, Lbl/afi$c;->e:I
+
+    if-ne v2, v1, :cond_6a
+
+    .line 1916
+    :cond_5d
+    :goto_5d
+    return-void
+
+    :cond_5e
+    move v1, v2
+
+    .line 1863
+    goto :goto_1b
+
+    .line 1885
+    :cond_60
+    invoke-virtual {v0}, Lbl/afi;->c()Landroid/widget/ImageView;
+
+    move-result-object v3
+
+    .line 1886
+    if-eqz v3, :cond_59
+
+    .line 1887
+    invoke-virtual {v3, v2}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    goto :goto_59
+
+    .line 1893
+    :cond_6a
+    iput v1, p0, Lbl/afi$c;->e:I
+
+    .line 1894
+    # setter for: Lbl/afi;->q:Z
+    invoke-static {v0, v5}, Lbl/afi;->access$002(Lbl/afi;Z)Z
+
+    .line 1895
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    iget-wide v2, p0, Lbl/afi$c;->d:J
+
+    sub-long/2addr v0, v2
+
+    cmp-long v0, v0, v6
+
+    if-gez v0, :cond_7d
+
+    .line 1896
+    invoke-virtual {p1, p0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    .line 1898
+    :cond_7d
+    invoke-virtual {p1, p0, v6, v7}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    .line 1899
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lbl/afi$c;->d:J
+
+    goto :goto_5d
+
+    .line 1904
+    :cond_87
+    iget-boolean v0, p0, Lbl/afi$c;->b:Z
+
+    if-eqz v0, :cond_98
+
+    .line 1905
+    instance-of v0, p1, Lcom/bilibili/tv/widget/CategoryTextView;
+
+    if-nez v0, :cond_9c
+
+    .line 1906
+    const/4 v0, 0x0
+
+    .line 1908
+    :goto_90
+    check-cast v0, Lcom/bilibili/tv/widget/CategoryTextView;
+
+    .line 1909
+    if-eqz v0, :cond_5d
+
+    .line 1910
+    invoke-virtual {v0}, Lcom/bilibili/tv/widget/CategoryTextView;->d()V
+
+    goto :goto_5d
+
+    .line 1915
+    :cond_98
+    invoke-virtual {p1, v2}, Landroid/view/View;->setSelected(Z)V
+
+    goto :goto_5d
+
+    :cond_9c
+    move-object v0, p1
+
+    goto :goto_90
+.end method
+
+.method public run()V
+    .locals 5
+
+    .prologue
+    .line 1844
+    iget-object v0, p0, Lbl/afi$c;->c:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lbl/afi;
+
+    .line 1845
+    if-eqz v0, :cond_38
+
+    .line 1846
+    iget-object v1, p0, Lbl/afi$c;->f:Ljava/util/List;
+
+    .line 1847
+    if-nez v1, :cond_11
+
+    .line 1848
+    invoke-static {}, Lbl/bbi;->a()V
+
+    .line 1850
+    :cond_11
     iget v2, p0, Lbl/afi$c;->e:I
 
     invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -505,24 +556,25 @@
 
     check-cast v1, Lcom/bilibili/tv/api/category/CategoryMeta;
 
-    .line 1195
+    .line 1851
     iget v2, v1, Lcom/bilibili/tv/api/category/CategoryMeta;->mTid:I
 
-    invoke-static {v0, v2}, Lbl/afi;->b(Lbl/afi;I)V
+    # setter for: Lbl/afi;->s:I
+    invoke-static {v0, v2}, Lbl/afi;->access$902(Lbl/afi;I)I
 
-    .line 1196
-    invoke-static {v0}, Lbl/afi;->i(Lbl/afi;)V
+    .line 1852
+    invoke-virtual {v0}, Lbl/afi;->o()V
 
-    .line 1197
+    .line 1853
     iget v2, v1, Lcom/bilibili/tv/api/category/CategoryMeta;->mTid:I
 
     invoke-virtual {v0, v2}, Lbl/afi;->a(I)V
 
+    .line 1854
     const-string v0, "tv_search_index_category_click"
 
     const/4 v2, 0x2
 
-    .line 1199
     new-array v2, v2, [Ljava/lang/String;
 
     const/4 v3, 0x0
@@ -539,6 +591,7 @@
 
     invoke-static {v0, v2}, Lbl/ok;->a(Ljava/lang/String;[Ljava/lang/String;)V
 
-    :cond_1
+    .line 1856
+    :cond_38
     return-void
 .end method

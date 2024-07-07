@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/BangumiMovieHome$RecommendItem;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BangumiMovieHome.java"
 
 
 # annotations
@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field public aid:I
+.field public aid:J
 
 .field public cover:Ljava/lang/String;
 
@@ -41,7 +41,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 62
+    .prologue
+    .line 98
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

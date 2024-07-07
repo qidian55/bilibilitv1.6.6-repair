@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/BangumiMovieHome$Category;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BangumiMovieHome.java"
 
 
 # annotations
@@ -27,7 +27,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 56
+    .prologue
+    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

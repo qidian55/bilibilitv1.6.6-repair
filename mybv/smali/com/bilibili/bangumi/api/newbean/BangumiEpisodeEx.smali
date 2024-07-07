@@ -33,7 +33,7 @@
 
 
 # instance fields
-.field public aid:I
+.field public aid:J
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "aid"
     .end annotation
@@ -57,7 +57,7 @@
     .end annotation
 .end field
 
-.field public cid:I
+.field public cid:J
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "cid"
     .end annotation
@@ -204,18 +204,18 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 84
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result v0
+    move-result-wide v0
 
-    iput v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->aid:I
+    iput-wide v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->aid:J
 
     .line 88
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result v0
+    move-result-wide v0
 
-    iput v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cid:I
+    iput-wide v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cid:J
 
     .line 89
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -287,14 +287,14 @@
 
     .prologue
     .line 107
-    iget v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->aid:I
+    iget-wide v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->aid:J
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 111
-    iget v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cid:I
+    iget-wide v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cid:J
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 112
     iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cover:Ljava/lang/String;

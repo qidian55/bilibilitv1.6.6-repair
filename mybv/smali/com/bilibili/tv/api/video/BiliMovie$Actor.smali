@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/video/BiliMovie$Actor;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliMovie.java"
 
 
 # annotations
@@ -33,7 +33,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 122
+    .prologue
+    .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

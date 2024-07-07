@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewParam;
 .super Ljava/lang/Object;
-.source "BL"
+.source "ReviewMediaBase.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;
@@ -24,7 +24,8 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewParam;",
             ">;"
         }
@@ -33,7 +34,7 @@
 
 
 # instance fields
-.field public aid:I
+.field public aid:J
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "aid"
     .end annotation
@@ -50,7 +51,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 138
+    .prologue
+    .line 116
     new-instance v0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewParam$1;
 
     invoke-direct {v0}, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewParam$1;-><init>()V
@@ -63,32 +65,36 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 119
+    .prologue
+    .line 141
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 142
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .locals 2
 
-    .line 133
+    .prologue
+    .line 150
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 134
+    .line 151
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewParam;->id:I
 
-    .line 135
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    .line 152
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result p1
+    move-result-wide v0
 
-    iput p1, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewParam;->aid:I
+    iput-wide v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewParam;->aid:J
 
+    .line 153
     return-void
 .end method
 
@@ -97,23 +103,27 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 138
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
+    .locals 2
 
-    .line 129
-    iget p2, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewParam;->id:I
+    .prologue
+    .line 146
+    iget v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewParam;->id:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 130
-    iget p2, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewParam;->aid:I
+    .line 147
+    iget-wide v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewParam;->aid:J
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
+    .line 148
     return-void
 .end method

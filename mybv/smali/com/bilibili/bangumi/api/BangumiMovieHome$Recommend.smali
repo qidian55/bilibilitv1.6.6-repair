@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/BangumiMovieHome$Recommend;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BangumiMovieHome.java"
 
 
 # annotations
@@ -23,7 +23,8 @@
 .field public list:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BangumiMovieHome$RecommendItem;",
             ">;"
         }
@@ -35,7 +36,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 50
+    .prologue
+    .line 90
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

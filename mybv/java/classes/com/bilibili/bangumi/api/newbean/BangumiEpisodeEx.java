@@ -25,7 +25,7 @@ public class BangumiEpisodeEx implements Parcelable {
         }
     };
     @JSONField(name = "aid")
-    public int aid;
+    public long aid;
     @JSONField(name = "badge")
     public String badge;
     @JSONField(name = "badge_type")
@@ -33,7 +33,7 @@ public class BangumiEpisodeEx implements Parcelable {
     @JSONField(name = "bvid")
     public String bvid;
     @JSONField(name = "cid")
-    public int cid;
+    public long cid;
     @JSONField(name = "cover")
     public String cover;
     @JSONField(name = "dimension")
@@ -81,11 +81,11 @@ public class BangumiEpisodeEx implements Parcelable {
     }
 
     protected BangumiEpisodeEx(Parcel parcel) {
-        this.aid = parcel.readInt();
+        this.aid = parcel.readLong();
         //this.badge = parcel.readString();
         //this.badgeType = parcel.readInt();
         //this.bvid = parcel.readString();
-        this.cid = parcel.readInt();
+        this.cid = parcel.readLong();
         this.cover = parcel.readString();
         this.from = parcel.readString();
         this.epid = parcel.readLong();
@@ -104,11 +104,11 @@ public class BangumiEpisodeEx implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.aid);
+        parcel.writeLong(this.aid);
         //parcel.writeString(this.badge);
         //parcel.writeInt(this.badgeType);
         //parcel.writeString(this.bvid);
-        parcel.writeInt(this.cid);
+        parcel.writeLong(this.cid);
         parcel.writeString(this.cover);
         parcel.writeString(this.from);
         parcel.writeLong(this.epid);

@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/BiliBangumiSeason;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliBangumiSeason.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;
@@ -26,7 +26,8 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Lcom/bilibili/bangumi/api/BiliBangumiSeason;",
             ">;"
         }
@@ -80,7 +81,8 @@
 
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BiliBangumiSeason$Actor;",
             ">;"
         }
@@ -136,7 +138,8 @@
 
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;",
             ">;"
         }
@@ -265,7 +268,8 @@
 
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BiliBangumiSeason;",
             ">;"
         }
@@ -291,7 +295,8 @@
 
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BiliBangumiTag;",
             ">;"
         }
@@ -373,228 +378,219 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 6
 
-    .line 717
+    .prologue
+    const-wide/16 v4, -0x1
+
+    .line 18
     new-instance v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;
 
     invoke-direct {v0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;-><init>()V
 
     sput-object v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->NULL_EP:Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;
 
-    .line 720
+    .line 650
     sget-object v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->NULL_EP:Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;
 
-    const-wide/16 v1, -0x1
+    iput-wide v4, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;->mId:J
 
-    iput-wide v1, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;->mId:J
-
-    .line 721
+    .line 651
     sget-object v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->NULL_EP:Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;
 
+    .line 652
     sget-object v1, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->NULL_EP:Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;
 
     const-string v2, "\u65e0"
 
     iput-object v2, v1, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;->mIndex:Ljava/lang/String;
 
-    iput-object v2, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;->mTitle:Ljava/lang/String;
+    .line 653
+    const-string v1, "\u65e0"
 
-    .line 722
+    iput-object v1, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;->mTitle:Ljava/lang/String;
+
+    .line 654
     sget-object v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->NULL_EP:Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;
 
-    const/4 v1, -0x1
+    iput-wide v4, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;->mAvid:J
 
-    iput v1, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;->mAvid:I
-
-    .line 901
+    .line 655
     new-instance v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$1;
 
     invoke-direct {v0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason$1;-><init>()V
 
     sput-object v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    .line 668
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 1
 
-    .line 241
+    .prologue
+    .line 231
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 232
     const-string v0, ""
 
-    .line 101
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPubTimeShow:Ljava/lang/String;
 
+    .line 233
     const/4 v0, -0x1
 
-    .line 275
     iput v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mWeekday:I
 
+    .line 234
     return-void
 .end method
 
-.method protected constructor <init>(Landroid/os/Parcel;)V
+.method public constructor <init>(Landroid/os/Parcel;)V
     .locals 8
 
-    .line 848
+    .prologue
+    const-wide/16 v6, -0x1
+
+    const/4 v3, 0x0
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 797
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 798
     const-string v0, ""
 
-    .line 101
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPubTimeShow:Ljava/lang/String;
 
+    .line 799
     const/4 v0, -0x1
 
-    .line 275
     iput v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mWeekday:I
 
-    .line 849
+    .line 800
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mBangumiId:Ljava/lang/String;
 
-    .line 850
+    .line 801
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mJapanTitle:Ljava/lang/String;
 
-    .line 851
+    .line 802
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mCover:Ljava/lang/String;
 
-    .line 852
+    .line 803
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mNewCover:Ljava/lang/String;
 
-    .line 853
+    .line 804
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mSeasonId:Ljava/lang/String;
 
-    .line 854
+    .line 805
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mSeasonTitle:Ljava/lang/String;
 
-    .line 855
+    .line 806
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mTotalEP:I
 
-    .line 856
+    .line 807
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mLastEPId:Ljava/lang/String;
 
-    .line 857
+    .line 808
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mLastEPIndex:Ljava/lang/String;
 
-    .line 858
+    .line 809
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
 
-    const/4 v1, 0x0
+    if-eqz v0, :cond_180
 
-    const/4 v2, 0x1
+    move v0, v1
 
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
+    :goto_4c
     iput-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mIsFinished:Z
 
-    .line 859
+    .line 810
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mIsStarted:I
 
-    .line 860
+    .line 811
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_183
 
-    const/4 v0, 0x1
+    move v0, v1
 
-    goto :goto_1
-
-    :cond_1
-    const/4 v0, 0x0
-
-    :goto_1
+    :goto_5b
     iput-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mIsAllowBp:Z
 
-    .line 861
+    .line 812
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_186
 
-    const/4 v0, 0x1
+    move v0, v1
 
-    goto :goto_2
-
-    :cond_2
-    const/4 v0, 0x0
-
-    :goto_2
+    :goto_64
     iput-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mDownloadable:Z
 
-    .line 862
+    .line 813
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_189
 
-    const/4 v0, 0x1
+    move v0, v1
 
-    goto :goto_3
-
-    :cond_3
-    const/4 v0, 0x0
-
-    :goto_3
+    :goto_6d
     iput-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mHasNew:Z
 
-    .line 863
+    .line 814
     sget-object v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
@@ -603,7 +599,7 @@
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mEpisodes:Ljava/util/List;
 
-    .line 864
+    .line 815
     sget-object v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
@@ -612,42 +608,42 @@
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mSeasons:Ljava/util/List;
 
-    .line 865
+    .line 816
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPlays:Ljava/lang/String;
 
-    .line 866
+    .line 817
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mDanmakus:Ljava/lang/String;
 
-    .line 867
+    .line 818
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mBrief:Ljava/lang/String;
 
-    .line 868
+    .line 819
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mEvaluate:Ljava/lang/String;
 
-    .line 869
+    .line 820
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mArea:Ljava/lang/String;
 
-    .line 870
+    .line 821
     sget-object v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Actor;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
@@ -656,28 +652,28 @@
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mActors:Ljava/util/List;
 
-    .line 871
+    .line 822
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mStaff:Ljava/lang/String;
 
-    .line 872
+    .line 823
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mShareUrl:Ljava/lang/String;
 
-    .line 873
+    .line 824
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mTitle:Ljava/lang/String;
 
-    .line 874
+    .line 825
     sget-object v0, Lcom/bilibili/bangumi/api/BiliBangumiTag;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
@@ -686,7 +682,7 @@
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mTags:Ljava/util/List;
 
-    .line 875
+    .line 826
     const-class v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -701,153 +697,124 @@
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mUserSeason:Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
 
-    .line 876
+    .line 827
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v3
+    move-result-wide v4
 
-    const-wide/16 v5, -0x1
+    .line 828
+    cmp-long v0, v4, v6
 
-    cmp-long v0, v3, v5
+    if-nez v0, :cond_18c
 
-    const/4 v7, 0x0
+    move-object v0, v3
 
-    if-nez v0, :cond_4
-
-    move-object v0, v7
-
-    goto :goto_4
-
-    .line 877
-    :cond_4
-    new-instance v0, Ljava/util/Date;
-
-    invoke-direct {v0, v3, v4}, Ljava/util/Date;-><init>(J)V
-
-    :goto_4
+    :goto_d6
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPubTime:Ljava/util/Date;
 
-    .line 878
+    .line 829
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPubTimeShow:Ljava/lang/String;
 
-    .line 879
+    .line 830
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v3
+    move-result-wide v4
 
-    cmp-long v0, v3, v5
+    .line 831
+    cmp-long v0, v4, v6
 
-    if-nez v0, :cond_5
+    if-eqz v0, :cond_eb
 
-    goto :goto_5
+    new-instance v3, Ljava/util/Date;
 
-    .line 880
-    :cond_5
-    new-instance v7, Ljava/util/Date;
+    invoke-direct {v3, v4, v5}, Ljava/util/Date;-><init>(J)V
 
-    invoke-direct {v7, v3, v4}, Ljava/util/Date;-><init>(J)V
+    :cond_eb
+    iput-object v3, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mLastTime:Ljava/util/Date;
 
-    :goto_5
-    iput-object v7, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mLastTime:Ljava/util/Date;
-
-    .line 881
+    .line 832
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mFavorites:Ljava/lang/String;
 
-    .line 882
+    .line 833
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mWatchingCount:I
 
-    .line 883
+    .line 834
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_193
 
-    const/4 v0, 0x1
+    move v0, v1
 
-    goto :goto_6
-
-    :cond_6
-    const/4 v0, 0x0
-
-    :goto_6
+    :goto_100
     iput-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mFavorited:Z
 
-    .line 884
+    .line 835
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_196
 
-    const/4 v0, 0x1
+    move v0, v1
 
-    goto :goto_7
-
-    :cond_7
-    const/4 v0, 0x0
-
-    :goto_7
+    :goto_109
     iput-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->vipQuality:Z
 
-    .line 885
+    .line 836
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->uri:Ljava/lang/String;
 
-    .line 886
+    .line 837
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->param:Ljava/lang/String;
 
-    .line 887
+    .line 838
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_199
 
-    const/4 v0, 0x1
+    move v0, v1
 
-    goto :goto_8
-
-    :cond_8
-    const/4 v0, 0x0
-
-    :goto_8
+    :goto_11e
     iput-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->finished:Z
 
-    .line 888
+    .line 839
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->badge:Ljava/lang/String;
 
-    .line 889
+    .line 840
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->seasonStatus:I
 
-    .line 890
+    .line 841
     const-class v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Payment;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -862,57 +829,50 @@
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPayment:Lcom/bilibili/bangumi/api/BiliBangumiSeason$Payment;
 
-    .line 891
+    .line 842
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_19b
 
-    const/4 v0, 0x1
+    move v0, v1
 
-    goto :goto_9
-
-    :cond_9
-    const/4 v0, 0x0
-
-    :goto_9
+    :goto_141
     iput-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isGuideFollow:Z
 
-    .line 892
+    .line 843
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_19d
 
-    const/4 v1, 0x1
-
-    :cond_a
+    :goto_149
     iput-boolean v1, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->hasUnfollow:Z
 
-    .line 893
+    .line 844
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mOriginName:Ljava/lang/String;
 
-    .line 894
+    .line 845
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mBusinessType:I
 
-    .line 895
+    .line 846
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->squareCoverUrl:Ljava/lang/String;
 
-    .line 896
+    .line 847
     const-class v0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -927,7 +887,7 @@
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->reviewMediaInfo:Lcom/bilibili/bangumi/api/review/ReviewMediaBase;
 
-    .line 897
+    .line 848
     const-class v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -942,97 +902,116 @@
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->payPack:Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;
 
-    .line 898
+    .line 849
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mWeekday:I
+    iput v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mWeekday:I
 
+    .line 850
     return-void
+
+    :cond_180
+    move v0, v2
+
+    .line 809
+    goto/16 :goto_4c
+
+    :cond_183
+    move v0, v2
+
+    .line 811
+    goto/16 :goto_5b
+
+    :cond_186
+    move v0, v2
+
+    .line 812
+    goto/16 :goto_64
+
+    :cond_189
+    move v0, v2
+
+    .line 813
+    goto/16 :goto_6d
+
+    .line 828
+    :cond_18c
+    new-instance v0, Ljava/util/Date;
+
+    invoke-direct {v0, v4, v5}, Ljava/util/Date;-><init>(J)V
+
+    goto/16 :goto_d6
+
+    :cond_193
+    move v0, v2
+
+    .line 834
+    goto/16 :goto_100
+
+    :cond_196
+    move v0, v2
+
+    .line 835
+    goto/16 :goto_109
+
+    :cond_199
+    move v0, v2
+
+    .line 838
+    goto :goto_11e
+
+    :cond_19b
+    move v0, v2
+
+    .line 842
+    goto :goto_141
+
+    :cond_19d
+    move v1, v2
+
+    .line 843
+    goto :goto_149
 .end method
 
 .method public static getReadableIndexTitle(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
 
-    if-eqz p0, :cond_2
+    .prologue
+    .line 326
+    if-nez p0, :cond_5
 
+    .line 327
+    const-string p0, ""
+
+    .line 335
+    :cond_4
+    :goto_4
+    return-object p0
+
+    .line 329
+    :cond_5
     const-string v0, "-1"
 
-    .line 351
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
+    .line 330
     const-string p0, "\u5c1a\u672a\u5f00\u64ad"
 
-    return-object p0
+    goto :goto_4
 
-    .line 354
-    :cond_0
+    .line 332
+    :cond_10
     invoke-static {p0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isNumeric(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
-
-    .line 355
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "\u7b2c"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const p0, 0x8bdd
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_1
-    return-object p0
-
-    :cond_2
-    const-string p0, ""
-
-    return-object p0
-.end method
-
-.method public static getReadableIndexTitle(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-
-    if-eqz p1, :cond_2
-
-    const-string v0, "-1"
-
-    .line 331
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string p0, "\u5c1a\u672a\u5f00\u64ad"
-
-    return-object p0
-
-    .line 334
-    :cond_0
-    invoke-static {p1}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isNumeric(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4
 
     .line 335
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1043,80 +1022,155 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const v1, 0x8bdd
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    goto :goto_4
+.end method
+
+.method public static getReadableIndexTitle(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    .prologue
+    .line 313
+    if-nez p1, :cond_5
+
+    .line 314
+    const-string v0, ""
+
+    .line 322
+    :goto_4
+    return-object v0
+
+    .line 316
+    :cond_5
+    const-string v0, "-1"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_10
+
+    .line 317
+    const-string v0, "\u5c1a\u672a\u5f00\u64ad"
+
+    goto :goto_4
+
+    .line 319
+    :cond_10
+    invoke-static {p1}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isNumeric(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_30
+
+    .line 320
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "\u7b2c"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const p1, 0x8bdd
+    move-result-object v0
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    const v1, 0x8bdd
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 337
-    :cond_1
+    .line 322
+    :cond_30
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
-
-    :cond_2
-    const-string p0, ""
-
-    return-object p0
+    goto :goto_4
 .end method
 
 .method static isNumeric(Ljava/lang/String;)Z
     .locals 4
 
-    const/4 v0, 0x0
-
+    .prologue
     const/4 v1, 0x0
 
-    .line 363
-    :goto_0
+    .line 339
+    move v0, v1
+
+    :goto_2
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v0, v2, :cond_1a
 
-    .line 364
-    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+    .line 340
+    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
 
-    .line 365
+    .line 341
     invoke-static {v2}, Ljava/lang/Character;->isDigit(C)Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_17
 
     const/16 v3, 0x2e
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_17
 
-    return v0
+    .line 345
+    :goto_16
+    return v1
 
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
+    .line 339
+    :cond_17
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_1
-    const/4 p0, 0x1
+    .line 345
+    :cond_1a
+    const/4 v1, 0x1
 
-    return p0
+    goto :goto_16
 .end method
 
 
@@ -1124,143 +1178,159 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 172
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 2
 
-    if-eqz p1, :cond_0
+    .prologue
+    .line 671
+    if-eqz p1, :cond_14
 
-    .line 727
     instance-of v0, p1, Lcom/bilibili/bangumi/api/BiliBangumiSeason;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mSeasonId:Ljava/lang/String;
 
     check-cast p1, Lcom/bilibili/bangumi/api/BiliBangumiSeason;
 
-    iget-object p1, p1, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mSeasonId:Ljava/lang/String;
+    iget-object v1, p1, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mSeasonId:Ljava/lang/String;
 
-    invoke-static {v0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    invoke-static {v0, v1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_14
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_13
+    return v0
 
-    :cond_0
-    const/4 p1, 0x0
+    :cond_14
+    const/4 v0, 0x0
 
-    :goto_0
-    return p1
+    goto :goto_13
 .end method
 
 .method public getEp(J)Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;
-    .locals 6
+    .locals 7
 
-    .line 262
+    .prologue
+    const/4 v1, 0x0
+
+    .line 252
     invoke-virtual {p0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isEpisodesEmpty()Z
 
     move-result v0
 
-    const/4 v1, 0x0
+    if-eqz v0, :cond_9
 
-    if-eqz v0, :cond_0
+    move-object v0, v1
 
-    return-object v1
+    .line 260
+    :goto_8
+    return-object v0
 
-    .line 263
-    :cond_0
+    .line 255
+    :cond_9
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mEpisodes:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    :cond_1
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v2
 
-    check-cast v2, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;
+    :cond_f
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    .line 264
-    iget-wide v3, v2, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;->mId:J
+    move-result v0
 
-    cmp-long v5, v3, p1
+    if-eqz v0, :cond_22
 
-    if-nez v5, :cond_1
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    return-object v2
+    move-result-object v0
 
-    :cond_2
-    return-object v1
+    check-cast v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;
+
+    .line 256
+    iget-wide v4, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;->mId:J
+
+    cmp-long v3, v4, p1
+
+    if-nez v3, :cond_f
+
+    goto :goto_8
+
+    :cond_22
+    move-object v0, v1
+
+    .line 260
+    goto :goto_8
 .end method
 
 .method public getNewestEpId()J
     .locals 2
 
-    .line 245
+    .prologue
+    .line 238
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mLastEPId:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_e
 
     invoke-virtual {p0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isEpisodesEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    goto :goto_0
+    .line 239
+    :cond_e
+    const-wide/16 v0, 0x0
 
-    .line 248
-    :cond_0
+    .line 244
+    :goto_10
+    return-wide v0
+
+    .line 241
+    :cond_11
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mLastEPId:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isDigitsOnly(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
-    .line 249
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mLastEPId:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
-    .line 250
     invoke-virtual {p0, v0, v1}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->getEp(J)Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
-    .line 252
+    .line 242
     iget-wide v0, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;->mId:J
 
-    return-wide v0
+    goto :goto_10
 
-    .line 254
-    :cond_1
+    .line 244
+    :cond_28
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mEpisodes:Ljava/util/List;
 
     const/4 v1, 0x0
@@ -1273,141 +1343,142 @@
 
     iget-wide v0, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Episode;->mId:J
 
-    return-wide v0
-
-    :cond_2
-    :goto_0
-    const-wide/16 v0, 0x0
-
-    return-wide v0
+    goto :goto_10
 .end method
 
 .method public getPaymentPromotion()Ljava/lang/String;
     .locals 1
 
-    .line 209
+    .prologue
+    .line 206
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPayment:Lcom/bilibili/bangumi/api/BiliBangumiSeason$Payment;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
+    .line 207
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPayment:Lcom/bilibili/bangumi/api/BiliBangumiSeason$Payment;
 
     iget-object v0, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Payment;->promotion:Ljava/lang/String;
 
-    goto :goto_0
+    .line 209
+    :goto_8
+    return-object v0
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
-    return-object v0
+    goto :goto_8
 .end method
 
 .method public getPaymentTip()Ljava/lang/String;
     .locals 1
 
-    .line 214
+    .prologue
+    .line 213
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPayment:Lcom/bilibili/bangumi/api/BiliBangumiSeason$Payment;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
+    .line 214
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPayment:Lcom/bilibili/bangumi/api/BiliBangumiSeason$Payment;
 
     iget-object v0, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Payment;->tip:Ljava/lang/String;
 
-    goto :goto_0
+    .line 216
+    :goto_8
+    return-object v0
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
-    return-object v0
+    goto :goto_8
 .end method
 
 .method public getPrice()Ljava/lang/String;
     .locals 1
 
-    .line 238
+    .prologue
+    .line 228
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPayment:Lcom/bilibili/bangumi/api/BiliBangumiSeason$Payment;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPayment:Lcom/bilibili/bangumi/api/BiliBangumiSeason$Payment;
 
     iget-object v0, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$Payment;->price:Ljava/lang/String;
 
-    goto :goto_0
+    :goto_8
+    return-object v0
 
-    :cond_0
+    :cond_9
     const-string v0, "0"
 
-    :goto_0
-    return-object v0
+    goto :goto_8
 .end method
 
 .method public getSeasonStatusReportType()Ljava/lang/String;
     .locals 1
 
-    .line 218
+    .prologue
+    .line 220
     invoke-virtual {p0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isSeasonVipFreeWatch()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     const-string v0, "\u4ed8\u8d39\u89c2\u770b"
 
+    :goto_8
     return-object v0
 
-    .line 221
-    :cond_0
+    :cond_9
     invoke-virtual {p0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isSeasonVipFreeFirstWatch()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     const-string v0, "\u4ed8\u8d39\u62a2\u5148"
 
-    return-object v0
+    goto :goto_8
 
-    .line 224
-    :cond_1
+    :cond_12
     invoke-virtual {p0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isSeasonAllNeedPayWatch()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1b
 
     const-string v0, "\u5168\u4ed8\u8d39\u89c2\u770b"
 
-    return-object v0
+    goto :goto_8
 
-    .line 227
-    :cond_2
+    :cond_1b
     invoke-virtual {p0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isSeasonAllNeedPayFirstWatch()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_24
 
     const-string v0, "\u5168\u4ed8\u8d39\u62a2\u5148"
 
-    return-object v0
+    goto :goto_8
 
-    :cond_3
+    :cond_24
     const-string v0, "\u666e\u901a"
 
-    return-object v0
+    goto :goto_8
 .end method
 
 .method public isEpisodesEmpty()Z
     .locals 1
 
-    .line 258
+    .prologue
+    .line 248
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mEpisodes:Ljava/util/List;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mEpisodes:Ljava/util/List;
 
@@ -1415,21 +1486,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
+    :cond_c
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_d
     return v0
+
+    :cond_e
+    const/4 v0, 0x0
+
+    goto :goto_d
 .end method
 
 .method public isSeasonAllNeedPayFirstWatch()Z
@@ -1439,22 +1507,23 @@
         serialize = false
     .end annotation
 
-    .line 188
+    .prologue
+    .line 192
     iget v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->seasonStatus:I
 
     const/16 v1, 0x9
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_7
+    return v0
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_7
 .end method
 
 .method public isSeasonAllNeedPayWatch()Z
@@ -1464,22 +1533,23 @@
         serialize = false
     .end annotation
 
-    .line 179
+    .prologue
+    .line 187
     iget v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->seasonStatus:I
 
     const/16 v1, 0x8
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_7
+    return v0
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_7
 .end method
 
 .method public isSeasonInPayPack()Z
@@ -1489,22 +1559,23 @@
         serialize = false
     .end annotation
 
+    .prologue
     .line 197
     iget v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->seasonStatus:I
 
     const/16 v1, 0xc
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_7
+    return v0
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_7
 .end method
 
 .method public isSeasonNotFree()Z
@@ -1514,61 +1585,58 @@
         serialize = false
     .end annotation
 
+    .prologue
     .line 202
     invoke-virtual {p0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isSeasonVipFreeWatch()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
     invoke-virtual {p0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isSeasonVipFreeFirstWatch()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
-    .line 203
     invoke-virtual {p0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isSeasonAllNeedPayWatch()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
     invoke-virtual {p0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isSeasonAllNeedPayFirstWatch()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
-    .line 204
     invoke-virtual {p0}, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isSeasonInPayPack()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
+    :cond_1e
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_1f
     return v0
+
+    :cond_20
+    const/4 v0, 0x0
+
+    goto :goto_1f
 .end method
 
 .method public isSeasonPaid()Z
     .locals 1
 
-    .line 234
+    .prologue
+    .line 224
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mUserSeason:Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mUserSeason:Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
 
@@ -1576,17 +1644,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_d
+    return v0
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_d
 .end method
 
 .method public isSeasonVipFreeFirstWatch()Z
@@ -1596,22 +1664,23 @@
         serialize = false
     .end annotation
 
-    .line 170
+    .prologue
+    .line 182
     iget v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->seasonStatus:I
 
     const/4 v1, 0x7
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_6
+    return v0
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_6
 .end method
 
 .method public isSeasonVipFreeWatch()Z
@@ -1621,291 +1690,396 @@
         serialize = false
     .end annotation
 
-    .line 161
+    .prologue
+    .line 177
     iget v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->seasonStatus:I
 
     const/4 v1, 0x6
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_6
+    return v0
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_6
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 5
+    .locals 8
 
-    .line 798
+    .prologue
+    const-wide/16 v6, -0x1
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 746
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mBangumiId:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 799
+    .line 747
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mJapanTitle:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 800
+    .line 748
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mCover:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 801
+    .line 749
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mNewCover:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 802
+    .line 750
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mSeasonId:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 803
+    .line 751
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mSeasonTitle:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 804
+    .line 752
     iget v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mTotalEP:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 805
+    .line 753
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mLastEPId:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 806
+    .line 754
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mLastEPIndex:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 807
+    .line 755
     iget-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mIsFinished:Z
 
+    if-eqz v0, :cond_11f
+
+    move v0, v1
+
+    :goto_36
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 808
+    .line 756
     iget v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mIsStarted:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 809
+    .line 757
     iget-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mIsAllowBp:Z
 
+    if-eqz v0, :cond_122
+
+    move v0, v1
+
+    :goto_43
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 810
+    .line 758
     iget-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mDownloadable:Z
 
+    if-eqz v0, :cond_125
+
+    move v0, v1
+
+    :goto_4b
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 811
+    .line 759
     iget-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mHasNew:Z
 
+    if-eqz v0, :cond_128
+
+    move v0, v1
+
+    :goto_53
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 812
+    .line 760
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mEpisodes:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 813
+    .line 761
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mSeasons:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 814
+    .line 762
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPlays:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 815
+    .line 763
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mDanmakus:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 816
+    .line 764
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mBrief:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 817
+    .line 765
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mEvaluate:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 818
+    .line 766
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mArea:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 819
+    .line 767
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mActors:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 820
+    .line 768
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mStaff:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 821
+    .line 769
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mShareUrl:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 822
+    .line 770
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mTitle:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 823
+    .line 771
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mTags:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 824
+    .line 772
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mUserSeason:Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 825
+    .line 773
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPubTime:Ljava/util/Date;
 
-    const-wide/16 v1, -0x1
-
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12b
 
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPubTime:Ljava/util/Date;
 
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 
-    move-result-wide v3
+    move-result-wide v4
 
-    goto :goto_0
+    :goto_a1
+    invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
-    :cond_0
-    move-wide v3, v1
-
-    :goto_0
-    invoke-virtual {p1, v3, v4}, Landroid/os/Parcel;->writeLong(J)V
-
-    .line 826
+    .line 774
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPubTimeShow:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 827
+    .line 775
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mLastTime:Ljava/util/Date;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_b3
 
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mLastTime:Ljava/util/Date;
 
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 
-    move-result-wide v1
+    move-result-wide v6
 
-    :cond_1
-    invoke-virtual {p1, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
+    :cond_b3
+    invoke-virtual {p1, v6, v7}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 828
+    .line 776
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mFavorites:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 829
+    .line 777
     iget v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mWatchingCount:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 830
+    .line 778
     iget-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mFavorited:Z
 
+    if-eqz v0, :cond_12e
+
+    move v0, v1
+
+    :goto_c5
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 831
+    .line 779
     iget-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->vipQuality:Z
 
+    if-eqz v0, :cond_130
+
+    move v0, v1
+
+    :goto_cd
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 832
+    .line 780
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->uri:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 833
+    .line 781
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->param:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 834
+    .line 782
     iget-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->finished:Z
 
+    if-eqz v0, :cond_132
+
+    move v0, v1
+
+    :goto_df
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 835
+    .line 783
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->badge:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 836
+    .line 784
     iget v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->seasonStatus:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 837
+    .line 785
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mPayment:Lcom/bilibili/bangumi/api/BiliBangumiSeason$Payment;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 838
+    .line 786
     iget-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->isGuideFollow:Z
 
+    if-eqz v0, :cond_134
+
+    move v0, v1
+
+    :goto_f6
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 839
+    .line 787
     iget-boolean v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->hasUnfollow:Z
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
+    if-eqz v0, :cond_136
 
-    .line 840
+    :goto_fd
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeByte(B)V
+
+    .line 788
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mOriginName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 841
+    .line 789
     iget v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mBusinessType:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 842
+    .line 790
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->squareCoverUrl:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 843
+    .line 791
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->reviewMediaInfo:Lcom/bilibili/bangumi/api/review/ReviewMediaBase;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 844
+    .line 792
     iget-object v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->payPack:Lcom/bilibili/bangumi/api/BiliBangumiSeason$PayPack;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 845
-    iget p2, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mWeekday:I
+    .line 793
+    iget v0, p0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mWeekday:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 794
     return-void
+
+    :cond_11f
+    move v0, v2
+
+    .line 755
+    goto/16 :goto_36
+
+    :cond_122
+    move v0, v2
+
+    .line 757
+    goto/16 :goto_43
+
+    :cond_125
+    move v0, v2
+
+    .line 758
+    goto/16 :goto_4b
+
+    :cond_128
+    move v0, v2
+
+    .line 759
+    goto/16 :goto_53
+
+    :cond_12b
+    move-wide v4, v6
+
+    .line 773
+    goto/16 :goto_a1
+
+    :cond_12e
+    move v0, v2
+
+    .line 778
+    goto :goto_c5
+
+    :cond_130
+    move v0, v2
+
+    .line 779
+    goto :goto_cd
+
+    :cond_132
+    move v0, v2
+
+    .line 782
+    goto :goto_df
+
+    :cond_134
+    move v0, v2
+
+    .line 786
+    goto :goto_f6
+
+    :cond_136
+    move v1, v2
+
+    .line 787
+    goto :goto_fd
 .end method

@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/area/BiliVideoV2;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliVideoV2.java"
 
 
 # annotations
@@ -40,7 +40,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 19
+    .prologue
+    .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,35 +49,41 @@
 
 
 # virtual methods
-.method public videoId()I
-    .locals 2
+.method public videoId()J
+    .locals 3
 
-    .line 39
-    iget-object v0, p0, Lcom/bilibili/tv/api/area/BiliVideoV2;->param:Ljava/lang/String;
+    .prologue
+    const-wide/16 v0, 0x0
 
-    invoke-static {v0}, Lbl/kt;->a(Ljava/lang/CharSequence;)Z
+    .line 26
+    iget-object v2, p0, Lcom/bilibili/tv/api/area/BiliVideoV2;->param:Ljava/lang/String;
 
-    move-result v0
+    invoke-static {v2}, Lbl/kt;->a(Ljava/lang/CharSequence;)Z
 
-    const/4 v1, 0x0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_b
 
-    return v1
+    .line 32
+    :goto_a
+    return-wide v0
 
-    .line 44
-    :cond_0
-    :try_start_0
-    iget-object v0, p0, Lcom/bilibili/tv/api/area/BiliVideoV2;->param:Ljava/lang/String;
+    .line 30
+    :cond_b
+    :try_start_b
+    iget-object v2, p0, Lcom/bilibili/tv/api/area/BiliVideoV2;->param:Ljava/lang/String;
 
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v2}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    :try_end_10
+    .catch Ljava/lang/NumberFormatException; {:try_start_b .. :try_end_10} :catch_12
 
-    move-result v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-wide v0
 
-    return v0
+    goto :goto_a
 
-    :catch_0
-    return v1
+    .line 31
+    :catch_12
+    move-exception v2
+
+    goto :goto_a
 .end method

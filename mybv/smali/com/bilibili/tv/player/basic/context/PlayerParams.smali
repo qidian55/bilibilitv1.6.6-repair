@@ -182,8 +182,8 @@
     return v0
 .end method
 
-.method public getAvid()I
-    .locals 1
+.method public getAvid()J
+    .locals 2
 
     .prologue
     .line 107
@@ -195,24 +195,24 @@
 
     iget-object v0, v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mResolveParams:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_d
 
     .line 108
     :cond_a
-    const/4 v0, 0x0
+    const-wide/16 v0, 0x0
 
     .line 110
-    :goto_b
-    return v0
+    :goto_c
+    return-wide v0
 
-    :cond_c
+    :cond_d
     iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
     iget-object v0, v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mResolveParams:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
-    iget v0, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
+    iget-wide v0, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:J
 
-    goto :goto_b
+    goto :goto_c
 .end method
 
 .method public getCid()J

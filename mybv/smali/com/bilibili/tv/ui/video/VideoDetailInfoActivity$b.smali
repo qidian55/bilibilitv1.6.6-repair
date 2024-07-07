@@ -1,34 +1,37 @@
-.class final Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity$b;
+.class public final Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity$b;
 .super Ljava/lang/Object;
-.source "BL"
+.source "VideoDetailInfoActivity.java"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;->l()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
+    accessFlags = 0x11
+    name = "b"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;
+.field final synthetic this$0:Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity$b;->a:Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;
+    .prologue
+    .line 98
+    iput-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity$b;->this$0:Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 99
     return-void
 .end method
 
@@ -37,25 +40,19 @@
 .method public final onClick(Landroid/view/View;)V
     .locals 1
 
-    .line 78
-    iget-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity$b;->a:Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;
+    .prologue
+    .line 103
+    iget-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity$b;->this$0:Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;
 
-    invoke-static {p1}, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;->a(Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;)I
+    # operator++ for: Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;->h:I
+    invoke-static {v0}, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;->access$008(Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;)I
 
-    move-result v0
+    .line 104
+    iget-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity$b;->this$0:Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;
 
-    add-int/lit8 v0, v0, 0x1
+    # getter for: Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;->h:I
+    invoke-static {v0}, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;->access$000(Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;)I
 
-    invoke-static {p1, v0}, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;->a(Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;I)V
-
-    .line 79
-    iget-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity$b;->a:Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;
-
-    invoke-static {p1}, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;->a(Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;)I
-
-    move-result p1
-
-    const/16 v0, 0xc
-
+    .line 105
     return-void
 .end method

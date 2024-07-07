@@ -201,103 +201,112 @@
 .end method
 
 .method private a(Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;)V
-    .locals 14
+    .locals 17
 
     .prologue
-    const-wide/16 v10, 0x0
-
     .line 97
-    if-nez p1, :cond_5
+    if-nez p1, :cond_3
 
     .line 117
-    :cond_4
-    :goto_4
+    :cond_2
+    :goto_2
     return-void
 
     .line 100
-    :cond_5
-    iget-wide v2, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
+    :cond_3
+    move-object/from16 v0, p1
+
+    iget-wide v4, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
     .line 101
-    iget v4, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
+    move-object/from16 v0, p1
+
+    iget-wide v6, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:J
 
     .line 102
-    iget v0, p0, Lbl/xj;->i:I
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lbl/xj;->i:I
 
     .line 103
-    if-lez v0, :cond_4
+    if-lez v2, :cond_2
 
     .line 106
-    invoke-virtual {p0}, Lbl/xj;->x()I
+    invoke-virtual/range {p0 .. p0}, Lbl/xj;->x()I
 
-    move-result v1
+    move-result v3
 
     .line 107
-    sub-int/2addr v0, v1
+    sub-int/2addr v2, v3
 
-    const/16 v5, 0x1388
+    const/16 v8, 0x1388
 
-    if-le v0, v5, :cond_1c
+    if-le v2, v8, :cond_20
 
-    invoke-virtual {p0}, Lbl/xj;->L()Z
+    invoke-virtual/range {p0 .. p0}, Lbl/xj;->L()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_3a
+    if-eqz v2, :cond_44
 
-    :cond_1c
-    const/4 v0, -0x1
+    :cond_20
+    const/4 v2, -0x1
 
     .line 108
-    :goto_1d
-    invoke-direct {p0, p1}, Lbl/xj;->b(Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;)I
+    :goto_21
+    invoke-direct/range {p0 .. p1}, Lbl/xj;->b(Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;)I
 
-    move-result v9
+    move-result v12
+
+    .line 109
+    const-wide/16 v8, 0x0
 
     .line 110
-    invoke-virtual {p1}, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->isBangumi()Z
+    invoke-virtual/range {p1 .. p1}, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->isBangumi()Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_3d
+    if-eqz v3, :cond_47
 
     .line 111
-    iget-object v1, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mSeasonId:Ljava/lang/String;
+    move-object/from16 v0, p1
 
-    invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    iget-object v3, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mSeasonId:Ljava/lang/String;
 
-    move-result-wide v5
+    invoke-static {v3}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v8
 
     .line 112
-    iget-wide v7, p1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mEpisodeId:J
+    move-object/from16 v0, p1
+
+    iget-wide v10, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mEpisodeId:J
 
     .line 116
-    :goto_2f
-    invoke-virtual {p0}, Lbl/xj;->p()Landroid/content/Context;
+    :goto_39
+    invoke-virtual/range {p0 .. p0}, Lbl/xj;->p()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v3
 
-    int-to-long v10, v0
+    int-to-long v13, v2
 
-    const-wide/16 v12, 0x1
+    const-wide/16 v15, 0x1
 
-    invoke-static/range {v1 .. v13}, Lbl/zq;->a(Landroid/content/Context;JIJJIJJ)V
+    invoke-static/range {v3 .. v16}, Lbl/zq;->a(Landroid/content/Context;JJJJIJJ)V
 
-    goto :goto_4
+    goto :goto_2
 
     .line 107
-    :cond_3a
-    div-int/lit16 v0, v1, 0x3e8
+    :cond_44
+    div-int/lit16 v2, v3, 0x3e8
 
-    goto :goto_1d
-
-    :cond_3d
-    move-wide v5, v10
-
-    move-wide v7, v10
+    goto :goto_21
 
     .line 114
-    goto :goto_2f
+    :cond_47
+    const-wide/16 v10, 0x0
+
+    goto :goto_39
 .end method
 
 .method static synthetic access$000(Lbl/xj;)Landroid/view/animation/Animation;

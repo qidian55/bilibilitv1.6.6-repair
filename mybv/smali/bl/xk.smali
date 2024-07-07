@@ -619,10 +619,10 @@
 .end method
 
 .method public a(Lcom/bilibili/tv/api/danmaku/DanmakuSendData;)V
-    .locals 11
+    .locals 13
 
     .prologue
-    const/4 v8, 0x0
+    const/4 v10, 0x0
 
     .line 276
     iget-object v0, p0, Lbl/xk;->c:Ltv/danmaku/videoplayer/core/context/IPlayerContext;
@@ -631,9 +631,9 @@
 
     invoke-virtual {p0}, Lbl/xk;->b()Lcom/bilibili/tv/player/basic/context/PlayerParams;
 
-    move-result-object v6
+    move-result-object v0
 
-    if-nez v6, :cond_c
+    if-nez v0, :cond_c
 
     .line 282
     :cond_b
@@ -642,69 +642,69 @@
 
     .line 279
     :cond_c
-    iget-object v0, v6, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
+    iget-object v1, v0, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    invoke-virtual {v0}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+    invoke-virtual {v1}, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->obtainResolveParams()Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
-    move-result-object v4
+    move-result-object v6
 
     .line 280
-    iget-object v0, p0, Lbl/xk;->f:Lbl/yo;
+    iget-object v1, p0, Lbl/xk;->f:Lbl/yo;
 
     invoke-virtual {p0}, Lbl/xk;->q()Lbl/aaq;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Lbl/yo;->a(Landroid/os/Handler;)V
+    invoke-virtual {v1, v2}, Lbl/yo;->a(Landroid/os/Handler;)V
 
     .line 281
-    iget-object v0, p0, Lbl/xk;->f:Lbl/yo;
+    iget-object v1, p0, Lbl/xk;->f:Lbl/yo;
 
     invoke-virtual {p0}, Lbl/xk;->o()Landroid/app/Activity;
 
-    move-result-object v1
-
-    iget-wide v2, v4, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
-
-    invoke-static {v2, v3}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
     move-result-object v2
 
-    iget v3, v4, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
+    iget-wide v4, v6, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
-    iget v4, v4, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mPage:I
+    invoke-static {v4, v5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v3
+
+    iget-wide v4, v6, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:J
+
+    iget v6, v6, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mPage:I
 
     invoke-virtual {p0}, Lbl/xk;->x()I
 
-    move-result v5
+    move-result v7
 
-    invoke-static {v6}, Lbl/aah;->a(Lcom/bilibili/tv/player/basic/context/PlayerParams;)Lbl/aah;
+    invoke-static {v0}, Lbl/aah;->a(Lcom/bilibili/tv/player/basic/context/PlayerParams;)Lbl/aah;
 
-    move-result-object v6
+    move-result-object v0
 
-    const-string v7, "bundle_key_player_params_jump_from"
+    const-string v8, "bundle_key_player_params_jump_from"
 
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v9
 
-    invoke-virtual {v6, v7, v9}, Lbl/aah;->a(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v8, v9}, Lbl/aah;->a(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v0
 
-    check-cast v6, Ljava/lang/Integer;
+    check-cast v0, Ljava/lang/Integer;
 
-    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v6
+    move-result v8
 
-    move-object v7, p1
+    move-object v9, p1
 
-    move v9, v8
+    move v11, v10
 
-    move-object v10, p0
+    move-object v12, p0
 
-    invoke-virtual/range {v0 .. v10}, Lbl/yo;->a(Landroid/content/Context;Ljava/lang/String;IIIILcom/bilibili/tv/api/danmaku/DanmakuSendData;ZILbl/xh;)V
+    invoke-virtual/range {v1 .. v12}, Lbl/yo;->a(Landroid/content/Context;Ljava/lang/String;JIIILcom/bilibili/tv/api/danmaku/DanmakuSendData;ZILbl/xh;)V
 
     goto :goto_b
 .end method

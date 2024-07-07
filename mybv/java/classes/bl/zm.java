@@ -20,7 +20,7 @@ public class zm {
     public int l;
     public int m;
     public boolean n;
-    public int o;
+    public long o;
     public int p;
     public int q;
 

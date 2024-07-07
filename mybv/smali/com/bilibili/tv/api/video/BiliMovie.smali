@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/video/BiliMovie;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliMovie.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;
@@ -13,12 +13,12 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/bilibili/tv/api/video/BiliMovie$PayUser;,
+        Lcom/bilibili/tv/api/video/BiliMovie$Season;,
+        Lcom/bilibili/tv/api/video/BiliMovie$Tag;,
         Lcom/bilibili/tv/api/video/BiliMovie$Payment;,
         Lcom/bilibili/tv/api/video/BiliMovie$MovieActivity;,
-        Lcom/bilibili/tv/api/video/BiliMovie$Actor;,
-        Lcom/bilibili/tv/api/video/BiliMovie$Tag;,
-        Lcom/bilibili/tv/api/video/BiliMovie$Season;,
-        Lcom/bilibili/tv/api/video/BiliMovie$Image;
+        Lcom/bilibili/tv/api/video/BiliMovie$Image;,
+        Lcom/bilibili/tv/api/video/BiliMovie$Actor;
     }
 .end annotation
 
@@ -27,7 +27,8 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Lcom/bilibili/tv/api/video/BiliMovie;",
             ">;"
         }
@@ -50,7 +51,7 @@
     .end annotation
 .end field
 
-.field public mAvid:I
+.field public mAvid:J
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "aid"
     .end annotation
@@ -97,7 +98,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 306
+    .prologue
+    .line 15
     new-instance v0, Lcom/bilibili/tv/api/video/BiliMovie$1;
 
     invoke-direct {v0}, Lcom/bilibili/tv/api/video/BiliMovie$1;-><init>()V
@@ -110,19 +112,22 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 268
+    .prologue
+    .line 260
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 261
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .locals 2
 
-    .line 299
+    .prologue
+    .line 279
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 300
+    .line 280
     const-class v0, Lcom/bilibili/tv/api/video/BiliMovie$Season;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -137,21 +142,21 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mSeason:Lcom/bilibili/tv/api/video/BiliMovie$Season;
 
-    .line 301
+    .line 281
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
 
-    .line 302
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    .line 282
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result v0
+    move-result-wide v0
 
-    iput v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mAvid:I
+    iput-wide v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mAvid:J
 
-    .line 303
+    .line 283
     const-class v0, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -160,12 +165,13 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
+    check-cast v0, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
 
-    iput-object p1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
+    iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
 
+    .line 284
     return-void
 .end method
 
@@ -174,6 +180,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 124
     const/4 v0, 0x0
 
     return v0
@@ -182,49 +190,54 @@
 .method public getMovieId()Ljava/lang/String;
     .locals 1
 
-    .line 272
+    .prologue
+    .line 264
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mSeason:Lcom/bilibili/tv/api/video/BiliMovie$Season;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    .line 273
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mSeason:Lcom/bilibili/tv/api/video/BiliMovie$Season;
 
     iget-object v0, v0, Lcom/bilibili/tv/api/video/BiliMovie$Season;->seasonId:Ljava/lang/String;
 
+    :goto_8
     return-object v0
 
-    :cond_0
+    :cond_9
     const-string v0, ""
 
-    return-object v0
+    goto :goto_8
 .end method
 
 .method public getMoviePayStatus()I
     .locals 1
 
-    .line 241
+    .prologue
+    .line 239
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
+    .line 240
     const/4 v0, 0x0
 
-    goto :goto_0
+    .line 242
+    :goto_5
+    return v0
 
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
 
     iget v0, v0, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;->mStatus:I
 
-    :goto_0
-    return v0
+    goto :goto_5
 .end method
 
 .method public getMovieStatus()I
     .locals 1
 
-    .line 233
+    .prologue
+    .line 235
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
 
     return v0
@@ -233,212 +246,218 @@
 .method public getMovieTitle()Ljava/lang/String;
     .locals 1
 
-    .line 279
+    .prologue
+    .line 268
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mSeason:Lcom/bilibili/tv/api/video/BiliMovie$Season;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    .line 280
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mSeason:Lcom/bilibili/tv/api/video/BiliMovie$Season;
 
     iget-object v0, v0, Lcom/bilibili/tv/api/video/BiliMovie$Season;->title:Ljava/lang/String;
 
+    :goto_8
     return-object v0
 
-    :cond_0
+    :cond_9
     const-string v0, ""
 
-    return-object v0
+    goto :goto_8
 .end method
 
 .method public hasPurchased()Z
     .locals 2
 
-    .line 225
-    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
+    .prologue
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    .line 231
+    iget-object v1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_c
 
-    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
+    iget-object v1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
 
-    iget v0, v0, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;->mStatus:I
+    iget v1, v1, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;->mStatus:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v0, :cond_c
 
-    goto :goto_0
+    :goto_b
+    return v0
 
-    :cond_0
-    const/4 v1, 0x0
+    :cond_c
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    goto :goto_b
 .end method
 
 .method public isAreaLimited()Z
     .locals 3
 
-    .line 265
-    iget v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
+    .prologue
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    .line 257
+    iget v1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v0, :cond_11
 
-    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
+    iget-object v1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_11
 
-    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
+    iget-object v1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
 
-    iget v0, v0, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;->mStatus:I
+    iget v1, v1, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;->mStatus:I
 
     const/4 v2, 0x2
 
-    if-ne v0, v2, :cond_0
+    if-ne v1, v2, :cond_11
 
-    goto :goto_0
+    :goto_10
+    return v0
 
-    :cond_0
-    const/4 v1, 0x0
+    :cond_11
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    goto :goto_10
 .end method
 
 .method public isFreeForVip()Z
     .locals 2
 
-    .line 218
+    .prologue
+    .line 227
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_6
+    return v0
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_6
 .end method
 
 .method public isMovieCharge()Z
     .locals 3
 
-    .line 257
-    iget v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
+    .prologue
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    .line 253
+    iget v1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
 
-    if-eq v0, v1, :cond_1
+    if-eq v1, v0, :cond_a
 
-    iget v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
+    iget v1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
 
     const/4 v2, 0x3
 
-    if-ne v0, v2, :cond_0
+    if-ne v1, v2, :cond_b
 
-    goto :goto_0
+    :cond_a
+    :goto_a
+    return v0
 
-    :cond_0
-    const/4 v1, 0x0
+    :cond_b
+    const/4 v0, 0x0
 
-    :cond_1
-    :goto_0
-    return v1
+    goto :goto_a
 .end method
 
 .method public isNeedPurchase()Z
     .locals 2
 
-    .line 210
-    iget v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
+    .prologue
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    .line 223
+    iget v1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v0, :cond_f
 
-    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
+    iget-object v1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_f
 
-    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
+    iget-object v1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
 
-    iget v0, v0, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;->mStatus:I
+    iget v1, v1, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;->mStatus:I
 
-    if-eq v0, v1, :cond_0
+    if-ne v1, v0, :cond_10
 
-    goto :goto_0
+    :cond_f
+    const/4 v0, 0x0
 
-    :cond_0
-    const/4 v1, 0x0
-
-    :goto_0
-    return v1
+    :cond_10
+    return v0
 .end method
 
 .method public isPreview()Z
     .locals 2
 
+    .prologue
+    const/4 v0, 0x1
+
+    .line 246
+    iget v1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
+
+    if-eqz v1, :cond_14
+
+    .line 247
+    iget v1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
+
+    if-ne v1, v0, :cond_13
+
+    iget-object v1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
+
+    if-eqz v1, :cond_13
+
+    iget-object v1, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
+
+    iget v1, v1, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;->mStatus:I
+
+    if-ne v1, v0, :cond_14
+
+    :cond_13
+    const/4 v0, 0x0
+
     .line 249
-    iget v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
-
-    const/4 v1, 0x1
-
-    if-eqz v0, :cond_1
-
-    iget v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
-
-    if-ne v0, v1, :cond_0
-
-    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
-
-    iget v0, v0, Lcom/bilibili/tv/api/video/BiliMovie$PayUser;->mStatus:I
-
-    if-eq v0, v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v1, 0x0
-
-    :cond_1
-    :goto_0
-    return v1
+    :cond_14
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .locals 2
 
-    .line 293
+    .prologue
+    .line 273
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mSeason:Lcom/bilibili/tv/api/video/BiliMovie$Season;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 294
+    .line 274
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mStatus:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 295
-    iget v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mAvid:I
+    .line 275
+    iget-wide v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mAvid:J
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 296
+    .line 276
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliMovie;->mPayUser:Lcom/bilibili/tv/api/video/BiliMovie$PayUser;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
+    .line 277
     return-void
 .end method

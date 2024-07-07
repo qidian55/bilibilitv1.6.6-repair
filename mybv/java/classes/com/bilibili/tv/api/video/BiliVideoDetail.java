@@ -39,7 +39,7 @@ public class BiliVideoDetail implements Parcelable {
     @JSONField(name = "copyright")
     public int mArcType;
     @JSONField(name = "aid")
-    public int mAvid;
+    public long mAvid;
     @JSONField(name = "season")
     public BangumiInfo mBangumiInfo;
     @JSONField(name = "bp")
@@ -368,7 +368,7 @@ public class BiliVideoDetail implements Parcelable {
     }
 
     public int hashCode() {
-        return this.mAvid;
+        return (int)this.mAvid;
     }
 
     /* compiled from: BL */
@@ -960,7 +960,7 @@ public class BiliVideoDetail implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.mAvid);
+        parcel.writeLong(this.mAvid);
         parcel.writeInt(this.mTid);
         parcel.writeString(this.mTypeName);
         parcel.writeString(this.mTitle);
@@ -987,7 +987,7 @@ public class BiliVideoDetail implements Parcelable {
     }
 
     protected BiliVideoDetail(Parcel parcel) {
-        this.mAvid = parcel.readInt();
+        this.mAvid = parcel.readLong();
         this.mTid = parcel.readInt();
         this.mTypeName = parcel.readString();
         this.mTitle = parcel.readString();

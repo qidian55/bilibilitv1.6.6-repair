@@ -1,6 +1,6 @@
 .class public final Lbl/afi$d$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "afi.java"
 
 
 # annotations
@@ -18,18 +18,22 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 1262
+    .prologue
+    .line 1953
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1954
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 1262
+    .prologue
+    .line 1957
     invoke-direct {p0}, Lbl/afi$d$a;-><init>()V
 
+    .line 1958
     return-void
 .end method
 
@@ -38,11 +42,13 @@
 .method public final a(Landroid/view/ViewGroup;)Lbl/afi$d;
     .locals 3
 
+    .prologue
+    .line 1961
     const-string v0, "parent"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1265
+    .line 1962
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -55,19 +61,19 @@
 
     const/4 v2, 0x0
 
-    .line 1266
     invoke-virtual {v0, v1, p1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    .line 1267
-    new-instance v0, Lbl/afi$d;
-
+    .line 1963
     const-string v1, "view"
 
-    invoke-static {p1, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-direct {v0, p1}, Lbl/afi$d;-><init>(Landroid/view/View;)V
+    .line 1964
+    new-instance v1, Lbl/afi$d;
 
-    return-object v0
+    invoke-direct {v1, v0}, Lbl/afi$d;-><init>(Landroid/view/View;)V
+
+    return-object v1
 .end method

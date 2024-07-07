@@ -1,6 +1,6 @@
-.class final Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;
+.class public final Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;
 .super Lbl/vn;
-.source "BL"
+.source "BoxListInfoActivity.java"
 
 
 # annotations
@@ -9,13 +9,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "a"
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lbl/vn<",
+        "Lbl/vn",
+        "<",
         "Lcom/bilibili/tv/api/favorite/BiliSearchFavoriteBox;",
         ">;"
     }
@@ -23,23 +24,20 @@
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+.field final synthetic this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
 
 # direct methods
 .method public constructor <init>(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    .line 187
-    iput-object p1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    .prologue
+    .line 276
+    iput-object p1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
     invoke-direct {p0}, Lbl/vn;-><init>()V
 
+    .line 277
     return-void
 .end method
 
@@ -48,221 +46,252 @@
 .method public a(Lcom/bilibili/tv/api/favorite/BiliSearchFavoriteBox;)V
     .locals 4
 
-    .line 205
-    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    .prologue
+    const/4 v3, 0x1
 
-    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
+    const/4 v2, 0x0
 
-    move-result-object v0
+    .line 304
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    if-eqz v0, :cond_f
-
-    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
-
-    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->b(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$200(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_12
 
-    goto/16 :goto_2
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    .line 209
-    :cond_0
-    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;Z)V
-
-    .line 210
-    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
-
-    invoke-virtual {v0, v1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a(Z)V
-
-    .line 211
-    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
-
-    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->b(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->d:Lcom/bilibili/tv/ui/base/LoadingImageView;
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$700(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
+    .line 363
+    :cond_12
+    :goto_12
+    return-void
+
+    .line 307
+    :cond_13
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+
+    # setter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->i:Z
+    invoke-static {v0, v2}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$002(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;Z)Z
+
+    .line 308
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+
+    invoke-virtual {v0, v2}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a(Z)V
+
+    .line 309
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->d:Lcom/bilibili/tv/ui/base/LoadingImageView;
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$700(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
+
+    move-result-object v0
+
+    .line 310
+    if-nez v0, :cond_28
+
+    .line 311
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_1
+    .line 313
+    :cond_28
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/base/LoadingImageView;->b()V
 
-    const/4 v0, 0x1
+    .line 314
+    if-eqz p1, :cond_8e
 
-    if-eqz p1, :cond_b
+    iget-object v0, p1, Lcom/bilibili/tv/api/favorite/BiliSearchFavoriteBox;->videos:Ljava/util/List;
 
-    .line 213
-    iget-object v2, p1, Lcom/bilibili/tv/api/favorite/BiliSearchFavoriteBox;->videos:Ljava/util/List;
+    if-eqz v0, :cond_8e
 
-    if-eqz v2, :cond_b
+    .line 315
+    iget-object v0, p1, Lcom/bilibili/tv/api/favorite/BiliSearchFavoriteBox;->videos:Ljava/util/List;
 
-    iget-object v2, p1, Lcom/bilibili/tv/api/favorite/BiliSearchFavoriteBox;->videos:Ljava/util/List;
+    .line 316
+    if-nez v0, :cond_38
 
-    if-nez v2, :cond_2
-
+    .line 317
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_2
-    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+    .line 319
+    :cond_38
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_3
+    if-nez v0, :cond_8e
 
-    goto :goto_1
+    .line 320
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    .line 220
-    :cond_3
-    iget-object v2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
-
-    invoke-static {v2}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
-
-    move-result-object v2
-
-    if-nez v2, :cond_4
-
-    return-void
-
-    .line 224
-    :cond_4
-    iget-object v2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
-
-    invoke-static {v2, v1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;Z)V
-
-    .line 225
-    iget-object v2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
-
-    invoke-static {v2}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->d(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)I
-
-    move-result v2
-
-    iget v3, p1, Lcom/bilibili/tv/api/favorite/BiliSearchFavoriteBox;->mPageCount:I
-
-    if-lt v2, v3, :cond_5
-
-    .line 226
-    iget-object v2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
-
-    invoke-static {v2, v1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->b(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;Z)V
-
-    .line 229
-    :cond_5
-    iget-object v1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
-
-    invoke-static {v1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->d(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)I
-
-    move-result v1
-
-    if-ne v1, v0, :cond_8
-
-    .line 230
-    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
-
-    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$200(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
 
     move-result-object v0
 
-    if-nez v0, :cond_6
+    if-eqz v0, :cond_12
 
-    invoke-static {}, Lbl/bbi;->a()V
+    .line 323
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    :cond_6
-    iget-object p1, p1, Lcom/bilibili/tv/api/favorite/BiliSearchFavoriteBox;->videos:Ljava/util/List;
+    # setter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->i:Z
+    invoke-static {v0, v2}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$002(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;Z)Z
 
-    if-nez p1, :cond_7
+    .line 324
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    invoke-static {}, Lbl/bbi;->a()V
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->g:I
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$400(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)I
 
-    :cond_7
-    invoke-virtual {v0, p1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;->a(Ljava/util/List;)V
+    move-result v0
 
-    goto :goto_0
+    iget v1, p1, Lcom/bilibili/tv/api/favorite/BiliSearchFavoriteBox;->mPageCount:I
 
-    .line 232
-    :cond_8
-    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    if-lt v0, v1, :cond_5a
 
-    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
+    .line 325
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+
+    # setter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->h:Z
+    invoke-static {v0, v2}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$102(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;Z)Z
+
+    .line 327
+    :cond_5a
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->g:I
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$400(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)I
+
+    move-result v0
+
+    if-ne v0, v3, :cond_78
+
+    .line 328
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$200(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
 
     move-result-object v0
 
-    if-nez v0, :cond_9
+    .line 329
+    if-nez v0, :cond_6d
 
+    .line 330
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_9
-    iget-object p1, p1, Lcom/bilibili/tv/api/favorite/BiliSearchFavoriteBox;->videos:Ljava/util/List;
+    .line 332
+    :cond_6d
+    iget-object v1, p1, Lcom/bilibili/tv/api/favorite/BiliSearchFavoriteBox;->videos:Ljava/util/List;
 
-    if-nez p1, :cond_a
+    .line 333
+    if-nez v1, :cond_74
 
+    .line 334
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_a
-    invoke-virtual {v0, p1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;->b(Ljava/util/List;)V
+    .line 336
+    :cond_74
+    invoke-virtual {v0, v1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;->a(Ljava/util/List;)V
 
-    :goto_0
-    return-void
+    goto :goto_12
 
-    .line 214
-    :cond_b
-    :goto_1
-    iget-object p1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    .line 339
+    :cond_78
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    invoke-static {p1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->d(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)I
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$200(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
 
-    move-result p1
+    move-result-object v0
 
-    if-ne p1, v0, :cond_e
+    .line 340
+    if-nez v0, :cond_83
 
-    .line 215
-    iget-object p1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
-
-    invoke-static {p1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->b(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
-
-    move-result-object p1
-
-    if-nez p1, :cond_c
-
+    .line 341
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_c
-    invoke-virtual {p1}, Lcom/bilibili/tv/ui/base/LoadingImageView;->c()V
+    .line 343
+    :cond_83
+    iget-object v1, p1, Lcom/bilibili/tv/api/favorite/BiliSearchFavoriteBox;->videos:Ljava/util/List;
 
-    .line 216
-    iget-object p1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    .line 344
+    if-nez v1, :cond_8a
 
-    invoke-static {p1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->b(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
-
-    move-result-object p1
-
-    if-nez p1, :cond_d
-
+    .line 345
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_d
-    const v0, 0x7f0c00d8
+    .line 347
+    :cond_8a
+    invoke-virtual {v0, v1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;->b(Ljava/util/List;)V
 
-    invoke-virtual {p1, v0}, Lcom/bilibili/tv/ui/base/LoadingImageView;->a(I)V
+    goto :goto_12
 
-    :cond_e
-    return-void
+    .line 351
+    :cond_8e
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    :cond_f
-    :goto_2
-    return-void
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->g:I
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$400(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)I
+
+    move-result v0
+
+    if-ne v0, v3, :cond_12
+
+    .line 352
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->d:Lcom/bilibili/tv/ui/base/LoadingImageView;
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$700(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
+
+    move-result-object v0
+
+    .line 353
+    if-nez v0, :cond_a1
+
+    .line 354
+    invoke-static {}, Lbl/bbi;->a()V
+
+    .line 356
+    :cond_a1
+    invoke-virtual {v0}, Lcom/bilibili/tv/ui/base/LoadingImageView;->c()V
+
+    .line 357
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->d:Lcom/bilibili/tv/ui/base/LoadingImageView;
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$700(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
+
+    move-result-object v0
+
+    .line 358
+    if-nez v0, :cond_af
+
+    .line 359
+    invoke-static {}, Lbl/bbi;->a()V
+
+    .line 361
+    :cond_af
+    const v1, 0x7f0c00d8
+
+    invoke-virtual {v0, v1}, Lcom/bilibili/tv/ui/base/LoadingImageView;->a(I)V
+
+    goto/16 :goto_12
 .end method
 
 .method public bridge synthetic a(Ljava/lang/Object;)V
     .locals 0
 
-    .line 187
+    .prologue
+    .line 275
     check-cast p1, Lcom/bilibili/tv/api/favorite/BiliSearchFavoriteBox;
 
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a(Lcom/bilibili/tv/api/favorite/BiliSearchFavoriteBox;)V
@@ -273,8 +302,9 @@
 .method public isCancel()Z
     .locals 1
 
-    .line 189
-    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    .prologue
+    .line 281
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->isFinishing()Z
 
@@ -286,82 +316,86 @@
 .method public onError(Ljava/lang/Throwable;)V
     .locals 3
 
+    .prologue
+    const/4 v2, 0x1
+
+    .line 286
     const-string v0, "t"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 193
+    .line 287
     sget-object v0, Lbl/adl;->a:Lbl/adl;
 
-    iget-object v1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
-
-    check-cast v1, Landroid/app/Activity;
+    iget-object v1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
     invoke-virtual {v0, p1, v1}, Lbl/adl;->a(Ljava/lang/Throwable;Landroid/app/Activity;)V
 
-    .line 194
-    iget-object p1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    .line 288
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    invoke-static {p1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$200(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_3
+    if-eqz v0, :cond_1d
 
-    iget-object p1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    invoke-static {p1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->b(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->d:Lcom/bilibili/tv/ui/base/LoadingImageView;
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$700(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-nez p1, :cond_0
+    if-nez v0, :cond_1e
 
-    goto :goto_0
+    .line 300
+    :cond_1d
+    :goto_1d
+    return-void
 
-    .line 197
-    :cond_0
-    iget-object p1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    .line 291
+    :cond_1e
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p1, v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;Z)V
+    # setter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->i:Z
+    invoke-static {v0, v1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$002(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;Z)Z
 
-    .line 198
-    iget-object p1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    .line 292
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    invoke-static {p1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->d(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)I
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->g:I
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$400(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)I
 
-    move-result p1
+    move-result v0
 
-    const/4 v1, 0x1
+    if-ne v0, v2, :cond_1d
 
-    if-ne p1, v1, :cond_2
+    .line 293
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    .line 199
-    iget-object p1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    invoke-virtual {v0, v2}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a(Z)V
 
-    invoke-virtual {p1, v1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a(Z)V
+    .line 294
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    .line 200
-    iget-object p1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    # getter for: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->d:Lcom/bilibili/tv/ui/base/LoadingImageView;
+    invoke-static {v0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$700(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
 
-    invoke-static {p1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->b(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Lcom/bilibili/tv/ui/base/LoadingImageView;
+    move-result-object v0
 
-    move-result-object p1
+    .line 295
+    if-nez v0, :cond_3c
 
-    if-nez p1, :cond_1
-
+    .line 296
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_1
-    const/4 v2, 0x0
+    .line 298
+    :cond_3c
+    invoke-virtual {v0, v2}, Lcom/bilibili/tv/ui/base/LoadingImageView;->setRefreshError(Z)V
 
-    invoke-static {p1, v0, v1, v2}, Lcom/bilibili/tv/ui/base/LoadingImageView;->a(Lcom/bilibili/tv/ui/base/LoadingImageView;ZILjava/lang/Object;)V
-
-    :cond_2
-    return-void
-
-    :cond_3
-    :goto_0
-    return-void
+    goto :goto_1d
 .end method

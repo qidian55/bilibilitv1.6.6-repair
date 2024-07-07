@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/zq;->a(Landroid/content/Context;JIJJIJJ)V
+    value = Lbl/zq;->a(Landroid/content/Context;JJJJIJJ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

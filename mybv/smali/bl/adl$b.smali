@@ -1,58 +1,64 @@
 .class final Lbl/adl$b;
 .super Ljava/lang/Object;
-.source "BL"
+.source "adl.java"
 
 # interfaces
 .implements Lbl/agb$b;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/adl;->a(Ljava/lang/Throwable;Landroid/app/Activity;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lbl/adl;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x18
-    name = null
+    name = "b"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Landroid/app/Activity;
+.field final a:Landroid/app/Activity;
 
 
 # direct methods
 .method constructor <init>(Landroid/app/Activity;)V
     .locals 0
 
-    iput-object p1, p0, Lbl/adl$b;->a:Landroid/app/Activity;
-
+    .prologue
+    .line 271
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 272
+    iput-object p1, p0, Lbl/adl$b;->a:Landroid/app/Activity;
+
+    .line 273
     return-void
 .end method
 
 
 # virtual methods
 .method public final a(Lbl/agb;Landroid/view/View;)V
-    .locals 1
+    .locals 3
 
-    .line 238
+    .prologue
+    .line 277
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
-    .line 239
-    sget-object p1, Lbl/abn;->a:Lbl/abn;
+    .line 278
+    sget-object v0, Lbl/abn;->a:Lbl/abn;
 
-    invoke-virtual {p1}, Lbl/abn;->a()Lbl/jb;
+    invoke-virtual {v0}, Lbl/abn;->a()Lbl/jb;
 
-    .line 240
-    sget-object p1, Lcom/bilibili/tv/ui/account/LoginActivity;->Companion:Lcom/bilibili/tv/ui/account/LoginActivity$a;
+    .line 279
+    sget-object v0, Lcom/bilibili/tv/ui/account/LoginActivity;->Companion:Lcom/bilibili/tv/ui/account/LoginActivity$a;
 
-    iget-object p2, p0, Lbl/adl$b;->a:Landroid/app/Activity;
+    iget-object v1, p0, Lbl/adl$b;->a:Landroid/app/Activity;
 
-    const/16 v0, 0x65
+    const/16 v2, 0x65
 
-    invoke-virtual {p1, p2, v0}, Lcom/bilibili/tv/ui/account/LoginActivity$a;->a(Landroid/app/Activity;I)V
+    invoke-virtual {v0, v1, v2}, Lcom/bilibili/tv/ui/account/LoginActivity$a;->a(Landroid/app/Activity;I)V
 
+    .line 280
     return-void
 .end method

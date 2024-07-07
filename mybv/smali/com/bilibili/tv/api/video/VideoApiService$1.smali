@@ -1,6 +1,6 @@
 .class synthetic Lcom/bilibili/tv/api/video/VideoApiService$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "VideoApiService.java"
 
 
 # annotations

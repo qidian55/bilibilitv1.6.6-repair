@@ -1,6 +1,6 @@
 .class public final Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliFavoriteBox.java"
 
 
 # annotations
@@ -64,7 +64,8 @@
 
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;",
             ">;"
         }
@@ -78,7 +79,8 @@
 
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;",
             ">;"
         }
@@ -90,7 +92,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 16
+    .prologue
+    .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -103,46 +106,54 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;",
             ">;"
         }
     .end annotation
 
-    .line 65
+    .prologue
+    .line 134
     iget-object v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->videoCovers:Ljava/util/List;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
+    .line 135
     iget-object v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->videoCovers:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    .line 136
+    if-nez v0, :cond_b
 
+    .line 137
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_0
+    .line 139
+    :cond_b
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
-    .line 66
+    .line 140
     iget-object v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->videoCovers:Ljava/util/List;
 
+    .line 143
+    :goto_13
     return-object v0
 
-    .line 68
-    :cond_1
+    :cond_14
     iget-object v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->videos:Ljava/util/List;
 
-    return-object v0
+    goto :goto_13
 .end method
 
 .method public final getFavoured()I
     .locals 1
 
-    .line 37
+    .prologue
+    .line 90
     iget v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->favoured:I
 
     return v0
@@ -151,7 +162,8 @@
 .method public final getMCount()I
     .locals 1
 
-    .line 31
+    .prologue
+    .line 82
     iget v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mCount:I
 
     return v0
@@ -160,7 +172,8 @@
 .method public final getMCreatedTs()J
     .locals 2
 
-    .line 24
+    .prologue
+    .line 66
     iget-wide v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mCreatedTs:J
 
     return-wide v0
@@ -169,7 +182,8 @@
 .method public final getMId()J
     .locals 2
 
-    .line 18
+    .prologue
+    .line 42
     iget-wide v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mId:J
 
     return-wide v0
@@ -178,7 +192,8 @@
 .method public final getMMid()J
     .locals 2
 
-    .line 20
+    .prologue
+    .line 50
     iget-wide v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mMid:J
 
     return-wide v0
@@ -187,7 +202,8 @@
 .method public final getMName()Ljava/lang/String;
     .locals 1
 
-    .line 22
+    .prologue
+    .line 58
     iget-object v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mName:Ljava/lang/String;
 
     return-object v0
@@ -196,7 +212,8 @@
 .method public final getMState()I
     .locals 1
 
-    .line 29
+    .prologue
+    .line 74
     iget v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mState:I
 
     return v0
@@ -207,13 +224,15 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;",
             ">;"
         }
     .end annotation
 
-    .line 41
+    .prologue
+    .line 106
     iget-object v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->videoCovers:Ljava/util/List;
 
     return-object v0
@@ -224,13 +243,15 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;",
             ">;"
         }
     .end annotation
 
-    .line 39
+    .prologue
+    .line 98
     iget-object v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->videos:Ljava/util/List;
 
     return-object v0
@@ -239,151 +260,171 @@
 .method public final hasCurrentVideo()Z
     .locals 2
 
-    .line 55
-    iget v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->favoured:I
+    .prologue
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    .line 130
+    iget v1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->favoured:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v0, :cond_6
 
-    goto :goto_0
+    :goto_5
+    return v0
 
-    :cond_0
-    const/4 v1, 0x0
+    :cond_6
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    goto :goto_5
 .end method
 
 .method public final isDefault()Z
     .locals 1
 
-    .line 52
+    .prologue
+    .line 126
     iget v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mState:I
 
     and-int/lit8 v0, v0, 0x2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_7
+    return v0
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_7
 .end method
 
 .method public final isPublic()Z
-    .locals 2
+    .locals 1
 
-    .line 44
+    .prologue
+    .line 114
     iget v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mState:I
 
-    const/4 v1, 0x1
+    and-int/lit8 v0, v0, 0x1
 
-    and-int/2addr v0, v1
+    if-nez v0, :cond_8
 
-    if-nez v0, :cond_0
+    const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_7
+    return v0
 
-    :cond_0
-    const/4 v1, 0x0
+    :cond_8
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    goto :goto_7
 .end method
 
 .method public final setFavoured(I)V
     .locals 0
 
-    .line 37
+    .prologue
+    .line 94
     iput p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->favoured:I
 
+    .line 95
     return-void
 .end method
 
 .method public final setMCount(I)V
     .locals 0
 
-    .line 31
+    .prologue
+    .line 86
     iput p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mCount:I
 
+    .line 87
     return-void
 .end method
 
 .method public final setMCreatedTs(J)V
-    .locals 0
+    .locals 1
 
-    .line 24
+    .prologue
+    .line 70
     iput-wide p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mCreatedTs:J
 
+    .line 71
     return-void
 .end method
 
 .method public final setMId(J)V
-    .locals 0
+    .locals 1
 
-    .line 18
+    .prologue
+    .line 46
     iput-wide p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mId:J
 
+    .line 47
     return-void
 .end method
 
 .method public final setMMid(J)V
-    .locals 0
+    .locals 1
 
-    .line 20
+    .prologue
+    .line 54
     iput-wide p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mMid:J
 
+    .line 55
     return-void
 .end method
 
 .method public final setMName(Ljava/lang/String;)V
     .locals 0
 
-    .line 22
+    .prologue
+    .line 62
     iput-object p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mName:Ljava/lang/String;
 
+    .line 63
     return-void
 .end method
 
 .method public final setMState(I)V
     .locals 0
 
-    .line 29
+    .prologue
+    .line 78
     iput p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mState:I
 
+    .line 79
     return-void
 .end method
 
 .method public final setPublic(Z)V
-    .locals 0
+    .locals 1
 
-    if-eqz p1, :cond_0
+    .prologue
+    .line 118
+    if-eqz p1, :cond_9
 
-    .line 46
-    iget p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mState:I
+    .line 119
+    iget v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mState:I
 
-    and-int/lit8 p1, p1, 0x2
+    and-int/lit8 v0, v0, 0x2
 
-    iput p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mState:I
+    iput v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mState:I
 
-    goto :goto_0
-
-    .line 48
-    :cond_0
-    iget p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mState:I
-
-    or-int/lit8 p1, p1, 0x1
-
-    iput p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mState:I
-
-    :goto_0
+    .line 123
+    :goto_8
     return-void
+
+    .line 121
+    :cond_9
+    iget v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mState:I
+
+    or-int/lit8 v0, v0, 0x1
+
+    iput v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->mState:I
+
+    goto :goto_8
 .end method
 
 .method public final setVideoCovers(Ljava/util/List;)V
@@ -391,15 +432,18 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;",
             ">;)V"
         }
     .end annotation
 
-    .line 41
+    .prologue
+    .line 110
     iput-object p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->videoCovers:Ljava/util/List;
 
+    .line 111
     return-void
 .end method
 
@@ -408,14 +452,17 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;",
             ">;)V"
         }
     .end annotation
 
-    .line 39
+    .prologue
+    .line 102
     iput-object p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->videos:Ljava/util/List;
 
+    .line 103
     return-void
 .end method

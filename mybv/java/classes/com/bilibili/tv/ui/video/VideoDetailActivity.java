@@ -99,7 +99,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
     private LoadingImageView p;
     private FrameLayout q;
     private RecyclerView r;
-    private int s;
+    private long s;
     private List<BiliVideoDetail.Page> t;
 
     /* renamed from: u  reason: collision with root package name */
@@ -389,7 +389,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             finish();
             return;
         }
-        this.s = extras.getInt(D);
+        this.s = extras.getLong(D);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -564,7 +564,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         } else {
             BiliVideoDetail biliVideoDetail3 = this.u;
             if (biliVideoDetail3 != null) {
-                int i2 = this.s;
+                long i2 = this.s;
                 String str = biliVideoDetail3.mDescription;
                 bbi.a((Object) str, "it.mDescription");
                 String str2 = biliVideoDetail3.mCover;
@@ -1616,11 +1616,11 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             return VideoDetailActivity.D;
         }
 
-        public final Intent a(Context context, int i) {
+        public final Intent a(Context context, long i) {
             bbi.b(context, au.aD);
             Intent intent = new Intent(context, VideoDetailActivity.class);
             Bundle bundle = new Bundle();
-            bundle.putInt(a(), i);
+            bundle.putLong(a(), i);
             intent.putExtras(bundle);
             return intent;
         }

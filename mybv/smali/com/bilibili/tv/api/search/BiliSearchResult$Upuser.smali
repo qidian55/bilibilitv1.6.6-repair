@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/search/BiliSearchResult$Upuser;
 .super Lcom/bilibili/tv/api/search/BiliSearchResult;
-.source "BL"
+.source "BiliSearchResult.java"
 
 
 # annotations
@@ -28,7 +28,8 @@
 
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/search/BiliSearchResult$Upuser$AV;",
             ">;"
         }
@@ -64,7 +65,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 190
+    .prologue
+    .line 130
     invoke-direct {p0}, Lcom/bilibili/tv/api/search/BiliSearchResult;-><init>()V
 
     return-void
@@ -75,10 +77,11 @@
 .method public hasAVs()Z
     .locals 1
 
-    .line 203
+    .prologue
+    .line 158
     iget-object v0, p0, Lcom/bilibili/tv/api/search/BiliSearchResult$Upuser;->mAVs:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Lcom/bilibili/tv/api/search/BiliSearchResult$Upuser;->mAVs:Ljava/util/List;
 
@@ -86,15 +89,16 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_e
 
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
+
+    :cond_e
+    const/4 v0, 0x1
+
+    goto :goto_d
 .end method

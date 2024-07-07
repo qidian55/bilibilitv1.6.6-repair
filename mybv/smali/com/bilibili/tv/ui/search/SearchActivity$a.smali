@@ -1,6 +1,6 @@
 .class public final Lcom/bilibili/tv/ui/search/SearchActivity$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "SearchActivity.java"
 
 
 # annotations
@@ -18,18 +18,22 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 50
+    .prologue
+    .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 114
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 50
+    .prologue
+    .line 117
     invoke-direct {p0}, Lcom/bilibili/tv/ui/search/SearchActivity$a;-><init>()V
 
+    .line 118
     return-void
 .end method
 
@@ -38,10 +42,9 @@
 .method public final a()Ljava/lang/String;
     .locals 1
 
-    .line 51
-    invoke-static {}, Lcom/bilibili/tv/ui/search/SearchActivity;->m()Ljava/lang/String;
-
-    move-result-object v0
+    .prologue
+    .line 121
+    const-string v0, "SearchActivity"
 
     return-object v0
 .end method
@@ -49,42 +52,38 @@
 .method public final a(Landroid/content/Context;Ljava/lang/Integer;)V
     .locals 2
 
-    .line 58
+    .prologue
+    .line 137
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/bilibili/tv/ui/search/SearchActivity;
 
     invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 59
-    move-object v1, p0
-
-    check-cast v1, Lcom/bilibili/tv/ui/search/SearchActivity$a;
-
-    invoke-virtual {v1}, Lcom/bilibili/tv/ui/search/SearchActivity$a;->b()Ljava/lang/String;
+    .line 138
+    invoke-virtual {p0}, Lcom/bilibili/tv/ui/search/SearchActivity$a;->b()Ljava/lang/String;
 
     move-result-object v1
 
-    check-cast p2, Ljava/io/Serializable;
-
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
-    if-eqz p1, :cond_0
+    .line 139
+    if-eqz p1, :cond_13
 
-    .line 60
+    .line 140
     invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    :cond_0
+    .line 142
+    :cond_13
     return-void
 .end method
 
 .method public final b()Ljava/lang/String;
     .locals 1
 
-    .line 52
-    invoke-static {}, Lcom/bilibili/tv/ui/search/SearchActivity;->n()Ljava/lang/String;
-
-    move-result-object v0
+    .prologue
+    .line 125
+    const-string v0, "com.bilibili.tv.ui.search.SearchActivity.EXTRA_TID"
 
     return-object v0
 .end method
@@ -92,8 +91,10 @@
 .method public final c()[Ljava/lang/String;
     .locals 1
 
-    .line 54
-    invoke-static {}, Lcom/bilibili/tv/ui/search/SearchActivity;->o()[Ljava/lang/String;
+    .prologue
+    .line 129
+    # getter for: Lcom/bilibili/tv/ui/search/SearchActivity;->l:[Ljava/lang/String;
+    invoke-static {}, Lcom/bilibili/tv/ui/search/SearchActivity;->access$000()[Ljava/lang/String;
 
     move-result-object v0
 
@@ -103,8 +104,10 @@
 .method public final d()[Ljava/lang/String;
     .locals 1
 
-    .line 55
-    invoke-static {}, Lcom/bilibili/tv/ui/search/SearchActivity;->p()[Ljava/lang/String;
+    .prologue
+    .line 133
+    # getter for: Lcom/bilibili/tv/ui/search/SearchActivity;->m:[Ljava/lang/String;
+    invoke-static {}, Lcom/bilibili/tv/ui/search/SearchActivity;->access$100()[Ljava/lang/String;
 
     move-result-object v0
 

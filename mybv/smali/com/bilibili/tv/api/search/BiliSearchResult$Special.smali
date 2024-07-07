@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/search/BiliSearchResult$Special;
 .super Lcom/bilibili/tv/api/search/BiliSearchResult;
-.source "BL"
+.source "BiliSearchResult.java"
 
 
 # annotations
@@ -80,7 +80,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 95
+    .prologue
+    .line 91
     invoke-direct {p0}, Lcom/bilibili/tv/api/search/BiliSearchResult;-><init>()V
 
     return-void
@@ -91,18 +92,19 @@
 .method public isBangumi()Z
     .locals 2
 
-    .line 117
-    iget v0, p0, Lcom/bilibili/tv/api/search/BiliSearchResult$Special;->mSpecialType:I
+    .prologue
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    .line 124
+    iget v1, p0, Lcom/bilibili/tv/api/search/BiliSearchResult$Special;->mSpecialType:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v0, :cond_6
 
-    goto :goto_0
+    :goto_5
+    return v0
 
-    :cond_0
-    const/4 v1, 0x0
+    :cond_6
+    const/4 v0, 0x0
 
-    :goto_0
-    return v1
+    goto :goto_5
 .end method

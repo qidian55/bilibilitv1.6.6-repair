@@ -15,8 +15,8 @@
 
 
 # direct methods
-.method public constructor <init>(JLjava/lang/String;JIJLjava/lang/String;JLjava/lang/String;IIJJJJLjava/lang/String;IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+.method public constructor <init>(JLjava/lang/String;JJJLjava/lang/String;JLjava/lang/String;IIJJJJLjava/lang/String;IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 4
 
     .prologue
     .line 22
@@ -94,7 +94,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {p6}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {p6, p7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v2
 
@@ -115,7 +115,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {p7, p8}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static {p8, p9}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v2
 
@@ -136,7 +136,7 @@
 
     const/4 v1, 0x1
 
-    aput-object p9, v0, v1
+    aput-object p10, v0, v1
 
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
@@ -153,7 +153,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {p10, p11}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static/range {p11 .. p12}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v2
 
@@ -174,7 +174,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {p12}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static/range {p13 .. p13}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -195,7 +195,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static/range {p13 .. p13}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {p14 .. p14}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -216,7 +216,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static/range {p14 .. p14}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {p15 .. p15}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -237,7 +237,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static/range {p15 .. p16}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static/range {p16 .. p17}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v2
 
@@ -258,7 +258,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static/range {p17 .. p18}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static/range {p18 .. p19}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v2
 
@@ -279,7 +279,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static/range {p19 .. p20}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static/range {p20 .. p21}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v2
 
@@ -300,7 +300,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static/range {p21 .. p22}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static/range {p22 .. p23}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v2
 
@@ -321,7 +321,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static/range {p23 .. p23}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static/range {p24 .. p24}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -342,7 +342,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static/range {p24 .. p24}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {p25 .. p25}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -363,7 +363,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static/range {p25 .. p25}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {p26 .. p26}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -384,7 +384,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static/range {p26 .. p26}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {p27 .. p27}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -405,12 +405,12 @@
 
     const/4 v1, 0x1
 
-    aput-object p27, v0, v1
+    aput-object p28, v0, v1
 
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
     .line 42
-    invoke-static/range {p28 .. p28}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static/range {p29 .. p29}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
@@ -429,13 +429,13 @@
 
     const/4 v1, 0x1
 
-    aput-object p28, v0, v1
+    aput-object p29, v0, v1
 
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 
     .line 45
     :cond_161
-    invoke-static/range {p29 .. p29}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static/range {p30 .. p30}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
@@ -459,7 +459,7 @@
 
     const/4 v1, 0x1
 
-    aput-object p29, v0, v1
+    aput-object p30, v0, v1
 
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/player/report/HeartbeatApiService$ParamsV2;->putParams([Ljava/lang/String;)V
 

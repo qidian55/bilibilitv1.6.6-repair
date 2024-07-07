@@ -31,7 +31,7 @@ public class ResolveResourceParams implements Parcelable, Serializable {
     public static final String KEY_SEASON_TYPE = "season_type";
     public static final String KEY_TRACK_PATH = "track_path";
     public AdParams mAdParams;
-    public int mAvid;
+    public long mAvid;
     public boolean mCanProjectionScreen;
     public long mCid;
     public String mCodecMode;
@@ -78,7 +78,7 @@ public class ResolveResourceParams implements Parcelable, Serializable {
         this.mExtraParams = new BaseExtraParams();
     }
 
-    public ResolveResourceParams(String str, long i, String str2, String str3, String str4, boolean z, int i2, int i3, String str5, int i4, String str6) {
+    public ResolveResourceParams(String str, long i, String str2, String str3, String str4, boolean z, long i2, int i3, String str5, int i4, String str6) {
         this.mExtraParams = new BaseExtraParams();
         this.mFrom = str;
         this.mCid = i;
@@ -135,7 +135,7 @@ public class ResolveResourceParams implements Parcelable, Serializable {
         parcel.writeString(this.mPageTitle);
         parcel.writeByte(this.mHasAlias ? (byte) 1 : (byte) 0);
         parcel.writeInt(this.mSpid);
-        parcel.writeInt(this.mAvid);
+        parcel.writeLong(this.mAvid);
         parcel.writeInt(this.mPage);
         parcel.writeInt(this.mTid);
         parcel.writeByte(this.mRequestFromDownloader ? (byte) 1 : (byte) 0);
@@ -167,7 +167,7 @@ public class ResolveResourceParams implements Parcelable, Serializable {
         this.mPageTitle = parcel.readString();
         this.mHasAlias = parcel.readByte() != 0;
         this.mSpid = parcel.readInt();
-        this.mAvid = parcel.readInt();
+        this.mAvid = parcel.readLong();
         this.mPage = parcel.readInt();
         this.mTid = parcel.readInt();
         this.mRequestFromDownloader = parcel.readByte() != 0;

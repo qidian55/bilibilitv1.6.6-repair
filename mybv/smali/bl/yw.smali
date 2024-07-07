@@ -97,11 +97,11 @@
     .line 29
     iget-object v0, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
-    invoke-virtual {p3}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->b()I
+    invoke-virtual {p3}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->b()J
 
-    move-result v1
+    move-result-wide v2
 
-    iput v1, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
+    iput-wide v2, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:J
 
     .line 30
     iget-object v0, p0, Lbl/yw;->a:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;

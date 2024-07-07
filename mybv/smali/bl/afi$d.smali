@@ -1,6 +1,6 @@
-.class final Lbl/afi$d;
+.class public final Lbl/afi$d;
 .super Landroid/support/v7/widget/RecyclerView$v;
-.source "BL"
+.source "afi.java"
 
 
 # annotations
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "d"
 .end annotation
 
@@ -32,6 +32,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 1923
     new-instance v0, Lbl/afi$d$a;
 
     const/4 v1, 0x0
@@ -46,74 +48,84 @@
 .method public constructor <init>(Landroid/view/View;)V
     .locals 1
 
+    .prologue
+    .line 1928
+    invoke-direct {p0, p1}, Landroid/support/v7/widget/RecyclerView$v;-><init>(Landroid/view/View;)V
+
+    .line 1929
     const-string v0, "itemView"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1250
-    invoke-direct {p0, p1}, Landroid/support/v7/widget/RecyclerView$v;-><init>(Landroid/view/View;)V
-
+    .line 1930
     return-void
 .end method
 
 
 # virtual methods
 .method public final a(Ljava/lang/String;)V
-    .locals 1
+    .locals 2
 
+    .prologue
+    .line 1933
     const-string v0, "category"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1254
+    .line 1934
     iget-object v0, p0, Lbl/afi$d;->a:Landroid/view/View;
 
-    if-nez v0, :cond_0
+    .line 1935
+    if-nez v0, :cond_11
 
-    new-instance p1, Lkotlin/TypeCastException;
+    .line 1936
+    new-instance v0, Lkotlin/TypeCastException;
 
-    const-string v0, "null cannot be cast to non-null type android.widget.TextView"
+    const-string v1, "null cannot be cast to non-null type android.widget.TextView"
 
-    invoke-direct {p1, v0}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
-    :cond_0
+    .line 1938
+    :cond_11
     check-cast v0, Landroid/widget/TextView;
 
     iput-object v0, p0, Lbl/afi$d;->n:Landroid/widget/TextView;
 
-    .line 1255
+    .line 1939
     iget-object v0, p0, Lbl/afi$d;->n:Landroid/widget/TextView;
 
-    if-nez v0, :cond_1
+    .line 1940
+    if-nez v0, :cond_1c
 
+    .line 1941
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_1
-    check-cast p1, Ljava/lang/CharSequence;
-
+    .line 1943
+    :cond_1c
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1256
-    iget-object p1, p0, Lbl/afi$d;->a:Landroid/view/View;
-
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object p1
-
-    .line 1257
-    instance-of v0, p1, Landroid/view/View$OnLongClickListener;
-
-    if-eqz v0, :cond_2
-
-    .line 1258
+    .line 1944
     iget-object v0, p0, Lbl/afi$d;->a:Landroid/view/View;
 
-    check-cast p1, Landroid/view/View$OnLongClickListener;
+    invoke-virtual {v0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    invoke-virtual {v0, p1}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+    move-result-object v0
 
-    :cond_2
+    .line 1945
+    instance-of v1, v0, Landroid/view/View$OnLongClickListener;
+
+    if-eqz v1, :cond_30
+
+    .line 1946
+    iget-object v1, p0, Lbl/afi$d;->a:Landroid/view/View;
+
+    check-cast v0, Landroid/view/View$OnLongClickListener;
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+
+    .line 1948
+    :cond_30
     return-void
 .end method

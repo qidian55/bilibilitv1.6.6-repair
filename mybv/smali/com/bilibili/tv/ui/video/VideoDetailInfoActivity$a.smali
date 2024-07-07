@@ -1,6 +1,6 @@
 .class public final Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "VideoDetailInfoActivity.java"
 
 
 # annotations
@@ -18,84 +18,86 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 37
+    .prologue
+    .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 53
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 37
+    .prologue
+    .line 56
     invoke-direct {p0}, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity$a;-><init>()V
 
+    .line 57
     return-void
 .end method
 
 
 # virtual methods
-.method public final a(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 2
+.method public final a(Landroid/content/Context;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    .locals 4
 
+    .prologue
+    .line 60
     const-string v0, "context"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 61
     const-string v0, "des"
-
-    invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "cover"
 
     invoke-static {p4, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "url"
+    .line 62
+    const-string v0, "cover"
 
     invoke-static {p5, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 50
+    .line 63
+    const-string v0, "url"
+
+    invoke-static {p6, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 64
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;
 
     invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 51
-    new-instance p1, Landroid/os/Bundle;
+    .line 65
+    new-instance v1, Landroid/os/Bundle;
 
-    invoke-direct {p1}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 52
-    invoke-static {}, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;->h()Ljava/lang/String;
+    .line 66
+    const-string v2, "bundle_avid"
 
-    move-result-object v1
+    invoke-virtual {v1, v2, p2, p3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
-    invoke-virtual {p1, v1, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    .line 67
+    const-string v2, "bundle_des"
 
-    .line 53
-    invoke-static {}, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;->i()Ljava/lang/String;
+    invoke-virtual {v1, v2, p4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object p2
+    .line 68
+    const-string v2, "bundle_cover"
 
-    invoke-virtual {p1, p2, p3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, p5}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 54
-    invoke-static {}, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;->j()Ljava/lang/String;
+    .line 69
+    const-string v2, "bundle_url"
 
-    move-result-object p2
+    invoke-virtual {v1, v2, p6}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {p1, p2, p4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    .line 70
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
-    .line 55
-    invoke-static {}, Lcom/bilibili/tv/ui/video/VideoDetailInfoActivity;->k()Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p2, p5}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 56
-    invoke-virtual {v0, p1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
-
+    .line 71
     return-object v0
 .end method

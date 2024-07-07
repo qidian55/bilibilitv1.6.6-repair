@@ -126,9 +126,9 @@
     if-nez v1, :cond_85
 
     .line 334
-    new-instance v2, Landroid/util/SparseArray;
+    new-instance v2, Landroid/util/LongSparseArray;
 
-    invoke-direct {v2}, Landroid/util/SparseArray;-><init>()V
+    invoke-direct {v2}, Landroid/util/LongSparseArray;-><init>()V
 
     .line 335
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -149,9 +149,9 @@
     check-cast v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
     .line 336
-    iget v3, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v4, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
-    invoke-virtual {v2, v3, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v2, v4, v5, v0}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
     goto :goto_18
 
@@ -183,9 +183,9 @@
     check-cast v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
     .line 339
-    iget v1, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v4, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
-    invoke-virtual {v2, v1}, Landroid/util/SparseArray;->indexOfKey(I)I
+    invoke-virtual {v2, v4, v5}, Landroid/util/LongSparseArray;->indexOfKey(J)I
 
     move-result v4
 
@@ -193,15 +193,15 @@
     if-gez v4, :cond_4e
 
     .line 341
-    iget v1, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v4, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
-    invoke-virtual {v2, v1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v2, v4, v5, v0}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
     goto :goto_34
 
     .line 342
     :cond_4e
-    invoke-virtual {v2, v4}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v4}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -216,7 +216,7 @@
     if-gez v1, :cond_34
 
     .line 343
-    invoke-virtual {v2, v4, v0}, Landroid/util/SparseArray;->setValueAt(ILjava/lang/Object;)V
+    invoke-virtual {v2, v4, v0}, Landroid/util/LongSparseArray;->setValueAt(ILjava/lang/Object;)V
 
     goto :goto_34
 
@@ -232,7 +232,7 @@
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
     .line 347
-    invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v2}, Landroid/util/LongSparseArray;->size()I
 
     move-result v1
 
@@ -251,7 +251,7 @@
     move-result-object v3
 
     .line 350
-    invoke-virtual {v2, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v4
 

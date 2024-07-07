@@ -44,14 +44,14 @@
 
 # virtual methods
 .method public a(Lcom/alibaba/fastjson/JSONObject;)V
-    .locals 10
+    .locals 12
 
     .prologue
-    const/16 v9, 0x14
+    const/16 v11, 0x14
 
     const/4 v0, 0x0
 
-    const/4 v8, 0x0
+    const/4 v10, 0x0
 
     .line 307
     iget-object v1, p0, Lbl/afd$RecommendsResponse;->this$0:Lbl/afd;
@@ -91,23 +91,23 @@
 
     new-array v2, v2, [Lcom/bilibili/tv/api/main/MainRecommendEx$Content;
 
-    aput-object v8, v2, v0
+    aput-object v10, v2, v0
 
     const/4 v3, 0x1
 
-    aput-object v8, v2, v3
+    aput-object v10, v2, v3
 
     const/4 v3, 0x2
 
-    aput-object v8, v2, v3
+    aput-object v10, v2, v3
 
     const/4 v3, 0x3
 
-    aput-object v8, v2, v3
+    aput-object v10, v2, v3
 
     const/4 v3, 0x4
 
-    aput-object v8, v2, v3
+    aput-object v10, v2, v3
 
     .line 312
     new-instance v3, Ljava/util/ArrayList;
@@ -121,7 +121,7 @@
     .line 313
     new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v2, v9}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v2, v11}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 314
     :goto_3c
@@ -154,15 +154,15 @@
     .line 319
     const-string v6, "id"
 
-    invoke-virtual {v4, v6}, Lcom/alibaba/fastjson/JSONObject;->getIntValue(Ljava/lang/String;)I
+    invoke-virtual {v4, v6}, Lcom/alibaba/fastjson/JSONObject;->getLongValue(Ljava/lang/String;)J
 
-    move-result v6
+    move-result-wide v6
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->setJumpId(Ljava/lang/Integer;)V
+    invoke-virtual {v5, v6}, Lcom/bilibili/tv/api/main/MainRecommendEx$Content;->setJumpId(Ljava/lang/Long;)V
 
     .line 320
     const-string v6, "pic"
@@ -195,11 +195,11 @@
 
     const-string v7, "id"
 
-    invoke-virtual {v4, v7}, Lcom/alibaba/fastjson/JSONObject;->getIntValue(Ljava/lang/String;)I
+    invoke-virtual {v4, v7}, Lcom/alibaba/fastjson/JSONObject;->getLongValue(Ljava/lang/String;)J
 
-    move-result v4
+    move-result-wide v8
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -224,9 +224,9 @@
     move-result v0
 
     :goto_9a
-    if-ge v0, v9, :cond_a2
+    if-ge v0, v11, :cond_a2
 
-    invoke-virtual {v2, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     add-int/lit8 v0, v0, 0x1
 

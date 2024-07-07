@@ -98,7 +98,7 @@ public class xj extends xh {
             return;
         }
         long i = resolveResourceParams.mCid;
-        int i2 = resolveResourceParams.mAvid;
+        long i2 = resolveResourceParams.mAvid;
         int i3 = this.i;
         if (i3 <= 0) {
             return;

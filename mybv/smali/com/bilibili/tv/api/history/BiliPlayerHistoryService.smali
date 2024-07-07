@@ -89,7 +89,7 @@
     .end annotation
 .end method
 
-.method public abstract reportProgress(Ljava/lang/String;JIJJJIJ)Lbl/vp;
+.method public abstract reportProgress(Ljava/lang/String;JJJJJIJ)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
             a = "access_key"
@@ -100,32 +100,32 @@
             a = "cid"
         .end annotation
     .end param
-    .param p4    # I
+    .param p4    # J
         .annotation runtime Lretrofit2/http/Field;
             a = "aid"
         .end annotation
     .end param
-    .param p5    # J
+    .param p6    # J
         .annotation runtime Lretrofit2/http/Field;
             a = "sid"
         .end annotation
     .end param
-    .param p7    # J
+    .param p8    # J
         .annotation runtime Lretrofit2/http/Field;
             a = "epid"
         .end annotation
     .end param
-    .param p9    # J
+    .param p10    # J
         .annotation runtime Lretrofit2/http/Field;
             a = "progress"
         .end annotation
     .end param
-    .param p11    # I
+    .param p12    # I
         .annotation runtime Lretrofit2/http/Field;
             a = "type"
         .end annotation
     .end param
-    .param p12    # J
+    .param p13    # J
         .annotation runtime Lretrofit2/http/Field;
             a = "realtime"
         .end annotation
@@ -134,7 +134,7 @@
         value = {
             "(",
             "Ljava/lang/String;",
-            "JIJJJIJ)",
+            "JJJJJIJ)",
             "Lbl/vp",
             "<",
             "Lcom/bilibili/okretro/GeneralResponse",

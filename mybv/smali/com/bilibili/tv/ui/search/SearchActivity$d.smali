@@ -1,19 +1,19 @@
 .class final Lcom/bilibili/tv/ui/search/SearchActivity$d;
 .super Ljava/lang/Object;
-.source "BL"
+.source "SearchActivity.java"
 
 # interfaces
 .implements Lbl/agb$b;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/bilibili/tv/ui/search/SearchActivity;->onLongClick(Landroid/view/View;)Z
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bilibili/tv/ui/search/SearchActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x18
-    name = null
+    name = "d"
 .end annotation
 
 
@@ -25,6 +25,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 626
     new-instance v0, Lcom/bilibili/tv/ui/search/SearchActivity$d;
 
     invoke-direct {v0}, Lcom/bilibili/tv/ui/search/SearchActivity$d;-><init>()V
@@ -37,8 +39,11 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 628
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 629
     return-void
 .end method
 
@@ -47,8 +52,10 @@
 .method public final a(Lbl/agb;Landroid/view/View;)V
     .locals 0
 
-    .line 313
+    .prologue
+    .line 633
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
+    .line 634
     return-void
 .end method

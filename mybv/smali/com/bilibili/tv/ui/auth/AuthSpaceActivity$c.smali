@@ -316,7 +316,7 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 3
+    .locals 4
 
     .prologue
     .line 494
@@ -342,14 +342,14 @@
     .line 498
     invoke-static {v1}, Lbl/adl;->a(Landroid/content/Context;)Landroid/app/Activity;
 
-    move-result-object v1
+    move-result-object v2
 
     .line 499
-    instance-of v2, v0, Lcom/bilibili/tv/api/auth/BiliSpaceVideo;
+    instance-of v1, v0, Lcom/bilibili/tv/api/auth/BiliSpaceVideo;
 
-    if-eqz v2, :cond_1c
+    if-eqz v1, :cond_1c
 
-    if-nez v1, :cond_1d
+    if-nez v2, :cond_1d
 
     .line 512
     :cond_1c
@@ -363,7 +363,7 @@
 
     iget-object v0, v0, Lcom/bilibili/tv/api/auth/BiliSpaceVideo;->param:Ljava/lang/String;
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
 
     move-result-object v0
 
@@ -375,21 +375,21 @@
 
     .line 507
     :cond_2a
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
     :try_end_2d
     .catch Ljava/lang/NumberFormatException; {:try_start_1d .. :try_end_2d} :catch_38
 
-    move-result v0
+    move-result-wide v0
 
     .line 511
     :goto_2e
-    sget-object v2, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->Companion:Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;
+    sget-object v3, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->Companion:Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;
 
-    invoke-virtual {v2, v1, v0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;->a(Landroid/content/Context;I)Landroid/content/Intent;
+    invoke-virtual {v3, v2, v0, v1}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;->a(Landroid/content/Context;J)Landroid/content/Intent;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v2, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_1c
 
@@ -398,7 +398,7 @@
     move-exception v0
 
     .line 509
-    const/4 v0, 0x0
+    const-wide/16 v0, 0x0
 
     goto :goto_2e
 .end method

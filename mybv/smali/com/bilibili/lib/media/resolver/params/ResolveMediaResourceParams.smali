@@ -29,7 +29,7 @@
 
 .field private d:J
 
-.field private e:I
+.field private e:J
 
 .field private f:Z
 
@@ -62,33 +62,33 @@
     return-void
 .end method
 
-.method public constructor <init>(IJILjava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V
-    .locals 0
+.method public constructor <init>(JJILjava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V
+    .locals 1
 
     .prologue
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 38
-    iput p1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e:I
+    iput-wide p1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e:J
 
     .line 39
-    iput-wide p2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->d:J
+    iput-wide p3, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->d:J
 
     .line 40
-    iput p4, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->a:I
+    iput p5, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->a:I
 
     .line 41
-    iput-object p5, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->b:Ljava/lang/String;
+    iput-object p6, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->b:Ljava/lang/String;
 
     .line 42
-    iput-object p6, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c:Ljava/lang/String;
+    iput-object p7, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c:Ljava/lang/String;
 
     .line 43
-    iput-boolean p7, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->f:Z
+    iput-boolean p8, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->f:Z
 
     .line 44
-    iput-object p8, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->g:Ljava/lang/String;
+    iput-object p9, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->g:Ljava/lang/String;
 
     .line 45
     return-void
@@ -123,11 +123,9 @@
     iput-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c:Ljava/lang/String;
 
     .line 105
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result v0
-
-    int-to-long v0, v0
+    move-result-wide v0
 
     iput-wide v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->d:J
 
@@ -136,11 +134,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_31
 
     const/4 v0, 0x1
 
-    :goto_23
+    :goto_22
     iput-boolean v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->f:Z
 
     .line 107
@@ -151,32 +149,32 @@
     iput-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->g:Ljava/lang/String;
 
     .line 108
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result v0
+    move-result-wide v0
 
-    iput v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e:I
+    iput-wide v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e:J
 
     .line 109
     return-void
 
     .line 106
-    :cond_32
+    :cond_31
     const/4 v0, 0x0
 
-    goto :goto_23
+    goto :goto_22
 .end method
 
 
 # virtual methods
-.method public a()I
-    .locals 1
+.method public a()J
+    .locals 2
 
     .prologue
     .line 48
-    iget v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e:I
+    iget-wide v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e:J
 
-    return v0
+    return-wide v0
 .end method
 
 .method public a(J)V
@@ -272,11 +270,11 @@
     .line 122
     const-string v0, "avid"
 
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optLong(Ljava/lang/String;)J
 
-    move-result v0
+    move-result-wide v0
 
-    iput v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e:I
+    iput-wide v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e:J
 
     .line 123
     return-void
@@ -438,9 +436,9 @@
 
     const-string v1, "avid"
 
-    iget v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e:I
+    iget-wide v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e:J
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     move-result-object v0
 
@@ -457,7 +455,7 @@
 .end method
 
 .method public i()Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
-    .locals 9
+    .locals 11
 
     .prologue
     .line 128
@@ -479,23 +477,25 @@
     move-exception v0
 
     .line 130
-    new-instance v0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
+    new-instance v1, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;
 
-    iget v1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e:I
+    iget-wide v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e:J
 
-    iget-wide v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->d:J
+    iget-wide v4, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->d:J
 
-    iget v4, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->a:I
+    iget v6, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->a:I
 
-    iget-object v5, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->b:Ljava/lang/String;
+    iget-object v7, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->b:Ljava/lang/String;
 
-    iget-object v6, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c:Ljava/lang/String;
+    iget-object v8, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->c:Ljava/lang/String;
 
-    iget-boolean v7, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->f:Z
+    iget-boolean v9, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->f:Z
 
-    iget-object v8, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->g:Ljava/lang/String;
+    iget-object v10, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->g:Ljava/lang/String;
 
-    invoke-direct/range {v0 .. v8}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;-><init>(IJILjava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V
+    invoke-direct/range {v1 .. v10}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;-><init>(JJILjava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V
+
+    move-object v0, v1
 
     goto :goto_6
 .end method
@@ -540,9 +540,9 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 95
-    iget v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e:I
+    iget-wide v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->e:J
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 96
     return-void

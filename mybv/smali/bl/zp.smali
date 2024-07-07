@@ -38,7 +38,7 @@
 .end method
 
 .method public static a(Landroid/content/Context;Lcom/bilibili/tv/api/video/BiliVideoDetail;)V
-    .locals 4
+    .locals 6
 
     .prologue
     .line 44
@@ -54,9 +54,9 @@
     .line 46
     const-string v2, "aid"
 
-    iget v3, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v4, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v3
 
@@ -94,9 +94,9 @@
 
     .line 53
     :cond_2e
-    iget v2, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v2, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v2, v3}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v2
 

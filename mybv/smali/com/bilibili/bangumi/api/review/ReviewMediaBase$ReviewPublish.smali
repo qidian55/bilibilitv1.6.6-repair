@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;
 .super Ljava/lang/Object;
-.source "BL"
+.source "ReviewMediaBase.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;
@@ -24,7 +24,8 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;",
             ">;"
         }
@@ -86,7 +87,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 281
+    .prologue
+    .line 248
     new-instance v0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish$1;
 
     invoke-direct {v0}, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish$1;-><init>()V
@@ -99,104 +101,114 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 250
+    .prologue
+    .line 291
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 292
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 3
 
-    .line 270
+    .prologue
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 306
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 271
+    .line 307
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->pubDate:Ljava/lang/String;
 
-    .line 272
+    .line 308
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->pubDateShow:Ljava/lang/String;
 
-    .line 273
+    .line 309
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
 
-    const/4 v1, 0x0
+    if-eqz v0, :cond_3e
 
-    const/4 v2, 0x1
+    move v0, v1
 
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
+    :goto_18
     iput-boolean v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->isStart:Z
 
-    .line 274
+    .line 310
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_40
 
-    const/4 v0, 0x1
+    move v0, v1
 
-    goto :goto_1
-
-    :cond_1
-    const/4 v0, 0x0
-
-    :goto_1
+    :goto_21
     iput-boolean v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->isFinish:Z
 
-    .line 275
+    .line 311
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_42
 
-    const/4 v1, 0x1
-
-    :cond_2
+    :goto_29
     iput-boolean v1, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->isMulti:Z
 
-    .line 276
+    .line 312
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->weekday:I
 
-    .line 277
+    .line 313
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->timeLength:I
 
-    .line 278
+    .line 314
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->totalEps:I
+    iput v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->totalEps:I
 
+    .line 315
     return-void
+
+    :cond_3e
+    move v0, v2
+
+    .line 309
+    goto :goto_18
+
+    :cond_40
+    move v0, v2
+
+    .line 310
+    goto :goto_21
+
+    :cond_42
+    move v1, v2
+
+    .line 311
+    goto :goto_29
 .end method
 
 
@@ -204,53 +216,92 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 288
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
+    .locals 3
 
-    .line 260
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->pubDate:Ljava/lang/String;
+    .prologue
+    const/4 v1, 0x1
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    const/4 v2, 0x0
 
-    .line 261
-    iget-object p2, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->pubDateShow:Ljava/lang/String;
+    .line 296
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->pubDate:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 262
-    iget-boolean p2, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->isStart:Z
+    .line 297
+    iget-object v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->pubDateShow:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeByte(B)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 263
-    iget-boolean p2, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->isFinish:Z
+    .line 298
+    iget-boolean v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->isStart:Z
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeByte(B)V
+    if-eqz v0, :cond_33
 
-    .line 264
-    iget-boolean p2, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->isMulti:Z
+    move v0, v1
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeByte(B)V
+    :goto_11
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 265
-    iget p2, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->weekday:I
+    .line 299
+    iget-boolean v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->isFinish:Z
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    if-eqz v0, :cond_35
 
-    .line 266
-    iget p2, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->timeLength:I
+    move v0, v1
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    :goto_19
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 267
-    iget p2, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->totalEps:I
+    .line 300
+    iget-boolean v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->isMulti:Z
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    if-eqz v0, :cond_37
 
+    :goto_20
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeByte(B)V
+
+    .line 301
+    iget v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->weekday:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 302
+    iget v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->timeLength:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 303
+    iget v0, p0, Lcom/bilibili/bangumi/api/review/ReviewMediaBase$ReviewPublish;->totalEps:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 304
     return-void
+
+    :cond_33
+    move v0, v2
+
+    .line 298
+    goto :goto_11
+
+    :cond_35
+    move v0, v2
+
+    .line 299
+    goto :goto_19
+
+    :cond_37
+    move v1, v2
+
+    .line 300
+    goto :goto_20
 .end method

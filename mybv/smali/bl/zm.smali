@@ -32,7 +32,7 @@
 
 .field public n:Z
 
-.field public o:I
+.field public o:J
 
 .field public p:I
 
@@ -166,7 +166,7 @@
     iput-boolean v2, p0, Lbl/zm;->n:Z
 
     .line 58
-    iput v2, p0, Lbl/zm;->o:I
+    iput-wide v4, p0, Lbl/zm;->o:J
 
     .line 59
     iput v2, p0, Lbl/zm;->p:I
@@ -308,9 +308,9 @@
 
     move-result-object v0
 
-    iget v0, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
+    iget-wide v0, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:J
 
-    iput v0, p0, Lbl/zm;->o:I
+    iput-wide v0, p0, Lbl/zm;->o:J
 
     .line 78
     iget-object v0, p1, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;

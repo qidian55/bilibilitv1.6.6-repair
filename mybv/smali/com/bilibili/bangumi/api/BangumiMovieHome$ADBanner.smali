@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/BangumiMovieHome$ADBanner;
 .super Lcom/bilibili/bangumi/api/BangumiMovieHome$Banner;
-.source "BL"
+.source "BangumiMovieHome.java"
 
 
 # annotations
@@ -101,12 +101,13 @@
 .method public constructor <init>()V
     .locals 2
 
-    .line 107
+    .prologue
+    .line 21
     invoke-direct {p0}, Lcom/bilibili/bangumi/api/BangumiMovieHome$Banner;-><init>()V
 
+    .line 53
     const-wide/16 v0, -0x1
 
-    .line 126
     iput-wide v0, p0, Lcom/bilibili/bangumi/api/BangumiMovieHome$ADBanner;->serverType:J
 
     return-void

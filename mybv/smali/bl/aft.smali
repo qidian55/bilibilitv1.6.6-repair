@@ -1,6 +1,14 @@
 .class public final Lbl/aft;
 .super Ljava/lang/Object;
-.source "BL"
+.source "aft.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lbl/aft$a;
+    }
+.end annotation
 
 
 # static fields
@@ -11,7 +19,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 25
+    .prologue
+    .line 17
     new-instance v0, Lbl/aft;
 
     invoke-direct {v0}, Lbl/aft;-><init>()V
@@ -24,9 +33,11 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 25
+    .prologue
+    .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 20
     return-void
 .end method
 
@@ -35,237 +46,216 @@
 .method public final a(Landroid/app/Activity;Lcom/bilibili/tv/api/video/BiliVideoDetail;Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;)V
     .locals 1
 
-    .line 27
-    check-cast p1, Landroid/content/Context;
-
+    .prologue
+    .line 23
     const/4 v0, -0x1
 
     invoke-virtual {p0, p1, p2, p3, v0}, Lbl/aft;->a(Landroid/content/Context;Lcom/bilibili/tv/api/video/BiliVideoDetail;Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;I)V
 
+    .line 24
     return-void
 .end method
 
 .method public final a(Landroid/content/Context;Lcom/bilibili/tv/api/video/BiliVideoDetail;Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;I)V
     .locals 7
 
-    if-eqz p3, :cond_4
+    .prologue
+    const/4 v6, 0x0
 
-    if-eqz p1, :cond_4
+    const/4 v0, 0x0
 
-    if-nez p2, :cond_0
+    .line 27
+    if-eqz p3, :cond_8
 
-    goto/16 :goto_2
+    if-eqz p1, :cond_8
 
-    .line 34
-    :cond_0
+    if-nez p2, :cond_9
+
+    .line 46
+    :cond_8
+    :goto_8
+    return-void
+
+    .line 30
+    :cond_9
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    .line 35
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "http://www.bilibili.com/video/av"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v2, p2, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 37
-    iget-object v2, p3, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mWebLink:Ljava/lang/String;
+    .line 31
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    check-cast v2, Ljava/lang/CharSequence;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    const-string v3, "http://www.bilibili.com/video/av"
 
-    move-result v2
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v3, 0x0
+    move-result-object v2
 
-    const/4 v4, 0x0
+    iget-wide v4, p2, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
-    if-eqz v2, :cond_3
+    invoke-virtual {v2, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v2, "qq"
+    move-result-object v2
 
-    iget-object v5, p3, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mFrom:Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const/4 v6, 0x1
+    move-result-object v2
 
-    invoke-static {v2, v5, v6}, Lbl/bcl;->a(Ljava/lang/String;Ljava/lang/String;Z)Z
+    .line 32
+    iget-object v3, p3, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mWebLink:Ljava/lang/String;
 
-    move-result v2
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    if-eqz v2, :cond_1
+    move-result v3
 
-    goto :goto_0
+    if-eqz v3, :cond_35
 
-    .line 45
-    :cond_1
+    const-string v3, "qq"
+
+    iget-object v4, p3, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mFrom:Ljava/lang/String;
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Lbl/bcl;->a(Ljava/lang/String;Ljava/lang/String;Z)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_60
+
+    .line 33
+    :cond_35
+    new-instance v3, Lbl/aga$a;
+
+    invoke-direct {v3, p1}, Lbl/aga$a;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v3, v6}, Lbl/aga$a;->a(Z)Lbl/aga$a;
+
+    move-result-object v3
+
+    const v4, 0x7f0c00f0
+
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lbl/aga$a;->a(Ljava/lang/CharSequence;)Lbl/aga$a;
+
+    move-result-object v3
+
+    const v4, 0x7f0c0079
+
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v3, v1, v0}, Lbl/aga$a;->a(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lbl/aga$a;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Lbl/aga$a;->a(Ljava/lang/String;)Lbl/aga$a;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lbl/aga$a;->a()Lbl/aga;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lbl/aga;->show()V
+
+    goto :goto_8
+
+    .line 36
+    :cond_60
     invoke-virtual {p2}, Lcom/bilibili/tv/api/video/BiliVideoDetail;->canMovie()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_b3
 
-    iget-object v2, p2, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mMovie:Lcom/bilibili/tv/api/video/BiliMovie;
+    iget-object v3, p2, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mMovie:Lcom/bilibili/tv/api/video/BiliMovie;
 
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_b3
 
-    iget-object v2, p2, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mMovie:Lcom/bilibili/tv/api/video/BiliMovie;
-
-    const-string v5, "detail.mMovie"
-
-    invoke-static {v2, v5}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {v2}, Lcom/bilibili/tv/api/video/BiliMovie;->isNeedPurchase()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    .line 49
-    new-instance p4, Lbl/aga$a;
-
-    invoke-direct {p4, p1}, Lbl/aga$a;-><init>(Landroid/content/Context;)V
-
-    .line 50
-    invoke-virtual {p4, v3}, Lbl/aga$a;->a(Z)Lbl/aga$a;
-
-    move-result-object p4
-
-    const v2, 0x7f0c00cd
-
-    .line 51
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/CharSequence;
-
-    invoke-virtual {p4, v2}, Lbl/aga$a;->a(Ljava/lang/CharSequence;)Lbl/aga$a;
-
-    move-result-object p4
-
-    const v2, 0x7f0c00cc
-
-    .line 52
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/CharSequence;
-
-    new-instance v3, Lbl/aft$a;
-
-    invoke-direct {v3, p1, p2, p3}, Lbl/aft$a;-><init>(Landroid/content/Context;Lcom/bilibili/tv/api/video/BiliVideoDetail;Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;)V
-
-    check-cast v3, Landroid/content/DialogInterface$OnClickListener;
-
-    invoke-virtual {p4, v2, v3}, Lbl/aga$a;->a(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lbl/aga$a;
-
-    move-result-object p1
-
-    const p2, 0x7f0c0076
-
-    .line 56
-    invoke-virtual {v0, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object p2
-
-    check-cast p2, Ljava/lang/CharSequence;
-
-    invoke-virtual {p1, p2, v4}, Lbl/aga$a;->b(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lbl/aga$a;
-
-    move-result-object p1
-
-    .line 57
-    invoke-virtual {p1, v1}, Lbl/aga$a;->a(Ljava/lang/String;)Lbl/aga$a;
-
-    move-result-object p1
-
-    .line 58
-    invoke-virtual {p1}, Lbl/aga$a;->a()Lbl/aga;
-
-    move-result-object p1
-
-    .line 59
-    invoke-virtual {p1}, Lbl/aga;->show()V
-
-    goto :goto_1
-
-    .line 62
-    :cond_2
-    invoke-static {p1, p2, p3, v4, p4}, Lbl/xg;->a(Landroid/content/Context;Lcom/bilibili/tv/api/video/BiliVideoDetail;Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;Landroid/os/Bundle;I)V
-
-    .line 63
-    invoke-static {p1, p2}, Lbl/zp;->a(Landroid/content/Context;Lcom/bilibili/tv/api/video/BiliVideoDetail;)V
-
-    goto :goto_1
+    .line 37
+    iget-object v3, p2, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mMovie:Lcom/bilibili/tv/api/video/BiliMovie;
 
     .line 38
-    :cond_3
-    :goto_0
-    new-instance p2, Lbl/aga$a;
+    const-string v4, "detail.mMovie"
 
-    invoke-direct {p2, p1}, Lbl/aga$a;-><init>(Landroid/content/Context;)V
+    invoke-static {v3, v4}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 39
-    invoke-virtual {p2, v3}, Lbl/aga$a;->a(Z)Lbl/aga$a;
+    invoke-virtual {v3}, Lcom/bilibili/tv/api/video/BiliMovie;->isNeedPurchase()Z
 
-    move-result-object p1
+    move-result v3
 
-    const p2, 0x7f0c00f0
+    if-eqz v3, :cond_b3
 
     .line 40
-    invoke-virtual {v0, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    new-instance v3, Lbl/aga$a;
 
-    move-result-object p2
+    invoke-direct {v3, p1}, Lbl/aga$a;-><init>(Landroid/content/Context;)V
 
-    check-cast p2, Ljava/lang/CharSequence;
+    invoke-virtual {v3, v6}, Lbl/aga$a;->a(Z)Lbl/aga$a;
 
-    invoke-virtual {p1, p2}, Lbl/aga$a;->a(Ljava/lang/CharSequence;)Lbl/aga$a;
+    move-result-object v3
 
-    move-result-object p1
+    const v4, 0x7f0c00cd
 
-    const p2, 0x7f0c0079
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    .line 41
-    invoke-virtual {v0, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object p2
+    invoke-virtual {v3, v4}, Lbl/aga$a;->a(Ljava/lang/CharSequence;)Lbl/aga$a;
 
-    check-cast p2, Ljava/lang/CharSequence;
+    move-result-object v3
 
-    invoke-virtual {p1, p2, v4}, Lbl/aga$a;->a(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lbl/aga$a;
+    const v4, 0x7f0c00cc
 
-    move-result-object p1
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    .line 42
-    invoke-virtual {p1, v1}, Lbl/aga$a;->a(Ljava/lang/String;)Lbl/aga$a;
+    move-result-object v4
 
-    move-result-object p1
+    new-instance v5, Lbl/aft$a;
 
-    .line 43
-    invoke-virtual {p1}, Lbl/aga$a;->a()Lbl/aga;
+    invoke-direct {v5, p1, p2, p3}, Lbl/aft$a;-><init>(Landroid/content/Context;Lcom/bilibili/tv/api/video/BiliVideoDetail;Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;)V
 
-    move-result-object p1
+    invoke-virtual {v3, v4, v5}, Lbl/aga$a;->a(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lbl/aga$a;
+
+    move-result-object v3
+
+    const v4, 0x7f0c0076
+
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v3, v1, v0}, Lbl/aga$a;->b(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lbl/aga$a;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Lbl/aga$a;->a(Ljava/lang/String;)Lbl/aga$a;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lbl/aga$a;->a()Lbl/aga;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lbl/aga;->show()V
+
+    goto/16 :goto_8
 
     .line 44
-    invoke-virtual {p1}, Lbl/aga;->show()V
+    :cond_b3
+    check-cast v0, Landroid/os/Bundle;
 
-    :goto_1
-    return-void
+    invoke-static {p1, p2, p3, v0, p4}, Lbl/xg;->a(Landroid/content/Context;Lcom/bilibili/tv/api/video/BiliVideoDetail;Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;Landroid/os/Bundle;I)V
 
-    :cond_4
-    :goto_2
-    return-void
+    .line 45
+    invoke-static {p1, p2}, Lbl/zp;->a(Landroid/content/Context;Lcom/bilibili/tv/api/video/BiliVideoDetail;)V
+
+    goto/16 :goto_8
 .end method

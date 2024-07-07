@@ -43,7 +43,7 @@ public class zp extends aab {
     public static void a(Context context, BiliVideoDetail biliVideoDetail) {
         zp zpVar = new zp(context);
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("aid", (Object) Integer.valueOf(biliVideoDetail.mAvid));
+        jSONObject.put("aid", (Object) Long.valueOf(biliVideoDetail.mAvid));
         jSONObject.put("title", (Object) biliVideoDetail.mTitle);
         jSONObject.put("pic", (Object) biliVideoDetail.mCover);
         String jSONString = jSONObject.toJSONString();

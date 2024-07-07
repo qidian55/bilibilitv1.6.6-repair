@@ -27,5 +27,5 @@ public interface BiliPlayerHistoryService {
 
     @FormUrlEncoded
     @POST(a = "/x/v2/history/report")
-    vp<GeneralResponse<Void>> reportProgress(@Field(a = "access_key") String str, @Field(a = "cid") long j, @Field(a = "aid") int i, @Field(a = "sid") long j2, @Field(a = "epid") long j3, @Field(a = "progress") long j4, @Field(a = "type") int i2, @Field(a = "realtime") long j5);
+    vp<GeneralResponse<Void>> reportProgress(@Field(a = "access_key") String str, @Field(a = "cid") long j, @Field(a = "aid") long i, @Field(a = "sid") long j2, @Field(a = "epid") long j3, @Field(a = "progress") long j4, @Field(a = "type") int i2, @Field(a = "realtime") long j5);
 }

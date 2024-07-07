@@ -1,89 +1,93 @@
 .class final Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BoxListInfoActivity.java"
 
 # interfaces
 .implements Lcom/bilibili/tv/widget/border/BorderGridLayoutManager$a;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->a(Lbl/agd;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
+    accessFlags = 0x10
+    name = "f"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+.field final b:Lbl/agd;
 
-.field final synthetic b:Lbl/agd;
+.field final synthetic this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;Lbl/agd;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
-
-    iput-object p2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->b:Lbl/agd;
+    .prologue
+    .line 234
+    iput-object p1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 235
+    iput-object p2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->b:Lbl/agd;
+
+    .line 236
     return-void
 .end method
 
 
 # virtual methods
 .method public final a(Landroid/view/View;Landroid/view/View;III)V
-    .locals 1
+    .locals 3
 
-    .line 159
-    iget-object p2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->b:Lbl/agd;
+    .prologue
+    .line 240
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->b:Lbl/agd;
 
-    if-nez p2, :cond_0
+    if-nez v0, :cond_5
 
+    .line 246
+    :goto_4
     return-void
 
-    .line 162
-    :cond_0
-    iget-object p2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->b:Lbl/agd;
+    .line 243
+    :cond_5
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->b:Lbl/agd;
 
-    .line 164
-    iget-object p3, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    iget-object v1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    check-cast p3, Landroid/content/Context;
+    const v2, 0x7f0700e8
 
-    const v0, 0x7f0700e8
+    invoke-static {v1, v2}, Lbl/aj;->a(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
-    .line 163
-    invoke-static {p3, v0}, Lbl/aj;->a(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    move-result-object v1
 
-    move-result-object p3
+    invoke-virtual {v0, v1}, Lbl/agd;->setUpRectDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 162
-    invoke-virtual {p2, p3}, Lbl/agd;->setUpRectDrawable(Landroid/graphics/drawable/Drawable;)V
+    .line 244
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->b:Lbl/agd;
 
-    .line 168
-    iget-object p2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->b:Lbl/agd;
+    iget-object v1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    iget-object p3, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    # invokes: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->l()Z
+    invoke-static {v1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$500(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Z
 
-    invoke-static {p3}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->h(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;)Z
+    move-result v1
 
-    move-result p3
+    invoke-virtual {v0, p1, p4, p5, v1}, Lbl/agd;->a(Landroid/view/View;IIZ)V
 
-    invoke-virtual {p2, p1, p4, p5, p3}, Lbl/agd;->a(Landroid/view/View;IIZ)V
+    .line 245
+    iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->this$0:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
 
-    .line 169
-    iget-object p1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;->a:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;
+    const/4 v1, 0x0
 
-    const/4 p2, 0x0
+    # invokes: Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->b(Z)V
+    invoke-static {v0, v1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->access$600(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;Z)V
 
-    invoke-static {p1, p2}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->c(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;Z)V
-
-    return-void
+    goto :goto_4
 .end method

@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;
 .super Lcom/bilibili/api/base/util/ParamsMap;
-.source "BL"
+.source "VideoApiService.java"
 
 
 # annotations
@@ -15,419 +15,446 @@
 
 
 # direct methods
-.method public constructor <init>(I)V
-    .locals 4
-
-    const/4 v0, 0x2
-
-    .line 110
-    invoke-direct {p0, v0}, Lcom/bilibili/api/base/util/ParamsMap;-><init>(I)V
-
-    const/4 v1, 0x4
-
-    .line 111
-    new-array v1, v1, [Ljava/lang/String;
-
-    const-string v2, "plat"
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    const-string v2, "0"
-
-    const/4 v3, 0x1
-
-    aput-object v2, v1, v3
-
-    const-string v2, "aid"
-
-    aput-object v2, v1, v0
-
-    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    const/4 v0, 0x3
-
-    aput-object p1, v1, v0
-
-    invoke-virtual {p0, v1}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(ILjava/lang/String;)V
-    .locals 4
-
-    const/4 v0, 0x3
-
-    .line 124
-    invoke-direct {p0, v0}, Lcom/bilibili/api/base/util/ParamsMap;-><init>(I)V
-
-    const/4 v1, 0x6
-
-    .line 125
-    new-array v1, v1, [Ljava/lang/String;
-
-    const-string v2, "plat"
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    const-string v2, "0"
-
-    const/4 v3, 0x1
-
-    aput-object v2, v1, v3
-
-    const-string v2, "aid"
-
-    const/4 v3, 0x2
-
-    aput-object v2, v1, v3
-
-    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    aput-object p1, v1, v0
-
-    const-string p1, "from"
-
-    const/4 v0, 0x4
-
-    aput-object p1, v1, v0
-
-    const/4 p1, 0x5
-
-    aput-object p2, v1, p1
-
-    invoke-virtual {p0, v1}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(ILjava/lang/String;Ljava/lang/String;)V
-    .locals 4
-
-    const/4 v0, 0x4
-
-    .line 129
-    invoke-direct {p0, v0}, Lcom/bilibili/api/base/util/ParamsMap;-><init>(I)V
-
-    const/16 v1, 0x8
-
-    .line 130
-    new-array v1, v1, [Ljava/lang/String;
-
-    const-string v2, "plat"
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    const-string v2, "0"
-
-    const/4 v3, 0x1
-
-    aput-object v2, v1, v3
-
-    const-string v2, "aid"
-
-    const/4 v3, 0x2
-
-    aput-object v2, v1, v3
-
-    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    const/4 v2, 0x3
-
-    aput-object p1, v1, v2
-
-    const-string p1, "from"
-
-    aput-object p1, v1, v0
-
-    const/4 p1, 0x5
-
-    aput-object p2, v1, p1
-
-    const-string p1, "trackid"
-
-    const/4 p2, 0x6
-
-    aput-object p1, v1, p2
-
-    const/4 p1, 0x7
-
-    aput-object p3, v1, p1
-
-    invoke-virtual {p0, v1}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(ILjava/lang/String;Z)V
-    .locals 7
-
-    const/4 v0, 0x3
-
-    .line 134
-    invoke-direct {p0, v0}, Lcom/bilibili/api/base/util/ParamsMap;-><init>(I)V
-
-    const/4 v1, 0x5
-
-    const/4 v2, 0x4
-
-    const/4 v3, 0x2
-
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x6
-
-    if-eqz p3, :cond_0
-
-    .line 136
-    new-array p3, v6, [Ljava/lang/String;
-
-    const-string v6, "plat"
-
-    aput-object v6, p3, v5
-
-    const-string v5, "0"
-
-    aput-object v5, p3, v4
-
-    const-string v4, "movie_id"
-
-    aput-object v4, p3, v3
-
-    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    aput-object p1, p3, v0
-
-    const-string p1, "from"
-
-    aput-object p1, p3, v2
-
-    aput-object p2, p3, v1
-
-    invoke-virtual {p0, p3}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 138
-    :cond_0
-    new-array p3, v6, [Ljava/lang/String;
-
-    const-string v6, "plat"
-
-    aput-object v6, p3, v5
-
-    const-string v5, "0"
-
-    aput-object v5, p3, v4
-
-    const-string v4, "aid"
-
-    aput-object v4, p3, v3
-
-    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    aput-object p1, p3, v0
-
-    const-string p1, "from"
-
-    aput-object p1, p3, v2
-
-    aput-object p2, p3, v1
-
-    invoke-virtual {p0, p3}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
-
-    :goto_0
-    return-void
-.end method
-
-.method public constructor <init>(ILjava/lang/String;ZLjava/lang/String;)V
-    .locals 9
-
-    const/4 v0, 0x4
-
-    .line 143
-    invoke-direct {p0, v0}, Lcom/bilibili/api/base/util/ParamsMap;-><init>(I)V
-
-    const/4 v1, 0x7
-
-    const/4 v2, 0x6
-
-    const/4 v3, 0x5
-
-    const/4 v4, 0x3
-
-    const/4 v5, 0x2
-
-    const/4 v6, 0x1
-
-    const/4 v7, 0x0
-
-    const/16 v8, 0x8
-
-    if-eqz p3, :cond_0
-
-    .line 145
-    new-array p3, v8, [Ljava/lang/String;
-
-    const-string v8, "plat"
-
-    aput-object v8, p3, v7
-
-    const-string v7, "0"
-
-    aput-object v7, p3, v6
-
-    const-string v6, "movie_id"
-
-    aput-object v6, p3, v5
-
-    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    aput-object p1, p3, v4
-
-    const-string p1, "from"
-
-    aput-object p1, p3, v0
-
-    aput-object p2, p3, v3
-
-    const-string p1, "trackid"
-
-    aput-object p1, p3, v2
-
-    aput-object p4, p3, v1
-
-    invoke-virtual {p0, p3}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 147
-    :cond_0
-    new-array p3, v8, [Ljava/lang/String;
-
-    const-string v8, "plat"
-
-    aput-object v8, p3, v7
-
-    const-string v7, "0"
-
-    aput-object v7, p3, v6
-
-    const-string v6, "aid"
-
-    aput-object v6, p3, v5
-
-    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    aput-object p1, p3, v4
-
-    const-string p1, "from"
-
-    aput-object p1, p3, v0
-
-    aput-object p2, p3, v3
-
-    const-string p1, "trackid"
-
-    aput-object p1, p3, v2
-
-    aput-object p4, p3, v1
-
-    invoke-virtual {p0, p3}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
-
-    :goto_0
-    return-void
-.end method
-
-.method public constructor <init>(IZ)V
+.method public constructor <init>(J)V
     .locals 5
 
-    const/4 v0, 0x2
+    .prologue
+    const/4 v3, 0x2
 
-    .line 115
-    invoke-direct {p0, v0}, Lcom/bilibili/api/base/util/ParamsMap;-><init>(I)V
+    .line 103
+    invoke-direct {p0, v3}, Lcom/bilibili/api/base/util/ParamsMap;-><init>(I)V
+
+    .line 104
+    const/4 v0, 0x4
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    const-string v2, "plat"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
+
+    const-string v2, "0"
+
+    aput-object v2, v0, v1
+
+    const-string v1, "aid"
+
+    aput-object v1, v0, v3
 
     const/4 v1, 0x3
 
-    const/4 v2, 0x1
+    invoke-static {p1, p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    const/4 v3, 0x0
+    move-result-object v2
 
-    const/4 v4, 0x4
+    aput-object v2, v0, v1
 
-    if-eqz p2, :cond_0
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
+
+    .line 105
+    return-void
+.end method
+
+.method public constructor <init>(JLjava/lang/String;)V
+    .locals 5
+
+    .prologue
+    const/4 v3, 0x3
 
     .line 117
-    new-array p2, v4, [Ljava/lang/String;
+    invoke-direct {p0, v3}, Lcom/bilibili/api/base/util/ParamsMap;-><init>(I)V
 
-    const-string v4, "plat"
+    .line 118
+    const/4 v0, 0x6
 
-    aput-object v4, p2, v3
+    new-array v0, v0, [Ljava/lang/String;
 
-    const-string v3, "0"
+    const/4 v1, 0x0
 
-    aput-object v3, p2, v2
+    const-string v2, "plat"
 
-    const-string v2, "movie_id"
+    aput-object v2, v0, v1
 
-    aput-object v2, p2, v0
+    const/4 v1, 0x1
 
-    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    const-string v2, "0"
 
-    move-result-object p1
+    aput-object v2, v0, v1
 
-    aput-object p1, p2, v1
-
-    invoke-virtual {p0, p2}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 119
-    :cond_0
-    new-array p2, v4, [Ljava/lang/String;
-
-    const-string v4, "plat"
-
-    aput-object v4, p2, v3
-
-    const-string v3, "0"
-
-    aput-object v3, p2, v2
+    const/4 v1, 0x2
 
     const-string v2, "aid"
 
-    aput-object v2, p2, v0
+    aput-object v2, v0, v1
 
-    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {p1, p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    aput-object p1, p2, v1
+    aput-object v1, v0, v3
 
-    invoke-virtual {p0, p2}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
+    const/4 v1, 0x4
 
-    :goto_0
+    const-string v2, "from"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x5
+
+    aput-object p3, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
+
+    .line 119
     return-void
+.end method
+
+.method public constructor <init>(JLjava/lang/String;Ljava/lang/String;)V
+    .locals 5
+
+    .prologue
+    const/4 v3, 0x4
+
+    .line 122
+    invoke-direct {p0, v3}, Lcom/bilibili/api/base/util/ParamsMap;-><init>(I)V
+
+    .line 123
+    const/16 v0, 0x8
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    const-string v2, "plat"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
+
+    const-string v2, "0"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x2
+
+    const-string v2, "aid"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x3
+
+    invoke-static {p1, p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v2
+
+    aput-object v2, v0, v1
+
+    const-string v1, "from"
+
+    aput-object v1, v0, v3
+
+    const/4 v1, 0x5
+
+    aput-object p3, v0, v1
+
+    const/4 v1, 0x6
+
+    const-string v2, "trackid"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x7
+
+    aput-object p4, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
+
+    .line 124
+    return-void
+.end method
+
+.method public constructor <init>(JLjava/lang/String;Z)V
+    .locals 7
+
+    .prologue
+    const/4 v6, 0x4
+
+    const/4 v5, 0x2
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
+
+    const/4 v2, 0x3
+
+    .line 127
+    invoke-direct {p0, v2}, Lcom/bilibili/api/base/util/ParamsMap;-><init>(I)V
+
+    .line 128
+    if-eqz p4, :cond_2a
+
+    .line 129
+    const/4 v0, 0x6
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string v1, "plat"
+
+    aput-object v1, v0, v3
+
+    const-string v1, "0"
+
+    aput-object v1, v0, v4
+
+    const-string v1, "movie_id"
+
+    aput-object v1, v0, v5
+
+    invoke-static {p1, p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v1
+
+    aput-object v1, v0, v2
+
+    const-string v1, "from"
+
+    aput-object v1, v0, v6
+
+    const/4 v1, 0x5
+
+    aput-object p3, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
+
+    .line 133
+    :goto_29
+    return-void
+
+    .line 131
+    :cond_2a
+    const/4 v0, 0x6
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string v1, "plat"
+
+    aput-object v1, v0, v3
+
+    const-string v1, "0"
+
+    aput-object v1, v0, v4
+
+    const-string v1, "aid"
+
+    aput-object v1, v0, v5
+
+    invoke-static {p1, p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v1
+
+    aput-object v1, v0, v2
+
+    const-string v1, "from"
+
+    aput-object v1, v0, v6
+
+    const/4 v1, 0x5
+
+    aput-object p3, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
+
+    goto :goto_29
+.end method
+
+.method public constructor <init>(JLjava/lang/String;ZLjava/lang/String;)V
+    .locals 7
+
+    .prologue
+    const/4 v6, 0x3
+
+    const/4 v5, 0x2
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
+
+    const/4 v2, 0x4
+
+    .line 136
+    invoke-direct {p0, v2}, Lcom/bilibili/api/base/util/ParamsMap;-><init>(I)V
+
+    .line 137
+    if-eqz p4, :cond_33
+
+    .line 138
+    const/16 v0, 0x8
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string v1, "plat"
+
+    aput-object v1, v0, v3
+
+    const-string v1, "0"
+
+    aput-object v1, v0, v4
+
+    const-string v1, "movie_id"
+
+    aput-object v1, v0, v5
+
+    invoke-static {p1, p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v1
+
+    aput-object v1, v0, v6
+
+    const-string v1, "from"
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x5
+
+    aput-object p3, v0, v1
+
+    const/4 v1, 0x6
+
+    const-string v2, "trackid"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x7
+
+    aput-object p5, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
+
+    .line 142
+    :goto_32
+    return-void
+
+    .line 140
+    :cond_33
+    const/16 v0, 0x8
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string v1, "plat"
+
+    aput-object v1, v0, v3
+
+    const-string v1, "0"
+
+    aput-object v1, v0, v4
+
+    const-string v1, "aid"
+
+    aput-object v1, v0, v5
+
+    invoke-static {p1, p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v1
+
+    aput-object v1, v0, v6
+
+    const-string v1, "from"
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x5
+
+    aput-object p3, v0, v1
+
+    const/4 v1, 0x6
+
+    const-string v2, "trackid"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x7
+
+    aput-object p5, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
+
+    goto :goto_32
+.end method
+
+.method public constructor <init>(JZ)V
+    .locals 7
+
+    .prologue
+    const/4 v0, 0x4
+
+    const/4 v5, 0x3
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
+
+    const/4 v2, 0x2
+
+    .line 108
+    invoke-direct {p0, v2}, Lcom/bilibili/api/base/util/ParamsMap;-><init>(I)V
+
+    .line 109
+    if-eqz p3, :cond_22
+
+    .line 110
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string v1, "plat"
+
+    aput-object v1, v0, v3
+
+    const-string v1, "0"
+
+    aput-object v1, v0, v4
+
+    const-string v1, "movie_id"
+
+    aput-object v1, v0, v2
+
+    invoke-static {p1, p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v1
+
+    aput-object v1, v0, v5
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
+
+    .line 114
+    :goto_21
+    return-void
+
+    .line 112
+    :cond_22
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string v1, "plat"
+
+    aput-object v1, v0, v3
+
+    const-string v1, "0"
+
+    aput-object v1, v0, v4
+
+    const-string v1, "aid"
+
+    aput-object v1, v0, v2
+
+    invoke-static {p1, p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v1
+
+    aput-object v1, v0, v5
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMap;->putParams([Ljava/lang/String;)V
+
+    goto :goto_21
 .end method

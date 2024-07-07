@@ -14,7 +14,7 @@
     return-void
 .end method
 
-.method public static a(Landroid/content/Context;JIJJIJJ)V
+.method public static a(Landroid/content/Context;JJJJIJJ)V
     .locals 15
 
     .prologue
@@ -50,33 +50,33 @@
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/bilibili/tv/api/history/BiliPlayerHistoryService;
+    check-cast v0, Lcom/bilibili/tv/api/history/BiliPlayerHistoryService;
 
     invoke-static {p0}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Lbl/mg;->e()Ljava/lang/String;
+    invoke-virtual {v1}, Lbl/mg;->e()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    move-wide/from16 v3, p1
+    move-wide/from16 v2, p1
 
-    move/from16 v5, p3
+    move-wide/from16 v4, p3
 
-    move-wide/from16 v6, p4
+    move-wide/from16 v6, p5
 
-    move-wide/from16 v8, p6
+    move-wide/from16 v8, p7
 
-    move-wide/from16 v10, p9
+    move-wide/from16 v10, p10
 
-    move/from16 v12, p8
+    move/from16 v12, p9
 
-    move-wide/from16 v13, p11
+    move-wide/from16 v13, p12
 
-    invoke-interface/range {v1 .. v14}, Lcom/bilibili/tv/api/history/BiliPlayerHistoryService;->reportProgress(Ljava/lang/String;JIJJJIJ)Lbl/vp;
+    invoke-interface/range {v0 .. v14}, Lcom/bilibili/tv/api/history/BiliPlayerHistoryService;->reportProgress(Ljava/lang/String;JJJJJIJ)Lbl/vp;
 
     move-result-object v0
 
@@ -91,8 +91,8 @@
     return-void
 .end method
 
-.method public static a(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;IJIZIIILjava/lang/String;)V
-    .locals 7
+.method public static a(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;JJIZIIILjava/lang/String;)V
+    .locals 6
 
     .prologue
     .line 12
@@ -172,7 +172,7 @@
 
     const/16 v4, 0x9
 
-    invoke-static {p4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {p4, p5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v5
 
@@ -186,7 +186,7 @@
 
     const/16 v4, 0xb
 
-    invoke-static {p5, p6}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static {p6, p7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v5
 
@@ -200,7 +200,7 @@
 
     const/16 v4, 0xd
 
-    invoke-static {p7}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {p8}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v5
 
@@ -214,7 +214,7 @@
 
     const/16 v4, 0xf
 
-    invoke-static {p8}, Lbl/abz;->a(Z)Ljava/lang/String;
+    invoke-static {p9}, Lbl/abz;->a(Z)Ljava/lang/String;
 
     move-result-object v5
 
@@ -228,7 +228,7 @@
 
     const/16 v4, 0x11
 
-    invoke-static/range {p9 .. p9}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {p10 .. p10}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v5
 
@@ -242,7 +242,7 @@
 
     const/16 v4, 0x13
 
-    invoke-static/range {p10 .. p10}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {p11 .. p11}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v5
 
@@ -256,7 +256,7 @@
 
     const/16 v4, 0x15
 
-    invoke-static/range {p11 .. p11}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {p12 .. p12}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v5
 
@@ -270,7 +270,7 @@
 
     const/16 v4, 0x17
 
-    aput-object p12, v3, v4
+    aput-object p13, v3, v4
 
     invoke-virtual {v0, v1, v2, v3}, Lbl/ok;->a(ZLjava/lang/String;[Ljava/lang/String;)V
 

@@ -1,82 +1,95 @@
 .class final Lcom/bilibili/tv/ui/search/SearchActivity$e;
 .super Ljava/lang/Object;
-.source "BL"
+.source "SearchActivity.java"
 
 # interfaces
 .implements Lbl/agb$c;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/bilibili/tv/ui/search/SearchActivity;->onLongClick(Landroid/view/View;)Z
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bilibili/tv/ui/search/SearchActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
+    accessFlags = 0x10
+    name = "e"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/ui/search/SearchActivity;
+.field final b:Ljava/util/LinkedHashMap;
 
-.field final synthetic b:Ljava/util/LinkedHashMap;
+.field final synthetic this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/bilibili/tv/ui/search/SearchActivity;Ljava/util/LinkedHashMap;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bilibili/tv/ui/search/SearchActivity$e;->a:Lcom/bilibili/tv/ui/search/SearchActivity;
-
-    iput-object p2, p0, Lcom/bilibili/tv/ui/search/SearchActivity$e;->b:Ljava/util/LinkedHashMap;
+    .prologue
+    .line 642
+    iput-object p1, p0, Lcom/bilibili/tv/ui/search/SearchActivity$e;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 643
+    iput-object p2, p0, Lcom/bilibili/tv/ui/search/SearchActivity$e;->b:Ljava/util/LinkedHashMap;
+
+    .line 644
     return-void
 .end method
 
 
 # virtual methods
 .method public final a(Lbl/agb;Landroid/view/View;Ljava/lang/String;)V
-    .locals 0
+    .locals 2
 
-    .line 330
-    iget-object p2, p0, Lcom/bilibili/tv/ui/search/SearchActivity$e;->b:Ljava/util/LinkedHashMap;
+    .prologue
+    .line 648
+    iget-object v0, p0, Lcom/bilibili/tv/ui/search/SearchActivity$e;->b:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {p2, p3}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p3}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object v0
 
-    if-nez p2, :cond_0
+    .line 649
+    if-nez v0, :cond_10
 
-    new-instance p1, Lkotlin/TypeCastException;
+    .line 650
+    new-instance v0, Lkotlin/TypeCastException;
 
-    const-string p2, "null cannot be cast to non-null type kotlin.String"
+    const-string v1, "null cannot be cast to non-null type kotlin.String"
 
-    invoke-direct {p1, p2}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
-    :cond_0
-    check-cast p2, Ljava/lang/String;
+    .line 652
+    :cond_10
+    check-cast v0, Ljava/lang/String;
 
-    .line 331
-    iget-object p3, p0, Lcom/bilibili/tv/ui/search/SearchActivity$e;->a:Lcom/bilibili/tv/ui/search/SearchActivity;
+    .line 653
+    iget-object v1, p0, Lcom/bilibili/tv/ui/search/SearchActivity$e;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 
-    invoke-static {p3}, Lcom/bilibili/tv/ui/search/SearchActivity;->d(Lcom/bilibili/tv/ui/search/SearchActivity;)Lbl/afi;
+    # getter for: Lcom/bilibili/tv/ui/search/SearchActivity;->g:Lbl/afi;
+    invoke-static {v1}, Lcom/bilibili/tv/ui/search/SearchActivity;->access$400(Lcom/bilibili/tv/ui/search/SearchActivity;)Lbl/afi;
 
-    move-result-object p3
+    move-result-object v1
 
-    if-nez p3, :cond_1
+    .line 654
+    if-nez v1, :cond_1d
 
+    .line 655
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_1
-    invoke-virtual {p3, p2}, Lbl/afi;->c(Ljava/lang/String;)V
+    .line 657
+    :cond_1d
+    invoke-virtual {v1, v0}, Lbl/afi;->c(Ljava/lang/String;)V
 
-    .line 333
+    .line 658
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
+    .line 659
     return-void
 .end method

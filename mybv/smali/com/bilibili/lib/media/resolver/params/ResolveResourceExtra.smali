@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;
 .super Ljava/lang/Object;
-.source "BL"
+.source "ResolveResourceExtra.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;
@@ -10,7 +10,8 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator<",
+            "Landroid/os/Parcelable$Creator",
+            "<",
             "Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;",
             ">;"
         }
@@ -33,7 +34,7 @@
 
 .field private g:J
 
-.field private h:I
+.field private h:J
 
 .field private i:Z
 
@@ -46,7 +47,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 176
+    .prologue
+    .line 12
     new-instance v0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra$1;
 
     invoke-direct {v0}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra$1;-><init>()V
@@ -59,168 +61,179 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 141
+    .prologue
+    .line 124
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 125
     const/4 v0, -0x1
 
-    .line 32
     iput v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->j:I
 
+    .line 126
     const/4 v0, 0x0
 
-    .line 35
     iput-boolean v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->k:Z
 
+    .line 127
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 3
 
-    .line 163
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, -0x1
-
-    .line 32
-    iput v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->j:I
-
-    const/4 v0, 0x0
-
-    .line 35
-    iput-boolean v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->k:Z
-
-    .line 164
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->a:Ljava/lang/String;
-
-    .line 165
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->b:Ljava/lang/String;
-
-    .line 166
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->c:Ljava/lang/String;
-
-    .line 167
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->d:Ljava/lang/String;
-
-    .line 168
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->f:Ljava/lang/String;
-
-    .line 169
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    iput v1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->j:I
-
-    .line 170
-    invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    if-eqz v1, :cond_0
-
+    .prologue
     const/4 v1, 0x1
 
-    goto :goto_0
+    const/4 v2, 0x0
 
-    :cond_0
-    const/4 v1, 0x0
+    .line 143
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    :goto_0
-    iput-boolean v1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->e:Z
+    .line 144
+    const/4 v0, -0x1
 
-    .line 171
-    invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
+    iput v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->j:I
 
-    move-result v1
+    .line 145
+    iput-boolean v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->k:Z
 
-    if-eqz v1, :cond_1
+    .line 146
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    const/4 v0, 0x1
+    move-result-object v0
 
-    :cond_1
-    iput-boolean v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->i:Z
+    iput-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->a:Ljava/lang/String;
 
-    .line 172
+    .line 147
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->b:Ljava/lang/String;
+
+    .line 148
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->c:Ljava/lang/String;
+
+    .line 149
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->d:Ljava/lang/String;
+
+    .line 150
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->f:Ljava/lang/String;
+
+    .line 151
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    iput v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h:I
+    iput v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->j:I
 
-    .line 173
+    .line 152
+    invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
+
+    move-result v0
+
+    if-eqz v0, :cond_4c
+
+    move v0, v1
+
+    :goto_35
+    iput-boolean v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->e:Z
+
+    .line 153
+    invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
+
+    move-result v0
+
+    if-eqz v0, :cond_4e
+
+    :goto_3d
+    iput-boolean v1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->i:Z
+
+    .line 154
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h:J
+
+    .line 155
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->g:J
 
+    .line 156
     return-void
+
+    :cond_4c
+    move v0, v2
+
+    .line 152
+    goto :goto_35
+
+    :cond_4e
+    move v1, v2
+
+    .line 153
+    goto :goto_3d
 .end method
 
-.method public constructor <init>(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILjava/lang/String;)V
-    .locals 1
+.method public constructor <init>(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJLjava/lang/String;)V
+    .locals 2
 
-    .line 43
+    .prologue
+    .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 43
     const/4 v0, -0x1
 
-    .line 32
     iput v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->j:I
 
+    .line 44
     const/4 v0, 0x0
 
-    .line 35
     iput-boolean v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->k:Z
 
-    .line 44
+    .line 45
     iput-boolean p1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->e:Z
 
-    .line 45
+    .line 46
     iput-object p2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->a:Ljava/lang/String;
 
-    .line 46
+    .line 47
     iput-object p3, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->c:Ljava/lang/String;
 
-    .line 47
+    .line 48
     iput-object p4, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->b:Ljava/lang/String;
 
-    .line 48
+    .line 49
     iput-object p5, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->d:Ljava/lang/String;
 
-    .line 49
+    .line 50
     iput-wide p6, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->g:J
 
-    .line 50
-    iput p8, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h:I
-
     .line 51
-    iput-object p9, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->f:Ljava/lang/String;
+    iput-wide p8, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h:J
 
+    .line 52
+    iput-object p10, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->f:Ljava/lang/String;
+
+    .line 53
     return-void
 .end method
 
@@ -229,27 +242,32 @@
 .method public a()J
     .locals 2
 
-    .line 55
+    .prologue
+    .line 56
     iget-wide v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->g:J
 
     return-wide v0
 .end method
 
-.method public a(I)V
-    .locals 0
+.method public a(J)V
+    .locals 1
 
-    .line 91
-    iput p1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h:I
+    .prologue
+    .line 95
+    iput-wide p1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h:J
 
+    .line 96
     return-void
 .end method
 
 .method public a(Ljava/lang/String;)V
     .locals 0
 
-    .line 83
+    .prologue
+    .line 87
     iput-object p1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->c:Ljava/lang/String;
 
+    .line 88
     return-void
 .end method
 
@@ -261,141 +279,149 @@
         }
     .end annotation
 
+    .prologue
+    .line 111
     const-string v0, "link"
 
-    .line 128
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->a:Ljava/lang/String;
 
+    .line 112
     const-string v0, "vid"
 
-    .line 129
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->b:Ljava/lang/String;
 
+    .line 113
     const-string v0, "raw_vid"
 
-    .line 130
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->c:Ljava/lang/String;
 
+    .line 114
     const-string v0, "has_alias"
 
-    .line 131
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->e:Z
 
+    .line 115
     const-string v0, "weblink"
 
-    .line 132
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->d:Ljava/lang/String;
 
+    .line 116
     const-string v0, "track_path"
 
-    .line 133
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->f:Ljava/lang/String;
 
+    .line 117
     const-string v0, "is_unicom_free"
 
-    .line 134
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->i:Z
 
+    .line 118
     const-string v0, "season_type"
 
-    .line 135
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->j:I
 
+    .line 119
     const-string v0, "avid"
 
-    .line 136
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optLong(Ljava/lang/String;)J
 
-    move-result v0
+    move-result-wide v0
 
-    iput v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h:I
+    iput-wide v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h:J
 
+    .line 120
     const-string v0, "epid"
 
-    .line 137
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->g:J
 
+    .line 121
     const-string v0, "request_from_DLNA"
 
     const/4 v1, 0x0
 
-    .line 138
     invoke-virtual {p1, v0, v1}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;Z)Z
 
-    move-result p1
+    move-result v0
 
-    iput-boolean p1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->k:Z
+    iput-boolean v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->k:Z
 
+    .line 122
     return-void
 .end method
 
-.method public b()I
-    .locals 1
+.method public b()J
+    .locals 2
 
-    .line 59
-    iget v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h:I
+    .prologue
+    .line 60
+    iget-wide v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h:J
 
-    return v0
+    return-wide v0
 .end method
 
 .method public b(I)V
     .locals 0
 
+    .prologue
     .line 99
     iput p1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->j:I
 
+    .line 100
     return-void
 .end method
 
 .method public b(Ljava/lang/String;)V
     .locals 0
 
-    .line 87
+    .prologue
+    .line 91
     iput-object p1, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->b:Ljava/lang/String;
 
+    .line 92
     return-void
 .end method
 
 .method public c()Ljava/lang/String;
     .locals 1
 
-    .line 63
+    .prologue
+    .line 64
     iget-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->c:Ljava/lang/String;
 
     return-object v0
@@ -404,7 +430,8 @@
 .method public d()Ljava/lang/String;
     .locals 1
 
-    .line 67
+    .prologue
+    .line 68
     iget-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->b:Ljava/lang/String;
 
     return-object v0
@@ -413,6 +440,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 39
     const/4 v0, 0x0
 
     return v0
@@ -421,7 +450,8 @@
 .method public e()Ljava/lang/String;
     .locals 1
 
-    .line 71
+    .prologue
+    .line 72
     iget-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->f:Ljava/lang/String;
 
     return-object v0
@@ -430,7 +460,8 @@
 .method public f()Z
     .locals 1
 
-    .line 75
+    .prologue
+    .line 76
     iget-boolean v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->i:Z
 
     return v0
@@ -439,31 +470,35 @@
 .method public g()Ljava/lang/String;
     .locals 2
 
-    .line 79
+    .prologue
+    .line 80
     iget v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->j:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_7
 
+    .line 81
     const/4 v0, 0x0
 
-    goto :goto_0
+    .line 83
+    :goto_6
+    return-object v0
 
-    :cond_0
+    :cond_7
     iget v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->j:I
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
-    return-object v0
+    goto :goto_6
 .end method
 
 .method public h()Z
     .locals 1
 
+    .prologue
     .line 103
     iget-boolean v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->k:Z
 
@@ -478,7 +513,8 @@
         }
     .end annotation
 
-    .line 112
+    .prologue
+    .line 107
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
@@ -487,7 +523,6 @@
 
     iget-object v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->a:Ljava/lang/String;
 
-    .line 113
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     move-result-object v0
@@ -496,17 +531,15 @@
 
     iget-object v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->b:Ljava/lang/String;
 
-    .line 114
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     move-result-object v0
 
     const-string v1, "avid"
 
-    iget v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h:I
+    iget-wide v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h:J
 
-    .line 115
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     move-result-object v0
 
@@ -514,7 +547,6 @@
 
     iget-wide v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->g:J
 
-    .line 116
     invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     move-result-object v0
@@ -523,7 +555,6 @@
 
     iget-object v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->c:Ljava/lang/String;
 
-    .line 117
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     move-result-object v0
@@ -532,7 +563,6 @@
 
     iget-boolean v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->e:Z
 
-    .line 118
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
     move-result-object v0
@@ -541,7 +571,6 @@
 
     iget-object v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->d:Ljava/lang/String;
 
-    .line 119
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     move-result-object v0
@@ -550,7 +579,6 @@
 
     iget-object v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->f:Ljava/lang/String;
 
-    .line 120
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     move-result-object v0
@@ -559,7 +587,6 @@
 
     iget-boolean v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->i:Z
 
-    .line 121
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
     move-result-object v0
@@ -568,7 +595,6 @@
 
     iget v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->j:I
 
-    .line 122
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     move-result-object v0
@@ -577,7 +603,6 @@
 
     iget-boolean v2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->k:Z
 
-    .line 123
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
     move-result-object v0
@@ -590,57 +615,83 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 2
+    .locals 3
 
-    .line 151
-    iget-object p2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->a:Ljava/lang/String;
+    .prologue
+    const/4 v1, 0x1
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    const/4 v2, 0x0
 
-    .line 152
-    iget-object p2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->b:Ljava/lang/String;
+    .line 131
+    iget-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->a:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 153
-    iget-object p2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->c:Ljava/lang/String;
+    .line 132
+    iget-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 154
-    iget-object p2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->d:Ljava/lang/String;
+    .line 133
+    iget-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 155
-    iget-object p2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->f:Ljava/lang/String;
+    .line 134
+    iget-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->d:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 156
-    iget p2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->j:I
+    .line 135
+    iget-object v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->f:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 157
-    iget-boolean p2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->e:Z
+    .line 136
+    iget v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->j:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeByte(B)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 158
-    iget-boolean p2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->i:Z
+    .line 137
+    iget-boolean v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->e:Z
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeByte(B)V
+    if-eqz v0, :cond_3a
 
-    .line 159
-    iget p2, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h:I
+    move v0, v1
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    :goto_25
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 160
+    .line 138
+    iget-boolean v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->i:Z
+
+    if-eqz v0, :cond_3c
+
+    :goto_2c
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeByte(B)V
+
+    .line 139
+    iget-wide v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->h:J
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
+
+    .line 140
     iget-wide v0, p0, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->g:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
+    .line 141
     return-void
+
+    :cond_3a
+    move v0, v2
+
+    .line 137
+    goto :goto_25
+
+    :cond_3c
+    move v1, v2
+
+    .line 138
+    goto :goto_2c
 .end method

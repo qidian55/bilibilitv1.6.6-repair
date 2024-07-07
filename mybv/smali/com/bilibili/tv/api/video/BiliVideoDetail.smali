@@ -50,7 +50,7 @@
     .end annotation
 .end field
 
-.field public mAvid:I
+.field public mAvid:J
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "aid"
     .end annotation
@@ -307,11 +307,11 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 990
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result v0
+    move-result-wide v0
 
-    iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iput-wide v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
     .line 991
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -559,7 +559,7 @@
 .end method
 
 .method public static create(ILjava/lang/String;Ljava/lang/String;)Lcom/bilibili/tv/api/video/BiliVideoDetail;
-    .locals 1
+    .locals 4
 
     .prologue
     .line 921
@@ -568,7 +568,9 @@
     invoke-direct {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail;-><init>()V
 
     .line 922
-    iput p0, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    int-to-long v2, p0
+
+    iput-wide v2, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
     .line 923
     iput-object p2, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mCover:Ljava/lang/String;
@@ -680,9 +682,9 @@
 
     .line 932
     :cond_3
-    iget v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v0, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
-    iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iput-wide v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
     .line 933
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mCover:Ljava/lang/String;
@@ -813,7 +815,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .locals 6
 
     .prologue
     const/4 v0, 0x1
@@ -829,17 +831,19 @@
     :cond_4
     instance-of v1, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_12
 
-    iget v1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v2, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
     check-cast p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
-    iget v2, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v4, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
-    if-eq v1, v2, :cond_3
+    cmp-long v1, v2, v4
 
-    :cond_10
+    if-eqz v1, :cond_3
+
+    :cond_12
     const/4 v0, 0x0
 
     goto :goto_3
@@ -1371,11 +1375,13 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .locals 2
 
     .prologue
     .line 371
-    iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
+
+    long-to-int v0, v0
 
     return v0
 .end method
@@ -1808,23 +1814,27 @@
 .end method
 
 .method public isValidAvid()Z
-    .locals 1
+    .locals 4
 
     .prologue
     .line 306
-    iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
-    if-lez v0, :cond_6
+    const-wide/16 v2, 0x0
+
+    cmp-long v0, v0, v2
+
+    if-lez v0, :cond_a
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_9
     return v0
 
-    :cond_6
+    :cond_a
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_9
 .end method
 
 .method public setAttentionStatus(Z)V
@@ -2030,7 +2040,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .locals 4
 
     .prologue
     .line 360
@@ -2044,9 +2054,9 @@
 
     move-result-object v0
 
-    iget v1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v2, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -2080,9 +2090,9 @@
 
     .prologue
     .line 963
-    iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 964
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTid:I

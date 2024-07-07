@@ -1,21 +1,22 @@
 .class public final Lbl/adl$c;
 .super Lbl/vn;
-.source "BL"
+.source "adl.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/adl;->a(ILandroid/content/Context;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lbl/adl;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x19
-    name = null
+    name = "c"
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lbl/vn<",
+        "Lbl/vn",
+        "<",
         "Lcom/bilibili/tv/api/video/VideoJumpPgc;",
         ">;"
     }
@@ -23,128 +24,131 @@
 
 
 # instance fields
-.field final synthetic a:Landroid/content/Context;
+.field final a:Landroid/content/Context;
 
-.field final synthetic b:I
+.field final b:J
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;I)V
+.method constructor <init>(Landroid/content/Context;J)V
     .locals 0
 
-    .line 491
-    iput-object p1, p0, Lbl/adl$c;->a:Landroid/content/Context;
-
-    iput p2, p0, Lbl/adl$c;->b:I
-
+    .prologue
+    .line 455
     invoke-direct {p0}, Lbl/vn;-><init>()V
 
+    .line 456
+    iput-object p1, p0, Lbl/adl$c;->a:Landroid/content/Context;
+
+    .line 457
+    iput-wide p2, p0, Lbl/adl$c;->b:J
+
+    .line 458
     return-void
 .end method
 
 
 # virtual methods
 .method public a(Lcom/bilibili/tv/api/video/VideoJumpPgc;)V
-    .locals 3
+    .locals 6
 
+    .prologue
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_0
+    .line 462
+    if-eqz p1, :cond_2f
 
-    .line 493
-    iget-object p1, p1, Lcom/bilibili/tv/api/video/VideoJumpPgc;->mBangumiInfo:Lcom/bilibili/tv/api/video/VideoJumpPgc$BangumiInfo;
+    iget-object v1, p1, Lcom/bilibili/tv/api/video/VideoJumpPgc;->mBangumiInfo:Lcom/bilibili/tv/api/video/VideoJumpPgc$BangumiInfo;
 
-    goto :goto_0
+    move-object v2, v1
 
-    :cond_0
-    move-object p1, v0
+    .line 463
+    :goto_6
+    if-eqz v2, :cond_31
 
-    :goto_0
-    if-eqz p1, :cond_1
-
-    .line 494
-    iget v1, p1, Lcom/bilibili/tv/api/video/VideoJumpPgc$BangumiInfo;->isJump:I
+    iget v1, v2, Lcom/bilibili/tv/api/video/VideoJumpPgc$BangumiInfo;->isJump:I
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    goto :goto_1
+    .line 464
+    :goto_e
+    if-eqz v2, :cond_12
 
-    :cond_1
-    move-object v1, v0
+    iget-object v0, v2, Lcom/bilibili/tv/api/video/VideoJumpPgc$BangumiInfo;->mSeasonId:Ljava/lang/String;
 
-    :goto_1
-    if-eqz p1, :cond_2
+    .line 465
+    :cond_12
+    if-eqz v1, :cond_33
 
-    .line 495
-    iget-object v0, p1, Lcom/bilibili/tv/api/video/VideoJumpPgc$BangumiInfo;->mSeasonId:Ljava/lang/String;
-
-    :cond_2
-    if-nez v1, :cond_3
-
-    goto :goto_2
-
-    .line 496
-    :cond_3
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
-    move-result p1
+    move-result v1
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    if-ne p1, v1, :cond_4
+    if-ne v1, v2, :cond_33
 
-    move-object p1, v0
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    check-cast p1, Ljava/lang/CharSequence;
+    move-result v1
 
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    if-nez v1, :cond_33
 
-    move-result p1
+    .line 466
+    iget-object v1, p0, Lbl/adl$c;->a:Landroid/content/Context;
 
-    if-nez p1, :cond_4
+    sget-object v2, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->Companion:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$a;
 
-    .line 497
-    iget-object p1, p0, Lbl/adl$c;->a:Landroid/content/Context;
+    iget-object v3, p0, Lbl/adl$c;->a:Landroid/content/Context;
 
-    sget-object v1, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->Companion:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$a;
+    invoke-virtual {v2, v3, v0}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$a;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    .line 470
+    :goto_2e
+    return-void
+
+    :cond_2f
+    move-object v2, v0
+
+    .line 462
+    goto :goto_6
+
+    :cond_31
+    move-object v1, v0
+
+    .line 463
+    goto :goto_e
+
+    .line 468
+    :cond_33
+    iget-object v0, p0, Lbl/adl$c;->a:Landroid/content/Context;
+
+    sget-object v1, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->Companion:Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;
 
     iget-object v2, p0, Lbl/adl$c;->a:Landroid/content/Context;
 
-    invoke-virtual {v1, v2, v0}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$a;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
+    iget-wide v4, p0, Lbl/adl$c;->b:J
 
-    move-result-object v0
+    invoke-virtual {v1, v2, v4, v5}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;->a(Landroid/content/Context;J)Landroid/content/Intent;
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    move-result-object v1
 
-    goto :goto_3
+    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 499
-    :cond_4
-    :goto_2
-    iget-object p1, p0, Lbl/adl$c;->a:Landroid/content/Context;
-
-    sget-object v0, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->Companion:Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;
-
-    iget-object v1, p0, Lbl/adl$c;->a:Landroid/content/Context;
-
-    iget v2, p0, Lbl/adl$c;->b:I
-
-    invoke-virtual {v0, v1, v2}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;->a(Landroid/content/Context;I)Landroid/content/Intent;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    :goto_3
-    return-void
+    goto :goto_2e
 .end method
 
 .method public bridge synthetic a(Ljava/lang/Object;)V
     .locals 0
 
-    .line 491
+    .prologue
+    .line 451
     check-cast p1, Lcom/bilibili/tv/api/video/VideoJumpPgc;
 
     invoke-virtual {p0, p1}, Lbl/adl$c;->a(Lcom/bilibili/tv/api/video/VideoJumpPgc;)V
@@ -153,11 +157,12 @@
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 3
+    .locals 6
 
+    .prologue
+    .line 474
     const-string v0, "ugcJump"
 
-    .line 504
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -166,28 +171,33 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-static {v0, p1}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 505
-    iget-object p1, p0, Lbl/adl$c;->a:Landroid/content/Context;
+    .line 475
+    iget-object v0, p0, Lbl/adl$c;->a:Landroid/content/Context;
 
-    sget-object v0, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->Companion:Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;
+    sget-object v1, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->Companion:Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;
 
-    iget-object v1, p0, Lbl/adl$c;->a:Landroid/content/Context;
+    iget-object v2, p0, Lbl/adl$c;->a:Landroid/content/Context;
 
-    iget v2, p0, Lbl/adl$c;->b:I
+    iget-wide v4, p0, Lbl/adl$c;->b:J
 
-    invoke-virtual {v0, v1, v2}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;->a(Landroid/content/Context;I)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v4, v5}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;->a(Landroid/content/Context;J)Landroid/content/Intent;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
+    .line 476
     return-void
 .end method

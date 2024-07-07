@@ -465,9 +465,9 @@
     .line 567
     sget-object v1, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->Companion:Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;
 
-    iget v0, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v2, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
-    invoke-virtual {v1, v7, v0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;->a(Landroid/content/Context;I)Landroid/content/Intent;
+    invoke-virtual {v1, v7, v2, v3}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;->a(Landroid/content/Context;J)Landroid/content/Intent;
 
     move-result-object v0
 
@@ -549,9 +549,9 @@
     :pswitch_94
     sget-object v1, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->Companion:Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;
 
-    iget v0, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
+    iget-wide v2, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
-    invoke-virtual {v1, v7, v0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;->a(Landroid/content/Context;I)Landroid/content/Intent;
+    invoke-virtual {v1, v7, v2, v3}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;->a(Landroid/content/Context;J)Landroid/content/Intent;
 
     move-result-object v0
 
@@ -611,14 +611,12 @@
     check-cast v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
     .line 592
-    if-eqz p2, :cond_17
+    if-eqz p2, :cond_16
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_16
 
     .line 593
-    iget v1, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:I
-
-    int-to-long v2, v1
+    iget-wide v2, v0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
     sput-wide v2, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->current_avid:J
 
@@ -632,6 +630,6 @@
     sput v0, Lcom/bilibili/tv/ui/history/VideoHistoryActivity;->current_pos:I
 
     .line 596
-    :cond_17
+    :cond_16
     return-void
 .end method

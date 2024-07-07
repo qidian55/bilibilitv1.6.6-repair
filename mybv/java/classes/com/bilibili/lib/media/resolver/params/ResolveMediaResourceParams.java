@@ -25,7 +25,7 @@ public class ResolveMediaResourceParams implements Parcelable, Cloneable {
     private String b;
     private String c;
     private long d;
-    private int e;
+    private long e;
     private boolean f;
     private String g;
 
@@ -34,7 +34,7 @@ public class ResolveMediaResourceParams implements Parcelable, Cloneable {
         return 0;
     }
 
-    public ResolveMediaResourceParams(int i, long i2, int i3, String str, String str2, boolean z, String str3) {
+    public ResolveMediaResourceParams(long i, long i2, int i3, String str, String str2, boolean z, String str3) {
         this.e = i;
         this.d = i2;
         this.a = i3;
@@ -44,7 +44,7 @@ public class ResolveMediaResourceParams implements Parcelable, Cloneable {
         this.g = str3;
     }
 
-    public int a() {
+    public long a() {
         return this.e;
     }
 
@@ -92,7 +92,7 @@ public class ResolveMediaResourceParams implements Parcelable, Cloneable {
         parcel.writeLong(this.d);
         parcel.writeByte(this.f ? (byte) 1 : (byte) 0);
         parcel.writeString(this.g);
-        parcel.writeInt(this.e);
+        parcel.writeLong(this.e);
     }
 
     public ResolveMediaResourceParams() {
@@ -102,10 +102,10 @@ public class ResolveMediaResourceParams implements Parcelable, Cloneable {
         this.a = parcel.readInt();
         this.b = parcel.readString();
         this.c = parcel.readString();
-        this.d = parcel.readInt();
+        this.d = parcel.readLong();
         this.f = parcel.readByte() != 0;
         this.g = parcel.readString();
-        this.e = parcel.readInt();
+        this.e = parcel.readLong();
     }
 
     public String h() throws Exception {
@@ -119,7 +119,7 @@ public class ResolveMediaResourceParams implements Parcelable, Cloneable {
         this.a = jSONObject.optInt("expected_quality");
         this.b = jSONObject.optString("expected_type_tag");
         this.g = jSONObject.optString("type");
-        this.e = jSONObject.optInt("avid");
+        this.e = jSONObject.optLong("avid");
     }
 
     /* renamed from: i, reason: merged with bridge method [inline-methods] */

@@ -40,9 +40,13 @@
     :cond_c
     move-object/from16 v0, p1
 
-    iget v2, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:I
+    iget-wide v2, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mAvid:J
 
-    if-gtz v2, :cond_1e
+    const-wide/16 v4, 0x0
+
+    cmp-long v2, v2, v4
+
+    if-gtz v2, :cond_22
 
     move-object/from16 v0, p1
 
@@ -52,7 +56,7 @@
 
     cmp-long v2, v2, v4
 
-    if-gtz v2, :cond_1e
+    if-gtz v2, :cond_22
 
     .line 14
     const/4 v2, 0x0
@@ -60,27 +64,27 @@
     goto :goto_b
 
     .line 17
-    :cond_1e
-    :try_start_1e
+    :cond_22
+    :try_start_22
     move-object/from16 v0, p2
 
-    iget-object v3, v0, Lbl/zm;->h:Ljava/lang/String;
-
-    move-object/from16 v0, p2
-
-    iget v4, v0, Lbl/zm;->l:I
+    iget-object v2, v0, Lbl/zm;->h:Ljava/lang/String;
 
     move-object/from16 v0, p2
 
-    iget-object v5, v0, Lbl/zm;->i:Ljava/lang/String;
+    iget v3, v0, Lbl/zm;->l:I
 
     move-object/from16 v0, p2
 
-    iget-object v6, v0, Lbl/zm;->j:Ljava/lang/String;
+    iget-object v4, v0, Lbl/zm;->i:Ljava/lang/String;
 
     move-object/from16 v0, p2
 
-    iget v7, v0, Lbl/zm;->o:I
+    iget-object v5, v0, Lbl/zm;->j:Ljava/lang/String;
+
+    move-object/from16 v0, p2
+
+    iget-wide v6, v0, Lbl/zm;->o:J
 
     move-object/from16 v0, p2
 
@@ -106,12 +110,12 @@
 
     const-string v15, "0"
 
-    invoke-static/range {v3 .. v15}, Lbl/zq;->a(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;IJIZIIILjava/lang/String;)V
-    :try_end_4c
-    .catch Ljava/lang/Exception; {:try_start_1e .. :try_end_4c} :catch_58
+    invoke-static/range {v2 .. v15}, Lbl/zq;->a(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;JJIZIIILjava/lang/String;)V
+    :try_end_50
+    .catch Ljava/lang/Exception; {:try_start_22 .. :try_end_50} :catch_5c
 
     .line 21
-    :goto_4c
+    :goto_50
     move-object/from16 v0, p1
 
     iget-wide v2, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mEpisodeId:J
@@ -120,7 +124,7 @@
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_5d
+    if-nez v2, :cond_61
 
     .line 22
     const/4 v2, 0x1
@@ -128,16 +132,16 @@
     goto :goto_b
 
     .line 18
-    :catch_58
+    :catch_5c
     move-exception v2
 
     .line 19
     invoke-static {v2}, Lbl/att;->a(Ljava/lang/Throwable;)V
 
-    goto :goto_4c
+    goto :goto_50
 
     .line 24
-    :cond_5d
+    :cond_61
     move-object/from16 v0, p1
 
     iget-object v2, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mSeasonId:Ljava/lang/String;

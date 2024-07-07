@@ -316,10 +316,10 @@ public final class afd extends adu implements aez, wf {
                 MainRecommendEx.Content content = new MainRecommendEx.Content();
                 content.setCardType("small_popular_ugc");
                 content.setCardGoto("av");
-                content.setJumpId(item.getIntValue("id"));
+                content.setJumpId(item.getLongValue("id"));
                 content.setCover(item.getString("pic"));
                 content.setTitle(item.getString("title"));
-                content.setUri("bilibili_yst://video/"+item.getIntValue("id"));
+                content.setUri("bilibili_yst://video/"+item.getLongValue("id"));
                 arrayList2.add(content);
             }
             for(int i=items.size();i<20;i++)arrayList2.add(null);
@@ -650,7 +650,7 @@ public final class afd extends adu implements aez, wf {
                 if (!bcl.b(str, "bilibili_yst://video", false)) {
                     return;
                 }
-                a2.startActivity(VideoDetailActivity.Companion.a(a2, (int) ContentUris.parseId(Uri.parse(str))));
+                a2.startActivity(VideoDetailActivity.Companion.a(a2, ContentUris.parseId(Uri.parse(str))));
             }
             Object tag2 = view.getTag(R.id.report_position);
             if (tag2 instanceof Integer) {

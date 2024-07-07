@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/bangumi/api/BangumiVideo;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BangumiVideo.java"
 
 
 # annotations
@@ -9,7 +9,7 @@
 
 
 # instance fields
-.field public aid:I
+.field public aid:J
 
 .field public cover:Ljava/lang/String;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
@@ -38,7 +38,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 12
+    .prologue
+    .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

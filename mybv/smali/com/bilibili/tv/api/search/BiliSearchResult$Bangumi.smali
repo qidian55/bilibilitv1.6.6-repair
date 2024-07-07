@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/search/BiliSearchResult$Bangumi;
 .super Lcom/bilibili/tv/api/search/BiliSearchResult;
-.source "BL"
+.source "BiliSearchResult.java"
 
 
 # annotations
@@ -74,7 +74,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 141
+    .prologue
+    .line 15
     invoke-direct {p0}, Lcom/bilibili/tv/api/search/BiliSearchResult;-><init>()V
 
     return-void

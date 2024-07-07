@@ -126,11 +126,11 @@ public class xg {
                 JSONObject episode = biliVideoDetail.episodes.optJSONObject(i3);
                 ResolveResourceParams resolveResourceParams = new ResolveResourceParams();
                 resolveResourceParams.mSpid = biliVideoDetail.getSpid();
-                resolveResourceParams.mAvid = episode.optInt("aid");
+                resolveResourceParams.mAvid = episode.optLong("aid");
                 resolveResourceParams.mPage = episode.optJSONObject("page").optInt("page");
                 resolveResourceParams.mFrom = episode.optJSONObject("page").optString("from");
                 resolveResourceParams.mVid = episode.optJSONObject("page").optString("vid");
-                resolveResourceParams.mCid = episode.optInt("cid");
+                resolveResourceParams.mCid = episode.optLong("cid");
                 resolveResourceParams.mWeb = episode.optJSONObject("page").optString("weblink");
                 resolveResourceParams.mPageTitle = episode.optString("title");
                 resolveResourceParams.mSeasonId = a.mVideoParams.obtainResolveParams().mSeasonId;

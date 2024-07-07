@@ -1,6 +1,6 @@
 .class public final Lcom/bilibili/tv/api/main/MainRecommendEx;
 .super Ljava/lang/Object;
-.source "BL"
+.source "MainRecommendEx.java"
 
 
 # annotations
@@ -22,7 +22,8 @@
 
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/main/MainRecommendEx$Content;",
             ">;"
         }
@@ -34,7 +35,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 7
+    .prologue
+    .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -47,13 +49,15 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/main/MainRecommendEx$Content;",
             ">;"
         }
     .end annotation
 
-    .line 9
+    .prologue
+    .line 16
     iget-object v0, p0, Lcom/bilibili/tv/api/main/MainRecommendEx;->data:Ljava/util/List;
 
     return-object v0
@@ -64,14 +68,17 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/main/MainRecommendEx$Content;",
             ">;)V"
         }
     .end annotation
 
-    .line 9
+    .prologue
+    .line 20
     iput-object p1, p0, Lcom/bilibili/tv/api/main/MainRecommendEx;->data:Ljava/util/List;
 
+    .line 21
     return-void
 .end method

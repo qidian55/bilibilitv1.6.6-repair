@@ -1,6 +1,6 @@
 .class final Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliBangumiSeason.java"
 
 # interfaces
 .implements Landroid/os/Parcelable$Creator;
@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Landroid/os/Parcelable$Creator<",
+        "Landroid/os/Parcelable$Creator",
+        "<",
         "Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;",
         ">;"
     }
@@ -30,7 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 580
+    .prologue
+    .line 460
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,10 +40,11 @@
 
 
 # virtual methods
-.method public a(Landroid/os/Parcel;)Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
+.method public createFromParcel(Landroid/os/Parcel;)Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
     .locals 1
 
-    .line 583
+    .prologue
+    .line 464
     new-instance v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
 
     invoke-direct {v0, p1}, Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;-><init>(Landroid/os/Parcel;)V
@@ -49,33 +52,36 @@
     return-object v0
 .end method
 
-.method public a(I)[Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
-    .locals 0
+.method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .locals 1
 
-    .line 588
-    new-array p1, p1, [Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
+    .prologue
+    .line 460
+    invoke-virtual {p0, p1}, Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason$1;->createFromParcel(Landroid/os/Parcel;)Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
 
-    return-object p1
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+.method public newArray(I)[Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
+    .locals 1
 
-    .line 580
-    invoke-virtual {p0, p1}, Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason$1;->a(Landroid/os/Parcel;)Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
+    .prologue
+    .line 470
+    new-array v0, p1, [Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
 
-    move-result-object p1
-
-    return-object p1
+    return-object v0
 .end method
 
-.method public synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+.method public bridge synthetic newArray(I)[Ljava/lang/Object;
+    .locals 1
 
-    .line 580
-    invoke-virtual {p0, p1}, Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason$1;->a(I)[Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
+    .prologue
+    .line 460
+    invoke-virtual {p0, p1}, Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason$1;->newArray(I)[Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

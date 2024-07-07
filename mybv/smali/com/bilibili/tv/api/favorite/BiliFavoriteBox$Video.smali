@@ -1,6 +1,6 @@
 .class public final Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliFavoriteBox.java"
 
 
 # annotations
@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private avid:I
+.field private avid:J
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "aid"
     .end annotation
@@ -35,7 +35,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 72
+    .prologue
+    .line 149
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,38 +44,44 @@
 
 
 # virtual methods
-.method public final getAvid()I
-    .locals 1
+.method public final getAvid()J
+    .locals 2
 
-    .line 74
-    iget v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;->avid:I
+    .prologue
+    .line 158
+    iget-wide v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;->avid:J
 
-    return v0
+    return-wide v0
 .end method
 
 .method public final getCover()Ljava/lang/String;
     .locals 1
 
-    .line 76
+    .prologue
+    .line 166
     iget-object v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;->cover:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public final setAvid(I)V
-    .locals 0
+.method public final setAvid(J)V
+    .locals 1
 
-    .line 74
-    iput p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;->avid:I
+    .prologue
+    .line 162
+    iput-wide p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;->avid:J
 
+    .line 163
     return-void
 .end method
 
 .method public final setCover(Ljava/lang/String;)V
     .locals 0
 
-    .line 76
+    .prologue
+    .line 170
     iput-object p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;->cover:Ljava/lang/String;
 
+    .line 171
     return-void
 .end method

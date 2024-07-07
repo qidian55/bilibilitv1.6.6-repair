@@ -430,7 +430,7 @@
     .line 308
     invoke-static {v0}, Lbl/adl;->a(Landroid/content/Context;)Landroid/app/Activity;
 
-    move-result-object v1
+    move-result-object v2
 
     .line 309
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
@@ -438,11 +438,11 @@
     move-result-object v0
 
     .line 310
-    if-eqz v1, :cond_32
-
-    instance-of v2, v0, Lcom/bilibili/tv/api/rank/BiliRankV2;
-
     if-eqz v2, :cond_32
+
+    instance-of v1, v0, Lcom/bilibili/tv/api/rank/BiliRankV2;
+
+    if-eqz v1, :cond_32
 
     .line 312
     :try_start_1c
@@ -452,7 +452,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
 
     move-result-object v0
 
@@ -464,15 +464,15 @@
 
     .line 316
     :cond_2b
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
     :try_end_2e
     .catch Ljava/lang/NumberFormatException; {:try_start_1c .. :try_end_2e} :catch_33
 
-    move-result v0
+    move-result-wide v0
 
     .line 321
     :goto_2f
-    invoke-static {v0, v1}, Lbl/adl;->a(ILandroid/content/Context;)V
+    invoke-static {v0, v1, v2}, Lbl/adl;->a(JLandroid/content/Context;)V
 
     .line 323
     :cond_32
@@ -486,7 +486,7 @@
     invoke-static {v0}, Lbl/att;->a(Ljava/lang/Throwable;)V
 
     .line 319
-    const/4 v0, 0x0
+    const-wide/16 v0, 0x0
 
     goto :goto_2f
 .end method

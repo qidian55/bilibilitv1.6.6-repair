@@ -108,6 +108,8 @@
     .end annotation
 
     .prologue
+    const-wide/16 v6, 0x0
+
     .line 23
     const-string v0, "EpisodeParamsResolver"
 
@@ -118,7 +120,7 @@
     .line 24
     iget-object v0, p0, Lbl/yv;->a:Lbl/kg;
 
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_1f
 
     .line 25
     const-string v1, "EpisodeParamsResolver"
@@ -126,10 +128,10 @@
     monitor-enter v1
 
     .line 26
-    :try_start_e
+    :try_start_10
     iget-object v0, p0, Lbl/yv;->a:Lbl/kg;
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_1e
 
     .line 27
     const-class v0, Lbl/kg;
@@ -143,13 +145,13 @@
     iput-object v0, p0, Lbl/yv;->a:Lbl/kg;
 
     .line 29
-    :cond_1c
+    :cond_1e
     monitor-exit v1
-    :try_end_1d
-    .catchall {:try_start_e .. :try_end_1d} :catchall_88
+    :try_end_1f
+    .catchall {:try_start_10 .. :try_end_1f} :catchall_8a
 
     .line 31
-    :cond_1d
+    :cond_1f
     invoke-virtual {p3}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->a()J
 
     move-result-wide v0
@@ -159,7 +161,7 @@
     move-result-object v1
 
     .line 33
-    :try_start_25
+    :try_start_27
     iget-object v0, p0, Lbl/yv;->a:Lbl/kg;
 
     invoke-interface {v0, v1}, Lbl/kg;->a(Ljava/lang/String;)Lbl/vp;
@@ -181,7 +183,7 @@
     move-result-object v2
 
     .line 34
-    if-nez v2, :cond_8b
+    if-nez v2, :cond_8d
 
     .line 35
     const-string v0, "bangumi_ep_resolve_error"
@@ -250,19 +252,19 @@
     invoke-direct {v0, v1}, Lcom/bilibili/lib/media/resolver/exception/ResolveException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_7d
-    .catch Lcom/bilibili/api/BiliApiException; {:try_start_25 .. :try_end_7d} :catch_7d
-    .catch Lcom/bilibili/okretro/BiliApiParseException; {:try_start_25 .. :try_end_7d} :catch_d0
-    .catch Ljava/io/IOException; {:try_start_25 .. :try_end_7d} :catch_116
-    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_25 .. :try_end_7d} :catch_f3
-    .catch Lretrofit2/HttpException; {:try_start_25 .. :try_end_7d} :catch_111
+    :try_end_7f
+    .catch Lcom/bilibili/api/BiliApiException; {:try_start_27 .. :try_end_7f} :catch_7f
+    .catch Lcom/bilibili/okretro/BiliApiParseException; {:try_start_27 .. :try_end_7f} :catch_d1
+    .catch Ljava/io/IOException; {:try_start_27 .. :try_end_7f} :catch_117
+    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_27 .. :try_end_7f} :catch_f4
+    .catch Lretrofit2/HttpException; {:try_start_27 .. :try_end_7f} :catch_112
 
     .line 56
-    :catch_7d
+    :catch_7f
     move-exception v0
 
     .line 57
-    :goto_7e
+    :goto_80
     new-instance v1, Lcom/bilibili/lib/media/resolver/exception/ResolveException;
 
     invoke-virtual {v0}, Ljava/lang/Exception;->getCause()Ljava/lang/Throwable;
@@ -274,35 +276,35 @@
     throw v1
 
     .line 29
-    :catchall_88
+    :catchall_8a
     move-exception v0
 
-    :try_start_89
+    :try_start_8b
     monitor-exit v1
-    :try_end_8a
-    .catchall {:try_start_89 .. :try_end_8a} :catchall_88
+    :try_end_8c
+    .catchall {:try_start_8b .. :try_end_8c} :catchall_8a
 
     throw v0
 
     .line 38
-    :cond_8b
-    :try_start_8b
+    :cond_8d
+    :try_start_8d
     iget-object v0, v2, Lcom/bilibili/bangumi/api/BiliBangumiSource;->mRawVid:Ljava/lang/String;
 
     .line 39
-    iget v3, v2, Lcom/bilibili/bangumi/api/BiliBangumiSource;->mCid:I
+    iget-wide v4, v2, Lcom/bilibili/bangumi/api/BiliBangumiSource;->mCid:J
 
-    if-eqz v3, :cond_97
+    cmp-long v3, v4, v6
+
+    if-eqz v3, :cond_9a
 
     .line 40
-    iget v3, v2, Lcom/bilibili/bangumi/api/BiliBangumiSource;->mCid:I
-
-    int-to-long v4, v3
+    iget-wide v4, v2, Lcom/bilibili/bangumi/api/BiliBangumiSource;->mCid:J
 
     invoke-virtual {p2, v4, v5}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->a(J)V
 
     .line 42
-    :cond_97
+    :cond_9a
     iget-object v3, v2, Lcom/bilibili/bangumi/api/BiliBangumiSource;->mFrom:Ljava/lang/String;
 
     invoke-virtual {p2, v3}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->b(Ljava/lang/String;)V
@@ -312,11 +314,9 @@
 
     move-result-wide v4
 
-    const-wide/16 v6, 0x0
-
     cmp-long v3, v4, v6
 
-    if-nez v3, :cond_d2
+    if-nez v3, :cond_d3
 
     invoke-virtual {p2}, Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;->b()Ljava/lang/String;
 
@@ -326,7 +326,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_d2
+    if-eqz v3, :cond_d3
 
     .line 44
     new-instance v0, Lcom/bilibili/api/BiliApiException;
@@ -362,19 +362,19 @@
     throw v0
 
     .line 56
-    :catch_d0
+    :catch_d1
     move-exception v0
 
-    goto :goto_7e
+    goto :goto_80
 
     .line 46
-    :cond_d2
-    iget v1, v2, Lcom/bilibili/bangumi/api/BiliBangumiSource;->mAvid:I
+    :cond_d3
+    iget-wide v2, v2, Lcom/bilibili/bangumi/api/BiliBangumiSource;->mAvid:J
 
-    invoke-virtual {p3, v1}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->a(I)V
+    invoke-virtual {p3, v2, v3}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->a(J)V
 
     .line 47
-    if-eqz v0, :cond_eb
+    if-eqz v0, :cond_ec
 
     .line 48
     invoke-virtual {p3, v0}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->a(Ljava/lang/String;)V
@@ -389,7 +389,7 @@
     .line 50
     array-length v2, v1
 
-    if-lez v2, :cond_e8
+    if-lez v2, :cond_e9
 
     .line 51
     const/4 v0, 0x0
@@ -397,29 +397,29 @@
     aget-object v0, v1, v0
 
     .line 53
-    :cond_e8
+    :cond_e9
     invoke-virtual {p3, v0}, Lcom/bilibili/lib/media/resolver/params/ResolveResourceExtra;->b(Ljava/lang/String;)V
 
     .line 55
-    :cond_eb
+    :cond_ec
     const-string v0, "EpisodeParamsResolver"
 
     const-string v1, "resolve ep params success"
 
     invoke-static {v0, v1}, Ltv/danmaku/android/log/BLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_f2
-    .catch Lcom/bilibili/api/BiliApiException; {:try_start_8b .. :try_end_f2} :catch_7d
-    .catch Lcom/bilibili/okretro/BiliApiParseException; {:try_start_8b .. :try_end_f2} :catch_d0
-    .catch Ljava/io/IOException; {:try_start_8b .. :try_end_f2} :catch_116
-    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_8b .. :try_end_f2} :catch_f3
-    .catch Lretrofit2/HttpException; {:try_start_8b .. :try_end_f2} :catch_111
+    :try_end_f3
+    .catch Lcom/bilibili/api/BiliApiException; {:try_start_8d .. :try_end_f3} :catch_7f
+    .catch Lcom/bilibili/okretro/BiliApiParseException; {:try_start_8d .. :try_end_f3} :catch_d1
+    .catch Ljava/io/IOException; {:try_start_8d .. :try_end_f3} :catch_117
+    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_8d .. :try_end_f3} :catch_f4
+    .catch Lretrofit2/HttpException; {:try_start_8d .. :try_end_f3} :catch_112
 
     .line 64
-    :goto_f2
+    :goto_f3
     return-void
 
     .line 58
-    :catch_f3
+    :catch_f4
     move-exception v0
 
     .line 59
@@ -453,17 +453,17 @@
     throw v0
 
     .line 61
-    :catch_111
+    :catch_112
     move-exception v0
 
     .line 62
     invoke-static {v0}, Lbl/att;->a(Ljava/lang/Throwable;)V
 
-    goto :goto_f2
+    goto :goto_f3
 
     .line 56
-    :catch_116
+    :catch_117
     move-exception v0
 
-    goto/16 :goto_7e
+    goto/16 :goto_80
 .end method
