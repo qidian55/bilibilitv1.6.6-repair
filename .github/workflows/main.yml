@@ -1,4 +1,4 @@
-name: Build and Compile
+name: Build Project
 
 on:
   push:
@@ -27,5 +27,10 @@ jobs:
         sudo apt update
         sudo apt install -y apktool signapk
 
-    - name: Build project
+    - name: Set Java alternatives
+      run: |
+        sudo update-alternatives --set javac /usr/lib/jvm/java-8-openjdk-amd64/bin/javac
+
+    - name: Run build script
       run: ./build.sh
+
