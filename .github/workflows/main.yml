@@ -24,6 +24,9 @@ jobs:
         sudo apt update
         sudo apt install -y apktool signapk
 
+    - name: 赋予脚本执行权限
+      run: chmod +x build.sh
+
     - name: 构建应用
       run: ./build.sh
 
