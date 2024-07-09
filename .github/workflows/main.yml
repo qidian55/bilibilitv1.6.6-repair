@@ -35,7 +35,8 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: app-build
-        path: app/build/outputs/apk/debug/
+        # 修改路径，指向生成的 mybv.apk 文件
+        path: mybv.apk 
 
   # 添加一个新的 job 来下载构建产物
   download:
