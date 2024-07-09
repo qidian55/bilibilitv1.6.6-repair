@@ -1,9 +1,7 @@
-name: 构建 Android 应用
+name: 构建 Android 应用并提供下载链接
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
     branches: [ main ]
 
 jobs:
@@ -17,8 +15,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
-        # 请根据您项目的需要，将 Java 版本修改为 11 或更高
-        java-version: '11' 
+        java-version: '11'  # 根据您的项目需要设置 Java 版本
 
     - name: 安装依赖
       run: |
@@ -31,8 +28,20 @@ jobs:
     - name: 构建应用
       run: ./build.sh
 
-    - name: 上传构建产物
-      uses: actions/upload-artifact@v2
+    - name: 上传 APK (设置短期过期时间)
+      uses: actions/upload-artifact@v3
       with:
         name: app-build
-        path: app/build/outputs/apk/debug/
+        path: mybv/dist/mybv.apk 
+        retention-days: 1  # 设置过期时间为 1 天
+
+    - name: 获取下载链接
+      id: get-download-link
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        name: app-build 
+
+    - name: 打印下载链接
+      run: |
+        echo "APK 下载链接: ${{ steps.get-download-link.outputs.download-url }}" 
