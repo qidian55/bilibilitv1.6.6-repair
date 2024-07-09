@@ -17,7 +17,8 @@ jobs:
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
-        java-version: '8'
+        # 请根据您项目的需要，将 Java 版本修改为 11 或更高
+        java-version: '11' 
 
     - name: 安装依赖
       run: |
