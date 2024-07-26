@@ -2428,6 +2428,8 @@
     <public type="id" name="medium_quality" id="0x7f08016f" />
     <public type="id" name="video_detail_episodes_title" id="0x7f080170" />
     <public type="id" name="video_detail_episodes_video" id="0x7f080171" />
+    <public type="id" name="filter_button" id="0x7f080172" />
+    <public type="id" name="filter_path" id="0x7f080173" />
 
     <public type="integer" name="config_danmaku_fly_duration" id="0x7f090003" />
     <public type="integer" name="config_danmaku_max_danmaku_on_screen" id="0x7f090005" />
@@ -2574,6 +2576,8 @@
     <public type="layout" name="select_dialog_singlechoice_material" id="0x7f0a0086" />
     <public type="layout" name="support_simple_spinner_dropdown_item" id="0x7f0a0087" />
     <public type="layout" name="tooltip" id="0x7f0a0088" />
+    <public type="layout" name="fragment_experiment" id="0x7f0a0089" />
+
     <public type="mipmap" name="ic_launcher" id="0x7f0b0000" />
     <public type="string" name="dialog_btn_i_know" id="0x7f0c008a" />
     <public type="string" name="dialog_btn_i_know_v2" id="0x7f0c008b" />

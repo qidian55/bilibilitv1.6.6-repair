@@ -24,6 +24,7 @@ public class abd {
 
     public static final float[] speeds = {2.0f,1.5f,1.25f,1.0f,0.75f,0.5f};
     private static int speed_id = -1;
+    private static int mode_id = -1;
 
     private abd(@NonNull Context context) {
         this.d = context.getSharedPreferences("bili_preference", 0);
@@ -185,5 +186,25 @@ public class abd {
 
     public static float get_speed(int id) {
         return speeds[id];
+    }
+
+    public static void set_mode_id(Context context, int id) {
+        a(context).a().edit().putInt("play_mode_id", id).apply();
+        mode_id = id;
+    }
+
+    public static int get_mode_id(Context context) {
+        if (mode_id == -1) {
+            mode_id = a(context).a().getInt("play_mode_id", 0);
+        }
+        return mode_id;
+    }
+
+    public static void set_filter_path(Context context, String filter_path) {
+        a(context).a().edit().putString("filter_rule_path", filter_path).apply();
+    }
+
+    public static String get_filter_path(Context context) {
+        return a(context).a().getString("filter_rule_path", "");
     }
 }

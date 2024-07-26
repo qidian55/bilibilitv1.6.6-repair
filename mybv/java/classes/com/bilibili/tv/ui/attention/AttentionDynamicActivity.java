@@ -41,6 +41,7 @@ import com.bilibili.tv.widget.border.BorderGridLayoutManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import mybl.BiliFilter;
 import mybl.MyBiliApiService;
 import android.text.TextUtils;
 import com.alibaba.fastjson.JSONObject;
@@ -329,7 +330,7 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
                 AttentionDynamicActivity.this.g = false;
                 return;
             }
-            List<UpperFeedList.UpperFeedItem> list = upperFeedList.items;
+            List<UpperFeedList.UpperFeedItem> list = BiliFilter.filterUpperFeedItem(upperFeedList.items, "动态");
             c cVar = AttentionDynamicActivity.this.a;
             if (cVar == null) {
                 bbi.a();

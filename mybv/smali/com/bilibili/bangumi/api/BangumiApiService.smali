@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/bilibili/bangumi/api/BangumiApiService;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BangumiApiService.java"
 
 
 # annotations
@@ -34,9 +34,12 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
-            "Lbl/vp<",
-            "Lcom/bilibili/bangumi/api/BangumiApiPageResponse<",
-            "Ljava/util/List<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/bangumi/api/BangumiApiPageResponse",
+            "<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BiliBangumiTag;",
             ">;>;>;"
         }
@@ -73,9 +76,12 @@
             "(IIJ",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/bangumi/api/BangumiApiPageResponse<",
-            "Ljava/util/List<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/bangumi/api/BangumiApiPageResponse",
+            "<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BiliBangumiSeason;",
             ">;>;>;"
         }
@@ -96,8 +102,10 @@
             "(",
             "Lcom/bilibili/bangumi/api/BangumiApiService$CategoryIndexParamsMap;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/bangumi/api/BangumiApiResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/bangumi/api/BangumiApiResponse",
+            "<",
             "Lcom/bilibili/bangumi/api/BangumiCategoryIndex;",
             ">;>;"
         }
@@ -125,8 +133,10 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/bangumi/api/BangumiApiResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/bangumi/api/BangumiApiResponse",
+            "<",
             "Lcom/bilibili/bangumi/api/BiliBangumiSeason$UserSeason;",
             ">;>;"
         }

@@ -19,10 +19,10 @@
     .locals 0
 
     .prologue
-    .line 88
+    .line 89
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 89
+    .line 90
     return-void
 .end method
 
@@ -30,10 +30,10 @@
     .locals 0
 
     .prologue
-    .line 92
+    .line 93
     invoke-direct {p0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$a;-><init>()V
 
-    .line 93
+    .line 94
     return-void
 .end method
 
@@ -43,12 +43,12 @@
     .locals 2
 
     .prologue
-    .line 96
+    .line 97
     const-string v0, "context"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 97
+    .line 98
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
@@ -57,6 +57,6 @@
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 98
+    .line 99
     return-void
 .end method

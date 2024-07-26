@@ -36,7 +36,7 @@
     .locals 0
 
     .prologue
-    .line 84
+    .line 86
     iput-object p1, p0, Lbl/afm2$1;->this$0:Lbl/afm2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
     .end annotation
 
     .prologue
-    .line 84
+    .line 86
     invoke-virtual {p0}, Lbl/afm2$1;->call()Lorg/json/JSONObject;
 
     move-result-object v0
@@ -67,7 +67,7 @@
     .locals 2
 
     .prologue
-    .line 87
+    .line 89
     new-instance v0, Lbl/qa$a;
 
     const-class v1, Lbl/afm2$Response;
@@ -106,7 +106,7 @@
 
     check-cast v0, Lbl/afm2$Response;
 
-    .line 88
+    .line 90
     invoke-virtual {v0}, Lbl/afm2$Response;->e()Lorg/json/JSONObject;
 
     move-result-object v0

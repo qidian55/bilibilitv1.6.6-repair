@@ -1,0 +1,32 @@
+{
+    "直播回放":false,
+    "作用范围":["动态"],
+    "黑名单用户":{
+        777536: "LexBurner",
+        163637592: "老师好我叫何同学",
+    },
+    "屏蔽词":[
+        "斗罗|唐三|亲妈缠绕",
+
+        "原批|米孝子|米学长",
+        "舟批|粥批|皱皮",
+        "麻辣仙人",
+
+        "梗小鬼",
+        "网暴",
+
+        "小粉红|五毛党|键政"
+
+        "nmsl",
+        "阿米诺斯"
+    ],
+    "禁用词":[
+        "KC4qKeazlei9ruWKnyguKik=",
+        "KC4qKeaTjemAvCguKik=",
+        "KC4qKXByb25odWIoLiop",
+        "KC4qKeWTlOWSlCguKik=",
+        "KC4qKeiCjyguKik=",
+        "KCguKilbXmEtel18KWHniYcoLiop",
+        "KC4qKShbXmEtel1zbXxzbVteYS16XSkoLiop"
+    ]
+}

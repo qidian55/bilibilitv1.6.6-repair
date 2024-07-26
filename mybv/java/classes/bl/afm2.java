@@ -25,7 +25,9 @@ import java.net.*;
 import java.util.*;
 import android.net.*;
 import android.content.Context;
+
 import java.util.concurrent.*;
+import java.lang.reflect.Method;
 import java.util.zip.InflaterOutputStream;
 
 /* compiled from: BL */
@@ -94,30 +96,34 @@ public final class afm2 extends adt {
             String zone = data.optString("country")+" "+data.optString("province")+" "+data.optString("city");
             String isp = data.optString("isp");
             StringBuilder sb = new StringBuilder();
-            ConnectivityManager connectivityManager = (ConnectivityManager) MainApplication.a().getSystemService(Context.CONNECTIVITY_SERVICE);
-            if (connectivityManager != null) {
-                for (Network network : connectivityManager.getAllNetworks()) {
-                    NetworkInfo networkInfo = connectivityManager.getNetworkInfo(network);
-                    if (networkInfo.isConnected()) {
-                        LinkProperties linkProperties = connectivityManager.getLinkProperties(network);
-                        List<InetAddress> dnsServers = linkProperties.getDnsServers();
-                        for (InetAddress dnsServer : dnsServers) {
-                            if(sb.length()>0)sb.append(", ");
-                            sb.append(dnsServer.getHostAddress());
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+                Class<?> SystemProperties = Class.forName("android.os.SystemProperties");
+                Method method = SystemProperties.getMethod("get", new Class[] { String.class });
+                for (String name : new String[] { "net.dns1", "net.dns2", "net.dns3", "net.dns4", }) {
+                    String value = (String) method.invoke(null, name);
+                    if (value != null && !"".equals(value) && !sb.toString().contains(value))
+                        if(sb.length()>0)sb.append(", ");
+                        sb.append(value);
+                }
+            }
+            else{
+                ConnectivityManager connectivityManager = (ConnectivityManager) MainApplication.a().getSystemService(Context.CONNECTIVITY_SERVICE);
+                if (connectivityManager != null) {
+                    for (Network network : connectivityManager.getAllNetworks()) {
+                        NetworkInfo networkInfo = connectivityManager.getNetworkInfo(network);
+                        if (networkInfo.isConnected()) {
+                            LinkProperties linkProperties = connectivityManager.getLinkProperties(network);
+                            List<InetAddress> dnsServers = linkProperties.getDnsServers();
+                            for (InetAddress dnsServer : dnsServers) {
+                                if(sb.length()>0)sb.append(", ");
+                                sb.append(dnsServer.getHostAddress());
+                            }
                         }
                     }
                 }
             }
-            //NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-            //if (networkInfo != null && networkInfo.isConnected()) {
-            //    Network activeNetwork = connectivityManager.getActiveNetwork();
-            //    LinkProperties linkProperties = connectivityManager.getLinkProperties(activeNetwork);
-            //    List<InetAddress> dnsServers = linkProperties.getDnsServers();
-            //    for (InetAddress dnsServer : dnsServers) {
-            //        if(sb.length()>0)sb.append(", ");
-            //        sb.append(dnsServer.getHostAddress());
-            //    }
-            //}
+
             String text = "IP: " + addr;
             text += "\n" + "归属地: " + zone;
             text += "\n" + "运营商: " + isp;

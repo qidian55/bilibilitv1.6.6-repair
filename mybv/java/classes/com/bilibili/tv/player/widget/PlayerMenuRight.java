@@ -142,6 +142,16 @@ public class PlayerMenuRight extends aay<String> {
                 }
             });
         }
+        if(this.mode_list.contains(str)){
+            textView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    abd.set_mode_id(MainApplication.a().getApplicationContext(), i2);
+                    a(i, i2, v, (ViewGroup)v.getParent(), str);
+                    return true;
+                }
+            });
+        }
         if (i == 2) {
             try {
                 if (!this.g.get(this.l).equals(str) && !this.h.get(this.m).equals(str) && !this.k.get(this.p).equals(str) && !this.i.get(this.n).equals(str) && !this.j.get(this.o).equals(str) && !this.speed_list.get(this.speed_id).equals(str) && !this.mode_list.get(this.mode_id).equals(str)) {

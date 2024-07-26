@@ -9,7 +9,7 @@ import com.bilibili.tv.R;
 public final class afp extends adx {
     @Override // bl.adx
     public int a() {
-        return 7;
+        return 8;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -35,6 +35,8 @@ public final class afp extends adx {
                 return afm2.Companion.a();
             case 6:
                 return afo.Companion.a();
+            case 7:
+                return afm3.Companion.a();
             default:
                 return null;
         }
@@ -56,6 +58,8 @@ public final class afp extends adx {
                 return "网络信息";
             case 6:
                 return "播放解码";
+            case 7:
+                return "实验室";
             default:
                 return "";
         }

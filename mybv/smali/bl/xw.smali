@@ -360,84 +360,90 @@
     invoke-virtual {v0, v3, v4}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->f(Ljava/util/List;I)V
 
     .line 242
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    sget-object v0, Lbl/abd;->speeds:[F
+    sget-object v3, Lbl/abd;->speeds:[F
 
-    array-length v0, v0
+    array-length v3, v3
 
-    invoke-direct {v3, v0}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v0, v3}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 243
-    sget-object v4, Lbl/abd;->speeds:[F
+    sget-object v3, Lbl/abd;->speeds:[F
 
-    array-length v5, v4
+    array-length v4, v3
 
-    move v0, v1
+    :goto_fe
+    if-ge v1, v4, :cond_11f
 
-    :goto_ff
-    if-ge v0, v5, :cond_120
-
-    aget v6, v4, v0
+    aget v5, v3, v1
 
     .line 244
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v6}, Ljava/lang/String;->valueOf(F)Ljava/lang/String;
+    invoke-static {v5}, Ljava/lang/String;->valueOf(F)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    const-string v7, "x"
+    const-string v6, "x"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v3, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 243
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    goto :goto_ff
+    goto :goto_fe
 
     .line 246
-    :cond_120
-    iget-object v0, p0, Lbl/xw;->c:Lcom/bilibili/tv/player/widget/PlayerMenuRight;
+    :cond_11f
+    iget-object v1, p0, Lbl/xw;->c:Lcom/bilibili/tv/player/widget/PlayerMenuRight;
 
     invoke-virtual {p0}, Lbl/xw;->p()Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-static {v4}, Lbl/abd;->get_speed_id(Landroid/content/Context;)I
+    invoke-static {v3}, Lbl/abd;->get_speed_id(Landroid/content/Context;)I
 
-    move-result v4
+    move-result v3
 
-    invoke-virtual {v0, v3, v4}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->init_speed(Ljava/util/List;I)V
+    invoke-virtual {v1, v0, v3}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->init_speed(Ljava/util/List;I)V
 
     .line 247
     iget-object v0, p0, Lbl/xw;->c:Lcom/bilibili/tv/player/widget/PlayerMenuRight;
 
-    const v3, 0x7f020005
+    const v1, 0x7f020005
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    invoke-virtual {v2, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lbl/xw;->p()Landroid/content/Context;
 
     move-result-object v2
 
-    invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {v2}, Lbl/abd;->get_mode_id(Landroid/content/Context;)I
 
-    move-result-object v2
+    move-result v2
 
-    invoke-virtual {v0, v2, v1}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->init_mode(Ljava/util/List;I)V
+    invoke-virtual {v0, v1, v2}, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->init_mode(Ljava/util/List;I)V
 
     .line 248
     return-void

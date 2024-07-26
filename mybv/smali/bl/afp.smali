@@ -27,7 +27,7 @@
 
     .prologue
     .line 12
-    const/4 v0, 0x7
+    const/16 v0, 0x8
 
     return v0
 .end method
@@ -37,9 +37,9 @@
 
     .prologue
     .line 23
-    packed-switch p1, :pswitch_data_36
+    packed-switch p1, :pswitch_data_3e
 
-    .line 39
+    .line 41
     const/4 v0, 0x0
 
     :goto_4
@@ -115,8 +115,20 @@
 
     goto :goto_4
 
+    .line 39
+    :pswitch_36
+    sget-object v0, Lbl/afm3;->Companion:Lbl/afm3$a;
+
+    invoke-virtual {v0}, Lbl/afm3$a;->a()Lbl/afm3;
+
+    move-result-object v0
+
+    goto :goto_4
+
     .line 23
-    :pswitch_data_36
+    nop
+
+    :pswitch_data_3e
     .packed-switch 0x0
         :pswitch_5
         :pswitch_c
@@ -125,6 +137,7 @@
         :pswitch_21
         :pswitch_28
         :pswitch_2f
+        :pswitch_36
     .end packed-switch
 .end method
 
@@ -132,16 +145,16 @@
     .locals 1
 
     .prologue
-    .line 44
-    packed-switch p1, :pswitch_data_2a
+    .line 46
+    packed-switch p1, :pswitch_data_2e
 
-    .line 60
+    .line 64
     const-string v0, ""
 
     :goto_5
     return-object v0
 
-    .line 46
+    .line 48
     :pswitch_6
     const v0, 0x7f0c0122
 
@@ -151,19 +164,19 @@
 
     goto :goto_5
 
-    .line 48
+    .line 50
     :pswitch_e
     const-string v0, "\u64ad\u653e\u8bbe\u7f6e"
 
     goto :goto_5
 
-    .line 50
+    .line 52
     :pswitch_11
     const-string v0, "\u7f13\u5b58\u8bbe\u7f6e"
 
     goto :goto_5
 
-    .line 52
+    .line 54
     :pswitch_14
     const v0, 0x7f0c0116
 
@@ -173,7 +186,7 @@
 
     goto :goto_5
 
-    .line 54
+    .line 56
     :pswitch_1c
     const v0, 0x7f0c0119
 
@@ -183,20 +196,28 @@
 
     goto :goto_5
 
-    .line 56
+    .line 58
     :pswitch_24
     const-string v0, "\u7f51\u7edc\u4fe1\u606f"
 
     goto :goto_5
 
-    .line 58
+    .line 60
     :pswitch_27
     const-string v0, "\u64ad\u653e\u89e3\u7801"
 
     goto :goto_5
 
-    .line 44
-    :pswitch_data_2a
+    .line 62
+    :pswitch_2a
+    const-string v0, "\u5b9e\u9a8c\u5ba4"
+
+    goto :goto_5
+
+    .line 46
+    nop
+
+    :pswitch_data_2e
     .packed-switch 0x0
         :pswitch_6
         :pswitch_e
@@ -205,5 +226,6 @@
         :pswitch_1c
         :pswitch_24
         :pswitch_27
+        :pswitch_2a
     .end packed-switch
 .end method

@@ -23,12 +23,12 @@
     .locals 0
 
     .prologue
-    .line 170
+    .line 171
     iput-object p1, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$f;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$m;-><init>()V
 
-    .line 171
+    .line 172
     return-void
 .end method
 
@@ -38,10 +38,10 @@
     .locals 3
 
     .prologue
-    .line 175
+    .line 176
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView$m;->a(Landroid/support/v7/widget/RecyclerView;I)V
 
-    .line 176
+    .line 177
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$f;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->h:Z
@@ -69,12 +69,12 @@
 
     if-nez v0, :cond_1c
 
-    .line 197
+    .line 198
     :cond_1b
     :goto_1b
     return-void
 
-    .line 179
+    .line 180
     :cond_1c
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$f;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
@@ -83,29 +83,29 @@
 
     move-result-object v0
 
-    .line 180
+    .line 181
     if-nez v0, :cond_27
 
-    .line 181
+    .line 182
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 183
+    .line 184
     :cond_27
     invoke-virtual {v0}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->p()I
 
     move-result v1
 
-    .line 184
+    .line 185
     invoke-virtual {v0}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->x()I
 
     move-result v2
 
     if-lez v2, :cond_1b
 
-    .line 185
+    .line 186
     add-int/lit8 v1, v1, 0xa
 
-    .line 186
+    .line 187
     iget-object v2, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$f;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->b:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
@@ -115,10 +115,10 @@
 
     if-nez v2, :cond_3e
 
-    .line 187
+    .line 188
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 189
+    .line 190
     :cond_3e
     invoke-virtual {v0}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->H()I
 
@@ -128,25 +128,25 @@
 
     if-lt v1, v2, :cond_1b
 
-    .line 190
+    .line 191
     invoke-virtual {v0}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->H()I
 
     move-result v1
 
-    .line 191
+    .line 192
     invoke-virtual {v0}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->x()I
 
     move-result v0
 
     if-le v1, v0, :cond_1b
 
-    .line 192
+    .line 193
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$f;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     # operator++ for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->f:I
     invoke-static {v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->access$408(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;)I
 
-    .line 193
+    .line 194
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$f;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->i()V

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:focusable="false"
+        android:clipChildren="false"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_300">
+        <com.bilibili.tv.widget.DrawFrameLayout
+            android:id="@id/filter_button"
+            android:background="@drawable/shape_rectangle_trans_with_12corner_white_10"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:nextFocusLeft="@id/filter_button"
+            android:nextFocusRight="@id/filter_path"
+            android:nextFocusUp="@id/filter_button"
+            android:nextFocusDown="@id/filter_button"
+            android:layout_width="@dimen/px_350"
+            android:layout_height="@dimen/px_96"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30">
+            <com.bilibili.tv.widget.ShadowTextView
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:focusable="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="禁用视频过滤"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px_44" />
+        </com.bilibili.tv.widget.DrawFrameLayout>
+        <com.bilibili.tv.widget.DrawEditText
+            android:id="@id/filter_path"
+            android:enabled="false"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:nextFocusLeft="@id/filter_button"
+            android:nextFocusRight="@id/filter_path"
+            android:nextFocusUp="@id/filter_path"
+            android:nextFocusDown="@id/filter_path"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_100"
+            android:background="@drawable/ic_login_edit_background"
+            android:hint="配置文件路径"
+            android:imeOptions="actionDone"
+            android:paddingLeft="@dimen/px_30"
+            android:paddingRight="@dimen/px_70"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white_50"
+            android:textSize="@dimen/px_36" />
+    </LinearLayout>
+</LinearLayout>

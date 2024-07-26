@@ -2451,6 +2451,8 @@ public final class R {
         public static final int medium_quality = 0x7f08016f;
         public static final int video_detail_episodes_title = 0x7f080170;
         public static final int video_detail_episodes_video = 0x7f080171;
+        public static final int filter_button = 0x7f080172;
+        public static final int filter_path = 0x7f080173;
     }
 
     public static final class integer {
@@ -2602,6 +2604,8 @@ public final class R {
         public static final int select_dialog_singlechoice_material = 0x7f0a0086;
         public static final int support_simple_spinner_dropdown_item = 0x7f0a0087;
         public static final int tooltip = 0x7f0a0088;
+
+        public static final int fragment_experiment = 0x7f0a0089;
     }
 
     public static final class mipmap {
