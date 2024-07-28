@@ -28,6 +28,7 @@ import tv.danmaku.ijk.media.player.IMediaPlayer;
 
 import java.util.Random;
 import android.text.TextUtils;
+import com.bilibili.tv.MainApplication;
 import com.bilibili.tv.player.widget.PlayerMenuRight;
 
 /* compiled from: BL */
@@ -178,7 +179,7 @@ public class xl extends xh implements aaw.a, View.OnFocusChangeListener {
     public void onCompletion(IMediaPlayer iMediaPlayer) {
         super.onCompletion(iMediaPlayer);
         int i;
-        int mode_id = PlayerMenuRight.mode_id>=0?PlayerMenuRight.mode_id:0;
+        int mode_id = PlayerMenuRight.mode_id>=0?PlayerMenuRight.mode_id:abd.get_mode_id(MainApplication.a().getApplicationContext());
         switch(mode_id){
             case 1:
                 i=this.i-1;

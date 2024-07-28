@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 155
+    .line 156
     iput-object p1, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$3;->this$0:Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;
 
     invoke-direct {p0}, Lbl/vn;-><init>()V
@@ -46,14 +46,14 @@
     .locals 2
 
     .prologue
-    .line 158
+    .line 159
     const-string v0, "attribute"
 
     invoke-virtual {p1, v0}, Lcom/alibaba/fastjson/JSONObject;->getIntValue(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 159
+    .line 160
     const/4 v1, 0x2
 
     if-eq v0, v1, :cond_c
@@ -71,7 +71,7 @@
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/DrawTextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 160
+    .line 161
     :cond_15
     return-void
 .end method
@@ -80,7 +80,7 @@
     .locals 0
 
     .prologue
-    .line 155
+    .line 156
     check-cast p1, Lcom/alibaba/fastjson/JSONObject;
 
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$3;->a(Lcom/alibaba/fastjson/JSONObject;)V
@@ -92,7 +92,7 @@
     .locals 1
 
     .prologue
-    .line 167
+    .line 168
     iget-object v0, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$3;->this$0:Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;->isFinishing()Z
@@ -106,6 +106,6 @@
     .locals 0
 
     .prologue
-    .line 163
+    .line 164
     return-void
 .end method

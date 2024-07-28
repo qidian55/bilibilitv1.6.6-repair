@@ -30,6 +30,7 @@ import tv.danmaku.android.log.BLog;
 import com.bilibili.api.BiliConfig;
 import com.bilibili.tv.api.area.RegionService;
 
+import mybl.BiliFilter;
 import mybl.MyBiliApiService;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -332,11 +333,7 @@ public final class adq extends ady {
     @Override // bl.adw
     public boolean c() {
         if (isVisible() && this.c != null) {
-            j jVar = this.c;
-            if (jVar == null) {
-                bbi.a();
-            }
-            if (jVar.a() > 0) {
+            if (this.c.a() > 0) {
                 return true;
             }
         }
@@ -638,6 +635,7 @@ public final class adq extends ady {
 
         public final void a(List<BiliVideoV2> hotList) {
             bbi.b(hotList, "hotList");
+            hotList=BiliFilter.filterBiliVideoV2(hotList, "分区视频");
             if (hotList.size() == 0) {
                 return;
             }
@@ -652,6 +650,7 @@ public final class adq extends ady {
         public final void a(String title, List<BiliVideoV2> otherList) {
             bbi.b(title, "title");
             bbi.b(otherList, "otherList");
+            otherList=BiliFilter.filterBiliVideoV2(otherList, "分区视频");
             //if (this.b == null) {
             //    this.b = new g(title, otherList);
             //    a(this.b);

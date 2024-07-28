@@ -49,7 +49,7 @@
     .locals 2
 
     .prologue
-    .line 608
+    .line 605
     new-instance v0, Lbl/adq$j$a;
 
     const/4 v1, 0x0
@@ -65,7 +65,7 @@
     .locals 0
 
     .prologue
-    .line 607
+    .line 604
     invoke-direct {p0}, Lbl/adc;-><init>()V
 
     return-void
@@ -77,7 +77,7 @@
     .locals 1
 
     .prologue
-    .line 607
+    .line 604
     invoke-virtual {p0, p1, p2}, Lbl/adq$j;->a(Landroid/view/ViewGroup;I)Lbl/adc$a;
 
     move-result-object v0
@@ -91,12 +91,12 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 618
+    .line 615
     const-string v1, "parent"
 
     invoke-static {p1, v1}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 620
+    .line 617
     const/4 v1, 0x1
 
     if-ne p2, v1, :cond_12
@@ -157,7 +157,7 @@
 .end method
 
 .method public final a(Ljava/lang/String;Ljava/util/List;)V
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -170,75 +170,82 @@
     .end annotation
 
     .prologue
-    .line 653
+    .line 651
     const-string v0, "title"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 654
+    .line 652
     const-string v0, "otherList"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 667
-    invoke-interface {p2}, Ljava/util/List;->size()I
+    .line 653
+    const-string v0, "\u5206\u533a\u89c6\u9891"
 
-    move-result v0
+    invoke-static {p2, v0}, Lmybl/BiliFilter;->filterBiliVideoV2(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
 
-    if-nez v0, :cond_11
+    move-result-object v0
 
-    .line 680
-    :goto_10
+    .line 666
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-nez v1, :cond_17
+
+    .line 679
+    :goto_16
     return-void
 
-    .line 670
-    :cond_11
-    iget-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
+    .line 669
+    :cond_17
+    iget-object v1, p0, Lbl/adq$j;->a:Lbl/adq$d;
 
-    if-nez v0, :cond_29
+    if-nez v1, :cond_2f
+
+    .line 670
+    new-instance v1, Lbl/adq$d;
+
+    invoke-direct {v1, p1, v0}, Lbl/adq$d;-><init>(Ljava/lang/String;Ljava/util/List;)V
+
+    iput-object v1, p0, Lbl/adq$j;->a:Lbl/adq$d;
 
     .line 671
-    new-instance v0, Lbl/adq$d;
-
-    invoke-direct {v0, p1, p2}, Lbl/adq$d;-><init>(Ljava/lang/String;Ljava/util/List;)V
-
-    iput-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
-
-    .line 672
     invoke-super {p0}, Lbl/adc;->g()V
 
-    .line 673
+    .line 672
     iget-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
 
     invoke-virtual {p0, v0}, Lbl/adq$j;->a(Lbl/ade;)V
 
-    .line 674
+    .line 673
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lbl/adq$j;->b(Z)V
 
-    goto :goto_10
+    goto :goto_16
+
+    .line 676
+    :cond_2f
+    iget-object v1, p0, Lbl/adq$j;->a:Lbl/adq$d;
+
+    invoke-virtual {v1}, Lbl/adq$d;->b()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 677
-    :cond_29
-    iget-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
-
-    invoke-virtual {v0}, Lbl/adq$d;->b()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0, p2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    .line 678
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lbl/adq$j;->b(Z)V
 
-    goto :goto_10
+    goto :goto_16
 .end method
 
 .method public final a(Ljava/util/List;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -250,72 +257,79 @@
     .end annotation
 
     .prologue
-    .line 640
+    .line 637
     const-string v0, "hotList"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 641
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    .line 638
+    const-string v0, "\u5206\u533a\u89c6\u9891"
 
-    move-result v0
+    invoke-static {p1, v0}, Lmybl/BiliFilter;->filterBiliVideoV2(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
 
-    if-nez v0, :cond_c
+    move-result-object v0
 
-    .line 650
-    :goto_b
-    return-void
+    .line 639
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    .line 644
-    :cond_c
-    iget-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
+    move-result v1
 
-    if-nez v0, :cond_1e
-
-    .line 645
-    new-instance v0, Lbl/adq$d;
-
-    const v1, 0x7f0c009e
-
-    invoke-static {v1}, Lbl/adl;->e(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1, p1}, Lbl/adq$d;-><init>(Ljava/lang/String;Ljava/util/List;)V
-
-    iput-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
-
-    .line 647
-    :cond_1e
-    invoke-super {p0}, Lbl/adc;->g()V
+    if-nez v1, :cond_12
 
     .line 648
+    :goto_11
+    return-void
+
+    .line 642
+    :cond_12
+    iget-object v1, p0, Lbl/adq$j;->a:Lbl/adq$d;
+
+    if-nez v1, :cond_24
+
+    .line 643
+    new-instance v1, Lbl/adq$d;
+
+    const v2, 0x7f0c009e
+
+    invoke-static {v2}, Lbl/adl;->e(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2, v0}, Lbl/adq$d;-><init>(Ljava/lang/String;Ljava/util/List;)V
+
+    iput-object v1, p0, Lbl/adq$j;->a:Lbl/adq$d;
+
+    .line 645
+    :cond_24
+    invoke-super {p0}, Lbl/adc;->g()V
+
+    .line 646
     iget-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
 
     invoke-virtual {p0, v0}, Lbl/adq$j;->a(Lbl/ade;)V
 
-    .line 649
+    .line 647
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lbl/adq$j;->b(Z)V
 
-    goto :goto_b
+    goto :goto_11
 .end method
 
 .method public final h()V
     .locals 1
 
     .prologue
-    .line 683
+    .line 682
     invoke-super {p0}, Lbl/adc;->g()V
 
-    .line 684
+    .line 683
     const/4 v0, 0x0
 
     check-cast v0, Lbl/adq$d;
 
     iput-object v0, p0, Lbl/adq$j;->a:Lbl/adq$d;
 
-    .line 686
+    .line 685
     return-void
 .end method

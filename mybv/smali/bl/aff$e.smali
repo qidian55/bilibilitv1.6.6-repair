@@ -28,15 +28,15 @@
     .locals 0
 
     .prologue
-    .line 108
+    .line 110
     iput-object p1, p0, Lbl/aff$e;->this$0:Lbl/aff;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 109
+    .line 111
     iput-object p2, p0, Lbl/aff$e;->b:Lcom/bilibili/tv/ui/ranking/RankingActivity;
 
-    .line 110
+    .line 112
     return-void
 .end method
 
@@ -46,24 +46,24 @@
     .locals 3
 
     .prologue
-    .line 114
+    .line 116
     iget-object v0, p0, Lbl/aff$e;->b:Lcom/bilibili/tv/ui/ranking/RankingActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/ranking/RankingActivity;->m()Lbl/agd;
 
     move-result-object v0
 
-    .line 115
+    .line 117
     if-eqz v0, :cond_a
 
     if-nez p1, :cond_b
 
-    .line 121
+    .line 123
     :cond_a
     :goto_a
     return-void
 
-    .line 118
+    .line 120
     :cond_b
     iget-object v1, p0, Lbl/aff$e;->b:Lcom/bilibili/tv/ui/ranking/RankingActivity;
 
@@ -75,7 +75,7 @@
 
     invoke-virtual {v0, v1}, Lbl/agd;->setUpRectDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 119
+    .line 121
     iget-object v1, p0, Lbl/aff$e;->this$0:Lbl/aff;
 
     # getter for: Lbl/aff;->e:Z
@@ -85,7 +85,7 @@
 
     invoke-virtual {v0, p1, p4, p5, v1}, Lbl/agd;->a(Landroid/view/View;IIZ)V
 
-    .line 120
+    .line 122
     iget-object v0, p0, Lbl/aff$e;->this$0:Lbl/aff;
 
     const/4 v1, 0x0

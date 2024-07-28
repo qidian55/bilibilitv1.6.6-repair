@@ -25,15 +25,15 @@
     .locals 0
 
     .prologue
-    .line 282
+    .line 283
     iput-object p1, p0, Lbl/adq$m;->this$0:Lbl/adq;
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$m;-><init>()V
 
-    .line 283
+    .line 284
     iput-object p2, p0, Lbl/adq$m;->b:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
-    .line 284
+    .line 285
     return-void
 .end method
 
@@ -43,10 +43,10 @@
     .locals 2
 
     .prologue
-    .line 288
+    .line 289
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView$m;->a(Landroid/support/v7/widget/RecyclerView;I)V
 
-    .line 289
+    .line 290
     iget-object v0, p0, Lbl/adq$m;->this$0:Lbl/adq;
 
     # getter for: Lbl/adq;->j:Z
@@ -83,12 +83,12 @@
 
     if-ne v0, v1, :cond_26
 
-    .line 298
+    .line 299
     :cond_25
     :goto_25
     return-void
 
-    .line 292
+    .line 293
     :cond_26
     iget-object v0, p0, Lbl/adq$m;->b:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
@@ -96,7 +96,7 @@
 
     move-result v0
 
-    .line 293
+    .line 294
     iget-object v1, p0, Lbl/adq$m;->b:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
     invoke-virtual {v1}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->x()I
@@ -131,13 +131,13 @@
 
     if-le v0, v1, :cond_25
 
-    .line 296
+    .line 297
     iget-object v0, p0, Lbl/adq$m;->this$0:Lbl/adq;
 
     # operator++ for: Lbl/adq;->i:I
     invoke-static {v0}, Lbl/adq;->access$308(Lbl/adq;)I
 
-    .line 297
+    .line 298
     iget-object v0, p0, Lbl/adq$m;->this$0:Lbl/adq;
 
     invoke-virtual {v0}, Lbl/adq;->o()V

@@ -23,6 +23,8 @@ import com.bilibili.tv.widget.side.SideRightGridLayoutManger;
 import java.util.List;
 import kotlin.TypeCastException;
 
+import mybl.BiliFilter;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public final class aff extends ady {
@@ -202,6 +204,7 @@ public final class aff extends ady {
             aff.this.j();
             if(aff.this.page_number==5 && list.size()==20)list.remove(19);
             if(list.size()<20)aff.this.need_more=false;
+            list=BiliFilter.filterBiliRankV2(list, "排行榜");
             if(aff.this.page_number==1){
                 aff.this.c.a(list);
                 if(list.isEmpty()){
@@ -300,20 +303,16 @@ public final class aff extends ady {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View v) {
             long i;
-            bbi.b(view, "v");
-            Context context = view.getContext();
+            bbi.b(v, "v");
+            Context context = v.getContext();
             bbi.a((Object) context, "v.context");
             Activity a = adl.a(context);
-            Object tag = view.getTag();
+            Object tag = v.getTag();
             if (a != null && (tag instanceof BiliRankV2)) {
                 try {
-                    Long valueOf = Long.valueOf(((BiliRankV2) tag).getParam());
-                    if (valueOf == null) {
-                        bbi.a();
-                    }
-                    i = valueOf.longValue();
+                    i = Long.valueOf(((BiliRankV2) tag).getParam()).longValue();
                 } catch (NumberFormatException e) {
                     att.a(e);
                     i = 0;

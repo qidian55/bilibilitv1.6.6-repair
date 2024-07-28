@@ -11,6 +11,9 @@ import java.nio.charset.Charset;
 import tv.danmaku.android.log.BLog;
 import com.bilibili.tv.MainApplication;
 import android.content.res.AssetManager;
+import com.bilibili.tv.api.rank.BiliRankV2;
+import com.bilibili.tv.api.area.BiliVideoV2;
+import com.bilibili.tv.api.auth.BiliSpaceVideo;
 import com.bilibili.tv.api.attention.UpperFeedList;
 
 public class BiliFilter {
@@ -30,9 +33,9 @@ public class BiliFilter {
         try {
             inputStream = assetManager.open("data/filter_rule_example.json");
             File f = new File(aj.a(MainApplication.a(),"data")[0],"filter_rule_example.json");
-            BiliFilter.filter_rule_path = f.getPath();
-            abd.set_filter_path(MainApplication.a().getApplicationContext(), BiliFilter.filter_rule_path);
-            if(f.exists()&&f.isFile())return;
+            //BiliFilter.filter_rule_path = f.getPath();
+            //abd.set_filter_path(MainApplication.a().getApplicationContext(), BiliFilter.filter_rule_path);
+            //if(f.exists()&&f.isFile())return;
             outputStream = new FileOutputStream(f);
             byte[] buffer = new byte[1024];
             int length;
@@ -63,6 +66,57 @@ public class BiliFilter {
         }
         return outputItems;
     }
+
+    public static List<BiliSpaceVideo> filterBiliSpaceVideo(List<BiliSpaceVideo> inputItems, String scope){
+        if(!BiliFilter.filter_on)return inputItems;
+        if(!BiliFilter.config.scopes.contains(scope))return inputItems;
+        List<BiliSpaceVideo> outputItems = new ArrayList<>();
+        for(BiliSpaceVideo item: inputItems){
+            boolean f=true;
+            for(String filter_word:BiliFilter.config.filter_words){
+                if(item.title.matches(filter_word)){
+                    f=false;
+                    break;
+                }
+            }
+            if(f)outputItems.add(item);
+        }
+        return outputItems;
+    }
+
+    public static List<BiliRankV2> filterBiliRankV2(List<BiliRankV2> inputItems, String scope){
+        if(!BiliFilter.filter_on)return inputItems;
+        if(!BiliFilter.config.scopes.contains(scope))return inputItems;
+        List<BiliRankV2> outputItems = new ArrayList<>();
+        for(BiliRankV2 item: inputItems){
+            boolean f=true;
+            for(String filter_word:BiliFilter.config.filter_words){
+                if(item.getTitle().matches(filter_word)){
+                    f=false;
+                    break;
+                }
+            }
+            if(f)outputItems.add(item);
+        }
+        return outputItems;
+    }
+
+    public static List<BiliVideoV2> filterBiliVideoV2(List<BiliVideoV2> inputItems, String scope){
+        if(!BiliFilter.filter_on)return inputItems;
+        if(!BiliFilter.config.scopes.contains(scope))return inputItems;
+        List<BiliVideoV2> outputItems = new ArrayList<>();
+        for(BiliVideoV2 item: inputItems){
+            boolean f=true;
+            for(String filter_word:BiliFilter.config.filter_words){
+                if(item.title.matches(filter_word)){
+                    f=false;
+                    break;
+                }
+            }
+            if(f)outputItems.add(item);
+        }
+        return outputItems;
+    }
 }
 
 class Config{
@@ -74,7 +128,8 @@ class Config{
     List<String> filter_words;
     Config() throws Exception{
         try {
-            if(BiliFilter.filter_rule_path.isEmpty())BiliFilter.saveConfig();
+            //if(BiliFilter.filter_rule_path.isEmpty())
+            BiliFilter.saveConfig();
             File f = new File(BiliFilter.filter_rule_path);
             FileInputStream fileInputStream = new FileInputStream(f);
             String content = kz.c(fileInputStream);
@@ -88,7 +143,7 @@ class Config{
             this.blacklist_users = data.getJSONObject("黑名单用户");
             filter_words = new ArrayList<>();
             if(this.live_record==false)this.filter_words.add("【直播回放】(.*)");
-            for(Object masked_word:this.masked_words)this.filter_words.add("(.*)"+(String)masked_word+"(.*)");
+            for(Object masked_word:this.masked_words)this.filter_words.add("(.*)("+(String)masked_word+")(.*)");
             for(Object banned_word:this.banned_words)this.filter_words.add(new String(Base64.decode((String)banned_word, Base64.DEFAULT), "UTF-8"));
         } catch (Exception e) {
             e.printStackTrace();

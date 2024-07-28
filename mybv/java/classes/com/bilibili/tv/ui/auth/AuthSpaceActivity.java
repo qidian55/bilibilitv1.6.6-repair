@@ -43,6 +43,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tv.danmaku.videoplayer.core.pluginapk.PluginApk;
 
+import mybl.BiliFilter;
 import android.util.Log;
 import mybl.MyBiliApiService;
 import com.alibaba.fastjson.JSONObject;
@@ -413,18 +414,13 @@ public final class AuthSpaceActivity extends BaseReloadActivity {
                 AuthSpaceActivity.this.h = false;
                 return;
             }
-            TextView textView = AuthSpaceActivity.this.f;
-            if (textView == null) {
-                bbi.a();
-            }
-            textView.setText(String.valueOf(biliSpaceVideoList.count) + "条");
-            c cVar = AuthSpaceActivity.this.a;
-            if (cVar == null) {
-                bbi.a();
-            }
-            List<BiliSpaceVideo> list = biliSpaceVideoList.videos;
+            List<BiliSpaceVideo> list = BiliFilter.filterBiliSpaceVideo(biliSpaceVideoList.videos, "个人投稿");
             bbi.a((Object) list, "data.videos");
-            cVar.a(list);
+            AuthSpaceActivity.this.a.a(list);
+            String info = String.valueOf(biliSpaceVideoList.count) + "条";
+            AuthSpaceActivity.this.a.filter_num += biliSpaceVideoList.videos.size()-list.size();
+            if(BiliFilter.filter_on)info+="，已过滤"+String.valueOf(AuthSpaceActivity.this.a.filter_num)+"条";
+            AuthSpaceActivity.this.f.setText(info);
         }
     }
 
@@ -432,6 +428,7 @@ public final class AuthSpaceActivity extends BaseReloadActivity {
     /* compiled from: BL */
     /* loaded from: classes.dex */
     public final class c extends adz<adv> implements View.OnClickListener, View.OnFocusChangeListener {
+        public int filter_num = 0;
         private final ArrayList<BiliSpaceVideo> a = new ArrayList<>();
         private final String b;
 
@@ -500,11 +497,7 @@ public final class AuthSpaceActivity extends BaseReloadActivity {
                 return;
             }
             try {
-                Long valueOf = Long.valueOf(((BiliSpaceVideo) tag).param);
-                if (valueOf == null) {
-                    bbi.a();
-                }
-                i = valueOf.longValue();
+                i = Long.valueOf(((BiliSpaceVideo) tag).param).longValue();
             } catch (NumberFormatException unused) {
                 i = 0;
             }
