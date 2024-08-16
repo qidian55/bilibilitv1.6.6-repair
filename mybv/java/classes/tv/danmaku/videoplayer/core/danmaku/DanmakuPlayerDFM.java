@@ -38,6 +38,14 @@ import tv.danmaku.videoplayer.core.danmaku.IDanmakuPlayer;
 import tv.danmaku.videoplayer.core.danmaku.comment.CommentItem;
 import tv.danmaku.videoplayer.core.danmaku.comment.DrawableItem;
 
+import org.json.*;
+import android.text.*;
+import mybl.StrokedSpan;
+import android.graphics.*;
+import android.text.style.*;
+
+
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public class DanmakuPlayerDFM implements IDanmakuPlayer {
@@ -117,6 +125,8 @@ public class DanmakuPlayerDFM implements IDanmakuPlayer {
             }
         }
     };
+
+    public JSONObject subtitle_data;
 
     @Override // tv.danmaku.videoplayer.core.danmaku.IDanmakuPlayer
     public void clear() {
@@ -278,9 +288,19 @@ public class DanmakuPlayerDFM implements IDanmakuPlayer {
 
     private void onDanmakuAppended(CommentItem commentItem, boolean z) {
         bfd bfdVar = this.mDanmakuView;
-        if (commentItem == null || this.mParser == null || this.mAnimationTicker == null || bfdVar == null || !bfdVar.a()) {
+        if (commentItem == null || this.mParser == null || this.mAnimationTicker == null) {
             return;
         }
+        bfk parseItem = this.mParser.parseItem(commentItem, 0);
+        if (parseItem != null) {
+            parseItem.d(bfdVar.getCurrentTime() + 500);
+            parseItem.x = z;
+            if (commentItem.mSentFromMe) {
+                parseItem.n = (byte) 1;
+                parseItem.j = -16711936;
+            }
+        }
+        if(bfdVar == null || !bfdVar.a())return;
         if (!z || bfdVar.isShown()) {
             if (z && this.mDanmakuDocument != null) {
                 try {
@@ -289,16 +309,51 @@ public class DanmakuPlayerDFM implements IDanmakuPlayer {
                     BLog.e(TAG, "append danmaku error : " + e.getMessage());
                 }
             }
-            bfk parseItem = this.mParser.parseItem(commentItem, 0);
-            if (parseItem != null) {
-                parseItem.d(bfdVar.getCurrentTime() + 500);
-                parseItem.x = z;
-                if (commentItem.mSentFromMe) {
-                    parseItem.n = (byte) 1;
-                    parseItem.j = -16711936;
-                }
-                bfdVar.a(parseItem);
-            }
+            bfdVar.a(parseItem);
+        }
+    }
+
+    public void send_subtitle(JSONObject data){
+        if(data==null)return;
+        JSONArray body = data.optJSONArray("body");
+        double font_size = data.optDouble("font_size");
+        int font_color = Integer.parseInt(data.optString("font_color").substring(1),16);
+        int background_alpha = (int) (data.optDouble("background_alpha") * 255);
+        int background_color = Integer.parseInt(data.optString("background_color").substring(1),16);
+        boolean stroked = data.optString("Stroke").equals("none");
+
+        font_color = 0x66ccff;
+        background_color = 0x000000;
+        stroked = true;
+
+        for(int i=0;i<body.length();i++){
+            JSONObject item = body.optJSONObject(i);
+            long from = (long) (item.optDouble("from") * 1000);
+            long to = (long) (item.optDouble("to") * 1000);
+            int location = item.optInt("location");
+            String content = item.optString("content").replace("\n","/n");
+
+            DrawableItem drawableItem = new DrawableItem();
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(content+" ");
+            spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int)(font_size*50)), 0, content.length()+1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            //spannableStringBuilder.setSpan(new BackgroundColorSpan(background_color|(background_alpha << 24)), 0, content.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            if(stroked)spannableStringBuilder.setSpan(new StrokedSpan(background_alpha, font_color|0xff000000, Color.BLACK), 0, content.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            else spannableStringBuilder.setSpan(new ForegroundColorSpan(font_color|0xff000000), 0, content.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            drawableItem.mSpannableString=spannableStringBuilder;
+            //this.onDanmakuAppended(drawableItem);
+
+            try{
+                bfk bfkItem = this.mConfig.t.a(4);
+                bfkItem.b = drawableItem.mSpannableString;
+                bfkItem.d(from);
+                bfkItem.q = new bl.bfn(to-from);
+                //bfkItem.x = z;
+                bfkItem.n = (byte) 1;
+                //java.lang.reflect.Field mDanmakus = this.mParser.getClass().getDeclaredField("mDanmakus");
+                //mDanmakus.setAccessible(true);
+                //((bl.bgc)mDanmakus.get(this.mParser)).a(bfkItem);
+                this.mDanmakuView.a(bfkItem);
+            }catch(Exception e){e.printStackTrace();}
         }
     }
 
@@ -421,6 +476,9 @@ public class DanmakuPlayerDFM implements IDanmakuPlayer {
                     DanmakuPlayerDFM.this.mDanmakuView.a(DanmakuPlayerDFM.this.mAnimationTicker.currentOffsetTickMillis());
                 }
                 DanmakuPlayerDFM.this.mPrepared = true;
+
+DanmakuPlayerDFM.this.send_subtitle(DanmakuPlayerDFM.this.subtitle_data);
+
             }
         });
         this.mDanmakuView.a(this.mParser, this.mConfig);

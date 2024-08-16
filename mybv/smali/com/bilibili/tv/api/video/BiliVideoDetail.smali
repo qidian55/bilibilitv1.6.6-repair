@@ -21,7 +21,7 @@
         Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;,
         Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;,
         Lcom/bilibili/tv/api/video/BiliVideoDetail$Rights;,
-        Lcom/bilibili/tv/api/video/BiliVideoDetail$DetailResponse;
+        Lcom/bilibili/tv/api/video/BiliVideoDetail$JsonResponse;
     }
 .end annotation
 
@@ -1280,6 +1280,12 @@
 
     check-cast v0, Lorg/json/JSONObject;
 
+    const-string v1, "data"
+
+    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
     .line 138
     const-string v1, "View"
 
@@ -1333,13 +1339,13 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->episode_title:Ljava/lang/String;
-    :try_end_58
-    .catch Ljava/lang/Exception; {:try_start_1f .. :try_end_58} :catch_59
+    :try_end_5e
+    .catch Ljava/lang/Exception; {:try_start_1f .. :try_end_5e} :catch_5f
 
     goto :goto_11
 
     .line 140
-    :catch_59
+    :catch_5f
     move-exception v0
 
     .line 141

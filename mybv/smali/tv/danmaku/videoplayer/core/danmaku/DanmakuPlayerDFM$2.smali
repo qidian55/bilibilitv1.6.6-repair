@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 108
+    .line 116
     iput-object p1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$2;->this$0:Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;
 
     invoke-direct {p0}, Lbl/bfz$a;-><init>()V
@@ -37,7 +37,7 @@
     .locals 0
 
     .prologue
-    .line 111
+    .line 119
     return-void
 .end method
 
@@ -45,19 +45,19 @@
     .locals 1
 
     .prologue
-    .line 115
+    .line 123
     iget-object v0, p1, Lbl/bfk;->b:Ljava/lang/CharSequence;
 
     instance-of v0, v0, Landroid/text/Spanned;
 
     if-eqz v0, :cond_9
 
-    .line 116
+    .line 124
     const/4 v0, 0x0
 
     iput-object v0, p1, Lbl/bfk;->b:Ljava/lang/CharSequence;
 
-    .line 118
+    .line 126
     :cond_9
     return-void
 .end method

@@ -36,7 +36,7 @@
     .locals 0
 
     .prologue
-    .line 97
+    .line 72
     iput-object p1, p0, Lmybl/DanmakuClient$1;->this$0:Lmybl/DanmakuClient;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
     .end annotation
 
     .prologue
-    .line 97
+    .line 72
     invoke-virtual {p0}, Lmybl/DanmakuClient$1;->call()Lorg/json/JSONObject;
 
     move-result-object v0
@@ -67,7 +67,7 @@
     .locals 3
 
     .prologue
-    .line 100
+    .line 75
     new-instance v0, Lbl/qa$a;
 
     const-class v1, Lmybl/DanmakuClient$Response;
@@ -120,7 +120,7 @@
 
     check-cast v0, Lmybl/DanmakuClient$Response;
 
-    .line 101
+    .line 76
     invoke-virtual {v0}, Lmybl/DanmakuClient$Response;->e()Lorg/json/JSONObject;
 
     move-result-object v0

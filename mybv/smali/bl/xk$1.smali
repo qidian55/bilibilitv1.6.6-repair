@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 29
+    .line 33
     iput-object p1, p0, Lbl/xk$1;->this$0:Lbl/xk;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .locals 4
 
     .prologue
-    .line 32
+    .line 36
     iget-object v0, p0, Lbl/xk$1;->this$0:Lbl/xk;
 
     iget-object v0, v0, Lbl/xk;->c:Ltv/danmaku/videoplayer/core/context/IPlayerContext;
@@ -81,17 +81,17 @@
 
     if-nez v0, :cond_2e
 
-    .line 33
+    .line 37
     :cond_28
     iget-object v0, p0, Lbl/xk$1;->this$0:Lbl/xk;
 
     invoke-virtual {v0}, Lbl/xk;->V()V
 
-    .line 37
+    .line 41
     :goto_2d
     return-void
 
-    .line 35
+    .line 39
     :cond_2e
     iget-object v0, p0, Lbl/xk$1;->this$0:Lbl/xk;
 

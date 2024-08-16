@@ -63,37 +63,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_2f
 
     :cond_15
     const/4 v0, 0x1
 
     .line 50
     :goto_16
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_2e
 
     .line 51
     iget-object v2, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
-    # getter for: Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mDanmakuPlayerContext:Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
-    invoke-static {v2}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$100(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
+    iget-object v2, v2, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mDanmakuPlayerContext:Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
 
-    move-result-object v2
-
-    if-eqz v2, :cond_29
+    if-eqz v2, :cond_25
 
     .line 52
     iget-object v2, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
-    # getter for: Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mDanmakuPlayerContext:Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
-    invoke-static {v2}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$100(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
-
-    move-result-object v2
+    iget-object v2, v2, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mDanmakuPlayerContext:Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
 
     invoke-virtual {v2}, Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;->pause()V
 
     .line 54
-    :cond_29
+    :cond_25
     iget-object v2, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
     const/16 v3, 0xea
@@ -103,10 +97,10 @@
     invoke-virtual {v2, v3, v1}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->notifyPlayerEvent(I[Ljava/lang/Object;)V
 
     .line 56
-    :cond_32
+    :cond_2e
     return v0
 
-    :cond_33
+    :cond_2f
     move v0, v1
 
     .line 49
@@ -140,37 +134,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_2f
 
     :cond_15
     const/4 v0, 0x1
 
     .line 38
     :goto_16
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_2e
 
     .line 39
     iget-object v2, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
-    # getter for: Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mDanmakuPlayerContext:Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
-    invoke-static {v2}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$100(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
+    iget-object v2, v2, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mDanmakuPlayerContext:Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
 
-    move-result-object v2
-
-    if-eqz v2, :cond_29
+    if-eqz v2, :cond_25
 
     .line 40
     iget-object v2, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
-    # getter for: Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mDanmakuPlayerContext:Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
-    invoke-static {v2}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$100(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
-
-    move-result-object v2
+    iget-object v2, v2, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mDanmakuPlayerContext:Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;
 
     invoke-virtual {v2}, Ltv/danmaku/videoplayer/core/context/DanmakuPlayerContext;->resume()V
 
     .line 42
-    :cond_29
+    :cond_25
     iget-object v2, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$1;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
     const/16 v3, 0xe9
@@ -180,10 +168,10 @@
     invoke-virtual {v2, v3, v1}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->notifyPlayerEvent(I[Ljava/lang/Object;)V
 
     .line 44
-    :cond_32
+    :cond_2e
     return v0
 
-    :cond_33
+    :cond_2f
     move v0, v1
 
     .line 37

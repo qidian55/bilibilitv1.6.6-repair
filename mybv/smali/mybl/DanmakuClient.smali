@@ -38,7 +38,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 83
+    .line 58
     sput v0, Lmybl/DanmakuClient;->baseScreenScale:F
 
     sput v0, Lmybl/DanmakuClient;->densityScale:F
@@ -50,10 +50,10 @@
     .locals 4
 
     .prologue
-    .line 86
+    .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 87
+    .line 62
     sget v0, Lmybl/DanmakuClient;->baseScreenScale:F
 
     const/4 v1, 0x0
@@ -62,7 +62,7 @@
 
     if-nez v0, :cond_39
 
-    .line 88
+    .line 63
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
@@ -71,7 +71,7 @@
 
     move-result-object v0
 
-    .line 89
+    .line 64
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -80,7 +80,7 @@
 
     move-result-object v1
 
-    .line 90
+    .line 65
     iget v2, v1, Landroid/util/DisplayMetrics;->heightPixels:I
 
     int-to-float v2, v2
@@ -95,19 +95,19 @@
 
     sput v2, Lmybl/DanmakuClient;->baseScreenScale:F
 
-    .line 91
+    .line 66
     iget v1, v1, Landroid/util/DisplayMetrics;->density:F
 
     sput v1, Lmybl/DanmakuClient;->densityScale:F
 
-    .line 92
+    .line 67
     invoke-static {v0}, Lbl/abd;->f(Landroid/content/Context;)F
 
     move-result v1
 
     sput v1, Lmybl/DanmakuClient;->mScale:F
 
-    .line 93
+    .line 68
     invoke-static {v0}, Lbl/abd;->g(Landroid/content/Context;)F
 
     move-result v0
@@ -120,16 +120,16 @@
 
     sput v0, Lmybl/DanmakuClient;->mAlpha:I
 
-    .line 95
+    .line 70
     :cond_39
     iput p1, p0, Lmybl/DanmakuClient;->roomId:I
 
-    .line 96
+    .line 71
     invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0
 
-    .line 97
+    .line 72
     new-instance v1, Lmybl/DanmakuClient$1;
 
     invoke-direct {v1, p0}, Lmybl/DanmakuClient$1;-><init>(Lmybl/DanmakuClient;)V
@@ -138,7 +138,7 @@
 
     move-result-object v0
 
-    .line 105
+    .line 80
     :try_start_48
     invoke-interface {v0}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
 
@@ -146,7 +146,7 @@
 
     check-cast v0, Lorg/json/JSONObject;
 
-    .line 106
+    .line 81
     const-string v1, "token"
 
     invoke-virtual {v0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
@@ -155,7 +155,7 @@
 
     iput-object v1, p0, Lmybl/DanmakuClient;->token:Ljava/lang/String;
 
-    .line 107
+    .line 82
     new-instance v1, Ljava/lang/Thread;
 
     new-instance v2, Lmybl/DanmakuClient$2;
@@ -164,20 +164,20 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    .line 112
+    .line 87
     invoke-virtual {v1}, Ljava/lang/Thread;->start()V
     :try_end_63
     .catch Ljava/lang/Exception; {:try_start_48 .. :try_end_63} :catch_64
 
-    .line 116
+    .line 91
     :goto_63
     return-void
 
-    .line 113
+    .line 88
     :catch_64
     move-exception v0
 
-    .line 114
+    .line 89
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_63
@@ -187,26 +187,26 @@
     .locals 2
 
     .prologue
-    .line 217
+    .line 190
     new-instance v1, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v1}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 218
+    .line 191
     new-instance v0, Ljava/util/zip/InflaterOutputStream;
 
     invoke-direct {v0, v1}, Ljava/util/zip/InflaterOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    .line 220
+    .line 193
     :try_start_a
     invoke-virtual {v0, p0}, Ljava/util/zip/InflaterOutputStream;->write([B)V
 
-    .line 221
+    .line 194
     invoke-virtual {v0}, Ljava/util/zip/InflaterOutputStream;->close()V
     :try_end_10
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_10} :catch_15
 
-    .line 225
+    .line 198
     :goto_10
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
@@ -214,11 +214,11 @@
 
     return-object v0
 
-    .line 222
+    .line 195
     :catch_15
     move-exception v0
 
-    .line 223
+    .line 196
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_10
@@ -228,19 +228,19 @@
     .locals 22
 
     .prologue
-    .line 151
+    .line 126
     new-instance v4, Ljava/io/ByteArrayInputStream;
 
     move-object/from16 v0, p0
 
     invoke-direct {v4, v0}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    .line 152
+    .line 127
     new-instance v7, Ljava/io/DataInputStream;
 
     invoke-direct {v7, v4}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
 
-    .line 154
+    .line 129
     :cond_c
     :goto_c
     :try_start_c
@@ -250,50 +250,50 @@
 
     if-lez v4, :cond_1fe
 
-    .line 155
+    .line 130
     invoke-virtual {v7}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v4
 
-    .line 156
+    .line 131
     invoke-virtual {v7}, Ljava/io/DataInputStream;->readShort()S
 
     move-result v5
 
-    .line 157
+    .line 132
     invoke-virtual {v7}, Ljava/io/DataInputStream;->readShort()S
 
     move-result v6
 
-    .line 158
+    .line 133
     invoke-virtual {v7}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v8
 
-    .line 159
+    .line 134
     invoke-virtual {v7}, Ljava/io/DataInputStream;->readInt()I
 
-    .line 160
+    .line 135
     sub-int/2addr v4, v5
 
     new-array v4, v4, [B
 
-    .line 161
+    .line 136
     invoke-virtual {v7, v4}, Ljava/io/DataInputStream;->read([B)I
 
-    .line 162
+    .line 137
     const/4 v5, 0x2
 
     if-ne v6, v5, :cond_35
 
-    .line 163
+    .line 138
     invoke-static {v4}, Lmybl/DanmakuClient;->decompress_zlib([B)[B
 
     move-result-object v5
 
     invoke-static {v5}, Lmybl/DanmakuClient;->parse([B)V
 
-    .line 165
+    .line 140
     :cond_35
     if-nez v6, :cond_c
 
@@ -301,7 +301,7 @@
 
     if-eq v8, v5, :cond_c
 
-    .line 166
+    .line 141
     new-instance v8, Lorg/json/JSONObject;
 
     new-instance v5, Ljava/lang/String;
@@ -310,7 +310,7 @@
 
     invoke-direct {v8, v5}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    .line 167
+    .line 142
     const-string v4, "cmd"
 
     invoke-virtual {v8, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
@@ -325,7 +325,7 @@
 
     if-eqz v4, :cond_c
 
-    .line 168
+    .line 143
     new-instance v4, Lorg/json/JSONObject;
 
     const-string v5, "info"
@@ -354,24 +354,24 @@
 
     invoke-direct {v4, v5}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    .line 169
+    .line 144
     const-string v5, "color"
 
     invoke-virtual {v4, v5}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v5
 
-    .line 170
+    .line 145
     const-string v6, "mode"
 
     invoke-virtual {v4, v6}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v6
 
-    .line 171
+    .line 146
     if-nez v6, :cond_7c
 
-    .line 172
+    .line 147
     :cond_7c
     const-string v6, "dm_type"
 
@@ -379,33 +379,33 @@
 
     move-result v9
 
-    .line 173
+    .line 148
     const-string v6, "font_size"
 
     invoke-virtual {v4, v6}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v10
 
-    .line 174
+    .line 149
     const-string v6, "emots"
 
     invoke-virtual {v4, v6}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v11
 
-    .line 175
+    .line 150
     const-string v6, "content"
 
     invoke-virtual {v4, v6}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v12
 
-    .line 179
+    .line 152
     new-instance v13, Ltv/danmaku/videoplayer/core/danmaku/comment/DrawableItem;
 
     invoke-direct {v13}, Ltv/danmaku/videoplayer/core/danmaku/comment/DrawableItem;-><init>()V
 
-    .line 180
+    .line 153
     new-instance v14, Landroid/text/SpannableStringBuilder;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -428,7 +428,7 @@
 
     invoke-direct {v14, v4}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
 
-    .line 181
+    .line 154
     new-instance v4, Landroid/text/style/AbsoluteSizeSpan;
 
     int-to-float v6, v10
@@ -459,7 +459,7 @@
 
     invoke-virtual {v14, v4, v6, v15, v0}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
 
-    .line 182
+    .line 155
     new-instance v4, Lmybl/StrokedSpan;
 
     sget v6, Lmybl/DanmakuClient;->mAlpha:I
@@ -486,15 +486,15 @@
 
     invoke-virtual {v14, v4, v5, v6, v15}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
 
-    .line 183
+    .line 156
     if-eqz v11, :cond_190
 
-    .line 184
+    .line 157
     invoke-virtual {v11}, Lorg/json/JSONObject;->keys()Ljava/util/Iterator;
 
     move-result-object v15
 
-    .line 185
+    .line 158
     :cond_ec
     invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
@@ -502,14 +502,14 @@
 
     if-eqz v4, :cond_190
 
-    .line 186
+    .line 159
     invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Ljava/lang/String;
 
-    .line 187
+    .line 160
     invoke-virtual {v11, v4}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v5
@@ -520,7 +520,7 @@
 
     move-result v16
 
-    .line 188
+    .line 161
     new-instance v5, Ljava/net/URL;
 
     invoke-virtual {v11, v4}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
@@ -545,7 +545,7 @@
 
     move-result-object v5
 
-    .line 189
+    .line 162
     int-to-float v6, v10
 
     sget v17, Lmybl/DanmakuClient;->baseScreenScale:F
@@ -572,7 +572,7 @@
 
     div-float v6, v6, v17
 
-    .line 190
+    .line 163
     invoke-virtual {v5}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v17
@@ -615,10 +615,10 @@
 
     move-result-object v17
 
-    .line 191
+    .line 164
     const/4 v6, 0x0
 
-    .line 192
+    .line 165
     const/4 v5, 0x0
 
     :goto_15b
@@ -626,7 +626,7 @@
 
     if-ge v5, v0, :cond_ec
 
-    .line 193
+    .line 166
     new-instance v18, Landroid/text/style/ImageSpan;
 
     move-object/from16 v0, v18
@@ -661,7 +661,7 @@
 
     invoke-virtual {v14, v0, v1, v2, v3}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
 
-    .line 194
+    .line 167
     invoke-virtual {v12, v4, v6}, Ljava/lang/String;->indexOf(Ljava/lang/String;I)I
 
     move-result v6
@@ -672,18 +672,18 @@
 
     add-int v6, v6, v18
 
-    .line 192
+    .line 165
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_15b
 
-    .line 198
+    .line 171
     :cond_190
     const/4 v4, 0x1
 
     if-ne v9, v4, :cond_1ec
 
-    .line 199
+    .line 172
     new-instance v4, Ljava/net/URL;
 
     const-string v5, "info"
@@ -720,7 +720,7 @@
 
     move-result-object v4
 
-    .line 200
+    .line 173
     const/high16 v5, 0x3fc00000    # 1.5f
 
     int-to-float v6, v10
@@ -747,7 +747,7 @@
 
     div-float/2addr v5, v6
 
-    .line 201
+    .line 174
     invoke-virtual {v4}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v6
@@ -774,7 +774,7 @@
 
     move-result-object v4
 
-    .line 202
+    .line 175
     new-instance v5, Landroid/text/style/ImageSpan;
 
     invoke-direct {v5, v4}, Landroid/text/style/ImageSpan;-><init>(Landroid/graphics/Bitmap;)V
@@ -789,16 +789,16 @@
 
     invoke-virtual {v14, v5, v4, v6, v8}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
 
-    .line 204
+    .line 177
     :cond_1ec
     iput-object v14, v13, Ltv/danmaku/videoplayer/core/danmaku/comment/DrawableItem;->mSpannableString:Landroid/text/SpannableStringBuilder;
 
-    .line 205
+    .line 178
     sget-object v4, Lmybl/DanmakuClient;->player:Ltv/danmaku/videoplayer/core/danmaku/IDanmakuPlayer;
 
     invoke-interface {v4, v13}, Ltv/danmaku/videoplayer/core/danmaku/IDanmakuPlayer;->onDanmakuAppended(Ltv/danmaku/videoplayer/core/danmaku/comment/DrawableItem;)V
 
-    .line 206
+    .line 179
     const-wide/16 v4, 0x64
 
     invoke-static {v4, v5}, Ljava/lang/Thread;->sleep(J)V
@@ -807,14 +807,14 @@
 
     goto/16 :goto_c
 
-    .line 210
+    .line 183
     :catch_1fa
     move-exception v4
 
-    .line 211
+    .line 184
     invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 214
+    .line 187
     :cond_1fe
     return-void
 .end method
@@ -825,7 +825,7 @@
     .locals 1
 
     .prologue
-    .line 229
+    .line 202
     iget-object v0, p0, Lmybl/DanmakuClient;->client:Lmybl/DanmakuWebSocketClient;
 
     if-eqz v0, :cond_11
@@ -838,7 +838,7 @@
 
     if-nez v0, :cond_11
 
-    .line 230
+    .line 203
     :try_start_c
     iget-object v0, p0, Lmybl/DanmakuClient;->client:Lmybl/DanmakuWebSocketClient;
 
@@ -846,12 +846,12 @@
     :try_end_11
     .catch Ljava/lang/Exception; {:try_start_c .. :try_end_11} :catch_12
 
-    .line 233
+    .line 206
     :cond_11
     :goto_11
     return-void
 
-    .line 231
+    .line 204
     :catch_12
     move-exception v0
 
@@ -864,7 +864,7 @@
     .locals 4
 
     .prologue
-    .line 119
+    .line 94
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -907,7 +907,7 @@
 
     move-result-object v0
 
-    .line 123
+    .line 98
     :try_start_2b
     new-instance v1, Lmybl/DanmakuWebSocketClient;
 
@@ -919,22 +919,22 @@
 
     iput-object v1, p0, Lmybl/DanmakuClient;->client:Lmybl/DanmakuWebSocketClient;
 
-    .line 124
+    .line 99
     iget-object v1, p0, Lmybl/DanmakuClient;->client:Lmybl/DanmakuWebSocketClient;
 
     invoke-virtual {v1}, Lmybl/DanmakuWebSocketClient;->connectBlocking()Z
 
-    .line 125
+    .line 100
     new-instance v1, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v1}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 126
+    .line 101
     new-instance v2, Ljava/io/DataOutputStream;
 
     invoke-direct {v2, v1}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    .line 127
+    .line 102
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v3
@@ -943,34 +943,34 @@
 
     invoke-virtual {v2, v3}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 128
+    .line 103
     const/16 v3, 0x10
 
     invoke-virtual {v2, v3}, Ljava/io/DataOutputStream;->writeShort(I)V
 
-    .line 129
+    .line 104
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Ljava/io/DataOutputStream;->writeShort(I)V
 
-    .line 130
+    .line 105
     const/4 v3, 0x7
 
     invoke-virtual {v2, v3}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 131
+    .line 106
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 132
+    .line 107
     invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v0
 
     invoke-virtual {v2, v0}, Ljava/io/DataOutputStream;->write([B)V
 
-    .line 133
+    .line 108
     iget-object v0, p0, Lmybl/DanmakuClient;->client:Lmybl/DanmakuWebSocketClient;
 
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
@@ -979,7 +979,7 @@
 
     invoke-virtual {v0, v1}, Lmybl/DanmakuWebSocketClient;->send([B)V
 
-    .line 134
+    .line 109
     :goto_70
     iget-object v0, p0, Lmybl/DanmakuClient;->client:Lmybl/DanmakuWebSocketClient;
 
@@ -989,47 +989,47 @@
 
     if-nez v0, :cond_ab
 
-    .line 135
+    .line 110
     const-wide/16 v0, 0x4e20
 
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
 
-    .line 136
+    .line 111
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 137
+    .line 112
     new-instance v1, Ljava/io/DataOutputStream;
 
     invoke-direct {v1, v0}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    .line 138
+    .line 113
     const/16 v2, 0x10
 
     invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 139
+    .line 114
     const/16 v2, 0x10
 
     invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeShort(I)V
 
-    .line 140
+    .line 115
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeShort(I)V
 
-    .line 141
+    .line 116
     const/4 v2, 0x2
 
     invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 142
+    .line 117
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 143
+    .line 118
     iget-object v1, p0, Lmybl/DanmakuClient;->client:Lmybl/DanmakuWebSocketClient;
 
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
@@ -1042,14 +1042,14 @@
 
     goto :goto_70
 
-    .line 145
+    .line 120
     :catch_a7
     move-exception v0
 
-    .line 146
+    .line 121
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 148
+    .line 123
     :cond_ab
     return-void
 .end method

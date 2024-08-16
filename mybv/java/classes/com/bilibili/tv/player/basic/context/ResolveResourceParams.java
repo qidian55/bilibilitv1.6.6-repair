@@ -9,6 +9,15 @@ import com.bilibili.lib.media.resolver.params.ResolveResourceExtra;
 import java.io.Serializable;
 import tv.danmaku.android.log.BLog;
 
+import bl.pz;
+import bl.qa;
+import bl.qb;
+import bl.qe;
+import bl.mg;
+import org.json.*;
+import java.util.concurrent.*;
+import com.bilibili.tv.MainApplication;
+
 /* compiled from: BL */
 @Keep
 /* loaded from: classes.dex */
@@ -62,6 +71,46 @@ public class ResolveResourceParams implements Parcelable, Serializable {
     public String mWeb;
 
     public int mProgress;
+
+    public JSONObject subtitle_info;
+    public JSONObject subtitle_data;
+
+    public static class JsonResponse extends qe {
+        public JSONObject e() {
+            JSONObject optJSONObject;
+            try {
+                if (a() && (optJSONObject = new JSONObject(new String(this.b))) != null) {
+                    return optJSONObject;
+                }
+                return null;
+            } catch (Exception e) {
+                return null;
+            }
+        }
+    }
+
+    public void initPlayInfo() {
+        if(this.subtitle_info != null)return;
+        try{
+            ExecutorService threadPool  = Executors.newSingleThreadExecutor();
+            this.subtitle_info = threadPool.submit(new Callable<JSONObject>() {
+                @Override
+                public JSONObject call() {
+                    return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https://api.bilibili.com/x/player/v2").a(true).a("Cookie","SESSDATA="+mg.a(MainApplication.a()).getSESSDATA()).b("aid", String.valueOf(ResolveResourceParams.this.mAvid)).b("cid", String.valueOf(ResolveResourceParams.this.mCid)).a(new qb()).a(), "GET")).e();
+                }
+            }).get().optJSONObject("data").optJSONObject("subtitle");
+            if(this.subtitle_info.optBoolean("allow_submit")){
+                this.subtitle_data = threadPool.submit(new Callable<JSONObject>() {
+                    @Override
+                    public JSONObject call() {
+                        return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https:"+ResolveResourceParams.this.subtitle_info.optJSONArray("subtitles").optJSONObject(0).optString("subtitle_url")).a(true).a(new qb()).a(), "GET")).e();
+                    }
+                }).get();
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 
     /* compiled from: BL */
     /* loaded from: classes.dex */

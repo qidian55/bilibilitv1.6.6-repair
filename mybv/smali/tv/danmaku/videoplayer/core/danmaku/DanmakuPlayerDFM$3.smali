@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 357
+    .line 412
     iput-object p1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$3;->this$0:Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;
 
     invoke-direct {p0}, Lbl/bfh;-><init>()V
@@ -37,7 +37,7 @@
     .locals 1
 
     .prologue
-    .line 374
+    .line 429
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$3;->this$0:Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;
 
     # getter for: Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;->mAnimationTicker:Ltv/danmaku/videoplayer/core/danmaku/DanmakuAnimationTicker;
@@ -45,7 +45,7 @@
 
     move-result-object v0
 
-    .line 375
+    .line 430
     if-eqz v0, :cond_e
 
     invoke-interface {v0}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuAnimationTicker;->isPaused()Z
@@ -70,7 +70,7 @@
     .locals 2
 
     .prologue
-    .line 365
+    .line 420
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$3;->this$0:Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;
 
     # getter for: Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;->mAnimationTicker:Ltv/danmaku/videoplayer/core/danmaku/DanmakuAnimationTicker;
@@ -78,15 +78,15 @@
 
     move-result-object v0
 
-    .line 366
+    .line 421
     if-eqz v0, :cond_d
 
-    .line 367
+    .line 422
     invoke-interface {v0}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuAnimationTicker;->currentOffsetTickMillis()J
 
     move-result-wide v0
 
-    .line 369
+    .line 424
     :goto_c
     return-wide v0
 
@@ -100,7 +100,7 @@
     .locals 1
 
     .prologue
-    .line 360
+    .line 415
     const/4 v0, 0x1
 
     return v0

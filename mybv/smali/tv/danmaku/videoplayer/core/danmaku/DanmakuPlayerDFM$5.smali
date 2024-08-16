@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 470
+    .line 528
     iput-object p1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$5;->this$0:Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .locals 2
 
     .prologue
-    .line 473
+    .line 531
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$5;->this$0:Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;
 
     iget-object v1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM$5;->this$0:Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;
@@ -52,6 +52,6 @@
 
     invoke-virtual {v0, v1}, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;->paddngBottom(I)V
 
-    .line 474
+    .line 532
     return-void
 .end method

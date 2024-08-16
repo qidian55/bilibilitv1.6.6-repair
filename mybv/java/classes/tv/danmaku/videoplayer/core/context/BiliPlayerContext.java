@@ -56,7 +56,7 @@ public class BiliPlayerContext implements IPlayerContext {
             return z;
         }
     };
-    private DanmakuPlayerContext mDanmakuPlayerContext;
+    public DanmakuPlayerContext mDanmakuPlayerContext;
     private MediaPlayerContext mMediaPlayerContext;
     private ArrayList<IPlayerContext.PlayerEventListener> mPlayerEventListeners;
     private boolean mWillAttachToService;

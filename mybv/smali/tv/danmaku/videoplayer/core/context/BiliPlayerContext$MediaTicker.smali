@@ -79,7 +79,7 @@
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$MediaTicker;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
     # getter for: Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mMediaPlayerContext:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
-    invoke-static {v0}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$200(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
+    invoke-static {v0}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$100(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
 
     move-result-object v0
 
@@ -89,7 +89,7 @@
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext$MediaTicker;->this$0:Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;
 
     # getter for: Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->mMediaPlayerContext:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
-    invoke-static {v0}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$200(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
+    invoke-static {v0}, Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;->access$100(Ltv/danmaku/videoplayer/core/context/BiliPlayerContext;)Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
 
     move-result-object v0
 

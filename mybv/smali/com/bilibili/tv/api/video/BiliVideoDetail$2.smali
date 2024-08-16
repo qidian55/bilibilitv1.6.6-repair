@@ -70,7 +70,7 @@
     .line 133
     new-instance v0, Lbl/qa$a;
 
-    const-class v1, Lcom/bilibili/tv/api/video/BiliVideoDetail$DetailResponse;
+    const-class v1, Lcom/bilibili/tv/api/video/BiliVideoDetail$JsonResponse;
 
     invoke-direct {v0, v1}, Lbl/qa$a;-><init>(Ljava/lang/Class;)V
 
@@ -118,9 +118,9 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$DetailResponse;
+    check-cast v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$JsonResponse;
 
-    invoke-virtual {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$DetailResponse;->e()Lorg/json/JSONObject;
+    invoke-virtual {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$JsonResponse;->e()Lorg/json/JSONObject;
 
     move-result-object v0
 

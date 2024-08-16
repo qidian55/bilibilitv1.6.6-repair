@@ -1,6 +1,6 @@
-.class Lmybl/StrokedSpan;
+.class public Lmybl/StrokedSpan;
 .super Landroid/text/style/ReplacementSpan;
-.source "DanmakuClient.java"
+.source "StrokedSpan.java"
 
 
 # instance fields
@@ -16,19 +16,19 @@
     .locals 0
 
     .prologue
-    .line 56
+    .line 9
     invoke-direct {p0}, Landroid/text/style/ReplacementSpan;-><init>()V
 
-    .line 57
+    .line 10
     iput p1, p0, Lmybl/StrokedSpan;->mAlpha:I
 
-    .line 58
+    .line 11
     iput p2, p0, Lmybl/StrokedSpan;->mForegroundColor:I
 
-    .line 59
+    .line 12
     iput p3, p0, Lmybl/StrokedSpan;->mBackgroundColor:I
 
-    .line 60
+    .line 13
     return-void
 .end method
 
@@ -38,14 +38,14 @@
     .locals 8
 
     .prologue
-    .line 69
+    .line 22
     sget-object v1, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
 
     move-object/from16 v0, p9
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    .line 70
+    .line 23
     iget v1, p0, Lmybl/StrokedSpan;->mBackgroundColor:I
 
     const v2, 0xffffff
@@ -62,7 +62,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 71
+    .line 24
     int-to-float v6, p7
 
     move-object v1, p1
@@ -79,14 +79,14 @@
 
     invoke-virtual/range {v1 .. v7}, Landroid/graphics/Canvas;->drawText(Ljava/lang/CharSequence;IIFFLandroid/graphics/Paint;)V
 
-    .line 72
+    .line 25
     sget-object v1, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     move-object/from16 v0, p9
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    .line 73
+    .line 26
     iget v1, p0, Lmybl/StrokedSpan;->mForegroundColor:I
 
     const v2, 0xffffff
@@ -103,7 +103,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 74
+    .line 27
     int-to-float v6, p7
 
     move-object v1, p1
@@ -120,7 +120,7 @@
 
     invoke-virtual/range {v1 .. v7}, Landroid/graphics/Canvas;->drawText(Ljava/lang/CharSequence;IIFFLandroid/graphics/Paint;)V
 
-    .line 75
+    .line 28
     return-void
 .end method
 
@@ -128,7 +128,7 @@
     .locals 1
 
     .prologue
-    .line 64
+    .line 17
     invoke-virtual {p1, p2, p3, p4}, Landroid/graphics/Paint;->measureText(Ljava/lang/CharSequence;II)F
 
     move-result v0

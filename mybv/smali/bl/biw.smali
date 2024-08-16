@@ -1,6 +1,6 @@
 .class public final Lbl/biw;
 .super Ljava/lang/Object;
-.source "BL"
+.source "biw.java"
 
 
 # static fields
@@ -11,9 +11,10 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 10
     const-string v0, " +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)"
 
-    .line 44
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v0
@@ -23,54 +24,63 @@
     return-void
 .end method
 
+.method public constructor <init>()V
+    .locals 0
+
+    .prologue
+    .line 9
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
 .method public static a(Ljava/lang/String;I)I
     .locals 2
 
-    .line 249
+    .prologue
+    .line 59
     :goto_0
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-ge p1, v0, :cond_1
+    if-ge p1, v0, :cond_15
 
-    .line 250
     invoke-virtual {p0, p1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
     const/16 v1, 0x20
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_12
 
     const/16 v1, 0x9
 
-    if-eq v0, v1, :cond_0
+    if-ne v0, v1, :cond_15
 
-    goto :goto_1
-
-    :cond_0
+    .line 60
+    :cond_12
     add-int/lit8 p1, p1, 0x1
 
     goto :goto_0
 
-    :cond_1
-    :goto_1
+    .line 62
+    :cond_15
     return p1
 .end method
 
 .method public static a(Ljava/lang/String;ILjava/lang/String;)I
     .locals 2
 
-    .line 236
+    .prologue
+    .line 51
     :goto_0
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-ge p1, v0, :cond_1
+    if-ge p1, v0, :cond_14
 
-    .line 237
     invoke-virtual {p0, p1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
@@ -81,31 +91,30 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
-    goto :goto_1
-
-    :cond_0
+    .line 52
     add-int/lit8 p1, p1, 0x1
 
     goto :goto_0
 
-    :cond_1
-    :goto_1
+    .line 54
+    :cond_14
     return p1
 .end method
 
 .method public static a(Lbl/bhr;)J
     .locals 2
 
+    .prologue
+    .line 17
     const-string v0, "Content-Length"
 
-    .line 54
     invoke-virtual {p0, v0}, Lbl/bhr;->a(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lbl/biw;->a(Ljava/lang/String;)J
+    invoke-static {v0}, Lbl/biw;->a(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -115,12 +124,13 @@
 .method public static a(Lbl/bhz;)J
     .locals 2
 
-    .line 50
+    .prologue
+    .line 13
     invoke-virtual {p0}, Lbl/bhz;->g()Lbl/bhr;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lbl/biw;->a(Lbl/bhr;)J
+    invoke-static {v0}, Lbl/biw;->a(Lbl/bhr;)J
 
     move-result-wide v0
 
@@ -128,186 +138,197 @@
 .end method
 
 .method private static a(Ljava/lang/String;)J
-    .locals 4
+    .locals 3
 
+    .prologue
     const-wide/16 v0, -0x1
 
-    if-nez p0, :cond_0
+    .line 21
+    if-nez p0, :cond_5
 
+    .line 27
+    :goto_4
     return-wide v0
 
-    .line 60
-    :cond_0
-    :try_start_0
+    .line 25
+    :cond_5
+    :try_start_5
     invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    :try_end_8
+    .catch Ljava/lang/NumberFormatException; {:try_start_5 .. :try_end_8} :catch_a
 
-    move-result-wide v2
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-wide v0
 
-    return-wide v2
+    goto :goto_4
 
-    :catch_0
-    return-wide v0
+    .line 26
+    :catch_a
+    move-exception v2
+
+    goto :goto_4
 .end method
 
 .method public static a(Lbl/bhl;Lokhttp3/HttpUrl;Lbl/bhr;)V
     .locals 1
 
-    .line 199
+    .prologue
+    .line 32
     sget-object v0, Lbl/bhl;->a:Lbl/bhl;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_5
 
+    .line 40
+    :cond_4
+    :goto_4
     return-void
 
-    .line 201
-    :cond_0
+    .line 35
+    :cond_5
     invoke-static {p1, p2}, Lbl/bhk;->a(Lokhttp3/HttpUrl;Lbl/bhr;)Ljava/util/List;
 
-    move-result-object p2
+    move-result-object v0
 
-    .line 202
-    invoke-interface {p2}, Ljava/util/List;->isEmpty()Z
+    .line 36
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4
 
-    return-void
-
-    .line 204
-    :cond_1
-    invoke-interface {p0, p1, p2}, Lbl/bhl;->a(Lokhttp3/HttpUrl;Ljava/util/List;)V
-
-    return-void
+    goto :goto_4
 .end method
 
 .method public static b(Ljava/lang/String;I)I
-    .locals 3
+    .locals 4
 
-    .line 264
+    .prologue
+    .line 67
     :try_start_0
     invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    :try_end_3
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_3} :catch_19
 
     move-result-wide v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const-wide/32 p0, 0x7fffffff
+    .line 68
+    const-wide/32 v2, 0x7fffffff
 
-    cmp-long v2, v0, p0
+    cmp-long v2, v0, v2
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_f
 
-    const p0, 0x7fffffff
+    .line 69
+    const p1, 0x7fffffff
 
-    return p0
-
-    :cond_0
-    const-wide/16 p0, 0x0
-
-    cmp-long v2, v0, p0
-
-    if-gez v2, :cond_1
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_1
-    long-to-int p0, v0
-
-    return p0
-
-    :catch_0
+    .line 76
+    :goto_e
     return p1
+
+    .line 71
+    :cond_f
+    const-wide/16 v2, 0x0
+
+    cmp-long v2, v0, v2
+
+    if-gez v2, :cond_17
+
+    .line 72
+    const/4 p1, 0x0
+
+    goto :goto_e
+
+    .line 74
+    :cond_17
+    long-to-int p1, v0
+
+    goto :goto_e
+
+    .line 75
+    :catch_19
+    move-exception v0
+
+    goto :goto_e
 .end method
 
 .method public static b(Lbl/bhz;)Z
-    .locals 8
+    .locals 6
 
-    .line 210
+    .prologue
+    const/4 v0, 0x0
+
+    .line 43
     invoke-virtual {p0}, Lbl/bhz;->a()Lbl/bhx;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Lbl/bhx;->b()Ljava/lang/String;
+    invoke-virtual {v1}, Lbl/bhx;->b()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v1, "HEAD"
+    const-string v2, "HEAD"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
+    if-eqz v1, :cond_12
 
-    if-eqz v0, :cond_0
+    .line 47
+    :cond_11
+    :goto_11
+    return v0
 
-    return v1
-
-    .line 214
-    :cond_0
+    .line 46
+    :cond_12
     invoke-virtual {p0}, Lbl/bhz;->c()I
 
-    move-result v0
+    move-result v1
 
+    .line 47
     const/16 v2, 0x64
 
-    const/4 v3, 0x1
-
-    if-lt v0, v2, :cond_1
+    if-lt v1, v2, :cond_1e
 
     const/16 v2, 0xc8
 
-    if-lt v0, v2, :cond_2
+    if-lt v1, v2, :cond_26
 
-    :cond_1
+    :cond_1e
     const/16 v2, 0xcc
 
-    if-eq v0, v2, :cond_2
+    if-eq v1, v2, :cond_26
 
     const/16 v2, 0x130
 
-    if-eq v0, v2, :cond_2
+    if-ne v1, v2, :cond_3e
 
-    return v3
-
-    .line 223
-    :cond_2
+    :cond_26
     invoke-static {p0}, Lbl/biw;->a(Lbl/bhz;)J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    const-wide/16 v6, -0x1
+    const-wide/16 v4, -0x1
 
-    cmp-long v0, v4, v6
+    cmp-long v1, v2, v4
 
-    if-nez v0, :cond_4
+    if-nez v1, :cond_3e
 
-    const-string v0, "chunked"
+    const-string v1, "chunked"
 
     const-string v2, "Transfer-Encoding"
 
-    .line 224
     invoke-virtual {p0, v2}, Lbl/bhz;->a(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v2
 
-    invoke-virtual {v0, p0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result p0
+    move-result v1
 
-    if-eqz p0, :cond_3
+    if-eqz v1, :cond_11
 
-    goto :goto_0
+    :cond_3e
+    const/4 v0, 0x1
 
-    :cond_3
-    return v1
-
-    :cond_4
-    :goto_0
-    return v3
+    goto :goto_11
 .end method

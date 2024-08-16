@@ -17,7 +17,7 @@ import tv.danmaku.videoplayer.core.danmaku.comment.DrawableItem;
 public class DanmakuPlayerContext {
     private DanmakuAnimationTicker mDanmakuAnimationTicker;
     private IDanmakuParams mDanmakuParams;
-    private IDanmakuPlayer mDanmakuPlayer;
+    public IDanmakuPlayer mDanmakuPlayer;
 
     public DanmakuPlayerContext(IDanmakuParams iDanmakuParams, DanmakuAnimationTicker danmakuAnimationTicker) {
         this.mDanmakuParams = iDanmakuParams;

@@ -15,6 +15,10 @@ import tv.danmaku.videoplayer.core.context.IPlayerContext;
 import tv.danmaku.videoplayer.core.danmaku.DanmakuPlayerInfo;
 import tv.danmaku.videoplayer.core.danmaku.IDanmakuPlayer;
 import tv.danmaku.videoplayer.core.danmaku.comment.CommentItem;
+import tv.danmaku.videoplayer.core.danmaku.comment.DrawableItem;
+
+import tv.danmaku.videoplayer.core.context.BiliPlayerContext;
+import tv.danmaku.videoplayer.core.danmaku.DanmakuPlayerDFM;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -60,6 +64,19 @@ public class xk extends xh implements bbb<Message, Boolean> {
         this.e = p().getResources().getDisplayMetrics().widthPixels;
     }
 
+
+    public void initSubtitle() {
+        PlayerParams b = b();
+        b.mVideoParams.obtainResolveParams().initPlayInfo();
+        BiliPlayerContext bc = (BiliPlayerContext) this.c;
+        DanmakuPlayerDFM dp = (DanmakuPlayerDFM) bc.mDanmakuPlayerContext.mDanmakuPlayer;
+        dp.subtitle_data = b.mVideoParams.obtainResolveParams().subtitle_data;
+        //CommentItem commentItem = yl.a(1, "test0", x(), 24, 0xffffff);
+        //b.mDanmakuParams.optDanmakuDocument().appendDanmaku(new DrawableItem());
+        //this.c.onDanmakuAppended(new DrawableItem());
+    }
+
+
     @Override // bl.xh
     public void g() {
         if (this.b == null) {
@@ -78,6 +95,7 @@ public class xk extends xh implements bbb<Message, Boolean> {
                 Q();
             }
         }
+
     }
 
     @Override // bl.xh
@@ -173,6 +191,7 @@ public class xk extends xh implements bbb<Message, Boolean> {
             this.c.hideDanmaku();
         }
         this.i = true;
+initSubtitle();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
