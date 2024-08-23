@@ -1432,7 +1432,8 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             a((List<? extends BiliVideoDetail.Tag>) biliVideoDetail.mTags);
             d(biliVideoDetail);
             showEpisodes(biliVideoDetail);
-            if(biliVideoDetail.episodes == null)c(biliVideoDetail);
+            //if(biliVideoDetail.episodes == null)
+            c(biliVideoDetail);
             VideoDetailActivity.this.a((Activity) VideoDetailActivity.this, biliVideoDetail);
             abi.a.a("tv_detail_view2_resp", abi.a.a(String.valueOf(VideoDetailActivity.this.s), String.valueOf(mg.a(VideoDetailActivity.this).d()), "success", "0"));
         }

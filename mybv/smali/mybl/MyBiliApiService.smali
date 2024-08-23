@@ -53,6 +53,24 @@
     .end annotation
 .end method
 
+.method public abstract getDanmuFilter()Lbl/vp;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/x/dm/filter/user"
+    .end annotation
+.end method
+
 .method public abstract getFollowings(Ljava/lang/String;JLjava/lang/String;II)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;

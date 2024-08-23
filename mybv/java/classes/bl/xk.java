@@ -71,9 +71,6 @@ public class xk extends xh implements bbb<Message, Boolean> {
         BiliPlayerContext bc = (BiliPlayerContext) this.c;
         DanmakuPlayerDFM dp = (DanmakuPlayerDFM) bc.mDanmakuPlayerContext.mDanmakuPlayer;
         dp.subtitle_data = b.mVideoParams.obtainResolveParams().subtitle_data;
-        //CommentItem commentItem = yl.a(1, "test0", x(), 24, 0xffffff);
-        //b.mDanmakuParams.optDanmakuDocument().appendDanmaku(new DrawableItem());
-        //this.c.onDanmakuAppended(new DrawableItem());
     }
 
 

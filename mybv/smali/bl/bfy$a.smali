@@ -1,6 +1,6 @@
 .class public Lbl/bfy$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "bfy.java"
 
 
 # annotations
@@ -29,6 +29,8 @@
 
 .field public f:Z
 
+.field private f33u:Z
+
 .field public g:Z
 
 .field public h:Z
@@ -42,7 +44,8 @@
 .field private final l:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/Float;",
             "Ljava/lang/Float;",
             ">;"
@@ -66,8 +69,6 @@
 
 .field private t:Z
 
-.field private u:Z
-
 .field private v:Z
 
 .field private w:I
@@ -81,12 +82,21 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 5
+    .locals 6
 
-    .line 108
+    .prologue
+    const/4 v5, 0x1
+
+    const/high16 v4, 0x40800000    # 4.0f
+
+    const/high16 v3, 0x3f800000    # 1.0f
+
+    const/4 v2, 0x0
+
+    .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 41
+    .line 44
     new-instance v0, Ljava/util/HashMap;
 
     const/16 v1, 0xa
@@ -95,183 +105,165 @@
 
     iput-object v0, p0, Lbl/bfy$a;->l:Ljava/util/Map;
 
+    .line 45
     const/4 v0, 0x4
 
-    .line 54
     iput v0, p0, Lbl/bfy$a;->c:I
 
-    const/high16 v0, 0x40800000    # 4.0f
+    .line 46
+    iput v4, p0, Lbl/bfy$a;->p:F
 
-    .line 64
-    iput v0, p0, Lbl/bfy$a;->p:F
+    .line 47
+    const/high16 v0, 0x40600000    # 3.5f
 
-    const/high16 v1, 0x40600000    # 3.5f
+    iput v0, p0, Lbl/bfy$a;->q:F
 
-    .line 69
-    iput v1, p0, Lbl/bfy$a;->q:F
+    .line 48
+    iput v3, p0, Lbl/bfy$a;->d:F
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    .line 49
+    iput v3, p0, Lbl/bfy$a;->e:F
 
-    .line 74
-    iput v1, p0, Lbl/bfy$a;->d:F
+    .line 50
+    const/16 v0, 0xcc
 
-    .line 75
-    iput v1, p0, Lbl/bfy$a;->e:F
+    iput v0, p0, Lbl/bfy$a;->r:I
 
-    const/16 v2, 0xcc
-
-    .line 76
-    iput v2, p0, Lbl/bfy$a;->r:I
-
-    const/4 v2, 0x0
-
-    .line 81
+    .line 51
     iput-boolean v2, p0, Lbl/bfy$a;->f:Z
 
-    .line 82
-    iget-boolean v3, p0, Lbl/bfy$a;->f:Z
+    .line 52
+    iget-boolean v0, p0, Lbl/bfy$a;->f:Z
 
-    iput-boolean v3, p0, Lbl/bfy$a;->s:Z
+    iput-boolean v0, p0, Lbl/bfy$a;->s:Z
 
-    const/4 v3, 0x1
+    .line 53
+    iput-boolean v5, p0, Lbl/bfy$a;->g:Z
 
-    .line 87
-    iput-boolean v3, p0, Lbl/bfy$a;->g:Z
+    .line 54
+    iget-boolean v0, p0, Lbl/bfy$a;->g:Z
 
-    .line 88
-    iget-boolean v4, p0, Lbl/bfy$a;->g:Z
+    iput-boolean v0, p0, Lbl/bfy$a;->t:Z
 
-    iput-boolean v4, p0, Lbl/bfy$a;->t:Z
-
-    .line 93
+    .line 55
     iput-boolean v2, p0, Lbl/bfy$a;->h:Z
 
-    .line 94
-    iget-boolean v4, p0, Lbl/bfy$a;->h:Z
+    .line 56
+    iget-boolean v0, p0, Lbl/bfy$a;->h:Z
 
-    iput-boolean v4, p0, Lbl/bfy$a;->i:Z
+    iput-boolean v0, p0, Lbl/bfy$a;->i:Z
 
-    .line 99
-    iput-boolean v3, p0, Lbl/bfy$a;->j:Z
+    .line 57
+    iput-boolean v5, p0, Lbl/bfy$a;->j:Z
 
-    .line 100
-    iget-boolean v3, p0, Lbl/bfy$a;->j:Z
+    .line 60
+    iget-boolean v0, p0, Lbl/bfy$a;->j:Z
 
-    iput-boolean v3, p0, Lbl/bfy$a;->u:Z
+    iput-boolean v0, p0, Lbl/bfy$a;->f33u:Z
 
-    .line 102
-    sget v3, Lbl/bfj;->a:I
+    .line 61
+    sget v0, Lbl/bfj;->a:I
 
-    iput v3, p0, Lbl/bfy$a;->w:I
+    iput v0, p0, Lbl/bfy$a;->w:I
 
-    .line 103
-    iput v1, p0, Lbl/bfy$a;->x:F
+    .line 62
+    iput v3, p0, Lbl/bfy$a;->x:F
 
-    .line 104
+    .line 63
     iput-boolean v2, p0, Lbl/bfy$a;->y:Z
 
-    .line 105
+    .line 64
     iput v2, p0, Lbl/bfy$a;->z:I
 
-    .line 106
+    .line 65
     iput v2, p0, Lbl/bfy$a;->A:I
 
-    .line 109
-    new-instance v1, Landroid/text/TextPaint;
+    .line 66
+    new-instance v0, Landroid/text/TextPaint;
 
-    invoke-direct {v1}, Landroid/text/TextPaint;-><init>()V
+    invoke-direct {v0}, Landroid/text/TextPaint;-><init>()V
 
-    iput-object v1, p0, Lbl/bfy$a;->a:Landroid/text/TextPaint;
+    iput-object v0, p0, Lbl/bfy$a;->a:Landroid/text/TextPaint;
 
-    .line 110
+    .line 69
+    iget-object v0, p0, Lbl/bfy$a;->a:Landroid/text/TextPaint;
+
+    iget v1, p0, Lbl/bfy$a;->q:F
+
+    invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setStrokeWidth(F)V
+
+    .line 70
+    new-instance v0, Landroid/text/TextPaint;
+
     iget-object v1, p0, Lbl/bfy$a;->a:Landroid/text/TextPaint;
 
-    iget v2, p0, Lbl/bfy$a;->q:F
+    invoke-direct {v0, v1}, Landroid/text/TextPaint;-><init>(Landroid/graphics/Paint;)V
 
-    invoke-virtual {v1, v2}, Landroid/text/TextPaint;->setStrokeWidth(F)V
+    iput-object v0, p0, Lbl/bfy$a;->b:Landroid/text/TextPaint;
 
-    .line 111
-    new-instance v1, Landroid/text/TextPaint;
+    .line 71
+    new-instance v0, Landroid/graphics/Paint;
 
-    iget-object v2, p0, Lbl/bfy$a;->a:Landroid/text/TextPaint;
+    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
 
-    invoke-direct {v1, v2}, Landroid/text/TextPaint;-><init>(Landroid/graphics/Paint;)V
+    iput-object v0, p0, Lbl/bfy$a;->m:Landroid/graphics/Paint;
 
-    iput-object v1, p0, Lbl/bfy$a;->b:Landroid/text/TextPaint;
+    .line 72
+    new-instance v0, Landroid/graphics/Paint;
 
-    .line 112
-    new-instance v1, Landroid/graphics/Paint;
+    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
 
-    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
+    iput-object v0, p0, Lbl/bfy$a;->n:Landroid/graphics/Paint;
 
-    iput-object v1, p0, Lbl/bfy$a;->m:Landroid/graphics/Paint;
+    .line 73
+    iget-object v0, p0, Lbl/bfy$a;->n:Landroid/graphics/Paint;
 
-    .line 113
-    new-instance v1, Landroid/graphics/Paint;
+    iget v1, p0, Lbl/bfy$a;->c:I
 
-    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
+    int-to-float v1, v1
 
-    iput-object v1, p0, Lbl/bfy$a;->n:Landroid/graphics/Paint;
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    .line 114
-    iget-object v1, p0, Lbl/bfy$a;->n:Landroid/graphics/Paint;
+    .line 74
+    iget-object v0, p0, Lbl/bfy$a;->n:Landroid/graphics/Paint;
 
-    iget v2, p0, Lbl/bfy$a;->c:I
+    sget-object v1, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
-    int-to-float v2, v2
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+    .line 75
+    new-instance v0, Landroid/graphics/Paint;
 
-    .line 115
-    iget-object v1, p0, Lbl/bfy$a;->n:Landroid/graphics/Paint;
+    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
 
-    sget-object v2, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+    iput-object v0, p0, Lbl/bfy$a;->o:Landroid/graphics/Paint;
 
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    .line 76
+    iget-object v0, p0, Lbl/bfy$a;->o:Landroid/graphics/Paint;
 
-    .line 116
-    new-instance v1, Landroid/graphics/Paint;
+    sget-object v1, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
-    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    iput-object v1, p0, Lbl/bfy$a;->o:Landroid/graphics/Paint;
+    .line 77
+    iget-object v0, p0, Lbl/bfy$a;->o:Landroid/graphics/Paint;
 
-    .line 117
-    iget-object v1, p0, Lbl/bfy$a;->o:Landroid/graphics/Paint;
+    invoke-virtual {v0, v4}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    sget-object v2, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    .line 118
-    iget-object v1, p0, Lbl/bfy$a;->o:Landroid/graphics/Paint;
-
-    invoke-virtual {v1, v0}, Landroid/graphics/Paint;->setStrokeWidth(F)V
-
+    .line 78
     return-void
-.end method
-
-.method static synthetic a(Lbl/bfy$a;)I
-    .locals 0
-
-    .line 39
-    iget p0, p0, Lbl/bfy$a;->z:I
-
-    return p0
 .end method
 
 .method private a(Lbl/bfk;Landroid/graphics/Paint;)V
     .locals 3
 
-    .line 157
+    .prologue
+    .line 128
     iget-boolean v0, p0, Lbl/bfy$a;->y:Z
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_3b
 
-    return-void
-
-    .line 160
-    :cond_0
+    .line 129
     iget-object v0, p0, Lbl/bfy$a;->l:Ljava/util/Map;
 
     iget v1, p1, Lbl/bfk;->k:F
@@ -286,512 +278,545 @@
 
     check-cast v0, Ljava/lang/Float;
 
-    if-eqz v0, :cond_1
+    .line 130
+    if-eqz v0, :cond_1c
 
-    .line 161
     iget v1, p0, Lbl/bfy$a;->k:F
 
     iget v2, p0, Lbl/bfy$a;->x:F
 
     cmpl-float v1, v1, v2
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_34
 
-    .line 162
-    :cond_1
+    .line 131
+    :cond_1c
     iget v0, p0, Lbl/bfy$a;->x:F
 
     iput v0, p0, Lbl/bfy$a;->k:F
 
-    .line 163
+    .line 132
     iget v0, p1, Lbl/bfk;->k:F
 
     iget v1, p0, Lbl/bfy$a;->x:F
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v1
 
     invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v0
 
-    .line 164
+    .line 133
     iget-object v1, p0, Lbl/bfy$a;->l:Ljava/util/Map;
 
-    iget p1, p1, Lbl/bfk;->k:F
+    iget v2, p1, Lbl/bfk;->k:F
 
-    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 166
-    :cond_2
+    .line 135
+    :cond_34
     invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
-    move-result p1
+    move-result v0
 
-    invoke-virtual {p2, p1}, Landroid/graphics/Paint;->setTextSize(F)V
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setTextSize(F)V
 
+    .line 137
+    :cond_3b
     return-void
 .end method
 
-.method static synthetic b(Lbl/bfy$a;)I
-    .locals 0
+.method static synthetic access$000(Lbl/bfy$a;)I
+    .locals 1
 
-    .line 39
-    iget p0, p0, Lbl/bfy$a;->A:I
+    .prologue
+    .line 37
+    iget v0, p0, Lbl/bfy$a;->z:I
 
-    return p0
+    return v0
 .end method
 
-.method static synthetic c(Lbl/bfy$a;)Landroid/graphics/Paint;
-    .locals 0
+.method static synthetic access$100(Lbl/bfy$a;)I
+    .locals 1
 
-    .line 39
-    iget-object p0, p0, Lbl/bfy$a;->m:Landroid/graphics/Paint;
+    .prologue
+    .line 37
+    iget v0, p0, Lbl/bfy$a;->A:I
 
-    return-object p0
+    return v0
 .end method
 
-.method static synthetic d(Lbl/bfy$a;)Z
-    .locals 0
+.method static synthetic access$200(Lbl/bfy$a;)Landroid/graphics/Paint;
+    .locals 1
 
-    .line 39
-    iget-boolean p0, p0, Lbl/bfy$a;->t:Z
+    .prologue
+    .line 37
+    iget-object v0, p0, Lbl/bfy$a;->m:Landroid/graphics/Paint;
 
-    return p0
+    return-object v0
+.end method
+
+.method static synthetic access$300(Lbl/bfy$a;)Z
+    .locals 1
+
+    .prologue
+    .line 37
+    iget-boolean v0, p0, Lbl/bfy$a;->t:Z
+
+    return v0
 .end method
 
 
 # virtual methods
 .method public a(Lbl/bfk;Z)Landroid/text/TextPaint;
-    .locals 2
+    .locals 4
 
-    if-eqz p2, :cond_0
+    .prologue
+    const/4 v3, 0x0
 
-    .line 186
-    iget-object p2, p0, Lbl/bfy$a;->a:Landroid/text/TextPaint;
+    .line 155
+    if-eqz p2, :cond_24
 
-    goto :goto_0
-
-    .line 188
-    :cond_0
-    iget-object p2, p0, Lbl/bfy$a;->b:Landroid/text/TextPaint;
-
-    .line 189
+    .line 156
     iget-object v0, p0, Lbl/bfy$a;->a:Landroid/text/TextPaint;
 
-    invoke-virtual {p2, v0}, Landroid/text/TextPaint;->set(Landroid/text/TextPaint;)V
+    .line 161
+    :goto_5
+    iget v1, p1, Lbl/bfk;->k:F
 
-    .line 191
-    :goto_0
-    iget v0, p1, Lbl/bfk;->k:F
+    invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setTextSize(F)V
 
-    invoke-virtual {p2, v0}, Landroid/text/TextPaint;->setTextSize(F)V
+    .line 162
+    invoke-direct {p0, p1, v0}, Lbl/bfy$a;->a(Lbl/bfk;Landroid/graphics/Paint;)V
 
-    .line 192
-    invoke-direct {p0, p1, p2}, Lbl/bfy$a;->a(Lbl/bfk;Landroid/graphics/Paint;)V
+    .line 163
+    iget-boolean v1, p0, Lbl/bfy$a;->s:Z
 
-    .line 195
-    iget-boolean v0, p0, Lbl/bfy$a;->s:Z
+    if-eqz v1, :cond_1b
 
-    if-eqz v0, :cond_2
+    iget v1, p0, Lbl/bfy$a;->p:F
 
-    iget v0, p0, Lbl/bfy$a;->p:F
+    cmpg-float v1, v1, v3
 
-    const/4 v1, 0x0
+    if-lez v1, :cond_1b
 
-    cmpg-float v0, v0, v1
+    iget v1, p1, Lbl/bfk;->i:I
 
-    if-lez v0, :cond_2
+    if-nez v1, :cond_2c
 
-    iget v0, p1, Lbl/bfk;->i:I
+    .line 164
+    :cond_1b
+    invoke-virtual {v0}, Landroid/text/TextPaint;->clearShadowLayer()V
 
-    if-nez v0, :cond_1
+    .line 168
+    :goto_1e
+    iget-boolean v1, p0, Lbl/bfy$a;->f33u:Z
 
-    goto :goto_1
+    invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setAntiAlias(Z)V
 
-    .line 198
-    :cond_1
-    iget v0, p0, Lbl/bfy$a;->p:F
+    .line 169
+    return-object v0
 
-    iget p1, p1, Lbl/bfk;->i:I
+    .line 158
+    :cond_24
+    iget-object v0, p0, Lbl/bfy$a;->b:Landroid/text/TextPaint;
 
-    invoke-virtual {p2, v0, v1, v1, p1}, Landroid/text/TextPaint;->setShadowLayer(FFFI)V
+    .line 159
+    iget-object v1, p0, Lbl/bfy$a;->a:Landroid/text/TextPaint;
 
-    goto :goto_2
+    invoke-virtual {v0, v1}, Landroid/text/TextPaint;->set(Landroid/text/TextPaint;)V
 
-    .line 196
-    :cond_2
-    :goto_1
-    invoke-virtual {p2}, Landroid/text/TextPaint;->clearShadowLayer()V
+    goto :goto_5
 
-    .line 200
-    :goto_2
-    iget-boolean p1, p0, Lbl/bfy$a;->u:Z
+    .line 166
+    :cond_2c
+    iget v1, p0, Lbl/bfy$a;->p:F
 
-    invoke-virtual {p2, p1}, Landroid/text/TextPaint;->setAntiAlias(Z)V
+    iget v2, p1, Lbl/bfk;->i:I
 
-    return-object p2
+    invoke-virtual {v0, v1, v3, v3, v2}, Landroid/text/TextPaint;->setShadowLayer(FFFI)V
+
+    goto :goto_1e
 .end method
 
 .method public a()V
     .locals 1
 
-    .line 238
+    .prologue
+    .line 198
     iget-object v0, p0, Lbl/bfy$a;->l:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
+    .line 199
     return-void
 .end method
 
 .method public a(F)V
     .locals 0
 
-    .line 126
+    .prologue
+    .line 85
     iput p1, p0, Lbl/bfy$a;->p:F
 
+    .line 86
     return-void
 .end method
 
 .method public a(FFI)V
-    .locals 2
+    .locals 3
 
-    .line 135
-    iget v0, p0, Lbl/bfy$a;->d:F
+    .prologue
+    const/16 v1, 0xff
 
-    cmpl-float v0, v0, p1
-
-    if-nez v0, :cond_0
-
-    iget v0, p0, Lbl/bfy$a;->e:F
-
-    cmpl-float v0, v0, p2
-
-    if-nez v0, :cond_0
-
-    iget v0, p0, Lbl/bfy$a;->r:I
-
-    if-eq v0, p3, :cond_5
-
-    :cond_0
     const/high16 v0, 0x3f800000    # 1.0f
 
-    cmpl-float v1, p1, v0
+    .line 94
+    iget v2, p0, Lbl/bfy$a;->d:F
 
-    if-lez v1, :cond_1
+    cmpl-float v2, v2, p1
 
-    goto :goto_0
+    if-nez v2, :cond_15
 
-    :cond_1
-    const/high16 p1, 0x3f800000    # 1.0f
+    iget v2, p0, Lbl/bfy$a;->e:F
 
-    .line 136
-    :goto_0
+    cmpl-float v2, v2, p2
+
+    if-nez v2, :cond_15
+
+    iget v2, p0, Lbl/bfy$a;->r:I
+
+    if-ne v2, p3, :cond_15
+
+    .line 111
+    :goto_14
+    return-void
+
+    .line 97
+    :cond_15
+    cmpg-float v2, p1, v0
+
+    if-gtz v2, :cond_1a
+
+    move p1, v0
+
+    .line 100
+    :cond_1a
     iput p1, p0, Lbl/bfy$a;->d:F
 
-    cmpl-float p1, p2, v0
+    .line 101
+    cmpg-float v2, p2, v0
 
-    if-lez p1, :cond_2
+    if-gtz v2, :cond_2c
 
-    goto :goto_1
+    .line 104
+    :goto_20
+    iput v0, p0, Lbl/bfy$a;->e:F
 
-    :cond_2
-    const/high16 p2, 0x3f800000    # 1.0f
+    .line 105
+    if-gez p3, :cond_28
 
-    .line 137
-    :goto_1
-    iput p2, p0, Lbl/bfy$a;->e:F
-
-    const/16 p1, 0xff
-
-    if-gez p3, :cond_3
-
+    .line 106
     const/4 p3, 0x0
 
-    goto :goto_2
-
-    :cond_3
-    if-le p3, p1, :cond_4
-
-    const/16 p3, 0xff
-
-    .line 138
-    :cond_4
-    :goto_2
+    .line 110
+    :cond_25
+    :goto_25
     iput p3, p0, Lbl/bfy$a;->r:I
 
-    :cond_5
-    return-void
+    goto :goto_14
+
+    .line 107
+    :cond_28
+    if-le p3, v1, :cond_25
+
+    move p3, v1
+
+    .line 108
+    goto :goto_25
+
+    :cond_2c
+    move v0, p2
+
+    goto :goto_20
 .end method
 
 .method public a(I)V
     .locals 1
 
-    .line 147
+    .prologue
+    .line 118
     sget v0, Lbl/bfj;->a:I
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_a
 
     const/4 v0, 0x1
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
+    :goto_5
     iput-boolean v0, p0, Lbl/bfy$a;->v:Z
 
-    .line 148
+    .line 119
     iput p1, p0, Lbl/bfy$a;->w:I
 
+    .line 120
     return-void
+
+    .line 118
+    :cond_a
+    const/4 v0, 0x0
+
+    goto :goto_5
 .end method
 
 .method public a(Landroid/graphics/Typeface;)V
     .locals 1
 
-    .line 122
+    .prologue
+    .line 81
     iget-object v0, p0, Lbl/bfy$a;->a:Landroid/text/TextPaint;
 
     invoke-virtual {v0, p1}, Landroid/text/TextPaint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
+    .line 82
     return-void
 .end method
 
 .method public a(Lbl/bfk;Landroid/graphics/Paint;Z)V
-    .locals 2
+    .locals 3
 
-    .line 206
-    iget-boolean v0, p0, Lbl/bfy$a;->v:Z
-
+    .prologue
     const v1, 0xffffff
 
-    if-eqz v0, :cond_3
+    .line 173
+    iget-boolean v0, p0, Lbl/bfy$a;->v:Z
 
-    if-eqz p3, :cond_2
+    if-eqz v0, :cond_4d
 
-    .line 208
-    iget-boolean p3, p0, Lbl/bfy$a;->i:Z
+    .line 174
+    if-eqz p3, :cond_3c
 
-    if-eqz p3, :cond_0
+    .line 175
+    iget-boolean v0, p0, Lbl/bfy$a;->i:Z
 
-    sget-object p3, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+    if-eqz v0, :cond_36
 
-    goto :goto_0
+    sget-object v0, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
-    :cond_0
-    sget-object p3, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
+    :goto_f
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    :goto_0
-    invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    .line 176
+    iget v0, p1, Lbl/bfk;->i:I
 
-    .line 209
-    iget p3, p1, Lbl/bfk;->i:I
+    and-int/2addr v0, v1
 
-    and-int/2addr p3, v1
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setColor(I)V
 
-    invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setColor(I)V
+    .line 177
+    iget-boolean v0, p0, Lbl/bfy$a;->i:Z
 
-    .line 210
-    iget-boolean p3, p0, Lbl/bfy$a;->i:Z
+    if-eqz v0, :cond_39
 
-    if-eqz p3, :cond_1
+    iget v0, p0, Lbl/bfy$a;->r:I
 
-    iget p3, p0, Lbl/bfy$a;->r:I
+    iget v1, p0, Lbl/bfy$a;->w:I
 
-    int-to-float p3, p3
+    sget v2, Lbl/bfj;->a:I
 
-    iget v0, p0, Lbl/bfy$a;->w:I
+    div-int/2addr v1, v2
 
-    int-to-float v0, v0
+    mul-int/2addr v0, v1
 
-    sget v1, Lbl/bfj;->a:I
+    :goto_24
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    int-to-float v1, v1
-
-    div-float/2addr v0, v1
-
-    mul-float p3, p3, v0
-
-    float-to-int p3, p3
-
-    goto :goto_1
-
-    :cond_1
-    iget p3, p0, Lbl/bfy$a;->w:I
-
-    .line 212
-    :goto_1
-    invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setAlpha(I)V
-
-    goto :goto_4
-
-    .line 214
-    :cond_2
-    sget-object p3, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    .line 215
-    iget p3, p1, Lbl/bfk;->f:I
-
-    and-int/2addr p3, v1
-
-    invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setColor(I)V
-
-    .line 216
-    iget p3, p0, Lbl/bfy$a;->w:I
-
-    invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setAlpha(I)V
-
-    goto :goto_4
-
-    :cond_3
-    if-eqz p3, :cond_6
-
-    .line 220
-    iget-boolean p3, p0, Lbl/bfy$a;->i:Z
-
-    if-eqz p3, :cond_4
-
-    sget-object p3, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
-
-    goto :goto_2
-
-    :cond_4
-    sget-object p3, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
-
-    :goto_2
-    invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    .line 221
-    iget p3, p1, Lbl/bfk;->i:I
-
-    and-int/2addr p3, v1
-
-    invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setColor(I)V
-
-    .line 222
-    iget-boolean p3, p0, Lbl/bfy$a;->i:Z
-
-    if-eqz p3, :cond_5
-
-    iget p3, p0, Lbl/bfy$a;->r:I
-
-    goto :goto_3
-
-    :cond_5
-    sget p3, Lbl/bfj;->a:I
-
-    .line 223
-    :goto_3
-    invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setAlpha(I)V
-
-    goto :goto_4
-
-    .line 225
-    :cond_6
-    sget-object p3, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    .line 226
-    iget p3, p1, Lbl/bfk;->f:I
-
-    and-int/2addr p3, v1
-
-    invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setColor(I)V
-
-    .line 227
-    sget p3, Lbl/bfj;->a:I
-
-    invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setAlpha(I)V
-
-    .line 231
-    :goto_4
+    .line 192
+    :goto_27
     invoke-virtual {p1}, Lbl/bfk;->o()I
 
-    move-result p3
+    move-result v0
 
-    const/4 v0, 0x7
+    const/4 v1, 0x7
 
-    if-ne p3, v0, :cond_7
+    if-ne v0, v1, :cond_35
 
-    .line 232
+    .line 193
     invoke-virtual {p1}, Lbl/bfk;->q()I
 
-    move-result p1
+    move-result v0
 
-    invoke-virtual {p2, p1}, Landroid/graphics/Paint;->setAlpha(I)V
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    :cond_7
+    .line 195
+    :cond_35
     return-void
+
+    .line 175
+    :cond_36
+    sget-object v0, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
+
+    goto :goto_f
+
+    .line 177
+    :cond_39
+    iget v0, p0, Lbl/bfy$a;->w:I
+
+    goto :goto_24
+
+    .line 179
+    :cond_3c
+    sget-object v0, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    .line 180
+    iget v0, p1, Lbl/bfk;->f:I
+
+    and-int/2addr v0, v1
+
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setColor(I)V
+
+    .line 181
+    iget v0, p0, Lbl/bfy$a;->w:I
+
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setAlpha(I)V
+
+    goto :goto_27
+
+    .line 183
+    :cond_4d
+    if-eqz p3, :cond_6e
+
+    .line 184
+    iget-boolean v0, p0, Lbl/bfy$a;->i:Z
+
+    if-eqz v0, :cond_68
+
+    sget-object v0, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+
+    :goto_55
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    .line 185
+    iget v0, p1, Lbl/bfk;->i:I
+
+    and-int/2addr v0, v1
+
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setColor(I)V
+
+    .line 186
+    iget-boolean v0, p0, Lbl/bfy$a;->i:Z
+
+    if-eqz v0, :cond_6b
+
+    iget v0, p0, Lbl/bfy$a;->r:I
+
+    :goto_64
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setAlpha(I)V
+
+    goto :goto_27
+
+    .line 184
+    :cond_68
+    sget-object v0, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
+
+    goto :goto_55
+
+    .line 186
+    :cond_6b
+    sget v0, Lbl/bfj;->a:I
+
+    goto :goto_64
+
+    .line 188
+    :cond_6e
+    sget-object v0, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    .line 189
+    iget v0, p1, Lbl/bfk;->f:I
+
+    and-int/2addr v0, v1
+
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setColor(I)V
+
+    .line 190
+    sget v0, Lbl/bfj;->a:I
+
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setAlpha(I)V
+
+    goto :goto_27
 .end method
 
 .method public a(Z)V
     .locals 1
 
-    .line 143
+    .prologue
+    .line 114
     iget-object v0, p0, Lbl/bfy$a;->a:Landroid/text/TextPaint;
 
     invoke-virtual {v0, p1}, Landroid/text/TextPaint;->setFakeBoldText(Z)V
 
+    .line 115
     return-void
 .end method
 
 .method public a(Lbl/bfk;)Z
     .locals 2
 
-    .line 170
+    .prologue
+    .line 140
     iget-boolean v0, p0, Lbl/bfy$a;->t:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     iget-boolean v0, p0, Lbl/bfy$a;->i:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
-    :cond_0
+    :cond_8
     iget v0, p0, Lbl/bfy$a;->q:F
 
     const/4 v1, 0x0
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_15
 
-    iget p1, p1, Lbl/bfk;->i:I
+    iget v0, p1, Lbl/bfk;->i:I
 
-    if-eqz p1, :cond_1
+    if-eqz v0, :cond_15
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_14
+    return v0
 
-    :cond_1
-    const/4 p1, 0x0
+    :cond_15
+    const/4 v0, 0x0
 
-    :goto_0
-    return p1
+    goto :goto_14
 .end method
 
 .method public b()F
     .locals 2
 
-    .line 242
+    .prologue
+    .line 202
     iget-boolean v0, p0, Lbl/bfy$a;->s:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     iget-boolean v0, p0, Lbl/bfy$a;->t:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    .line 243
+    .line 203
     iget v0, p0, Lbl/bfy$a;->p:F
 
     iget v1, p0, Lbl/bfy$a;->q:F
@@ -800,130 +825,142 @@
 
     move-result v0
 
+    .line 211
+    :goto_10
     return v0
 
-    .line 245
-    :cond_0
+    .line 205
+    :cond_11
     iget-boolean v0, p0, Lbl/bfy$a;->s:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
-    .line 246
+    .line 206
     iget v0, p0, Lbl/bfy$a;->p:F
 
-    return v0
+    goto :goto_10
 
-    .line 248
-    :cond_1
+    .line 208
+    :cond_18
     iget-boolean v0, p0, Lbl/bfy$a;->t:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1f
 
-    .line 249
+    .line 209
     iget v0, p0, Lbl/bfy$a;->q:F
 
-    return v0
+    goto :goto_10
 
-    :cond_2
+    .line 211
+    :cond_1f
     const/4 v0, 0x0
 
-    return v0
+    goto :goto_10
 .end method
 
 .method public b(Lbl/bfk;)Landroid/graphics/Paint;
-    .locals 1
+    .locals 2
 
-    .line 174
+    .prologue
+    .line 144
     iget-object v0, p0, Lbl/bfy$a;->o:Landroid/graphics/Paint;
 
-    iget p1, p1, Lbl/bfk;->l:I
+    iget v1, p1, Lbl/bfk;->l:I
 
-    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 175
-    iget-object p1, p0, Lbl/bfy$a;->o:Landroid/graphics/Paint;
+    .line 145
+    iget-object v0, p0, Lbl/bfy$a;->o:Landroid/graphics/Paint;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public b(F)V
     .locals 1
 
-    .line 130
+    .prologue
+    .line 89
     iget-object v0, p0, Lbl/bfy$a;->a:Landroid/text/TextPaint;
 
     invoke-virtual {v0, p1}, Landroid/text/TextPaint;->setStrokeWidth(F)V
 
-    .line 131
+    .line 90
     iput p1, p0, Lbl/bfy$a;->q:F
 
+    .line 91
     return-void
 .end method
 
 .method public b(Z)V
-    .locals 0
+    .locals 1
 
-    .line 255
-    iget-boolean p1, p0, Lbl/bfy$a;->g:Z
+    .prologue
+    .line 215
+    iget-boolean v0, p0, Lbl/bfy$a;->g:Z
 
-    iput-boolean p1, p0, Lbl/bfy$a;->t:Z
+    iput-boolean v0, p0, Lbl/bfy$a;->t:Z
 
-    .line 256
-    iget-boolean p1, p0, Lbl/bfy$a;->f:Z
+    .line 216
+    iget-boolean v0, p0, Lbl/bfy$a;->f:Z
 
-    iput-boolean p1, p0, Lbl/bfy$a;->s:Z
+    iput-boolean v0, p0, Lbl/bfy$a;->s:Z
 
-    .line 257
-    iget-boolean p1, p0, Lbl/bfy$a;->h:Z
+    .line 217
+    iget-boolean v0, p0, Lbl/bfy$a;->h:Z
 
-    iput-boolean p1, p0, Lbl/bfy$a;->i:Z
+    iput-boolean v0, p0, Lbl/bfy$a;->i:Z
 
-    .line 258
-    iget-boolean p1, p0, Lbl/bfy$a;->j:Z
+    .line 218
+    iget-boolean v0, p0, Lbl/bfy$a;->j:Z
 
-    iput-boolean p1, p0, Lbl/bfy$a;->u:Z
+    iput-boolean v0, p0, Lbl/bfy$a;->f33u:Z
 
+    .line 219
     return-void
 .end method
 
 .method public c(Lbl/bfk;)Landroid/graphics/Paint;
-    .locals 1
+    .locals 2
 
-    .line 179
+    .prologue
+    .line 149
     iget-object v0, p0, Lbl/bfy$a;->n:Landroid/graphics/Paint;
 
-    iget p1, p1, Lbl/bfk;->j:I
+    iget v1, p1, Lbl/bfk;->j:I
 
-    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 180
-    iget-object p1, p0, Lbl/bfy$a;->n:Landroid/graphics/Paint;
+    .line 150
+    iget-object v0, p0, Lbl/bfy$a;->n:Landroid/graphics/Paint;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public c(F)V
     .locals 1
 
+    .prologue
+    .line 123
     const/high16 v0, 0x3f800000    # 1.0f
 
     cmpl-float v0, p1, v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    .line 152
-    :goto_0
+    :goto_7
     iput-boolean v0, p0, Lbl/bfy$a;->y:Z
 
-    .line 153
+    .line 124
     iput p1, p0, Lbl/bfy$a;->x:F
 
+    .line 125
     return-void
+
+    .line 123
+    :cond_c
+    const/4 v0, 0x0
+
+    goto :goto_7
 .end method

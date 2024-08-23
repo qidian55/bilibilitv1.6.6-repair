@@ -38,12 +38,14 @@ import tv.danmaku.videoplayer.core.danmaku.IDanmakuPlayer;
 import tv.danmaku.videoplayer.core.danmaku.comment.CommentItem;
 import tv.danmaku.videoplayer.core.danmaku.comment.DrawableItem;
 
+import bl.abd;
 import org.json.*;
 import android.text.*;
+import android.util.*;
 import mybl.StrokedSpan;
 import android.graphics.*;
 import android.text.style.*;
-
+import com.bilibili.tv.MainApplication;
 
 
 /* compiled from: BL */
@@ -315,6 +317,10 @@ public class DanmakuPlayerDFM implements IDanmakuPlayer {
 
     public void send_subtitle(JSONObject data){
         if(data==null)return;
+        Context c = MainApplication.a().getApplicationContext();
+        DisplayMetrics dm = c.getResources().getDisplayMetrics();
+        float baseScreenScale = dm.heightPixels / 15.0f / 25.0f;
+        float mScale = abd.f(c);
         JSONArray body = data.optJSONArray("body");
         double font_size = data.optDouble("font_size");
         int font_color = Integer.parseInt(data.optString("font_color").substring(1),16);
@@ -322,36 +328,35 @@ public class DanmakuPlayerDFM implements IDanmakuPlayer {
         int background_color = Integer.parseInt(data.optString("background_color").substring(1),16);
         boolean stroked = data.optString("Stroke").equals("none");
 
-        font_color = 0x66ccff;
+        font_color = 0xffffff;
+        background_alpha = 128;
         background_color = 0x000000;
-        stroked = true;
 
         for(int i=0;i<body.length();i++){
             JSONObject item = body.optJSONObject(i);
             long from = (long) (item.optDouble("from") * 1000);
             long to = (long) (item.optDouble("to") * 1000);
             int location = item.optInt("location");
-            String content = item.optString("content").replace("\n","/n");
+            String content = item.optString("content");
 
             DrawableItem drawableItem = new DrawableItem();
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(content+" ");
-            spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int)(font_size*50)), 0, content.length()+1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            //spannableStringBuilder.setSpan(new BackgroundColorSpan(background_color|(background_alpha << 24)), 0, content.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            if(stroked)spannableStringBuilder.setSpan(new StrokedSpan(background_alpha, font_color|0xff000000, Color.BLACK), 0, content.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            else spannableStringBuilder.setSpan(new ForegroundColorSpan(font_color|0xff000000), 0, content.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(content);
+            spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int)(font_size*60*baseScreenScale*mScale)), 0, content.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannableStringBuilder.setSpan(new AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0, content.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannableStringBuilder.setSpan(new BackgroundColorSpan(background_color|(background_alpha << 24)), 0, content.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            //if(stroked)spannableStringBuilder.setSpan(new StrokedSpan(background_alpha, font_color|0xff000000, Color.BLACK), 0, content.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            //else 
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(font_color|0xff000000), 0, content.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             drawableItem.mSpannableString=spannableStringBuilder;
-            //this.onDanmakuAppended(drawableItem);
 
             try{
                 bfk bfkItem = this.mConfig.t.a(4);
                 bfkItem.b = drawableItem.mSpannableString;
                 bfkItem.d(from);
                 bfkItem.q = new bl.bfn(to-from);
+                bfkItem.m = 50;//padding
                 //bfkItem.x = z;
                 bfkItem.n = (byte) 1;
-                //java.lang.reflect.Field mDanmakus = this.mParser.getClass().getDeclaredField("mDanmakus");
-                //mDanmakus.setAccessible(true);
-                //((bl.bgc)mDanmakus.get(this.mParser)).a(bfkItem);
                 this.mDanmakuView.a(bfkItem);
             }catch(Exception e){e.printStackTrace();}
         }

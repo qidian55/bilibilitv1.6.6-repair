@@ -26,13 +26,13 @@
     .locals 0
 
     .prologue
-    .line 271
+    .line 270
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 272
+    .line 271
     iput-object p1, p0, Lbl/adl$b;->a:Landroid/app/Activity;
 
-    .line 273
+    .line 272
     return-void
 .end method
 
@@ -42,15 +42,15 @@
     .locals 3
 
     .prologue
-    .line 277
+    .line 276
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
-    .line 278
+    .line 277
     sget-object v0, Lbl/abn;->a:Lbl/abn;
 
     invoke-virtual {v0}, Lbl/abn;->a()Lbl/jb;
 
-    .line 279
+    .line 278
     sget-object v0, Lcom/bilibili/tv/ui/account/LoginActivity;->Companion:Lcom/bilibili/tv/ui/account/LoginActivity$a;
 
     iget-object v1, p0, Lbl/adl$b;->a:Landroid/app/Activity;
@@ -59,6 +59,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/bilibili/tv/ui/account/LoginActivity$a;->a(Landroid/app/Activity;I)V
 
-    .line 280
+    .line 279
     return-void
 .end method

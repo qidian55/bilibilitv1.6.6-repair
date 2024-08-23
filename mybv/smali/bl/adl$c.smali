@@ -34,16 +34,16 @@
     .locals 0
 
     .prologue
-    .line 455
+    .line 454
     invoke-direct {p0}, Lbl/vn;-><init>()V
 
-    .line 456
+    .line 455
     iput-object p1, p0, Lbl/adl$c;->a:Landroid/content/Context;
 
-    .line 457
+    .line 456
     iput-wide p2, p0, Lbl/adl$c;->b:J
 
-    .line 458
+    .line 457
     return-void
 .end method
 
@@ -55,14 +55,14 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 462
+    .line 461
     if-eqz p1, :cond_2f
 
     iget-object v1, p1, Lcom/bilibili/tv/api/video/VideoJumpPgc;->mBangumiInfo:Lcom/bilibili/tv/api/video/VideoJumpPgc$BangumiInfo;
 
     move-object v2, v1
 
-    .line 463
+    .line 462
     :goto_6
     if-eqz v2, :cond_31
 
@@ -72,13 +72,13 @@
 
     move-result-object v1
 
-    .line 464
+    .line 463
     :goto_e
     if-eqz v2, :cond_12
 
     iget-object v0, v2, Lcom/bilibili/tv/api/video/VideoJumpPgc$BangumiInfo;->mSeasonId:Ljava/lang/String;
 
-    .line 465
+    .line 464
     :cond_12
     if-eqz v1, :cond_33
 
@@ -96,7 +96,7 @@
 
     if-nez v1, :cond_33
 
-    .line 466
+    .line 465
     iget-object v1, p0, Lbl/adl$c;->a:Landroid/content/Context;
 
     sget-object v2, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->Companion:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$a;
@@ -109,23 +109,23 @@
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 470
+    .line 469
     :goto_2e
     return-void
 
     :cond_2f
     move-object v2, v0
 
-    .line 462
+    .line 461
     goto :goto_6
 
     :cond_31
     move-object v1, v0
 
-    .line 463
+    .line 462
     goto :goto_e
 
-    .line 468
+    .line 467
     :cond_33
     iget-object v0, p0, Lbl/adl$c;->a:Landroid/content/Context;
 
@@ -148,7 +148,7 @@
     .locals 0
 
     .prologue
-    .line 451
+    .line 450
     check-cast p1, Lcom/bilibili/tv/api/video/VideoJumpPgc;
 
     invoke-virtual {p0, p1}, Lbl/adl$c;->a(Lcom/bilibili/tv/api/video/VideoJumpPgc;)V
@@ -160,7 +160,7 @@
     .locals 6
 
     .prologue
-    .line 474
+    .line 473
     const-string v0, "ugcJump"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -183,7 +183,7 @@
 
     invoke-static {v0, v1}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 475
+    .line 474
     iget-object v0, p0, Lbl/adl$c;->a:Landroid/content/Context;
 
     sget-object v1, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->Companion:Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;
@@ -198,6 +198,6 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 476
+    .line 475
     return-void
 .end method

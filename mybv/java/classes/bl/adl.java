@@ -93,7 +93,7 @@ public final class adl {
     }
 
     public final int a(String str) {
-        List a2;
+        List a2=null;
         bbi.b(str, "typeTag");
         String str2 = str;
         if (!TextUtils.isEmpty(str2)) {
@@ -107,12 +107,11 @@ public final class adl {
                     }
                 }
             }
-            a2 = baf.a();
-            List list = a2;
-            if (list == null) {
+            if(a2==null){a2 = baf.a();}
+            if (a2 == null) {
                 throw new TypeCastException("null cannot be cast to non-null type java.util.Collection<T>");
             }
-            Object[] array = list.toArray(new String[0]);
+            Object[] array = a2.toArray(new String[0]);
             if (array == null) {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<T>");
             }

@@ -42,4 +42,7 @@ public interface MyBiliApiService {
 
     @GET(a = "/x/web-interface/dynamic/region")
     vp<GeneralResponse<JSONObject>> getRegionHotVideo(@Query(a = "rid") int rid, @Query(a = "ps") int page_size);
+
+    @GET(a = "/x/dm/filter/user")
+    vp<GeneralResponse<JSONObject>> getDanmuFilter();
 }

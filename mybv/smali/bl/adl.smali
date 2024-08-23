@@ -51,27 +51,27 @@
     .end param
 
     .prologue
-    .line 146
+    .line 145
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
 
-    .line 147
+    .line 146
     const-string v1, "MainApplication.getInstance()"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 148
+    .line 147
     invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 149
+    .line 148
     const-string v1, "MainApplication.getInstance().applicationContext"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 150
+    .line 149
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -91,35 +91,35 @@
     .locals 2
 
     .prologue
-    .line 212
+    .line 211
     const-string v0, "context"
 
     invoke-static {p0, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 213
+    .line 212
     instance-of v0, p0, Landroid/app/Activity;
 
     if-eqz v0, :cond_c
 
-    .line 214
+    .line 213
     check-cast p0, Landroid/app/Activity;
 
-    .line 221
+    .line 220
     :goto_b
     return-object p0
 
-    .line 216
+    .line 215
     :cond_c
     instance-of v0, p0, Landroid/content/ContextWrapper;
 
     if-nez v0, :cond_12
 
-    .line 217
+    .line 216
     const/4 p0, 0x0
 
     goto :goto_b
 
-    .line 219
+    .line 218
     :cond_12
     check-cast p0, Landroid/content/ContextWrapper;
 
@@ -127,12 +127,12 @@
 
     move-result-object v0
 
-    .line 220
+    .line 219
     const-string v1, "context.baseContext"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 221
+    .line 220
     invoke-static {v0}, Lbl/adl;->a(Landroid/content/Context;)Landroid/app/Activity;
 
     move-result-object p0
@@ -144,12 +144,12 @@
     .locals 4
 
     .prologue
-    .line 440
+    .line 439
     const-string v0, "context"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 441
+    .line 440
     new-instance v0, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMapV2$Builder;
 
     invoke-direct {v0, p0, p1}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMapV2$Builder;-><init>(J)V
@@ -160,7 +160,7 @@
 
     move-result-object v1
 
-    .line 442
+    .line 441
     const-class v0, Lcom/bilibili/tv/api/video/VideoApiService;
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
@@ -169,22 +169,22 @@
 
     check-cast v0, Lcom/bilibili/tv/api/video/VideoApiService;
 
-    .line 443
+    .line 442
     invoke-virtual {v1}, Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMapV2$Builder;->build()Lcom/bilibili/tv/api/video/VideoApiService$VideoParamsMapV2;
 
     move-result-object v1
 
-    .line 444
+    .line 443
     invoke-static {p2}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
     move-result-object v2
 
-    .line 445
+    .line 444
     const-string v3, "BiliAccount.get(context)"
 
     invoke-static {v2, v3}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 446
+    .line 445
     invoke-virtual {v2}, Lbl/mg;->e()Ljava/lang/String;
 
     move-result-object v2
@@ -199,7 +199,7 @@
 
     invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
 
-    .line 447
+    .line 446
     return-void
 .end method
 
@@ -210,12 +210,12 @@
     .end annotation
 
     .prologue
-    .line 374
+    .line 373
     const-string v0, "activity"
 
     invoke-static {p0, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 376
+    .line 375
     :try_start_5
     new-instance v0, Landroid/content/Intent;
 
@@ -227,11 +227,11 @@
     :try_end_f
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_f} :catch_10
 
-    .line 379
+    .line 378
     :goto_f
     return-void
 
-    .line 377
+    .line 376
     :catch_10
     move-exception v0
 
@@ -242,30 +242,30 @@
     .locals 3
 
     .prologue
-    .line 390
+    .line 389
     const-string v0, "decorView"
 
     invoke-static {p0, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 391
+    .line 390
     invoke-virtual {p0}, Landroid/view/View;->getSystemUiVisibility()I
 
     move-result v0
 
-    .line 392
+    .line 391
     or-int/lit16 v1, v0, 0x1000
 
-    .line 393
+    .line 392
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0xe
 
     if-lt v1, v2, :cond_13
 
-    .line 394
+    .line 393
     xor-int/lit8 v0, v0, 0x2
 
-    .line 396
+    .line 395
     :cond_13
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -273,10 +273,10 @@
 
     if-lt v1, v2, :cond_1b
 
-    .line 397
+    .line 396
     xor-int/lit8 v0, v0, 0x4
 
-    .line 399
+    .line 398
     :cond_1b
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -284,10 +284,10 @@
 
     if-lt v1, v2, :cond_23
 
-    .line 400
+    .line 399
     xor-int/lit16 v0, v0, 0x1000
 
-    .line 402
+    .line 401
     :cond_23
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -295,16 +295,16 @@
 
     if-lt v1, v2, :cond_2d
 
-    .line 403
+    .line 402
     xor-int/lit16 v0, v0, 0x200
 
     xor-int/lit16 v0, v0, 0x800
 
-    .line 405
+    .line 404
     :cond_2d
     invoke-virtual {p0, v0}, Landroid/view/View;->setSystemUiVisibility(I)V
 
-    .line 406
+    .line 405
     return-void
 .end method
 
@@ -316,27 +316,27 @@
     .end param
 
     .prologue
-    .line 154
+    .line 153
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
 
-    .line 155
+    .line 154
     const-string v1, "MainApplication.getInstance()"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 156
+    .line 155
     invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 157
+    .line 156
     const-string v1, "MainApplication.getInstance().applicationContext"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 158
+    .line 157
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -356,17 +356,17 @@
     .end param
 
     .prologue
-    .line 178
+    .line 177
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
 
-    .line 179
+    .line 178
     const-string v1, "MainApplication.getInstance()"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 180
+    .line 179
     invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
@@ -386,17 +386,17 @@
     .end param
 
     .prologue
-    .line 184
+    .line 183
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
 
-    .line 185
+    .line 184
     const-string v1, "MainApplication.getInstance()"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 186
+    .line 185
     invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
@@ -405,12 +405,12 @@
 
     move-result-object v0
 
-    .line 187
+    .line 186
     const-string v1, "MainApplication.getInsta\u2026xt.getString(stringResId)"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 188
+    .line 187
     return-object v0
 .end method
 
@@ -418,37 +418,40 @@
     .locals 2
 
     .prologue
-    .line 432
+    .line 431
     invoke-static {}, Lbl/aad;->a()Lbl/aad;
 
     move-result-object v0
 
-    .line 433
+    .line 432
     const-string v1, "BuvidHelper.getInstance()"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 434
+    .line 433
     invoke-virtual {v0}, Lbl/aad;->b()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 435
+    .line 434
     const-string v1, "BuvidHelper.getInstance().buvid"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 436
+    .line 435
     return-object v0
 .end method
 
 
 # virtual methods
 .method public final a(Ljava/lang/String;)I
-    .locals 4
+    .locals 5
 
     .prologue
-    const/4 v3, 0x0
+    const/4 v4, 0x0
+
+    .line 96
+    const/4 v1, 0x0
 
     .line 97
     const-string v0, "typeTag"
@@ -460,45 +463,45 @@
 
     move-result v0
 
-    if-nez v0, :cond_75
+    if-nez v0, :cond_79
 
     .line 100
     new-instance v0, Lkotlin/text/Regex;
 
-    const-string v1, "\\."
+    const-string v2, "\\."
 
-    invoke-direct {v0, v1}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, p1, v3}, Lkotlin/text/Regex;->a(Ljava/lang/CharSequence;I)Ljava/util/List;
-
-    move-result-object v1
-
-    .line 101
-    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_40
-
-    .line 102
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    invoke-interface {v1, v0}, Ljava/util/List;->listIterator(I)Ljava/util/ListIterator;
+    invoke-virtual {v0, p1, v4}, Lkotlin/text/Regex;->a(Ljava/lang/CharSequence;I)Ljava/util/List;
 
     move-result-object v2
 
-    .line 103
-    :cond_25
-    invoke-interface {v2}, Ljava/util/ListIterator;->hasPrevious()Z
+    .line 101
+    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_40
+    if-nez v0, :cond_7b
+
+    .line 102
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    invoke-interface {v2, v0}, Ljava/util/List;->listIterator(I)Ljava/util/ListIterator;
+
+    move-result-object v3
+
+    .line 103
+    :cond_26
+    invoke-interface {v3}, Ljava/util/ListIterator;->hasPrevious()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7b
 
     .line 104
-    invoke-interface {v2}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -508,27 +511,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_26
 
     .line 105
-    invoke-interface {v2}, Ljava/util/ListIterator;->nextIndex()I
+    invoke-interface {v3}, Ljava/util/ListIterator;->nextIndex()I
 
     move-result v0
 
     add-int/lit8 v0, v0, 0x1
 
-    invoke-static {v1, v0}, Lbl/baf;->b(Ljava/lang/Iterable;I)Ljava/util/List;
+    invoke-static {v2, v0}, Lbl/baf;->b(Ljava/lang/Iterable;I)Ljava/util/List;
+
+    move-result-object v0
 
     .line 110
-    :cond_40
+    :goto_42
+    if-nez v0, :cond_48
+
     invoke-static {}, Lbl/baf;->a()Ljava/util/List;
 
     move-result-object v0
 
-    .line 112
-    if-nez v0, :cond_4e
+    .line 111
+    :cond_48
+    if-nez v0, :cond_52
 
-    .line 113
+    .line 112
     new-instance v0, Lkotlin/TypeCastException;
 
     const-string v1, "null cannot be cast to non-null type java.util.Collection<T>"
@@ -537,18 +545,18 @@
 
     throw v0
 
-    .line 115
-    :cond_4e
-    new-array v1, v3, [Ljava/lang/String;
+    .line 114
+    :cond_52
+    new-array v1, v4, [Ljava/lang/String;
 
     invoke-interface {v0, v1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 116
-    if-nez v0, :cond_5e
+    .line 115
+    if-nez v0, :cond_62
 
-    .line 117
+    .line 116
     new-instance v0, Lkotlin/TypeCastException;
 
     const-string v1, "null cannot be cast to non-null type kotlin.Array<T>"
@@ -557,19 +565,19 @@
 
     throw v0
 
+    .line 118
+    :cond_62
+    check-cast v0, [Ljava/lang/String;
+
+    check-cast v0, [Ljava/lang/String;
+
     .line 119
-    :cond_5e
-    check-cast v0, [Ljava/lang/String;
-
-    check-cast v0, [Ljava/lang/String;
-
-    .line 120
     array-length v1, v0
 
-    if-eqz v1, :cond_75
+    if-eqz v1, :cond_79
 
-    .line 122
-    :try_start_65
+    .line 121
+    :try_start_69
     array-length v1, v0
 
     add-int/lit8 v1, v1, -0x1
@@ -577,29 +585,34 @@
     aget-object v0, v0, v1
 
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_6d
-    .catch Ljava/lang/NumberFormatException; {:try_start_65 .. :try_end_6d} :catch_6f
+    :try_end_71
+    .catch Ljava/lang/NumberFormatException; {:try_start_69 .. :try_end_71} :catch_73
 
     move-result v0
 
-    .line 128
-    :goto_6e
+    .line 127
+    :goto_72
     return v0
 
-    .line 123
-    :catch_6f
+    .line 122
+    :catch_73
     move-exception v0
 
-    .line 124
+    .line 123
     const-string v0, "unknown quality from type tag."
 
     invoke-static {v0}, Ltv/danmaku/android/log/BLog;->w(Ljava/lang/String;)V
 
-    .line 128
-    :cond_75
+    .line 127
+    :cond_79
     const/4 v0, -0x1
 
-    goto :goto_6e
+    goto :goto_72
+
+    :cond_7b
+    move-object v0, v1
+
+    goto :goto_42
 .end method
 
 .method public final a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
@@ -608,17 +621,17 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 340
+    .line 339
     const-string v0, "context"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 341
+    .line 340
     new-instance v2, Ljava/io/File;
 
     invoke-direct {v2, p2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 342
+    .line 341
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
 
     move-result v0
@@ -634,11 +647,11 @@
     :cond_17
     move-object v0, v1
 
-    .line 358
+    .line 357
     :goto_18
     return-object v0
 
-    .line 345
+    .line 344
     :cond_19
     new-instance v0, Landroid/content/Intent;
 
@@ -646,7 +659,7 @@
 
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 347
+    .line 346
     :try_start_20
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -654,7 +667,7 @@
 
     if-lt v3, v4, :cond_53
 
-    .line 348
+    .line 347
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -685,28 +698,28 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 349
+    .line 348
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 350
+    .line 349
     const/high16 v2, 0x10000000
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     goto :goto_18
 
-    .line 357
+    .line 356
     :catch_50
     move-exception v0
 
     move-object v0, v1
 
-    .line 358
+    .line 357
     goto :goto_18
 
-    .line 353
+    .line 352
     :cond_53
     new-instance v2, Ljava/io/File;
 
@@ -720,12 +733,12 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 354
+    .line 353
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 355
+    .line 354
     const/high16 v2, 0x10000000
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
@@ -747,32 +760,32 @@
     .end param
 
     .prologue
-    .line 192
+    .line 191
     invoke-static {p1}, Lbl/adl;->a(I)F
 
     move-result v0
 
-    .line 193
+    .line 192
     new-instance v1, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {v1}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 194
+    .line 193
     invoke-virtual {v1, v0}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 195
+    .line 194
     const/4 v0, 0x0
 
     invoke-virtual {v1, v0}, Landroid/graphics/drawable/GradientDrawable;->setShape(I)V
 
-    .line 196
+    .line 195
     invoke-static {p2}, Lbl/adl;->d(I)I
 
     move-result v0
 
     invoke-virtual {v1, v0}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    .line 197
+    .line 196
     return-object v1
 .end method
 
@@ -796,44 +809,44 @@
     .end param
 
     .prologue
-    .line 201
+    .line 200
     invoke-static {p1}, Lbl/adl;->a(I)F
 
     move-result v0
 
-    .line 202
+    .line 201
     invoke-static {p2}, Lbl/adl;->b(I)I
 
     move-result v1
 
-    .line 203
+    .line 202
     new-instance v2, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {v2}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 204
+    .line 203
     invoke-virtual {v2, v0}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 205
+    .line 204
     const/4 v0, 0x0
 
     invoke-virtual {v2, v0}, Landroid/graphics/drawable/GradientDrawable;->setShape(I)V
 
-    .line 206
+    .line 205
     invoke-static {p4}, Lbl/adl;->d(I)I
 
     move-result v0
 
     invoke-virtual {v2, v1, v0}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
 
-    .line 207
+    .line 206
     invoke-static {p3}, Lbl/adl;->d(I)I
 
     move-result v0
 
     invoke-virtual {v2, v0}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    .line 208
+    .line 207
     return-object v2
 .end method
 
@@ -947,15 +960,15 @@
     .locals 4
 
     .prologue
-    .line 284
+    .line 283
     if-eqz p1, :cond_35
 
-    .line 285
+    .line 284
     new-instance v0, Lbl/agb$a;
 
     invoke-direct {v0, p1}, Lbl/agb$a;-><init>(Landroid/app/Activity;)V
 
-    .line 286
+    .line 285
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lbl/agb$a;->a(I)Lbl/agb$a;
@@ -980,12 +993,12 @@
 
     invoke-virtual {v1, v2, v3}, Lbl/agb$a;->b(Ljava/lang/String;Lbl/agb$b;)Lbl/agb$a;
 
-    .line 287
+    .line 286
     invoke-virtual {v0}, Lbl/agb$a;->a()Lbl/agb;
 
     move-result-object v0
 
-    .line 288
+    .line 287
     invoke-virtual {p1}, Landroid/app/Activity;->isFinishing()Z
 
     move-result v1
@@ -998,16 +1011,16 @@
 
     if-eqz v1, :cond_32
 
-    .line 295
+    .line 294
     :cond_31
     :goto_31
     return-void
 
-    .line 291
+    .line 290
     :cond_32
     invoke-virtual {v0}, Lbl/agb;->show()V
 
-    .line 294
+    .line 293
     :cond_35
     const-string v0, "\u554a\u54e6\u3002\u3002\u767b\u5f55\u4fe1\u606f\u5931\u6548\u5566\uff01\u8bf7\u91cd\u65b0\u767b\u5f55\u54e6"
 
@@ -1020,21 +1033,21 @@
     .locals 0
 
     .prologue
-    .line 382
+    .line 381
     if-eqz p1, :cond_4
 
     if-nez p2, :cond_5
 
-    .line 387
+    .line 386
     :cond_4
     :goto_4
     return-void
 
-    .line 385
+    .line 384
     :cond_5
     invoke-virtual {p2}, Landroid/support/v4/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    .line 386
+    .line 385
     invoke-virtual {p1}, Landroid/support/v4/app/FragmentManager;->executePendingTransactions()Z
 
     goto :goto_4
@@ -1044,14 +1057,14 @@
     .locals 1
 
     .prologue
-    .line 320
+    .line 319
     if-nez p1, :cond_3
 
-    .line 327
+    .line 326
     :goto_2
     return-void
 
-    .line 324
+    .line 323
     :cond_3
     :try_start_3
     invoke-interface {p1}, Ljava/io/Closeable;->close()V
@@ -1060,7 +1073,7 @@
 
     goto :goto_2
 
-    .line 325
+    .line 324
     :catch_7
     move-exception v0
 
@@ -1071,15 +1084,15 @@
     .locals 1
 
     .prologue
-    .line 315
+    .line 314
     const-string v0, "input"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 316
+    .line 315
     invoke-virtual {p0, p1}, Lbl/adl;->a(Ljava/io/Closeable;)V
 
-    .line 317
+    .line 316
     return-void
 .end method
 
@@ -1087,24 +1100,24 @@
     .locals 4
 
     .prologue
-    .line 420
+    .line 419
     const-string v0, "url"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 421
+    .line 420
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_c
 
-    .line 429
+    .line 428
     :cond_b
     :goto_b
     return-void
 
-    .line 424
+    .line 423
     :cond_c
     invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -1130,15 +1143,15 @@
 
     move-result-object v0
 
-    .line 425
+    .line 424
     instance-of v1, p2, Lbl/alm;
 
     if-eqz v1, :cond_b
 
-    .line 426
+    .line 425
     check-cast p2, Lbl/alm;
 
-    .line 427
+    .line 426
     invoke-static {}, Lbl/ajq;->a()Lbl/ajs;
 
     move-result-object v1
@@ -1172,17 +1185,17 @@
     .locals 3
 
     .prologue
-    .line 363
+    .line 362
     const-string v0, "permission"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 364
+    .line 363
     const-string v0, "path"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 366
+    .line 365
     :try_start_a
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
@@ -1220,15 +1233,15 @@
     :try_end_2e
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_2e} :catch_2f
 
-    .line 370
+    .line 369
     :goto_2e
     return-void
 
-    .line 367
+    .line 366
     :catch_2f
     move-exception v0
 
-    .line 368
+    .line 367
     invoke-static {v0}, Lbl/att;->a(Ljava/lang/Throwable;)V
 
     goto :goto_2e
@@ -1238,15 +1251,15 @@
     .locals 4
 
     .prologue
-    .line 248
+    .line 247
     instance-of v0, p1, Lcom/bilibili/api/BiliApiException;
 
     if-eqz v0, :cond_42
 
-    .line 249
+    .line 248
     check-cast p1, Lcom/bilibili/api/BiliApiException;
 
-    .line 250
+    .line 249
     iget v0, p1, Lcom/bilibili/api/BiliApiException;->mCode:I
 
     const/4 v1, -0x2
@@ -1259,16 +1272,16 @@
 
     if-ne v0, v1, :cond_42
 
-    .line 251
+    .line 250
     :cond_11
     if-eqz p2, :cond_46
 
-    .line 252
+    .line 251
     new-instance v0, Lbl/agb$a;
 
     invoke-direct {v0, p2}, Lbl/agb$a;-><init>(Landroid/app/Activity;)V
 
-    .line 253
+    .line 252
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lbl/agb$a;->a(I)Lbl/agb$a;
@@ -1293,12 +1306,12 @@
 
     invoke-virtual {v1, v2, v3}, Lbl/agb$a;->b(Ljava/lang/String;Lbl/agb$b;)Lbl/agb$a;
 
-    .line 254
+    .line 253
     invoke-virtual {v0}, Lbl/agb$a;->a()Lbl/agb;
 
     move-result-object v0
 
-    .line 255
+    .line 254
     invoke-virtual {p2}, Landroid/app/Activity;->isFinishing()Z
 
     move-result v1
@@ -1311,16 +1324,16 @@
 
     if-eqz v1, :cond_43
 
-    .line 264
+    .line 263
     :cond_42
     :goto_42
     return-void
 
-    .line 258
+    .line 257
     :cond_43
     invoke-virtual {v0}, Lbl/agb;->show()V
 
-    .line 261
+    .line 260
     :cond_46
     const-string v0, "\u554a\u54e6\u3002\u3002\u767b\u5f55\u4fe1\u606f\u5931\u6548\u5566\uff01\u8bf7\u91cd\u65b0\u767b\u5f55\u54e6"
 
@@ -1333,14 +1346,14 @@
     .locals 1
 
     .prologue
-    .line 330
+    .line 329
     if-nez p1, :cond_3
 
-    .line 337
+    .line 336
     :goto_2
     return-void
 
-    .line 334
+    .line 333
     :cond_3
     :try_start_3
     invoke-virtual {p1}, Ljava/nio/channels/FileLock;->release()V
@@ -1349,7 +1362,7 @@
 
     goto :goto_2
 
-    .line 335
+    .line 334
     :catch_7
     move-exception v0
 
@@ -1360,28 +1373,28 @@
     .locals 6
 
     .prologue
-    .line 132
+    .line 131
     sget-object v0, Lbl/bbl;->a:Lbl/bbl;
 
-    .line 133
+    .line 132
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    .line 134
+    .line 133
     const-string v1, "Locale.US"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 135
+    .line 134
     invoke-static {}, Lbl/aad;->a()Lbl/aad;
 
     move-result-object v1
 
-    .line 136
+    .line 135
     const-string v2, "BuvidHelper.getInstance()"
 
     invoke-static {v1, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 137
+    .line 136
     const/4 v2, 0x2
 
     new-array v2, v2, [Ljava/lang/Object;
@@ -1406,7 +1419,7 @@
 
     aput-object v3, v2, v1
 
-    .line 138
+    .line 137
     const-string v1, "%s%s"
 
     array-length v3, v2
@@ -1419,22 +1432,22 @@
 
     move-result-object v0
 
-    .line 139
+    .line 138
     const-string v1, "java.lang.String.format(locale, format, *args)"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 140
+    .line 139
     invoke-static {v0}, Lbl/adf;->a(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 141
+    .line 140
     const-string v1, "MD5.signMD5(\n           \u2026e().toString())\n        )"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 142
+    .line 141
     return-object v0
 .end method
 
@@ -1446,17 +1459,17 @@
     .end param
 
     .prologue
-    .line 162
+    .line 161
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
 
-    .line 163
+    .line 162
     const-string v1, "MainApplication.getInstance()"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 164
+    .line 163
     invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1465,35 +1478,35 @@
 
     move-result-object v0
 
-    .line 165
+    .line 164
     if-eqz v0, :cond_14
 
-    .line 174
+    .line 173
     :goto_13
     return-object v0
 
-    .line 168
+    .line 167
     :cond_14
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
 
-    .line 169
+    .line 168
     const-string v1, "MainApplication.getInstance()"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 170
+    .line 169
     invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 171
+    .line 170
     const-string v1, "MainApplication.getInstance().applicationContext"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 172
+    .line 171
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -1504,7 +1517,7 @@
 
     move-result-object v0
 
-    .line 173
+    .line 172
     const-string v1, "MainApplication.getInsta\u2026rawable.ic_video_info_up)"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
@@ -1516,7 +1529,7 @@
     .locals 4
 
     .prologue
-    .line 226
+    .line 225
     :try_start_0
     invoke-static {}, Ljava/net/NetworkInterface;->getNetworkInterfaces()Ljava/util/Enumeration;
 
@@ -1530,7 +1543,7 @@
 
     move-result-object v1
 
-    .line 227
+    .line 226
     :cond_c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1538,19 +1551,19 @@
 
     if-eqz v0, :cond_4e
 
-    .line 228
+    .line 227
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/net/NetworkInterface;
 
-    .line 229
+    .line 228
     const-string v2, "ni"
 
     invoke-static {v0, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 230
+    .line 229
     invoke-virtual {v0}, Ljava/net/NetworkInterface;->getInetAddresses()Ljava/util/Enumeration;
 
     move-result-object v0
@@ -1563,7 +1576,7 @@
 
     move-result-object v2
 
-    .line 231
+    .line 230
     :cond_29
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1571,19 +1584,19 @@
 
     if-eqz v0, :cond_c
 
-    .line 232
+    .line 231
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/net/InetAddress;
 
-    .line 233
+    .line 232
     const-string v3, "address"
 
     invoke-static {v0, v3}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 234
+    .line 233
     invoke-virtual {v0}, Ljava/net/InetAddress;->isLoopbackAddress()Z
 
     move-result v3
@@ -1594,21 +1607,21 @@
 
     if-eqz v3, :cond_29
 
-    .line 235
+    .line 234
     invoke-virtual {v0}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 236
+    .line 235
     const-string v1, "address.getHostAddress()"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 243
+    .line 242
     :goto_4d
     return-object v0
 
-    .line 241
+    .line 240
     :cond_4e
     const-string v0, "0"
     :try_end_50
@@ -1616,11 +1629,11 @@
 
     goto :goto_4d
 
-    .line 242
+    .line 241
     :catch_51
     move-exception v0
 
-    .line 243
+    .line 242
     const-string v0, "0"
 
     goto :goto_4d
@@ -1630,7 +1643,7 @@
     .locals 1
 
     .prologue
-    .line 409
+    .line 408
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
@@ -1646,14 +1659,14 @@
     .locals 1
 
     .prologue
-    .line 413
+    .line 412
     invoke-static {}, Lbl/acc;->c()Z
 
     move-result v0
 
     if-eqz v0, :cond_f
 
-    .line 414
+    .line 413
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
@@ -1662,7 +1675,7 @@
 
     move-result v0
 
-    .line 416
+    .line 415
     :goto_e
     return v0
 

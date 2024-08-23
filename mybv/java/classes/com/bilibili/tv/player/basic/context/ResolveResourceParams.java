@@ -99,14 +99,12 @@ public class ResolveResourceParams implements Parcelable, Serializable {
                     return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https://api.bilibili.com/x/player/v2").a(true).a("Cookie","SESSDATA="+mg.a(MainApplication.a()).getSESSDATA()).b("aid", String.valueOf(ResolveResourceParams.this.mAvid)).b("cid", String.valueOf(ResolveResourceParams.this.mCid)).a(new qb()).a(), "GET")).e();
                 }
             }).get().optJSONObject("data").optJSONObject("subtitle");
-            if(this.subtitle_info.optBoolean("allow_submit")){
-                this.subtitle_data = threadPool.submit(new Callable<JSONObject>() {
-                    @Override
-                    public JSONObject call() {
-                        return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https:"+ResolveResourceParams.this.subtitle_info.optJSONArray("subtitles").optJSONObject(0).optString("subtitle_url")).a(true).a(new qb()).a(), "GET")).e();
-                    }
-                }).get();
-            }
+            this.subtitle_data = threadPool.submit(new Callable<JSONObject>() {
+                @Override
+                public JSONObject call() {
+                    return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https:"+ResolveResourceParams.this.subtitle_info.optJSONArray("subtitles").optJSONObject(0).optString("subtitle_url")).a(true).a(new qb()).a(), "GET")).e();
+                }
+            }).get();
         }catch(Exception e){
             e.printStackTrace();
         }
