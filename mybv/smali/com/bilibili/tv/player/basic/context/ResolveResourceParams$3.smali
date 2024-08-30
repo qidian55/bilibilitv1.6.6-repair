@@ -30,14 +30,18 @@
 # instance fields
 .field final synthetic this$0:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
+.field final synthetic val$subtitle_id:I
+
 
 # direct methods
-.method constructor <init>(Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;)V
+.method constructor <init>(Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;I)V
     .locals 0
 
     .prologue
-    .line 102
+    .line 105
     iput-object p1, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams$3;->this$0:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+
+    iput p2, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams$3;->val$subtitle_id:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -55,7 +59,7 @@
     .end annotation
 
     .prologue
-    .line 102
+    .line 105
     invoke-virtual {p0}, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams$3;->call()Lorg/json/JSONObject;
 
     move-result-object v0
@@ -67,54 +71,59 @@
     .locals 4
 
     .prologue
-    .line 105
-    new-instance v0, Lbl/qa$a;
+    .line 108
+    new-instance v1, Lbl/qa$a;
 
-    const-class v1, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams$JsonResponse;
+    const-class v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams$JsonResponse;
 
-    invoke-direct {v0, v1}, Lbl/qa$a;-><init>(Ljava/lang/Class;)V
+    invoke-direct {v1, v0}, Lbl/qa$a;-><init>(Ljava/lang/Class;)V
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v2, "https:"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-object v2, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams$3;->this$0:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
+    iget-object v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams$3;->this$0:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
-    iget-object v2, v2, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->subtitle_info:Lorg/json/JSONObject;
+    iget-object v0, v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->subtitle_info:Lorg/json/JSONObject;
 
     const-string v3, "subtitles"
 
-    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
-    move-result-object v2
+    move-result-object v3
 
-    const/4 v3, 0x0
+    iget v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams$3;->val$subtitle_id:I
 
-    invoke-virtual {v2, v3}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+    if-gez v0, :cond_56
 
-    move-result-object v2
+    const/4 v0, 0x0
+
+    :goto_21
+    invoke-virtual {v3, v0}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+
+    move-result-object v0
 
     const-string v3, "subtitle_url"
 
-    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Lbl/qa$a;->a(Ljava/lang/String;)Lbl/qa$a;
+    invoke-virtual {v1, v0}, Lbl/qa$a;->a(Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v0
 
@@ -149,4 +158,9 @@
     move-result-object v0
 
     return-object v0
+
+    :cond_56
+    iget v0, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams$3;->val$subtitle_id:I
+
+    goto :goto_21
 .end method

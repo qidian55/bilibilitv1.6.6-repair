@@ -43,6 +43,12 @@ public class xw extends xh implements bbb<Message, Boolean>, PlayerMenuRight.a {
         a(IEventCenter.EventType.SWITCH_SPEED, Float.valueOf(f));
     }
 
+    @Override // com.bilibili.tv.player.widget.PlayerMenuRight.a
+    public void refresh_subtitle(float f) {
+        a(IEventCenter.EventType.SWITCH_EPISODE, new Object[0]);
+        a(IEventCenter.EventType.DANMAKU_SIZE, Float.valueOf(f/2.0f));
+    }
+
     @Override // bl.xh
     protected boolean e(int i, KeyEvent keyEvent) {
         return R();
@@ -225,26 +231,27 @@ public class xw extends xh implements bbb<Message, Boolean>, PlayerMenuRight.a {
             this.d.add(resources.getString(R.string.quality_sd));
             this.e = 0;
         }
-        this.c.a(this.d, this.e);
-        this.c.c(Arrays.asList(resources.getStringArray(R.array.player_danmaku_toggle)), !abd.e(MainApplication.a().getApplicationContext()) ? 1 : 0);
+        this.c.init_quality(this.d, this.e);
+        this.c.init_danmaku(Arrays.asList(resources.getStringArray(R.array.player_danmaku_toggle)), !abd.e(MainApplication.a().getApplicationContext()) ? 1 : 0);
         ArrayList arrayList = new ArrayList(abd.a.length);
         for (float f : abd.a) {
             arrayList.add(String.valueOf(f));
         }
-        this.c.d(arrayList, arrayList.indexOf(String.valueOf(abd.f(p()))));
+        this.c.init_size(arrayList, arrayList.indexOf(String.valueOf(abd.f(p()))));
         ArrayList arrayList2 = new ArrayList(abd.b.length);
         for (float f2 : abd.b) {
             arrayList2.add(String.valueOf(f2) + "f");
         }
         float g = abd.g(p());
-        this.c.e(arrayList2, arrayList2.indexOf(String.valueOf(g) + "f"));
-        this.c.f(Arrays.asList(resources.getStringArray(R.array.player_screen_ratio)), 3);
+        this.c.init_alpha(arrayList2, arrayList2.indexOf(String.valueOf(g) + "f"));
+        this.c.init_ratio(Arrays.asList(resources.getStringArray(R.array.player_screen_ratio)), 3);
         ArrayList arrayList3 = new ArrayList(abd.speeds.length);
         for (float f3 : abd.speeds) {
             arrayList3.add(String.valueOf(f3) + "x");
         }
         this.c.init_speed(arrayList3, abd.get_speed_id(p()));
         this.c.init_mode(Arrays.asList(resources.getStringArray(R.array.player_mode)), abd.get_mode_id(p()));
+        this.c.init_subtitle(c().a.mVideoParams.obtainResolveParams().subtitle_info);
     }
 
     private int T() {

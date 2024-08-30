@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 78
+    .line 79
     invoke-direct {p0}, Lbl/qe;-><init>()V
 
     return-void
@@ -33,7 +33,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 82
+    .line 83
     :try_start_1
     invoke-virtual {p0}, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams$JsonResponse;->a()Z
 
@@ -55,22 +55,22 @@
 
     if-eqz v0, :cond_16
 
-    .line 87
+    .line 88
     :goto_15
     return-object v0
 
     :cond_16
     move-object v0, v1
 
-    .line 85
+    .line 86
     goto :goto_15
 
-    .line 86
+    .line 87
     :catch_18
     move-exception v0
 
     move-object v0, v1
 
-    .line 87
+    .line 88
     goto :goto_15
 .end method

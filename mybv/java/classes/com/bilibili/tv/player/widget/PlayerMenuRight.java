@@ -17,7 +17,6 @@ import bl.aax;
 import bl.aay;
 import bl.aaz;
 import com.bilibili.tv.R;
-import com.bilibili.tv.player.widget.PlayerMenuRight;
 import java.util.ArrayList;
 import java.util.List;
 import tv.danmaku.android.log.BLog;
@@ -28,6 +27,7 @@ import bl.aas;
 import bl.aat;
 import bl.aav;
 import bl.abd;
+import org.json.*;
 import com.bilibili.tv.MainApplication;
 
 /* compiled from: BL */
@@ -39,24 +39,25 @@ public class PlayerMenuRight extends aay<String> {
     private a d;
     private List<String> e;
     private String f;
-    private List<String> g;
-    private List<String> h;
-    private List<String> i;
-    private List<String> j;
-    private List<String> k;
-    private int l;
-    private int m;
-    private int n;
-    private int o;
-    private int p;
+    private List<String> quality_list;
+    private List<String> danmaku_list;
+    private List<String> size_list;
+    private List<String> alpha_list;
+    private List<String> ratio_list;
+    private int quality_id;
+    private int danmaku_id;
+    private int size_id;
+    private int alpha_id;
+    private int ratio_id;
     private int q;
     private Runnable r;
 
     public static int speed_id = -1;
     public static int mode_id = -1;
+    public static int subtitle_id = -1;
     public List<String> speed_list;
     public List<String> mode_list;
-    public static PlayerMenuRight _this = null;
+    public List<String> subtitle_list;
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
@@ -74,6 +75,8 @@ public class PlayerMenuRight extends aay<String> {
         void f(int i);
 
         void switch_speed(float f);
+
+        void refresh_subtitle(float f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -85,40 +88,43 @@ public class PlayerMenuRight extends aay<String> {
     public PlayerMenuRight(Context context) {
         super(context);
         this.c = false;
-        this.l = 0;
-        this.m = 0;
-        this.n = 0;
-        this.o = 0;
-        this.p = 0;
+        this.quality_id = 0;
+        this.danmaku_id = 0;
+        this.size_id = 0;
+        this.alpha_id = 0;
+        this.ratio_id = 0;
         this.q = 0;
         this.speed_id = -1;
         this.mode_id = -1;
+        this.subtitle_id = -1;
     }
 
     public PlayerMenuRight(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.c = false;
-        this.l = 0;
-        this.m = 0;
-        this.n = 0;
-        this.o = 0;
-        this.p = 0;
+        this.quality_id = 0;
+        this.danmaku_id = 0;
+        this.size_id = 0;
+        this.alpha_id = 0;
+        this.ratio_id = 0;
         this.q = 0;
         this.speed_id = -1;
         this.mode_id = -1;
+        this.subtitle_id = -1;
     }
 
     public PlayerMenuRight(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.c = false;
-        this.l = 0;
-        this.m = 0;
-        this.n = 0;
-        this.o = 0;
-        this.p = 0;
+        this.quality_id = 0;
+        this.danmaku_id = 0;
+        this.size_id = 0;
+        this.alpha_id = 0;
+        this.ratio_id = 0;
         this.q = 0;
         this.speed_id = -1;
         this.mode_id = -1;
+        this.subtitle_id = -1;
     }
 
     public void setListener(a aVar) {
@@ -154,7 +160,7 @@ public class PlayerMenuRight extends aay<String> {
         }
         if (i == 2) {
             try {
-                if (!this.g.get(this.l).equals(str) && !this.h.get(this.m).equals(str) && !this.k.get(this.p).equals(str) && !this.i.get(this.n).equals(str) && !this.j.get(this.o).equals(str) && !this.speed_list.get(this.speed_id).equals(str) && !this.mode_list.get(this.mode_id).equals(str)) {
+                if (!this.quality_list.get(this.quality_id).equals(str) && !this.danmaku_list.get(this.danmaku_id).equals(str) && !this.ratio_list.get(this.ratio_id).equals(str) && !this.size_list.get(this.size_id).equals(str) && !this.alpha_list.get(this.alpha_id).equals(str) && !this.speed_list.get(this.speed_id).equals(str) && !this.mode_list.get(this.mode_id).equals(str) && !this.subtitle_list.get(this.subtitle_id).equals(str)) {
                     textView.getCompoundDrawables()[0].setAlpha(0);
                 }
                 else {
@@ -271,28 +277,33 @@ public class PlayerMenuRight extends aay<String> {
                 this.d.P();
                 return true;
             }
-            if (this.g.indexOf(str) == -1 || i2 == this.l) {
+            if (this.quality_list.indexOf(str) == -1 || i2 == this.quality_id) {
                 i3 = 0;
             } else {
                 a(false);
                 this.d.e(i2);
-                i3 = this.l;
-                this.l = i2;
+                i3 = this.quality_id;
+                this.quality_id = i2;
             }
-            if (this.h.indexOf(str) != -1) {
+            if (this.danmaku_list.indexOf(str) != -1) {
                 this.d.c(i2 == 0);
-                i3 = this.m;
-                this.m = i2;
+                i3 = this.danmaku_id;
+                this.danmaku_id = i2;
             }
-            if (this.k.indexOf(str) != -1) {
+            if (this.ratio_list.indexOf(str) != -1) {
                 this.d.f(i2);
-                i3 = this.p;
-                this.p = i2;
+                i3 = this.ratio_id;
+                this.ratio_id = i2;
             }
-            if (this.i.indexOf(str) != -1) {
-                this.d.a(Float.valueOf(this.i.get(i2)).floatValue());
-                i3 = this.n;
-                this.n = i2;
+            if (this.size_list.indexOf(str) != -1) {
+                this.d.a(Float.valueOf(this.size_list.get(i2)).floatValue());
+                i3 = this.size_id;
+                this.size_id = i2;
+            }
+            if (this.alpha_list.indexOf(str) != -1) {
+                this.d.b(Float.valueOf(this.alpha_list.get(i2).replace("f", "")).floatValue());
+                i3 = this.alpha_id;
+                this.alpha_id = i2;
             }
             if (this.speed_list.indexOf(str) != -1) {
                 this.d.switch_speed(Float.valueOf(this.speed_list.get(i2).replace("x", "")).floatValue());
@@ -303,10 +314,10 @@ public class PlayerMenuRight extends aay<String> {
                 i3 = this.mode_id;
                 this.mode_id = i2;
             }
-            if (this.j.indexOf(str) != -1) {
-                this.d.b(Float.valueOf(this.j.get(i2).replace("f", "")).floatValue());
-                i3 = this.o;
-                this.o = i2;
+            if (this.subtitle_list.indexOf(str) != -1) {
+                i3 = this.subtitle_id;
+                this.subtitle_id = i2;
+                this.d.refresh_subtitle(Float.valueOf(this.size_list.get(this.size_id)).floatValue());
             }
         }
         TextView textView = (TextView) viewGroup.getChildAt(i3);
@@ -320,7 +331,7 @@ public class PlayerMenuRight extends aay<String> {
     }
 
     private boolean f() {
-        return this.e == null || this.g == null || this.h == null || this.k == null;
+        return this.e == null || this.quality_list == null || this.danmaku_list == null || this.ratio_list == null;
     }
 
     private void d(int i) {
@@ -346,25 +357,28 @@ public class PlayerMenuRight extends aay<String> {
         boolean a2 = super.a(i, i2);
         switch (i2) {
             case 0:
-                i3 = this.l;
+                i3 = this.quality_id;
                 break;
             case 1:
-                i3 = this.m;
+                i3 = this.danmaku_id;
                 break;
             case 2:
-                i3 = this.p;
+                i3 = this.ratio_id;
                 break;
             case 3:
-                i3 = this.n;
+                i3 = this.size_id;
                 break;
             case 4:
-                i3 = this.o;
+                i3 = this.alpha_id;
                 break;
             case 5:
                 i3 = this.speed_id;
                 break;
             case 6:
                 i3 = this.mode_id;
+                break;
+            case 7:
+                i3 = this.subtitle_id;
                 break;
             default:
                 i3 = 0;
@@ -387,25 +401,28 @@ public class PlayerMenuRight extends aay<String> {
         if (TextUtils.isEmpty(this.f)) {
             switch (i2) {
                 case 0:
-                    list = this.g;
+                    list = this.quality_list;
                     break;
                 case 1:
-                    list = this.h;
+                    list = this.danmaku_list;
                     break;
                 case 2:
-                    list = this.k;
+                    list = this.ratio_list;
                     break;
                 case 3:
-                    list = this.i;
+                    list = this.size_list;
                     break;
                 case 4:
-                    list = this.j;
+                    list = this.alpha_list;
                     break;
                 case 5:
                     list = this.speed_list;
                     break;
                 case 6:
                     list = this.mode_list;
+                    break;
+                case 7:
+                    list = this.subtitle_list;
                     break;
                 default:
                     return null;
@@ -417,11 +434,11 @@ public class PlayerMenuRight extends aay<String> {
             default:
                 return null;
             case 1:
-                return this.g;
+                return this.quality_list;
             case 2:
-                return this.h;
+                return this.danmaku_list;
             case 3:
-                return this.k;
+                return this.ratio_list;
         }
     }
 
@@ -496,33 +513,33 @@ public class PlayerMenuRight extends aay<String> {
         this.f = str;
     }
 
-    public void a(List<String> list, int i) {
-        this.g = list;
-        this.l = i;
+    public void init_quality(List<String> list, int i) {
+        this.quality_list = list;
+        this.quality_id = i;
     }
 
     public void b(List<String> list, int i) {
         this.e = list;
     }
 
-    public void c(List<String> list, int i) {
-        this.h = list;
-        this.m = i;
+    public void init_danmaku(List<String> list, int i) {
+        this.danmaku_list = list;
+        this.danmaku_id = i;
     }
 
-    public void d(List<String> list, int i) {
-        this.i = list;
-        this.n = i;
+    public void init_size(List<String> list, int i) {
+        this.size_list = list;
+        this.size_id = i;
     }
 
-    public void e(List<String> list, int i) {
-        this.j = list;
-        this.o = i;
+    public void init_alpha(List<String> list, int i) {
+        this.alpha_list = list;
+        this.alpha_id = i;
     }
 
-    public void f(List<String> list, int i) {
-        this.k = list;
-        this.p = i;
+    public void init_ratio(List<String> list, int i) {
+        this.ratio_list = list;
+        this.ratio_id = i;
     }
 
     public void init_speed(List<String> list, int i) {
@@ -535,6 +552,16 @@ public class PlayerMenuRight extends aay<String> {
         this.mode_id = i;
     }
 
+    public void init_subtitle(JSONObject subtitle_info) {
+        List<String> subtitle_list = new ArrayList<>();
+        subtitle_list.add("关闭字幕");
+        JSONArray subtitles = subtitle_info.optJSONArray("subtitles");
+        for(int i=0;i<subtitles.length();i++)subtitle_list.add(subtitles.optJSONObject(i).optString("lan_doc"));
+        this.subtitle_list = subtitle_list;
+        if(subtitles.length()>0 && !subtitles.optJSONObject(0).optString("lan").startsWith("ai-"))this.subtitle_id = 1;
+        else this.subtitle_id = 0;
+    }
+
     public void a(int i, int i2, long j) {
         postDelayed(new aav(this,i,i2), j);
     }
@@ -542,15 +569,15 @@ public class PlayerMenuRight extends aay<String> {
     public final /* synthetic */ void c(int i, int i2) {
         switch (i) {
             case 2:
-                if (this.l != i2) {
-                    this.l = i2;
+                if (this.quality_id != i2) {
+                    this.quality_id = i2;
                     c(2);
                     return;
                 }
                 return;
             case 3:
-                if (this.m != i2) {
-                    this.m = i2;
+                if (this.danmaku_id != i2) {
+                    this.danmaku_id = i2;
                     c(2);
                     return;
                 }

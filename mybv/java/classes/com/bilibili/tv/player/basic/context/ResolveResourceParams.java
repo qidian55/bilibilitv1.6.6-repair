@@ -17,6 +17,7 @@ import bl.mg;
 import org.json.*;
 import java.util.concurrent.*;
 import com.bilibili.tv.MainApplication;
+import com.bilibili.tv.player.widget.PlayerMenuRight;
 
 /* compiled from: BL */
 @Keep
@@ -90,19 +91,21 @@ public class ResolveResourceParams implements Parcelable, Serializable {
     }
 
     public void initPlayInfo() {
-        if(this.subtitle_info != null)return;
         try{
             ExecutorService threadPool  = Executors.newSingleThreadExecutor();
-            this.subtitle_info = threadPool.submit(new Callable<JSONObject>() {
+            if(this.subtitle_info == null)this.subtitle_info = threadPool.submit(new Callable<JSONObject>() {
                 @Override
                 public JSONObject call() {
                     return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https://api.bilibili.com/x/player/v2").a(true).a("Cookie","SESSDATA="+mg.a(MainApplication.a()).getSESSDATA()).b("aid", String.valueOf(ResolveResourceParams.this.mAvid)).b("cid", String.valueOf(ResolveResourceParams.this.mCid)).a(new qb()).a(), "GET")).e();
                 }
             }).get().optJSONObject("data").optJSONObject("subtitle");
-            this.subtitle_data = threadPool.submit(new Callable<JSONObject>() {
+            int subtitle_id = PlayerMenuRight.subtitle_id - 1;
+            if(subtitle_id==-1){this.subtitle_data=null;return;}
+            if(subtitle_id<-1 && this.subtitle_info.optJSONArray("subtitles").optJSONObject(0).optString("lan").startsWith("ai-"))return;
+            if(this.subtitle_info != null)this.subtitle_data = threadPool.submit(new Callable<JSONObject>() {
                 @Override
                 public JSONObject call() {
-                    return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https:"+ResolveResourceParams.this.subtitle_info.optJSONArray("subtitles").optJSONObject(0).optString("subtitle_url")).a(true).a(new qb()).a(), "GET")).e();
+                    return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https:"+ResolveResourceParams.this.subtitle_info.optJSONArray("subtitles").optJSONObject(subtitle_id<0?0:subtitle_id).optString("subtitle_url")).a(true).a(new qb()).a(), "GET")).e();
                 }
             }).get();
         }catch(Exception e){
