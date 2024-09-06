@@ -3,11 +3,11 @@
     <string-array name="player_danmaku_toggle">
         <item>@string/on</item>
         <item>@string/off</item>
-        <!--<item>普通弹幕</item>
-        <item>顶部弹幕</item>
+        <item>普通弹幕</item>
         <item>底部弹幕</item>
+        <item>顶部弹幕</item>
         <item>反向弹幕</item>
-        <item>高级弹幕</item>-->
+        <item>高级弹幕</item>
     </string-array>
     <string-array name="player_quality">
         <item>@string/quality_shd</item>

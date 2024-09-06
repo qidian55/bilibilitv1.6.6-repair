@@ -17,8 +17,7 @@ import bl.aax;
 import bl.aay;
 import bl.aaz;
 import com.bilibili.tv.R;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import tv.danmaku.android.log.BLog;
 import tv.danmaku.videoplayer.core.danmaku.DanmakuConfig;
 
@@ -58,6 +57,7 @@ public class PlayerMenuRight extends aay<String> {
     public List<String> speed_list;
     public List<String> mode_list;
     public List<String> subtitle_list;
+    public static boolean danmaku_valid_list[] = {false,true,false,false,true,true,true,true,false,false};
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
@@ -76,7 +76,7 @@ public class PlayerMenuRight extends aay<String> {
 
         void switch_speed(float f);
 
-        void refresh_subtitle(float f);
+        void refresh_subtitle();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -166,6 +166,17 @@ public class PlayerMenuRight extends aay<String> {
                 else {
                     textView.getCompoundDrawables()[0].setAlpha(DanmakuConfig.ALPHA_VALUE_MAX);
                     e(i, i2);
+                }
+                int w = this.danmaku_list.indexOf(str);
+                if(w != -1){
+                    boolean f = false;
+                    for(int ii=0;ii<10;ii++){if(danmaku_valid_list[ii])f=true;}
+                    switch(w){
+                        case 0:textView.getCompoundDrawables()[0].setAlpha(f?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
+                        case 1:textView.getCompoundDrawables()[0].setAlpha(!f?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
+                        case 2:textView.getCompoundDrawables()[0].setAlpha(danmaku_valid_list[1]?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
+                        default:textView.getCompoundDrawables()[0].setAlpha(danmaku_valid_list[w+1]?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
+                    }
                 }
             } catch (IndexOutOfBoundsException unused) {
                 BLog.e("PlayerMenuRight", "Menu data error, why?");
@@ -286,9 +297,23 @@ public class PlayerMenuRight extends aay<String> {
                 this.quality_id = i2;
             }
             if (this.danmaku_list.indexOf(str) != -1) {
-                this.d.c(i2 == 0);
-                i3 = this.danmaku_id;
-                this.danmaku_id = i2;
+                //this.d.c(i2 == 0);
+                //i3 = this.danmaku_id;
+                //this.danmaku_id = i2;
+                switch(i2){
+                    case 0:danmaku_valid_list[1]=danmaku_valid_list[4]=danmaku_valid_list[5]=danmaku_valid_list[6]=danmaku_valid_list[7]=true;break;
+                    case 1:danmaku_valid_list[1]=danmaku_valid_list[4]=danmaku_valid_list[5]=danmaku_valid_list[6]=danmaku_valid_list[7]=false;break;
+                    case 2:danmaku_valid_list[1]=!danmaku_valid_list[1];break;
+                    default:danmaku_valid_list[i2+1]=!danmaku_valid_list[i2+1];((TextView) view).getCompoundDrawables()[0].setAlpha(danmaku_valid_list[i2+1]?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
+                }
+                boolean f = false;
+                for(int ii=0;ii<10;ii++){if(danmaku_valid_list[ii])f=true;}
+                ((TextView) viewGroup.getChildAt(0)).getCompoundDrawables()[0].setAlpha(f?DanmakuConfig.ALPHA_VALUE_MAX:0);
+                ((TextView) viewGroup.getChildAt(1)).getCompoundDrawables()[0].setAlpha(!f?DanmakuConfig.ALPHA_VALUE_MAX:0);
+                ((TextView) viewGroup.getChildAt(2)).getCompoundDrawables()[0].setAlpha(danmaku_valid_list[1]?DanmakuConfig.ALPHA_VALUE_MAX:0);
+                for(int ii=4;ii<8;ii++)((TextView) viewGroup.getChildAt(ii-1)).getCompoundDrawables()[0].setAlpha(danmaku_valid_list[ii]?DanmakuConfig.ALPHA_VALUE_MAX:0);
+                this.d.refresh_subtitle();
+                return true;
             }
             if (this.ratio_list.indexOf(str) != -1) {
                 this.d.f(i2);
@@ -317,7 +342,7 @@ public class PlayerMenuRight extends aay<String> {
             if (this.subtitle_list.indexOf(str) != -1) {
                 i3 = this.subtitle_id;
                 this.subtitle_id = i2;
-                this.d.refresh_subtitle(Float.valueOf(this.size_list.get(this.size_id)).floatValue());
+                this.d.refresh_subtitle();
             }
         }
         TextView textView = (TextView) viewGroup.getChildAt(i3);

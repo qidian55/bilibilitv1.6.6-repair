@@ -119,7 +119,7 @@ public class abd {
         if (i == 0) {
             i = a(context).a().getInt("danmaku_text_show", 1);
         }
-        return i == 1;
+        return true;//return i == 1;
     }
 
     public static void a(Context context, float f2) {

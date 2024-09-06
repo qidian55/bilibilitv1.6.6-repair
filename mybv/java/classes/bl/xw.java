@@ -44,9 +44,8 @@ public class xw extends xh implements bbb<Message, Boolean>, PlayerMenuRight.a {
     }
 
     @Override // com.bilibili.tv.player.widget.PlayerMenuRight.a
-    public void refresh_subtitle(float f) {
+    public void refresh_subtitle() {
         a(IEventCenter.EventType.SWITCH_EPISODE, new Object[0]);
-        a(IEventCenter.EventType.DANMAKU_SIZE, Float.valueOf(f/2.0f));
     }
 
     @Override // bl.xh
