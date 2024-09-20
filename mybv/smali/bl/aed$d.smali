@@ -1,6 +1,6 @@
 .class public final Lbl/aed$d;
 .super Ljava/lang/Object;
-.source "BL"
+.source "aed.java"
 
 
 # annotations
@@ -18,18 +18,22 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 40
+    .prologue
+    .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 50
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 40
+    .prologue
+    .line 53
     invoke-direct {p0}, Lbl/aed$d;-><init>()V
 
+    .line 54
     return-void
 .end method
 
@@ -38,7 +42,8 @@
 .method public final a()Lbl/aed;
     .locals 1
 
-    .line 45
+    .prologue
+    .line 57
     new-instance v0, Lbl/aed;
 
     invoke-direct {v0}, Lbl/aed;-><init>()V

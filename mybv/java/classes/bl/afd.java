@@ -35,6 +35,8 @@ import java.util.Arrays;
 import mybl.MyBiliApiService;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.bilibili.tv.api.BiliApiService;
+import com.bilibili.tv.api.main.MainRecommend;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -187,13 +189,13 @@ public final class afd extends adu implements aez, wf {
             int f = parent.f(view);
             int floor = f - (((int) Math.floor(f / 5)) + 1);
             if (f%5==0) {
-                if(((afd.c)null).b.size()==5 && ((afd.c)null).b.get(f/5)==null)outRect.set(0, 0, 0, 0);
+                if(((afd.c)null).ogvList.size()==5 && ((afd.c)null).ogvList.get(f/5)==null)outRect.set(0, 0, 0, 0);
                 else outRect.set(f > 0 ? this.space * 2 : 0, 0, this.space, 0);
             } else if (floor % 2 == 0) {
-                if(((afd.c)null).a.size()==20 && ((afd.c)null).a.get(floor)==null)outRect.set(0, 0, 0, 0);
+                if(((afd.c)null).ugcList.size()==20 && ((afd.c)null).ugcList.get(floor)==null)outRect.set(0, 0, 0, 0);
                 else outRect.set(f > 0 ? this.space * 2 : 0, 0, this.space, this.space);
             } else {
-                if(((afd.c)null).a.size()==20 && ((afd.c)null).a.get(floor)==null)outRect.set(0, 0, 0, 0);
+                if(((afd.c)null).ugcList.size()==20 && ((afd.c)null).ugcList.get(floor)==null)outRect.set(0, 0, 0, 0);
                 else outRect.set(f > 0 ? this.space * 2 : 0, this.space, this.space, 0);
             }
         }
@@ -275,20 +277,17 @@ public final class afd extends adu implements aez, wf {
             if (data.isEmpty()) {
                 return;
             }
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
+            ArrayList ogvList = new ArrayList();
+            ArrayList ugcList = new ArrayList();
             for (MainRecommendEx.Content content : data) {
                 if (TextUtils.equals("large_popular_ogv", content.getCardType())) {
-                    arrayList.add(content);
+                    ogvList.add(content);
                 } else if (TextUtils.equals("small_popular_ugc", content.getCardType())) {
-                    arrayList2.add(content);
+                    ugcList.add(content);
                 }
             }
-            c cVar = afd.this.a;
-            if (cVar == null) {
-                bbi.a();
-            }
-            cVar.a(arrayList, arrayList2);
+            afd.this.a.a(ogvList, ugcList);
+            if(ugcList.size()<20)((BiliApiService) vo.a(BiliApiService.class)).getMainRecommend().a(new dd());
         }
 
         @Override // bl.vm
@@ -297,6 +296,40 @@ public final class afd extends adu implements aez, wf {
             BLog.e("MainRecommend", th.getMessage());
         }
     }
+
+    final class dd extends vm<MainRecommend> {
+        @Override // bl.vm
+        /* renamed from: a, reason: merged with bridge method [inline-methods] */
+        public void onSuccess(MainRecommend mainRecommend) {
+            if (afd.this.a == null || mainRecommend == null || mainRecommend.getData() == null) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList<MainRecommendEx.Content>(20);
+            for (MainRecommend.Data data : mainRecommend.getData()) {
+                if (TextUtils.equals("recommend", data.getType()) && data.getBody() != null) {
+                    for (MainRecommend.Body body : data.getBody()) {
+                        MainRecommendEx.Content content = new MainRecommendEx.Content();
+                        content.setCardType("small_popular_ugc");
+                        content.setCardGoto("av");
+                        content.setJumpId(Long.parseLong(body.getParam()));
+                        content.setCover(body.getCover());
+                        content.setTitle(body.getTitle());
+                        content.setUri(body.getUri());
+                        arrayList.add(content);
+                    }
+                    for(int i=data.getBody().size();i<20;i++)arrayList.add(null);
+                    afd.this.a.a(afd.this.a.ogvList, arrayList);
+                }
+            }
+        }
+
+        @Override // bl.vm
+        public void onError(Throwable t) {
+            bbi.b(t, "t");
+            BLog.e("MainRecommend", t.getMessage());
+        }
+    }
+
 
     final class RecommendsResponse extends vn<JSONObject> {
         public RecommendsResponse() {
@@ -323,11 +356,7 @@ public final class afd extends adu implements aez, wf {
                 arrayList2.add(content);
             }
             for(int i=items.size();i<20;i++)arrayList2.add(null);
-            c cVar = afd.this.a;
-            if (cVar == null) {
-                bbi.a();
-            }
-            cVar.a(arrayList, arrayList2);
+            afd.this.a.a(arrayList, arrayList2);
         }
 
         @Override // bl.vn
@@ -342,8 +371,8 @@ public final class afd extends adu implements aez, wf {
     /* loaded from: classes.dex */
     static final class c extends RecyclerView.a<adv> {
         public static final aa Companion = new aa(null);
-        public static List<MainRecommendEx.Content> a;
-        public static List<MainRecommendEx.Content> b;
+        public static List<MainRecommendEx.Content> ugcList;
+        public static List<MainRecommendEx.Content> ogvList;
         private final WeakReference<afd> c;
         private final UriMatcher d;
         private final int e;
@@ -356,8 +385,8 @@ public final class afd extends adu implements aez, wf {
 
         public c(afd afdVar) {
             bbi.b(afdVar, "fragment");
-            this.a = new ArrayList(20);
-            this.b = new ArrayList(5);
+            this.ugcList = new ArrayList(20);
+            this.ogvList = new ArrayList(5);
             this.c = new WeakReference<>(afdVar);
             this.d = new UriMatcher(-1);
             this.e = adl.b(R.dimen.px_512);
@@ -378,14 +407,14 @@ public final class afd extends adu implements aez, wf {
             bbi.b(advVar, "viewHolder");
             if (advVar instanceof a) {
                 advVar.a.setTag(R.id.position, Integer.valueOf(i));
-                if (this.b.size() < 5) {
+                if (this.ogvList.size() < 5) {
                     ((a) advVar).B().setVisibility(View.INVISIBLE);
                     return;
                 }
                 int i2 = i / 5;
                 a aVar = (a) advVar;
                 aVar.B().setVisibility(0);
-                MainRecommendEx.Content content = this.b.get(i2);
+                MainRecommendEx.Content content = this.ogvList.get(i2);
                 if (content == null) {
                     advVar.a.setFocusable(false);
                     advVar.a.setVisibility(View.GONE);
@@ -409,13 +438,13 @@ public final class afd extends adu implements aez, wf {
                 advVar.a.setTag(R.id.report_position, Integer.valueOf(i2 + 1));
             } else if (advVar instanceof e) {
                 advVar.a.setTag(R.id.position, Integer.valueOf(i));
-                if (this.a.size() < 20) {
+                if (this.ugcList.size() < 20) {
                     ((e) advVar).B().setVisibility(View.INVISIBLE);
                     return;
                 }
                 e eVar = (e) advVar;
                 eVar.B().setVisibility(0);
-                MainRecommendEx.Content content2 = this.a.get(i - ((i / 5) + 1));
+                MainRecommendEx.Content content2 = this.ugcList.get(i - ((i / 5) + 1));
                 if (content2 == null) {
                     advVar.a.setFocusable(false);
                     advVar.a.setVisibility(View.GONE);
@@ -445,18 +474,18 @@ public final class afd extends adu implements aez, wf {
             return i % 5 == 0 ? 1 : 2;
         }
 
-        public final boolean a(List<MainRecommendEx.Content> list, List<MainRecommendEx.Content> list2) {
+        public final boolean a(List<MainRecommendEx.Content> ogvList, List<MainRecommendEx.Content> ugcList) {
             boolean z;
-            bbi.b(list, "ogvList");
-            bbi.b(list2, "ugcList");
-            if (list.size() >= 5) {
-                this.b = list;
+            bbi.b(ogvList, "ogvList");
+            bbi.b(ugcList, "ugcList");
+            if (ogvList.size() >= 5) {
+                this.ogvList = ogvList;
                 z = true;
             } else {
                 z = false;
             }
-            if (list2.size() >= 20) {
-                this.a = list2;
+            if (ugcList.size() >= 20) {
+                this.ugcList = ugcList;
             } else {
                 z = false;
             }
@@ -647,7 +676,7 @@ public final class afd extends adu implements aez, wf {
             }
             if (tag instanceof String) {
                 String str = (String) tag;
-                if (!bcl.b(str, "bilibili_yst://video", false)) {
+                if (!bcl.b(str, "bilibili_yst://video", false) && !bcl.b(str, "bilibili://video", false)) {
                     return;
                 }
                 a2.startActivity(VideoDetailActivity.Companion.a(a2, ContentUris.parseId(Uri.parse(str))));

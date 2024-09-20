@@ -27,6 +27,8 @@ import bl.aat;
 import bl.aav;
 import bl.abd;
 import org.json.*;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import com.bilibili.tv.MainApplication;
 
 /* compiled from: BL */
@@ -58,6 +60,7 @@ public class PlayerMenuRight extends aay<String> {
     public List<String> mode_list;
     public List<String> subtitle_list;
     public static boolean danmaku_valid_list[] = {false,true,false,false,true,true,true,true,false,false};
+    public static int danmaku_level=0;
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
@@ -173,7 +176,7 @@ public class PlayerMenuRight extends aay<String> {
                     for(int ii=0;ii<10;ii++){if(danmaku_valid_list[ii])f=true;}
                     switch(w){
                         case 0:textView.getCompoundDrawables()[0].setAlpha(f?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
-                        case 1:textView.getCompoundDrawables()[0].setAlpha(!f?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
+                        case 1:textView.getCompoundDrawables()[0].setAlpha(0);textView.setText("屏蔽等级："+PlayerMenuRight.danmaku_level);break;
                         case 2:textView.getCompoundDrawables()[0].setAlpha(danmaku_valid_list[1]?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
                         default:textView.getCompoundDrawables()[0].setAlpha(danmaku_valid_list[w+1]?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
                     }
@@ -301,15 +304,32 @@ public class PlayerMenuRight extends aay<String> {
                 //i3 = this.danmaku_id;
                 //this.danmaku_id = i2;
                 switch(i2){
-                    case 0:danmaku_valid_list[1]=danmaku_valid_list[4]=danmaku_valid_list[5]=danmaku_valid_list[6]=danmaku_valid_list[7]=true;break;
-                    case 1:danmaku_valid_list[1]=danmaku_valid_list[4]=danmaku_valid_list[5]=danmaku_valid_list[6]=danmaku_valid_list[7]=false;break;
+                    case 0:
+                        boolean f = false;
+                        for(int ii=0;ii<10;ii++){if(danmaku_valid_list[ii])f=true;}
+                        danmaku_valid_list[1]=danmaku_valid_list[4]=danmaku_valid_list[5]=danmaku_valid_list[6]=danmaku_valid_list[7]=!f;
+                        break;
+                    case 1:
+                        String values[] = {"0","1","2","3","4","5","6","7","8","9","10"};
+                        AlertDialog dialog = new AlertDialog.Builder(getContext())
+                            .setTitle("弹幕屏蔽等级")
+                            .setItems(values, new DialogInterface.OnClickListener() { 
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) { 
+                                    PlayerMenuRight.danmaku_level=which;
+                                    ((TextView) viewGroup.getChildAt(1)).setText("屏蔽等级："+PlayerMenuRight.danmaku_level);
+                                    PlayerMenuRight.this.d.refresh_subtitle();
+                                }
+                            }).create();
+                        dialog.show();
+                        return true;
                     case 2:danmaku_valid_list[1]=!danmaku_valid_list[1];break;
                     default:danmaku_valid_list[i2+1]=!danmaku_valid_list[i2+1];((TextView) view).getCompoundDrawables()[0].setAlpha(danmaku_valid_list[i2+1]?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
                 }
                 boolean f = false;
                 for(int ii=0;ii<10;ii++){if(danmaku_valid_list[ii])f=true;}
                 ((TextView) viewGroup.getChildAt(0)).getCompoundDrawables()[0].setAlpha(f?DanmakuConfig.ALPHA_VALUE_MAX:0);
-                ((TextView) viewGroup.getChildAt(1)).getCompoundDrawables()[0].setAlpha(!f?DanmakuConfig.ALPHA_VALUE_MAX:0);
+                ((TextView) viewGroup.getChildAt(0)).setText(f?"弹幕开":"弹幕关");
                 ((TextView) viewGroup.getChildAt(2)).getCompoundDrawables()[0].setAlpha(danmaku_valid_list[1]?DanmakuConfig.ALPHA_VALUE_MAX:0);
                 for(int ii=4;ii<8;ii++)((TextView) viewGroup.getChildAt(ii-1)).getCompoundDrawables()[0].setAlpha(danmaku_valid_list[ii]?DanmakuConfig.ALPHA_VALUE_MAX:0);
                 this.d.refresh_subtitle();
@@ -548,6 +568,7 @@ public class PlayerMenuRight extends aay<String> {
     }
 
     public void init_danmaku(List<String> list, int i) {
+        list.set(1, "屏蔽等级："+PlayerMenuRight.danmaku_level);
         this.danmaku_list = list;
         this.danmaku_id = i;
     }

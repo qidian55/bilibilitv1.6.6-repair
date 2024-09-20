@@ -71,35 +71,35 @@
 .end method
 
 .method private a(Landroid/app/Activity;Lcom/bilibili/tv/newplayer/bean/PlayControllerOptionType;Landroid/widget/TextView;Landroid/widget/ImageView;)V
-    .locals 7
+    .locals 6
 
     .prologue
     const/4 v1, 0x1
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     .line 348
     .line 349
-    sget-object v0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$5;->$SwitchMap$com$bilibili$tv$newplayer$bean$PlayControllerOptionType:[I
+    sget-object v2, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$5;->$SwitchMap$com$bilibili$tv$newplayer$bean$PlayControllerOptionType:[I
 
     invoke-virtual {p2}, Lcom/bilibili/tv/newplayer/bean/PlayControllerOptionType;->ordinal()I
 
     move-result v3
 
-    aget v0, v0, v3
+    aget v2, v2, v3
 
-    packed-switch v0, :pswitch_data_17e
+    packed-switch v2, :pswitch_data_16c
 
-    .line 444
+    .line 443
     :cond_d
     :goto_d
     return-void
 
     .line 351
     :pswitch_e
-    iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
+    iget-object v1, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->a(Z)V
+    invoke-virtual {v1, v0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->a(Z)V
 
     .line 352
     iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
@@ -138,105 +138,78 @@
 
     .line 358
     :pswitch_31
-    iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
+    iget-object v2, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
     # getter for: Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->k:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
-    invoke-static {v0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->access$200(Lcom/bilibili/tv/newplayer/widget/LivePlayerController;)Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
+    invoke-static {v2}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->access$200(Lcom/bilibili/tv/newplayer/widget/LivePlayerController;)Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
+
+    # getter for: Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->k:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
+    invoke-static {v3}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->access$200(Lcom/bilibili/tv/newplayer/widget/LivePlayerController;)Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
 
     move-result-object v3
 
-    iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
+    iget-boolean v3, v3, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->G:Z
 
-    # getter for: Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->k:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
-    invoke-static {v0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->access$200(Lcom/bilibili/tv/newplayer/widget/LivePlayerController;)Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
-
-    move-result-object v0
-
-    iget-boolean v0, v0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->G:Z
-
-    if-nez v0, :cond_56
+    if-nez v3, :cond_42
 
     move v0, v1
 
-    :goto_42
-    invoke-virtual {v3, v0}, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->a(Z)V
+    :cond_42
+    invoke-virtual {v2, v0}, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->a(Z)V
 
     .line 359
-    iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
-
-    # getter for: Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->k:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
-    invoke-static {v0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->access$200(Lcom/bilibili/tv/newplayer/widget/LivePlayerController;)Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
-
-    move-result-object v0
-
-    iget-boolean v0, v0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->G:Z
-
-    if-nez v0, :cond_58
-
-    :goto_4f
-    invoke-virtual {p4, v1}, Landroid/widget/ImageView;->setSelected(Z)V
-
-    .line 360
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->b(Landroid/app/Activity;Lcom/bilibili/tv/newplayer/bean/PlayControllerOptionType;Landroid/widget/TextView;Landroid/widget/ImageView;)V
 
     goto :goto_d
 
-    :cond_56
-    move v0, v2
+    .line 362
+    :pswitch_49
+    iget-object v2, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
-    .line 358
-    goto :goto_42
-
-    :cond_58
-    move v1, v2
-
-    .line 359
-    goto :goto_4f
+    invoke-virtual {v2, v0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->a(Z)V
 
     .line 363
-    :pswitch_5a
-    iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
-
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->a(Z)V
-
-    .line 364
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v2}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-static {v0}, Lbl/abd;->f(Landroid/content/Context;)F
+    invoke-static {v2}, Lbl/abd;->f(Landroid/content/Context;)F
 
-    move-result v0
+    move-result v2
 
-    invoke-static {v0}, Ljava/lang/String;->valueOf(F)Ljava/lang/String;
+    invoke-static {v2}, Ljava/lang/String;->valueOf(F)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    .line 365
-    iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
+    .line 364
+    iget-object v2, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
     # getter for: Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->o:Lbl/cj;
-    invoke-static {v0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->access$400(Lcom/bilibili/tv/newplayer/widget/LivePlayerController;)Lbl/cj;
+    invoke-static {v2}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->access$400(Lcom/bilibili/tv/newplayer/widget/LivePlayerController;)Lbl/cj;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Lbl/cj;->b()I
+    invoke-virtual {v2}, Lbl/cj;->b()I
 
-    move-result v6
+    move-result v5
 
-    move v4, v2
+    move v3, v0
 
-    move v3, v2
+    move v2, v0
+
+    .line 366
+    :goto_6a
+    if-ge v2, v5, :cond_83
 
     .line 367
-    :goto_7b
-    if-ge v3, v6, :cond_94
-
-    .line 368
     iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
     # getter for: Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->o:Lbl/cj;
@@ -244,35 +217,35 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Lbl/cj;->a(I)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Lbl/cj;->a(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lbl/wn;
 
-    invoke-virtual {v0, v5}, Lbl/wn;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v4}, Lbl/wn;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_17a
+    if-eqz v0, :cond_169
 
-    move v0, v3
+    move v0, v2
 
-    .line 371
-    :goto_90
-    add-int/lit8 v3, v3, 0x1
+    .line 370
+    :goto_7f
+    add-int/lit8 v2, v2, 0x1
 
-    move v4, v0
+    move v3, v0
 
-    goto :goto_7b
+    goto :goto_6a
 
-    .line 373
-    :cond_94
+    .line 372
+    :cond_83
     new-instance v0, Lbl/xa$a;
 
     invoke-direct {v0, p1}, Lbl/xa$a;-><init>(Landroid/app/Activity;)V
 
-    .line 374
+    .line 373
     invoke-virtual {v0, v1}, Lbl/xa$a;->a(I)Lbl/xa$a;
 
     move-result-object v1
@@ -283,7 +256,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v4}, Lbl/xa$a;->b(I)Lbl/xa$a;
+    invoke-virtual {v1, v3}, Lbl/xa$a;->b(I)Lbl/xa$a;
 
     move-result-object v1
 
@@ -300,7 +273,7 @@
 
     invoke-virtual {v1, v2, v3}, Lbl/xa$a;->a(Lbl/cj;Lbl/xa$c;)Lbl/xa$a;
 
-    .line 386
+    .line 385
     invoke-virtual {v0}, Lbl/xa$a;->a()Lbl/xa;
 
     move-result-object v0
@@ -309,50 +282,50 @@
 
     goto/16 :goto_d
 
+    .line 388
+    :pswitch_ad
+    iget-object v2, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
+
+    invoke-virtual {v2, v0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->a(Z)V
+
     .line 389
-    :pswitch_be
-    iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
-
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->a(Z)V
-
-    .line 390
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v2}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-static {v0}, Lbl/abd;->g(Landroid/content/Context;)F
+    invoke-static {v2}, Lbl/abd;->g(Landroid/content/Context;)F
 
-    move-result v0
+    move-result v2
 
-    invoke-static {v0}, Ljava/lang/String;->valueOf(F)Ljava/lang/String;
+    invoke-static {v2}, Ljava/lang/String;->valueOf(F)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    .line 391
-    iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
+    .line 390
+    iget-object v2, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
     # getter for: Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->p:Lbl/cj;
-    invoke-static {v0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->access$500(Lcom/bilibili/tv/newplayer/widget/LivePlayerController;)Lbl/cj;
+    invoke-static {v2}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->access$500(Lcom/bilibili/tv/newplayer/widget/LivePlayerController;)Lbl/cj;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Lbl/cj;->b()I
+    invoke-virtual {v2}, Lbl/cj;->b()I
 
-    move-result v6
+    move-result v5
 
-    move v4, v2
+    move v3, v0
 
-    move v3, v2
+    move v2, v0
+
+    .line 392
+    :goto_ce
+    if-ge v2, v5, :cond_e7
 
     .line 393
-    :goto_df
-    if-ge v3, v6, :cond_f8
-
-    .line 394
     iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
     # getter for: Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->p:Lbl/cj;
@@ -360,35 +333,35 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Lbl/cj;->a(I)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Lbl/cj;->a(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lbl/wn;
 
-    invoke-virtual {v0, v5}, Lbl/wn;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v4}, Lbl/wn;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_177
+    if-eqz v0, :cond_166
 
-    move v0, v3
+    move v0, v2
 
-    .line 397
-    :goto_f4
-    add-int/lit8 v3, v3, 0x1
+    .line 396
+    :goto_e3
+    add-int/lit8 v2, v2, 0x1
 
-    move v4, v0
+    move v3, v0
 
-    goto :goto_df
+    goto :goto_ce
 
-    .line 399
-    :cond_f8
+    .line 398
+    :cond_e7
     new-instance v0, Lbl/xa$a;
 
     invoke-direct {v0, p1}, Lbl/xa$a;-><init>(Landroid/app/Activity;)V
 
-    .line 400
+    .line 399
     invoke-virtual {v0, v1}, Lbl/xa$a;->a(I)Lbl/xa$a;
 
     move-result-object v1
@@ -399,7 +372,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v4}, Lbl/xa$a;->b(I)Lbl/xa$a;
+    invoke-virtual {v1, v3}, Lbl/xa$a;->b(I)Lbl/xa$a;
 
     move-result-object v1
 
@@ -416,7 +389,7 @@
 
     invoke-virtual {v1, v2, v3}, Lbl/xa$a;->a(Lbl/cj;Lbl/xa$c;)Lbl/xa$a;
 
-    .line 412
+    .line 411
     invoke-virtual {v0}, Lbl/xa$a;->a()Lbl/xa;
 
     move-result-object v0
@@ -425,8 +398,8 @@
 
     goto/16 :goto_d
 
-    .line 415
-    :pswitch_122
+    .line 414
+    :pswitch_111
     iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
     # getter for: Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->k:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
@@ -436,63 +409,63 @@
 
     invoke-virtual {v0}, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->o()V
 
-    .line 416
+    .line 415
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->b(Landroid/app/Activity;Lcom/bilibili/tv/newplayer/bean/PlayControllerOptionType;Landroid/widget/TextView;Landroid/widget/ImageView;)V
 
     goto/16 :goto_d
 
-    .line 419
-    :pswitch_130
-    iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
+    .line 418
+    :pswitch_11f
+    iget-object v2, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->a(Z)V
+    invoke-virtual {v2, v0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->a(Z)V
 
-    .line 421
-    iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
+    .line 420
+    iget-object v2, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
     # getter for: Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->m:Lmybl/BiliLiveContent;
-    invoke-static {v0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->access$300(Lcom/bilibili/tv/newplayer/widget/LivePlayerController;)Lmybl/BiliLiveContent;
+    invoke-static {v2}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->access$300(Lcom/bilibili/tv/newplayer/widget/LivePlayerController;)Lmybl/BiliLiveContent;
 
     move-result-object v4
 
-    move v0, v2
-
-    move v3, v2
-
-    .line 422
-    :goto_13d
-    iget-object v2, v4, Lmybl/BiliLiveContent;->mAcceptQuality:[I
-
-    array-length v2, v2
-
-    if-ge v0, v2, :cond_14f
-
-    .line 423
-    iget-object v2, v4, Lmybl/BiliLiveContent;->mAcceptQuality:[I
-
-    aget v2, v2, v0
-
-    iget v5, v4, Lmybl/BiliLiveContent;->mCurrentQuality:I
-
-    if-ne v2, v5, :cond_14b
+    move v2, v0
 
     move v3, v0
 
+    .line 421
+    :goto_12c
+    iget-object v0, v4, Lmybl/BiliLiveContent;->mAcceptQuality:[I
+
+    array-length v0, v0
+
+    if-ge v2, v0, :cond_13e
+
     .line 422
-    :cond_14b
-    add-int/lit8 v2, v0, 0x1
+    iget-object v0, v4, Lmybl/BiliLiveContent;->mAcceptQuality:[I
 
-    move v0, v2
+    aget v0, v0, v2
 
-    goto :goto_13d
+    iget v5, v4, Lmybl/BiliLiveContent;->mCurrentQuality:I
 
-    .line 425
-    :cond_14f
+    if-ne v0, v5, :cond_13a
+
+    move v3, v2
+
+    .line 421
+    :cond_13a
+    add-int/lit8 v0, v2, 0x1
+
+    move v2, v0
+
+    goto :goto_12c
+
+    .line 424
+    :cond_13e
     new-instance v0, Lbl/xa$a;
 
     invoke-direct {v0, p1}, Lbl/xa$a;-><init>(Landroid/app/Activity;)V
 
-    .line 426
+    .line 425
     invoke-virtual {v0, v1}, Lbl/xa$a;->a(I)Lbl/xa$a;
 
     move-result-object v1
@@ -517,7 +490,7 @@
 
     invoke-virtual {v1, v2, v3}, Lbl/xa$a;->a(Lbl/cj;Lbl/xa$c;)Lbl/xa$a;
 
-    .line 441
+    .line 440
     invoke-virtual {v0}, Lbl/xa$a;->a()Lbl/xa;
 
     move-result-object v0
@@ -526,104 +499,117 @@
 
     goto/16 :goto_d
 
-    :cond_177
-    move v0, v4
+    :cond_166
+    move v0, v3
 
-    goto/16 :goto_f4
+    goto/16 :goto_e3
 
-    :cond_17a
-    move v0, v4
+    :cond_169
+    move v0, v3
 
-    goto/16 :goto_90
+    goto/16 :goto_7f
 
     .line 349
-    nop
-
-    :pswitch_data_17e
+    :pswitch_data_16c
     .packed-switch 0x1
         :pswitch_e
         :pswitch_31
-        :pswitch_5a
-        :pswitch_be
-        :pswitch_122
-        :pswitch_130
+        :pswitch_49
+        :pswitch_ad
+        :pswitch_111
+        :pswitch_11f
     .end packed-switch
 .end method
 
 .method private b(Landroid/app/Activity;Lcom/bilibili/tv/newplayer/bean/PlayControllerOptionType;Landroid/widget/TextView;Landroid/widget/ImageView;)V
-    .locals 3
+    .locals 4
 
     .prologue
-    .line 449
-    sget-object v0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$5;->$SwitchMap$com$bilibili$tv$newplayer$bean$PlayControllerOptionType:[I
+    const/4 v0, 0x1
+
+    .line 448
+    sget-object v1, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$5;->$SwitchMap$com$bilibili$tv$newplayer$bean$PlayControllerOptionType:[I
 
     invoke-virtual {p2}, Lcom/bilibili/tv/newplayer/bean/PlayControllerOptionType;->ordinal()I
 
-    move-result v1
+    move-result v2
 
-    aget v0, v0, v1
+    aget v1, v1, v2
 
-    packed-switch v0, :pswitch_data_94
+    packed-switch v1, :pswitch_data_a4
 
     .line 481
-    :cond_b
-    :goto_b
+    :cond_c
+    :goto_c
     return-void
 
-    .line 451
-    :pswitch_c
-    const-string v0, "UP\u6295\u7a3f"
+    .line 450
+    :pswitch_d
+    const-string v1, "UP\u6295\u7a3f"
 
-    invoke-virtual {p3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {p3, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 451
+    iget-object v1, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->c:Ljava/lang/String;
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2d
 
     .line 452
-    iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->c:Ljava/lang/String;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2c
-
-    .line 453
     invoke-static {}, Lbl/nv;->a()Lbl/nv;
 
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
-
-    invoke-virtual {v1}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->getContext()Landroid/content/Context;
-
     move-result-object v1
 
-    iget-object v2, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->c:Ljava/lang/String;
+    iget-object v2, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
-    invoke-static {v1, v2}, Lbl/ach;->d(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1, p4}, Lbl/nv;->a(Ljava/lang/String;Landroid/widget/ImageView;)V
+    iget-object v3, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->c:Ljava/lang/String;
+
+    invoke-static {v2, v3}, Lbl/ach;->d(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2, p4}, Lbl/nv;->a(Ljava/lang/String;Landroid/widget/ImageView;)V
+
+    .line 454
+    :cond_2d
+    instance-of v1, p4, Lcom/bilibili/tv/widget/ScalableImageView;
+
+    if-eqz v1, :cond_c
 
     .line 455
-    :cond_2c
-    instance-of v0, p4, Lcom/bilibili/tv/widget/ScalableImageView;
-
-    if-eqz v0, :cond_b
-
-    .line 456
     check-cast p4, Lcom/bilibili/tv/widget/ScalableImageView;
-
-    const/4 v0, 0x1
 
     invoke-virtual {p4, v0}, Lcom/bilibili/tv/widget/ScalableImageView;->setRoundAsCircle(Z)V
 
-    goto :goto_b
+    goto :goto_c
+
+    .line 460
+    :pswitch_37
+    const v1, 0x7f0700dd
+
+    invoke-virtual {p4, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
     .line 461
-    :pswitch_37
-    const v0, 0x7f0700dd
+    iget-object v1, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
-    invoke-virtual {p4, v0}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    # getter for: Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->k:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
+    invoke-static {v1}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->access$200(Lcom/bilibili/tv/newplayer/widget/LivePlayerController;)Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
+
+    move-result-object v1
+
+    iget-boolean v1, v1, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->G:Z
+
+    if-nez v1, :cond_5e
+
+    :goto_47
+    invoke-virtual {p4, v0}, Landroid/widget/ImageView;->setSelected(Z)V
 
     .line 462
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
@@ -638,22 +624,29 @@
 
     move-result v0
 
-    if-eqz v0, :cond_51
+    if-eqz v0, :cond_60
 
     const-string v0, "\u5f39\u5e55\u5f00"
 
-    :goto_4d
+    :goto_5a
     invoke-virtual {p3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_b
+    goto :goto_c
 
-    :cond_51
+    .line 461
+    :cond_5e
+    const/4 v0, 0x0
+
+    goto :goto_47
+
+    .line 462
+    :cond_60
     const-string v0, "\u5f39\u5e55\u5173"
 
-    goto :goto_4d
+    goto :goto_5a
 
     .line 465
-    :pswitch_54
+    :pswitch_63
     const v0, 0x7f07006b
 
     invoke-virtual {p4, v0}, Landroid/widget/ImageView;->setBackgroundResource(I)V
@@ -663,10 +656,10 @@
 
     invoke-virtual {p3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_b
+    goto :goto_c
 
     .line 469
-    :pswitch_60
+    :pswitch_6f
     const v0, 0x7f0700a4
 
     invoke-virtual {p4, v0}, Landroid/widget/ImageView;->setBackgroundResource(I)V
@@ -676,10 +669,10 @@
 
     invoke-virtual {p3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_b
+    goto :goto_c
 
     .line 473
-    :pswitch_6c
+    :pswitch_7b
     const v0, 0x7f070071
 
     invoke-virtual {p4, v0}, Landroid/widget/ImageView;->setBackgroundResource(I)V
@@ -696,22 +689,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_84
+    if-eqz v0, :cond_94
 
     const-string v0, "\u955c\u50cf\u5f00"
 
-    :goto_80
+    :goto_8f
     invoke-virtual {p3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_b
+    goto/16 :goto_c
 
-    :cond_84
+    :cond_94
     const-string v0, "\u955c\u50cf\u5173"
 
-    goto :goto_80
+    goto :goto_8f
 
     .line 477
-    :pswitch_87
+    :pswitch_97
     const v0, 0x7f0700fc
 
     invoke-virtual {p4, v0}, Landroid/widget/ImageView;->setBackgroundResource(I)V
@@ -721,17 +714,17 @@
 
     invoke-virtual {p3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_b
+    goto/16 :goto_c
 
-    .line 449
-    :pswitch_data_94
+    .line 448
+    :pswitch_data_a4
     .packed-switch 0x1
-        :pswitch_c
+        :pswitch_d
         :pswitch_37
-        :pswitch_54
-        :pswitch_60
-        :pswitch_6c
-        :pswitch_87
+        :pswitch_63
+        :pswitch_6f
+        :pswitch_7b
+        :pswitch_97
     .end packed-switch
 .end method
 

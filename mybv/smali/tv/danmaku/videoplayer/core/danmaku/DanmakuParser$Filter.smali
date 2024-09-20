@@ -1,6 +1,6 @@
 .class public interface abstract Ltv/danmaku/videoplayer/core/danmaku/DanmakuParser$Filter;
 .super Ljava/lang/Object;
-.source "BL"
+.source "DanmakuParser.java"
 
 # interfaces
 .implements Landroid/os/Parcelable;
@@ -25,9 +25,11 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/SortedMap<",
+            "Ljava/util/SortedMap",
+            "<",
             "Ljava/lang/Long;",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;",
             ">;>;"
         }

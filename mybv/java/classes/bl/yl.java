@@ -28,6 +28,8 @@ import tv.danmaku.videoplayer.core.danmaku.comment.CommentItem;
 import tv.danmaku.videoplayer.core.danmaku.comment.CommentItemFactory;
 import tv.danmaku.videoplayer.core.danmaku.comment.CommentParseException;
 
+import com.bilibili.tv.player.widget.PlayerMenuRight;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public class yl implements IDanmakuDocument, IDanmakuRecommendable {
@@ -36,7 +38,7 @@ public class yl implements IDanmakuDocument, IDanmakuRecommendable {
     public DanmakuParser.Filter filter = new DanmakuParser.Filter(){
         @Override
         public boolean blockThis(CommentItem commentItem){
-            return !com.bilibili.tv.player.widget.PlayerMenuRight.danmaku_valid_list[commentItem.getCommentType()];
+            return PlayerMenuRight.danmaku_level>commentItem.mPublisherLevel || !PlayerMenuRight.danmaku_valid_list[commentItem.getCommentType()];
         }
         
         @Override

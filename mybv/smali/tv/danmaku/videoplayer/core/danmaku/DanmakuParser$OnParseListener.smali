@@ -1,6 +1,6 @@
-.class interface abstract Ltv/danmaku/videoplayer/core/danmaku/DanmakuParser$OnParseListener;
+.class public interface abstract Ltv/danmaku/videoplayer/core/danmaku/DanmakuParser$OnParseListener;
 .super Ljava/lang/Object;
-.source "BL"
+.source "DanmakuParser.java"
 
 
 # annotations
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "OnParseListener"
 .end annotation
 

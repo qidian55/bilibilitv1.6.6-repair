@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;
 .super Lcom/bilibili/api/base/util/ParamsMap;
-.source "BL"
+.source "BiliApiService.java"
 
 
 # annotations
@@ -18,11 +18,11 @@
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 6
 
-    const/4 v3, 0x0
-
+    .prologue
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    .line 91
+    const/4 v3, 0x0
 
     move-object v0, p0
 
@@ -30,45 +30,48 @@
 
     move v2, p2
 
-    .line 94
+    move v5, v4
+
     invoke-direct/range {v0 .. v5}, Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;-><init>(Ljava/lang/String;ILjava/lang/String;II)V
 
+    .line 92
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ILjava/lang/String;II)V
-    .locals 4
+    .locals 5
 
-    .line 98
+    .prologue
+    const/4 v4, 0x2
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
+
+    .line 94
     invoke-direct {p0}, Lcom/bilibili/api/base/util/ParamsMap;-><init>()V
 
-    const/4 v0, 0x2
+    .line 95
+    new-array v0, v4, [Ljava/lang/String;
 
-    .line 99
-    new-array v1, v0, [Ljava/lang/String;
+    const-string v1, "pn"
 
-    const-string v2, "pn"
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
+    aput-object v1, v0, v2
 
     invoke-static {p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    const/4 v2, 0x1
+    aput-object v1, v0, v3
 
-    aput-object p2, v1, v2
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;->putParams([Ljava/lang/String;)V
 
-    invoke-virtual {p0, v1}, Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;->putParams([Ljava/lang/String;)V
-
-    .line 100
-    new-array p2, v0, [Ljava/lang/String;
+    .line 96
+    new-array v0, v4, [Ljava/lang/String;
 
     const-string v1, "ps"
 
-    aput-object v1, p2, v3
+    aput-object v1, v0, v2
 
     const/16 v1, 0x14
 
@@ -76,67 +79,70 @@
 
     move-result-object v1
 
-    aput-object v1, p2, v2
+    aput-object v1, v0, v3
 
-    invoke-virtual {p0, p2}, Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;->putParams([Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;->putParams([Ljava/lang/String;)V
 
-    .line 101
-    new-array p2, v0, [Ljava/lang/String;
+    .line 97
+    new-array v0, v4, [Ljava/lang/String;
 
     const-string v1, "keyword"
 
-    aput-object v1, p2, v3
+    aput-object v1, v0, v2
 
-    aput-object p1, p2, v2
+    aput-object p1, v0, v3
 
-    invoke-virtual {p0, p2}, Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;->putParams([Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;->putParams([Ljava/lang/String;)V
 
-    .line 102
-    new-array p1, v0, [Ljava/lang/String;
+    .line 98
+    new-array v0, v4, [Ljava/lang/String;
 
-    const-string p2, "duration"
+    const-string v1, "duration"
 
-    aput-object p2, p1, v3
+    aput-object v1, v0, v2
 
     invoke-static {p4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    aput-object p2, p1, v2
+    aput-object v1, v0, v3
 
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;->putParams([Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;->putParams([Ljava/lang/String;)V
 
-    if-eqz p3, :cond_0
+    .line 99
+    if-eqz p3, :cond_4d
 
-    .line 104
-    new-array p1, v0, [Ljava/lang/String;
+    .line 100
+    new-array v0, v4, [Ljava/lang/String;
 
-    const-string p2, "order"
+    const-string v1, "order"
 
-    aput-object p2, p1, v3
+    aput-object v1, v0, v2
 
-    aput-object p3, p1, v2
+    aput-object p3, v0, v3
 
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;->putParams([Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;->putParams([Ljava/lang/String;)V
 
-    :cond_0
-    if-lez p5, :cond_1
+    .line 102
+    :cond_4d
+    if-lez p5, :cond_5e
 
-    .line 107
-    new-array p1, v0, [Ljava/lang/String;
+    .line 103
+    new-array v0, v4, [Ljava/lang/String;
 
-    const-string p2, "rid"
+    const-string v1, "rid"
 
-    aput-object p2, p1, v3
+    aput-object v1, v0, v2
 
     invoke-static {p5}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    aput-object p2, p1, v2
+    aput-object v1, v0, v3
 
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;->putParams([Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;->putParams([Ljava/lang/String;)V
 
-    :cond_1
+    .line 105
+    :cond_5e
     return-void
 .end method

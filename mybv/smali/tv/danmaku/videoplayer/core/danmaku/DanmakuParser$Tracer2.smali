@@ -1,6 +1,6 @@
 .class public interface abstract Ltv/danmaku/videoplayer/core/danmaku/DanmakuParser$Tracer2;
 .super Ljava/lang/Object;
-.source "BL"
+.source "DanmakuParser.java"
 
 # interfaces
 .implements Ltv/danmaku/videoplayer/core/danmaku/DanmakuParser$Tracer;

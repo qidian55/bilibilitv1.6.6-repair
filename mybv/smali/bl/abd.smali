@@ -630,33 +630,43 @@
     .locals 3
 
     .prologue
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
     .line 119
-    sget v0, Lbl/abd;->i:I
+    sget v1, Lbl/abd;->i:I
 
-    if-nez v0, :cond_15
+    if-nez v1, :cond_15
 
     .line 120
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Lbl/abd;->a()Landroid/content/SharedPreferences;
+    invoke-virtual {v1}, Lbl/abd;->a()Landroid/content/SharedPreferences;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v1, "danmaku_text_show"
+    const-string v2, "danmaku_text_show"
 
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+    invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result v1
 
-    sput v0, Lbl/abd;->i:I
+    sput v1, Lbl/abd;->i:I
 
     .line 122
     :cond_15
-    return v2
+    sget v1, Lbl/abd;->i:I
+
+    if-ne v1, v0, :cond_1a
+
+    :goto_19
+    return v0
+
+    :cond_1a
+    const/4 v0, 0x0
+
+    goto :goto_19
 .end method
 
 .method public static f(Landroid/content/Context;)F

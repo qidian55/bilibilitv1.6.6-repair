@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/bilibili/tv/api/BiliApiService;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliApiService.java"
 
 
 # annotations
@@ -49,8 +49,10 @@
             "(",
             "Ljava/lang/String;",
             "III)",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lcom/bilibili/tv/api/attention/UpperFeedList;",
             ">;>;"
         }
@@ -58,6 +60,22 @@
 
     .annotation runtime Lretrofit2/http/GET;
         a = "/x/feed/upper/archive"
+    .end annotation
+.end method
+
+.method public abstract getMainRecommend()Lbl/vp;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/tv/api/main/MainRecommend;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/x/v2/show"
     .end annotation
 .end method
 
@@ -69,8 +87,10 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lcom/bilibili/tv/api/search/BiliSearchRanks;",
             ">;>;"
         }
@@ -95,8 +115,10 @@
             "(",
             "Lcom/bilibili/tv/api/BiliApiService$SearchAllParamsMap;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lcom/bilibili/tv/api/search/BiliSearchResultAllNew;",
             ">;>;"
         }

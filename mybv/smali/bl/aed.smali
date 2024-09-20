@@ -1,15 +1,16 @@
 .class public final Lbl/aed;
 .super Lbl/ady;
-.source "BL"
+.source "aed.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lbl/aed$a;,
-        Lbl/aed$b;,
         Lbl/aed$c;,
-        Lbl/aed$d;
+        Lbl/aed$b;,
+        Lbl/aed$a;,
+        Lbl/aed$d;,
+        Lbl/aed$e;
     }
 .end annotation
 
@@ -32,6 +33,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 27
     new-instance v0, Lbl/aed$d;
 
     const/4 v1, 0x0
@@ -46,34 +49,28 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 35
+    .prologue
+    .line 26
     invoke-direct {p0}, Lbl/ady;-><init>()V
 
     return-void
 .end method
 
-.method public static final synthetic a()I
+.method static synthetic access$000(Lbl/aed;)Lbl/aed$b;
     .locals 1
 
-    .line 35
-    sget v0, Lbl/aed;->f:I
+    .prologue
+    .line 26
+    iget-object v0, p0, Lbl/aed;->c:Lbl/aed$b;
 
-    return v0
-.end method
-
-.method public static final synthetic a(Lbl/aed;)Lbl/aed$b;
-    .locals 0
-
-    .line 35
-    iget-object p0, p0, Lbl/aed;->c:Lbl/aed$b;
-
-    return-object p0
+    return-object v0
 .end method
 
 .method private final b()V
-    .locals 5
+    .locals 6
 
-    .line 85
+    .prologue
+    .line 112
     const-class v0, Lcom/bilibili/tv/api/favorite/BiliFavoriteVideoApiService;
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
@@ -82,31 +79,28 @@
 
     check-cast v0, Lcom/bilibili/tv/api/favorite/BiliFavoriteVideoApiService;
 
-    .line 87
+    .line 113
     invoke-virtual {p0}, Lbl/aed;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
-
-    check-cast v1, Landroid/content/Context;
 
     invoke-static {v1}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
     move-result-object v1
 
+    .line 114
     const-string v2, "BiliAccount.get(activity)"
 
     invoke-static {v1, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 115
     invoke-virtual {v1}, Lbl/mg;->e()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 88
     invoke-virtual {p0}, Lbl/aed;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v2
-
-    check-cast v2, Landroid/content/Context;
 
     invoke-static {v2}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
@@ -120,197 +114,205 @@
 
     move-result-object v2
 
-    const-wide/16 v3, 0x0
+    const-wide/16 v4, 0x0
 
-    .line 89
-    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v3
 
-    .line 86
     invoke-interface {v0, v1, v2, v3}, Lcom/bilibili/tv/api/favorite/BiliFavoriteVideoApiService;->getStatedBoxList(Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;)Lbl/vp;
 
     move-result-object v0
 
-    .line 91
     iget-object v1, p0, Lbl/aed;->d:Lbl/aed$a;
-
-    check-cast v1, Lbl/bkz;
 
     invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
 
+    .line 116
     return-void
 .end method
 
 
 # virtual methods
 .method public a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
-    .locals 2
+    .locals 3
 
+    .prologue
+    .line 63
     const-string v0, "recyclerView"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 50
+    .line 64
     invoke-super {p0, p1, p2}, Lbl/ady;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
 
-    .line 52
-    new-instance p2, Lbl/aed$a;
+    .line 65
+    new-instance v0, Lbl/aed$a;
 
-    invoke-direct {p2, p0}, Lbl/aed$a;-><init>(Lbl/aed;)V
+    invoke-direct {v0, p0}, Lbl/aed$a;-><init>(Lbl/aed;)V
 
-    iput-object p2, p0, Lbl/aed;->d:Lbl/aed$a;
+    iput-object v0, p0, Lbl/aed;->d:Lbl/aed$a;
 
-    .line 53
-    new-instance p2, Lcom/bilibili/tv/ui/favorite/FavoriteRightGridLayoutManger;
-
+    .line 66
     invoke-virtual {p0}, Lbl/aed;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    .line 67
+    if-nez v0, :cond_18
 
+    .line 68
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_0
+    .line 70
+    :cond_18
     const-string v1, "activity!!"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v0, Landroid/content/Context;
+    .line 71
+    new-instance v1, Lcom/bilibili/tv/ui/favorite/FavoriteRightGridLayoutManger;
 
-    sget v1, Lbl/aed;->f:I
+    const/4 v2, 0x4
 
-    invoke-direct {p2, v0, v1}, Lcom/bilibili/tv/ui/favorite/FavoriteRightGridLayoutManger;-><init>(Landroid/content/Context;I)V
+    invoke-direct {v1, v0, v2}, Lcom/bilibili/tv/ui/favorite/FavoriteRightGridLayoutManger;-><init>(Landroid/content/Context;I)V
 
-    .line 54
+    .line 72
     new-instance v0, Lbl/aed$b;
 
     invoke-direct {v0}, Lbl/aed$b;-><init>()V
 
     iput-object v0, p0, Lbl/aed;->c:Lbl/aed$b;
 
+    .line 73
     const/4 v0, 0x1
 
-    .line 56
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setHasFixedSize(Z)V
 
-    .line 57
-    move-object v0, p2
+    .line 74
+    invoke-virtual {p1, v1}, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$h;)V
 
-    check-cast v0, Landroid/support/v7/widget/RecyclerView$h;
-
-    invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$h;)V
-
+    .line 75
     const v0, 0x7f0600de
 
-    .line 59
     invoke-static {v0}, Lbl/adl;->b(I)I
 
     move-result v0
 
-    const v1, 0x7f060115
+    .line 76
+    const v2, 0x7f060115
 
-    .line 60
-    invoke-static {v1}, Lbl/adl;->b(I)I
+    invoke-static {v2}, Lbl/adl;->b(I)I
 
-    move-result v1
+    move-result v2
 
-    .line 61
-    invoke-virtual {p1, v1, v0, v1, v1}, Landroid/support/v7/widget/RecyclerView;->setPadding(IIII)V
+    .line 77
+    invoke-virtual {p1, v2, v0, v2, v2}, Landroid/support/v7/widget/RecyclerView;->setPadding(IIII)V
 
-    .line 62
+    .line 78
     iget-object v0, p0, Lbl/aed;->c:Lbl/aed$b;
-
-    check-cast v0, Landroid/support/v7/widget/RecyclerView$a;
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$a;)V
 
-    .line 63
-    sget-object p1, Lbl/aed$e;->a:Lbl/aed$e;
+    .line 79
+    const/4 v0, 0x0
 
-    check-cast p1, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager$a;
+    check-cast v0, Lbl/aed$e;
 
-    invoke-virtual {p2, p1}, Lcom/bilibili/tv/ui/favorite/FavoriteRightGridLayoutManger;->a(Lcom/bilibili/tv/widget/border/BorderGridLayoutManager$a;)V
+    sget-object v0, Lbl/aed$e;->a:Lbl/aed$e;
 
-    .line 65
+    invoke-virtual {v1, v0}, Lcom/bilibili/tv/ui/favorite/FavoriteRightGridLayoutManger;->a(Lcom/bilibili/tv/widget/border/BorderGridLayoutManager$a;)V
+
+    .line 80
     invoke-virtual {p0}, Lbl/aed;->i()V
 
-    .line 66
+    .line 81
     invoke-direct {p0}, Lbl/aed;->b()V
 
+    .line 82
     return-void
 .end method
 
 .method public c()Z
     .locals 1
 
-    .line 70
+    .prologue
+    .line 86
     invoke-virtual {p0}, Lbl/aed;->isVisible()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     iget-object v0, p0, Lbl/aed;->c:Lbl/aed$b;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
+    .line 87
     iget-object v0, p0, Lbl/aed;->c:Lbl/aed$b;
 
-    if-nez v0, :cond_0
+    .line 88
+    if-nez v0, :cond_11
 
+    .line 89
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_0
+    .line 91
+    :cond_11
     invoke-virtual {v0}, Lbl/aed$b;->a()I
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_19
 
+    .line 92
     const/4 v0, 0x1
 
-    goto :goto_0
+    .line 95
+    :goto_18
+    return v0
 
-    :cond_1
+    :cond_19
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_18
 .end method
 
 .method public d_()V
     .locals 0
 
-    .line 80
+    .prologue
+    .line 107
     invoke-super {p0}, Lbl/ady;->d_()V
 
-    .line 81
+    .line 108
     invoke-direct {p0}, Lbl/aed;->b()V
 
+    .line 109
     return-void
 .end method
 
 .method public onDestroyView()V
     .locals 2
 
-    const/4 v0, 0x0
+    .prologue
+    const/4 v1, 0x0
 
-    .line 74
-    move-object v1, v0
+    .line 100
+    move-object v0, v1
 
-    check-cast v1, Lbl/aed$b;
+    check-cast v0, Lbl/aed$b;
 
-    iput-object v1, p0, Lbl/aed;->c:Lbl/aed$b;
+    iput-object v0, p0, Lbl/aed;->c:Lbl/aed$b;
 
-    .line 75
-    check-cast v0, Lbl/aed$a;
+    .line 101
+    check-cast v1, Lbl/aed$a;
 
-    iput-object v0, p0, Lbl/aed;->d:Lbl/aed$a;
+    iput-object v1, p0, Lbl/aed;->d:Lbl/aed$a;
 
-    .line 76
+    .line 102
     invoke-super {p0}, Lbl/ady;->onDestroyView()V
 
+    .line 103
     return-void
 .end method

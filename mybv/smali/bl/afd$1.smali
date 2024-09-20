@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 89
+    .line 91
     iput-object p1, p0, Lbl/afd$1;->this$0:Lbl/afd;
 
     invoke-direct {p0, p2, p3, p4, p5}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;-><init>(Landroid/content/Context;IIZ)V
@@ -45,19 +45,19 @@
 
     const/4 v4, 0x0
 
-    .line 92
+    .line 94
     if-nez p1, :cond_b
 
-    .line 93
+    .line 95
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 95
+    .line 97
     :cond_b
     invoke-virtual {p0, p1}, Lbl/afd$1;->d(Landroid/view/View;)I
 
     move-result v0
 
-    .line 96
+    .line 98
     div-int/lit8 v1, v0, 0x5
 
     int-to-double v2, v1
@@ -72,17 +72,17 @@
 
     sub-int v1, v0, v1
 
-    .line 97
+    .line 99
     const/16 v2, 0x11
 
     if-eq p2, v2, :cond_7a
 
-    .line 98
+    .line 100
     const/16 v2, 0x21
 
     if-eq p2, v2, :cond_34
 
-    .line 99
+    .line 101
     const/16 v2, 0x82
 
     if-ne p2, v2, :cond_7c
@@ -99,12 +99,12 @@
 
     if-eqz v0, :cond_7c
 
-    .line 124
+    .line 126
     :cond_33
     :goto_33
     return-object p1
 
-    .line 102
+    .line 104
     :cond_34
     if-eqz v0, :cond_3c
 
@@ -114,7 +114,7 @@
 
     if-ne v0, v7, :cond_59
 
-    .line 103
+    .line 105
     :cond_3c
     iget-object v0, p0, Lbl/afd$1;->this$0:Lbl/afd;
 
@@ -122,10 +122,10 @@
 
     move-result-object v0
 
-    .line 104
+    .line 106
     if-nez v0, :cond_4c
 
-    .line 105
+    .line 107
     new-instance v0, Lkotlin/TypeCastException;
 
     const-string v1, "null cannot be cast to non-null type com.bilibili.tv.ui.main.MainActivity"
@@ -134,40 +134,40 @@
 
     throw v0
 
-    .line 107
+    .line 109
     :cond_4c
     check-cast v0, Lcom/bilibili/tv/ui/main/MainActivity;
 
-    .line 108
+    .line 110
     invoke-virtual {v0, v4}, Lcom/bilibili/tv/ui/main/MainActivity;->a(Z)V
 
-    .line 109
+    .line 111
     invoke-virtual {v0, v4}, Lcom/bilibili/tv/ui/main/MainActivity;->b(Z)V
 
-    .line 110
+    .line 112
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/main/MainActivity;->j()Landroid/view/View;
 
     move-result-object p1
 
     goto :goto_33
 
-    .line 111
+    .line 113
     :cond_59
     rem-int/lit8 v0, v1, 0x2
 
     if-nez v0, :cond_7c
 
-    .line 112
+    .line 114
     iget-object v0, p0, Lbl/afd$1;->this$0:Lbl/afd;
 
     invoke-virtual {v0}, Lbl/afd;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    .line 113
+    .line 115
     if-nez v0, :cond_6d
 
-    .line 114
+    .line 116
     new-instance v0, Lkotlin/TypeCastException;
 
     const-string v1, "null cannot be cast to non-null type com.bilibili.tv.ui.main.MainActivity"
@@ -176,28 +176,28 @@
 
     throw v0
 
-    .line 116
+    .line 118
     :cond_6d
     check-cast v0, Lcom/bilibili/tv/ui/main/MainActivity;
 
-    .line 117
+    .line 119
     invoke-virtual {v0, v4}, Lcom/bilibili/tv/ui/main/MainActivity;->a(Z)V
 
-    .line 118
+    .line 120
     invoke-virtual {v0, v4}, Lcom/bilibili/tv/ui/main/MainActivity;->b(Z)V
 
-    .line 119
+    .line 121
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/main/MainActivity;->j()Landroid/view/View;
 
     move-result-object p1
 
     goto :goto_33
 
-    .line 121
+    .line 123
     :cond_7a
     if-eqz v0, :cond_33
 
-    .line 124
+    .line 126
     :cond_7c
     invoke-super {p0, p1, p2}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->d(Landroid/view/View;I)Landroid/view/View;
 

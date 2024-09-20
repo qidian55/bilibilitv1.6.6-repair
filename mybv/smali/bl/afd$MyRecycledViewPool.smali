@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 142
+    .line 144
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$n;-><init>()V
 
     return-void
@@ -31,7 +31,7 @@
     .locals 1
 
     .prologue
-    .line 147
+    .line 149
     const/4 v0, 0x0
 
     return-object v0
@@ -41,6 +41,6 @@
     .locals 0
 
     .prologue
-    .line 144
+    .line 146
     return-void
 .end method

@@ -2,7 +2,7 @@
 <resources>
     <string-array name="player_danmaku_toggle">
         <item>@string/on</item>
-        <item>@string/off</item>
+        <item>屏蔽等级：0</item>
         <item>普通弹幕</item>
         <item>底部弹幕</item>
         <item>顶部弹幕</item>

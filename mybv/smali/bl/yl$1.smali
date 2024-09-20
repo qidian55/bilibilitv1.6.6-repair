@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 36
+    .line 38
     iput-object p1, p0, Lbl/yl$1;->this$0:Lbl/yl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,13 @@
     .locals 2
 
     .prologue
-    .line 39
+    .line 41
+    sget v0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->danmaku_level:I
+
+    iget v1, p1, Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;->mPublisherLevel:I
+
+    if-gt v0, v1, :cond_10
+
     sget-object v0, Lcom/bilibili/tv/player/widget/PlayerMenuRight;->danmaku_valid_list:[Z
 
     invoke-virtual {p1}, Ltv/danmaku/videoplayer/core/danmaku/comment/CommentItem;->getCommentType()I
@@ -49,24 +55,25 @@
 
     aget-boolean v0, v0, v1
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_12
 
+    :cond_10
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_11
     return v0
 
-    :cond_c
+    :cond_12
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_11
 .end method
 
 .method public describeContents()I
     .locals 1
 
     .prologue
-    .line 52
+    .line 54
     const/4 v0, 0x0
 
     return v0
@@ -88,7 +95,7 @@
     .end annotation
 
     .prologue
-    .line 43
+    .line 45
     iget-object v0, p0, Lbl/yl$1;->this$0:Lbl/yl;
 
     iget-object v0, v0, Lbl/yl;->mCommentStorage:Ljava/util/SortedMap;
@@ -100,7 +107,7 @@
     .locals 0
 
     .prologue
-    .line 46
+    .line 48
     return-void
 .end method
 
@@ -108,6 +115,6 @@
     .locals 0
 
     .prologue
-    .line 49
+    .line 51
     return-void
 .end method

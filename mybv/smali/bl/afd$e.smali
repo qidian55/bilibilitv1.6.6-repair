@@ -54,7 +54,7 @@
     .locals 2
 
     .prologue
-    .line 581
+    .line 610
     new-instance v0, Lbl/afd$e$a;
 
     const/4 v1, 0x0
@@ -82,23 +82,23 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 590
+    .line 619
     invoke-direct {p0, p1}, Lbl/adv;-><init>(Landroid/view/View;)V
 
-    .line 591
+    .line 620
     const-string v0, "itemView"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 592
+    .line 621
     const-string v0, "mWeakReference"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 593
+    .line 622
     iput-object p2, p0, Lbl/afd$e;->r:Ljava/lang/ref/WeakReference;
 
-    .line 594
+    .line 623
     const v0, 0x7f080132
 
     invoke-virtual {p0, p1, v0}, Lbl/afd$e;->a(Landroid/view/View;I)Landroid/view/View;
@@ -109,7 +109,7 @@
 
     iput-object v0, p0, Lbl/afd$e;->n:Landroid/widget/TextView;
 
-    .line 595
+    .line 624
     const v0, 0x7f0800a1
 
     invoke-virtual {p0, p1, v0}, Lbl/afd$e;->a(Landroid/view/View;I)Landroid/view/View;
@@ -120,7 +120,7 @@
 
     iput-object v0, p0, Lbl/afd$e;->o:Lcom/bilibili/tv/widget/ScalableImageView;
 
-    .line 596
+    .line 625
     const v0, 0x7f08003f
 
     invoke-virtual {p0, p1, v0}, Lbl/afd$e;->a(Landroid/view/View;I)Landroid/view/View;
@@ -133,19 +133,19 @@
 
     move-object v0, p1
 
-    .line 597
+    .line 626
     check-cast v0, Lcom/bilibili/tv/widget/DrawFrameLayout;
 
     iput-object v0, p0, Lbl/afd$e;->q:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    .line 598
+    .line 627
     iget-object v0, p0, Lbl/afd$e;->q:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
     const v1, 0x7f0700e6
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setUpDrawable(I)V
 
-    .line 599
+    .line 628
     const v0, 0x7f06010a
 
     invoke-static {v0}, Lbl/adl;->b(I)I
@@ -154,12 +154,12 @@
 
     int-to-float v0, v0
 
-    .line 600
+    .line 629
     iget-object v1, p0, Lbl/afd$e;->p:Lcom/bilibili/tv/widget/ScalableImageView;
 
     invoke-virtual {v1, v2, v2, v0, v0}, Lcom/bilibili/tv/widget/ScalableImageView;->a(FFFF)V
 
-    .line 601
+    .line 630
     invoke-static {}, Lbl/nv;->a()Lbl/nv;
 
     move-result-object v0
@@ -170,13 +170,13 @@
 
     invoke-virtual {v0, v1, v2}, Lbl/nv;->a(ILandroid/widget/ImageView;)V
 
-    .line 602
+    .line 631
     invoke-virtual {p1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 603
+    .line 632
     invoke-virtual {p1, p0}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    .line 604
+    .line 633
     return-void
 .end method
 
@@ -186,7 +186,7 @@
     .locals 1
 
     .prologue
-    .line 611
+    .line 640
     iget-object v0, p0, Lbl/afd$e;->o:Lcom/bilibili/tv/widget/ScalableImageView;
 
     return-object v0
@@ -196,7 +196,7 @@
     .locals 1
 
     .prologue
-    .line 615
+    .line 644
     iget-object v0, p0, Lbl/afd$e;->p:Lcom/bilibili/tv/widget/ScalableImageView;
 
     return-object v0
@@ -208,57 +208,65 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 639
+    .line 668
     const-string v0, "v"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 640
+    .line 669
     sget-object v0, Lbl/abl;->a:Lbl/abl;
 
     const-string v1, "ott-platform.home.recommend.0.click"
 
     invoke-virtual {v0, v1}, Lbl/abl;->a(Ljava/lang/String;)V
 
-    .line 641
+    .line 670
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 642
+    .line 671
     const-string v1, "v.context"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 643
+    .line 672
     invoke-static {v0}, Lbl/adl;->a(Landroid/content/Context;)Landroid/app/Activity;
 
     move-result-object v1
 
-    .line 644
+    .line 673
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 645
+    .line 674
     if-nez v1, :cond_21
 
-    .line 659
+    .line 688
     :cond_20
     :goto_20
     return-void
 
-    .line 648
+    .line 677
     :cond_21
     instance-of v2, v0, Ljava/lang/String;
 
-    if-eqz v2, :cond_40
+    if-eqz v2, :cond_48
 
-    .line 649
+    .line 678
     check-cast v0, Ljava/lang/String;
 
-    .line 650
+    .line 679
     const-string v2, "bilibili_yst://video"
+
+    invoke-static {v0, v2, v6}, Lbl/bcl;->b(Ljava/lang/String;Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    if-nez v2, :cond_37
+
+    const-string v2, "bilibili://video"
 
     invoke-static {v0, v2, v6}, Lbl/bcl;->b(Ljava/lang/String;Ljava/lang/String;Z)Z
 
@@ -266,7 +274,8 @@
 
     if-eqz v2, :cond_20
 
-    .line 653
+    .line 682
+    :cond_37
     sget-object v2, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->Companion:Lcom/bilibili/tv/ui/video/VideoDetailActivity$a;
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -283,20 +292,20 @@
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .line 655
-    :cond_40
+    .line 684
+    :cond_48
     const v0, 0x7f0800ec
 
     invoke-virtual {p1, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 656
+    .line 685
     instance-of v1, v0, Ljava/lang/Integer;
 
     if-eqz v1, :cond_20
 
-    .line 657
+    .line 686
     const-string v1, "tv_home_recommend_click"
 
     const/4 v2, 0x4
@@ -336,12 +345,12 @@
     .locals 2
 
     .prologue
-    .line 663
+    .line 692
     const-string v0, "v"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 664
+    .line 693
     iget-object v0, p0, Lbl/afd$e;->r:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -350,24 +359,24 @@
 
     check-cast v0, Lbl/afd;
 
-    .line 665
+    .line 694
     const v1, 0x7f0800d8
 
     invoke-virtual {p1, v1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 666
+    .line 695
     if-eqz v0, :cond_18
 
     if-nez v1, :cond_19
 
-    .line 673
+    .line 702
     :cond_18
     :goto_18
     return-void
 
-    .line 669
+    .line 698
     :cond_19
     check-cast v1, Ljava/lang/Integer;
 
@@ -378,15 +387,15 @@
     # setter for: Lbl/afd;->c:I
     invoke-static {v0, v1}, Lbl/afd;->access$102(Lbl/afd;I)I
 
-    .line 670
+    .line 699
     invoke-static {p1, p2}, Lbl/adj;->a(Landroid/view/View;Z)V
 
-    .line 671
+    .line 700
     iget-object v0, p0, Lbl/afd$e;->q:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
     invoke-virtual {v0, p2}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setUpEnabled(Z)V
 
-    .line 672
+    .line 701
     iget-object v0, p0, Lbl/afd$e;->n:Landroid/widget/TextView;
 
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setSelected(Z)V
@@ -398,7 +407,7 @@
     .locals 1
 
     .prologue
-    .line 607
+    .line 636
     iget-object v0, p0, Lbl/afd$e;->n:Landroid/widget/TextView;
 
     return-object v0

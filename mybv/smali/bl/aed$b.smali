@@ -1,6 +1,6 @@
-.class final Lbl/aed$b;
+.class public final Lbl/aed$b;
 .super Landroid/support/v7/widget/RecyclerView$a;
-.source "BL"
+.source "aed.java"
 
 
 # annotations
@@ -9,13 +9,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "b"
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/support/v7/widget/RecyclerView$a<",
+        "Landroid/support/v7/widget/RecyclerView$a",
+        "<",
         "Lbl/adv;",
         ">;"
     }
@@ -26,7 +27,8 @@
 .field private final a:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;",
             ">;"
         }
@@ -38,10 +40,11 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 122
+    .prologue
+    .line 173
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$a;-><init>()V
 
-    .line 123
+    .line 174
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -56,7 +59,8 @@
 .method public a()I
     .locals 1
 
-    .line 156
+    .prologue
+    .line 212
     iget-object v0, p0, Lbl/aed$b;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -66,23 +70,46 @@
     return v0
 .end method
 
-.method public synthetic a(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$v;
-    .locals 0
+.method public bridge synthetic a(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$v;
+    .locals 1
 
-    .line 122
-    invoke-virtual {p0, p1, p2}, Lbl/aed$b;->c(Landroid/view/ViewGroup;I)Lbl/adv;
+    .prologue
+    .line 173
+    invoke-virtual {p0, p1, p2}, Lbl/aed$b;->a(Landroid/view/ViewGroup;I)Lbl/adv;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/support/v7/widget/RecyclerView$v;
+    return-object v0
+.end method
 
-    return-object p1
+.method public a(Landroid/view/ViewGroup;I)Lbl/adv;
+    .locals 1
+
+    .prologue
+    .line 179
+    const-string v0, "parent"
+
+    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 180
+    const/4 v0, 0x0
+
+    check-cast v0, Lbl/aed$c;
+
+    sget-object v0, Lbl/aed$c;->Companion:Lbl/aed$c$a;
+
+    invoke-virtual {v0, p1}, Lbl/aed$c$a;->a(Landroid/view/ViewGroup;)Lbl/aed$c;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public bridge synthetic a(Landroid/support/v7/widget/RecyclerView$v;I)V
     .locals 0
 
-    .line 122
+    .prologue
+    .line 173
     check-cast p1, Lbl/adv;
 
     invoke-virtual {p0, p1, p2}, Lbl/aed$b;->a(Lbl/adv;I)V
@@ -91,91 +118,67 @@
 .end method
 
 .method public a(Lbl/adv;I)V
-    .locals 5
+    .locals 6
 
+    .prologue
+    const/4 v5, 0x0
+
+    .line 185
     const-string v0, "viewHolder"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 130
+    .line 186
     instance-of v0, p1, Lbl/aed$c;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_8d
 
-    .line 131
+    .line 187
     iget-object v0, p0, Lbl/aed$b;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;
+
+    .line 188
     const-string v1, "mBiliFavoriteBoxes[position]"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v0, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;
-
-    .line 132
+    .line 190
     invoke-virtual {v0}, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->getVideoCovers()Ljava/util/List;
+
+    move-result-object v2
+
+    .line 191
+    invoke-virtual {v0}, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->getMName()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 134
-    invoke-virtual {v0}, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->getMName()Ljava/lang/String;
+    if-eqz v1, :cond_2f
 
-    move-result-object v2
+    move-object v1, p1
 
-    if-eqz v2, :cond_0
+    .line 192
+    check-cast v1, Lbl/aed$c;
 
-    .line 135
-    move-object v2, p1
+    invoke-virtual {v1}, Lbl/aed$c;->A()Landroid/widget/TextView;
 
-    check-cast v2, Lbl/aed$c;
-
-    invoke-virtual {v2}, Lbl/aed$c;->A()Landroid/widget/TextView;
-
-    move-result-object v2
+    move-result-object v1
 
     invoke-virtual {v0}, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->getMName()Ljava/lang/String;
 
     move-result-object v3
 
-    check-cast v3, Ljava/lang/CharSequence;
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    .line 194
+    :cond_2f
+    if-eqz v2, :cond_8e
 
-    :cond_0
-    if-eqz v1, :cond_1
-
-    const/4 v2, 0x0
-
-    .line 137
-    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;
-
-    invoke-virtual {v3}, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;->getCover()Ljava/lang/String;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_1
-
-    .line 138
-    invoke-static {}, Lbl/nv;->a()Lbl/nv;
-
-    move-result-object v3
-
-    .line 140
-    invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/content/Context;
-
-    .line 141
-    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -185,38 +188,54 @@
 
     move-result-object v1
 
-    .line 139
-    invoke-static {v4, v1}, Lbl/ach;->c(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    if-eqz v1, :cond_8e
+
+    .line 195
+    invoke-static {}, Lbl/nv;->a()Lbl/nv;
+
+    move-result-object v3
+
+    invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
+
+    move-result-object v4
+
+    invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 142
-    move-object v2, p1
+    check-cast v1, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;
 
-    check-cast v2, Lbl/aed$c;
+    invoke-virtual {v1}, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox$Video;->getCover()Ljava/lang/String;
 
-    invoke-virtual {v2}, Lbl/aed$c;->z()Lcom/bilibili/tv/widget/ScalableImageView;
+    move-result-object v1
+
+    invoke-static {v4, v1}, Lbl/ach;->c(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    check-cast v2, Landroid/widget/ImageView;
+    move-object v1, p1
 
-    .line 138
-    invoke-virtual {v3, v1, v2}, Lbl/nv;->a(Ljava/lang/String;Landroid/widget/ImageView;)V
+    check-cast v1, Lbl/aed$c;
 
-    .line 145
-    :cond_1
+    invoke-virtual {v1}, Lbl/aed$c;->z()Lcom/bilibili/tv/widget/ScalableImageView;
+
+    move-result-object v1
+
+    invoke-virtual {v3, v2, v1}, Lbl/nv;->a(Ljava/lang/String;Landroid/widget/ImageView;)V
+
+    .line 198
+    :goto_5d
     invoke-virtual {v0}, Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;->getMCount()I
 
     move-result v1
 
     const/16 v2, 0x3e7
 
-    if-gt v1, v2, :cond_2
+    if-gt v1, v2, :cond_9f
 
-    .line 146
     move-object v1, p1
 
+    .line 199
     check-cast v1, Lbl/aed$c;
 
     invoke-virtual {v1}, Lbl/aed$c;->B()Landroid/widget/TextView;
@@ -231,55 +250,70 @@
 
     move-result-object v2
 
-    check-cast v2, Ljava/lang/CharSequence;
-
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
-
-    .line 148
-    :cond_2
-    move-object v1, p1
-
-    check-cast v1, Lbl/aed$c;
-
-    invoke-virtual {v1}, Lbl/aed$c;->B()Landroid/widget/TextView;
-
-    move-result-object v1
-
-    const v2, 0x7f0c00d7
-
-    invoke-static {v2}, Lbl/adl;->e(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/CharSequence;
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 150
-    :goto_0
+    .line 203
+    :goto_77
     iget-object v1, p1, Lbl/adv;->a:Landroid/view/View;
 
     const v2, 0x7f0800d8
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p2
+    move-result-object v3
 
-    invoke-virtual {v1, v2, p2}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+    invoke-virtual {v1, v2, v3}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
-    .line 151
-    iget-object p1, p1, Lbl/adv;->a:Landroid/view/View;
+    .line 204
+    iget-object v1, p1, Lbl/adv;->a:Landroid/view/View;
 
-    const-string p2, "viewHolder.itemView"
+    .line 205
+    const-string v2, "viewHolder.itemView"
 
-    invoke-static {p1, p2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+    .line 206
+    invoke-virtual {v1, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    :cond_3
+    .line 208
+    :cond_8d
     return-void
+
+    .line 197
+    :cond_8e
+    invoke-static {}, Lbl/nv;->a()Lbl/nv;
+
+    move-result-object v2
+
+    const-string v3, ""
+
+    move-object v1, p1
+
+    check-cast v1, Lbl/aed$c;
+
+    invoke-virtual {v1}, Lbl/aed$c;->z()Lcom/bilibili/tv/widget/ScalableImageView;
+
+    move-result-object v1
+
+    invoke-virtual {v2, v3, v1}, Lbl/nv;->a(Ljava/lang/String;Landroid/widget/ImageView;)V
+
+    goto :goto_5d
+
+    :cond_9f
+    move-object v1, p1
+
+    .line 201
+    check-cast v1, Lbl/aed$c;
+
+    invoke-virtual {v1}, Lbl/aed$c;->B()Landroid/widget/TextView;
+
+    move-result-object v1
+
+    const-string v2, "999+"
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_77
 .end method
 
 .method public final a(Ljava/util/List;)V
@@ -287,44 +321,27 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/favorite/BiliFavoriteBox;",
             ">;)V"
         }
     .end annotation
 
+    .prologue
+    .line 216
     const-string v0, "list"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 160
+    .line 217
     iget-object v0, p0, Lbl/aed$b;->a:Ljava/util/ArrayList;
-
-    check-cast p1, Ljava/util/Collection;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 161
+    .line 218
     invoke-virtual {p0}, Lbl/aed$b;->d()V
 
+    .line 219
     return-void
-.end method
-
-.method public c(Landroid/view/ViewGroup;I)Lbl/adv;
-    .locals 0
-
-    const-string p2, "parent"
-
-    invoke-static {p1, p2}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 126
-    sget-object p2, Lbl/aed$c;->Companion:Lbl/aed$c$a;
-
-    invoke-virtual {p2, p1}, Lbl/aed$c$a;->a(Landroid/view/ViewGroup;)Lbl/aed$c;
-
-    move-result-object p1
-
-    check-cast p1, Lbl/adv;
-
-    return-object p1
 .end method
