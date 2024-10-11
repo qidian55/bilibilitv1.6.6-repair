@@ -566,6 +566,26 @@
 
     invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
+    .line 36
+    invoke-virtual {v1}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v2
+
+    sput-object v2, Lmybl/BiliFilter;->filter_rule_path:Ljava/lang/String;
+
+    .line 37
+    invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    sget-object v3, Lmybl/BiliFilter;->filter_rule_path:Ljava/lang/String;
+
+    invoke-static {v2, v3}, Lbl/abd;->set_filter_path(Landroid/content/Context;Ljava/lang/String;)V
+
     .line 39
     new-instance v2, Ljava/io/FileOutputStream;
 
@@ -577,36 +597,36 @@
     new-array v1, v1, [B
 
     .line 42
-    :goto_2b
+    :goto_3e
     invoke-virtual {v0, v1}, Ljava/io/InputStream;->read([B)I
 
     move-result v3
 
-    if-lez v3, :cond_3b
+    if-lez v3, :cond_4e
 
     .line 43
     const/4 v4, 0x0
 
     invoke-virtual {v2, v1, v4, v3}, Ljava/io/OutputStream;->write([BII)V
-    :try_end_35
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_35} :catch_36
+    :try_end_48
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_48} :catch_49
 
-    goto :goto_2b
+    goto :goto_3e
 
     .line 48
-    :catch_36
+    :catch_49
     move-exception v0
 
     .line 49
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     .line 51
-    :goto_3a
+    :goto_4d
     return-void
 
     .line 45
-    :cond_3b
-    :try_start_3b
+    :cond_4e
+    :try_start_4e
     invoke-virtual {v2}, Ljava/io/OutputStream;->flush()V
 
     .line 46
@@ -614,10 +634,10 @@
 
     .line 47
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_44
-    .catch Ljava/io/IOException; {:try_start_3b .. :try_end_44} :catch_36
+    :try_end_57
+    .catch Ljava/io/IOException; {:try_start_4e .. :try_end_57} :catch_49
 
-    goto :goto_3a
+    goto :goto_4d
 .end method
 
 .method public static updateConfig()V

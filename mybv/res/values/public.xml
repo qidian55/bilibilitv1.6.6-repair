@@ -2430,6 +2430,8 @@
     <public type="id" name="video_detail_episodes_video" id="0x7f080171" />
     <public type="id" name="filter_button" id="0x7f080172" />
     <public type="id" name="filter_path" id="0x7f080173" />
+    <public type="id" name="cdn_button" id="0x7f080174" />
+    <public type="id" name="cdn_value" id="0x7f080175" />
 
     <public type="integer" name="config_danmaku_fly_duration" id="0x7f090003" />
     <public type="integer" name="config_danmaku_max_danmaku_on_screen" id="0x7f090005" />

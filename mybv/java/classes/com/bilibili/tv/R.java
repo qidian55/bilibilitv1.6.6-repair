@@ -2453,6 +2453,8 @@ public final class R {
         public static final int video_detail_episodes_video = 0x7f080171;
         public static final int filter_button = 0x7f080172;
         public static final int filter_path = 0x7f080173;
+        public static final int cdn_button = 0x7f080174;
+        public static final int cdn_value = 0x7f080175;
     }
 
     public static final class integer {

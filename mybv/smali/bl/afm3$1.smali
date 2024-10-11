@@ -3,12 +3,12 @@
 .source "afm3.java"
 
 # interfaces
-.implements Landroid/view/View$OnFocusChangeListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/afm3;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+    value = Lbl/afm3;->onClick(Landroid/view/View;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 34
+    .line 129
     iput-object p1, p0, Lbl/afm3$1;->this$0:Lbl/afm3;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,31 +36,33 @@
 
 
 # virtual methods
-.method public final onFocusChange(Landroid/view/View;Z)V
-    .locals 1
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 2
 
     .prologue
-    .line 37
-    if-eqz p2, :cond_9
+    .line 132
+    sget-object v0, Lbl/afm3;->tmp_cdns:Ljava/util/List;
 
-    .line 38
-    check-cast p1, Lcom/bilibili/tv/widget/DrawFrameLayout;
+    invoke-interface {v0, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    const/4 v0, 0x1
+    move-result-object v0
 
-    invoke-virtual {p1, v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setUpEnabled(Z)V
+    check-cast v0, Ljava/lang/String;
 
-    .line 42
-    :goto_8
+    sput-object v0, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
+
+    .line 133
+    iget-object v0, p0, Lbl/afm3$1;->this$0:Lbl/afm3;
+
+    # getter for: Lbl/afm3;->cdn_value:Lcom/bilibili/tv/widget/DrawEditText;
+    invoke-static {v0}, Lbl/afm3;->access$000(Lbl/afm3;)Lcom/bilibili/tv/widget/DrawEditText;
+
+    move-result-object v0
+
+    sget-object v1, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/DrawEditText;->setText(Ljava/lang/CharSequence;)V
+
+    .line 134
     return-void
-
-    .line 40
-    :cond_9
-    check-cast p1, Lcom/bilibili/tv/widget/DrawFrameLayout;
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setUpEnabled(Z)V
-
-    goto :goto_8
 .end method

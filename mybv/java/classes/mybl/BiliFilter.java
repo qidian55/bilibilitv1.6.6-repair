@@ -33,8 +33,8 @@ public class BiliFilter {
         try {
             inputStream = assetManager.open("data/filter_rule_example.json");
             File f = new File(aj.a(MainApplication.a(),"data")[0],"filter_rule_example.json");
-            //BiliFilter.filter_rule_path = f.getPath();
-            //abd.set_filter_path(MainApplication.a().getApplicationContext(), BiliFilter.filter_rule_path);
+            BiliFilter.filter_rule_path = f.getPath();
+            abd.set_filter_path(MainApplication.a().getApplicationContext(), BiliFilter.filter_rule_path);
             //if(f.exists()&&f.isFile())return;
             outputStream = new FileOutputStream(f);
             byte[] buffer = new byte[1024];
@@ -128,8 +128,7 @@ class Config{
     List<String> filter_words;
     Config() throws Exception{
         try {
-            //if(BiliFilter.filter_rule_path.isEmpty())
-            BiliFilter.saveConfig();
+            if(BiliFilter.filter_rule_path.isEmpty())BiliFilter.saveConfig();
             File f = new File(BiliFilter.filter_rule_path);
             FileInputStream fileInputStream = new FileInputStream(f);
             String content = kz.c(fileInputStream);

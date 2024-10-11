@@ -599,11 +599,11 @@ public class PlayerMenuRight extends aay<String> {
     }
 
     public void init_subtitle(JSONObject subtitle_info) {
-        List<String> subtitle_list = new ArrayList<>();
-        subtitle_list.add("关闭字幕");
+        this.subtitle_list = new ArrayList<>();
+        this.subtitle_list.add("关闭字幕");
+        if(subtitle_info==null){this.subtitle_id = 0;return;}
         JSONArray subtitles = subtitle_info.optJSONArray("subtitles");
-        for(int i=0;i<subtitles.length();i++)subtitle_list.add(subtitles.optJSONObject(i).optString("lan_doc"));
-        this.subtitle_list = subtitle_list;
+        for(int i=0;i<subtitles.length();i++)this.subtitle_list.add(subtitles.optJSONObject(i).optString("lan_doc"));
         if(subtitles.length()>0 && !subtitles.optJSONObject(0).optString("lan").startsWith("ai-"))this.subtitle_id = 1;
         else this.subtitle_id = 0;
     }

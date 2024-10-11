@@ -3,7 +3,41 @@
 .source "VideoViewParams.java"
 
 
+# static fields
+.field public static cdn_history:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public static prefect_cdn:Ljava/lang/String;
+
+
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .prologue
+    .line 13
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    sput-object v0, Lmybl/VideoViewParams;->cdn_history:Ljava/util/List;
+
+    .line 14
+    const/4 v0, 0x0
+
+    sput-object v0, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -20,21 +54,21 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 14
+    .line 17
     const-string v0, "video"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v3
 
-    .line 15
+    .line 18
     const-string v0, "audio"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v4
 
-    .line 16
+    .line 19
     const-string v0, "\\?"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -49,7 +83,7 @@
 
     move-result-object v0
 
-    .line 17
+    .line 20
     array-length v2, v0
 
     add-int/lit8 v2, v2, -0x1
@@ -58,7 +92,7 @@
 
     move v0, v1
 
-    .line 18
+    .line 21
     :goto_21
     invoke-virtual {v3}, Lorg/json/JSONArray;->length()I
 
@@ -66,7 +100,7 @@
 
     if-ge v0, v2, :cond_4e
 
-    .line 19
+    .line 22
     invoke-virtual {v3, v0}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
 
     move-result-object v2
@@ -77,7 +111,7 @@
 
     move-result-object v2
 
-    .line 20
+    .line 23
     const-string v6, "\\?"
 
     invoke-virtual {v2, v6}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -92,7 +126,7 @@
 
     move-result-object v6
 
-    .line 21
+    .line 24
     array-length v7, v6
 
     add-int/lit8 v7, v7, -0x1
@@ -107,7 +141,7 @@
 
     move-object p0, v2
 
-    .line 18
+    .line 21
     :cond_4b
     add-int/lit8 v0, v0, 0x1
 
@@ -116,7 +150,7 @@
     :cond_4e
     move v0, v1
 
-    .line 23
+    .line 26
     :goto_4f
     invoke-virtual {v4}, Lorg/json/JSONArray;->length()I
 
@@ -124,7 +158,7 @@
 
     if-ge v0, v2, :cond_7c
 
-    .line 24
+    .line 27
     invoke-virtual {v4, v0}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
 
     move-result-object v2
@@ -135,7 +169,7 @@
 
     move-result-object v2
 
-    .line 25
+    .line 28
     const-string v3, "\\?"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -150,7 +184,7 @@
 
     move-result-object v3
 
-    .line 26
+    .line 29
     array-length v6, v3
 
     add-int/lit8 v6, v6, -0x1
@@ -165,70 +199,98 @@
 
     move-object p0, v2
 
-    .line 23
+    .line 26
     :cond_79
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_4f
 
-    .line 28
+    .line 31
     :cond_7c
+    sget-object v0, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
+
+    if-eqz v0, :cond_96
+
+    invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
+
+    move-result-object v0
+
+    sget-object v1, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->authority(Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/Uri;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    .line 32
+    :cond_96
     return-object p0
 .end method
 
 .method private static a(IZLorg/json/JSONArray;)Landroid/os/Bundle;
-    .locals 12
+    .locals 13
 
     .prologue
     const/4 v1, 0x0
 
-    .line 40
+    .line 44
     new-instance v2, Landroid/os/Bundle;
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    .line 41
+    .line 45
     new-instance v3, Landroid/os/Bundle;
 
     invoke-direct {v3}, Landroid/os/Bundle;-><init>()V
 
-    .line 42
+    .line 46
     new-instance v4, Landroid/os/Bundle;
 
     invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
 
-    .line 43
+    .line 47
     new-instance v5, Landroid/os/Bundle;
 
     invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
 
-    .line 44
+    .line 48
     new-instance v6, Landroid/os/Bundle;
 
     invoke-direct {v6}, Landroid/os/Bundle;-><init>()V
 
-    .line 45
+    .line 49
     new-instance v7, Ljava/util/ArrayList;
 
     invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
     move v0, v1
 
-    .line 46
+    .line 50
     :goto_20
     invoke-virtual {p2}, Lorg/json/JSONArray;->length()I
 
     move-result v8
 
-    if-ge v0, v8, :cond_88
+    if-ge v0, v8, :cond_9d
 
-    .line 47
+    .line 51
     invoke-virtual {p2, v0}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
 
     move-result-object v8
 
-    .line 48
-    if-eqz v8, :cond_85
+    .line 52
+    if-eqz v8, :cond_9a
 
     const/4 v9, -0x1
 
@@ -261,9 +323,9 @@
 
     const/16 v10, 0x78
 
-    if-le v9, v10, :cond_85
+    if-le v9, v10, :cond_9a
 
-    .line 49
+    .line 53
     :cond_4b
     const-string v9, "id"
 
@@ -271,45 +333,69 @@
 
     move-result v9
 
-    .line 50
+    .line 54
     invoke-static {v9}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v10
 
-    .line 51
+    .line 55
     invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v9
 
     invoke-virtual {v7, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 52
+    .line 56
     const-string v9, "base_url"
 
     invoke-virtual {v8, v9}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v9
 
+    .line 57
+    invoke-static {v9}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/net/Uri;->getHost()Ljava/lang/String;
+
+    move-result-object v11
+
+    .line 58
+    sget-object v12, Lmybl/VideoViewParams;->cdn_history:Ljava/util/List;
+
+    invoke-interface {v12, v11}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_77
+
+    sget-object v12, Lmybl/VideoViewParams;->cdn_history:Ljava/util/List;
+
+    invoke-interface {v12, v11}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 59
+    :cond_77
     invoke-virtual {v3, v10, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 53
+    .line 60
     const-string v9, "backup_url"
 
     invoke-virtual {v8, v9}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v9
 
-    .line 54
-    if-eqz v9, :cond_7c
+    .line 61
+    if-eqz v9, :cond_91
 
-    .line 55
+    .line 62
     invoke-virtual {v9, v1}, Lorg/json/JSONArray;->optString(I)Ljava/lang/String;
 
     move-result-object v11
 
     invoke-virtual {v4, v10, v11}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 56
+    .line 63
     const/4 v11, 0x1
 
     invoke-virtual {v9, v11}, Lorg/json/JSONArray;->optString(I)Ljava/lang/String;
@@ -318,8 +404,8 @@
 
     invoke-virtual {v5, v10, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 58
-    :cond_7c
+    .line 65
+    :cond_91
     const-string v9, "bandwidth"
 
     invoke-virtual {v8, v9}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
@@ -328,27 +414,27 @@
 
     invoke-virtual {v6, v10, v8}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 46
-    :cond_85
+    .line 50
+    :cond_9a
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_20
 
-    .line 61
-    :cond_88
+    .line 68
+    :cond_9d
     invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
     new-array v8, v0, [I
 
-    .line 62
-    :goto_8e
+    .line 69
+    :goto_a3
     invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-ge v1, v0, :cond_a3
+    if-ge v1, v0, :cond_b8
 
     invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -364,35 +450,35 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8e
+    goto :goto_a3
 
-    .line 63
-    :cond_a3
+    .line 70
+    :cond_b8
     const-string v0, "dash_id"
 
     invoke-virtual {v2, v0, v8}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
-    .line 64
+    .line 71
     const-string v0, "dash_base_url"
 
     invoke-virtual {v2, v0, v3}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 65
+    .line 72
     const-string v0, "dash_backup_url0"
 
     invoke-virtual {v2, v0, v4}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 66
+    .line 73
     const-string v0, "dash_backup_url1"
 
     invoke-virtual {v2, v0, v5}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 67
+    .line 74
     const-string v0, "dash_bandwidth"
 
     invoke-virtual {v2, v0, v6}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 68
+    .line 75
     return-object v2
 .end method
 
@@ -400,12 +486,12 @@
     .locals 5
 
     .prologue
-    .line 32
+    .line 36
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 33
+    .line 37
     const-string v1, "dash_video_audio"
 
     const/4 v2, -0x1
@@ -424,7 +510,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 34
+    .line 38
     const-string v1, "dash_video_264"
 
     const/4 v2, 0x7
@@ -443,6 +529,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 36
+    .line 40
     return-object v0
 .end method

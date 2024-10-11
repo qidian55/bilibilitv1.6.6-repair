@@ -3,13 +3,16 @@ package mybl;
 import android.os.Bundle;
 
 import java.util.*;
+import android.net.Uri;
 
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.*;
 
 public class VideoViewParams {
+    public static List<String> cdn_history = new ArrayList<String>();
+    public static String prefect_cdn = null;
+
     public static String CloestURL(String url,JSONObject dash){
         JSONArray videos=dash.optJSONArray("video");
         JSONArray audios=dash.optJSONArray("audio");
@@ -25,6 +28,7 @@ public class VideoViewParams {
             info=s.split("\\?")[0].split("/");
             if(info[info.length-1].equals(name))url=s;
         }
+        if(VideoViewParams.prefect_cdn!=null)url = Uri.parse(url).buildUpon().authority(VideoViewParams.prefect_cdn).build().toString();
         return url;
     }
 
@@ -49,7 +53,10 @@ public class VideoViewParams {
                 int id = dashMediaIndex.optInt("id");
                 String idstr = String.valueOf(id);
                 Ids.add(id);
-                bundle2.putString(idstr, dashMediaIndex.optString("base_url"));
+                String base_url = dashMediaIndex.optString("base_url");
+                String cdn_host = Uri.parse(base_url).getHost();
+                if(!VideoViewParams.cdn_history.contains(cdn_host))VideoViewParams.cdn_history.add(cdn_host);
+                bundle2.putString(idstr, base_url);
                 JSONArray c = dashMediaIndex.optJSONArray("backup_url");
                 if (c != null) {
                     bundle3.putString(idstr, c.optString(0));
