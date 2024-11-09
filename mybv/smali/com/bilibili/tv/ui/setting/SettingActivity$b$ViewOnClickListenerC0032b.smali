@@ -28,15 +28,15 @@
     .locals 0
 
     .prologue
-    .line 349
+    .line 315
     iput-object p1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$ViewOnClickListenerC0032b;->this$1:Lcom/bilibili/tv/ui/setting/SettingActivity$b;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 350
+    .line 316
     iput p2, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$ViewOnClickListenerC0032b;->b:I
 
-    .line 351
+    .line 317
     return-void
 .end method
 
@@ -48,46 +48,46 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 355
+    .line 321
     iget v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$ViewOnClickListenerC0032b;->b:I
 
     const/4 v1, 0x4
 
     if-eq v0, v1, :cond_7
 
-    .line 381
+    .line 347
     :cond_6
     :goto_6
     return-void
 
-    .line 358
+    .line 324
     :cond_7
     const-string v0, "v"
 
     invoke-static {p1, v0}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 359
+    .line 325
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 360
+    .line 326
     const-string v1, "v.context"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 361
+    .line 327
     invoke-static {v0}, Lbl/adl;->a(Landroid/content/Context;)Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 362
+    .line 328
     iget-object v1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$ViewOnClickListenerC0032b;->this$1:Lcom/bilibili/tv/ui/setting/SettingActivity$b;
 
     # operator++ for: Lcom/bilibili/tv/ui/setting/SettingActivity$b;->e:I
     invoke-static {v1}, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->access$308(Lcom/bilibili/tv/ui/setting/SettingActivity$b;)I
 
-    .line 363
+    .line 329
     if-eqz v0, :cond_6
 
     iget-object v1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$ViewOnClickListenerC0032b;->this$1:Lcom/bilibili/tv/ui/setting/SettingActivity$b;
@@ -101,12 +101,12 @@
 
     if-le v1, v2, :cond_6
 
-    .line 366
+    .line 332
     new-instance v1, Lbl/agb$a;
 
     invoke-direct {v1, v0}, Lbl/agb$a;-><init>(Landroid/app/Activity;)V
 
-    .line 367
+    .line 333
     invoke-virtual {v1, v4}, Lbl/agb$a;->a(I)Lbl/agb$a;
 
     move-result-object v2
@@ -137,7 +137,7 @@
 
     const v3, 0x7f0c0076
 
-    .line 373
+    .line 339
     invoke-virtual {v0, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v3
@@ -148,7 +148,7 @@
 
     invoke-virtual {v2, v3, v4}, Lbl/agb$a;->a(Ljava/lang/String;Lbl/agb$b;)Lbl/agb$a;
 
-    .line 380
+    .line 346
     invoke-virtual {v1}, Lbl/agb$a;->a()Lbl/agb;
 
     move-result-object v0

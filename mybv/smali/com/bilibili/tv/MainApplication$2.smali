@@ -1,6 +1,6 @@
 .class Lcom/bilibili/tv/MainApplication$2;
 .super Ljava/lang/Object;
-.source "BL"
+.source "MainApplication.java"
 
 # interfaces
 .implements Lcom/bilibili/api/BiliConfig$Delegate;
@@ -18,15 +18,16 @@
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/MainApplication;
+.field final synthetic this$0:Lcom/bilibili/tv/MainApplication;
 
 
 # direct methods
 .method constructor <init>(Lcom/bilibili/tv/MainApplication;)V
     .locals 0
 
-    .line 151
-    iput-object p1, p0, Lcom/bilibili/tv/MainApplication$2;->a:Lcom/bilibili/tv/MainApplication;
+    .prologue
+    .line 126
+    iput-object p1, p0, Lcom/bilibili/tv/MainApplication$2;->this$0:Lcom/bilibili/tv/MainApplication;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,6 +39,8 @@
 .method public getAppDefaultUA()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 129
     const-string v0, "Mozilla/5.0 BiliTV/1.6.6 (bbcallen@gmail.com)"
 
     return-object v0
@@ -46,6 +49,8 @@
 .method public getAppKey()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 134
     const-string v0, "@Deprecated"
 
     return-object v0
@@ -54,6 +59,8 @@
 .method public getAppSecret()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 139
     const-string v0, "@Deprecated"
 
     return-object v0
@@ -62,6 +69,8 @@
 .method public getBiliVersionCode()I
     .locals 1
 
+    .prologue
+    .line 144
     const/16 v0, 0x646
 
     return v0
@@ -70,8 +79,9 @@
 .method public getChannel()Ljava/lang/String;
     .locals 1
 
-    .line 174
-    iget-object v0, p0, Lcom/bilibili/tv/MainApplication$2;->a:Lcom/bilibili/tv/MainApplication;
+    .prologue
+    .line 154
+    iget-object v0, p0, Lcom/bilibili/tv/MainApplication$2;->this$0:Lcom/bilibili/tv/MainApplication;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getBaseContext()Landroid/content/Context;
 
@@ -87,6 +97,8 @@
 .method public getMobiApp()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 149
     const-string v0, "android_tv"
 
     return-object v0

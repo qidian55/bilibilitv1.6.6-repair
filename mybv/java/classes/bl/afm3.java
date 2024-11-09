@@ -1,9 +1,9 @@
 package bl;
 
 import android.view.*;
+import android.widget.*;
 import android.os.Bundle;
 import com.bilibili.tv.R;
-import android.widget.TextView;
 import com.bilibili.tv.widget.*;
 import com.bilibili.tv.MainApplication;
 import android.view.inputmethod.EditorInfo;
@@ -17,13 +17,16 @@ import android.content.DialogInterface;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
-public final class afm3 extends adw implements View.OnFocusChangeListener, View.OnClickListener, TextView.OnEditorActionListener {
+public final class afm3 extends adw implements View.OnFocusChangeListener, View.OnClickListener, TextView.OnEditorActionListener, CompoundButton.OnCheckedChangeListener {
     public static final a Companion = new a(null);
     public static List<String> tmp_cdns;
     private DrawFrameLayout filter_button;
     private DrawFrameLayout cdn_button;
     private DrawEditText filter_path;
     private DrawEditText cdn_value;
+    private CheckBox skip_checkbox0;
+    private CheckBox skip_checkbox1;
+    private CheckBox skip_checkbox2;
 
     @Override // bl.adw
     public boolean c() {
@@ -42,6 +45,10 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         this.cdn_button = (DrawFrameLayout)inflate.findViewById(R.id.cdn_button);
         this.filter_path = (DrawEditText)inflate.findViewById(R.id.filter_path);
         this.cdn_value = (DrawEditText)inflate.findViewById(R.id.cdn_value);
+        this.skip_checkbox0 = (CheckBox)inflate.findViewById(R.id.skip_checkbox0);
+        this.skip_checkbox1 = (CheckBox)inflate.findViewById(R.id.skip_checkbox1);
+        this.skip_checkbox2 = (CheckBox)inflate.findViewById(R.id.skip_checkbox2);
+
         this.filter_button.setUpDrawable(R.drawable.shadow_white_rect);
         this.filter_button.setOnFocusChangeListener(this);
         this.cdn_button.setUpDrawable(R.drawable.shadow_white_rect);
@@ -70,6 +77,12 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         this.cdn_button.setOnClickListener(this);
         this.filter_path.setOnEditorActionListener(this);
         this.cdn_value.setOnEditorActionListener(this);
+        this.skip_checkbox0.setChecked(BiliFilter.skip_categories.contains("intro"));
+        this.skip_checkbox1.setChecked(BiliFilter.skip_categories.contains("outro"));
+        this.skip_checkbox2.setChecked(BiliFilter.skip_categories.contains("sponsor"));
+        this.skip_checkbox0.setOnCheckedChangeListener(this);
+        this.skip_checkbox1.setOnCheckedChangeListener(this);
+        this.skip_checkbox2.setOnCheckedChangeListener(this);
         return inflate;
     }
 
@@ -137,6 +150,26 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         }
     }
 
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        //"[\"intro\",\"outro\",\"sponsor\"]"
+        if(buttonView == this.skip_checkbox0){
+            if(isChecked)BiliFilter.skip_categories.add("intro");
+            else BiliFilter.skip_categories.remove("intro");
+        }
+        if(buttonView == this.skip_checkbox1){
+            if(isChecked)BiliFilter.skip_categories.add("outro");
+            else BiliFilter.skip_categories.remove("outro");
+        }
+        if(buttonView == this.skip_checkbox2){
+            if(isChecked){
+                lr.a(getActivity(), "UP主创作不易，建议只屏蔽影响观感的商业广告");
+                BiliFilter.skip_categories.add("sponsor");
+            }
+            else BiliFilter.skip_categories.remove("sponsor");
+        }
+    }
+
     @Override // android.view.View.OnFocusChangeListener
     public final void onFocusChange(View view, boolean z) {
         if (z) {
@@ -175,7 +208,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
     }
 
     public final boolean a() {
-        if (this.filter_button == null || this.filter_button.hasFocus() || this.filter_path == null || this.filter_path.hasFocus()) {
+        if (this.filter_button == null || this.filter_button.hasFocus() || this.filter_path == null || this.filter_path.hasFocus() || this.cdn_button == null || this.cdn_button.hasFocus() || this.cdn_value == null || this.cdn_value.hasFocus() || this.skip_checkbox0 == null || this.skip_checkbox0.hasFocus() || this.skip_checkbox1 == null || this.skip_checkbox1.hasFocus() || this.skip_checkbox2 == null || this.skip_checkbox2.hasFocus()) {
             return false;
         }
         this.filter_button.requestFocus();

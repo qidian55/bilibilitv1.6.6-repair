@@ -58,7 +58,7 @@ public class DanmakuPlayerDFM implements IDanmakuPlayer {
     private IDanmakuDocument mDanmakuDocument;
     private IDanmakuListener mDanmakuListener;
     private IDanmakuParams mDanmakuParams;
-    private bfd mDanmakuView;
+    public bfd mDanmakuView;
     private DanmakuPlayerInfo mInfo;
     private DanmakuParser mParser;
     private boolean mPaused;

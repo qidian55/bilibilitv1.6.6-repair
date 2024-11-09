@@ -1,61 +1,64 @@
-.class final Lcom/bilibili/tv/ui/splash/SplashActivity$c;
+.class public final Lcom/bilibili/tv/ui/splash/SplashActivity$c;
 .super Ljava/lang/Object;
-.source "BL"
+.source "SplashActivity.java"
 
 # interfaces
 .implements Lbl/agb$b;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/bilibili/tv/ui/splash/SplashActivity;->b(Ljava/lang/String;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bilibili/tv/ui/splash/SplashActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
+    accessFlags = 0x11
+    name = "c"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/bilibili/tv/ui/splash/SplashActivity;
+.field final synthetic this$0:Lcom/bilibili/tv/ui/splash/SplashActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/bilibili/tv/ui/splash/SplashActivity;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bilibili/tv/ui/splash/SplashActivity$c;->a:Lcom/bilibili/tv/ui/splash/SplashActivity;
+    .prologue
+    .line 108
+    iput-object p1, p0, Lcom/bilibili/tv/ui/splash/SplashActivity$c;->this$0:Lcom/bilibili/tv/ui/splash/SplashActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 109
     return-void
 .end method
 
 
 # virtual methods
 .method public final a(Lbl/agb;Landroid/view/View;)V
-    .locals 0
+    .locals 2
 
-    .line 75
+    .prologue
+    .line 113
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
-    .line 76
+    .line 114
     invoke-virtual {p1}, Lbl/agb;->cancel()V
 
-    .line 77
-    sget-object p1, Lcom/bilibili/tv/ui/main/MainActivity;->Companion:Lcom/bilibili/tv/ui/main/MainActivity$a;
+    .line 115
+    sget-object v0, Lcom/bilibili/tv/ui/main/MainActivity;->Companion:Lcom/bilibili/tv/ui/main/MainActivity$a;
 
-    iget-object p2, p0, Lcom/bilibili/tv/ui/splash/SplashActivity$c;->a:Lcom/bilibili/tv/ui/splash/SplashActivity;
+    iget-object v1, p0, Lcom/bilibili/tv/ui/splash/SplashActivity$c;->this$0:Lcom/bilibili/tv/ui/splash/SplashActivity;
 
-    check-cast p2, Landroid/content/Context;
+    invoke-virtual {v0, v1}, Lcom/bilibili/tv/ui/main/MainActivity$a;->a(Landroid/content/Context;)V
 
-    invoke-virtual {p1, p2}, Lcom/bilibili/tv/ui/main/MainActivity$a;->a(Landroid/content/Context;)V
+    .line 116
+    iget-object v0, p0, Lcom/bilibili/tv/ui/splash/SplashActivity$c;->this$0:Lcom/bilibili/tv/ui/splash/SplashActivity;
 
-    .line 78
-    iget-object p1, p0, Lcom/bilibili/tv/ui/splash/SplashActivity$c;->a:Lcom/bilibili/tv/ui/splash/SplashActivity;
+    invoke-virtual {v0}, Lcom/bilibili/tv/ui/splash/SplashActivity;->finish()V
 
-    invoke-virtual {p1}, Lcom/bilibili/tv/ui/splash/SplashActivity;->finish()V
-
+    .line 117
     return-void
 .end method

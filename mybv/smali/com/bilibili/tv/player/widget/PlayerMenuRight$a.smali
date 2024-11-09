@@ -36,5 +36,8 @@
 .method public abstract refresh_subtitle()V
 .end method
 
+.method public abstract set_danmaku_type(I)V
+.end method
+
 .method public abstract switch_speed(F)V
 .end method

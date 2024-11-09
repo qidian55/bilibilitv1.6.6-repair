@@ -40,7 +40,7 @@
 
 .field public mDanmakuStrokenWidth:F
 
-.field private mDanmakuView:Lbl/bfd;
+.field public mDanmakuView:Lbl/bfd;
 
 .field private mFlagFilter:Lbl/bez$a;
     .annotation system Ldalvik/annotation/Signature;
@@ -201,17 +201,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1000(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;)Lbl/bez$a;
-    .locals 1
-
-    .prologue
-    .line 53
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;->mFlagFilter:Lbl/bez$a;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1100(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;)Lmaster/flame/danmaku/danmaku/model/android/DanmakuContext;
+.method static synthetic access$1000(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;)Lmaster/flame/danmaku/danmaku/model/android/DanmakuContext;
     .locals 1
 
     .prologue
@@ -257,17 +247,7 @@
     return v0
 .end method
 
-.method static synthetic access$400(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;)Lbl/bfd;
-    .locals 1
-
-    .prologue
-    .line 53
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;->mDanmakuView:Lbl/bfd;
-
-    return-object v0
-.end method
-
-.method static synthetic access$502(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;Z)Z
+.method static synthetic access$402(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;Z)Z
     .locals 0
 
     .prologue
@@ -277,7 +257,7 @@
     return p1
 .end method
 
-.method static synthetic access$600(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;)I
+.method static synthetic access$500(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;)I
     .locals 1
 
     .prologue
@@ -287,7 +267,7 @@
     return v0
 .end method
 
-.method static synthetic access$700(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;)Ltv/danmaku/videoplayer/core/danmaku/IDanmakuParams;
+.method static synthetic access$600(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;)Ltv/danmaku/videoplayer/core/danmaku/IDanmakuParams;
     .locals 1
 
     .prologue
@@ -297,7 +277,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$800(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;)Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerInfo;
+.method static synthetic access$700(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;)Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerInfo;
     .locals 1
 
     .prologue
@@ -307,7 +287,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$900(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;)J
+.method static synthetic access$800(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;)J
     .locals 2
 
     .prologue
@@ -317,7 +297,7 @@
     return-wide v0
 .end method
 
-.method static synthetic access$902(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;J)J
+.method static synthetic access$802(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;J)J
     .locals 1
 
     .prologue
@@ -325,6 +305,16 @@
     iput-wide p1, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;->mSeekPosForParser:J
 
     return-wide p1
+.end method
+
+.method static synthetic access$900(Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;)Lbl/bez$a;
+    .locals 1
+
+    .prologue
+    .line 53
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/danmaku/DanmakuPlayerDFM;->mFlagFilter:Lbl/bez$a;
+
+    return-object v0
 .end method
 
 .method private applyPortraitPlayingConfig()V

@@ -1,6 +1,6 @@
 .class public final Lcom/bilibili/tv/ui/splash/SplashActivity$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "SplashActivity.java"
 
 
 # annotations
@@ -18,17 +18,21 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 96
+    .prologue
+    .line 133
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 134
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 96
+    .prologue
+    .line 137
     invoke-direct {p0}, Lcom/bilibili/tv/ui/splash/SplashActivity$a;-><init>()V
 
+    .line 138
     return-void
 .end method

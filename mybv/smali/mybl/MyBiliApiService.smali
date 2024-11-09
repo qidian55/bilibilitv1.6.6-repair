@@ -315,6 +315,31 @@
     .end annotation
 .end method
 
+.method public abstract skipSegments(Ljava/lang/String;)Lbl/vp;
+    .param p1    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "videoID"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "https://bsbsb.top/api/skipSegments?categories=[\"intro\",\"outro\",\"sponsor\"]&actionType=skip"
+    .end annotation
+.end method
+
 .method public abstract tripleVideo(Ljava/lang/String;J)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;

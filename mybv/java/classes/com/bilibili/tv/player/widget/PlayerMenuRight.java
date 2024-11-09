@@ -46,7 +46,7 @@ public class PlayerMenuRight extends aay<String> {
     private List<String> alpha_list;
     private List<String> ratio_list;
     private int quality_id;
-    private int danmaku_id;
+    private int danmaku_type;
     private int size_id;
     private int alpha_id;
     private int ratio_id;
@@ -77,6 +77,8 @@ public class PlayerMenuRight extends aay<String> {
 
         void f(int i);
 
+        void set_danmaku_type(int i);
+
         void switch_speed(float f);
 
         void refresh_subtitle();
@@ -92,7 +94,7 @@ public class PlayerMenuRight extends aay<String> {
         super(context);
         this.c = false;
         this.quality_id = 0;
-        this.danmaku_id = 0;
+        this.danmaku_type = 0;
         this.size_id = 0;
         this.alpha_id = 0;
         this.ratio_id = 0;
@@ -106,7 +108,7 @@ public class PlayerMenuRight extends aay<String> {
         super(context, attributeSet);
         this.c = false;
         this.quality_id = 0;
-        this.danmaku_id = 0;
+        this.danmaku_type = 0;
         this.size_id = 0;
         this.alpha_id = 0;
         this.ratio_id = 0;
@@ -120,7 +122,7 @@ public class PlayerMenuRight extends aay<String> {
         super(context, attributeSet, i);
         this.c = false;
         this.quality_id = 0;
-        this.danmaku_id = 0;
+        this.danmaku_type = 0;
         this.size_id = 0;
         this.alpha_id = 0;
         this.ratio_id = 0;
@@ -163,7 +165,7 @@ public class PlayerMenuRight extends aay<String> {
         }
         if (i == 2) {
             try {
-                if (!this.quality_list.get(this.quality_id).equals(str) && !this.danmaku_list.get(this.danmaku_id).equals(str) && !this.ratio_list.get(this.ratio_id).equals(str) && !this.size_list.get(this.size_id).equals(str) && !this.alpha_list.get(this.alpha_id).equals(str) && !this.speed_list.get(this.speed_id).equals(str) && !this.mode_list.get(this.mode_id).equals(str) && !this.subtitle_list.get(this.subtitle_id).equals(str)) {
+                if (!this.quality_list.get(this.quality_id).equals(str) && !this.danmaku_list.contains(str) && !this.ratio_list.get(this.ratio_id).equals(str) && !this.size_list.get(this.size_id).equals(str) && !this.alpha_list.get(this.alpha_id).equals(str) && !this.speed_list.get(this.speed_id).equals(str) && !this.mode_list.get(this.mode_id).equals(str) && !this.subtitle_list.get(this.subtitle_id).equals(str)) {
                     textView.getCompoundDrawables()[0].setAlpha(0);
                 }
                 else {
@@ -176,7 +178,7 @@ public class PlayerMenuRight extends aay<String> {
                     for(int ii=0;ii<10;ii++){if(danmaku_valid_list[ii])f=true;}
                     switch(w){
                         case 0:textView.getCompoundDrawables()[0].setAlpha(f?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
-                        case 1:textView.getCompoundDrawables()[0].setAlpha(0);textView.setText("屏蔽等级："+PlayerMenuRight.danmaku_level);break;
+                        case 1:textView.getCompoundDrawables()[0].setAlpha(0);break;
                         case 2:textView.getCompoundDrawables()[0].setAlpha(danmaku_valid_list[1]?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
                         default:textView.getCompoundDrawables()[0].setAlpha(danmaku_valid_list[w+1]?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
                     }
@@ -300,9 +302,8 @@ public class PlayerMenuRight extends aay<String> {
                 this.quality_id = i2;
             }
             if (this.danmaku_list.indexOf(str) != -1) {
-                //this.d.c(i2 == 0);
-                //i3 = this.danmaku_id;
-                //this.danmaku_id = i2;
+                //i3 = this.danmaku_type;
+                //this.danmaku_type = i2;
                 switch(i2){
                     case 0:
                         boolean f = false;
@@ -327,12 +328,16 @@ public class PlayerMenuRight extends aay<String> {
                     default:danmaku_valid_list[i2+1]=!danmaku_valid_list[i2+1];((TextView) view).getCompoundDrawables()[0].setAlpha(danmaku_valid_list[i2+1]?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
                 }
                 boolean f = false;
-                for(int ii=0;ii<10;ii++){if(danmaku_valid_list[ii])f=true;}
+                this.danmaku_type=0;
+                for(int ii=0;ii<10;ii++){
+                    if(danmaku_valid_list[ii]){this.danmaku_type+=1<<ii;f=true;}
+                }
                 ((TextView) viewGroup.getChildAt(0)).getCompoundDrawables()[0].setAlpha(f?DanmakuConfig.ALPHA_VALUE_MAX:0);
                 ((TextView) viewGroup.getChildAt(0)).setText(f?"弹幕开":"弹幕关");
                 ((TextView) viewGroup.getChildAt(2)).getCompoundDrawables()[0].setAlpha(danmaku_valid_list[1]?DanmakuConfig.ALPHA_VALUE_MAX:0);
                 for(int ii=4;ii<8;ii++)((TextView) viewGroup.getChildAt(ii-1)).getCompoundDrawables()[0].setAlpha(danmaku_valid_list[ii]?DanmakuConfig.ALPHA_VALUE_MAX:0);
                 this.d.refresh_subtitle();
+                this.d.set_danmaku_type(this.danmaku_type);
                 return true;
             }
             if (this.ratio_list.indexOf(str) != -1) {
@@ -405,7 +410,7 @@ public class PlayerMenuRight extends aay<String> {
                 i3 = this.quality_id;
                 break;
             case 1:
-                i3 = this.danmaku_id;
+                i3 = this.danmaku_type;
                 break;
             case 2:
                 i3 = this.ratio_id;
@@ -568,9 +573,10 @@ public class PlayerMenuRight extends aay<String> {
     }
 
     public void init_danmaku(List<String> list, int i) {
+        list.set(0, i>0?"弹幕开":"弹幕关");
         list.set(1, "屏蔽等级："+PlayerMenuRight.danmaku_level);
         this.danmaku_list = list;
-        this.danmaku_id = i;
+        this.danmaku_type = i;
     }
 
     public void init_size(List<String> list, int i) {
@@ -622,8 +628,8 @@ public class PlayerMenuRight extends aay<String> {
                 }
                 return;
             case 3:
-                if (this.danmaku_id != i2) {
-                    this.danmaku_id = i2;
+                if (this.danmaku_type != i2) {
+                    this.danmaku_type = i2;
                     c(2);
                     return;
                 }

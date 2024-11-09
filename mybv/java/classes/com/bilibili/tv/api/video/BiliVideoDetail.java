@@ -7,8 +7,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.bilibili.bangumi.api.BangumiSponsorRankList;
-import java.util.List;
-import u.aly.au;
+import java.util.*;
 
 import bl.pz;
 import bl.qa;
@@ -87,6 +86,8 @@ public class BiliVideoDetail implements Parcelable {
     @JSONField(name = "owner_ext")
     public OwnerExt ownerExt;
 
+    @JSONField(name = "bvid")
+    public String mBvid;
     @JSONField(name = "duration")
     public int mDuration;
     @JSONField(name = "history")
@@ -111,11 +112,10 @@ public class BiliVideoDetail implements Parcelable {
     public String episode_title;
 
     public static class JsonResponse extends qe {
-        public JSONObject e() {
-            JSONObject optJSONObject;
+        public JSONObject result() {
             try {
-                if (a() && (optJSONObject = new JSONObject(new String(this.b))) != null) {
-                    return optJSONObject;
+                if (a()) {
+                    return new JSONObject(new String(this.b));
                 }
                 return null;
             } catch (Exception e) {
@@ -130,7 +130,7 @@ public class BiliVideoDetail implements Parcelable {
         Future<JSONObject> future = threadPool.submit(new Callable<JSONObject>() {
             @Override
             public JSONObject call() {
-                return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https://api.bilibili.com/x/web-interface/view/detail").a(true).b("aid", String.valueOf(BiliVideoDetail.this.mAvid)).a(new qb()).a(), "GET")).e();
+                return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https://api.bilibili.com/x/web-interface/view/detail").a(true).b("aid", String.valueOf(BiliVideoDetail.this.mAvid)).a(new qb()).a(), "GET")).result();
             }
         });
         try{

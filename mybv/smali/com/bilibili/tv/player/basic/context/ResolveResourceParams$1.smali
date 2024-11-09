@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 26
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -44,7 +44,7 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 32
     new-instance v0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
     invoke-direct {v0, p1}, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;-><init>(Landroid/os/Parcel;)V
@@ -56,7 +56,7 @@
     .locals 1
 
     .prologue
-    .line 26
+    .line 28
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams$1;->createFromParcel(Landroid/os/Parcel;)Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
     move-result-object v0
@@ -68,7 +68,7 @@
     .locals 1
 
     .prologue
-    .line 36
+    .line 38
     new-array v0, p1, [Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
     return-object v0
@@ -78,7 +78,7 @@
     .locals 1
 
     .prologue
-    .line 26
+    .line 28
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams$1;->newArray(I)[Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;
 
     move-result-object v0

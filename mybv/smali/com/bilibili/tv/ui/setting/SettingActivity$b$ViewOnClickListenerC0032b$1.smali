@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 373
+    .line 339
     iput-object p1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$ViewOnClickListenerC0032b$1;->this$2:Lcom/bilibili/tv/ui/setting/SettingActivity$b$ViewOnClickListenerC0032b;
 
     iput-object p2, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$ViewOnClickListenerC0032b$1;->val$a:Landroid/app/Activity;
@@ -44,16 +44,16 @@
     .locals 2
 
     .prologue
-    .line 376
+    .line 342
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$ViewOnClickListenerC0032b$1;->val$a:Landroid/app/Activity;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lbl/abd;->a(Landroid/content/Context;Z)V
 
-    .line 377
+    .line 343
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
-    .line 378
+    .line 344
     return-void
 .end method

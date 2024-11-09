@@ -142,6 +142,12 @@ public class xw extends xh implements bbb<Message, Boolean>, PlayerMenuRight.a {
         abd.c(MainApplication.a().getApplicationContext(), z);
     }
 
+    @Override
+    public void set_danmaku_type(int i) {
+        this.a.a(5, i>0);
+        abd.set_danmaku_type(MainApplication.a().getApplicationContext(), i);
+    }
+
     @Override // com.bilibili.tv.player.widget.PlayerMenuRight.a
     public void e(int i) {
         a(IEventCenter.EventType.SWITCH_QUALITY, Integer.valueOf(i));
@@ -231,7 +237,7 @@ public class xw extends xh implements bbb<Message, Boolean>, PlayerMenuRight.a {
             this.e = 0;
         }
         this.c.init_quality(this.d, this.e);
-        this.c.init_danmaku(Arrays.asList(resources.getStringArray(R.array.player_danmaku_toggle)), !abd.e(MainApplication.a().getApplicationContext()) ? 1 : 0);
+        this.c.init_danmaku(Arrays.asList(resources.getStringArray(R.array.player_danmaku_toggle)), abd.get_danmaku_type(MainApplication.a().getApplicationContext()));
         ArrayList arrayList = new ArrayList(abd.a.length);
         for (float f : abd.a) {
             arrayList.add(String.valueOf(f));

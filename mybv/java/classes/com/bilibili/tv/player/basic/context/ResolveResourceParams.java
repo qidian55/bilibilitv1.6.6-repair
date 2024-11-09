@@ -15,6 +15,8 @@ import bl.qb;
 import bl.qe;
 import bl.mg;
 import org.json.*;
+import java.util.*;
+import mybl.BiliFilter;
 import java.util.concurrent.*;
 import com.bilibili.tv.MainApplication;
 import com.bilibili.tv.player.widget.PlayerMenuRight;
@@ -72,16 +74,27 @@ public class ResolveResourceParams implements Parcelable, Serializable {
     public String mWeb;
 
     public int mProgress;
+    public String mBvid;
 
+    public JSONArray skips;
     public JSONObject subtitle_info;
     public JSONObject subtitle_data;
 
     public static class JsonResponse extends qe {
-        public JSONObject e() {
-            JSONObject optJSONObject;
+        public JSONObject result() {
             try {
-                if (a() && (optJSONObject = new JSONObject(new String(this.b))) != null) {
-                    return optJSONObject;
+                if (a()) {
+                    return new JSONObject(new String(this.b));
+                }
+                return null;
+            } catch (Exception e) {
+                return null;
+            }
+        }
+        public JSONArray result2() {
+            try {
+                if (a()) {
+                    return new JSONArray(new String(this.b));
                 }
                 return null;
             } catch (Exception e) {
@@ -90,22 +103,93 @@ public class ResolveResourceParams implements Parcelable, Serializable {
         }
     }
 
+
+    public void getSkipInfo() {
+        this.skips = new JSONArray();
+        if(BiliFilter.skip_categories.size()==0)return;
+        if(isBangumi()){
+            ExecutorService threadPool  = Executors.newSingleThreadExecutor();
+            Future<JSONObject> future = threadPool.submit(new Callable<JSONObject>() {
+                @Override
+                public JSONObject call() {
+                    return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https://api.bilibili.com/pgc/view/web/ep/list").a(true).b("ep_id", String.valueOf(ResolveResourceParams.this.mEpisodeId)).a(new qb()).a(), "GET")).result();
+                }
+            });
+            try{
+                JSONArray tmp_episodes = future.get().optJSONObject("result").optJSONArray("episodes");
+                for(int i=0;i<tmp_episodes.length();i++){
+                    JSONObject tmp_ep = tmp_episodes.optJSONObject(i);
+                    if(tmp_ep.optInt("ep_id")!=this.mEpisodeId || tmp_ep.optJSONObject("skip")==null)continue;
+                    if(tmp_ep.optJSONObject("skip").optJSONObject("op")!=null && BiliFilter.skip_categories.contains("intro")){
+                        double start = tmp_ep.optJSONObject("skip").optJSONObject("op").optDouble("start");
+                        double end = tmp_ep.optJSONObject("skip").optJSONObject("op").optDouble("end");
+                        if(start<end){
+                            JSONObject skip_info = new JSONObject();
+                            skip_info.put("type","片头");
+                            skip_info.put("start",(long)start*1000);
+                            skip_info.put("end",(long)end*1000);
+                            this.skips.put(skip_info);
+                        }
+                    }
+                    if(tmp_ep.optJSONObject("skip").optJSONObject("ed")!=null && BiliFilter.skip_categories.contains("outro")){
+                        double start = tmp_ep.optJSONObject("skip").optJSONObject("ed").optDouble("start");
+                        double end = tmp_ep.optJSONObject("skip").optJSONObject("ed").optDouble("end");
+                        if(start<end){
+                            JSONObject skip_info = new JSONObject();
+                            skip_info.put("type","片尾");
+                            skip_info.put("start",(long)start*1000);
+                            skip_info.put("end",(long)end*1000);
+                            this.skips.put(skip_info);
+                        }
+                    }
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }else{
+            ExecutorService threadPool  = Executors.newSingleThreadExecutor();
+            Future<JSONArray> future = threadPool.submit(new Callable<JSONArray>() {
+                @Override
+                public JSONArray call() {
+                    return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https://bsbsb.top/api/skipSegments").a(true).b("videoID", String.valueOf(ResolveResourceParams.this.mBvid)).b("categories",new JSONArray(BiliFilter.skip_categories).toString()).b("actionType","skip").a(new qb()).a(), "GET")).result2();
+                }
+            });
+            try{
+                JSONArray datas = future.get();
+                for(int i=0;i<datas.length();i++){
+                    JSONArray segment = datas.optJSONObject(i).optJSONArray("segment");
+                    JSONObject skip_info = new JSONObject();
+                    String c = datas.optJSONObject(i).optString("category");
+                    if(c.equals("intro"))skip_info.put("type","片头");
+                    if(c.equals("outro"))skip_info.put("type","片尾");
+                    if(c.equals("sponsor"))skip_info.put("type","硬广");
+                    skip_info.put("start",(long)segment.optDouble(0)*1000);
+                    skip_info.put("end",(long)segment.optDouble(1)*1000);
+                    this.skips.put(skip_info);
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void initPlayInfo() {
+        this.getSkipInfo();
         try{
             ExecutorService threadPool  = Executors.newSingleThreadExecutor();
             if(this.subtitle_info == null)this.subtitle_info = threadPool.submit(new Callable<JSONObject>() {
                 @Override
                 public JSONObject call() {
-                    return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https://api.bilibili.com/x/player/v2").a(true).a("Cookie","SESSDATA="+mg.a(MainApplication.a()).getSESSDATA()).b("aid", String.valueOf(ResolveResourceParams.this.mAvid)).b("cid", String.valueOf(ResolveResourceParams.this.mCid)).a(new qb()).a(), "GET")).e();
+                    return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https://api.bilibili.com/x/player/v2").a(true).a("Cookie","SESSDATA="+mg.a(MainApplication.a()).getSESSDATA()).b("aid", String.valueOf(ResolveResourceParams.this.mAvid)).b("cid", String.valueOf(ResolveResourceParams.this.mCid)).a(new qb()).a(), "GET")).result();
                 }
             }).get().optJSONObject("data").optJSONObject("subtitle");
             int subtitle_id = PlayerMenuRight.subtitle_id - 1;
-            if(subtitle_id==-1){this.subtitle_data=null;return;}
+            if(subtitle_id==-1 || this.subtitle_info.optJSONArray("subtitles").length()==0){this.subtitle_data=null;return;}
             if(subtitle_id<-1 && this.subtitle_info.optJSONArray("subtitles").optJSONObject(0).optString("lan").startsWith("ai-"))return;
             if(this.subtitle_info != null)this.subtitle_data = threadPool.submit(new Callable<JSONObject>() {
                 @Override
                 public JSONObject call() {
-                    return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https:"+ResolveResourceParams.this.subtitle_info.optJSONArray("subtitles").optJSONObject(subtitle_id<0?0:subtitle_id).optString("subtitle_url")).a(true).a(new qb()).a(), "GET")).e();
+                    return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https:"+ResolveResourceParams.this.subtitle_info.optJSONArray("subtitles").optJSONObject(subtitle_id<0?0:subtitle_id).optString("subtitle_url")).a(true).a(new qb()).a(), "GET")).result();
                 }
             }).get();
         }catch(Exception e){
@@ -204,6 +288,7 @@ public class ResolveResourceParams implements Parcelable, Serializable {
         parcel.writeString(this.mType);
 
         parcel.writeInt(this.mProgress);
+        parcel.writeString(this.mBvid);
     }
 
     protected ResolveResourceParams(Parcel parcel) {
@@ -236,6 +321,7 @@ public class ResolveResourceParams implements Parcelable, Serializable {
         this.mType = parcel.readString();
 
         this.mProgress = parcel.readInt();
+        this.mBvid = parcel.readString();
     }
 
     public ResolveMediaResourceParams obtainMediaResourceParams() {

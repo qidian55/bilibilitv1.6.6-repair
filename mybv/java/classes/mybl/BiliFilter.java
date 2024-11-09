@@ -20,6 +20,7 @@ public class BiliFilter {
     public static boolean filter_on = false;
     public static String filter_rule_path;
     public static Config config;
+    public static Set<String> skip_categories = new HashSet<String>();
 
     public static void updateConfig() throws Exception{
         BiliFilter.filter_rule_path = abd.get_filter_path(MainApplication.a().getApplicationContext());

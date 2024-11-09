@@ -178,14 +178,14 @@
 
     move-result v3
 
-    .line 243
+    .line 209
     :cond_f
     :goto_f
     return v3
 
     .line 144
     :cond_10
-    if-eqz p1, :cond_37
+    if-eqz p1, :cond_49
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
@@ -209,13 +209,13 @@
 
     .line 146
     :cond_24
-    if-eqz v1, :cond_bf
+    if-eqz v1, :cond_a2
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    if-nez v1, :cond_bf
+    if-nez v1, :cond_a2
 
     .line 147
     invoke-virtual {p0}, Lcom/bilibili/tv/ui/setting/SettingActivity;->getCurrentFocus()Landroid/view/View;
@@ -223,24 +223,9 @@
     move-result-object v2
 
     .line 148
-    if-nez v2, :cond_39
+    if-eqz v2, :cond_44
 
-    .line 149
-    invoke-super {p0, p1}, Lcom/bilibili/tv/ui/base/BaseUpViewActivity;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-result v3
-
-    goto :goto_f
-
-    :cond_37
-    move-object v1, v0
-
-    .line 144
-    goto :goto_1a
-
-    .line 151
-    :cond_39
-    if-eqz v0, :cond_43
+    if-eqz v0, :cond_44
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -248,10 +233,7 @@
 
     const/16 v5, 0x13
 
-    if-eq v1, v5, :cond_bf
-
-    :cond_43
-    if-eqz v0, :cond_4d
+    if-eq v1, v5, :cond_44
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -259,41 +241,37 @@
 
     const/16 v5, 0x14
 
-    if-eq v1, v5, :cond_bf
+    if-ne v1, v5, :cond_4b
 
-    .line 152
-    :cond_4d
-    if-eqz v0, :cond_c8
+    .line 149
+    :cond_44
+    invoke-super {p0, p1}, Lcom/bilibili/tv/ui/base/BaseUpViewActivity;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
+    move-result v3
+
+    goto :goto_f
+
+    :cond_49
+    move-object v1, v0
+
+    .line 144
+    goto :goto_1a
+
+    .line 151
+    :cond_4b
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
     const/16 v5, 0x15
 
-    if-ne v1, v5, :cond_c8
+    if-ne v1, v5, :cond_ab
 
-    .line 153
+    .line 152
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity;->d:Lbl/afp;
 
-    .line 154
-    if-nez v0, :cond_5e
-
-    .line 155
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 157
-    :cond_5e
     iget-object v1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity;->b:Lcom/bilibili/tv/ui/setting/SettingActivity$b;
 
-    .line 158
-    if-nez v1, :cond_65
-
-    .line 159
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 161
-    :cond_65
     invoke-virtual {v1}, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->f()I
 
     move-result v1
@@ -302,10 +280,10 @@
 
     move-result-object v1
 
-    .line 162
+    .line 153
     instance-of v0, v1, Lbl/afn;
 
-    if-eqz v0, :cond_7a
+    if-eqz v0, :cond_6c
 
     move-object v0, v1
 
@@ -317,11 +295,11 @@
 
     if-nez v0, :cond_f
 
-    .line 165
-    :cond_7a
+    .line 156
+    :cond_6c
     instance-of v0, v1, Lbl/afo;
 
-    if-eqz v0, :cond_86
+    if-eqz v0, :cond_78
 
     check-cast v1, Lbl/afo;
 
@@ -331,131 +309,89 @@
 
     if-nez v0, :cond_f
 
-    .line 168
-    :cond_86
+    .line 159
+    :cond_78
     instance-of v0, v2, Lcom/bilibili/tv/widget/DrawFrameLayout;
 
-    if-eqz v0, :cond_bf
+    if-eqz v0, :cond_a2
 
-    .line 169
+    .line 160
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity;->a:Landroid/support/v7/widget/RecyclerView;
 
-    .line 170
-    if-nez v0, :cond_91
-
-    .line 171
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 173
-    :cond_91
     invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->getChildCount()I
 
     move-result v0
 
     add-int/lit8 v1, v0, -0x1
 
-    .line 174
-    if-ltz v1, :cond_b5
+    .line 161
+    if-ltz v1, :cond_9d
 
     move v0, v3
 
-    .line 177
-    :goto_9a
+    .line 164
+    :goto_87
     iget-object v2, p0, Lcom/bilibili/tv/ui/setting/SettingActivity;->a:Landroid/support/v7/widget/RecyclerView;
 
-    .line 178
-    if-nez v2, :cond_a1
-
-    .line 179
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 181
-    :cond_a1
     invoke-virtual {v2, v0}, Landroid/support/v7/widget/RecyclerView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
-    .line 182
+    .line 165
     const-string v4, "childView"
 
     invoke-static {v2, v4}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 183
+    .line 166
     invoke-virtual {v2}, Landroid/view/View;->isSelected()Z
 
     move-result v4
 
-    if-eqz v4, :cond_b3
+    if-eqz v4, :cond_9b
 
-    .line 184
+    .line 167
     invoke-virtual {v2}, Landroid/view/View;->requestFocus()Z
 
-    .line 186
-    :cond_b3
-    if-ne v0, v1, :cond_c5
+    .line 169
+    :cond_9b
+    if-ne v0, v1, :cond_a8
 
-    .line 192
-    :cond_b5
+    .line 175
+    :cond_9d
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity;->b:Lcom/bilibili/tv/ui/setting/SettingActivity$b;
 
-    .line 193
-    if-nez v0, :cond_bc
-
-    .line 194
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 196
-    :cond_bc
     invoke-virtual {v0, v3}, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->b(Z)V
 
-    .line 243
-    :cond_bf
+    .line 209
+    :cond_a2
     invoke-super {p0, p1}, Lcom/bilibili/tv/ui/base/BaseUpViewActivity;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result v3
 
     goto/16 :goto_f
 
-    .line 189
-    :cond_c5
+    .line 172
+    :cond_a8
     add-int/lit8 v0, v0, 0x1
 
-    .line 190
-    goto :goto_9a
+    .line 173
+    goto :goto_87
 
-    .line 198
-    :cond_c8
-    if-eqz v0, :cond_bf
-
+    .line 177
+    :cond_ab
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
     const/16 v1, 0x16
 
-    if-ne v0, v1, :cond_bf
+    if-ne v0, v1, :cond_a2
 
-    .line 199
+    .line 178
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity;->d:Lbl/afp;
 
-    .line 200
-    if-nez v0, :cond_d9
-
-    .line 201
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 203
-    :cond_d9
     iget-object v1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity;->b:Lcom/bilibili/tv/ui/setting/SettingActivity$b;
 
-    .line 204
-    if-nez v1, :cond_e0
-
-    .line 205
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 207
-    :cond_e0
     invoke-virtual {v1}, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->f()I
 
     move-result v1
@@ -464,95 +400,87 @@
 
     move-result-object v1
 
-    .line 208
-    if-nez v1, :cond_ed
+    .line 179
+    if-nez v1, :cond_c4
 
     move v3, v4
 
-    .line 209
+    .line 180
     goto/16 :goto_f
 
-    .line 211
-    :cond_ed
+    .line 182
+    :cond_c4
     instance-of v0, v1, Lbl/adw;
 
-    if-eqz v0, :cond_bf
+    if-eqz v0, :cond_a2
 
     move-object v0, v1
 
-    .line 212
+    .line 183
     check-cast v0, Lbl/adw;
 
     invoke-virtual {v0}, Lbl/adw;->c()Z
 
     move-result v0
 
-    if-nez v0, :cond_fd
+    if-nez v0, :cond_d4
 
     move v3, v4
 
-    .line 213
+    .line 184
     goto/16 :goto_f
 
-    .line 215
-    :cond_fd
+    .line 186
+    :cond_d4
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity;->b:Lcom/bilibili/tv/ui/setting/SettingActivity$b;
 
-    .line 216
-    if-nez v0, :cond_104
-
-    .line 217
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 219
-    :cond_104
     invoke-virtual {v0, v4}, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->b(Z)V
 
-    .line 220
+    .line 187
     instance-of v0, v2, Lcom/bilibili/tv/widget/side/SideLeftSelectLinearLayout;
 
-    if-eqz v0, :cond_111
+    if-eqz v0, :cond_e3
 
     move-object v0, v2
 
-    .line 221
+    .line 188
     check-cast v0, Lcom/bilibili/tv/widget/side/SideLeftSelectLinearLayout;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/widget/side/SideLeftSelectLinearLayout;->c()V
 
-    .line 223
-    :cond_111
+    .line 190
+    :cond_e3
     instance-of v0, v1, Lbl/afq;
 
-    if-eqz v0, :cond_11b
+    if-eqz v0, :cond_ed
 
     move-object v0, v1
 
-    .line 224
+    .line 191
     check-cast v0, Lbl/afq;
 
     invoke-virtual {v0}, Lbl/afq;->a()V
 
-    .line 226
-    :cond_11b
+    .line 193
+    :cond_ed
     instance-of v0, v1, Lbl/afk;
 
-    if-eqz v0, :cond_125
+    if-eqz v0, :cond_f7
 
     move-object v0, v1
 
-    .line 227
+    .line 194
     check-cast v0, Lbl/afk;
 
     invoke-virtual {v0}, Lbl/afk;->a()V
 
-    .line 229
-    :cond_125
+    .line 196
+    :cond_f7
     instance-of v0, v1, Lbl/afn;
 
-    if-eqz v0, :cond_131
+    if-eqz v0, :cond_103
 
-    .line 230
+    .line 197
     check-cast v1, Lbl/afn;
 
     invoke-virtual {v1}, Lbl/afn;->a()Z
@@ -561,13 +489,13 @@
 
     goto/16 :goto_f
 
-    .line 232
-    :cond_131
+    .line 199
+    :cond_103
     instance-of v0, v1, Lbl/afo;
 
-    if-eqz v0, :cond_13d
+    if-eqz v0, :cond_10f
 
-    .line 233
+    .line 200
     check-cast v1, Lbl/afo;
 
     invoke-virtual {v1}, Lbl/afo;->a()Z
@@ -576,13 +504,13 @@
 
     goto/16 :goto_f
 
-    .line 235
-    :cond_13d
+    .line 202
+    :cond_10f
     instance-of v0, v1, Lbl/afm3;
 
-    if-eqz v0, :cond_149
+    if-eqz v0, :cond_11b
 
-    .line 236
+    .line 203
     check-cast v1, Lbl/afm3;
 
     invoke-virtual {v1}, Lbl/afm3;->a()Z
@@ -591,10 +519,10 @@
 
     goto/16 :goto_f
 
-    :cond_149
+    :cond_11b
     move v3, v4
 
-    .line 238
+    .line 205
     goto/16 :goto_f
 .end method
 

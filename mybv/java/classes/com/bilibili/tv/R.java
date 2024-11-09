@@ -2455,6 +2455,9 @@ public final class R {
         public static final int filter_path = 0x7f080173;
         public static final int cdn_button = 0x7f080174;
         public static final int cdn_value = 0x7f080175;
+        public static final int skip_checkbox0 = 0x7f080176;
+        public static final int skip_checkbox1 = 0x7f080177;
+        public static final int skip_checkbox2 = 0x7f080178;
     }
 
     public static final class integer {

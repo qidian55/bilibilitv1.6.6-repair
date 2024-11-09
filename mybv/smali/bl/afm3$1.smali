@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 129
+    .line 142
     iput-object p1, p0, Lbl/afm3$1;->this$0:Lbl/afm3;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .locals 2
 
     .prologue
-    .line 132
+    .line 145
     sget-object v0, Lbl/afm3;->tmp_cdns:Ljava/util/List;
 
     invoke-interface {v0, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -51,7 +51,7 @@
 
     sput-object v0, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
 
-    .line 133
+    .line 146
     iget-object v0, p0, Lbl/afm3$1;->this$0:Lbl/afm3;
 
     # getter for: Lbl/afm3;->cdn_value:Lcom/bilibili/tv/widget/DrawEditText;
@@ -63,6 +63,6 @@
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/DrawEditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 134
+    .line 147
     return-void
 .end method

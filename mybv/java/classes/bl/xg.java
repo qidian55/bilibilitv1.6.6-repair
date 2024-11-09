@@ -107,6 +107,7 @@ public class xg {
         obtainResolveParams.mHasAlias = page.mHasAlias;
         obtainResolveParams.mTid = biliVideoDetail.mTid;
 
+        obtainResolveParams.mBvid = biliVideoDetail.mBvid;
         if(biliVideoDetail.mHistory!=null && page.mCid==biliVideoDetail.mHistory.mCid)obtainResolveParams.mProgress=biliVideoDetail.mHistory.mProgress;
 
         if (i > 0) {

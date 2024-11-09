@@ -70,6 +70,7 @@ public class xk extends xh implements bbb<Message, Boolean> {
         b.mVideoParams.obtainResolveParams().initPlayInfo();
         BiliPlayerContext bc = (BiliPlayerContext) this.c;
         DanmakuPlayerDFM dp = (DanmakuPlayerDFM) bc.mDanmakuPlayerContext.mDanmakuPlayer;
+        xj.skips = b.mVideoParams.obtainResolveParams().skips;
         dp.subtitle_data = b.mVideoParams.obtainResolveParams().subtitle_data;
     }
 

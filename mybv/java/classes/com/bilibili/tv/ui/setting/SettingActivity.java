@@ -141,102 +141,68 @@ public final class SettingActivity extends BaseUpViewActivity {
         if (this.b == null || this.d == null) {
             return super.dispatchKeyEvent(keyEvent);
         }
-        Integer valueOf = keyEvent != null ? Integer.valueOf(keyEvent.getAction()) : null;
-        Integer valueOf2 = keyEvent != null ? Integer.valueOf(keyEvent.getKeyCode()) : null;
-        if (valueOf != null && valueOf.intValue() == 0) {
+        Integer action = keyEvent != null ? Integer.valueOf(keyEvent.getAction()) : null;
+        Integer keycode = keyEvent != null ? Integer.valueOf(keyEvent.getKeyCode()) : null;
+        if (action != null && action.intValue() == 0) {
             View currentFocus = getCurrentFocus();
-            if (currentFocus == null) {
+            if (currentFocus==null || keycode==null || keycode.intValue()==KeyEvent.KEYCODE_DPAD_UP || keycode.intValue()==KeyEvent.KEYCODE_DPAD_DOWN) {
                 return super.dispatchKeyEvent(keyEvent);
             }
-            if ((valueOf2 == null || valueOf2.intValue() != 19) && (valueOf2 == null || valueOf2.intValue() != 20)) {
-                if (valueOf2 != null && valueOf2.intValue() == 21) {
-                    afp afpVar = this.d;
-                    if (afpVar == null) {
-                        bbi.a();
-                    }
-                    b bVar = this.b;
-                    if (bVar == null) {
-                        bbi.a();
-                    }
-                    Fragment d = afpVar.d(bVar.f());
-                    if ((d instanceof afn) && ((afn) d).b()) {
-                        return false;
-                    }
-                    if ((d instanceof afo) && ((afo) d).b()) {
-                        return false;
-                    }
-                    if (currentFocus instanceof DrawFrameLayout) {
-                        RecyclerView recyclerView = this.a;
-                        if (recyclerView == null) {
-                            bbi.a();
-                        }
-                        int childCount = recyclerView.getChildCount() - 1;
-                        if (childCount >= 0) {
-                            int i = 0;
-                            while (true) {
-                                RecyclerView recyclerView2 = this.a;
-                                if (recyclerView2 == null) {
-                                    bbi.a();
-                                }
-                                View childAt = recyclerView2.getChildAt(i);
-                                bbi.a((Object) childAt, "childView");
-                                if (childAt.isSelected()) {
-                                    childAt.requestFocus();
-                                }
-                                if (i == childCount) {
-                                    break;
-                                }
-                                i++;
+            if (keycode.intValue() == KeyEvent.KEYCODE_DPAD_LEFT) {
+                Fragment d = this.d.d(this.b.f());
+                if ((d instanceof afn) && ((afn) d).b()) {
+                    return false;
+                }
+                if ((d instanceof afo) && ((afo) d).b()) {
+                    return false;
+                }
+                if (currentFocus instanceof DrawFrameLayout) {
+                    int childCount = this.a.getChildCount() - 1;
+                    if (childCount >= 0) {
+                        int i = 0;
+                        while (true) {
+                            View childAt = this.a.getChildAt(i);
+                            bbi.a((Object) childAt, "childView");
+                            if (childAt.isSelected()) {
+                                childAt.requestFocus();
                             }
+                            if (i == childCount) {
+                                break;
+                            }
+                            i++;
                         }
-                        b bVar2 = this.b;
-                        if (bVar2 == null) {
-                            bbi.a();
-                        }
-                        bVar2.b(false);
                     }
-                } else if (valueOf2 != null && valueOf2.intValue() == 22) {
-                    afp afpVar2 = this.d;
-                    if (afpVar2 == null) {
-                        bbi.a();
-                    }
-                    b bVar3 = this.b;
-                    if (bVar3 == null) {
-                        bbi.a();
-                    }
-                    Fragment d2 = afpVar2.d(bVar3.f());
-                    if (d2 == null) {
+                    this.b.b(false);
+                }
+            } else if (keycode.intValue() == KeyEvent.KEYCODE_DPAD_RIGHT) {
+                Fragment d2 = this.d.d(this.b.f());
+                if (d2 == null) {
+                    return true;
+                }
+                if (d2 instanceof adw) {
+                    if (!((adw) d2).c()) {
                         return true;
                     }
-                    if (d2 instanceof adw) {
-                        if (!((adw) d2).c()) {
-                            return true;
-                        }
-                        b bVar4 = this.b;
-                        if (bVar4 == null) {
-                            bbi.a();
-                        }
-                        bVar4.b(true);
-                        if (currentFocus instanceof SideLeftSelectLinearLayout) {
-                            ((SideLeftSelectLinearLayout) currentFocus).c();
-                        }
-                        if (d2 instanceof afq) {
-                            ((afq) d2).a();
-                        }
-                        if (d2 instanceof afk) {
-                            ((afk) d2).a();
-                        }
-                        if (d2 instanceof afn) {
-                            return ((afn) d2).a();
-                        }
-                        if (d2 instanceof afo) {
-                            return ((afo) d2).a();
-                        }
-                        if (d2 instanceof afm3) {
-                            return ((afm3) d2).a();
-                        }
-                        return true;
+                    this.b.b(true);
+                    if (currentFocus instanceof SideLeftSelectLinearLayout) {
+                        ((SideLeftSelectLinearLayout) currentFocus).c();
                     }
+                    if (d2 instanceof afq) {
+                        ((afq) d2).a();
+                    }
+                    if (d2 instanceof afk) {
+                        ((afk) d2).a();
+                    }
+                    if (d2 instanceof afn) {
+                        return ((afn) d2).a();
+                    }
+                    if (d2 instanceof afo) {
+                        return ((afo) d2).a();
+                    }
+                    if (d2 instanceof afm3) {
+                        return ((afm3) d2).a();
+                    }
+                    return true;
                 }
             }
         }

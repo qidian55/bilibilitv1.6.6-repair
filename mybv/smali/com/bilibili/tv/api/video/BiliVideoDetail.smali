@@ -74,6 +74,12 @@
     .end annotation
 .end field
 
+.field public mBvid:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "bvid"
+    .end annotation
+.end field
+
 .field public mCheeseInfo:Lcom/alibaba/fastjson/JSONObject;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "cheese"
@@ -278,7 +284,7 @@
     .locals 1
 
     .prologue
-    .line 24
+    .line 23
     new-instance v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$1;
 
     invoke-direct {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$1;-><init>()V
@@ -1882,7 +1888,7 @@
     .end annotation
 
     .prologue
-    .line 107
+    .line 108
     const-string v0, "season"
 
     invoke-virtual {p1, v0}, Lcom/alibaba/fastjson/JSONObject;->getJSONObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
@@ -1903,7 +1909,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mBangumiInfo:Lcom/bilibili/tv/api/video/BiliVideoDetail$BangumiInfo;
 
-    .line 108
+    .line 109
     return-void
 .end method
 

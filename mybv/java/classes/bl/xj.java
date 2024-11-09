@@ -19,6 +19,8 @@ import tv.danmaku.ijk.media.player.IjkMediaCodecInfo;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 import tv.danmaku.videoplayer.core.danmaku.IDanmakuDocument;
 
+import org.json.*;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public class xj extends xh {
@@ -32,6 +34,11 @@ public class xj extends xh {
     private int g = 0;
     private String h = "";
     private boolean l = false;
+
+    public static xj _this;
+    public static JSONArray skips;
+
+    public xj(){_this=this;}
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnInfoListener
     public boolean onInfo2(IMediaPlayer iMediaPlayer, int i, int i2, long j) {
@@ -75,6 +82,21 @@ public class xj extends xh {
             return true;
         }
         return super.handleMessage(message);
+    }
+
+    public void checkSkip(long t) {
+        for(int i=0;i<this.skips.length();i++){
+            JSONObject skip_info = this.skips.optJSONObject(i);
+            if(t>=skip_info.optLong("start") && t<skip_info.optLong("start")+1000){
+                this.c.setText("侦测到"+skip_info.optString("type")+"，已空降至"+aan.a(skip_info.optLong("end")));
+                this.c.clearAnimation();
+                this.k.reset();
+                this.l = true;
+                a(this.j, 5000L);
+                c((int)skip_info.optLong("end"));
+                return;
+            }
+        }
     }
 
     private void P() {
@@ -138,12 +160,9 @@ public class xj extends xh {
                     j = b;
                 }
             }
-            int i = (int) j;
-            int i2 = this.i;
-            if (i > 0) {
-                long j2 = i;
-                if (zt.a(j2, i2)) {
-                    String a = aan.a(j2);
+            if (j > 0) {
+                if (zt.a(j, this.i)) {
+                    String a = aan.a(j);
                     if (this.c == null) {
                         Q();
                     }
@@ -152,7 +171,7 @@ public class xj extends xh {
                     }
                     this.c.setText(lp.a(this.h, a));
                     this.l = true;
-                    c(i);
+                    c((int)j);
                     a(this.j, 5000L);
                 }
             }
