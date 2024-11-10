@@ -88,9 +88,11 @@ public class xj extends xh {
         for(int i=0;i<this.skips.length();i++){
             JSONObject skip_info = this.skips.optJSONObject(i);
             if(t>=skip_info.optLong("start") && t<skip_info.optLong("start")+1000){
+                if(this.c==null)Q();
+                if(this.c==null)return;
                 this.c.setText("侦测到"+skip_info.optString("type")+"，已空降至"+aan.a(skip_info.optLong("end")));
                 this.c.clearAnimation();
-                this.k.reset();
+                if(this.k!=null)this.k.reset();
                 this.l = true;
                 a(this.j, 5000L);
                 c((int)skip_info.optLong("end"));
@@ -163,12 +165,8 @@ public class xj extends xh {
             if (j > 0) {
                 if (zt.a(j, this.i)) {
                     String a = aan.a(j);
-                    if (this.c == null) {
-                        Q();
-                    }
-                    if (this.c == null) {
-                        return;
-                    }
+                    if(this.c == null)Q();
+                    if(this.c == null)return;
                     this.c.setText(lp.a(this.h, a));
                     this.l = true;
                     c((int)j);
