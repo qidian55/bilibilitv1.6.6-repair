@@ -168,6 +168,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
             }
             else BiliFilter.skip_categories.remove("sponsor");
         }
+        abd.set_skip_categories(MainApplication.a().getApplicationContext(),BiliFilter.skip_categories);
     }
 
     @Override // android.view.View.OnFocusChangeListener

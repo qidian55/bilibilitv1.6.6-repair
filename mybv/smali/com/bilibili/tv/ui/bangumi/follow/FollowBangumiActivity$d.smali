@@ -1,6 +1,6 @@
 .class final Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d;
 .super Lbl/adv;
-.source "BL"
+.source "FollowBangumiActivity.java"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -38,6 +38,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 435
     new-instance v0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d$a;
 
     const/4 v1, 0x0
@@ -52,16 +54,18 @@
 .method public constructor <init>(Landroid/view/View;)V
     .locals 2
 
+    .prologue
+    .line 441
+    invoke-direct {p0, p1}, Lbl/adv;-><init>(Landroid/view/View;)V
+
+    .line 442
     const-string v0, "itemView"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 285
-    invoke-direct {p0, p1}, Lbl/adv;-><init>(Landroid/view/View;)V
-
+    .line 443
     const v0, 0x7f0800a1
 
-    .line 287
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object v0
@@ -70,9 +74,9 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d;->n:Lcom/bilibili/tv/widget/ScalableImageView;
 
+    .line 444
     const v0, 0x7f080132
 
-    .line 288
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object v0
@@ -81,27 +85,20 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d;->o:Landroid/widget/TextView;
 
-    .line 291
+    .line 445
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d;->n:Lcom/bilibili/tv/widget/ScalableImageView;
 
     const v1, 0x7f0700e8
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/ScalableImageView;->setUpDrawable(I)V
 
-    .line 292
-    move-object v0, p0
+    .line 446
+    invoke-virtual {p1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    check-cast v0, Landroid/view/View$OnClickListener;
+    .line 447
+    invoke-virtual {p1, p0}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 293
-    move-object v0, p0
-
-    check-cast v0, Landroid/view/View$OnFocusChangeListener;
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
-
+    .line 448
     return-void
 .end method
 
@@ -110,195 +107,192 @@
 .method public final A()Landroid/widget/TextView;
     .locals 1
 
-    .line 288
+    .prologue
+    .line 457
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d;->o:Landroid/widget/TextView;
 
     return-object v0
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 7
+    .locals 6
 
+    .prologue
+    .line 462
     const-string v0, "v"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 297
+    .line 463
     sget-object v0, Lbl/abl;->a:Lbl/abl;
 
     const-string v1, "ott-platform.favorite.favorite.0.click"
 
     invoke-virtual {v0, v1}, Lbl/abl;->a(Ljava/lang/String;)V
 
-    .line 298
+    .line 464
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
+    .line 465
     const-string v1, "v.context"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 466
     invoke-static {v0}, Lbl/adl;->a(Landroid/content/Context;)Landroid/app/Activity;
-
-    move-result-object v0
-
-    .line 299
-    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object v1
-
-    const v2, 0x7f0800d8
-
-    .line 300
-    invoke-virtual {p1, v2}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
-
-    move-result-object p1
-
-    if-eqz v0, :cond_2
-
-    if-eqz v1, :cond_2
-
-    if-nez p1, :cond_0
-
-    goto :goto_0
-
-    .line 304
-    :cond_0
-    instance-of v2, v1, Lcom/bilibili/bangumi/api/BiliBangumiSeason;
-
-    if-eqz v2, :cond_1
-
-    instance-of v2, p1, Ljava/lang/Integer;
-
-    if-eqz v2, :cond_1
-
-    .line 305
-    sget-object v2, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->Companion:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$a;
-
-    move-object v3, v0
-
-    check-cast v3, Landroid/content/Context;
-
-    check-cast v1, Lcom/bilibili/bangumi/api/BiliBangumiSeason;
-
-    iget-object v4, v1, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mSeasonId:Ljava/lang/String;
-
-    invoke-virtual {v2, v3, v4}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$a;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object v2
 
-    .line 306
-    invoke-virtual {v0, v2}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+    .line 467
+    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
-    const-string v0, "tv_mybangumi_click"
+    move-result-object v0
 
-    const/4 v2, 0x6
+    .line 468
+    const v1, 0x7f0800d8
 
-    .line 308
-    new-array v2, v2, [Ljava/lang/String;
+    invoke-virtual {p1, v1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    move-result-object v1
 
-    const-string v4, "title"
+    .line 469
+    if-eqz v2, :cond_32
 
-    aput-object v4, v2, v3
+    if-eqz v0, :cond_32
 
-    .line 310
-    iget-object v3, v1, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mTitle:Ljava/lang/String;
+    if-eqz v1, :cond_32
+
+    instance-of v3, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;
+
+    if-eqz v3, :cond_32
+
+    instance-of v3, v1, Ljava/lang/Integer;
+
+    if-nez v3, :cond_33
+
+    .line 475
+    :cond_32
+    :goto_32
+    return-void
+
+    .line 472
+    :cond_33
+    check-cast v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;
+
+    .line 473
+    sget-object v3, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->Companion:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$a;
+
+    iget-object v4, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mSeasonId:Ljava/lang/String;
+
+    invoke-virtual {v3, v2, v4}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$a;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+
+    .line 474
+    const-string v2, "tv_mybangumi_click"
+
+    const/4 v3, 0x6
+
+    new-array v3, v3, [Ljava/lang/String;
+
+    const/4 v4, 0x0
+
+    const-string v5, "title"
+
+    aput-object v5, v3, v4
 
     const/4 v4, 0x1
 
-    aput-object v3, v2, v4
+    iget-object v5, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mTitle:Ljava/lang/String;
 
-    const/4 v3, 0x2
+    aput-object v5, v3, v4
+
+    const/4 v4, 0x2
 
     const-string v5, "bangumiid"
 
-    aput-object v5, v2, v3
+    aput-object v5, v3, v4
 
-    const/4 v3, 0x3
+    const/4 v4, 0x3
 
-    .line 312
-    iget-object v1, v1, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mBangumiId:Ljava/lang/String;
+    iget-object v0, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mBangumiId:Ljava/lang/String;
 
-    aput-object v1, v2, v3
+    aput-object v0, v3, v4
 
-    const/4 v1, 0x4
+    const/4 v0, 0x4
 
-    const-string v3, "row"
+    const-string v4, "row"
 
-    aput-object v3, v2, v1
+    aput-object v4, v3, v0
 
-    const/4 v1, 0x5
+    const/4 v4, 0x5
 
-    .line 314
-    check-cast p1, Ljava/lang/Number;
+    move-object v0, v1
 
-    invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
+    check-cast v0, Ljava/lang/Number;
 
-    move-result p1
+    invoke-virtual {v0}, Ljava/lang/Number;->intValue()I
 
-    invoke-static {}, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity;->h()I
+    move-result v0
 
-    move-result v3
+    div-int/lit8 v0, v0, 0x6
 
-    div-int/2addr p1, v3
+    int-to-double v0, v0
 
-    int-to-double v5, p1
+    invoke-static {v0, v1}, Ljava/lang/Math;->floor(D)D
 
-    invoke-static {v5, v6}, Ljava/lang/Math;->floor(D)D
+    move-result-wide v0
 
-    move-result-wide v5
+    double-to-int v0, v0
 
-    double-to-int p1, v5
+    add-int/lit8 v0, v0, 0x1
 
-    add-int/2addr p1, v4
+    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object p1
+    aput-object v0, v3, v4
 
-    aput-object p1, v2, v1
+    invoke-static {v2, v3}, Lbl/ok;->a(Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 307
-    invoke-static {v0, v2}, Lbl/ok;->a(Ljava/lang/String;[Ljava/lang/String;)V
-
-    :cond_1
-    return-void
-
-    :cond_2
-    :goto_0
-    return-void
+    goto :goto_32
 .end method
 
 .method public onFocusChange(Landroid/view/View;Z)V
     .locals 1
 
+    .prologue
+    .line 479
     const-string v0, "v"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 320
+    .line 480
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d;->n:Lcom/bilibili/tv/widget/ScalableImageView;
 
     invoke-virtual {v0, p2}, Lcom/bilibili/tv/widget/ScalableImageView;->setUpEnabled(Z)V
 
-    .line 321
+    .line 481
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d;->o:Landroid/widget/TextView;
 
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setSelected(Z)V
 
-    .line 322
+    .line 482
     invoke-static {p1, p2}, Lbl/adj;->a(Landroid/view/View;Z)V
 
+    .line 483
     return-void
 .end method
 
 .method public final z()Lcom/bilibili/tv/widget/ScalableImageView;
     .locals 1
 
-    .line 287
+    .prologue
+    .line 452
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d;->n:Lcom/bilibili/tv/widget/ScalableImageView;
 
     return-object v0

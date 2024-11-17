@@ -259,7 +259,37 @@ public final class SettingActivity extends BaseUpViewActivity {
                 View view = vVar.a;
                 bbi.a((Object) view, "holder.itemView");
                 view.setOnFocusChangeListener(new a(vVar));
-                vVar.a.setOnClickListener(new ViewOnClickListenerC0032b(i));
+                vVar.a.setOnClickListener(new View.OnClickListener() {
+                    @Override // android.view.View.OnClickListener
+                    public final void onClick(View view) {
+                        if (i != 4) {
+                            return;
+                        }
+                        bbi.a((Object) view, "v");
+                        Context context = view.getContext();
+                        bbi.a((Object) context, "v.context");
+                        final Activity a = adl.a(context);
+                        b.this.e++;
+                        if (a == null || b.this.e <= 7) {
+                            return;
+                        }
+                        agb.a aVar = new agb.a(a);
+                        aVar.a(1).a("Deep♂Dark♂Fantasy").a(true).b(a.getString(R.string.confirm), new agb.b() { // from class: com.bilibili.tv.ui.setting.SettingActivity.b.b.1
+                            @Override // bl.agb.b
+                            public final void a(agb agbVar, View view2) {
+                                abd.a((Context) a, true);
+                                agbVar.dismiss();
+                            }
+                        }).a(a.getString(R.string.cancel), new agb.b() { // from class: com.bilibili.tv.ui.setting.SettingActivity.b.b.2
+                            @Override // bl.agb.b
+                            public final void a(agb agbVar, View view2) {
+                                abd.a((Context) a, false);
+                                agbVar.dismiss();
+                            }
+                        });
+                        aVar.a().show();
+                    }
+                });
             }
         }
 
@@ -303,47 +333,6 @@ public final class SettingActivity extends BaseUpViewActivity {
                 }
                 ((SideLeftSelectLinearLayout) view4).a();
                 settingActivity.b(4);
-            }
-        }
-
-        /* compiled from: BL */
-        /* renamed from: com.bilibili.tv.ui.setting.SettingActivity$b$b, reason: collision with other inner class name */
-        /* loaded from: classes.dex */
-        final class ViewOnClickListenerC0032b implements View.OnClickListener {
-            final /* synthetic */ int b;
-
-            ViewOnClickListenerC0032b(int i) {
-                this.b = i;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view) {
-                if (this.b != 4) {
-                    return;
-                }
-                bbi.a((Object) view, "v");
-                Context context = view.getContext();
-                bbi.a((Object) context, "v.context");
-                final Activity a = adl.a(context);
-                b.this.e++;
-                if (a == null || b.this.e <= 7) {
-                    return;
-                }
-                agb.a aVar = new agb.a(a);
-                aVar.a(1).a("Deep♂Dark♂Fantasy").a(true).b(a.getString(R.string.confirm), new agb.b() { // from class: com.bilibili.tv.ui.setting.SettingActivity.b.b.1
-                    @Override // bl.agb.b
-                    public final void a(agb agbVar, View view2) {
-                        abd.a((Context) a, true);
-                        agbVar.dismiss();
-                    }
-                }).a(a.getString(R.string.cancel), new agb.b() { // from class: com.bilibili.tv.ui.setting.SettingActivity.b.b.2
-                    @Override // bl.agb.b
-                    public final void a(agb agbVar, View view2) {
-                        abd.a((Context) a, false);
-                        agbVar.dismiss();
-                    }
-                });
-                aVar.a().show();
             }
         }
 

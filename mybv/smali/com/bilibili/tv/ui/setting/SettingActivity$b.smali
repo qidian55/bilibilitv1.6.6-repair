@@ -15,7 +15,6 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/bilibili/tv/ui/setting/SettingActivity$b$ViewOnClickListenerC0032b;,
         Lcom/bilibili/tv/ui/setting/SettingActivity$b$a;
     }
 .end annotation
@@ -106,27 +105,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/bilibili/tv/ui/setting/SettingActivity$b;)Ljava/lang/ref/WeakReference;
-    .locals 1
-
-    .prologue
-    .line 214
-    iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->b:Ljava/lang/ref/WeakReference;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100(Lcom/bilibili/tv/ui/setting/SettingActivity$b;)Z
-    .locals 1
-
-    .prologue
-    .line 214
-    iget-boolean v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->d:Z
-
-    return v0
-.end method
-
-.method static synthetic access$300(Lcom/bilibili/tv/ui/setting/SettingActivity$b;)I
+.method static synthetic access$000(Lcom/bilibili/tv/ui/setting/SettingActivity$b;)I
     .locals 1
 
     .prologue
@@ -136,7 +115,7 @@
     return v0
 .end method
 
-.method static synthetic access$308(Lcom/bilibili/tv/ui/setting/SettingActivity$b;)I
+.method static synthetic access$008(Lcom/bilibili/tv/ui/setting/SettingActivity$b;)I
     .locals 2
 
     .prologue
@@ -150,24 +129,44 @@
     return v0
 .end method
 
+.method static synthetic access$100(Lcom/bilibili/tv/ui/setting/SettingActivity$b;)Ljava/lang/ref/WeakReference;
+    .locals 1
+
+    .prologue
+    .line 214
+    iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->b:Ljava/lang/ref/WeakReference;
+
+    return-object v0
+.end method
+
+.method static synthetic access$200(Lcom/bilibili/tv/ui/setting/SettingActivity$b;)Z
+    .locals 1
+
+    .prologue
+    .line 214
+    iget-boolean v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->d:Z
+
+    return v0
+.end method
+
 
 # virtual methods
 .method public a()I
     .locals 1
 
     .prologue
-    .line 352
+    .line 341
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->c:Lbl/cj;
 
-    .line 353
+    .line 342
     if-eqz v0, :cond_9
 
-    .line 354
+    .line 343
     invoke-virtual {v0}, Lbl/cj;->b()I
 
     move-result v0
 
-    .line 356
+    .line 345
     :goto_8
     return v0
 
@@ -265,13 +264,13 @@
     .line 262
     iget-object v0, p1, Landroid/support/v7/widget/RecyclerView$v;->a:Landroid/view/View;
 
-    new-instance v1, Lcom/bilibili/tv/ui/setting/SettingActivity$b$ViewOnClickListenerC0032b;
+    new-instance v1, Lcom/bilibili/tv/ui/setting/SettingActivity$b$1;
 
-    invoke-direct {v1, p0, p2}, Lcom/bilibili/tv/ui/setting/SettingActivity$b$ViewOnClickListenerC0032b;-><init>(Lcom/bilibili/tv/ui/setting/SettingActivity$b;I)V
+    invoke-direct {v1, p0, p2}, Lcom/bilibili/tv/ui/setting/SettingActivity$b$1;-><init>(Lcom/bilibili/tv/ui/setting/SettingActivity$b;I)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 264
+    .line 294
     :cond_3d
     return-void
 
@@ -286,10 +285,10 @@
     .locals 0
 
     .prologue
-    .line 360
+    .line 349
     iput-boolean p1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->d:Z
 
-    .line 361
+    .line 350
     return-void
 .end method
 

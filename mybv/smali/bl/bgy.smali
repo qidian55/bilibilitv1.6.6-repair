@@ -8,6 +8,8 @@
 
 
 # instance fields
+.field public _xj:Lbl/xj;
+
 .field protected volatile a:Lbl/bfa;
 
 .field protected b:I
@@ -67,45 +69,45 @@
 
     const/4 v1, 0x0
 
-    .line 53
+    .line 55
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 54
+    .line 56
     iput-boolean v0, p0, Lbl/bgy;->h:Z
 
-    .line 55
+    .line 57
     iput-boolean v0, p0, Lbl/bgy;->n:Z
 
-    .line 56
+    .line 58
     iput v1, p0, Lbl/bgy;->b:I
 
-    .line 57
+    .line 59
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lbl/bgy;->o:Ljava/lang/Object;
 
-    .line 58
+    .line 60
     iput-boolean v1, p0, Lbl/bgy;->p:Z
 
-    .line 59
+    .line 61
     iput-boolean v1, p0, Lbl/bgy;->c:Z
 
-    .line 60
+    .line 62
     iput v1, p0, Lbl/bgy;->s:I
 
-    .line 61
+    .line 63
     new-instance v0, Lbl/bgy$1;
 
     invoke-direct {v0, p0}, Lbl/bgy$1;-><init>(Lbl/bgy;)V
 
     iput-object v0, p0, Lbl/bgy;->t:Ljava/lang/Runnable;
 
-    .line 76
+    .line 78
     invoke-direct {p0}, Lbl/bgy;->q()V
 
-    .line 77
+    .line 79
     return-void
 .end method
 
@@ -113,15 +115,15 @@
     .locals 2
 
     .prologue
-    .line 47
+    .line 49
     iget v0, p0, Lbl/bgy;->s:I
 
-    .line 48
+    .line 50
     add-int/lit8 v1, v0, 0x1
 
     iput v1, p0, Lbl/bgy;->s:I
 
-    .line 49
+    .line 51
     return v0
 .end method
 
@@ -153,7 +155,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 80
+    .line 82
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v0
@@ -164,25 +166,25 @@
 
     iput-wide v0, p0, Lbl/bgy;->q:J
 
-    .line 81
+    .line 83
     invoke-virtual {p0, v2}, Lbl/bgy;->setBackgroundColor(I)V
 
-    .line 82
+    .line 84
     invoke-virtual {p0, v2}, Lbl/bgy;->setDrawingCacheBackgroundColor(I)V
 
-    .line 83
+    .line 85
     const/4 v0, 0x1
 
     invoke-static {v0, v2}, Lbl/bfb;->a(ZZ)V
 
-    .line 84
+    .line 86
     invoke-static {p0}, Lbl/bgx;->a(Lbl/bfd;)Lbl/bgx;
 
     move-result-object v0
 
     iput-object v0, p0, Lbl/bgy;->l:Lbl/bgx;
 
-    .line 85
+    .line 87
     return-void
 .end method
 
@@ -190,7 +192,7 @@
     .locals 2
 
     .prologue
-    .line 130
+    .line 132
     monitor-enter p0
 
     :try_start_1
@@ -200,54 +202,54 @@
 
     if-nez v0, :cond_7
 
-    .line 149
+    .line 151
     :cond_5
     :goto_5
     monitor-exit p0
 
     return-void
 
-    .line 133
+    .line 135
     :cond_7
     :try_start_7
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
-    .line 134
+    .line 136
     const/4 v1, 0x0
 
     iput-object v1, p0, Lbl/bgy;->a:Lbl/bfa;
 
-    .line 135
+    .line 137
     invoke-direct {p0}, Lbl/bgy;->w()V
 
-    .line 136
+    .line 138
     if-eqz v0, :cond_14
 
-    .line 137
+    .line 139
     invoke-virtual {v0}, Lbl/bfa;->a()V
 
-    .line 139
+    .line 141
     :cond_14
     iget-object v0, p0, Lbl/bgy;->f:Landroid/os/HandlerThread;
 
-    .line 140
+    .line 142
     const/4 v1, 0x0
 
     iput-object v1, p0, Lbl/bgy;->f:Landroid/os/HandlerThread;
     :try_end_19
     .catchall {:try_start_7 .. :try_end_19} :catchall_22
 
-    .line 141
+    .line 143
     if-eqz v0, :cond_5
 
-    .line 143
+    .line 145
     :try_start_1b
     invoke-virtual {v0}, Landroid/os/HandlerThread;->join()V
     :try_end_1e
     .catch Ljava/lang/InterruptedException; {:try_start_1b .. :try_end_1e} :catch_25
     .catchall {:try_start_1b .. :try_end_1e} :catchall_22
 
-    .line 147
+    .line 149
     :goto_1e
     :try_start_1e
     invoke-virtual {v0}, Landroid/os/HandlerThread;->quit()Z
@@ -256,7 +258,7 @@
 
     goto :goto_5
 
-    .line 130
+    .line 132
     :catchall_22
     move-exception v0
 
@@ -264,11 +266,11 @@
 
     throw v0
 
-    .line 144
+    .line 146
     :catch_25
     move-exception v1
 
-    .line 145
+    .line 147
     :try_start_26
     invoke-static {v1}, Lbl/att;->a(Ljava/lang/Throwable;)V
     :try_end_29
@@ -281,12 +283,12 @@
     .locals 3
 
     .prologue
-    .line 176
+    .line 178
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-nez v0, :cond_13
 
-    .line 177
+    .line 179
     new-instance v0, Lbl/bfa;
 
     iget v1, p0, Lbl/bgy;->b:I
@@ -301,7 +303,7 @@
 
     iput-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
-    .line 179
+    .line 181
     :cond_13
     return-void
 .end method
@@ -312,12 +314,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 203
+    .line 205
     invoke-static {}, Lbl/bgw;->a()J
 
     move-result-wide v2
 
-    .line 204
+    .line 206
     iget-object v0, p0, Lbl/bgy;->r:Ljava/util/LinkedList;
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -326,7 +328,7 @@
 
     invoke-virtual {v0, v4}, Ljava/util/LinkedList;->addLast(Ljava/lang/Object;)V
 
-    .line 205
+    .line 207
     iget-object v0, p0, Lbl/bgy;->r:Ljava/util/LinkedList;
 
     invoke-virtual {v0}, Ljava/util/LinkedList;->peekFirst()Ljava/lang/Object;
@@ -335,16 +337,16 @@
 
     check-cast v0, Ljava/lang/Long;
 
-    .line 206
+    .line 208
     if-nez v0, :cond_1a
 
     move v0, v1
 
-    .line 216
+    .line 218
     :goto_19
     return v0
 
-    .line 209
+    .line 211
     :cond_1a
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
@@ -354,7 +356,7 @@
 
     long-to-float v0, v2
 
-    .line 210
+    .line 212
     iget-object v2, p0, Lbl/bgy;->r:Ljava/util/LinkedList;
 
     invoke-virtual {v2}, Ljava/util/LinkedList;->size()I
@@ -365,18 +367,18 @@
 
     if-le v2, v3, :cond_2f
 
-    .line 211
+    .line 213
     iget-object v2, p0, Lbl/bgy;->r:Ljava/util/LinkedList;
 
     invoke-virtual {v2}, Ljava/util/LinkedList;->removeFirst()Ljava/lang/Object;
 
-    .line 213
+    .line 215
     :cond_2f
     cmpl-float v2, v0, v1
 
     if-lez v2, :cond_3f
 
-    .line 214
+    .line 216
     iget-object v1, p0, Lbl/bgy;->r:Ljava/util/LinkedList;
 
     invoke-virtual {v1}, Ljava/util/LinkedList;->size()I
@@ -394,7 +396,7 @@
     :cond_3f
     move v0, v1
 
-    .line 216
+    .line 218
     goto :goto_19
 .end method
 
@@ -407,26 +409,26 @@
     .end annotation
 
     .prologue
-    .line 234
+    .line 236
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lbl/bgy;->c:Z
 
-    .line 235
+    .line 237
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x10
 
     if-lt v0, v1, :cond_d
 
-    .line 236
+    .line 238
     invoke-virtual {p0}, Lbl/bgy;->postInvalidateOnAnimation()V
 
-    .line 240
+    .line 242
     :goto_c
     return-void
 
-    .line 238
+    .line 240
     :cond_d
     invoke-virtual {p0}, Lbl/bgy;->postInvalidate()V
 
@@ -437,15 +439,15 @@
     .locals 1
 
     .prologue
-    .line 263
+    .line 265
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lbl/bgy;->d:Z
 
-    .line 264
+    .line 266
     invoke-virtual {p0}, Lbl/bgy;->n()V
 
-    .line 265
+    .line 267
     return-void
 .end method
 
@@ -453,29 +455,29 @@
     .locals 2
 
     .prologue
-    .line 268
+    .line 270
     iget-object v1, p0, Lbl/bgy;->o:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 269
+    .line 271
     const/4 v0, 0x1
 
     :try_start_4
     iput-boolean v0, p0, Lbl/bgy;->p:Z
 
-    .line 270
+    .line 272
     iget-object v0, p0, Lbl/bgy;->o:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 271
+    .line 273
     monitor-exit v1
 
-    .line 272
+    .line 274
     return-void
 
-    .line 271
+    .line 273
     :catchall_d
     move-exception v0
 
@@ -492,7 +494,7 @@
     .locals 4
 
     .prologue
-    .line 153
+    .line 155
     monitor-enter p0
 
     :try_start_1
@@ -500,24 +502,24 @@
 
     if-eqz v0, :cond_d
 
-    .line 154
+    .line 156
     iget-object v0, p0, Lbl/bgy;->f:Landroid/os/HandlerThread;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->quit()Z
 
-    .line 155
+    .line 157
     const/4 v0, 0x0
 
     iput-object v0, p0, Lbl/bgy;->f:Landroid/os/HandlerThread;
 
-    .line 157
+    .line 159
     :cond_d
     packed-switch p1, :pswitch_data_46
 
-    .line 167
+    .line 169
     const/4 v0, 0x0
 
-    .line 170
+    .line 172
     :goto_11
     new-instance v1, Landroid/os/HandlerThread;
 
@@ -543,12 +545,12 @@
 
     iput-object v1, p0, Lbl/bgy;->f:Landroid/os/HandlerThread;
 
-    .line 171
+    .line 173
     iget-object v0, p0, Lbl/bgy;->f:Landroid/os/HandlerThread;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
-    .line 172
+    .line 174
     iget-object v0, p0, Lbl/bgy;->f:Landroid/os/HandlerThread;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
@@ -562,7 +564,7 @@
 
     return-object v0
 
-    .line 159
+    .line 161
     :pswitch_38
     :try_start_38
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -573,21 +575,21 @@
 
     goto :goto_36
 
-    .line 161
+    .line 163
     :pswitch_3d
     const/4 v0, -0x8
 
-    .line 162
+    .line 164
     goto :goto_11
 
-    .line 164
+    .line 166
     :pswitch_3f
     const/16 v0, 0x13
 
-    .line 165
+    .line 167
     goto :goto_11
 
-    .line 153
+    .line 155
     :catchall_42
     move-exception v0
 
@@ -595,7 +597,7 @@
 
     throw v0
 
-    .line 157
+    .line 159
     nop
 
     :pswitch_data_46
@@ -610,23 +612,23 @@
     .locals 3
 
     .prologue
-    .line 336
-    iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
-
-    .line 337
-    if-nez v0, :cond_18
-
     .line 338
-    invoke-direct {p0}, Lbl/bgy;->s()V
+    iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     .line 339
+    if-nez v0, :cond_18
+
+    .line 340
+    invoke-direct {p0}, Lbl/bgy;->s()V
+
+    .line 341
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
-    .line 343
+    .line 345
     :goto_9
     if-eqz v0, :cond_17
 
-    .line 344
+    .line 346
     const/4 v1, 0x1
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -639,11 +641,11 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 346
+    .line 348
     :cond_17
     return-void
 
-    .line 341
+    .line 343
     :cond_18
     const/4 v1, 0x0
 
@@ -656,16 +658,16 @@
     .locals 0
 
     .prologue
-    .line 463
+    .line 465
     iput-object p1, p0, Lbl/bgy;->i:Lbl/bfd$a;
 
-    .line 464
+    .line 466
     iput p2, p0, Lbl/bgy;->j:F
 
-    .line 465
+    .line 467
     iput p3, p0, Lbl/bgy;->k:F
 
-    .line 466
+    .line 468
     return-void
 .end method
 
@@ -673,17 +675,17 @@
     .locals 1
 
     .prologue
-    .line 89
+    .line 91
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-eqz v0, :cond_9
 
-    .line 90
+    .line 92
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     invoke-virtual {v0, p1}, Lbl/bfa;->a(Lbl/bfk;)V
 
-    .line 92
+    .line 94
     :cond_9
     return-void
 .end method
@@ -692,32 +694,32 @@
     .locals 2
 
     .prologue
-    .line 183
+    .line 185
     invoke-direct {p0}, Lbl/bgy;->s()V
 
-    .line 184
+    .line 186
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     invoke-virtual {v0, p2}, Lbl/bfa;->a(Lmaster/flame/danmaku/danmaku/model/android/DanmakuContext;)V
 
-    .line 185
+    .line 187
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     invoke-virtual {v0, p1}, Lbl/bfa;->a(Lbl/bgn;)V
 
-    .line 186
+    .line 188
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     iget-object v1, p0, Lbl/bgy;->e:Lbl/bfa$a;
 
     invoke-virtual {v0, v1}, Lbl/bfa;->a(Lbl/bfa$a;)V
 
-    .line 187
+    .line 189
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     invoke-virtual {v0}, Lbl/bfa;->e()V
 
-    .line 188
+    .line 190
     return-void
 .end method
 
@@ -725,17 +727,17 @@
     .locals 1
 
     .prologue
-    .line 356
+    .line 358
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-eqz v0, :cond_9
 
-    .line 357
+    .line 359
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     invoke-virtual {v0, p1}, Lbl/bfa;->a(Ljava/lang/Long;)V
 
-    .line 359
+    .line 361
     :cond_9
     return-void
 .end method
@@ -744,10 +746,10 @@
     .locals 0
 
     .prologue
-    .line 363
+    .line 365
     iput-boolean p1, p0, Lbl/bgy;->h:Z
 
-    .line 364
+    .line 366
     return-void
 .end method
 
@@ -755,7 +757,7 @@
     .locals 1
 
     .prologue
-    .line 192
+    .line 194
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-eqz v0, :cond_e
@@ -783,17 +785,17 @@
     .locals 1
 
     .prologue
-    .line 96
+    .line 98
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-eqz v0, :cond_9
 
-    .line 97
+    .line 99
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     invoke-virtual {v0}, Lbl/bfa;->g()V
 
-    .line 99
+    .line 101
     :cond_9
     return-void
 .end method
@@ -802,26 +804,26 @@
     .locals 1
 
     .prologue
-    .line 393
+    .line 395
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lbl/bgy;->n:Z
 
-    .line 394
+    .line 396
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lbl/bgy;->d:Z
 
-    .line 395
+    .line 397
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-nez v0, :cond_b
 
-    .line 399
+    .line 401
     :goto_a
     return-void
 
-    .line 398
+    .line 400
     :cond_b
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
@@ -834,24 +836,24 @@
     .locals 2
 
     .prologue
-    .line 309
+    .line 311
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-eqz v0, :cond_10
 
-    .line 310
+    .line 312
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     iget-object v1, p0, Lbl/bgy;->t:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Lbl/bfa;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 311
+    .line 313
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     invoke-virtual {v0}, Lbl/bfa;->f()V
 
-    .line 313
+    .line 315
     :cond_10
     return-void
 .end method
@@ -860,7 +862,7 @@
     .locals 2
 
     .prologue
-    .line 317
+    .line 319
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-eqz v0, :cond_17
@@ -873,30 +875,30 @@
 
     if-eqz v0, :cond_17
 
-    .line 318
+    .line 320
     const/4 v0, 0x0
 
     iput v0, p0, Lbl/bgy;->s:I
 
-    .line 319
+    .line 321
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     iget-object v1, p0, Lbl/bgy;->t:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Lbl/bfa;->post(Ljava/lang/Runnable;)Z
 
-    .line 323
+    .line 325
     :cond_16
     :goto_16
     return-void
 
-    .line 320
+    .line 322
     :cond_17
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-nez v0, :cond_16
 
-    .line 321
+    .line 323
     invoke-virtual {p0}, Lbl/bgy;->o()V
 
     goto :goto_16
@@ -906,20 +908,20 @@
     .locals 1
 
     .prologue
-    .line 119
+    .line 121
     invoke-virtual {p0}, Lbl/bgy;->m()V
 
-    .line 120
+    .line 122
     iget-object v0, p0, Lbl/bgy;->r:Ljava/util/LinkedList;
 
     if-eqz v0, :cond_c
 
-    .line 121
+    .line 123
     iget-object v0, p0, Lbl/bgy;->r:Ljava/util/LinkedList;
 
     invoke-virtual {v0}, Ljava/util/LinkedList;->clear()V
 
-    .line 123
+    .line 125
     :cond_c
     return-void
 .end method
@@ -928,14 +930,14 @@
     .locals 1
 
     .prologue
-    .line 388
+    .line 390
     const/4 v0, 0x0
 
     check-cast v0, Ljava/lang/Long;
 
     invoke-virtual {p0, v0}, Lbl/bgy;->b(Ljava/lang/Long;)V
 
-    .line 389
+    .line 391
     return-void
 .end method
 
@@ -945,19 +947,19 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 403
+    .line 405
     iput-boolean v1, p0, Lbl/bgy;->n:Z
 
-    .line 404
+    .line 406
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-nez v0, :cond_8
 
-    .line 408
+    .line 410
     :goto_7
     return-void
 
-    .line 407
+    .line 409
     :cond_8
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
@@ -970,15 +972,15 @@
     .locals 1
 
     .prologue
-    .line 196
+    .line 198
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-nez v0, :cond_6
 
-    .line 197
+    .line 199
     const/4 v0, 0x0
 
-    .line 199
+    .line 201
     :goto_5
     return-object v0
 
@@ -996,19 +998,19 @@
     .locals 2
 
     .prologue
-    .line 442
+    .line 444
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-eqz v0, :cond_b
 
-    .line 443
+    .line 445
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     invoke-virtual {v0}, Lbl/bfa;->i()J
 
     move-result-wide v0
 
-    .line 445
+    .line 447
     :goto_a
     return-wide v0
 
@@ -1022,19 +1024,19 @@
     .locals 1
 
     .prologue
-    .line 103
+    .line 105
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-eqz v0, :cond_b
 
-    .line 104
+    .line 106
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     invoke-virtual {v0}, Lbl/bfa;->h()Lbl/bfs;
 
     move-result-object v0
 
-    .line 106
+    .line 108
     :goto_a
     return-object v0
 
@@ -1048,7 +1050,7 @@
     .locals 1
 
     .prologue
-    .line 470
+    .line 472
     iget-object v0, p0, Lbl/bgy;->i:Lbl/bfd$a;
 
     return-object v0
@@ -1058,7 +1060,7 @@
     .locals 0
 
     .prologue
-    .line 43
+    .line 45
     return-object p0
 .end method
 
@@ -1066,7 +1068,7 @@
     .locals 1
 
     .prologue
-    .line 383
+    .line 385
     invoke-super {p0}, Landroid/view/View;->getHeight()I
 
     move-result v0
@@ -1078,7 +1080,7 @@
     .locals 1
 
     .prologue
-    .line 378
+    .line 380
     invoke-super {p0}, Landroid/view/View;->getWidth()I
 
     move-result v0
@@ -1090,7 +1092,7 @@
     .locals 1
 
     .prologue
-    .line 475
+    .line 477
     iget v0, p0, Lbl/bgy;->j:F
 
     return v0
@@ -1100,7 +1102,7 @@
     .locals 1
 
     .prologue
-    .line 480
+    .line 482
     iget v0, p0, Lbl/bgy;->k:F
 
     return v0
@@ -1110,20 +1112,20 @@
     .locals 2
 
     .prologue
-    .line 412
+    .line 414
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lbl/bgy;->n:Z
 
-    .line 413
+    .line 415
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-nez v0, :cond_a
 
-    .line 414
+    .line 416
     const-wide/16 v0, 0x0
 
-    .line 416
+    .line 418
     :goto_9
     return-wide v0
 
@@ -1143,7 +1145,7 @@
     .locals 1
 
     .prologue
-    .line 373
+    .line 375
     iget-boolean v0, p0, Lbl/bgy;->g:Z
 
     return v0
@@ -1158,19 +1160,19 @@
     .end annotation
 
     .prologue
-    .line 451
+    .line 453
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0xb
 
     if-lt v0, v1, :cond_b
 
-    .line 452
+    .line 454
     invoke-super {p0}, Landroid/view/View;->isHardwareAccelerated()Z
 
     move-result v0
 
-    .line 454
+    .line 456
     :goto_a
     return v0
 
@@ -1184,7 +1186,7 @@
     .locals 1
 
     .prologue
-    .line 433
+    .line 435
     iget-boolean v0, p0, Lbl/bgy;->n:Z
 
     if-eqz v0, :cond_c
@@ -1210,19 +1212,19 @@
     .locals 4
 
     .prologue
-    .line 221
+    .line 223
     iget-boolean v0, p0, Lbl/bgy;->g:Z
 
     if-nez v0, :cond_7
 
-    .line 222
+    .line 224
     const-wide/16 v0, 0x0
 
-    .line 229
+    .line 231
     :goto_6
     return-wide v0
 
-    .line 224
+    .line 226
     :cond_7
     invoke-virtual {p0}, Lbl/bgy;->isShown()Z
 
@@ -1230,21 +1232,21 @@
 
     if-nez v0, :cond_10
 
-    .line 225
+    .line 227
     const-wide/16 v0, -0x1
 
     goto :goto_6
 
-    .line 227
+    .line 229
     :cond_10
     invoke-static {}, Lbl/bgw;->a()J
 
     move-result-wide v0
 
-    .line 228
+    .line 230
     invoke-virtual {p0}, Lbl/bgy;->n()V
 
-    .line 229
+    .line 231
     invoke-static {}, Lbl/bgw;->a()J
 
     move-result-wide v2
@@ -1258,14 +1260,14 @@
     .locals 4
 
     .prologue
-    .line 421
+    .line 423
     invoke-virtual {p0}, Lbl/bgy;->i()Z
 
     move-result v0
 
     if-eqz v0, :cond_1e
 
-    .line 422
+    .line 424
     iget-boolean v0, p0, Lbl/bgy;->n:Z
 
     if-eqz v0, :cond_18
@@ -1284,21 +1286,21 @@
 
     if-nez v0, :cond_1f
 
-    .line 423
+    .line 425
     :cond_18
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lbl/bgy;->d:Z
 
-    .line 424
+    .line 426
     invoke-direct {p0}, Lbl/bgy;->u()V
 
-    .line 429
+    .line 431
     :cond_1e
     :goto_1e
     return-void
 
-    .line 426
+    .line 428
     :cond_1f
     invoke-direct {p0}, Lbl/bgy;->v()V
 
@@ -1309,7 +1311,7 @@
     .locals 1
 
     .prologue
-    .line 368
+    .line 370
     iget-boolean v0, p0, Lbl/bgy;->h:Z
 
     return v0
@@ -1319,10 +1321,10 @@
     .locals 0
 
     .prologue
-    .line 126
+    .line 128
     invoke-direct {p0}, Lbl/bgy;->r()V
 
-    .line 127
+    .line 129
     return-void
 .end method
 
@@ -1330,20 +1332,20 @@
     .locals 4
 
     .prologue
-    .line 243
+    .line 245
     iget-boolean v0, p0, Lbl/bgy;->n:Z
 
     if-eqz v0, :cond_2f
 
-    .line 244
+    .line 246
     invoke-direct {p0}, Lbl/bgy;->u()V
 
-    .line 245
+    .line 247
     iget-object v1, p0, Lbl/bgy;->o:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 246
+    .line 248
     :goto_a
     :try_start_a
     iget-boolean v0, p0, Lbl/bgy;->p:Z
@@ -1356,7 +1358,7 @@
 
     if-eqz v0, :cond_2b
 
-    .line 248
+    .line 250
     :try_start_12
     iget-object v0, p0, Lbl/bgy;->o:Ljava/lang/Object;
 
@@ -1369,11 +1371,11 @@
 
     goto :goto_a
 
-    .line 249
+    .line 251
     :catch_1a
     move-exception v0
 
-    .line 250
+    .line 252
     :try_start_1b
     iget-boolean v0, p0, Lbl/bgy;->n:Z
 
@@ -1391,20 +1393,20 @@
 
     if-eqz v0, :cond_30
 
-    .line 257
+    .line 259
     :cond_2b
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lbl/bgy;->p:Z
 
-    .line 258
+    .line 260
     monitor-exit v1
 
-    .line 260
+    .line 262
     :cond_2f
     return-void
 
-    .line 253
+    .line 255
     :cond_30
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -1414,7 +1416,7 @@
 
     goto :goto_a
 
-    .line 258
+    .line 260
     :catchall_38
     move-exception v0
 
@@ -1429,13 +1431,13 @@
     .locals 0
 
     .prologue
-    .line 326
+    .line 328
     invoke-virtual {p0}, Lbl/bgy;->m()V
 
-    .line 327
+    .line 329
     invoke-virtual {p0}, Lbl/bgy;->p()V
 
-    .line 328
+    .line 330
     return-void
 .end method
 
@@ -1445,7 +1447,7 @@
     .prologue
     const/4 v10, 0x0
 
-    .line 276
+    .line 278
     iget-boolean v0, p0, Lbl/bgy;->n:Z
 
     if-nez v0, :cond_d
@@ -1454,35 +1456,40 @@
 
     if-nez v0, :cond_d
 
-    .line 277
+    .line 279
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 296
+    .line 298
+    :cond_c
     :goto_c
     return-void
 
-    .line 280
+    .line 282
     :cond_d
     iget-boolean v0, p0, Lbl/bgy;->d:Z
 
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_29
 
-    .line 281
+    .line 283
     invoke-static {p1}, Lbl/bfb;->a(Landroid/graphics/Canvas;)V
 
-    .line 282
+    .line 284
     iput-boolean v10, p0, Lbl/bgy;->d:Z
 
-    .line 292
+    .line 294
     :cond_16
     :goto_16
     iput-boolean v10, p0, Lbl/bgy;->c:Z
 
-    .line 293
+    .line 295
     invoke-direct {p0}, Lbl/bgy;->w()V
 
-    .line 295
-    sget-object v0, Lbl/xj;->_this:Lbl/xj;
+    .line 297
+    iget-object v0, p0, Lbl/bgy;->_xj:Lbl/xj;
+
+    if-eqz v0, :cond_c
+
+    iget-object v0, p0, Lbl/bgy;->_xj:Lbl/xj;
 
     invoke-virtual {p0}, Lbl/bgy;->getCurrentTime()J
 
@@ -1492,38 +1499,38 @@
 
     goto :goto_c
 
-    .line 283
-    :cond_25
+    .line 285
+    :cond_29
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-eqz v0, :cond_16
 
-    .line 284
+    .line 286
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     invoke-virtual {v0, p1}, Lbl/bfa;->a(Landroid/graphics/Canvas;)Lbl/bgq$b;
 
     move-result-object v0
 
-    .line 285
+    .line 287
     iget-boolean v1, p0, Lbl/bgy;->m:Z
 
     if-eqz v1, :cond_16
 
-    .line 286
+    .line 288
     iget-object v1, p0, Lbl/bgy;->r:Ljava/util/LinkedList;
 
-    if-nez v1, :cond_3e
+    if-nez v1, :cond_42
 
-    .line 287
+    .line 289
     new-instance v1, Ljava/util/LinkedList;
 
     invoke-direct {v1}, Ljava/util/LinkedList;-><init>()V
 
     iput-object v1, p0, Lbl/bgy;->r:Ljava/util/LinkedList;
 
-    .line 289
-    :cond_3e
+    .line 291
+    :cond_42
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v1
@@ -1593,15 +1600,15 @@
     .locals 3
 
     .prologue
-    .line 300
+    .line 302
     invoke-super/range {p0 .. p5}, Landroid/view/View;->onLayout(ZIIII)V
 
-    .line 301
+    .line 303
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-eqz v0, :cond_10
 
-    .line 302
+    .line 304
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     sub-int v1, p4, p2
@@ -1610,13 +1617,13 @@
 
     invoke-virtual {v0, v1, v2}, Lbl/bfa;->a(II)V
 
-    .line 304
+    .line 306
     :cond_10
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lbl/bgy;->g:Z
 
-    .line 305
+    .line 307
     return-void
 .end method
 
@@ -1624,14 +1631,14 @@
     .locals 1
 
     .prologue
-    .line 350
+    .line 352
     iget-object v0, p0, Lbl/bgy;->l:Lbl/bgx;
 
     invoke-virtual {v0, p1}, Lbl/bgx;->a(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
-    .line 351
+    .line 353
     if-nez v0, :cond_c
 
     invoke-super {p0, p1}, Landroid/view/View;->onTouchEvent(Landroid/view/MotionEvent;)Z
@@ -1646,12 +1653,12 @@
     .locals 2
 
     .prologue
-    .line 331
+    .line 333
     const-wide/16 v0, 0x0
 
     invoke-virtual {p0, v0, v1}, Lbl/bgy;->a(J)V
 
-    .line 332
+    .line 334
     return-void
 .end method
 
@@ -1659,20 +1666,20 @@
     .locals 1
 
     .prologue
-    .line 111
+    .line 113
     iput-object p1, p0, Lbl/bgy;->e:Lbl/bfa$a;
 
-    .line 112
+    .line 114
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     if-eqz v0, :cond_b
 
-    .line 113
+    .line 115
     iget-object v0, p0, Lbl/bgy;->a:Lbl/bfa;
 
     invoke-virtual {v0, p1}, Lbl/bfa;->a(Lbl/bfa$a;)V
 
-    .line 115
+    .line 117
     :cond_b
     return-void
 .end method
@@ -1681,10 +1688,10 @@
     .locals 0
 
     .prologue
-    .line 437
+    .line 439
     iput p1, p0, Lbl/bgy;->b:I
 
-    .line 438
+    .line 440
     return-void
 .end method
 
@@ -1692,9 +1699,9 @@
     .locals 0
 
     .prologue
-    .line 458
+    .line 460
     iput-object p1, p0, Lbl/bgy;->i:Lbl/bfd$a;
 
-    .line 459
+    .line 461
     return-void
 .end method

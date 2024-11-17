@@ -62,6 +62,10 @@ public abstract class xh implements Handler.Callback, IEventCenter, IMediaPlayer
         return this.d;
     }
 
+    public xh next() {
+        return this.c;
+    }
+
     public void a(Bundle bundle) {
         if (this.c != null) {
             this.c.a(bundle);

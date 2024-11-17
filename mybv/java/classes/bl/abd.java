@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
+import org.json.*;
+import java.util.*;
 import mybl.DanmakuClient;
 
 /* compiled from: BL */
@@ -217,5 +219,26 @@ public class abd {
 
     public static String get_filter_path(Context context) {
         return a(context).a().getString("filter_rule_path", "");
+    }
+
+    public static void set_skip_categories(Context context, Set<String> skip_categories) {
+        try{
+            a(context).a().edit().putString("skip_categories", new JSONArray(skip_categories).toString()).apply();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static Set<String> get_skip_categories(Context context) {
+        HashSet<String> h = new HashSet<String>();
+        try{
+            JSONArray ja = new JSONArray(a(context).a().getString("skip_categories", ""));
+            for(int i=0;i<ja.length();i++)h.add(ja.optString(i));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return h;
     }
 }

@@ -1,6 +1,6 @@
 .class public final Lcom/bilibili/tv/ui/bangumi/follow/NewFollowBangumiActivity$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "NewFollowBangumiActivity.java"
 
 
 # annotations
@@ -18,17 +18,21 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 70
+    .prologue
+    .line 96
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 97
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 70
+    .prologue
+    .line 100
     invoke-direct {p0}, Lcom/bilibili/tv/ui/bangumi/follow/NewFollowBangumiActivity$a;-><init>()V
 
+    .line 101
     return-void
 .end method

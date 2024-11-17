@@ -31,10 +31,10 @@
     .locals 0
 
     .prologue
-    .line 663
+    .line 667
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 664
+    .line 668
     return-void
 .end method
 
@@ -42,19 +42,19 @@
     .locals 1
 
     .prologue
-    .line 667
+    .line 671
     sget-object v0, Lbl/xh$a;->d:Lbl/xh$a;
 
     if-nez v0, :cond_b
 
-    .line 668
+    .line 672
     new-instance v0, Lbl/xh$a;
 
     invoke-direct {v0}, Lbl/xh$a;-><init>()V
 
     sput-object v0, Lbl/xh$a;->d:Lbl/xh$a;
 
-    .line 670
+    .line 674
     :cond_b
     sget-object v0, Lbl/xh$a;->d:Lbl/xh$a;
 

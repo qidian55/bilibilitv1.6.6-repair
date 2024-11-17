@@ -68,7 +68,7 @@
     return-void
 .end method
 
-.method static synthetic access$200(Lcom/bilibili/tv/ui/setting/SettingActivity;)Lbl/afp;
+.method static synthetic access$300(Lcom/bilibili/tv/ui/setting/SettingActivity;)Lbl/afp;
     .locals 1
 
     .prologue

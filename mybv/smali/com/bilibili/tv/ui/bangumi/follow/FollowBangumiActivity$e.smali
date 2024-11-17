@@ -1,86 +1,91 @@
 .class public final Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;
 .super Landroid/support/v7/widget/RecyclerView$g;
-.source "BL"
+.source "FollowBangumiActivity.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity;->a(Landroid/os/Bundle;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x19
-    name = null
+    name = "e"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:I
+.field final a:I
 
 
 # direct methods
 .method constructor <init>(I)V
     .locals 0
 
-    .line 111
-    iput p1, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
-
+    .prologue
+    .line 150
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$g;-><init>()V
 
+    .line 151
+    iput p1, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
+
+    .line 152
     return-void
 .end method
 
 
 # virtual methods
 .method public a(Landroid/graphics/Rect;Landroid/view/View;Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$s;)V
-    .locals 1
+    .locals 4
 
-    const-string p4, "outRect"
+    .prologue
+    .line 156
+    const-string v0, "outRect"
 
-    invoke-static {p1, p4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string p1, "view"
+    .line 157
+    const-string v0, "view"
 
-    invoke-static {p2, p1}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string p1, "parent"
+    .line 158
+    const-string v0, "parent"
 
-    invoke-static {p3, p1}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 118
+    .line 159
     invoke-virtual {p3, p2}, Landroid/support/v7/widget/RecyclerView;->g(Landroid/view/View;)I
 
-    move-result p1
+    move-result v0
 
-    .line 119
-    invoke-static {}, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity;->h()I
+    const/4 v1, 0x6
 
-    move-result p3
+    if-ge v0, v1, :cond_20
 
-    if-ge p1, p3, :cond_0
-
-    .line 120
-    iget p1, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
-
-    const/4 p3, 0x0
-
-    iget p4, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
-
+    .line 160
     iget v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
 
-    invoke-virtual {p2, p1, p3, p4, v0}, Landroid/view/View;->setPadding(IIII)V
+    const/4 v1, 0x0
 
-    .line 122
-    :cond_0
-    iget p1, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
+    iget v2, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
 
-    iget p3, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
+    iget v3, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
 
-    iget p4, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
+    invoke-virtual {p2, v0, v1, v2, v3}, Landroid/view/View;->setPadding(IIII)V
 
+    .line 162
+    :cond_20
     iget v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
 
-    invoke-virtual {p2, p1, p3, p4, v0}, Landroid/view/View;->setPadding(IIII)V
+    iget v1, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
 
+    iget v2, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
+
+    iget v3, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
+
+    invoke-virtual {p2, v0, v1, v2, v3}, Landroid/view/View;->setPadding(IIII)V
+
+    .line 163
     return-void
 .end method

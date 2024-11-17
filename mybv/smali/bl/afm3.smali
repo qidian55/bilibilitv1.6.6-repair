@@ -91,7 +91,7 @@
     .locals 1
 
     .prologue
-    .line 211
+    .line 212
     iget-object v0, p0, Lbl/afm3;->filter_button:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
     if-eqz v0, :cond_54
@@ -176,21 +176,21 @@
 
     if-eqz v0, :cond_56
 
-    .line 212
+    .line 213
     :cond_54
     const/4 v0, 0x0
 
-    .line 215
+    .line 216
     :goto_55
     return v0
 
-    .line 214
+    .line 215
     :cond_56
     iget-object v0, p0, Lbl/afm3;->filter_button:Lcom/bilibili/tv/widget/DrawFrameLayout;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->requestFocus()Z
 
-    .line 215
+    .line 216
     const/4 v0, 0x1
 
     goto :goto_55
@@ -224,7 +224,7 @@
     if-ne p1, v0, :cond_d
 
     .line 157
-    if-eqz p2, :cond_31
+    if-eqz p2, :cond_3e
 
     sget-object v0, Lmybl/BiliFilter;->skip_categories:Ljava/util/Set;
 
@@ -240,7 +240,7 @@
     if-ne p1, v0, :cond_1a
 
     .line 161
-    if-eqz p2, :cond_39
+    if-eqz p2, :cond_46
 
     sget-object v0, Lmybl/BiliFilter;->skip_categories:Ljava/util/Set;
 
@@ -256,7 +256,7 @@
     if-ne p1, v0, :cond_30
 
     .line 165
-    if-eqz p2, :cond_41
+    if-eqz p2, :cond_4e
 
     .line 166
     invoke-virtual {p0}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -277,10 +277,23 @@
     .line 171
     :cond_30
     :goto_30
+    invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    sget-object v1, Lmybl/BiliFilter;->skip_categories:Ljava/util/Set;
+
+    invoke-static {v0, v1}, Lbl/abd;->set_skip_categories(Landroid/content/Context;Ljava/util/Set;)V
+
+    .line 172
     return-void
 
     .line 158
-    :cond_31
+    :cond_3e
     sget-object v0, Lmybl/BiliFilter;->skip_categories:Ljava/util/Set;
 
     const-string v1, "intro"
@@ -290,7 +303,7 @@
     goto :goto_d
 
     .line 162
-    :cond_39
+    :cond_46
     sget-object v0, Lmybl/BiliFilter;->skip_categories:Ljava/util/Set;
 
     const-string v1, "outro"
@@ -300,7 +313,7 @@
     goto :goto_1a
 
     .line 169
-    :cond_41
+    :cond_4e
     sget-object v0, Lmybl/BiliFilter;->skip_categories:Ljava/util/Set;
 
     const-string v1, "sponsor"
@@ -1001,17 +1014,17 @@
     .locals 2
 
     .prologue
-    .line 184
+    .line 185
     const/4 v0, 0x6
 
     if-ne p2, v0, :cond_6b
 
-    .line 185
+    .line 186
     iget-object v0, p0, Lbl/afm3;->filter_path:Lcom/bilibili/tv/widget/DrawEditText;
 
     if-ne p1, v0, :cond_2b
 
-    .line 186
+    .line 187
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
@@ -1030,16 +1043,16 @@
 
     invoke-static {v0, v1}, Lbl/abd;->set_filter_path(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 188
+    .line 189
     :try_start_1a
     invoke-static {}, Lmybl/BiliFilter;->updateConfig()V
 
-    .line 189
+    .line 190
     sget-object v0, Lmybl/BiliFilter;->filter_rule_path:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 190
+    .line 191
     invoke-virtual {p0}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -1050,14 +1063,14 @@
     :try_end_2b
     .catch Ljava/lang/Exception; {:try_start_1a .. :try_end_2b} :catch_54
 
-    .line 196
+    .line 197
     :cond_2b
     :goto_2b
     iget-object v0, p0, Lbl/afm3;->cdn_value:Lcom/bilibili/tv/widget/DrawEditText;
 
     if-ne p1, v0, :cond_52
 
-    .line 197
+    .line 198
     invoke-virtual {p1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -1074,7 +1087,7 @@
 
     if-eqz v0, :cond_61
 
-    .line 198
+    .line 199
     invoke-virtual {p1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -1085,7 +1098,7 @@
 
     sput-object v0, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
 
-    .line 199
+    .line 200
     invoke-virtual {p0}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -1094,20 +1107,20 @@
 
     invoke-static {v0, v1}, Lbl/lr;->b(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 205
+    .line 206
     :cond_52
     :goto_52
     const/4 v0, 0x0
 
-    .line 207
+    .line 208
     :goto_53
     return v0
 
-    .line 192
+    .line 193
     :catch_54
     move-exception v0
 
-    .line 193
+    .line 194
     invoke-virtual {p0}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
@@ -1120,7 +1133,7 @@
 
     goto :goto_2b
 
-    .line 202
+    .line 203
     :cond_61
     invoke-virtual {p0}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
@@ -1132,7 +1145,7 @@
 
     goto :goto_52
 
-    .line 207
+    .line 208
     :cond_6b
     const/4 v0, 0x1
 
@@ -1143,21 +1156,21 @@
     .locals 1
 
     .prologue
-    .line 175
+    .line 176
     if-eqz p2, :cond_9
 
-    .line 176
+    .line 177
     check-cast p1, Lcom/bilibili/tv/widget/DrawFrameLayout;
 
     const/4 v0, 0x1
 
     invoke-virtual {p1, v0}, Lcom/bilibili/tv/widget/DrawFrameLayout;->setUpEnabled(Z)V
 
-    .line 180
+    .line 181
     :goto_8
     return-void
 
-    .line 178
+    .line 179
     :cond_9
     check-cast p1, Lcom/bilibili/tv/widget/DrawFrameLayout;
 

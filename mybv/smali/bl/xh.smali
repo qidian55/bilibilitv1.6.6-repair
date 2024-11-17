@@ -60,22 +60,22 @@
     .locals 1
 
     .prologue
-    .line 447
+    .line 451
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_a
 
-    .line 448
+    .line 452
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->A()V
 
-    .line 452
+    .line 456
     :cond_9
     :goto_9
     return-void
 
-    .line 449
+    .line 453
     :cond_a
     invoke-virtual {p0}, Lbl/xh;->n()Ltv/danmaku/videoplayer/core/context/IPlayerContext;
 
@@ -83,7 +83,7 @@
 
     if-eqz v0, :cond_9
 
-    .line 450
+    .line 454
     invoke-virtual {p0}, Lbl/xh;->n()Ltv/danmaku/videoplayer/core/context/IPlayerContext;
 
     move-result-object v0
@@ -97,28 +97,28 @@
     .locals 2
 
     .prologue
-    .line 455
+    .line 459
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_a
 
-    .line 456
+    .line 460
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->B()V
 
-    .line 465
+    .line 469
     :cond_9
     :goto_9
     return-void
 
-    .line 459
+    .line 463
     :cond_a
     invoke-virtual {p0}, Lbl/xh;->n()Ltv/danmaku/videoplayer/core/context/IPlayerContext;
 
     move-result-object v0
 
-    .line 460
+    .line 464
     if-eqz v0, :cond_9
 
     invoke-virtual {p0}, Lbl/xh;->J()Z
@@ -127,10 +127,10 @@
 
     if-nez v1, :cond_9
 
-    .line 463
+    .line 467
     invoke-interface {v0}, Ltv/danmaku/videoplayer/core/context/IPlayerContext;->pause()V
 
-    .line 464
+    .line 468
     invoke-virtual {p0}, Lbl/xh;->E()V
 
     goto :goto_9
@@ -142,17 +142,17 @@
     .end annotation
 
     .prologue
-    .line 469
+    .line 473
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 470
+    .line 474
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->C()V
 
-    .line 472
+    .line 476
     :cond_9
     return-void
 .end method
@@ -161,21 +161,21 @@
     .locals 1
 
     .prologue
-    .line 476
+    .line 480
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_a
 
-    .line 477
+    .line 481
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->D()V
 
-    .line 483
+    .line 487
     :goto_9
     return-void
 
-    .line 478
+    .line 482
     :cond_a
     invoke-virtual {p0}, Lbl/xh;->K()Z
 
@@ -183,12 +183,12 @@
 
     if-eqz v0, :cond_14
 
-    .line 479
+    .line 483
     invoke-virtual {p0}, Lbl/xh;->B()V
 
     goto :goto_9
 
-    .line 481
+    .line 485
     :cond_14
     invoke-virtual {p0}, Lbl/xh;->F()V
 
@@ -201,17 +201,17 @@
     .end annotation
 
     .prologue
-    .line 487
+    .line 491
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 488
+    .line 492
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->E()V
 
-    .line 490
+    .line 494
     :cond_9
     return-void
 .end method
@@ -220,28 +220,28 @@
     .locals 2
 
     .prologue
-    .line 493
+    .line 497
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_a
 
-    .line 494
+    .line 498
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->F()V
 
-    .line 503
+    .line 507
     :cond_9
     :goto_9
     return-void
 
-    .line 497
+    .line 501
     :cond_a
     invoke-virtual {p0}, Lbl/xh;->n()Ltv/danmaku/videoplayer/core/context/IPlayerContext;
 
     move-result-object v0
 
-    .line 498
+    .line 502
     if-eqz v0, :cond_9
 
     invoke-virtual {p0}, Lbl/xh;->K()Z
@@ -250,10 +250,10 @@
 
     if-nez v1, :cond_9
 
-    .line 501
+    .line 505
     invoke-interface {v0}, Ltv/danmaku/videoplayer/core/context/IPlayerContext;->start()V
 
-    .line 502
+    .line 506
     invoke-virtual {p0}, Lbl/xh;->G()V
 
     goto :goto_9
@@ -265,17 +265,17 @@
     .end annotation
 
     .prologue
-    .line 507
+    .line 511
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 508
+    .line 512
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->G()V
 
-    .line 510
+    .line 514
     :cond_9
     return-void
 .end method
@@ -284,37 +284,37 @@
     .locals 1
 
     .prologue
-    .line 513
+    .line 517
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 514
+    .line 518
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->H()I
 
     move-result v0
 
-    .line 520
+    .line 524
     :goto_a
     return v0
 
-    .line 516
+    .line 520
     :cond_b
     invoke-virtual {p0}, Lbl/xh;->n()Ltv/danmaku/videoplayer/core/context/IPlayerContext;
 
     move-result-object v0
 
-    .line 517
+    .line 521
     if-nez v0, :cond_13
 
-    .line 518
+    .line 522
     const/4 v0, 0x0
 
     goto :goto_a
 
-    .line 520
+    .line 524
     :cond_13
     invoke-interface {v0}, Ltv/danmaku/videoplayer/core/context/IPlayerContext;->getState()I
 
@@ -327,37 +327,37 @@
     .locals 1
 
     .prologue
-    .line 525
+    .line 529
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 526
+    .line 530
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->I()I
 
     move-result v0
 
-    .line 532
+    .line 536
     :goto_a
     return v0
 
-    .line 528
+    .line 532
     :cond_b
     invoke-virtual {p0}, Lbl/xh;->n()Ltv/danmaku/videoplayer/core/context/IPlayerContext;
 
     move-result-object v0
 
-    .line 529
+    .line 533
     if-nez v0, :cond_13
 
-    .line 530
+    .line 534
     const/4 v0, 0x0
 
     goto :goto_a
 
-    .line 532
+    .line 536
     :cond_13
     invoke-interface {v0}, Ltv/danmaku/videoplayer/core/context/IPlayerContext;->getDuration()I
 
@@ -370,19 +370,19 @@
     .locals 2
 
     .prologue
-    .line 537
+    .line 541
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 538
+    .line 542
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->J()Z
 
     move-result v0
 
-    .line 540
+    .line 544
     :goto_a
     return v0
 
@@ -409,39 +409,39 @@
     .locals 2
 
     .prologue
-    .line 545
+    .line 549
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 546
+    .line 550
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->K()Z
 
     move-result v0
 
-    .line 552
+    .line 556
     :goto_a
     return v0
 
-    .line 548
+    .line 552
     :cond_b
     invoke-virtual {p0}, Lbl/xh;->n()Ltv/danmaku/videoplayer/core/context/IPlayerContext;
 
     move-result-object v0
 
-    .line 549
+    .line 553
     if-eqz v0, :cond_16
 
-    .line 550
+    .line 554
     invoke-interface {v0}, Ltv/danmaku/videoplayer/core/context/IPlayerContext;->isPlaying()Z
 
     move-result v0
 
     goto :goto_a
 
-    .line 552
+    .line 556
     :cond_16
     invoke-virtual {p0}, Lbl/xh;->H()I
 
@@ -465,29 +465,29 @@
     .locals 1
 
     .prologue
-    .line 557
+    .line 561
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 558
+    .line 562
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->L()Z
 
     move-result v0
 
-    .line 561
+    .line 565
     :goto_a
     return v0
 
-    .line 560
+    .line 564
     :cond_b
     invoke-virtual {p0}, Lbl/xh;->n()Ltv/danmaku/videoplayer/core/context/IPlayerContext;
 
     move-result-object v0
 
-    .line 561
+    .line 565
     if-eqz v0, :cond_17
 
     invoke-interface {v0}, Ltv/danmaku/videoplayer/core/context/IPlayerContext;->isPlaybackCompleted()Z
@@ -511,17 +511,17 @@
     .locals 1
 
     .prologue
-    .line 566
+    .line 570
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 567
+    .line 571
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->M()V
 
-    .line 569
+    .line 573
     :cond_9
     return-void
 .end method
@@ -530,17 +530,17 @@
     .locals 1
 
     .prologue
-    .line 580
+    .line 584
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 581
+    .line 585
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->N()V
 
-    .line 583
+    .line 587
     :cond_9
     return-void
 .end method
@@ -549,19 +549,19 @@
     .locals 1
 
     .prologue
-    .line 586
+    .line 590
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 587
+    .line 591
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->O()Z
 
     move-result v0
 
-    .line 589
+    .line 593
     :goto_a
     return v0
 
@@ -575,17 +575,17 @@
     .locals 1
 
     .prologue
-    .line 230
+    .line 234
     invoke-virtual {p0}, Lbl/xh;->o()Landroid/app/Activity;
 
     move-result-object v0
 
     if-nez v0, :cond_8
 
-    .line 231
+    .line 235
     const/4 v0, 0x0
 
-    .line 233
+    .line 237
     :goto_7
     return-object v0
 
@@ -605,7 +605,7 @@
     .locals 1
 
     .prologue
-    .line 94
+    .line 98
     invoke-virtual {p0}, Lbl/xh;->k()Lbl/xh;
 
     move-result-object v0
@@ -631,15 +631,15 @@
     .locals 1
 
     .prologue
-    .line 265
+    .line 269
     iput-object p1, p0, Lbl/xh;->c:Lbl/xh;
 
-    .line 266
+    .line 270
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p0}, Lbl/xh;->b(Lbl/xh;)V
 
-    .line 267
+    .line 271
     return-object p0
 .end method
 
@@ -647,17 +647,17 @@
     .locals 1
 
     .prologue
-    .line 150
+    .line 154
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 151
+    .line 155
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1, p2, p3}, Lbl/xh;->a(IILandroid/content/Intent;)V
 
-    .line 153
+    .line 157
     :cond_9
     return-void
 .end method
@@ -668,43 +668,43 @@
     .prologue
     const-wide/16 v2, 0x0
 
-    .line 275
+    .line 279
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_c
 
-    .line 276
+    .line 280
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lbl/xh;->a(ILjava/lang/Object;J)V
 
-    .line 297
+    .line 301
     :cond_b
     :goto_b
     return-void
 
-    .line 279
+    .line 283
     :cond_c
     iget-object v0, p0, Lbl/xh;->b:Lbl/aaq;
 
     if-eqz v0, :cond_b
 
-    .line 282
+    .line 286
     if-nez p2, :cond_22
 
-    .line 283
+    .line 287
     cmp-long v0, p3, v2
 
     if-lez v0, :cond_1c
 
-    .line 284
+    .line 288
     iget-object v0, p0, Lbl/xh;->b:Lbl/aaq;
 
     invoke-virtual {v0, p1, p3, p4}, Lbl/aaq;->sendEmptyMessageDelayed(IJ)Z
 
     goto :goto_b
 
-    .line 287
+    .line 291
     :cond_1c
     iget-object v0, p0, Lbl/xh;->b:Lbl/aaq;
 
@@ -712,7 +712,7 @@
 
     goto :goto_b
 
-    .line 291
+    .line 295
     :cond_22
     iget-object v0, p0, Lbl/xh;->b:Lbl/aaq;
 
@@ -720,19 +720,19 @@
 
     move-result-object v0
 
-    .line 292
+    .line 296
     cmp-long v1, p3, v2
 
     if-lez v1, :cond_32
 
-    .line 293
+    .line 297
     iget-object v1, p0, Lbl/xh;->b:Lbl/aaq;
 
     invoke-virtual {v1, v0, p3, p4}, Lbl/aaq;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     goto :goto_b
 
-    .line 295
+    .line 299
     :cond_32
     iget-object v1, p0, Lbl/xh;->b:Lbl/aaq;
 
@@ -745,27 +745,27 @@
     .locals 1
 
     .prologue
-    .line 257
+    .line 261
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lbl/xh;->e:Ljava/lang/ref/WeakReference;
 
-    .line 258
+    .line 262
     iput-object p2, p0, Lbl/xh;->a:Lbl/xf;
 
-    .line 259
+    .line 263
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_12
 
-    .line 260
+    .line 264
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1, p2}, Lbl/xh;->a(Landroid/app/Activity;Lbl/xf;)V
 
-    .line 262
+    .line 266
     :cond_12
     return-void
 .end method
@@ -774,17 +774,17 @@
     .locals 1
 
     .prologue
-    .line 88
+    .line 92
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 89
+    .line 93
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->a(Landroid/content/Intent;)V
 
-    .line 91
+    .line 95
     :cond_9
     return-void
 .end method
@@ -793,17 +793,17 @@
     .locals 1
 
     .prologue
-    .line 66
+    .line 70
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 67
+    .line 71
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->a(Landroid/os/Bundle;)V
 
-    .line 69
+    .line 73
     :cond_9
     return-void
 .end method
@@ -812,17 +812,17 @@
     .locals 1
 
     .prologue
-    .line 98
+    .line 102
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 99
+    .line 103
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1, p2}, Lbl/xh;->a(Landroid/view/View;Landroid/os/Bundle;)V
 
-    .line 101
+    .line 105
     :cond_9
     return-void
 .end method
@@ -831,21 +831,21 @@
     .locals 2
 
     .prologue
-    .line 118
+    .line 122
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_a
 
-    .line 119
+    .line 123
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->a(Lcom/bilibili/lib/media/resource/PlayerCodecConfig;)V
 
-    .line 123
+    .line 127
     :goto_9
     return-void
 
-    .line 121
+    .line 125
     :cond_a
     invoke-virtual {p0}, Lbl/xh;->n()Ltv/danmaku/videoplayer/core/context/IPlayerContext;
 
@@ -864,21 +864,21 @@
     .locals 1
 
     .prologue
-    .line 593
+    .line 597
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_a
 
-    .line 594
+    .line 598
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0, p1, p2}, Lbl/xh;->a(Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;[Ljava/lang/Object;)V
 
-    .line 598
+    .line 602
     :goto_9
     return-void
 
-    .line 596
+    .line 600
     :cond_a
     invoke-virtual {p0, p1, p2}, Lbl/xh;->b(Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;[Ljava/lang/Object;)V
 
@@ -889,28 +889,28 @@
     .locals 1
 
     .prologue
-    .line 326
+    .line 330
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_a
 
-    .line 327
+    .line 331
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->a(Ljava/lang/Runnable;)V
 
-    .line 334
+    .line 338
     :cond_9
     :goto_9
     return-void
 
-    .line 329
+    .line 333
     :cond_a
     iget-object v0, p0, Lbl/xh;->b:Lbl/aaq;
 
     if-eqz v0, :cond_9
 
-    .line 332
+    .line 336
     iget-object v0, p0, Lbl/xh;->b:Lbl/aaq;
 
     invoke-virtual {v0, p1}, Lbl/aaq;->removeCallbacks(Ljava/lang/Runnable;)V
@@ -922,42 +922,42 @@
     .locals 2
 
     .prologue
-    .line 311
+    .line 315
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_a
 
-    .line 312
+    .line 316
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0, p1, p2, p3}, Lbl/xh;->a(Ljava/lang/Runnable;J)V
 
-    .line 323
+    .line 327
     :cond_9
     :goto_9
     return-void
 
-    .line 314
+    .line 318
     :cond_a
     iget-object v0, p0, Lbl/xh;->b:Lbl/aaq;
 
     if-eqz v0, :cond_9
 
-    .line 317
+    .line 321
     const-wide/16 v0, 0x0
 
     cmp-long v0, p2, v0
 
     if-lez v0, :cond_1a
 
-    .line 318
+    .line 322
     iget-object v0, p0, Lbl/xh;->b:Lbl/aaq;
 
     invoke-virtual {v0, p1, p2, p3}, Lbl/aaq;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto :goto_9
 
-    .line 320
+    .line 324
     :cond_1a
     iget-object v0, p0, Lbl/xh;->b:Lbl/aaq;
 
@@ -970,17 +970,17 @@
     .locals 1
 
     .prologue
-    .line 172
+    .line 176
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 173
+    .line 177
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->a(Z)V
 
-    .line 175
+    .line 179
     :cond_9
     return-void
 .end method
@@ -989,10 +989,10 @@
     .locals 1
 
     .prologue
-    .line 156
+    .line 160
     invoke-virtual {p0, p1, p2}, Lbl/xh;->d(ILandroid/view/KeyEvent;)Z
 
-    .line 157
+    .line 161
     const/16 v0, 0x52
 
     if-ne p1, v0, :cond_9
@@ -1022,19 +1022,19 @@
     .locals 1
 
     .prologue
-    .line 73
+    .line 77
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 74
+    .line 78
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->b()Lcom/bilibili/tv/player/basic/context/PlayerParams;
 
     move-result-object v0
 
-    .line 76
+    .line 80
     :goto_a
     return-object v0
 
@@ -1052,28 +1052,28 @@
     .locals 1
 
     .prologue
-    .line 300
+    .line 304
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_a
 
-    .line 301
+    .line 305
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->b(I)V
 
-    .line 308
+    .line 312
     :cond_9
     :goto_9
     return-void
 
-    .line 303
+    .line 307
     :cond_a
     iget-object v0, p0, Lbl/xh;->b:Lbl/aaq;
 
     if-eqz v0, :cond_9
 
-    .line 306
+    .line 310
     iget-object v0, p0, Lbl/xh;->b:Lbl/aaq;
 
     invoke-virtual {v0, p1}, Lbl/aaq;->removeMessages(I)V
@@ -1085,17 +1085,17 @@
     .locals 1
 
     .prologue
-    .line 104
+    .line 108
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 105
+    .line 109
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->b(Landroid/os/Bundle;)V
 
-    .line 107
+    .line 111
     :cond_9
     return-void
 .end method
@@ -1104,10 +1104,10 @@
     .locals 0
 
     .prologue
-    .line 271
+    .line 275
     iput-object p1, p0, Lbl/xh;->d:Lbl/xh;
 
-    .line 272
+    .line 276
     return-void
 .end method
 
@@ -1117,17 +1117,17 @@
     .end annotation
 
     .prologue
-    .line 650
+    .line 654
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 651
+    .line 655
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1, p2}, Lbl/xh;->b(Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;[Ljava/lang/Object;)V
 
-    .line 653
+    .line 657
     :cond_9
     return-void
 .end method
@@ -1136,17 +1136,17 @@
     .locals 1
 
     .prologue
-    .line 192
+    .line 196
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 193
+    .line 197
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->b(Z)V
 
-    .line 195
+    .line 199
     :cond_9
     return-void
 .end method
@@ -1155,10 +1155,10 @@
     .locals 1
 
     .prologue
-    .line 161
+    .line 165
     invoke-virtual {p0, p1, p2}, Lbl/xh;->c(ILandroid/view/KeyEvent;)Z
 
-    .line 162
+    .line 166
     const/4 v0, 0x0
 
     return v0
@@ -1168,19 +1168,19 @@
     .locals 1
 
     .prologue
-    .line 81
+    .line 85
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 82
+    .line 86
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->c()Lbl/yh;
 
     move-result-object v0
 
-    .line 84
+    .line 88
     :goto_a
     return-object v0
 
@@ -1200,31 +1200,31 @@
     .locals 1
 
     .prologue
-    .line 418
+    .line 422
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_a
 
-    .line 419
+    .line 423
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->c(I)V
 
-    .line 426
+    .line 430
     :cond_9
     :goto_9
     return-void
 
-    .line 422
+    .line 426
     :cond_a
     invoke-virtual {p0}, Lbl/xh;->n()Ltv/danmaku/videoplayer/core/context/IPlayerContext;
 
     move-result-object v0
 
-    .line 423
+    .line 427
     if-eqz v0, :cond_9
 
-    .line 424
+    .line 428
     invoke-interface {v0, p1}, Ltv/danmaku/videoplayer/core/context/IPlayerContext;->seekTo(I)V
 
     goto :goto_9
@@ -1234,19 +1234,19 @@
     .locals 1
 
     .prologue
-    .line 178
+    .line 182
     invoke-virtual {p0, p1, p2}, Lbl/xh;->e(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
     if-eqz v0, :cond_b
 
-    .line 179
+    .line 183
     invoke-virtual {p0, p1, p2}, Lbl/xh;->g(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
-    .line 181
+    .line 185
     :goto_a
     return v0
 
@@ -1285,23 +1285,23 @@
     .locals 1
 
     .prologue
-    .line 110
+    .line 114
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 111
+    .line 115
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->d()V
 
-    .line 113
+    .line 117
     :cond_9
     iget-object v0, p0, Lbl/xh;->e:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->clear()V
 
-    .line 114
+    .line 118
     return-void
 .end method
 
@@ -1309,17 +1309,17 @@
     .locals 1
 
     .prologue
-    .line 573
+    .line 577
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 574
+    .line 578
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->d(I)V
 
-    .line 576
+    .line 580
     :cond_9
     return-void
 .end method
@@ -1328,19 +1328,19 @@
     .locals 1
 
     .prologue
-    .line 185
+    .line 189
     invoke-virtual {p0, p1, p2}, Lbl/xh;->e(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
     if-eqz v0, :cond_b
 
-    .line 186
+    .line 190
     invoke-virtual {p0, p1, p2}, Lbl/xh;->f(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
-    .line 188
+    .line 192
     :goto_a
     return v0
 
@@ -1379,17 +1379,17 @@
     .locals 1
 
     .prologue
-    .line 126
+    .line 130
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 127
+    .line 131
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->e()V
 
-    .line 129
+    .line 133
     :cond_9
     return-void
 .end method
@@ -1408,17 +1408,17 @@
     .locals 1
 
     .prologue
-    .line 132
+    .line 136
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 133
+    .line 137
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->f()V
 
-    .line 135
+    .line 139
     :cond_9
     return-void
 .end method
@@ -1437,17 +1437,17 @@
     .locals 1
 
     .prologue
-    .line 138
+    .line 142
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 139
+    .line 143
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->g()V
 
-    .line 141
+    .line 145
     :cond_9
     return-void
 .end method
@@ -1466,17 +1466,17 @@
     .locals 1
 
     .prologue
-    .line 144
+    .line 148
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 145
+    .line 149
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->h()V
 
-    .line 147
+    .line 151
     :cond_9
     return-void
 .end method
@@ -1485,19 +1485,19 @@
     .locals 1
 
     .prologue
-    .line 346
+    .line 350
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 347
+    .line 351
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->handleMessage(Landroid/os/Message;)Z
 
     move-result v0
 
-    .line 349
+    .line 353
     :goto_a
     return v0
 
@@ -1511,17 +1511,17 @@
     .locals 1
 
     .prologue
-    .line 166
+    .line 170
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 167
+    .line 171
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->i()V
 
-    .line 169
+    .line 173
     :cond_9
     return-void
 .end method
@@ -1530,7 +1530,7 @@
     .locals 1
 
     .prologue
-    .line 198
+    .line 202
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_e
@@ -1558,7 +1558,7 @@
     .locals 1
 
     .prologue
-    .line 203
+    .line 207
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_a
@@ -1577,19 +1577,19 @@
     .locals 1
 
     .prologue
-    .line 207
+    .line 211
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 208
+    .line 212
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->l()Landroid/view/ViewGroup;
 
     move-result-object v0
 
-    .line 210
+    .line 214
     :goto_a
     return-object v0
 
@@ -1603,19 +1603,19 @@
     .locals 1
 
     .prologue
-    .line 215
+    .line 219
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 216
+    .line 220
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->m()Lbl/yd;
 
     move-result-object v0
 
-    .line 218
+    .line 222
     :goto_a
     return-object v0
 
@@ -1629,19 +1629,19 @@
     .locals 1
 
     .prologue
-    .line 222
+    .line 226
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 223
+    .line 227
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->n()Ltv/danmaku/videoplayer/core/context/IPlayerContext;
 
     move-result-object v0
 
-    .line 225
+    .line 229
     :goto_a
     return-object v0
 
@@ -1651,19 +1651,29 @@
     goto :goto_a
 .end method
 
+.method public next()Lbl/xh;
+    .locals 1
+
+    .prologue
+    .line 66
+    iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
+
+    return-object v0
+.end method
+
 .method public o()Landroid/app/Activity;
     .locals 1
 
     .prologue
-    .line 238
+    .line 242
     iget-object v0, p0, Lbl/xh;->e:Ljava/lang/ref/WeakReference;
 
     if-nez v0, :cond_6
 
-    .line 239
+    .line 243
     const/4 v0, 0x0
 
-    .line 241
+    .line 245
     :goto_5
     return-object v0
 
@@ -1685,17 +1695,17 @@
     .end annotation
 
     .prologue
-    .line 603
+    .line 607
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 604
+    .line 608
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->onCompletion(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V
 
-    .line 606
+    .line 610
     :cond_9
     return-void
 .end method
@@ -1708,16 +1718,16 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 625
+    .line 629
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-nez v0, :cond_6
 
-    .line 629
+    .line 633
     :goto_5
     return v1
 
-    .line 628
+    .line 632
     :cond_6
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
@@ -1732,17 +1742,17 @@
     .end annotation
 
     .prologue
-    .line 635
+    .line 639
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 636
+    .line 640
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1, p2}, Lbl/xh;->onExtraInfo(I[Ljava/lang/Object;)V
 
-    .line 638
+    .line 642
     :cond_9
     return-void
 .end method
@@ -1775,17 +1785,17 @@
     .end annotation
 
     .prologue
-    .line 643
+    .line 647
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 644
+    .line 648
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->onPrepared(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V
 
-    .line 646
+    .line 650
     :cond_9
     return-void
 .end method
@@ -1794,17 +1804,17 @@
     .locals 1
 
     .prologue
-    .line 610
+    .line 614
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 611
+    .line 615
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->onSeekComplete(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V
 
-    .line 613
+    .line 617
     :cond_9
     return-void
 .end method
@@ -1823,17 +1833,17 @@
     .end annotation
 
     .prologue
-    .line 617
+    .line 621
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 618
+    .line 622
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0, p1}, Lbl/xh;->onVideoDefnChanged(Ljava/util/Map;)V
 
-    .line 620
+    .line 624
     :cond_9
     return-void
 .end method
@@ -1844,23 +1854,23 @@
     .end annotation
 
     .prologue
-    .line 247
+    .line 251
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 248
+    .line 252
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->p()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 253
+    .line 257
     :goto_a
     return-object v0
 
-    .line 250
+    .line 254
     :cond_b
     invoke-virtual {p0}, Lbl/xh;->o()Landroid/app/Activity;
 
@@ -1868,12 +1878,12 @@
 
     if-nez v0, :cond_13
 
-    .line 251
+    .line 255
     const/4 v0, 0x0
 
     goto :goto_a
 
-    .line 253
+    .line 257
     :cond_13
     invoke-virtual {p0}, Lbl/xh;->o()Landroid/app/Activity;
 
@@ -1890,19 +1900,19 @@
     .locals 1
 
     .prologue
-    .line 338
+    .line 342
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 339
+    .line 343
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->q()Lbl/aaq;
 
     move-result-object v0
 
-    .line 341
+    .line 345
     :goto_a
     return-object v0
 
@@ -1918,33 +1928,33 @@
     .end annotation
 
     .prologue
-    .line 355
+    .line 359
     iget-object v0, p0, Lbl/xh;->b:Lbl/aaq;
 
     if-eqz v0, :cond_c
 
-    .line 356
+    .line 360
     iget-object v0, p0, Lbl/xh;->b:Lbl/aaq;
 
     invoke-virtual {v0}, Lbl/aaq;->a()V
 
-    .line 357
+    .line 361
     const/4 v0, 0x0
 
     iput-object v0, p0, Lbl/xh;->b:Lbl/aaq;
 
-    .line 359
+    .line 363
     :cond_c
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_15
 
-    .line 360
+    .line 364
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->r()V
 
-    .line 362
+    .line 366
     :cond_15
     return-void
 .end method
@@ -1953,19 +1963,19 @@
     .locals 1
 
     .prologue
-    .line 366
+    .line 370
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 367
+    .line 371
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->s()Z
 
     move-result v0
 
-    .line 369
+    .line 373
     :goto_a
     return v0
 
@@ -1979,21 +1989,21 @@
     .locals 1
 
     .prologue
-    .line 374
+    .line 378
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 375
+    .line 379
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->t()V
 
-    .line 377
+    .line 381
     :cond_9
     invoke-virtual {p0}, Lbl/xh;->u()V
 
-    .line 378
+    .line 382
     return-void
 .end method
 
@@ -2003,17 +2013,17 @@
     .end annotation
 
     .prologue
-    .line 383
+    .line 387
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 384
+    .line 388
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->u()V
 
-    .line 386
+    .line 390
     :cond_9
     return-void
 .end method
@@ -2022,21 +2032,21 @@
     .locals 1
 
     .prologue
-    .line 390
+    .line 394
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 391
+    .line 395
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->v()V
 
-    .line 393
+    .line 397
     :cond_9
     invoke-virtual {p0}, Lbl/xh;->w()V
 
-    .line 394
+    .line 398
     return-void
 .end method
 
@@ -2046,17 +2056,17 @@
     .end annotation
 
     .prologue
-    .line 399
+    .line 403
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     if-eqz v0, :cond_9
 
-    .line 400
+    .line 404
     iget-object v0, p0, Lbl/xh;->c:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->w()V
 
-    .line 402
+    .line 406
     :cond_9
     return-void
 .end method
@@ -2065,37 +2075,37 @@
     .locals 1
 
     .prologue
-    .line 406
+    .line 410
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 407
+    .line 411
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->x()I
 
     move-result v0
 
-    .line 413
+    .line 417
     :goto_a
     return v0
 
-    .line 409
+    .line 413
     :cond_b
     invoke-virtual {p0}, Lbl/xh;->n()Ltv/danmaku/videoplayer/core/context/IPlayerContext;
 
     move-result-object v0
 
-    .line 410
+    .line 414
     if-nez v0, :cond_13
 
-    .line 411
+    .line 415
     const/4 v0, 0x0
 
     goto :goto_a
 
-    .line 413
+    .line 417
     :cond_13
     invoke-interface {v0}, Ltv/danmaku/videoplayer/core/context/IPlayerContext;->getCurrentPosition()I
 
@@ -2108,19 +2118,19 @@
     .locals 1
 
     .prologue
-    .line 430
+    .line 434
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     if-eqz v0, :cond_b
 
-    .line 431
+    .line 435
     iget-object v0, p0, Lbl/xh;->d:Lbl/xh;
 
     invoke-virtual {v0}, Lbl/xh;->y()Lcom/bilibili/lib/media/resource/PlayerCodecConfig;
 
     move-result-object v0
 
-    .line 433
+    .line 437
     :goto_a
     return-object v0
 
@@ -2144,18 +2154,18 @@
     .locals 1
 
     .prologue
-    .line 438
+    .line 442
     invoke-virtual {p0}, Lbl/xh;->m()Lbl/yd;
 
     move-result-object v0
 
-    .line 439
+    .line 443
     if-nez v0, :cond_8
 
-    .line 440
+    .line 444
     const/4 v0, 0x0
 
-    .line 442
+    .line 446
     :goto_7
     return-object v0
 

@@ -41,6 +41,7 @@ import com.tencent.bugly.crashreport.CrashReport;
 import com.umeng.analytics.BiliUmeng;
 
 import bl.abd;
+import mybl.BiliFilter;
 import com.bilibili.tv.player.widget.PlayerMenuRight;
 
 /* compiled from: BL */
@@ -96,6 +97,7 @@ public class MainApplication extends Application {
     public void init_globals() {
         int danmaku_type = abd.get_danmaku_type(this);
         for(int i=0;i<10;i++)PlayerMenuRight.danmaku_valid_list[i]=((danmaku_type>>i)&1)>0;
+        BiliFilter.skip_categories=abd.get_skip_categories(this);
     }
 
     @Override // android.app.Application, android.content.ComponentCallbacks

@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 61
+    .line 63
     iput-object p1, p0, Lbl/bgy$1;->this$0:Lbl/bgy;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,25 +40,25 @@
     .locals 4
 
     .prologue
-    .line 64
+    .line 66
     iget-object v0, p0, Lbl/bgy$1;->this$0:Lbl/bgy;
 
     iget-object v0, v0, Lbl/bgy;->a:Lbl/bfa;
 
-    .line 65
+    .line 67
     if-nez v0, :cond_7
 
-    .line 74
+    .line 76
     :goto_6
     return-void
 
-    .line 68
+    .line 70
     :cond_7
     iget-object v1, p0, Lbl/bgy$1;->this$0:Lbl/bgy;
 
     invoke-static {v1}, Lbl/bgy;->a(Lbl/bgy;)I
 
-    .line 69
+    .line 71
     iget-object v1, p0, Lbl/bgy$1;->this$0:Lbl/bgy;
 
     # getter for: Lbl/bgy;->s:I
@@ -79,7 +79,7 @@
 
     if-nez v1, :cond_2a
 
-    .line 70
+    .line 72
     iget-object v1, p0, Lbl/bgy$1;->this$0:Lbl/bgy;
 
     # getter for: Lbl/bgy;->s:I
@@ -95,7 +95,7 @@
 
     goto :goto_6
 
-    .line 72
+    .line 74
     :cond_2a
     invoke-virtual {v0}, Lbl/bfa;->d()V
 

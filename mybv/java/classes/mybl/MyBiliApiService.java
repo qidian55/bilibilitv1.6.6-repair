@@ -12,9 +12,6 @@ import com.bilibili.okretro.GeneralResponse;
 
 @BaseUrl(a = "https://api.bilibili.com/")
 public interface MyBiliApiService {
-    @GET(a = "https://bsbsb.top/api/skipSegments?categories=[\"intro\",\"outro\",\"sponsor\"]&actionType=skip")
-    vp<GeneralResponse<JSONObject>> skipSegments(@Query(a = "videoID") String video_id);
-
     @FormUrlEncoded
     @POST(a = "https://app.bilibili.com/x/v2/view/like")
     vp<GeneralResponse<JSONObject>> likeVideo(@Field(a = "access_key") String access_key, @Field(a = "aid") long aid, @Field(a = "like") int like);
@@ -48,4 +45,7 @@ public interface MyBiliApiService {
 
     @GET(a = "/x/dm/filter/user")
     vp<GeneralResponse<JSONObject>> getDanmuFilter();
+
+    @GET(a = "/x/space/bangumi/follow/list")
+    vp<GeneralResponse<JSONObject>> getFollowBangumi(@Query(a = "access_key") String access_key, @Query(a = "type") int type, @Query(a = "pn") int page, @Query(a = "ps") int page_size, @Query(a = "vmid") long vmid);
 }

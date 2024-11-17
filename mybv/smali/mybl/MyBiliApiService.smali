@@ -71,6 +71,51 @@
     .end annotation
 .end method
 
+.method public abstract getFollowBangumi(Ljava/lang/String;IIIJ)Lbl/vp;
+    .param p1    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "access_key"
+        .end annotation
+    .end param
+    .param p2    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "type"
+        .end annotation
+    .end param
+    .param p3    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "pn"
+        .end annotation
+    .end param
+    .param p4    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "ps"
+        .end annotation
+    .end param
+    .param p5    # J
+        .annotation runtime Lretrofit2/http/Query;
+            a = "vmid"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "IIIJ)",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/x/space/bangumi/follow/list"
+    .end annotation
+.end method
+
 .method public abstract getFollowings(Ljava/lang/String;JLjava/lang/String;II)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
@@ -312,31 +357,6 @@
 
     .annotation runtime Lretrofit2/http/GET;
         a = "/x/web-interface/wbi/index/top/feed/rcmd"
-    .end annotation
-.end method
-
-.method public abstract skipSegments(Ljava/lang/String;)Lbl/vp;
-    .param p1    # Ljava/lang/String;
-        .annotation runtime Lretrofit2/http/Query;
-            a = "videoID"
-        .end annotation
-    .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            ")",
-            "Lbl/vp",
-            "<",
-            "Lcom/bilibili/okretro/GeneralResponse",
-            "<",
-            "Lcom/alibaba/fastjson/JSONObject;",
-            ">;>;"
-        }
-    .end annotation
-
-    .annotation runtime Lretrofit2/http/GET;
-        a = "https://bsbsb.top/api/skipSegments?categories=[\"intro\",\"outro\",\"sponsor\"]&actionType=skip"
     .end annotation
 .end method
 

@@ -35,10 +35,7 @@ public class xj extends xh {
     private String h = "";
     private boolean l = false;
 
-    public static xj _this;
-    public static JSONArray skips;
-
-    public xj(){_this=this;}
+    public JSONArray skips;
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnInfoListener
     public boolean onInfo2(IMediaPlayer iMediaPlayer, int i, int i2, long j) {

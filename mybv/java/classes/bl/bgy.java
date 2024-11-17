@@ -38,6 +38,8 @@ public class bgy extends View implements bfd, bfe {
     private int s;
     private Runnable t;
 
+    public xj _xj;
+
     @Override // bl.bfd
     public View getView() {
         return this;
@@ -292,7 +294,7 @@ public class bgy extends View implements bfd, bfe {
         this.c = false;
         w();
 
-        xj._this.checkSkip(getCurrentTime());
+        if(_xj!=null)_xj.checkSkip(getCurrentTime());
     }
 
     @Override // android.view.View
