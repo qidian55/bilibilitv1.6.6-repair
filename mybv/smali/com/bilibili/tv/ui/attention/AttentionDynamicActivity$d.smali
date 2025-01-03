@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 515
+    .line 503
     new-instance v0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d$a;
 
     const/4 v1, 0x0
@@ -63,15 +63,15 @@
 
     const/4 v5, 0x0
 
-    .line 524
+    .line 512
     invoke-direct {p0, p1}, Lbl/adv;-><init>(Landroid/view/View;)V
 
-    .line 525
+    .line 513
     const-string v0, "itemView"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 526
+    .line 514
     const v0, 0x7f0800a1
 
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
@@ -82,12 +82,12 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->n:Lcom/bilibili/tv/widget/ScalableImageView;
 
-    .line 528
+    .line 516
     sget-boolean v0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->uperMode:Z
 
     if-eqz v0, :cond_46
 
-    .line 529
+    .line 517
     invoke-virtual {p0, p1, v1}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object v0
@@ -96,7 +96,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->o:Landroid/widget/TextView;
 
-    .line 530
+    .line 518
     const v0, 0x7f080081
 
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
@@ -107,7 +107,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->p:Landroid/widget/TextView;
 
-    .line 531
+    .line 519
     const v0, 0x7f08001f
 
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
@@ -118,7 +118,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->q:Landroid/widget/TextView;
 
-    .line 532
+    .line 520
     const v0, 0x7f080071
 
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
@@ -129,11 +129,11 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->r:Landroid/widget/TextView;
 
-    .line 554
+    .line 542
     :goto_45
     return-void
 
-    .line 534
+    .line 522
     :cond_46
     invoke-virtual {p0, p1, v1}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
 
@@ -143,7 +143,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->o:Landroid/widget/TextView;
 
-    .line 535
+    .line 523
     const v0, 0x7f08013f
 
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
@@ -154,7 +154,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->p:Landroid/widget/TextView;
 
-    .line 536
+    .line 524
     const v0, 0x7f0800d4
 
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
@@ -165,7 +165,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->q:Landroid/widget/TextView;
 
-    .line 537
+    .line 525
     const v0, 0x7f08006c
 
     invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->a(Landroid/view/View;I)Landroid/view/View;
@@ -176,7 +176,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->r:Landroid/widget/TextView;
 
-    .line 539
+    .line 527
     sget-object v0, Lbl/adl;->a:Lbl/adl;
 
     const v1, 0x7f0700b2
@@ -185,7 +185,7 @@
 
     move-result-object v0
 
-    .line 540
+    .line 528
     sget-object v1, Lbl/adl;->a:Lbl/adl;
 
     const v2, 0x7f0700b1
@@ -194,7 +194,7 @@
 
     move-result-object v1
 
-    .line 541
+    .line 529
     sget-object v2, Lbl/adl;->a:Lbl/adl;
 
     const v3, 0x7f0700b0
@@ -203,55 +203,55 @@
 
     move-result-object v2
 
-    .line 542
+    .line 530
     const v3, 0x7f060179
 
     invoke-static {v3}, Lbl/adl;->b(I)I
 
     move-result v3
 
-    .line 543
+    .line 531
     invoke-virtual {v0, v4, v4, v3, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 544
+    .line 532
     invoke-virtual {v1, v4, v4, v3, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 545
+    .line 533
     invoke-virtual {v2, v4, v4, v3, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 546
+    .line 534
     const v3, 0x7f0500a7
 
     invoke-static {v3}, Lbl/adl;->d(I)I
 
     move-result v3
 
-    .line 547
+    .line 535
     sget-object v4, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {v0, v3, v4}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 548
+    .line 536
     sget-object v4, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {v1, v3, v4}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 549
+    .line 537
     sget-object v4, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {v2, v3, v4}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 550
+    .line 538
     iget-object v3, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->p:Landroid/widget/TextView;
 
     invoke-virtual {v3, v0, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 551
+    .line 539
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->q:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 552
+    .line 540
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->r:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
@@ -265,7 +265,7 @@
     .locals 1
 
     .prologue
-    .line 561
+    .line 549
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->o:Landroid/widget/TextView;
 
     return-object v0
@@ -275,7 +275,7 @@
     .locals 1
 
     .prologue
-    .line 565
+    .line 553
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->p:Landroid/widget/TextView;
 
     return-object v0
@@ -285,7 +285,7 @@
     .locals 1
 
     .prologue
-    .line 569
+    .line 557
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->q:Landroid/widget/TextView;
 
     return-object v0
@@ -295,7 +295,7 @@
     .locals 1
 
     .prologue
-    .line 573
+    .line 561
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->r:Landroid/widget/TextView;
 
     return-object v0
@@ -305,7 +305,7 @@
     .locals 1
 
     .prologue
-    .line 557
+    .line 545
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;->n:Lcom/bilibili/tv/widget/ScalableImageView;
 
     return-object v0

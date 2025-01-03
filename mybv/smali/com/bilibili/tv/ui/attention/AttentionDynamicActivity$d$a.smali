@@ -19,10 +19,10 @@
     .locals 0
 
     .prologue
-    .line 579
+    .line 567
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 580
+    .line 568
     return-void
 .end method
 
@@ -30,10 +30,10 @@
     .locals 0
 
     .prologue
-    .line 583
+    .line 571
     invoke-direct {p0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d$a;-><init>()V
 
-    .line 584
+    .line 572
     return-void
 .end method
 
@@ -45,17 +45,17 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 587
+    .line 575
     const-string v0, "parent"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 589
+    .line 577
     sget-boolean v0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->uperMode:Z
 
     if-eqz v0, :cond_24
 
-    .line 590
+    .line 578
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -70,20 +70,20 @@
 
     move-result-object v0
 
-    .line 594
+    .line 582
     :goto_19
     const-string v1, "view"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 595
+    .line 583
     new-instance v1, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;
 
     invoke-direct {v1, v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;-><init>(Landroid/view/View;)V
 
     return-object v1
 
-    .line 592
+    .line 580
     :cond_24
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 

@@ -545,11 +545,11 @@ public final class afi extends adt {
     }
 
     public final boolean i() {
-        return this.s == 202;
+        return this.s == -2;
     }
 
     public final boolean j() {
-        return this.s == 201;
+        return this.s == -1;
     }
 
     public final void b(String str) {
@@ -1726,8 +1726,8 @@ public final class afi extends adt {
             }
         }
         arrayList.add(0, new CategoryMeta(0, "全部", 0));
-        arrayList.add(1, new CategoryMeta(201, "番剧影视", 0));
-        arrayList.add(2, new CategoryMeta(CategoryManager.T1_INFORMATION, "用户", 0));
+        arrayList.add(1, new CategoryMeta(-1, "番剧影视", 0));
+        arrayList.add(2, new CategoryMeta(-2, "用户", 0));
         return arrayList;
     }
 
@@ -1737,10 +1737,10 @@ public final class afi extends adt {
             return;
         }
         switch (i2) {
-            case 201:
+            case -1:
                 g();
                 return;
-            case CategoryManager.T1_INFORMATION /* 202 */:
+            case -2:
                 h();
                 return;
             default:

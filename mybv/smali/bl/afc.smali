@@ -40,7 +40,7 @@
     .locals 2
 
     .prologue
-    .line 39
+    .line 40
     new-instance v0, Lbl/afc$a;
 
     const/4 v1, 0x0
@@ -56,7 +56,7 @@
     .locals 0
 
     .prologue
-    .line 38
+    .line 39
     invoke-direct {p0}, Lbl/adu;-><init>()V
 
     return-void
@@ -66,7 +66,7 @@
     .locals 1
 
     .prologue
-    .line 38
+    .line 39
     iget-object v0, p0, Lbl/afc;->b:Lbl/afc$b;
 
     return-object v0
@@ -76,7 +76,7 @@
     .locals 1
 
     .prologue
-    .line 38
+    .line 39
     iget-boolean v0, p0, Lbl/afc;->c:Z
 
     return v0
@@ -86,7 +86,7 @@
     .locals 0
 
     .prologue
-    .line 38
+    .line 39
     iput-boolean p1, p0, Lbl/afc;->c:Z
 
     return p1
@@ -96,7 +96,7 @@
     .locals 1
 
     .prologue
-    .line 38
+    .line 39
     iget-object v0, p0, Lbl/afc;->a:Landroid/support/v7/widget/GridLayoutManager;
 
     return-object v0
@@ -108,7 +108,7 @@
     .locals 1
 
     .prologue
-    .line 48
+    .line 49
     const-string v0, "ott-platform.me.0.0.pv"
 
     return-object v0
@@ -120,32 +120,32 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 111
+    .line 112
     const-string v0, "recyclerView"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 112
+    .line 113
     invoke-super {p0, p1, p2}, Lbl/adu;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
 
-    .line 113
+    .line 114
     const v0, 0x7f06010a
 
     invoke-static {v0}, Lbl/adl;->b(I)I
 
     move-result v6
 
-    .line 114
+    .line 115
     const v0, 0x7f060214
 
     invoke-static {v0}, Lbl/adl;->b(I)I
 
     move-result v0
 
-    .line 115
+    .line 116
     invoke-virtual {p1, v6, v0, v6, v0}, Landroid/support/v7/widget/RecyclerView;->setPadding(IIII)V
 
-    .line 116
+    .line 117
     new-instance v0, Lbl/afc$1;
 
     invoke-virtual {p0}, Lbl/afc;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -162,41 +162,41 @@
 
     iput-object v0, p0, Lbl/afc;->a:Landroid/support/v7/widget/GridLayoutManager;
 
-    .line 135
+    .line 136
     new-instance v0, Lbl/afc$b;
 
     invoke-direct {v0}, Lbl/afc$b;-><init>()V
 
     iput-object v0, p0, Lbl/afc;->b:Lbl/afc$b;
 
-    .line 136
+    .line 137
     iget-object v0, p0, Lbl/afc;->a:Landroid/support/v7/widget/GridLayoutManager;
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$h;)V
 
-    .line 137
+    .line 138
     new-instance v0, Lbl/afc$ItemDecoration;
 
     invoke-direct {v0, v6}, Lbl/afc$ItemDecoration;-><init>(I)V
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->a(Landroid/support/v7/widget/RecyclerView$g;)V
 
-    .line 138
+    .line 139
     invoke-virtual {p1, v4}, Landroid/support/v7/widget/RecyclerView;->setFocusable(Z)V
 
-    .line 139
+    .line 140
     iget-object v0, p0, Lbl/afc;->b:Lbl/afc$b;
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$a;)V
 
-    .line 140
+    .line 141
     new-instance v0, Lbl/afc$e;
 
     invoke-direct {v0, p0}, Lbl/afc$e;-><init>(Lbl/afc;)V
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
 
-    .line 141
+    .line 142
     return-void
 .end method
 
@@ -204,7 +204,7 @@
     .locals 1
 
     .prologue
-    .line 53
+    .line 54
     invoke-static {p0}, Lbl/wg;->a(Lbl/wf;)Z
 
     move-result v0
@@ -216,7 +216,7 @@
     .locals 1
 
     .prologue
-    .line 58
+    .line 59
     const/4 v0, 0x0
 
     return-object v0
@@ -228,7 +228,7 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 239
+    .line 240
     invoke-virtual {p0}, Lbl/afc;->d()Landroid/support/v7/widget/RecyclerView;
 
     move-result-object v0
@@ -239,43 +239,43 @@
 
     if-nez v0, :cond_c
 
-    .line 253
+    .line 254
     :cond_b
     :goto_b
     return-void
 
-    .line 242
+    .line 243
     :cond_c
     iput-boolean v3, p0, Lbl/afc;->c:Z
 
-    .line 243
+    .line 244
     iget-object v0, p0, Lbl/afc;->b:Lbl/afc$b;
 
-    .line 244
+    .line 245
     if-nez v0, :cond_15
 
-    .line 245
+    .line 246
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 247
+    .line 248
     :cond_15
     invoke-virtual {p0}, Lbl/afc;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    .line 248
+    .line 249
     if-nez v1, :cond_1e
 
-    .line 249
+    .line 250
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 251
+    .line 252
     :cond_1e
     const-string v2, "activity!!"
 
     invoke-static {v1, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 252
+    .line 253
     invoke-virtual {v0, v1, v3}, Lbl/afc$b;->a(Landroid/app/Activity;Z)V
 
     goto :goto_b
@@ -287,21 +287,21 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 220
+    .line 221
     iget-object v1, p0, Lbl/afc;->b:Lbl/afc$b;
 
     if-eqz v1, :cond_12
 
-    .line 221
+    .line 222
     iget-object v1, p0, Lbl/afc;->b:Lbl/afc$b;
 
-    .line 222
+    .line 223
     if-nez v1, :cond_c
 
-    .line 223
+    .line 224
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 225
+    .line 226
     :cond_c
     invoke-virtual {v1}, Lbl/afc$b;->a()I
 
@@ -309,28 +309,28 @@
 
     if-nez v1, :cond_13
 
-    .line 235
+    .line 236
     :cond_12
     :goto_12
     return-object v0
 
-    .line 228
+    .line 229
     :cond_13
     iget-object v0, p0, Lbl/afc;->a:Landroid/support/v7/widget/GridLayoutManager;
 
-    .line 229
+    .line 230
     if-nez v0, :cond_1a
 
-    .line 230
+    .line 231
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 232
+    .line 233
     :cond_1a
     invoke-virtual {v0}, Landroid/support/v7/widget/GridLayoutManager;->o()I
 
     move-result v1
 
-    .line 233
+    .line 234
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/GridLayoutManager;->c(I)Landroid/view/View;
 
     move-result-object v0
@@ -342,15 +342,15 @@
     .locals 1
 
     .prologue
-    .line 195
+    .line 196
     invoke-super {p0}, Lbl/adu;->onDestroyView()V
 
-    .line 196
+    .line 197
     const/4 v0, 0x0
 
     iput-object v0, p0, Lbl/afc;->b:Lbl/afc$b;
 
-    .line 197
+    .line 198
     return-void
 .end method
 
@@ -358,10 +358,10 @@
     .locals 2
 
     .prologue
-    .line 593
+    .line 579
     invoke-super {p0, p1}, Lbl/adu;->onHiddenChanged(Z)V
 
-    .line 594
+    .line 580
     invoke-static {}, Lbl/wh;->a()Lbl/wh;
 
     move-result-object v1
@@ -373,10 +373,10 @@
     :goto_a
     invoke-virtual {v1, p0, v0}, Lbl/wh;->a(Landroid/support/v4/app/Fragment;Z)V
 
-    .line 595
+    .line 581
     return-void
 
-    .line 594
+    .line 580
     :cond_e
     const/4 v0, 0x0
 
@@ -387,10 +387,10 @@
     .locals 3
 
     .prologue
-    .line 201
+    .line 202
     invoke-super {p0, p1}, Lbl/adu;->setUserVisibleHint(Z)V
 
-    .line 202
+    .line 203
     if-eqz p1, :cond_f
 
     invoke-virtual {p0}, Lbl/afc;->d()Landroid/support/v7/widget/RecyclerView;
@@ -403,45 +403,45 @@
 
     if-nez v0, :cond_10
 
-    .line 216
+    .line 217
     :cond_f
     :goto_f
     return-void
 
-    .line 205
+    .line 206
     :cond_10
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lbl/afc;->c:Z
 
-    .line 206
+    .line 207
     iget-object v0, p0, Lbl/afc;->b:Lbl/afc$b;
 
-    .line 207
+    .line 208
     if-nez v0, :cond_1a
 
-    .line 208
+    .line 209
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 210
+    .line 211
     :cond_1a
     invoke-virtual {p0}, Lbl/afc;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    .line 211
+    .line 212
     if-nez v1, :cond_23
 
-    .line 212
+    .line 213
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 214
+    .line 215
     :cond_23
     const-string v2, "activity!!"
 
     invoke-static {v1, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 215
+    .line 216
     const/4 v2, 0x0
 
     invoke-virtual {v0, v1, v2}, Lbl/afc$b;->a(Landroid/app/Activity;Z)V

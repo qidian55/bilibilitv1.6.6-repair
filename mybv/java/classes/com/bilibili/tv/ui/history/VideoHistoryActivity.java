@@ -406,7 +406,7 @@ public final class VideoHistoryActivity extends BaseUpViewActivity implements Vi
                 if (gVar != null) {
                     gVar.f();
                 }
-                videoHistoryActivity.b(4);
+                videoHistoryActivity.b(View.INVISIBLE);
             }
         }
     }
@@ -451,7 +451,7 @@ public final class VideoHistoryActivity extends BaseUpViewActivity implements Vi
                 if (gVar != null) {
                     gVar.d();
                 }
-                videoHistoryActivity.b(4);
+                videoHistoryActivity.b(View.INVISIBLE);
                 if(videoHistoryActivity.d.isEmpty()){
                     VideoHistoryActivity.c(videoHistoryActivity).c();
                 }
@@ -691,9 +691,6 @@ public final class VideoHistoryActivity extends BaseUpViewActivity implements Vi
     /* loaded from: classes.dex */
     static final class c<T> implements Comparator<BiliVideoDetail> {
         public static final c a = new c();
-
-        c() {
-        }
 
         @Override // java.util.Comparator
         /* renamed from: a */

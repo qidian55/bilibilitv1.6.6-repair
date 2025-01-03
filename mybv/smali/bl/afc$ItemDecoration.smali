@@ -23,13 +23,13 @@
     .locals 0
 
     .prologue
-    .line 148
+    .line 149
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$g;-><init>()V
 
-    .line 149
+    .line 150
     iput p1, p0, Lbl/afc$ItemDecoration;->space:I
 
-    .line 150
+    .line 151
     return-void
 .end method
 
@@ -41,26 +41,26 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 154
+    .line 155
     const-string v0, "outRect"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 155
+    .line 156
     const-string v0, "view"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 156
+    .line 157
     const-string v0, "parent"
 
     invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 157
+    .line 158
     iget v0, p0, Lbl/afc$ItemDecoration;->space:I
 
     invoke-virtual {p1, v0, v1, v1, v1}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 158
+    .line 159
     return-void
 .end method

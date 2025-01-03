@@ -217,20 +217,6 @@
 
     iput-wide v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cid:J
 
-    .line 89
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cover:Ljava/lang/String;
-
-    .line 90
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->from:Ljava/lang/String;
-
     .line 91
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
@@ -295,16 +281,6 @@
     iget-wide v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cid:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
-
-    .line 112
-    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cover:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 113
-    iget-object v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->from:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 114
     iget-wide v0, p0, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->epid:J

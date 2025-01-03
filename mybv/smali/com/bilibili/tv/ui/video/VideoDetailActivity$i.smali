@@ -824,11 +824,11 @@
     if-eqz v0, :cond_6d
 
     .line 1500
-    iget-object v1, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->episode_title:Ljava/lang/String;
+    iget-object v1, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->season_title:Ljava/lang/String;
 
     if-eqz v1, :cond_6a
 
-    iget-object v1, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->episode_title:Ljava/lang/String;
+    iget-object v1, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->season_title:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 

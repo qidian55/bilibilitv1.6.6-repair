@@ -791,7 +791,6 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
             int i = b.c;
             for (int i2 = 0; i2 < i; i2++) {
                 int i3 = i2 * b.b;
-                List<BangumiEpisodeEx> subList = bangumiUniformSeason.episodes.subList(i3, b.b + i3);
                 List list = BangumiDetailActivity.this.p;
                 if (list == null) {
                     bbi.a();
@@ -805,11 +804,10 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
                 if (bangumiUniformSeason2 == null) {
                     bbi.a();
                 }
-                list.add(aVar.a(subList, str, i2, bangumiUniformSeason2.seasonType, i3, bangumiUniformSeason.userStatus.isPaid));
+                list.add(aVar.a(bangumiUniformSeason.episodes, str, i2, bangumiUniformSeason2.seasonType, i3, b.b + i3, bangumiUniformSeason.userStatus.isPaid));
             }
             int i4 = b.c * b.b;
             if (i4 < BangumiDetailActivity.this.x) {
-                List<BangumiEpisodeEx> subList2 = bangumiUniformSeason.episodes.subList(i4, BangumiDetailActivity.this.x);
                 List list2 = BangumiDetailActivity.this.p;
                 if (list2 == null) {
                     bbi.a();
@@ -824,7 +822,7 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
                 if (bangumiUniformSeason3 == null) {
                     bbi.a();
                 }
-                list2.add(aVar2.a(subList2, str2, i5, bangumiUniformSeason3.seasonType, i4, bangumiUniformSeason.userStatus.isPaid));
+                list2.add(aVar2.a(bangumiUniformSeason.episodes, str2, i5, bangumiUniformSeason3.seasonType, i4, BangumiDetailActivity.this.x, bangumiUniformSeason.userStatus.isPaid));
             }
             b bVar = BangumiDetailActivity.this.o;
             if (bVar == null) {

@@ -86,8 +86,8 @@ public class BangumiEpisodeEx implements Parcelable {
         //this.badgeType = parcel.readInt();
         //this.bvid = parcel.readString();
         this.cid = parcel.readLong();
-        this.cover = parcel.readString();
-        this.from = parcel.readString();
+        //this.cover = parcel.readString();
+        //this.from = parcel.readString();
         this.epid = parcel.readLong();
         //this.link = parcel.readString();
         this.long_title = parcel.readString();
@@ -109,8 +109,8 @@ public class BangumiEpisodeEx implements Parcelable {
         //parcel.writeInt(this.badgeType);
         //parcel.writeString(this.bvid);
         parcel.writeLong(this.cid);
-        parcel.writeString(this.cover);
-        parcel.writeString(this.from);
+        //parcel.writeString(this.cover);
+        //parcel.writeString(this.from);
         parcel.writeLong(this.epid);
         //parcel.writeString(this.link);
         parcel.writeString(this.long_title);

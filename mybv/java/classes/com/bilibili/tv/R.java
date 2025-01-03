@@ -2077,6 +2077,7 @@ public final class R {
         public static final int ic_directions_car_180 = 0x7f070102;
         public static final int ic_live_tv_180 = 0x7f070103;
         public static final int ic_group_180 = 0x7f070104;
+        public static final int ic_toview_180 = 0x7f070105;
     }
 
     public static final class id {
@@ -3000,6 +3001,7 @@ public final class R {
 
         public static final int personal_recommend = 0x7f0c0179;
         public static final int my_follow = 0x7f0c017a;
+        public static final int my_toview = 0x7f0c017b;
     }
 
     public static final class style {

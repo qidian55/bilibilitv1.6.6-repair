@@ -74,7 +74,7 @@
 
     invoke-direct {v0, v1}, Lbl/qa$a;-><init>(Ljava/lang/Class;)V
 
-    const-string v1, "https://api.bilibili.com/x/player/v2"
+    const-string v1, "https://api.bilibili.com/x/player/wbi/v2"
 
     invoke-virtual {v0, v1}, Lbl/qa$a;->a(Ljava/lang/String;)Lbl/qa$a;
 

@@ -1497,7 +1497,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             }
             TextView textView2 = VideoDetailActivity.this.episodes_title;
             if (textView2 != null) {
-                if(biliVideoDetail.episode_title!=null)textView2.setText(biliVideoDetail.episode_title);
+                if(biliVideoDetail.season_title!=null)textView2.setText(biliVideoDetail.season_title);
                 textView2.setVisibility(0);
             }
             RecyclerView recyclerView2 = VideoDetailActivity.this.episodes_video;

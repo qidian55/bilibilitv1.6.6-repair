@@ -32,6 +32,7 @@
         <activity android:name="com.bilibili.tv.ui.search.SearchActivity" android:screenOrientation="landscape" android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:launchMode="singleTop" android:name="com.bilibili.tv.ui.account.LoginActivity" android:screenOrientation="landscape"/>
         <activity android:name="com.bilibili.tv.ui.history.VideoHistoryActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.history.VideoToviewActivity" android:screenOrientation="landscape"/>
         <activity android:name="com.bilibili.tv.ui.bangumi.follow.FollowBangumiActivity" android:screenOrientation="landscape"/>
         <activity android:name="com.bilibili.tv.ui.favorite.FavoriteActivity" android:screenOrientation="landscape"/>
         <activity android:name="com.bilibili.tv.ui.bangumi.time.BangumiTimelineActivity" android:screenOrientation="landscape"/>

@@ -108,8 +108,9 @@ public class BiliVideoDetail implements Parcelable {
         this.mBangumiInfo=com.alibaba.fastjson.JSON.parseObject(mBangumiInfo.getJSONObject("season").toJSONString(), BangumiInfo.class);
     }
 
+    public JSONArray sections;
     public JSONArray episodes;
-    public String episode_title;
+    public String season_title;
 
     public static class JsonResponse extends qe {
         public JSONObject result() {
@@ -125,7 +126,7 @@ public class BiliVideoDetail implements Parcelable {
     }
 
     public void getUGCseason() {
-        if(this.mSeasonOId == 0 || this.mPageList.size() > 1 || this.episodes != null)return;
+        if(this.mSeasonOId == 0 || (this.mPageList!=null&&this.mPageList.size()>1) || this.episodes != null)return;
         ExecutorService threadPool  = Executors.newSingleThreadExecutor();
         Future<JSONObject> future = threadPool.submit(new Callable<JSONObject>() {
             @Override
@@ -135,8 +136,20 @@ public class BiliVideoDetail implements Parcelable {
         });
         try{
             JSONObject detail_infos = future.get().optJSONObject("data");
-            this.episodes = detail_infos.optJSONObject("View").optJSONObject("ugc_season").optJSONArray("sections").optJSONObject(0).optJSONArray("episodes");
-            this.episode_title = detail_infos.optJSONObject("View").optJSONObject("ugc_season").optString("title");
+            this.sections = detail_infos.optJSONObject("View").optJSONObject("ugc_season").optJSONArray("sections");
+            this.season_title = detail_infos.optJSONObject("View").optJSONObject("ugc_season").optString("title");
+            for(int i=0;i<this.sections.length();i++){
+                boolean f=false;
+                this.episodes = this.sections.optJSONObject(i).optJSONArray("episodes");
+                for(int j=0;j<this.episodes.length();j++){
+                    if(this.episodes.optJSONObject(j).optLong("aid")==this.mAvid){
+                        f=true;
+                        if(this.sections.length()>1)this.season_title += " - " + this.sections.optJSONObject(i).optString("title");
+                        break;
+                    }
+                }
+                if(f)break;
+            }
         }catch(Exception e){
             e.printStackTrace();
         }

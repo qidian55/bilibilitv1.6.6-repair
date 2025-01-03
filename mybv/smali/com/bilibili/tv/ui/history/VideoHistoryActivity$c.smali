@@ -53,10 +53,9 @@
     .locals 0
 
     .prologue
-    .line 695
+    .line 692
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 696
     return-void
 .end method
 
@@ -70,17 +69,17 @@
 
     const/4 v0, 0x0
 
-    .line 701
+    .line 698
     if-eqz p1, :cond_7
 
     if-nez p2, :cond_8
 
-    .line 708
+    .line 705
     :cond_7
     :goto_7
     return v0
 
-    .line 704
+    .line 701
     :cond_8
     iget-wide v2, p2, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mViewAt:J
 
@@ -88,12 +87,12 @@
 
     sub-long/2addr v2, v4
 
-    .line 705
+    .line 702
     cmp-long v1, v2, v6
 
     if-eqz v1, :cond_7
 
-    .line 708
+    .line 705
     cmp-long v0, v2, v6
 
     if-lez v0, :cond_17

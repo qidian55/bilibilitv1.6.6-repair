@@ -429,7 +429,7 @@
 
     new-instance v2, Lcom/bilibili/tv/api/category/CategoryMeta;
 
-    const/16 v3, 0xc9
+    const/4 v3, -0x1
 
     const-string v4, "\u756a\u5267\u5f71\u89c6"
 
@@ -442,7 +442,7 @@
 
     new-instance v2, Lcom/bilibili/tv/api/category/CategoryMeta;
 
-    const/16 v3, 0xca
+    const/4 v3, -0x2
 
     const-string v4, "\u7528\u6237"
 
@@ -507,9 +507,9 @@
     nop
 
     :pswitch_data_16
-    .packed-switch 0xc9
-        :pswitch_d
+    .packed-switch -0x2
         :pswitch_11
+        :pswitch_d
     .end packed-switch
 .end method
 
@@ -1103,19 +1103,19 @@
     .line 548
     iget v0, p0, Lbl/afi;->s:I
 
-    const/16 v1, 0xca
+    const/4 v1, -0x2
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_6
     return v0
 
-    :cond_8
+    :cond_7
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_6
 .end method
 
 .method public final j()Z
@@ -1125,19 +1125,19 @@
     .line 552
     iget v0, p0, Lbl/afi;->s:I
 
-    const/16 v1, 0xc9
+    const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_6
     return v0
 
-    :cond_8
+    :cond_7
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_6
 .end method
 
 .method public final m()Landroid/view/View;

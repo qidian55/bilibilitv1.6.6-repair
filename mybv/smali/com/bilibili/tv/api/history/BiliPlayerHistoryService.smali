@@ -62,6 +62,57 @@
     .end annotation
 .end method
 
+.method public abstract clearVideoToviews(Ljava/lang/String;)Lbl/vp;
+    .param p1    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "access_key"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Lbl/vp",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/POST;
+        a = "/x/v2/history/toview/del?viewed=true"
+    .end annotation
+.end method
+
+.method public abstract clearVideoToviews(Ljava/lang/String;J)Lbl/vp;
+    .param p1    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "access_key"
+        .end annotation
+    .end param
+    .param p2    # J
+        .annotation runtime Lretrofit2/http/Query;
+            a = "aid"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "J)",
+            "Lbl/vp",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/POST;
+        a = "/x/v2/history/toview/del"
+    .end annotation
+.end method
+
 .method public abstract getVideoHistoryList(Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
@@ -86,6 +137,31 @@
 
     .annotation runtime Lretrofit2/http/GET;
         a = "/x/v2/history?pn=1&ps=200"
+    .end annotation
+.end method
+
+.method public abstract getVideoToviewList(Ljava/lang/String;)Lbl/vp;
+    .param p1    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "access_key"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/x/v2/history/toview"
     .end annotation
 .end method
 

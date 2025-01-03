@@ -111,9 +111,6 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
         this.b = new BorderGridLayoutManager(this, i);
         this.a = new c();
         RecyclerView recyclerView = this.d;
-        if (recyclerView == null) {
-            bbi.a();
-        }
         recyclerView.setLayoutManager(this.b);
         recyclerView.setFocusable(false);
         int b2 = adl.b(R.dimen.px_20);
@@ -126,9 +123,6 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
         recyclerView.getViewTreeObserver().addOnGlobalLayoutListener(new g());
         recyclerView.setAdapter(this.a);
         LoadingImageView loadingImageView = this.c;
-        if (loadingImageView == null) {
-            bbi.a();
-        }
         loadingImageView.a();
         this.e = new b();
         i();
@@ -146,13 +140,13 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
         }
 
         @Override // android.support.v7.widget.RecyclerView.g
-        public void a(Rect rect, View view, RecyclerView recyclerView, RecyclerView.s sVar) {
+        public void a(Rect outRect, View view, RecyclerView parent, RecyclerView.s sVar) {
             int i;
             int i2;
-            bbi.b(rect, "outRect");
+            bbi.b(outRect, "outRect");
             bbi.b(view, "view");
-            bbi.b(recyclerView, "parent");
-            int g = recyclerView.g(view);
+            bbi.b(parent, "parent");
+            int g = parent.g(view);
             int i3 = g > AttentionDynamicActivity.i + (-1) ? this.a : 0;
             if (g % AttentionDynamicActivity.i == 0) {
                 i2 = this.b;
@@ -161,16 +155,13 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
                 i = this.b;
                 i2 = 0;
             }
-            rect.set(i, i3, i2, 0);
+            outRect.set(i, i3, i2, 0);
         }
     }
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
     public final class f extends RecyclerView.m {
-        f() {
-        }
-
         @Override // android.support.v7.widget.RecyclerView.m
         public void a(RecyclerView recyclerView, int i) {
             super.a(recyclerView, i);
@@ -260,12 +251,12 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
     /* JADX INFO: Access modifiers changed from: private */
     public final void i() {
         this.h = true;
-        mg a2 = mg.a(this);
-        bbi.a((Object) a2, "BiliAccount.get(this)");
+        mg biliAccount = mg.a(this);
+        bbi.a((Object) biliAccount, "BiliAccount.get(this)");
         if(AttentionDynamicActivity.uperMode){
-            ((MyBiliApiService) vo.a(MyBiliApiService.class)).getFollowings(a2.e(), a2.d(), "attention", 30, this.f).a(new FollowingResponse());
+            ((MyBiliApiService) vo.a(MyBiliApiService.class)).getFollowings(biliAccount.e(), biliAccount.d(), "attention", 30, this.f).a(new FollowingResponse());
         }else{
-            ((BiliApiService) vo.a(BiliApiService.class)).getFeedUpperArchive(a2.e(), this.f, 30, 1).a(this.e);
+            ((BiliApiService) vo.a(BiliApiService.class)).getFeedUpperArchive(biliAccount.e(), this.f, 30, 1).a(this.e);
         }
     }
 
@@ -341,9 +332,6 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
     }
 
     public final class FollowingResponse extends vn<JSONObject> {
-        public FollowingResponse() {
-        }
-
         @Override // bl.vm
         public boolean isCancel() {
             return AttentionDynamicActivity.this.a == null;
@@ -423,10 +411,10 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
         }
 
         @Override // bl.adz, android.support.v7.widget.RecyclerView.a
-        public void a(adv advVar, int i) {
-            bbi.b(advVar, "holder");
-            if (advVar instanceof d) {
-                d dVar = (d) advVar;
+        public void a(adv holder, int i) {
+            bbi.b(holder, "holder");
+            if (holder instanceof d) {
+                d dVar = (d) holder;
                 if(AttentionDynamicActivity.uperMode){
                     JSONObject followingItem = (JSONObject)this.a.get(i);
                     bbi.a((Object) followingItem, "mFollowings[position]");
@@ -453,12 +441,12 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
                         nv.a().a(ach.c(MainApplication.a(), upperFeedItem.cover), dVar.z());
                     }
                 }
-                View view = advVar.a;
+                View view = holder.a;
                 bbi.a((Object) view, "holder.itemView");
                 view.setTag(this.a.get(i));
-                advVar.a.setOnClickListener(this);
+                holder.a.setOnClickListener(this);
 
-                advVar.a.setOnFocusChangeListener(this);
+                holder.a.setOnFocusChangeListener(this);
             }
         }
 

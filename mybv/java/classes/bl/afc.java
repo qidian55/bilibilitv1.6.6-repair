@@ -30,6 +30,7 @@ import com.bilibili.tv.widget.DrawLinearLayout;
 import com.bilibili.tv.widget.FixGridLayoutManager;
 import kotlin.TypeCastException;
 
+import com.bilibili.tv.ui.history.VideoToviewActivity;
 import com.bilibili.tv.widget.border.BorderGridLayoutManager;
 import com.bilibili.tv.widget.side.SideRightGridLayoutManger;
 
@@ -255,9 +256,9 @@ public final class afc extends adu implements aez, wf {
     /* compiled from: BL */
     /* loaded from: classes.dex */
     static final class b extends RecyclerView.a<adv> implements View.OnClickListener {
-        private final int[] a = {R.string.login, R.string.my_history, R.string.my_favorite, R.string.my_attention, R.string.my_follow};
-        private final int[] b = {R.color.color_1, R.color.color_3, R.color.color_6, R.color.color_2, R.color.color_5};
-        private final int[] c = {R.drawable.ic_user_center_default_avatar, R.drawable.ic_user_center_history, R.drawable.ic_user_center_star, R.drawable.ic_user_center_follow_bangumi, R.drawable.ic_group_180};
+        private final int[] a = {R.string.login, R.string.my_attention, R.string.my_toview, R.string.my_follow, R.string.my_favorite, R.string.my_history};
+        private final int[] b = {R.color.color_1, R.color.color_2, R.color.color_3, R.color.color_4, R.color.color_5, R.color.color_6};
+        private final int[] c = {R.drawable.ic_user_center_default_avatar, R.drawable.ic_group_180, R.drawable.ic_toview_180, R.drawable.ic_user_center_follow_bangumi, R.drawable.ic_user_center_star, R.drawable.ic_user_center_history};
         private AccountInfo d;
         private boolean e;
         private int f;
@@ -397,52 +398,37 @@ public final class afc extends adu implements aez, wf {
             if (a2 != null) {
                 Object tag = view.getTag(R.id.position);
                 int intValue = tag != null ? ((Integer) tag).intValue() : 0;
-                if (intValue == 1) {
+                if (intValue == 5) {
                     VideoHistoryActivity.Companion.a(a2, VideoHistoryActivity.Companion.b());
                 } else if (!this.e) {
                     LoginActivity.Companion.a(a2, MainActivity.Companion.a());
-                    ok.a("tv_my_signin_click", new String[0]);
-                    if (intValue == 0) {
-                        this.f = 0;
-                        return;
-                    }
-                    switch (intValue) {
-                        case 2:
-                            this.f = 2;
-                            ok.a("tv_my_favourite_click", "action", "2");
-                            return;
-                        case 3:
-                            this.f = 3;
-                            ok.a("tv_my_mybangumi_click", "action", "2");
-                            return;
-                        case 4:
-                            this.f = 4;
-                            ok.a("tv_my_attention_click", "action", "2");
-                            return;
-                        default:
-                            return;
-                    }
-                } else if (intValue == 0) {
-                    if (a2 instanceof MainActivity) {
-                        agb.a aVar = new agb.a(a2);
-                        aVar.a(1).a(adl.e(R.string.is_really_confirmed_to_logout)).a(adl.e(R.string.logout), new a(a2)).b(adl.e(R.string.logout_cancel), bb.a);
-                        aVar.a().show();
-                    }
+                    this.f = intValue;
+                    return;
                 } else {
                     switch (intValue) {
-                        case 2:
-                            FavoriteActivity.Companion.a(a2);
-                            ok.a("tv_my_favourite_click", "action", "1");
+                        case 0:
+                            if (a2 instanceof MainActivity) {
+                                agb.a aVar = new agb.a(a2);
+                                aVar.a(1).a(adl.e(R.string.is_really_confirmed_to_logout)).a(adl.e(R.string.logout), new a(a2)).b(adl.e(R.string.logout_cancel), bb.a);
+                                aVar.a().show();
+                            }
                             return;
-                        case 3:
+                        case 1:
                             AttentionDynamicActivity.uperMode = false;
                             AttentionDynamicActivity.Companion.a(a2);
                             ok.a("tv_my_mybangumi_click", "action", "1");
                             return;
-                        case 4:
+                        case 2:
+                            VideoToviewActivity.Companion.a(a2, VideoToviewActivity.Companion.b());
+                            return;
+                        case 3:
                             AttentionDynamicActivity.uperMode = true;
                             AttentionDynamicActivity.Companion.a(a2);
                             ok.a("tv_my_attention_click", "action", "1");
+                            return;
+                        case 4:
+                            FavoriteActivity.Companion.a(a2);
+                            ok.a("tv_my_favourite_click", "action", "1");
                             return;
                         default:
                             return;

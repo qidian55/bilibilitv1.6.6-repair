@@ -114,7 +114,7 @@
     .locals 1
 
     .prologue
-    .line 501
+    .line 514
     new-instance v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page$1;
 
     invoke-direct {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page$1;-><init>()V
@@ -128,10 +128,10 @@
     .locals 0
 
     .prologue
-    .line 562
+    .line 575
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 563
+    .line 576
     return-void
 .end method
 
@@ -143,59 +143,59 @@
 
     const/4 v2, 0x0
 
-    .line 586
+    .line 599
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 587
+    .line 600
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v4
 
     iput-wide v4, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mCid:J
 
-    .line 588
+    .line 601
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mPage:I
 
-    .line 589
+    .line 602
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mFrom:Ljava/lang/String;
 
-    .line 590
+    .line 603
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mTitle:Ljava/lang/String;
 
-    .line 591
+    .line 604
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mLink:Ljava/lang/String;
 
-    .line 592
+    .line 605
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mRawVid:Ljava/lang/String;
 
-    .line 593
+    .line 606
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mVid:Ljava/lang/String;
 
-    .line 594
+    .line 607
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
@@ -207,21 +207,21 @@
     :goto_36
     iput-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mHasAlias:Z
 
-    .line 595
+    .line 608
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mWebLink:Ljava/lang/String;
 
-    .line 596
+    .line 609
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mOffsite:Ljava/lang/String;
 
-    .line 597
+    .line 610
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v0
@@ -231,19 +231,19 @@
     :goto_4a
     iput-boolean v1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mAlreadyPlayed:Z
 
-    .line 598
+    .line 611
     return-void
 
     :cond_4d
     move v0, v2
 
-    .line 594
+    .line 607
     goto :goto_36
 
     :cond_4f
     move v1, v2
 
-    .line 597
+    .line 610
     goto :goto_4a
 .end method
 
@@ -253,7 +253,7 @@
     .locals 1
 
     .prologue
-    .line 543
+    .line 556
     const/4 v0, 0x0
 
     return v0
@@ -263,7 +263,7 @@
     .locals 1
 
     .prologue
-    .line 559
+    .line 572
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mRawVid:Ljava/lang/String;
 
     return-object v0
@@ -273,7 +273,7 @@
     .locals 1
 
     .prologue
-    .line 551
+    .line 564
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mFrom:Ljava/lang/String;
 
     return-object v0
@@ -288,7 +288,7 @@
     .end annotation
 
     .prologue
-    .line 568
+    .line 581
     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
@@ -302,10 +302,10 @@
     .locals 0
 
     .prologue
-    .line 555
+    .line 568
     iput-object p1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mRawVid:Ljava/lang/String;
 
-    .line 556
+    .line 569
     return-void
 .end method
 
@@ -313,10 +313,10 @@
     .locals 0
 
     .prologue
-    .line 547
+    .line 560
     iput-object p1, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mFrom:Ljava/lang/String;
 
-    .line 548
+    .line 561
     return-void
 .end method
 
@@ -328,42 +328,42 @@
 
     const/4 v2, 0x0
 
-    .line 573
+    .line 586
     iget-wide v4, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mCid:J
 
     invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 574
+    .line 587
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mPage:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 575
+    .line 588
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mFrom:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 576
+    .line 589
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mTitle:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 577
+    .line 590
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mLink:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 578
+    .line 591
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mRawVid:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 579
+    .line 592
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mVid:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 580
+    .line 593
     iget-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mHasAlias:Z
 
     if-eqz v0, :cond_3f
@@ -373,17 +373,17 @@
     :goto_2a
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 581
+    .line 594
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mWebLink:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 582
+    .line 595
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mOffsite:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 583
+    .line 596
     iget-boolean v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Page;->mAlreadyPlayed:Z
 
     if-eqz v0, :cond_41
@@ -391,18 +391,18 @@
     :goto_3b
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeByte(B)V
 
-    .line 584
+    .line 597
     return-void
 
     :cond_3f
     move v0, v2
 
-    .line 580
+    .line 593
     goto :goto_2a
 
     :cond_41
     move v1, v2
 
-    .line 583
+    .line 596
     goto :goto_3b
 .end method
