@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 184
+    .line 171
     iput-object p1, p0, Lbl/afi$2;->this$0:Lbl/afi;
 
     invoke-direct {p0, p2}, Lcom/bilibili/tv/widget/FixLinearLayoutManager;-><init>(Landroid/content/Context;)V
@@ -37,24 +37,17 @@
     .locals 3
 
     .prologue
-    .line 188
-    if-nez p1, :cond_5
-
-    .line 189
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 191
-    :cond_5
+    .line 174
     invoke-virtual {p0, p1}, Lbl/afi$2;->d(Landroid/view/View;)I
 
     move-result v0
 
-    .line 192
+    .line 175
     const/16 v1, 0x11
 
-    if-ne p2, v1, :cond_44
+    if-ne p2, v1, :cond_30
 
-    .line 193
+    .line 176
     iget-object v0, p0, Lbl/afi$2;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->q:Z
@@ -62,15 +55,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_11
 
-    .line 222
-    :cond_15
-    :goto_15
+    .line 193
+    :cond_10
+    :goto_10
     return-object p1
 
-    .line 196
-    :cond_16
+    .line 179
+    :cond_11
     iget-object v0, p0, Lbl/afi$2;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->f:Landroid/support/v7/widget/LinearLayoutManager;
@@ -78,19 +71,11 @@
 
     move-result-object v0
 
-    .line 197
-    if-nez v0, :cond_21
-
-    .line 198
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 200
-    :cond_21
     invoke-virtual {v0}, Landroid/support/v7/widget/LinearLayoutManager;->o()I
 
     move-result v0
 
-    .line 201
+    .line 180
     iget-object v1, p0, Lbl/afi$2;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->e:Lbl/afi$c;
@@ -98,19 +83,11 @@
 
     move-result-object v1
 
-    .line 202
-    if-nez v1, :cond_30
-
-    .line 203
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 205
-    :cond_30
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Lbl/afi$c;->b(Z)V
 
-    .line 206
+    .line 181
     iget-object v1, p0, Lbl/afi$2;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->f:Landroid/support/v7/widget/LinearLayoutManager;
@@ -118,35 +95,27 @@
 
     move-result-object v1
 
-    .line 207
-    if-nez v1, :cond_3f
-
-    .line 208
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 210
-    :cond_3f
     invoke-virtual {v1, v0}, Landroid/support/v7/widget/LinearLayoutManager;->c(I)Landroid/view/View;
 
     move-result-object p1
 
-    goto :goto_15
+    goto :goto_10
 
-    .line 212
-    :cond_44
+    .line 183
+    :cond_30
     const/16 v1, 0x21
 
-    if-eq p2, v1, :cond_5d
+    if-eq p2, v1, :cond_49
 
-    .line 213
+    .line 184
     const/16 v1, 0x42
 
-    if-eq p2, v1, :cond_15
+    if-eq p2, v1, :cond_10
 
-    .line 216
+    .line 187
     const/16 v1, 0x82
 
-    if-ne p2, v1, :cond_58
+    if-ne p2, v1, :cond_44
 
     invoke-virtual {p0}, Lbl/afi$2;->H()I
 
@@ -154,19 +123,19 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ge v0, v1, :cond_15
+    if-ge v0, v1, :cond_10
 
-    .line 222
-    :cond_58
+    .line 193
+    :cond_44
     invoke-super {p0, p1, p2}, Lcom/bilibili/tv/widget/FixLinearLayoutManager;->d(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object p1
 
-    goto :goto_15
+    goto :goto_10
 
-    .line 219
-    :cond_5d
-    if-gtz v0, :cond_58
+    .line 190
+    :cond_49
+    if-gtz v0, :cond_44
 
-    goto :goto_15
+    goto :goto_10
 .end method

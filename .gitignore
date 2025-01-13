@@ -6,6 +6,8 @@ bv2/
 bv3/
 bv4/
 
+tools/
+
 mybv/build/
 mybv/dist/
 mybv/java/out.dex

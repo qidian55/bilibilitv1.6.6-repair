@@ -53,6 +53,7 @@ public final class SearchActivity extends BaseActivity implements View.OnLongCli
     public static final a Companion = new a(null);
     private static final String[] l = {"totalrank", "click", "pubdate", "dm"};
     private static final String[] m = {"totalrank", "fans", "fansasc", "lv", "lvasc"};
+    public static final String[] live_orders = {"online","live_time"};
 
     @Override // bl.wf
     public String a() {
@@ -558,19 +559,11 @@ public final class SearchActivity extends BaseActivity implements View.OnLongCli
             }
         }
         if (r()) {
-            afi afiVar = this.g;
-            if (afiVar == null) {
-                bbi.a();
-            }
-            if (afiVar.j()) {
+            if (this.g.j()) {
                 return true;
             }
             LinkedHashMap<String, Object> linkedHashMap = new LinkedHashMap<>();
-            afi afiVar2 = this.g;
-            if (afiVar2 == null) {
-                bbi.a();
-            }
-            if (afiVar2.i()) {
+            if (this.g.i()) {
                 linkedHashMap.put(adl.e(R.string.search_rank_default), m[0]);
                 linkedHashMap.put(adl.e(R.string.search_rank_fans), m[1]);
                 linkedHashMap.put(adl.e(R.string.search_rank_fans_asc), m[2]);
@@ -578,11 +571,14 @@ public final class SearchActivity extends BaseActivity implements View.OnLongCli
                 linkedHashMap.put(adl.e(R.string.search_rank_level_asc), m[4]);
                 agb.a aVar2 = new agb.a(this);
                 agb.a a2 = aVar2.a(2).a(adl.e(R.string.title_filter)).a(linkedHashMap, new e(linkedHashMap));
-                afi afiVar3 = this.g;
-                if (afiVar3 == null) {
-                    bbi.a();
-                }
-                a2.a((Object) afiVar3.b());
+                a2.a((Object) this.g.b());
+                aVar2.a().show();
+            } else if(this.g.is_live()){
+                linkedHashMap.put("在线人数", live_orders[0]);
+                linkedHashMap.put("开播时长", live_orders[1]);
+                agb.a aVar2 = new agb.a(this);
+                agb.a a2 = aVar2.a(2).a(adl.e(R.string.title_filter)).a(linkedHashMap, new ee(linkedHashMap));
+                a2.a((Object) this.g.live_order);
                 aVar2.a().show();
             } else {
                 linkedHashMap.put(adl.e(R.string.search_rank_default), l[0]);
@@ -591,11 +587,7 @@ public final class SearchActivity extends BaseActivity implements View.OnLongCli
                 linkedHashMap.put(adl.e(R.string.search_rank_danmaku), l[3]);
                 agb.a aVar3 = new agb.a(this);
                 agb.a a3 = aVar3.a(2).a(adl.e(R.string.title_filter)).a(linkedHashMap, new f(linkedHashMap));
-                afi afiVar4 = this.g;
-                if (afiVar4 == null) {
-                    bbi.a();
-                }
-                a3.a((Object) afiVar4.a());
+                a3.a((Object) this.g.a());
                 aVar3.a().show();
             }
         }
@@ -610,11 +602,7 @@ public final class SearchActivity extends BaseActivity implements View.OnLongCli
 
         @Override // bl.agb.b
         public final void a(agb agbVar, View view) {
-            afh afhVar = SearchActivity.this.f;
-            if (afhVar == null) {
-                bbi.a();
-            }
-            afhVar.d();
+            SearchActivity.this.f.d();
             ok.a("tv_search_clearall_click", new String[0]);
             agbVar.dismiss();
         }
@@ -645,19 +633,26 @@ public final class SearchActivity extends BaseActivity implements View.OnLongCli
 
         @Override // bl.agb.c
         public final void a(agb agbVar, View view, String str) {
-            Object obj = this.b.get(str);
-            if (obj == null) {
-                throw new TypeCastException("null cannot be cast to non-null type kotlin.String");
-            }
-            String str2 = (String) obj;
-            afi afiVar = SearchActivity.this.g;
-            if (afiVar == null) {
-                bbi.a();
-            }
-            afiVar.c(str2);
+            SearchActivity.this.g.c((String) this.b.get(str));
             agbVar.dismiss();
         }
     }
+
+
+    final class ee implements agb.c {
+        final /* synthetic */ LinkedHashMap b;
+
+        ee(LinkedHashMap linkedHashMap) {
+            this.b = linkedHashMap;
+        }
+
+        @Override // bl.agb.c
+        public final void a(agb agbVar, View view, String str) {
+            SearchActivity.this.g.cc((String) this.b.get(str));
+            agbVar.dismiss();
+        }
+    }
+
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
@@ -670,16 +665,8 @@ public final class SearchActivity extends BaseActivity implements View.OnLongCli
 
         @Override // bl.agb.c
         public final void a(agb agbVar, View view, String str) {
-            Object obj = this.b.get(str);
-            if (obj == null) {
-                throw new TypeCastException("null cannot be cast to non-null type kotlin.String");
-            }
-            String str2 = (String) obj;
-            afi afiVar = SearchActivity.this.g;
-            if (afiVar == null) {
-                bbi.a();
-            }
-            afiVar.b(str2);
+            String str2 = (String) this.b.get(str);
+            SearchActivity.this.g.b(str2);
             String str3 = "";
             String str4 = str2;
             if (TextUtils.equals(str4, SearchActivity.Companion.c()[0])) {

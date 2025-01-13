@@ -34,12 +34,11 @@
     .locals 0
 
     .prologue
-    .line 871
+    .line 666
     iput-object p1, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     invoke-direct {p0}, Lbl/vn;-><init>()V
 
-    .line 872
     return-void
 .end method
 
@@ -49,7 +48,7 @@
     .locals 0
 
     .prologue
-    .line 870
+    .line 666
     check-cast p1, Ljava/util/List;
 
     invoke-virtual {p0, p1}, Lbl/afi$i;->a(Ljava/util/List;)V
@@ -74,7 +73,7 @@
 
     const/4 v3, 0x0
 
-    .line 882
+    .line 675
     iget-object v0, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->d:Lbl/afi$f;
@@ -94,55 +93,55 @@
 
     if-nez v0, :cond_15
 
-    .line 939
+    .line 708
     :cond_14
     :goto_14
     return-void
 
-    .line 885
+    .line 678
     :cond_15
     iget-object v0, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # setter for: Lbl/afi;->q:Z
     invoke-static {v0, v3}, Lbl/afi;->access$002(Lbl/afi;Z)Z
 
-    .line 886
+    .line 679
     iget-object v0, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     invoke-virtual {v0}, Lbl/afi;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    .line 887
+    .line 680
     instance-of v1, v0, Lcom/bilibili/tv/ui/search/SearchActivity;
 
     if-nez v1, :cond_25
 
-    .line 888
+    .line 681
     const/4 v0, 0x0
 
-    .line 890
+    .line 683
     :cond_25
     check-cast v0, Lcom/bilibili/tv/ui/search/SearchActivity;
 
-    .line 891
+    .line 684
     if-eqz v0, :cond_14
 
-    .line 892
+    .line 685
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_78
+    if-eqz v1, :cond_6e
 
-    .line 893
+    .line 686
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/search/SearchActivity;->h()Lcom/bilibili/tv/ui/search/SearchKeyboardView;
 
     move-result-object v1
 
-    if-eqz v1, :cond_72
+    if-eqz v1, :cond_68
 
-    .line 894
+    .line 687
     iget-object v1, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->o:I
@@ -152,73 +151,57 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_5a
+    if-ne v1, v2, :cond_50
 
-    .line 895
+    .line 688
     iget-object v1, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->b:Landroid/support/v7/widget/RecyclerView;
-    invoke-static {v1}, Lbl/afi;->access$700(Lbl/afi;)Landroid/support/v7/widget/RecyclerView;
+    invoke-static {v1}, Lbl/afi;->access$800(Lbl/afi;)Landroid/support/v7/widget/RecyclerView;
 
     move-result-object v1
 
-    .line 896
-    if-nez v1, :cond_49
-
-    .line 897
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 899
-    :cond_49
     invoke-virtual {v1, v4}, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
 
-    .line 900
+    .line 689
     iget-object v1, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->a:Lcom/bilibili/tv/ui/base/LoadingImageView;
-    invoke-static {v1}, Lbl/afi;->access$800(Lbl/afi;)Lcom/bilibili/tv/ui/base/LoadingImageView;
+    invoke-static {v1}, Lbl/afi;->access$900(Lbl/afi;)Lcom/bilibili/tv/ui/base/LoadingImageView;
 
     move-result-object v1
 
-    .line 901
-    if-nez v1, :cond_57
-
-    .line 902
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 904
-    :cond_57
     invoke-virtual {v1}, Lcom/bilibili/tv/ui/base/LoadingImageView;->c()V
 
-    .line 906
-    :cond_5a
+    .line 691
+    :cond_50
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/search/SearchActivity;->j()Z
 
     move-result v1
 
-    if-eqz v1, :cond_6b
+    if-eqz v1, :cond_61
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/search/SearchActivity;->h()Lcom/bilibili/tv/ui/search/SearchKeyboardView;
 
     move-result-object v1
 
-    if-eqz v1, :cond_6b
+    if-eqz v1, :cond_61
 
-    .line 907
+    .line 692
     const/16 v2, 0x25
 
     invoke-virtual {v1, v2}, Lcom/bilibili/tv/ui/search/SearchKeyboardView;->j(I)Z
 
-    .line 909
-    :cond_6b
+    .line 694
+    :cond_61
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/search/SearchActivity;->i()Landroid/view/View;
 
     move-result-object v0
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setFocusable(Z)V
 
-    .line 911
-    :cond_72
+    .line 696
+    :cond_68
     iget-object v0, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # setter for: Lbl/afi;->p:Z
@@ -226,77 +209,53 @@
 
     goto :goto_14
 
-    .line 914
-    :cond_78
+    .line 699
+    :cond_6e
     invoke-virtual {v0, v3}, Lcom/bilibili/tv/ui/search/SearchActivity;->a(Z)V
 
-    .line 915
+    .line 700
     iget-object v0, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->a:Lcom/bilibili/tv/ui/base/LoadingImageView;
-    invoke-static {v0}, Lbl/afi;->access$800(Lbl/afi;)Lcom/bilibili/tv/ui/base/LoadingImageView;
+    invoke-static {v0}, Lbl/afi;->access$900(Lbl/afi;)Lcom/bilibili/tv/ui/base/LoadingImageView;
 
     move-result-object v0
 
-    .line 916
-    if-nez v0, :cond_86
-
-    .line 917
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 919
-    :cond_86
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/base/LoadingImageView;->b()V
 
-    .line 920
+    .line 701
     iget-object v0, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->b:Landroid/support/v7/widget/RecyclerView;
-    invoke-static {v0}, Lbl/afi;->access$700(Lbl/afi;)Landroid/support/v7/widget/RecyclerView;
+    invoke-static {v0}, Lbl/afi;->access$800(Lbl/afi;)Landroid/support/v7/widget/RecyclerView;
 
     move-result-object v0
 
-    .line 921
-    if-nez v0, :cond_94
-
-    .line 922
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 924
-    :cond_94
     invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->getVisibility()I
 
     move-result v0
 
-    if-ne v0, v4, :cond_a8
+    if-ne v0, v4, :cond_8f
 
-    .line 925
+    .line 702
     iget-object v0, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->b:Landroid/support/v7/widget/RecyclerView;
-    invoke-static {v0}, Lbl/afi;->access$700(Lbl/afi;)Landroid/support/v7/widget/RecyclerView;
+    invoke-static {v0}, Lbl/afi;->access$800(Lbl/afi;)Landroid/support/v7/widget/RecyclerView;
 
     move-result-object v0
 
-    .line 926
-    if-nez v0, :cond_a5
-
-    .line 927
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 929
-    :cond_a5
     invoke-virtual {v0, v3}, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
 
-    .line 931
-    :cond_a8
+    .line 704
+    :cond_8f
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
     if-nez v0, :cond_14
 
-    .line 932
+    .line 705
     iget-object v0, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->d:Lbl/afi$f;
@@ -304,14 +263,6 @@
 
     move-result-object v0
 
-    .line 933
-    if-nez v0, :cond_b9
-
-    .line 934
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 936
-    :cond_b9
     invoke-virtual {v0, p1}, Lbl/afi$f;->c(Ljava/util/List;)V
 
     goto/16 :goto_14
@@ -321,7 +272,7 @@
     .locals 1
 
     .prologue
-    .line 876
+    .line 669
     iget-object v0, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->d:Lbl/afi$f;
@@ -348,12 +299,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 944
+    .line 713
     const-string v0, "t"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 945
+    .line 714
     iget-object v0, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->d:Lbl/afi$f;
@@ -363,55 +314,55 @@
 
     if-nez v0, :cond_f
 
-    .line 975
+    .line 736
     :cond_e
     :goto_e
     return-void
 
-    .line 948
+    .line 717
     :cond_f
     iget-object v0, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # setter for: Lbl/afi;->q:Z
     invoke-static {v0, v3}, Lbl/afi;->access$002(Lbl/afi;Z)Z
 
-    .line 949
+    .line 718
     iget-object v0, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     invoke-virtual {v0}, Lbl/afi;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    .line 950
+    .line 719
     instance-of v1, v0, Lcom/bilibili/tv/ui/search/SearchActivity;
 
     if-nez v1, :cond_1f
 
-    .line 951
+    .line 720
     const/4 v0, 0x0
 
-    .line 953
+    .line 722
     :cond_1f
     check-cast v0, Lcom/bilibili/tv/ui/search/SearchActivity;
 
-    .line 954
+    .line 723
     if-eqz v0, :cond_e
 
-    .line 955
+    .line 724
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/search/SearchActivity;->h()Lcom/bilibili/tv/ui/search/SearchKeyboardView;
 
     move-result-object v1
 
-    if-eqz v1, :cond_67
+    if-eqz v1, :cond_5d
 
-    .line 956
+    .line 725
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/search/SearchActivity;->i()Landroid/view/View;
 
     move-result-object v1
 
     invoke-virtual {v1, v3}, Landroid/view/View;->setFocusable(Z)V
 
-    .line 957
+    .line 726
     iget-object v1, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->o:I
@@ -421,67 +372,51 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_56
+    if-ne v1, v2, :cond_4c
 
-    .line 958
+    .line 727
     iget-object v1, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->b:Landroid/support/v7/widget/RecyclerView;
-    invoke-static {v1}, Lbl/afi;->access$700(Lbl/afi;)Landroid/support/v7/widget/RecyclerView;
+    invoke-static {v1}, Lbl/afi;->access$800(Lbl/afi;)Landroid/support/v7/widget/RecyclerView;
 
     move-result-object v1
 
-    .line 959
-    if-nez v1, :cond_44
-
-    .line 960
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 962
-    :cond_44
     const/4 v2, 0x4
 
     invoke-virtual {v1, v2}, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
 
-    .line 963
+    .line 728
     iget-object v1, p0, Lbl/afi$i;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->a:Lcom/bilibili/tv/ui/base/LoadingImageView;
-    invoke-static {v1}, Lbl/afi;->access$800(Lbl/afi;)Lcom/bilibili/tv/ui/base/LoadingImageView;
+    invoke-static {v1}, Lbl/afi;->access$900(Lbl/afi;)Lcom/bilibili/tv/ui/base/LoadingImageView;
 
     move-result-object v1
 
-    .line 964
-    if-nez v1, :cond_53
-
-    .line 965
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 967
-    :cond_53
     invoke-virtual {v1, v3}, Lcom/bilibili/tv/ui/base/LoadingImageView;->setRefreshError(Z)V
 
-    .line 969
-    :cond_56
+    .line 730
+    :cond_4c
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/search/SearchActivity;->j()Z
 
     move-result v1
 
-    if-eqz v1, :cond_67
+    if-eqz v1, :cond_5d
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/search/SearchActivity;->h()Lcom/bilibili/tv/ui/search/SearchKeyboardView;
 
     move-result-object v1
 
-    if-eqz v1, :cond_67
+    if-eqz v1, :cond_5d
 
-    .line 970
+    .line 731
     const/16 v2, 0x25
 
     invoke-virtual {v1, v2}, Lcom/bilibili/tv/ui/search/SearchKeyboardView;->j(I)Z
 
-    .line 973
-    :cond_67
+    .line 734
+    :cond_5d
     invoke-virtual {v0, v3}, Lcom/bilibili/tv/ui/search/SearchActivity;->a(Z)V
 
     goto :goto_e

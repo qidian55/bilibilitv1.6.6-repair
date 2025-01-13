@@ -360,6 +360,54 @@
     .end annotation
 .end method
 
+.method public abstract searchLive(Ljava/lang/String;IILjava/lang/String;)Lbl/vp;
+    .param p1    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "keyword"
+        .end annotation
+    .end param
+    .param p2    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "page"
+        .end annotation
+    .end param
+    .param p3    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "page_size"
+        .end annotation
+    .end param
+    .param p4    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "order"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "II",
+            "Ljava/lang/String;",
+            ")",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/x/web-interface/search/type?search_type=live"
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/Headers;
+        a = {
+            "Cookie: "
+        }
+    .end annotation
+.end method
+
 .method public abstract tripleVideo(Ljava/lang/String;J)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;

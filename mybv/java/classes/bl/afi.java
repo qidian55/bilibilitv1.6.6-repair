@@ -16,7 +16,6 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
 import bl.adc;
-import bl.afi;
 import bl.bbi;
 import com.bilibili.tv.MainApplication;
 import com.bilibili.tv.R;
@@ -43,6 +42,12 @@ import java.util.Collection;
 import java.util.List;
 import kotlin.TypeCastException;
 
+import mybl.BiliLiveContent;
+import mybl.BiliLiveContentEx2;
+import mybl.MyBiliApiService;
+import com.alibaba.fastjson.*;
+import com.bilibili.tv.ui.live.player.LivePlayerActivity;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public final class afi extends adt {
@@ -68,6 +73,7 @@ public final class afi extends adt {
     private int s;
     private String l = SearchActivity.Companion.c()[0];
     private String m = SearchActivity.Companion.d()[0];
+    public String live_order = SearchActivity.live_orders[0];
     private int o = 1;
     private boolean p = true;
 
@@ -128,20 +134,13 @@ public final class afi extends adt {
         this.b = (RecyclerView) a(view, R.id.result_container);
         this.c = (RecyclerView) a(view, R.id.category_container);
         this.n = (ImageView) a(view, R.id.category_more);
-        RecyclerView recyclerView = this.b;
-        if (recyclerView == null) {
-            bbi.a();
-        }
-        recyclerView.setHasFixedSize(true);
+        this.b.setHasFixedSize(true);
         this.a = (LoadingImageView) a(view, R.id.loading_view);
         final FragmentActivity activity = getActivity();
         this.f = new FixLinearLayoutManager(activity) { // from class: com.bilibili.tv.ui.search.SearchResultFragment$onViewCreated$1
             @Override // android.support.v7.widget.RecyclerView.h
             public View d(View view2, int i3) {
                 View m2;
-                if (view2 == null) {
-                    bbi.a();
-                }
                 int d2 = d(view2);
                 if (i3 == 17) {
                     FragmentActivity activity2 = afi.this.getActivity();
@@ -164,50 +163,22 @@ public final class afi extends adt {
                 return super.d(view2, i3);
             }
         };
-        RecyclerView recyclerView2 = this.b;
-        if (recyclerView2 == null) {
-            bbi.a();
-        }
-        recyclerView2.setLayoutManager(this.f);
-        RecyclerView recyclerView3 = this.b;
-        if (recyclerView3 == null) {
-            bbi.a();
-        }
-        recyclerView3.a(new o());
+        this.b.setLayoutManager(this.f);
+        this.b.a(new o());
         this.d = new f();
-        RecyclerView recyclerView4 = this.b;
-        if (recyclerView4 == null) {
-            bbi.a();
-        }
-        recyclerView4.setAdapter(this.d);
+        this.b.setAdapter(this.d);
         final FragmentActivity activity2 = getActivity();
         this.g = new FixLinearLayoutManager(activity2) { // from class: com.bilibili.tv.ui.search.SearchResultFragment$onViewCreated$3
             @Override // android.support.v7.widget.RecyclerView.h
             public View d(View view2, int i3) {
-                afi.c cVar;
-                if (view2 == null) {
-                    bbi.a();
-                }
                 int d2 = d(view2);
                 if (i3 == 17) {
                     if (afi.this.q) {
                         return view2;
                     }
-                    LinearLayoutManager linearLayoutManager = afi.this.f;
-                    if (linearLayoutManager == null) {
-                        bbi.a();
-                    }
-                    int o2 = linearLayoutManager.o();
-                    cVar = afi.this.e;
-                    if (cVar == null) {
-                        bbi.a();
-                    }
-                    cVar.b(true);
-                    LinearLayoutManager linearLayoutManager2 = afi.this.f;
-                    if (linearLayoutManager2 == null) {
-                        bbi.a();
-                    }
-                    return linearLayoutManager2.c(o2);
+                    int o2 = afi.this.f.o();
+                    afi.this.e.b(true);
+                    return afi.this.f.c(o2);
                 }
                 if (i3 != 33) {
                     if (i3 == 66) {
@@ -222,11 +193,7 @@ public final class afi extends adt {
                 return super.d(view2, i3);
             }
         };
-        RecyclerView recyclerView5 = this.c;
-        if (recyclerView5 == null) {
-            bbi.a();
-        }
-        recyclerView5.setLayoutManager(this.g);
+        this.c.setLayoutManager(this.g);
         List<CategoryMeta> p2 = p();
         if (p2 != null) {
             int size = p2.size();
@@ -240,28 +207,12 @@ public final class afi extends adt {
             i2 = 0;
         }
         this.e = new c(this, p2, i2);
-        RecyclerView recyclerView6 = this.c;
-        if (recyclerView6 == null) {
-            bbi.a();
-        }
-        recyclerView6.setAdapter(this.e);
-        LinearLayoutManager linearLayoutManager = this.g;
-        if (linearLayoutManager == null) {
-            bbi.a();
-        }
-        linearLayoutManager.b(i2, 0);
+        this.c.setAdapter(this.e);
+        this.g.b(i2, 0);
         if (i2 >= 8) {
-            LinearLayoutManager linearLayoutManager2 = this.g;
-            if (linearLayoutManager2 == null) {
-                bbi.a();
-            }
-            linearLayoutManager2.a(true);
+            this.g.a(true);
         }
-        RecyclerView recyclerView7 = this.c;
-        if (recyclerView7 == null) {
-            bbi.a();
-        }
-        recyclerView7.getViewTreeObserver().addOnGlobalFocusChangeListener(new p());
+        this.c.getViewTreeObserver().addOnGlobalFocusChangeListener(new p());
         this.h = new g();
         this.i = new j();
         this.j = new h();
@@ -271,42 +222,21 @@ public final class afi extends adt {
     /* compiled from: BL */
     /* loaded from: classes.dex */
     public final class o extends RecyclerView.m {
-        o() {
-        }
-
         @Override // android.support.v7.widget.RecyclerView.m
         public void a(RecyclerView recyclerView, int i) {
             super.a(recyclerView, i);
             if (!afi.this.p || afi.this.q || afi.this.d == null) {
                 return;
             }
-            LinearLayoutManager linearLayoutManager = afi.this.f;
-            if (linearLayoutManager == null) {
-                bbi.a();
-            }
-            int p = linearLayoutManager.p();
-            LinearLayoutManager linearLayoutManager2 = afi.this.f;
-            if (linearLayoutManager2 == null) {
-                bbi.a();
-            }
-            if (linearLayoutManager2.x() > 0) {
+            int p = afi.this.f.p();
+            if (afi.this.f.x() > 0) {
                 int i2 = p + 2;
-                if (afi.this.f == null) {
-                    bbi.a();
-                }
-                if (i2 >= linearLayoutManager2.H() - 1) {
-                    LinearLayoutManager linearLayoutManager3 = afi.this.f;
-                    if (linearLayoutManager3 == null) {
-                        bbi.a();
-                    }
-                    int H = linearLayoutManager3.H();
-                    LinearLayoutManager linearLayoutManager4 = afi.this.f;
-                    if (linearLayoutManager4 == null) {
-                        bbi.a();
-                    }
-                    if (H > linearLayoutManager4.x()) {
+                if (i2 >= afi.this.f.H() - 1) {
+                    int H = afi.this.f.H();
+                    if (H > afi.this.f.x()) {
                         afi.this.o++;
-                        afi.this.f();
+                        if(afi.this.s==0)afi.this.f();
+                        else afi.this.a(afi.this.s);
                     }
                 }
             }
@@ -347,21 +277,9 @@ public final class afi extends adt {
             this.s = 0;
             o();
             if (this.d != null) {
-                f fVar = this.d;
-                if (fVar == null) {
-                    bbi.a();
-                }
-                fVar.c(true);
-                f fVar2 = this.d;
-                if (fVar2 == null) {
-                    bbi.a();
-                }
-                if (fVar2.h() != null) {
-                    f fVar3 = this.d;
-                    if (fVar3 == null) {
-                        bbi.a();
-                    }
-                    fVar3.h().clear();
+                this.d.c(true);
+                if (this.d.h() != null) {
+                    this.d.h().clear();
                 }
             }
             View m2 = m();
@@ -369,11 +287,7 @@ public final class afi extends adt {
                 m2.setSelected(false);
             }
             if (this.c != null) {
-                RecyclerView recyclerView = this.c;
-                if (recyclerView == null) {
-                    bbi.a();
-                }
-                recyclerView.a(0);
+                this.c.a(0);
             }
         }
     }
@@ -385,21 +299,9 @@ public final class afi extends adt {
     }
 
     public final void d() {
-        RecyclerView recyclerView = this.b;
-        if (recyclerView == null) {
-            bbi.a();
-        }
-        if (recyclerView.getVisibility() == 0) {
-            LinearLayoutManager linearLayoutManager = this.f;
-            if (linearLayoutManager == null) {
-                bbi.a();
-            }
-            int o2 = linearLayoutManager.o();
-            LinearLayoutManager linearLayoutManager2 = this.f;
-            if (linearLayoutManager2 == null) {
-                bbi.a();
-            }
-            View c2 = linearLayoutManager2.c(o2);
+        if (this.b.getVisibility() == 0) {
+            int o2 = this.f.o();
+            View c2 = this.f.c(o2);
             if (c2 != null) {
                 c2.requestFocus();
                 return;
@@ -417,19 +319,11 @@ public final class afi extends adt {
         if (this.c == null) {
             return null;
         }
-        RecyclerView recyclerView = this.c;
-        if (recyclerView == null) {
-            bbi.a();
-        }
         int i2 = 0;
-        int childCount = recyclerView.getChildCount() - 1;
+        int childCount = this.c.getChildCount() - 1;
         if (childCount >= 0) {
             while (true) {
-                RecyclerView recyclerView2 = this.c;
-                if (recyclerView2 == null) {
-                    bbi.a();
-                }
-                View childAt = recyclerView2.getChildAt(i2);
+                View childAt = this.c.getChildAt(i2);
                 bbi.a((Object) childAt, "child");
                 if (!childAt.isSelected()) {
                     if (i2 == childCount) {
@@ -441,16 +335,8 @@ public final class afi extends adt {
                 }
             }
         }
-        LinearLayoutManager linearLayoutManager = this.g;
-        if (linearLayoutManager == null) {
-            bbi.a();
-        }
-        int o2 = linearLayoutManager.o();
-        LinearLayoutManager linearLayoutManager2 = this.g;
-        if (linearLayoutManager2 == null) {
-            bbi.a();
-        }
-        return linearLayoutManager2.c(o2);
+        int o2 = this.g.o();
+        return this.g.c(o2);
     }
 
     public final void a(String str) {
@@ -466,29 +352,18 @@ public final class afi extends adt {
         this.s = 0;
         this.l = SearchActivity.Companion.c()[0];
         this.m = SearchActivity.Companion.d()[0];
+        this.live_order = SearchActivity.live_orders[0];
     }
 
     public final void e() {
         this.q = true;
         adn.a(this.c, 0, 10L);
         if (this.e != null) {
-            c cVar = this.e;
-            if (cVar == null) {
-                bbi.a();
-            }
-            cVar.e(0);
+            this.e.e(0);
         }
         if (this.o == 1) {
-            LoadingImageView loadingImageView = this.a;
-            if (loadingImageView == null) {
-                bbi.a();
-            }
-            loadingImageView.a();
-            RecyclerView recyclerView = this.b;
-            if (recyclerView == null) {
-                bbi.a();
-            }
-            recyclerView.setVisibility(4);
+            this.a.a();
+            this.b.setVisibility(View.INVISIBLE);
         }
         ((BiliSearchApi) vo.a(BiliSearchApi.class)).searchAll(new BiliSearchApi.SearchAllParamsMap(this.r, this.o, this.l, this.s)).a(this.h);
     }
@@ -496,16 +371,8 @@ public final class afi extends adt {
     public final void f() {
         this.q = true;
         if (this.o == 1) {
-            LoadingImageView loadingImageView = this.a;
-            if (loadingImageView == null) {
-                bbi.a();
-            }
-            loadingImageView.a();
-            RecyclerView recyclerView = this.b;
-            if (recyclerView == null) {
-                bbi.a();
-            }
-            recyclerView.setVisibility(4);
+            this.a.a();
+            this.b.setVisibility(View.INVISIBLE);
         }
         ((BiliSearchApi) vo.a(BiliSearchApi.class)).searchAll(new BiliSearchApi.SearchAllParamsMap(this.r, this.o, this.l, this.s)).a(this.i);
     }
@@ -513,16 +380,8 @@ public final class afi extends adt {
     public final void g() {
         this.q = true;
         if (this.o == 1) {
-            LoadingImageView loadingImageView = this.a;
-            if (loadingImageView == null) {
-                bbi.a();
-            }
-            loadingImageView.a();
-            RecyclerView recyclerView = this.b;
-            if (recyclerView == null) {
-                bbi.a();
-            }
-            recyclerView.setVisibility(4);
+            this.a.a();
+            this.b.setVisibility(View.INVISIBLE);
         }
         ((BiliSearchApi) vo.a(BiliSearchApi.class)).searchPgc(new BiliSearchApi.SearchAllParamsMap(this.r, this.o, this.l, 0)).a(this.j);
     }
@@ -530,22 +389,27 @@ public final class afi extends adt {
     public final void h() {
         this.q = true;
         if (this.o == 1) {
-            LoadingImageView loadingImageView = this.a;
-            if (loadingImageView == null) {
-                bbi.a();
-            }
-            loadingImageView.a();
-            RecyclerView recyclerView = this.b;
-            if (recyclerView == null) {
-                bbi.a();
-            }
-            recyclerView.setVisibility(4);
+            this.a.a();
+            this.b.setVisibility(View.INVISIBLE);
         }
         ((BiliSearchApi) vo.a(BiliSearchApi.class)).searchUper(new BiliSearchApi.SearchUperParamsMap(this.r, this.o, this.m)).a(this.k);
     }
 
+    public final void getLives() {
+        this.q = true;
+        if (this.o == 1) {
+            this.a.a();
+            this.b.setVisibility(View.INVISIBLE);
+        }
+        ((MyBiliApiService) vo.a(MyBiliApiService.class)).searchLive(this.r, this.o, 20, this.live_order).a(new SearchLiveResponse());
+    }
+
     public final boolean i() {
         return this.s == -2;
+    }
+
+    public final boolean is_live() {
+        return this.s == CategoryManager.T1_LIVE;
     }
 
     public final boolean j() {
@@ -569,10 +433,10 @@ public final class afi extends adt {
         }
     }
 
-    public final void c(String str) {
-        bbi.b(str, "order");
-        boolean equals = TextUtils.equals(str, this.m);
-        this.m = str;
+    public final void c(String order) {
+        bbi.b(order, "order");
+        boolean equals = TextUtils.equals(order, this.m);
+        this.m = order;
         if (equals) {
             return;
         }
@@ -586,27 +450,30 @@ public final class afi extends adt {
         }
     }
 
+
+    public final void cc(String order) {
+        if(TextUtils.equals(order, this.live_order))return;
+        this.live_order = order;
+        View m2 = m();
+        if (m2 != null) {
+            m2.requestFocus();
+        }
+        if (this.d != null) {
+            o();
+            a(this.s);
+        }
+    }
+
+
     /* JADX INFO: Access modifiers changed from: private */
     public final void o() {
         this.o = 1;
         this.p = true;
         if (this.d != null) {
-            f fVar = this.d;
-            if (fVar == null) {
-                bbi.a();
-            }
-            fVar.i();
+            this.d.i();
         }
-        RecyclerView recyclerView = this.b;
-        if (recyclerView == null) {
-            bbi.a();
-        }
-        recyclerView.setVisibility(4);
-        RecyclerView recyclerView2 = this.b;
-        if (recyclerView2 == null) {
-            bbi.a();
-        }
-        recyclerView2.a(0);
+        this.b.setVisibility(4);
+        this.b.a(0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -635,16 +502,8 @@ public final class afi extends adt {
             SearchActivity searchActivity = (SearchActivity) activity;
             if (searchActivity != null) {
                 afi.this.q = false;
-                RecyclerView recyclerView = afi.this.b;
-                if (recyclerView == null) {
-                    bbi.a();
-                }
-                recyclerView.setVisibility(4);
-                LoadingImageView loadingImageView = afi.this.a;
-                if (loadingImageView == null) {
-                    bbi.a();
-                }
-                loadingImageView.setRefreshError(false);
+                afi.this.b.setVisibility(4);
+                afi.this.a.setRefreshError(false);
                 if (searchActivity.h() != null) {
                     searchActivity.i().setFocusable(false);
                     if (searchActivity.j() && (h = searchActivity.h()) != null) {
@@ -671,16 +530,8 @@ public final class afi extends adt {
                 if (biliSearchResultAllNew.isEmpty()) {
                     if (searchActivity.h() != null) {
                         if (afi.this.o == 1) {
-                            RecyclerView recyclerView = afi.this.b;
-                            if (recyclerView == null) {
-                                bbi.a();
-                            }
-                            recyclerView.setVisibility(4);
-                            LoadingImageView loadingImageView = afi.this.a;
-                            if (loadingImageView == null) {
-                                bbi.a();
-                            }
-                            loadingImageView.c();
+                            afi.this.b.setVisibility(4);
+                            afi.this.a.c();
                         }
                         if (searchActivity.j() && (h = searchActivity.h()) != null) {
                             h.j(37);
@@ -691,39 +542,19 @@ public final class afi extends adt {
                     return;
                 }
                 searchActivity.a(false);
-                LoadingImageView loadingImageView2 = afi.this.a;
-                if (loadingImageView2 == null) {
-                    bbi.a();
-                }
-                loadingImageView2.b();
-                RecyclerView recyclerView2 = afi.this.b;
-                if (recyclerView2 == null) {
-                    bbi.a();
-                }
-                if (recyclerView2.getVisibility() == 4) {
-                    RecyclerView recyclerView3 = afi.this.b;
-                    if (recyclerView3 == null) {
-                        bbi.a();
-                    }
-                    recyclerView3.setVisibility(0);
+                afi.this.a.b();
+                if (afi.this.b.getVisibility() == 4) {
+                    afi.this.b.setVisibility(0);
                 }
                 if ((afi.this.s == 13 || afi.this.s == 0) && biliSearchResultAllNew.items.season != null && !biliSearchResultAllNew.items.season.isEmpty()) {
-                    f fVar = afi.this.d;
-                    if (fVar == null) {
-                        bbi.a();
-                    }
                     ArrayList<BiliSearchResultNew.Bangumi> arrayList = biliSearchResultAllNew.items.season;
                     bbi.a((Object) arrayList, "response.items.season");
-                    fVar.a(arrayList);
+                    afi.this.d.a(arrayList);
                 }
                 if (biliSearchResultAllNew.items.archive != null && !biliSearchResultAllNew.items.archive.isEmpty()) {
-                    f fVar2 = afi.this.d;
-                    if (fVar2 == null) {
-                        bbi.a();
-                    }
                     ArrayList<BiliSearchResultNew.Video> arrayList2 = biliSearchResultAllNew.items.archive;
                     bbi.a((Object) arrayList2, "response.items.archive");
-                    fVar2.b(arrayList2);
+                    afi.this.d.b(arrayList2);
                 }
                 RecyclerView recyclerView4 = afi.this.b;
                 if (recyclerView4 != null) {
@@ -742,11 +573,7 @@ public final class afi extends adt {
 
             @Override // java.lang.Runnable
             public final void run() {
-                RecyclerView recyclerView = afi.this.b;
-                if (recyclerView == null) {
-                    bbi.a();
-                }
-                adn.a(recyclerView);
+                adn.a(afi.this.b);
             }
         }
     }
@@ -764,9 +591,9 @@ public final class afi extends adt {
         }
 
         @Override // bl.vn
-        public void a(BiliSearchResultPgc biliSearchResultPgc) {
+        public void a(BiliSearchResultPgc response) {
             SearchKeyboardView h;
-            if (afi.this.d == null || biliSearchResultPgc == null || !afi.this.isVisible()) {
+            if (afi.this.d == null || response == null || !afi.this.isVisible()) {
                 return;
             }
             afi.this.q = false;
@@ -776,19 +603,11 @@ public final class afi extends adt {
             }
             SearchActivity searchActivity = (SearchActivity) activity;
             if (searchActivity != null) {
-                if (biliSearchResultPgc.isEmpty()) {
+                if (response.isEmpty()) {
                     if (searchActivity.h() != null) {
                         if (afi.this.o == 1) {
-                            RecyclerView recyclerView = afi.this.b;
-                            if (recyclerView == null) {
-                                bbi.a();
-                            }
-                            recyclerView.setVisibility(4);
-                            LoadingImageView loadingImageView = afi.this.a;
-                            if (loadingImageView == null) {
-                                bbi.a();
-                            }
-                            loadingImageView.c();
+                            afi.this.b.setVisibility(View.INVISIBLE);
+                            afi.this.a.c();
                         }
                         if (searchActivity.j() && (h = searchActivity.h()) != null) {
                             h.j(37);
@@ -798,31 +617,16 @@ public final class afi extends adt {
                     afi.this.p = false;
                     return;
                 }
+                if(response.items.size()<20)afi.this.p = false;
                 searchActivity.a(false);
-                LoadingImageView loadingImageView2 = afi.this.a;
-                if (loadingImageView2 == null) {
-                    bbi.a();
+                afi.this.a.b();
+                if (afi.this.b.getVisibility() == View.INVISIBLE) {
+                    afi.this.b.setVisibility(View.VISIBLE);
                 }
-                loadingImageView2.b();
-                RecyclerView recyclerView2 = afi.this.b;
-                if (recyclerView2 == null) {
-                    bbi.a();
-                }
-                if (recyclerView2.getVisibility() == 4) {
-                    RecyclerView recyclerView3 = afi.this.b;
-                    if (recyclerView3 == null) {
-                        bbi.a();
-                    }
-                    recyclerView3.setVisibility(0);
-                }
-                if (biliSearchResultPgc.items != null) {
-                    f fVar = afi.this.d;
-                    if (fVar == null) {
-                        bbi.a();
-                    }
-                    ArrayList<BiliSearchResultNew.Bangumi> arrayList = biliSearchResultPgc.items;
+                if (response.items != null) {
+                    ArrayList<BiliSearchResultNew.Bangumi> arrayList = response.items;
                     bbi.a((Object) arrayList, "response.items");
-                    fVar.a(arrayList);
+                    afi.this.d.a(arrayList);
                 }
             }
         }
@@ -844,16 +648,8 @@ public final class afi extends adt {
                 if (searchActivity.h() != null) {
                     searchActivity.i().setFocusable(false);
                     if (afi.this.o == 1) {
-                        RecyclerView recyclerView = afi.this.b;
-                        if (recyclerView == null) {
-                            bbi.a();
-                        }
-                        recyclerView.setVisibility(4);
-                        LoadingImageView loadingImageView = afi.this.a;
-                        if (loadingImageView == null) {
-                            bbi.a();
-                        }
-                        loadingImageView.setRefreshError(false);
+                        afi.this.b.setVisibility(4);
+                        afi.this.a.setRefreshError(false);
                     }
                     if (searchActivity.j() && (h = searchActivity.h()) != null) {
                         h.j(37);
@@ -868,9 +664,6 @@ public final class afi extends adt {
     /* compiled from: BL */
     /* loaded from: classes.dex */
     public final class i extends vn<List<BiliSearchResultUper>> {
-        public i() {
-        }
-
         @Override // bl.vm
         public boolean isCancel() {
             return afi.this.d == null;
@@ -892,16 +685,8 @@ public final class afi extends adt {
                 if (list.isEmpty()) {
                     if (searchActivity.h() != null) {
                         if (afi.this.o == 1) {
-                            RecyclerView recyclerView = afi.this.b;
-                            if (recyclerView == null) {
-                                bbi.a();
-                            }
-                            recyclerView.setVisibility(4);
-                            LoadingImageView loadingImageView = afi.this.a;
-                            if (loadingImageView == null) {
-                                bbi.a();
-                            }
-                            loadingImageView.c();
+                            afi.this.b.setVisibility(4);
+                            afi.this.a.c();
                         }
                         if (searchActivity.j() && (h = searchActivity.h()) != null) {
                             h.j(37);
@@ -912,28 +697,12 @@ public final class afi extends adt {
                     return;
                 }
                 searchActivity.a(false);
-                LoadingImageView loadingImageView2 = afi.this.a;
-                if (loadingImageView2 == null) {
-                    bbi.a();
-                }
-                loadingImageView2.b();
-                RecyclerView recyclerView2 = afi.this.b;
-                if (recyclerView2 == null) {
-                    bbi.a();
-                }
-                if (recyclerView2.getVisibility() == 4) {
-                    RecyclerView recyclerView3 = afi.this.b;
-                    if (recyclerView3 == null) {
-                        bbi.a();
-                    }
-                    recyclerView3.setVisibility(0);
+                afi.this.a.b();
+                if (afi.this.b.getVisibility() == 4) {
+                    afi.this.b.setVisibility(0);
                 }
                 if (!list.isEmpty()) {
-                    f fVar = afi.this.d;
-                    if (fVar == null) {
-                        bbi.a();
-                    }
-                    fVar.c(list);
+                    afi.this.d.c(list);
                 }
             }
         }
@@ -955,16 +724,8 @@ public final class afi extends adt {
                 if (searchActivity.h() != null) {
                     searchActivity.i().setFocusable(false);
                     if (afi.this.o == 1) {
-                        RecyclerView recyclerView = afi.this.b;
-                        if (recyclerView == null) {
-                            bbi.a();
-                        }
-                        recyclerView.setVisibility(4);
-                        LoadingImageView loadingImageView = afi.this.a;
-                        if (loadingImageView == null) {
-                            bbi.a();
-                        }
-                        loadingImageView.setRefreshError(false);
+                        afi.this.b.setVisibility(4);
+                        afi.this.a.setRefreshError(false);
                     }
                     if (searchActivity.j() && (h = searchActivity.h()) != null) {
                         h.j(37);
@@ -988,9 +749,9 @@ public final class afi extends adt {
         }
 
         @Override // bl.vn
-        public void a(BiliSearchResultAllNew biliSearchResultAllNew) {
+        public void a(BiliSearchResultAllNew response) {
             SearchKeyboardView h;
-            if (afi.this.d == null || biliSearchResultAllNew == null || !afi.this.isVisible()) {
+            if (afi.this.d == null || response == null || !afi.this.isVisible()) {
                 return;
             }
             afi.this.q = false;
@@ -1000,19 +761,11 @@ public final class afi extends adt {
             }
             SearchActivity searchActivity = (SearchActivity) activity;
             if (searchActivity != null) {
-                if (biliSearchResultAllNew.isArchiveEmpty()) {
+                if (response.isArchiveEmpty()) {
                     if (searchActivity.h() != null) {
                         if (afi.this.o == 1) {
-                            RecyclerView recyclerView = afi.this.b;
-                            if (recyclerView == null) {
-                                bbi.a();
-                            }
-                            recyclerView.setVisibility(4);
-                            LoadingImageView loadingImageView = afi.this.a;
-                            if (loadingImageView == null) {
-                                bbi.a();
-                            }
-                            loadingImageView.c();
+                            afi.this.b.setVisibility(4);
+                            afi.this.a.c();
                         }
                         if (searchActivity.j() && (h = searchActivity.h()) != null) {
                             h.j(37);
@@ -1023,31 +776,15 @@ public final class afi extends adt {
                     return;
                 }
                 searchActivity.a(false);
-                LoadingImageView loadingImageView2 = afi.this.a;
-                if (loadingImageView2 == null) {
-                    bbi.a();
-                }
-                loadingImageView2.b();
-                RecyclerView recyclerView2 = afi.this.b;
-                if (recyclerView2 == null) {
-                    bbi.a();
-                }
-                if (recyclerView2.getVisibility() == 4) {
-                    RecyclerView recyclerView3 = afi.this.b;
-                    if (recyclerView3 == null) {
-                        bbi.a();
-                    }
-                    recyclerView3.setVisibility(0);
+                afi.this.a.b();
+                if (afi.this.b.getVisibility() == 4) {
+                    afi.this.b.setVisibility(0);
                 }
                 boolean z = afi.this.s == 13 || afi.this.s == 0;
-                if (biliSearchResultAllNew.items.archive != null) {
-                    f fVar = afi.this.d;
-                    if (fVar == null) {
-                        bbi.a();
-                    }
-                    ArrayList<BiliSearchResultNew.Video> arrayList = biliSearchResultAllNew.items.archive;
+                if (response.items.archive != null) {
+                    ArrayList<BiliSearchResultNew.Video> arrayList = response.items.archive;
                     bbi.a((Object) arrayList, "response.items.archive");
-                    fVar.a(arrayList, z);
+                    afi.this.d.a(arrayList, z);
                 }
             }
         }
@@ -1069,16 +806,8 @@ public final class afi extends adt {
                 if (searchActivity.h() != null) {
                     searchActivity.i().setFocusable(false);
                     if (afi.this.o == 1) {
-                        RecyclerView recyclerView = afi.this.b;
-                        if (recyclerView == null) {
-                            bbi.a();
-                        }
-                        recyclerView.setVisibility(4);
-                        LoadingImageView loadingImageView = afi.this.a;
-                        if (loadingImageView == null) {
-                            bbi.a();
-                        }
-                        loadingImageView.setRefreshError(false);
+                        afi.this.b.setVisibility(4);
+                        afi.this.a.setRefreshError(false);
                     }
                     if (searchActivity.j() && (h = searchActivity.h()) != null) {
                         h.j(37);
@@ -1089,6 +818,84 @@ public final class afi extends adt {
         }
     }
 
+
+    public final class SearchLiveResponse extends vn<JSONObject> {
+
+        @Override // bl.vm
+        public boolean isCancel() {
+            return afi.this.d == null;
+        }
+
+        @Override // bl.vn
+        public void a(JSONObject response) {
+            SearchKeyboardView h;
+            List<BiliLiveContent> rooms = new ArrayList<BiliLiveContent>(JSON.parseArray(response.getJSONObject("result").getJSONArray("live_room").toString(), BiliLiveContentEx2.class));
+    
+            if (afi.this.d == null || rooms == null || !afi.this.isVisible()) {
+                return;
+            }
+            afi.this.q = false;
+            FragmentActivity activity = afi.this.getActivity();
+            if (!(activity instanceof SearchActivity)) {
+                activity = null;
+            }
+            SearchActivity searchActivity = (SearchActivity) activity;
+            if (searchActivity != null) {
+                if (rooms.isEmpty()) {
+                    if (searchActivity.h() != null) {
+                        if (afi.this.o == 1) {
+                            afi.this.b.setVisibility(4);
+                            afi.this.a.c();
+                        }
+                        if (searchActivity.j() && (h = searchActivity.h()) != null) {
+                            h.j(37);
+                        }
+                        searchActivity.i().setFocusable(false);
+                    }
+                    afi.this.p = false;
+                    return;
+                }
+                searchActivity.a(false);
+                afi.this.a.b();
+                if (afi.this.b.getVisibility() == 4) {
+                    afi.this.b.setVisibility(0);
+                }
+                if (!rooms.isEmpty()) {
+                    afi.this.d.addRooms(rooms);
+                }
+            }
+        }
+
+        @Override // bl.vm
+        public void onError(Throwable th) {
+            SearchKeyboardView h;
+            bbi.b(th, "t");
+            if (afi.this.d == null) {
+                return;
+            }
+            afi.this.q = false;
+            FragmentActivity activity = afi.this.getActivity();
+            if (!(activity instanceof SearchActivity)) {
+                activity = null;
+            }
+            SearchActivity searchActivity = (SearchActivity) activity;
+            if (searchActivity != null) {
+                if (searchActivity.h() != null) {
+                    searchActivity.i().setFocusable(false);
+                    if (afi.this.o == 1) {
+                        afi.this.b.setVisibility(4);
+                        afi.this.a.setRefreshError(false);
+                    }
+                    if (searchActivity.j() && (h = searchActivity.h()) != null) {
+                        h.j(37);
+                    }
+                }
+                searchActivity.a(false);
+            }
+        }
+    }
+
+
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: BL */
     /* loaded from: classes.dex */
@@ -1097,6 +904,7 @@ public final class afi extends adt {
         private afi.b a;
         private n b;
         private k c;
+        private kk cc;
         private boolean d = true;
         private final ArrayList<BiliSearchResultNew.Bangumi> e = new ArrayList<>();
 
@@ -1135,6 +943,8 @@ public final class afi extends adt {
                     return ((afi.a)null).Companion.a(viewGroup);
                 case 3:
                     return ((l)null).Companion.a(viewGroup);
+                case 4:
+                    return ((LiveRoomView)null).Companion.a(viewGroup);
                 default:
                     return new b(viewGroup, new View(viewGroup.getContext()));
             }
@@ -1173,9 +983,12 @@ public final class afi extends adt {
             this.e.addAll(list);
             if (this.a == null) {
                 this.a = new afi.b(list);
+                a(this.a);
+                e();
+                return;
             }
-            a(this.a);
-            e();
+            this.a.a(list);
+            b(false);
         }
 
         public final void b(List<BiliSearchResultNew.Video> list) {
@@ -1191,9 +1004,12 @@ public final class afi extends adt {
             bbi.b(list, "list");
             if (this.c == null) {
                 this.c = new k(baf.b((Collection) list));
+                a(this.c);
+                e();
+                return;
             }
-            a(this.c);
-            e();
+            this.c.a(list);
+            b(false);
         }
 
         public final void a(List<BiliSearchResultNew.Video> list, boolean z) {
@@ -1210,11 +1026,19 @@ public final class afi extends adt {
                 e();
                 return;
             }
-            n nVar = this.b;
-            if (nVar == null) {
-                bbi.a();
+            this.b.a(list);
+            b(false);
+        }
+
+        public final void addRooms(List<BiliLiveContent> list) {
+            bbi.b(list, "list");
+            if (this.cc == null) {
+                this.cc = new kk(baf.b((Collection) list));
+                a(this.cc);
+                e();
+                return;
             }
-            nVar.a(list);
+            this.cc.a(list);
             b(false);
         }
 
@@ -1224,28 +1048,20 @@ public final class afi extends adt {
             b(this.b);
             b(this.c);
             if (this.a != null) {
-                afi.b bVar = this.a;
-                if (bVar == null) {
-                    bbi.a();
-                }
-                bVar.b().clear();
+                this.a.b().clear();
                 this.a = (afi.b) null;
             }
             if (this.b != null) {
-                n nVar = this.b;
-                if (nVar == null) {
-                    bbi.a();
-                }
-                nVar.b().clear();
+                this.b.b().clear();
                 this.b = (n) null;
             }
             if (this.c != null) {
-                k kVar = this.c;
-                if (kVar == null) {
-                    bbi.a();
-                }
-                kVar.b().clear();
+                this.c.b().clear();
                 this.c = (k) null;
+            }
+            if (this.cc != null) {
+                this.cc.b().clear();
+                this.cc = (kk) null;
             }
         }
 
@@ -1268,19 +1084,9 @@ public final class afi extends adt {
         private ArrayList<BiliSearchResultNew.Bangumi> a;
 
         @Override // bl.ade
-        public int c(int i) {
-            return 2;
-        }
-
-        public b(List<BiliSearchResultNew.Bangumi> list) {
-            bbi.b(list, "list");
-            this.a = new ArrayList<>();
-            this.a = (ArrayList) list;
-        }
-
-        public final ArrayList<BiliSearchResultNew.Bangumi> b() {
-            return this.a;
-        }
+        public int c(int i) {return 2;}
+        public b(List<BiliSearchResultNew.Bangumi> list) {this.a = (ArrayList) list;}
+        public final ArrayList<BiliSearchResultNew.Bangumi> b() {return this.a;}
 
         @Override // bl.ade
         public Object b(int i) {
@@ -1290,14 +1096,10 @@ public final class afi extends adt {
         }
 
         @Override // bl.ade
-        public int a() {
-            return this.a.size();
-        }
-
+        public int a() {return this.a.size();}
         @Override // bl.adb, bl.ade
-        public long a(int i) {
-            return (c(i) << 32) + i;
-        }
+        public long a(int i) {return (c(i) << 32) + i;}
+        public final void a(List<BiliSearchResultNew.Bangumi> list) {this.a.addAll(list);}
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1307,19 +1109,9 @@ public final class afi extends adt {
         private List<BiliSearchResultNew.Video> a;
 
         @Override // bl.ade
-        public int c(int i) {
-            return 1;
-        }
-
-        public n(List<BiliSearchResultNew.Video> list) {
-            bbi.b(list, "list");
-            this.a = new ArrayList();
-            this.a = list;
-        }
-
-        public final List<BiliSearchResultNew.Video> b() {
-            return this.a;
-        }
+        public int c(int i) {return 1;}
+        public n(List<BiliSearchResultNew.Video> list) {this.a = list;}
+        public final List<BiliSearchResultNew.Video> b() {return this.a;}
 
         @Override // bl.ade
         public Object b(int i) {
@@ -1329,21 +1121,11 @@ public final class afi extends adt {
             }
             return null;
         }
-
         @Override // bl.ade
-        public int a() {
-            return this.a.size();
-        }
-
+        public int a() {return this.a.size();}
         @Override // bl.adb, bl.ade
-        public long a(int i) {
-            return (c(i) << 32) + i;
-        }
-
-        public final void a(List<BiliSearchResultNew.Video> list) {
-            bbi.b(list, "list");
-            this.a.addAll(list);
-        }
+        public long a(int i) {return (c(i) << 32) + i;}
+        public final void a(List<BiliSearchResultNew.Video> list) {this.a.addAll(list);}
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1353,19 +1135,9 @@ public final class afi extends adt {
         private List<BiliSearchResultUper> a;
 
         @Override // bl.ade
-        public int c(int i) {
-            return 3;
-        }
-
-        public k(List<BiliSearchResultUper> list) {
-            bbi.b(list, "list");
-            this.a = new ArrayList();
-            this.a = list;
-        }
-
-        public final List<BiliSearchResultUper> b() {
-            return this.a;
-        }
+        public int c(int i) {return 3;}
+        public k(List<BiliSearchResultUper> list) {this.a = list;}
+        public final List<BiliSearchResultUper> b() {return this.a;}
 
         @Override // bl.ade
         public Object b(int i) {
@@ -1377,15 +1149,37 @@ public final class afi extends adt {
         }
 
         @Override // bl.ade
-        public int a() {
-            return this.a.size();
+        public int a() {return this.a.size();}
+        @Override // bl.adb, bl.ade
+        public long a(int i) {return (c(i) << 32) + i;}
+        public final void a(List<BiliSearchResultUper> list) {this.a.addAll(list);}
+    }
+
+
+    public static final class kk extends adb {
+        private List<BiliLiveContent> a;
+
+        @Override // bl.ade
+        public int c(int i) {return 4;}
+        public kk(List<BiliLiveContent> list) {this.a = list;}
+        public final List<BiliLiveContent> b() {return this.a;}
+
+        @Override // bl.ade
+        public Object b(int i) {
+            int e = e(i);
+            if (e < this.a.size() && e >= 0) {
+                return this.a.get(e);
+            }
+            return null;
         }
 
+        @Override // bl.ade
+        public int a() {return this.a.size();}
         @Override // bl.adb, bl.ade
-        public long a(int i) {
-            return (c(i) << 32) + i;
-        }
+        public long a(int i) {return (c(i) << 32) + i;}
+        public final void a(List<BiliLiveContent> list) {this.a.addAll(list);}
     }
+
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
@@ -1400,17 +1194,17 @@ public final class afi extends adt {
         private final RecyclerView t;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public m(View view, ViewGroup viewGroup) {
-            super(view);
-            bbi.b(view, "itemView");
-            bbi.b(viewGroup, "parent");
-            this.n = (ScalableImageView) a(view, R.id.img);
-            this.o = (TextView) a(view, R.id.title);
-            this.p = (TextView) a(view, R.id.up);
-            this.q = (TextView) a(view, R.id.play);
-            this.r = (TextView) a(view, R.id.danmaku);
-            this.s = (DrawRelativeLayout) view;
-            this.t = (RecyclerView) viewGroup;
+        public m(View itemView, ViewGroup parent) {
+            super(itemView);
+            bbi.b(itemView, "itemView");
+            bbi.b(parent, "parent");
+            this.n = (ScalableImageView) a(itemView, R.id.img);
+            this.o = (TextView) a(itemView, R.id.title);
+            this.p = (TextView) a(itemView, R.id.up);
+            this.q = (TextView) a(itemView, R.id.play);
+            this.r = (TextView) a(itemView, R.id.danmaku);
+            this.s = (DrawRelativeLayout) itemView;
+            this.t = (RecyclerView) parent;
             this.s.setUpDrawable(R.drawable.shadow_white_rect);
             Drawable c = adl.a.c(R.drawable.ic_video_info_up);
             Drawable c2 = adl.a.c(R.drawable.ic_video_info_play);
@@ -1426,12 +1220,12 @@ public final class afi extends adt {
             this.p.setCompoundDrawables(c, null, null, null);
             this.q.setCompoundDrawables(c2, null, null, null);
             this.r.setCompoundDrawables(c3, null, null, null);
-            Object context = view.getContext();
+            Object context = itemView.getContext();
             if (context instanceof View.OnLongClickListener) {
-                view.setOnLongClickListener((View.OnLongClickListener) context);
+                itemView.setOnLongClickListener((View.OnLongClickListener) context);
             }
-            view.setOnClickListener(this);
-            view.setOnFocusChangeListener(this);
+            itemView.setOnClickListener(this);
+            itemView.setOnFocusChangeListener(this);
         }
 
         @Override // bl.adc.a
@@ -1453,9 +1247,9 @@ public final class afi extends adt {
                 if (video.cover != null) {
                     nv.a().a(ach.c(MainApplication.a(), video.cover), this.n);
                 }
-                View view = this.a;
-                bbi.a((Object) view, "itemView");
-                view.setTag(obj);
+                View itemView = this.a;
+                bbi.a((Object) itemView, "itemView");
+                itemView.setTag(obj);
             }
         }
 
@@ -1473,18 +1267,15 @@ public final class afi extends adt {
             VideoDetailActivity.a aVar = VideoDetailActivity.Companion;
             Activity activity = a2;
             Long valueOf = Long.valueOf(((BiliSearchResultNew.Video) tag).param);
-            if (valueOf == null) {
-                bbi.a();
-            }
             a2.startActivity(aVar.a((Context) activity, valueOf.longValue()));
         }
 
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view, boolean z) {
-            bbi.b(view, "v");
-            if (view instanceof afz) {
-                ((afz) view).setUpEnabled(z);
+        public void onFocusChange(View v, boolean z) {
+            bbi.b(v, "v");
+            if (v instanceof afz) {
+                ((afz) v).setUpEnabled(z);
             }
         }
 
@@ -1498,11 +1289,11 @@ public final class afi extends adt {
                 this();
             }
 
-            public final m a(ViewGroup viewGroup) {
-                bbi.b(viewGroup, "parent");
-                View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_view_item_video_info, viewGroup, false);
-                bbi.a((Object) inflate, "view");
-                return new m(inflate, viewGroup);
+            public final m a(ViewGroup parent) {
+                bbi.b(parent, "parent");
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_item_video_info, parent, false);
+                bbi.a((Object) view, "view");
+                return new m(view, parent);
             }
         }
     }
@@ -1679,10 +1470,8 @@ public final class afi extends adt {
             if (!(tag instanceof BiliSearchResultUper) || a2 == null) {
                 return;
             }
-            BiliSearchResultUper biliSearchResultUper = (BiliSearchResultUper) tag;
-            String str = biliSearchResultUper.uname;
-            bbi.a((Object) str, "obj.uname");
-            AuthSpaceActivity.Companion.a(a2, str, biliSearchResultUper.mid);
+            BiliSearchResultUper obj = (BiliSearchResultUper) tag;
+            AuthSpaceActivity.Companion.a(a2, obj.uname, obj.mid);
         }
 
         /* JADX WARN: Multi-variable type inference failed */
@@ -1713,6 +1502,88 @@ public final class afi extends adt {
         }
     }
 
+
+    public static final class LiveRoomView extends adc.a implements View.OnClickListener, View.OnFocusChangeListener {
+        public static final a Companion = new a(null);
+        public ScalableImageView n;
+        public TextView o;
+        public TextView p;
+        public DrawRelativeLayout q;
+        private DrawRelativeLayout t;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LiveRoomView(View view) {
+            super(view);
+            bbi.b(view, "itemView");
+            this.n = (ScalableImageView) a(view, R.id.img);
+            this.o = (TextView) a(view, R.id.title);
+            this.p = (TextView) a(view, R.id.sub_title);
+            this.q = (DrawRelativeLayout) a(view, R.id.draw);
+            this.t = (DrawRelativeLayout) view;
+            this.t.setUpDrawable(R.drawable.shadow_white_rect);
+            Object context = view.getContext();
+            if (context instanceof View.OnLongClickListener) {
+                view.setOnLongClickListener((View.OnLongClickListener) context);
+            }
+            view.setOnClickListener(this);
+            view.setOnFocusChangeListener(this);
+        }
+
+        @Override // bl.adc.a
+        public void b(Object obj) {
+            if (obj instanceof BiliLiveContent) {
+                BiliLiveContent biliLive = (BiliLiveContent) obj;
+                if (biliLive.mTitle != null) {
+                    this.o.setText(biliLive.mTitle);
+                }
+                if (biliLive.mOnline > 0) {
+                    this.p.setText("在线 " + adh.a(biliLive.mOnline));
+                }
+                if (!TextUtils.isEmpty(biliLive.mCover)) {
+                    nv.a().a(ach.b(MainApplication.a(), biliLive.mCover), this.n);
+                }
+                this.a.setTag(obj);
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View v) {
+            Object tag = v.getTag();
+            Activity a = adl.a(v.getContext());
+            if (!(tag instanceof BiliLiveContent) || a == null) {
+                return;
+            }
+            LivePlayerActivity.lives = new ArrayList<BiliLiveContent>();
+            LivePlayerActivity.lives.add((BiliLiveContent) tag);
+            LivePlayerActivity.live_index = 0;
+            a.startActivity(LivePlayerActivity.a(a, (BiliLiveContent) tag));
+        }
+
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // android.view.View.OnFocusChangeListener
+        public void onFocusChange(View v, boolean z) {
+            if (v instanceof afz) {
+                ((afz) v).setUpEnabled(z);
+            }
+        }
+
+        /* compiled from: BL */
+        /* loaded from: classes.dex */
+        public static final class a {
+            private a() {
+            }
+
+            public /* synthetic */ a(bbg bbgVar) {
+                this();
+            }
+
+            public final LiveRoomView a(ViewGroup parent) {
+                return new LiveRoomView(LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_item_video_history, parent, false));
+            }
+        }
+    }
+
+
     private final List<CategoryMeta> p() {
         CategoryMeta rootCategory = CategoryManager.getRootCategory(getActivity());
         if (rootCategory == null) {
@@ -1742,6 +1613,9 @@ public final class afi extends adt {
                 return;
             case -2:
                 h();
+                return;
+            case CategoryManager.T1_LIVE:
+                getLives();
                 return;
             default:
                 f();
@@ -1783,11 +1657,7 @@ public final class afi extends adt {
         public void a(RecyclerView.v vVar, int i) {
             bbi.b(vVar, "holder");
             d dVar = (d) vVar;
-            List<CategoryMeta> list = this.f;
-            if (list == null) {
-                bbi.a();
-            }
-            String str = list.get(i).mTypeName;
+            String str = this.f.get(i).mTypeName;
             bbi.a((Object) str, "mCategoryMetas!![position].mTypeName");
             dVar.a(str);
             dVar.a.setTag(R.id.tag, Integer.valueOf(i));
@@ -1843,11 +1713,7 @@ public final class afi extends adt {
         public void run() {
             afi afiVar = this.c.get();
             if (afiVar != null) {
-                List<CategoryMeta> list = this.f;
-                if (list == null) {
-                    bbi.a();
-                }
-                CategoryMeta categoryMeta = list.get(this.e);
+                CategoryMeta categoryMeta = this.f.get(this.e);
                 afiVar.s = categoryMeta.mTid;
                 afiVar.o();
                 afiVar.a(categoryMeta.mTid);
@@ -1865,11 +1731,7 @@ public final class afi extends adt {
                 if (afiVar != null) {
                     bbi.a((Object) afiVar, "mWeakReference.get() ?: return");
                     if (intValue != this.e) {
-                        LinearLayoutManager linearLayoutManager = afiVar.g;
-                        if (linearLayoutManager == null) {
-                            bbi.a();
-                        }
-                        View c = linearLayoutManager.c(this.e);
+                        View c = afiVar.g.c(this.e);
                         if (c != null) {
                             c.setSelected(false);
                         }
@@ -1936,11 +1798,7 @@ public final class afi extends adt {
                 throw new TypeCastException("null cannot be cast to non-null type android.widget.TextView");
             }
             this.n = (TextView) view;
-            TextView textView = this.n;
-            if (textView == null) {
-                bbi.a();
-            }
-            textView.setText(str);
+            this.n.setText(str);
             Object context = this.a.getContext();
             if (context instanceof View.OnLongClickListener) {
                 this.a.setOnLongClickListener((View.OnLongClickListener) context);

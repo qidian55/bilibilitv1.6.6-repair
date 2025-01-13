@@ -45,17 +45,17 @@
     .locals 1
 
     .prologue
-    .line 253
+    .line 246
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$a;-><init>()V
 
-    .line 254
+    .line 247
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lbl/aef$b;->a:Ljava/util/List;
 
-    .line 255
+    .line 248
     return-void
 .end method
 
@@ -63,7 +63,7 @@
     .locals 0
 
     .prologue
-    .line 250
+    .line 243
     invoke-direct {p0}, Lbl/aef$b;-><init>()V
 
     return-void
@@ -75,7 +75,7 @@
     .locals 1
 
     .prologue
-    .line 281
+    .line 273
     iget-object v0, p0, Lbl/aef$b;->a:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -89,7 +89,7 @@
     .locals 1
 
     .prologue
-    .line 250
+    .line 243
     invoke-virtual {p0, p1, p2}, Lbl/aef$b;->a(Landroid/view/ViewGroup;I)Lbl/adv;
 
     move-result-object v0
@@ -101,7 +101,7 @@
     .locals 4
 
     .prologue
-    .line 259
+    .line 252
     new-instance v0, Lbl/aef$c;
 
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
@@ -129,7 +129,7 @@
     .locals 0
 
     .prologue
-    .line 250
+    .line 243
     check-cast p1, Lbl/adv;
 
     invoke-virtual {p0, p1, p2}, Lbl/aef$b;->a(Lbl/adv;I)V
@@ -141,7 +141,7 @@
     .locals 6
 
     .prologue
-    .line 265
+    .line 258
     instance-of v0, p1, Lbl/aef$c;
 
     if-eqz v0, :cond_e
@@ -156,18 +156,18 @@
 
     if-nez v0, :cond_f
 
-    .line 277
+    .line 269
     :cond_e
     :goto_e
     return-void
 
-    .line 268
+    .line 261
     :cond_f
     iget-object v1, v0, Lmybl/BiliLiveContent;->mCover:Ljava/lang/String;
 
     if-eqz v1, :cond_21
 
-    .line 269
+    .line 262
     invoke-static {}, Lbl/nv;->a()Lbl/nv;
 
     move-result-object v2
@@ -182,21 +182,20 @@
 
     invoke-virtual {v2, v3, v1}, Lbl/nv;->a(Ljava/lang/String;Landroid/widget/ImageView;)V
 
-    .line 271
+    .line 264
     :cond_21
     check-cast p1, Lbl/aef$c;
 
-    .line 272
+    .line 265
     iget-object v1, p1, Lbl/aef$c;->o:Landroid/widget/TextView;
 
     iget-object v2, v0, Lmybl/BiliLiveContent;->mTitle:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 273
+    .line 266
     iget-object v1, p1, Lbl/aef$c;->p:Landroid/widget/TextView;
 
-    .line 274
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -223,12 +222,12 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 275
+    .line 267
     iget-object v1, p1, Lbl/aef$c;->a:Landroid/view/View;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 276
+    .line 268
     iget-object v0, p1, Lbl/aef$c;->a:Landroid/view/View;
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
@@ -249,13 +248,13 @@
     .end annotation
 
     .prologue
-    .line 286
+    .line 278
     iput-object p1, p0, Lbl/aef$b;->a:Ljava/util/List;
 
-    .line 287
+    .line 279
     invoke-virtual {p0}, Lbl/aef$b;->d()V
 
-    .line 288
+    .line 280
     return-void
 .end method
 
@@ -272,22 +271,22 @@
     .end annotation
 
     .prologue
-    .line 292
+    .line 284
     iget-object v0, p0, Lbl/aef$b;->a:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
-    .line 293
+    .line 285
     iget-object v1, p0, Lbl/aef$b;->a:Ljava/util/List;
 
     invoke-interface {v1, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 294
+    .line 286
     invoke-virtual {p0, v0}, Lbl/aef$b;->d(I)V
 
-    .line 295
+    .line 287
     return-void
 .end method
 
@@ -295,7 +294,7 @@
     .locals 4
 
     .prologue
-    .line 299
+    .line 291
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -304,31 +303,31 @@
 
     move-result-object v2
 
-    .line 300
+    .line 292
     if-nez v2, :cond_b
 
-    .line 309
+    .line 301
     :cond_a
     :goto_a
     return-void
 
-    .line 303
+    .line 295
     :cond_b
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 304
+    .line 296
     instance-of v0, v1, Lmybl/BiliLiveContent;
 
     if-eqz v0, :cond_a
 
-    .line 305
+    .line 297
     iget-object v0, p0, Lbl/aef$b;->a:Ljava/util/List;
 
     sput-object v0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->lives:Ljava/util/List;
 
-    .line 306
+    .line 298
     iget-object v3, p0, Lbl/aef$b;->a:Ljava/util/List;
 
     move-object v0, v1
@@ -341,7 +340,7 @@
 
     sput v0, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->live_index:I
 
-    .line 307
+    .line 299
     check-cast v1, Lmybl/BiliLiveContent;
 
     invoke-static {v2, v1}, Lcom/bilibili/tv/ui/live/player/LivePlayerActivity;->a(Landroid/content/Context;Lmybl/BiliLiveContent;)Landroid/content/Intent;

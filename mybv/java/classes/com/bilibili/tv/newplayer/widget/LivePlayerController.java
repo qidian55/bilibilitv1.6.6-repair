@@ -32,7 +32,6 @@ import com.bilibili.tv.R;
 import com.bilibili.tv.newplayer.bean.PlayControllerOptionType;
 import com.bilibili.tv.newplayer.video.LiveVideoPlayer;
 import com.bilibili.tv.ui.auth.AuthSpaceActivity;
-import mybl.BiliLiveEx;
 import com.bilibili.tv.widget.FixLinearLayoutManager;
 import com.bilibili.tv.widget.ScalableImageView;
 

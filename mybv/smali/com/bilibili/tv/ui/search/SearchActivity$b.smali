@@ -26,12 +26,12 @@
     .locals 0
 
     .prologue
-    .line 175
+    .line 176
     iput-object p1, p0, Lcom/bilibili/tv/ui/search/SearchActivity$b;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 176
+    .line 177
     return-void
 .end method
 
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 180
+    .line 181
     iget-object v0, p0, Lcom/bilibili/tv/ui/search/SearchActivity$b;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/search/SearchActivity;->q()Z
@@ -50,12 +50,12 @@
 
     if-nez v0, :cond_d
 
-    .line 181
+    .line 182
     iget-object v0, p0, Lcom/bilibili/tv/ui/search/SearchActivity$b;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/search/SearchActivity;->t()V
 
-    .line 183
+    .line 184
     :cond_d
     iget-object v0, p0, Lcom/bilibili/tv/ui/search/SearchActivity$b;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 
@@ -64,17 +64,17 @@
 
     move-result-object v0
 
-    .line 184
+    .line 185
     if-nez v0, :cond_18
 
-    .line 185
+    .line 186
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 187
+    .line 188
     :cond_18
     invoke-virtual {v0}, Lbl/afh;->b()V
 
-    .line 188
+    .line 189
     iget-object v0, p0, Lcom/bilibili/tv/ui/search/SearchActivity$b;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 
     const-string v1, ""
@@ -82,7 +82,7 @@
     # setter for: Lcom/bilibili/tv/ui/search/SearchActivity;->i:Ljava/lang/String;
     invoke-static {v0, v1}, Lcom/bilibili/tv/ui/search/SearchActivity;->access$302(Lcom/bilibili/tv/ui/search/SearchActivity;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 189
+    .line 190
     return-void
 .end method
 
@@ -90,12 +90,12 @@
     .locals 3
 
     .prologue
-    .line 193
+    .line 194
     const-string v0, "text"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 194
+    .line 195
     sget-object v0, Lcom/bilibili/tv/ui/search/SearchActivity;->Companion:Lcom/bilibili/tv/ui/search/SearchActivity$a;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/search/SearchActivity$a;->a()Ljava/lang/String;
@@ -122,19 +122,19 @@
 
     invoke-static {v0, v1}, Ltv/danmaku/android/log/BLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 196
+    .line 197
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_28
 
-    .line 209
+    .line 210
     :cond_27
     :goto_27
     return-void
 
-    .line 199
+    .line 200
     :cond_28
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -142,7 +142,7 @@
 
     if-lez v0, :cond_27
 
-    .line 200
+    .line 201
     iget-object v0, p0, Lcom/bilibili/tv/ui/search/SearchActivity$b;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/search/SearchActivity;->q()Z
@@ -151,12 +151,12 @@
 
     if-nez v0, :cond_3b
 
-    .line 201
+    .line 202
     iget-object v0, p0, Lcom/bilibili/tv/ui/search/SearchActivity$b;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/search/SearchActivity;->t()V
 
-    .line 203
+    .line 204
     :cond_3b
     iget-object v0, p0, Lcom/bilibili/tv/ui/search/SearchActivity$b;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 
@@ -165,13 +165,13 @@
 
     move-result-object v0
 
-    .line 204
+    .line 205
     if-nez v0, :cond_46
 
-    .line 205
+    .line 206
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 207
+    .line 208
     :cond_46
     invoke-virtual {v0, p1}, Lbl/afh;->a(Ljava/lang/String;)V
 
@@ -182,19 +182,19 @@
     .locals 3
 
     .prologue
-    .line 213
+    .line 214
     const-string v0, "searchText"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 214
+    .line 215
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1a
 
-    .line 215
+    .line 216
     iget-object v0, p0, Lcom/bilibili/tv/ui/search/SearchActivity$b;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 
     iget-object v1, p0, Lcom/bilibili/tv/ui/search/SearchActivity$b;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
@@ -207,11 +207,11 @@
 
     invoke-static {v0, v1}, Lbl/lr;->b(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 219
+    .line 220
     :goto_19
     return-void
 
-    .line 217
+    .line 218
     :cond_1a
     iget-object v0, p0, Lcom/bilibili/tv/ui/search/SearchActivity$b;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 

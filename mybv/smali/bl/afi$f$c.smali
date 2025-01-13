@@ -26,13 +26,13 @@
     .locals 0
 
     .prologue
-    .line 1160
+    .line 970
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1161
+    .line 971
     iput-object p1, p0, Lbl/afi$f$c;->a:Lbl/adc$a;
 
-    .line 1162
+    .line 972
     return-void
 .end method
 
@@ -42,13 +42,13 @@
     .locals 1
 
     .prologue
-    .line 1166
+    .line 976
     iget-object v0, p0, Lbl/afi$f$c;->a:Lbl/adc$a;
 
     iget-object v0, v0, Lbl/adc$a;->a:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
-    .line 1167
+    .line 977
     return-void
 .end method

@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -41,27 +41,13 @@
     .end annotation
 
     .prologue
-    .line 1275
+    .line 1088
     invoke-direct {p0}, Lbl/adb;-><init>()V
 
-    .line 1276
-    const-string v0, "list"
-
-    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 1277
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lbl/afi$b;->a:Ljava/util/ArrayList;
-
-    .line 1278
     check-cast p1, Ljava/util/ArrayList;
 
     iput-object p1, p0, Lbl/afi$b;->a:Ljava/util/ArrayList;
 
-    .line 1279
     return-void
 .end method
 
@@ -71,7 +57,7 @@
     .locals 1
 
     .prologue
-    .line 1294
+    .line 1099
     iget-object v0, p0, Lbl/afi$b;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -85,7 +71,7 @@
     .locals 2
 
     .prologue
-    .line 1299
+    .line 1101
     invoke-virtual {p0, p1}, Lbl/afi$b;->c(I)I
 
     move-result v0
@@ -99,11 +85,32 @@
     return-wide v0
 .end method
 
+.method public final a(Ljava/util/List;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Lcom/bilibili/tv/api/search/BiliSearchResultNew$Bangumi;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 1102
+    iget-object v0, p0, Lbl/afi$b;->a:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    return-void
+.end method
+
 .method public b(I)Ljava/lang/Object;
     .locals 2
 
     .prologue
-    .line 1287
+    .line 1093
     iget-object v0, p0, Lbl/afi$b;->a:Ljava/util/ArrayList;
 
     invoke-virtual {p0, p1}, Lbl/afi$b;->e(I)I
@@ -116,12 +123,12 @@
 
     check-cast v0, Lcom/bilibili/tv/api/search/BiliSearchResultNew$Bangumi;
 
-    .line 1288
+    .line 1094
     const-string v1, "mContents[offsetPosition]"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1289
+    .line 1095
     return-object v0
 .end method
 
@@ -138,7 +145,7 @@
     .end annotation
 
     .prologue
-    .line 1282
+    .line 1089
     iget-object v0, p0, Lbl/afi$b;->a:Ljava/util/ArrayList;
 
     return-object v0
@@ -148,7 +155,7 @@
     .locals 1
 
     .prologue
-    .line 1272
+    .line 1087
     const/4 v0, 0x2
 
     return v0

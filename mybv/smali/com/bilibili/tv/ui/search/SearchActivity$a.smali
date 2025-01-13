@@ -19,10 +19,10 @@
     .locals 0
 
     .prologue
-    .line 113
+    .line 114
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 114
+    .line 115
     return-void
 .end method
 
@@ -30,10 +30,10 @@
     .locals 0
 
     .prologue
-    .line 117
+    .line 118
     invoke-direct {p0}, Lcom/bilibili/tv/ui/search/SearchActivity$a;-><init>()V
 
-    .line 118
+    .line 119
     return-void
 .end method
 
@@ -43,7 +43,7 @@
     .locals 1
 
     .prologue
-    .line 121
+    .line 122
     const-string v0, "SearchActivity"
 
     return-object v0
@@ -53,27 +53,27 @@
     .locals 2
 
     .prologue
-    .line 137
+    .line 138
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/bilibili/tv/ui/search/SearchActivity;
 
     invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 138
+    .line 139
     invoke-virtual {p0}, Lcom/bilibili/tv/ui/search/SearchActivity$a;->b()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
-    .line 139
+    .line 140
     if-eqz p1, :cond_13
 
-    .line 140
+    .line 141
     invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 142
+    .line 143
     :cond_13
     return-void
 .end method
@@ -82,7 +82,7 @@
     .locals 1
 
     .prologue
-    .line 125
+    .line 126
     const-string v0, "com.bilibili.tv.ui.search.SearchActivity.EXTRA_TID"
 
     return-object v0
@@ -92,7 +92,7 @@
     .locals 1
 
     .prologue
-    .line 129
+    .line 130
     # getter for: Lcom/bilibili/tv/ui/search/SearchActivity;->l:[Ljava/lang/String;
     invoke-static {}, Lcom/bilibili/tv/ui/search/SearchActivity;->access$000()[Ljava/lang/String;
 
@@ -105,7 +105,7 @@
     .locals 1
 
     .prologue
-    .line 133
+    .line 134
     # getter for: Lcom/bilibili/tv/ui/search/SearchActivity;->m:[Ljava/lang/String;
     invoke-static {}, Lcom/bilibili/tv/ui/search/SearchActivity;->access$100()[Ljava/lang/String;
 

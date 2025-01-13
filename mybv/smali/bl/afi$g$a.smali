@@ -26,12 +26,12 @@
     .locals 0
 
     .prologue
-    .line 740
+    .line 571
     iput-object p1, p0, Lbl/afi$g$a;->this$1:Lbl/afi$g;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 741
+    .line 572
     return-void
 .end method
 
@@ -41,26 +41,18 @@
     .locals 1
 
     .prologue
-    .line 745
+    .line 576
     iget-object v0, p0, Lbl/afi$g$a;->this$1:Lbl/afi$g;
 
     iget-object v0, v0, Lbl/afi$g;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->b:Landroid/support/v7/widget/RecyclerView;
-    invoke-static {v0}, Lbl/afi;->access$700(Lbl/afi;)Landroid/support/v7/widget/RecyclerView;
+    invoke-static {v0}, Lbl/afi;->access$800(Lbl/afi;)Landroid/support/v7/widget/RecyclerView;
 
     move-result-object v0
 
-    .line 746
-    if-nez v0, :cond_d
-
-    .line 747
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 749
-    :cond_d
     invoke-static {v0}, Lbl/adn;->a(Landroid/support/v7/widget/RecyclerView;)V
 
-    .line 750
+    .line 577
     return-void
 .end method

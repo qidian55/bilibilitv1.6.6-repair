@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 94
+    .line 93
     iput-object p1, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$1;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
     invoke-direct {p0, p2, p3, p4}, Lcom/bilibili/tv/widget/FixLinearLayoutManager;-><init>(Landroid/content/Context;IZ)V
@@ -37,7 +37,7 @@
     .locals 2
 
     .prologue
-    .line 97
+    .line 96
     iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$1;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
     # getter for: Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->c:Landroid/support/v7/widget/RecyclerView;
@@ -49,18 +49,18 @@
 
     if-nez p1, :cond_f
 
-    .line 98
+    .line 97
     :cond_a
     invoke-super {p0, p1, p2}, Lcom/bilibili/tv/widget/FixLinearLayoutManager;->d(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object p1
 
-    .line 116
+    .line 115
     :cond_e
     :goto_e
     return-object p1
 
-    .line 100
+    .line 99
     :cond_f
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
@@ -72,27 +72,27 @@
 
     move-result v0
 
-    .line 101
+    .line 100
     const/16 v1, 0x11
 
     if-eq p2, v1, :cond_49
 
-    .line 102
+    .line 101
     const/16 v1, 0x21
 
     if-eq p2, v1, :cond_37
 
-    .line 103
+    .line 102
     const/16 v1, 0x42
 
     if-eq p2, v1, :cond_2e
 
-    .line 104
+    .line 103
     const/16 v0, 0x82
 
     if-eq p2, v0, :cond_e
 
-    .line 116
+    .line 115
     :cond_29
     :goto_29
     invoke-super {p0, p1, p2}, Lcom/bilibili/tv/widget/FixLinearLayoutManager;->d(Landroid/view/View;I)Landroid/view/View;
@@ -101,7 +101,7 @@
 
     goto :goto_e
 
-    .line 107
+    .line 106
     :cond_2e
     invoke-virtual {p0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$1;->H()I
 
@@ -113,7 +113,7 @@
 
     goto :goto_e
 
-    .line 110
+    .line 109
     :cond_37
     iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$1;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
@@ -124,7 +124,7 @@
 
     if-eqz v0, :cond_29
 
-    .line 111
+    .line 110
     iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$1;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
 
     # getter for: Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->e:Landroid/widget/FrameLayout;
@@ -136,7 +136,7 @@
 
     goto :goto_29
 
-    .line 113
+    .line 112
     :cond_49
     if-gtz v0, :cond_29
 

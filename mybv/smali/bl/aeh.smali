@@ -34,7 +34,7 @@
             "I)",
             "Lbl/vp",
             "<",
-            "Lmybl/BiliLiveExEx;",
+            "Lcom/alibaba/fastjson/JSONObject;",
             ">;"
         }
     .end annotation
@@ -73,7 +73,7 @@
             "II)",
             "Lbl/vp",
             "<",
-            "Lmybl/BiliLiveEx;",
+            "Lcom/alibaba/fastjson/JSONObject;",
             ">;"
         }
     .end annotation

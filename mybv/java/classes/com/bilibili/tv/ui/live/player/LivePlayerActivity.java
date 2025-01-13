@@ -17,7 +17,6 @@ import com.bilibili.tv.R;
 import com.bilibili.tv.newplayer.video.LiveVideoPlayer;
 import com.bilibili.tv.newplayer.widget.LivePlayerController;
 import com.bilibili.tv.ui.base.BaseActivity;
-import mybl.BiliLiveEx;
 import u.aly.j;
 
 import java.util.List;

@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 130
+    .line 138
     invoke-direct {p0}, Lbl/qe;-><init>()V
 
     return-void
@@ -35,7 +35,7 @@
 
     const/4 v2, 0x0
 
-    .line 134
+    .line 142
     :try_start_2
     invoke-virtual {p0}, Lmybl/BiliLiveContent$playUrlResponse;->a()Z
 
@@ -61,7 +61,7 @@
 
     if-eqz v0, :cond_f0
 
-    .line 143
+    .line 151
     const-string v3, "playurl_info"
 
     invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
@@ -110,7 +110,7 @@
 
     move-result-object v3
 
-    .line 144
+    .line 152
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -119,7 +119,7 @@
 
     move v0, v2
 
-    .line 145
+    .line 153
     :goto_51
     const-string v4, "url_info"
 
@@ -133,7 +133,7 @@
 
     if-ge v0, v4, :cond_a0
 
-    .line 146
+    .line 154
     iget-object v4, p1, Lmybl/BiliLiveContent;->mPlayUrls:Ljava/util/List;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -196,12 +196,12 @@
 
     invoke-interface {v4, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 145
+    .line 153
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_51
 
-    .line 148
+    .line 156
     :cond_a0
     iget-object v0, p1, Lmybl/BiliLiveContent;->mPlayUrls:Ljava/util/List;
 
@@ -221,7 +221,7 @@
 
     iput-object v0, p1, Lmybl/BiliLiveContent;->mPlayUrl:Ljava/lang/String;
 
-    .line 149
+    .line 157
     iget v0, p1, Lmybl/BiliLiveContent;->mCurrentQuality:I
 
     const-string v4, "current_qn"
@@ -234,7 +234,7 @@
 
     const/4 v0, 0x1
 
-    .line 150
+    .line 158
     :goto_bd
     const-string v4, "current_qn"
 
@@ -244,7 +244,7 @@
 
     iput v4, p1, Lmybl/BiliLiveContent;->mCurrentQuality:I
 
-    .line 151
+    .line 159
     const-string v4, "accept_qn"
 
     invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
@@ -259,7 +259,7 @@
 
     iput-object v4, p1, Lmybl/BiliLiveContent;->mAcceptQuality:[I
 
-    .line 152
+    .line 160
     :goto_d3
     const-string v4, "accept_qn"
 
@@ -273,7 +273,7 @@
 
     if-ge v2, v4, :cond_f1
 
-    .line 153
+    .line 161
     iget-object v4, p1, Lmybl/BiliLiveContent;->mAcceptQuality:[I
 
     const-string v5, "accept_qn"
@@ -290,7 +290,7 @@
     :try_end_ed
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_ed} :catch_f2
 
-    .line 152
+    .line 160
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_d3
@@ -298,18 +298,18 @@
     :cond_f0
     move v0, v1
 
-    .line 159
+    .line 167
     :cond_f1
     :goto_f1
     return v0
 
-    .line 158
+    .line 166
     :catch_f2
     move-exception v0
 
     move v0, v1
 
-    .line 159
+    .line 167
     goto :goto_f1
 
     :cond_f5

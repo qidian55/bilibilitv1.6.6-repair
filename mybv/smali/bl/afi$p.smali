@@ -26,12 +26,12 @@
     .locals 0
 
     .prologue
-    .line 319
+    .line 249
     iput-object p1, p0, Lbl/afi$p;->this$0:Lbl/afi;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 320
+    .line 250
     return-void
 .end method
 
@@ -43,20 +43,20 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 324
+    .line 254
     iget-object v0, p0, Lbl/afi$p;->this$0:Lbl/afi;
 
     invoke-virtual {v0}, Lbl/afi;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    .line 325
+    .line 255
     if-nez p2, :cond_19
 
-    .line 326
+    .line 256
     if-nez v0, :cond_13
 
-    .line 327
+    .line 257
     new-instance v0, Lkotlin/TypeCastException;
 
     const-string v1, "null cannot be cast to non-null type com.bilibili.tv.ui.search.SearchActivity"
@@ -65,18 +65,18 @@
 
     throw v0
 
-    .line 329
+    .line 259
     :cond_13
     check-cast v0, Lcom/bilibili/tv/ui/search/SearchActivity;
 
     invoke-virtual {v0, v3}, Lcom/bilibili/tv/ui/search/SearchActivity;->b(Z)V
 
-    .line 340
+    .line 270
     :cond_18
     :goto_18
     return-void
 
-    .line 330
+    .line 260
     :cond_19
     invoke-virtual {p2}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
@@ -85,18 +85,18 @@
     iget-object v2, p0, Lbl/afi$p;->this$0:Lbl/afi;
 
     # getter for: Lbl/afi;->c:Landroid/support/v7/widget/RecyclerView;
-    invoke-static {v2}, Lbl/afi;->access$600(Lbl/afi;)Landroid/support/v7/widget/RecyclerView;
+    invoke-static {v2}, Lbl/afi;->access$700(Lbl/afi;)Landroid/support/v7/widget/RecyclerView;
 
     move-result-object v2
 
     if-ne v1, v2, :cond_30
 
-    .line 331
+    .line 261
     instance-of v1, v0, Lcom/bilibili/tv/ui/search/SearchActivity;
 
     if-eqz v1, :cond_18
 
-    .line 332
+    .line 262
     check-cast v0, Lcom/bilibili/tv/ui/search/SearchActivity;
 
     const/4 v1, 0x1
@@ -105,11 +105,11 @@
 
     goto :goto_18
 
-    .line 335
+    .line 265
     :cond_30
     if-nez v0, :cond_3a
 
-    .line 336
+    .line 266
     new-instance v0, Lkotlin/TypeCastException;
 
     const-string v1, "null cannot be cast to non-null type com.bilibili.tv.ui.search.SearchActivity"
@@ -118,7 +118,7 @@
 
     throw v0
 
-    .line 338
+    .line 268
     :cond_3a
     check-cast v0, Lcom/bilibili/tv/ui/search/SearchActivity;
 

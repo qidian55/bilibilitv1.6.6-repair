@@ -17,6 +17,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import com.bilibili.api.BiliConfig;
 import com.bilibili.tv.MainApplication;
+import com.alibaba.fastjson.annotation.JSONField;
 
 public class BiliLiveContent implements Parcelable {
     public static final Parcelable.Creator<BiliLiveContent> CREATOR = new Parcelable.Creator<BiliLiveContent>() {
@@ -35,19 +36,26 @@ public class BiliLiveContent implements Parcelable {
     public String mArea;
     public int mAreaId;
     public String mCorner;
+    @JSONField(name = "cover")
     public String mCover;
     public int mIndex;
     public boolean mIsRound;
     public int mIsTv;
+    @JSONField(name = "online")
     public long mOnline;
+    @JSONField(name = "uid")
     public long mUid;
+    @JSONField(name = "uname")
     public String mUname;
+    @JSONField(name = "face")
     public String mFace;
     public long mParsedTime;
     public String mPlayUrl;
     public List<String> mPlayUrls;
     public String mRealUrl;
+    @JSONField(name = "roomid")
     public int mRoomId;
+    @JSONField(name = "title")
     public String mTitle;
 
     public int[] mAcceptQuality;

@@ -37,13 +37,13 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 30
+    .line 29
     invoke-direct {p0}, Lbl/ady;-><init>()V
 
-    .line 34
+    .line 33
     iput v0, p0, Lbl/aef;->f:I
 
-    .line 35
+    .line 34
     iput-boolean v0, p0, Lbl/aef;->g:Z
 
     return-void
@@ -53,7 +53,7 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 29
     iget-boolean v0, p0, Lbl/aef;->e:Z
 
     return v0
@@ -63,7 +63,7 @@
     .locals 0
 
     .prologue
-    .line 30
+    .line 29
     iput-boolean p1, p0, Lbl/aef;->e:Z
 
     return p1
@@ -73,7 +73,7 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 29
     iget-boolean v0, p0, Lbl/aef;->g:Z
 
     return v0
@@ -83,7 +83,7 @@
     .locals 0
 
     .prologue
-    .line 30
+    .line 29
     iput-boolean p1, p0, Lbl/aef;->g:Z
 
     return p1
@@ -93,7 +93,7 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 29
     iget-boolean v0, p0, Lbl/aef;->h:Z
 
     return v0
@@ -103,7 +103,7 @@
     .locals 0
 
     .prologue
-    .line 30
+    .line 29
     iput-boolean p1, p0, Lbl/aef;->h:Z
 
     return p1
@@ -113,7 +113,7 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 29
     iget-object v0, p0, Lbl/aef;->c:Lbl/aef$b;
 
     return-object v0
@@ -123,7 +123,7 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 29
     iget v0, p0, Lbl/aef;->f:I
 
     return v0
@@ -133,12 +133,12 @@
     .locals 3
 
     .prologue
-    .line 46
+    .line 45
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 47
+    .line 46
     const-string v1, "live_area_id"
 
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -147,15 +147,15 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 48
+    .line 47
     new-instance v1, Lbl/aef;
 
     invoke-direct {v1}, Lbl/aef;-><init>()V
 
-    .line 49
+    .line 48
     invoke-virtual {v1, v0}, Lbl/aef;->setArguments(Landroid/os/Bundle;)V
 
-    .line 50
+    .line 49
     return-object v1
 .end method
 
@@ -163,15 +163,15 @@
     .locals 2
 
     .prologue
-    .line 40
+    .line 39
     iget v0, p0, Lbl/aef;->f:I
 
-    .line 41
+    .line 40
     add-int/lit8 v1, v0, 0x1
 
     iput v1, p0, Lbl/aef;->f:I
 
-    .line 42
+    .line 41
     return v0
 .end method
 
@@ -181,12 +181,12 @@
     .locals 5
 
     .prologue
-    .line 146
+    .line 145
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lbl/aef;->h:Z
 
-    .line 147
+    .line 146
     iget-object v0, p0, Lbl/aef;->live_area_id:Ljava/lang/String;
 
     const-string v1, "my"
@@ -197,7 +197,7 @@
 
     if-nez v0, :cond_26
 
-    .line 148
+    .line 147
     const-class v0, Lbl/aeh;
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
@@ -222,7 +222,7 @@
 
     invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
 
-    .line 150
+    .line 149
     :cond_26
     return-void
 .end method
@@ -237,18 +237,18 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 55
+    .line 54
     invoke-super {p0, p1, p2}, Lbl/ady;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
 
-    .line 56
+    .line 55
     invoke-virtual {p0}, Lbl/aef;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 57
+    .line 56
     if-eqz v0, :cond_12
 
-    .line 58
+    .line 57
     const-string v1, "live_area_id"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -257,7 +257,7 @@
 
     iput-object v0, p0, Lbl/aef;->live_area_id:Ljava/lang/String;
 
-    .line 60
+    .line 59
     :cond_12
     iget-object v0, p0, Lbl/aef;->live_area_id:Ljava/lang/String;
 
@@ -267,11 +267,11 @@
 
     if-eqz v0, :cond_1b
 
-    .line 124
+    .line 123
     :goto_1a
     return-void
 
-    .line 63
+    .line 62
     :cond_1b
     new-instance v0, Lbl/aef$a;
 
@@ -279,7 +279,7 @@
 
     iput-object v0, p0, Lbl/aef;->d:Lbl/aef$a;
 
-    .line 64
+    .line 63
     new-instance v1, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
 
     invoke-virtual {p0}, Lbl/aef;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -290,82 +290,82 @@
 
     invoke-direct {v1, v0, v2}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;-><init>(Landroid/content/Context;I)V
 
-    .line 65
+    .line 64
     invoke-virtual {p0}, Lbl/aef;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
     check-cast v0, Lcom/bilibili/tv/ui/live/LiveActivity;
 
-    .line 66
+    .line 65
     new-instance v2, Lbl/aef$1;
 
     invoke-direct {v2, p0, v0}, Lbl/aef$1;-><init>(Lbl/aef;Lcom/bilibili/tv/ui/live/LiveActivity;)V
 
     invoke-virtual {v1, v2}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->a(Lcom/bilibili/tv/widget/border/BorderGridLayoutManager$a;)V
 
-    .line 78
+    .line 77
     const/4 v0, 0x1
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setHasFixedSize(Z)V
 
-    .line 79
+    .line 78
     invoke-virtual {p1, v1}, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$h;)V
 
-    .line 80
+    .line 79
     const v0, 0x7f0601bb
 
     invoke-static {v0}, Lbl/adl;->b(I)I
 
     move-result v0
 
-    .line 81
+    .line 80
     const v2, 0x7f0600de
 
     invoke-static {v2}, Lbl/adl;->b(I)I
 
     move-result v2
 
-    .line 82
+    .line 81
     const v3, 0x7f06014d
 
     invoke-static {v3}, Lbl/adl;->b(I)I
 
     move-result v3
 
-    .line 83
+    .line 82
     invoke-virtual {p1, v3, v3, v3, v3}, Landroid/support/v7/widget/RecyclerView;->setPadding(IIII)V
 
-    .line 84
+    .line 83
     new-instance v3, Lbl/aef$2;
 
     invoke-direct {v3, p0, v2, v0}, Lbl/aef$2;-><init>(Lbl/aef;II)V
 
     invoke-virtual {p1, v3}, Landroid/support/v7/widget/RecyclerView;->a(Landroid/support/v7/widget/RecyclerView$g;)V
 
-    .line 101
+    .line 100
     new-instance v0, Lbl/aef$3;
 
     invoke-direct {v0, p0, v1}, Lbl/aef$3;-><init>(Lbl/aef;Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;)V
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->a(Landroid/support/v7/widget/RecyclerView$m;)V
 
-    .line 116
+    .line 115
     new-instance v0, Lbl/aef$b;
 
     invoke-direct {v0, v4}, Lbl/aef$b;-><init>(Lbl/aef$1;)V
 
     iput-object v0, p0, Lbl/aef;->c:Lbl/aef$b;
 
-    .line 117
+    .line 116
     iget-object v0, p0, Lbl/aef;->c:Lbl/aef$b;
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$a;)V
 
-    .line 118
+    .line 117
     invoke-virtual {p0}, Lbl/aef;->i()V
 
-    .line 119
+    .line 118
     iget-object v0, p0, Lbl/aef;->live_area_id:Ljava/lang/String;
 
     const-string v1, "my"
@@ -376,7 +376,7 @@
 
     if-eqz v0, :cond_a8
 
-    .line 120
+    .line 119
     const-class v0, Lbl/aeh;
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
@@ -413,7 +413,7 @@
 
     goto/16 :goto_1a
 
-    .line 122
+    .line 121
     :cond_a8
     const-class v0, Lbl/aeh;
 
@@ -446,7 +446,7 @@
     .locals 1
 
     .prologue
-    .line 128
+    .line 127
     invoke-virtual {p0}, Lbl/aef;->isVisible()Z
 
     move-result v0
@@ -480,13 +480,13 @@
     .locals 0
 
     .prologue
-    .line 140
+    .line 139
     invoke-super {p0}, Lbl/ady;->d_()V
 
-    .line 141
+    .line 140
     invoke-virtual {p0}, Lbl/aef;->a()V
 
-    .line 142
+    .line 141
     return-void
 .end method
 
@@ -496,15 +496,15 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 133
+    .line 132
     iput-object v0, p0, Lbl/aef;->c:Lbl/aef$b;
 
-    .line 134
+    .line 133
     iput-object v0, p0, Lbl/aef;->d:Lbl/aef$a;
 
-    .line 135
+    .line 134
     invoke-super {p0}, Lbl/ady;->onDestroyView()V
 
-    .line 136
+    .line 135
     return-void
 .end method

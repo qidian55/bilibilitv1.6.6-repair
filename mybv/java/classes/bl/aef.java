@@ -19,11 +19,10 @@ import com.bilibili.tv.widget.side.SideRightGridLayoutManger;
 import java.util.ArrayList;
 import java.util.List;
 
-import mybl.BiliLiveEx;
-import mybl.BiliLiveExEx;
 import mybl.BiliLiveContent;
+import mybl.BiliLiveContentEx1;
+import com.alibaba.fastjson.*;
 import com.bilibili.tv.MainApplication;
-import android.util.Log;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -151,32 +150,24 @@ public class aef extends ady {
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
-    class a extends vm<BiliLiveEx> {
+    class a extends vm<JSONObject> {
         private a() {
         }
 
         @Override // bl.vm
-        public /* synthetic */ void onSuccess(BiliLiveEx biliLiveEx) {
-            a(biliLiveEx);
-        }
-
-        @Override // bl.vm
-        public boolean isCancel() {
-            return !aef.this.isAdded();
-        }
-
-        public void a(@Nullable BiliLiveEx biliLiveEx) {
+        public /* synthetic */ void onSuccess(JSONObject response) {
             if (aef.this.c == null) {
                 return;
             }
             aef.this.j();
             aef.this.h = false;
-            if (aef.this.c.a() != 0 || (biliLiveEx != null && !biliLiveEx.toContents().isEmpty())) {
+            if (aef.this.c.a() != 0 || (response != null && response.getJSONArray("data")!=null)) {
+                List<BiliLiveContent> data = new ArrayList<BiliLiveContent>(JSON.parseArray(response.getJSONArray("data").toString(), BiliLiveContentEx1.class));
                 if (aef.this.f == 1) {
-                    aef.this.c.a(biliLiveEx.toContents());
+                    aef.this.c.a(data);
                     return;
                 } else {
-                    aef.this.c.b(biliLiveEx.toContents());
+                    aef.this.c.b(data);
                     return;
                 }
             }
@@ -185,6 +176,11 @@ public class aef extends ady {
                 aef.this.a(R.string.nothing_show);
             }
             aef.this.g = false;
+        }
+
+        @Override // bl.vm
+        public boolean isCancel() {
+            return !aef.this.isAdded();
         }
 
         @Override // bl.vm
@@ -199,29 +195,21 @@ public class aef extends ady {
         }
     }
 
-    class aa extends vm<BiliLiveExEx> {
+    class aa extends vm<JSONObject> {
         @Override
-        public /* synthetic */ void onSuccess(BiliLiveExEx biliLiveExEx) {
-            a(biliLiveExEx);
-        }
-
-        @Override
-        public boolean isCancel() {
-            return !aef.this.isAdded();
-        }
-
-        public void a(@Nullable BiliLiveExEx biliLiveExEx) {
+        public /* synthetic */ void onSuccess(JSONObject response) {
             if (aef.this.c == null) {
                 return;
             }
             aef.this.j();
             aef.this.h = false;
-            if (aef.this.c.a() != 0 || (biliLiveExEx != null && !biliLiveExEx.toContents().isEmpty())) {
+            if (aef.this.c.a() != 0 || (response != null && response.getJSONObject("data").getJSONArray("rooms")!=null)) {
+                List<BiliLiveContent> data = new ArrayList<BiliLiveContent>(JSON.parseArray(response.getJSONObject("data").getJSONArray("rooms").toString(), BiliLiveContentEx1.class));
                 if (aef.this.f == 1) {
-                    aef.this.c.a(biliLiveExEx.toContents());
+                    aef.this.c.a(data);
                     return;
                 } else {
-                    aef.this.c.b(biliLiveExEx.toContents());
+                    aef.this.c.b(data);
                     return;
                 }
             }
@@ -230,6 +218,11 @@ public class aef extends ady {
                 aef.this.a(R.string.nothing_show);
             }
             aef.this.g = false;
+        }
+
+        @Override
+        public boolean isCancel() {
+            return !aef.this.isAdded();
         }
 
         @Override
@@ -270,8 +263,7 @@ public class aef extends ady {
             }
             c cVar = (c) advVar;
             cVar.o.setText(biliLive.mTitle);
-            TextView textView = cVar.p;
-            textView.setText("在线 " + adh.a(biliLive.mOnline));
+            cVar.p.setText("在线 " + adh.a(biliLive.mOnline));
             cVar.a.setTag(biliLive);
             cVar.a.setOnClickListener(this);
         }

@@ -28,15 +28,15 @@
     .locals 0
 
     .prologue
-    .line 667
+    .line 662
     iput-object p1, p0, Lcom/bilibili/tv/ui/search/SearchActivity$f;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 668
+    .line 663
     iput-object p2, p0, Lcom/bilibili/tv/ui/search/SearchActivity$f;->b:Ljava/util/LinkedHashMap;
 
-    .line 669
+    .line 664
     return-void
 .end method
 
@@ -52,30 +52,16 @@
 
     const/4 v4, 0x0
 
-    .line 673
+    .line 668
     iget-object v0, p0, Lcom/bilibili/tv/ui/search/SearchActivity$f;->b:Ljava/util/LinkedHashMap;
 
     invoke-virtual {v0, p3}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 674
-    if-nez v0, :cond_13
-
-    .line 675
-    new-instance v0, Lkotlin/TypeCastException;
-
-    const-string v1, "null cannot be cast to non-null type kotlin.String"
-
-    invoke-direct {v0, v1}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 677
-    :cond_13
     check-cast v0, Ljava/lang/String;
 
-    .line 678
+    .line 669
     iget-object v1, p0, Lcom/bilibili/tv/ui/search/SearchActivity$f;->this$0:Lcom/bilibili/tv/ui/search/SearchActivity;
 
     # getter for: Lcom/bilibili/tv/ui/search/SearchActivity;->g:Lbl/afi;
@@ -83,20 +69,12 @@
 
     move-result-object v1
 
-    .line 679
-    if-nez v1, :cond_20
-
-    .line 680
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 682
-    :cond_20
     invoke-virtual {v1, v0}, Lbl/afi;->b(Ljava/lang/String;)V
 
-    .line 683
+    .line 670
     const-string v1, ""
 
-    .line 685
+    .line 672
     sget-object v2, Lcom/bilibili/tv/ui/search/SearchActivity;->Companion:Lcom/bilibili/tv/ui/search/SearchActivity$a;
 
     invoke-virtual {v2}, Lcom/bilibili/tv/ui/search/SearchActivity$a;->c()[Ljava/lang/String;
@@ -109,13 +87,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_46
+    if-eqz v2, :cond_37
 
-    .line 686
+    .line 673
     const-string v0, "1"
 
-    .line 694
-    :goto_35
+    .line 681
+    :goto_26
     const-string v1, "tv_search_result_index_sort_click"
 
     new-array v2, v6, [Ljava/lang/String;
@@ -128,14 +106,14 @@
 
     invoke-static {v1, v2}, Lbl/ok;->a(Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 695
+    .line 682
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
-    .line 696
+    .line 683
     return-void
 
-    .line 687
-    :cond_46
+    .line 674
+    :cond_37
     sget-object v2, Lcom/bilibili/tv/ui/search/SearchActivity;->Companion:Lcom/bilibili/tv/ui/search/SearchActivity$a;
 
     invoke-virtual {v2}, Lcom/bilibili/tv/ui/search/SearchActivity$a;->c()[Ljava/lang/String;
@@ -148,15 +126,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_57
+    if-eqz v2, :cond_48
 
-    .line 688
+    .line 675
     const-string v0, "3"
 
-    goto :goto_35
+    goto :goto_26
 
-    .line 689
-    :cond_57
+    .line 676
+    :cond_48
     sget-object v2, Lcom/bilibili/tv/ui/search/SearchActivity;->Companion:Lcom/bilibili/tv/ui/search/SearchActivity$a;
 
     invoke-virtual {v2}, Lcom/bilibili/tv/ui/search/SearchActivity$a;->c()[Ljava/lang/String;
@@ -169,15 +147,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_68
+    if-eqz v2, :cond_59
 
-    .line 690
+    .line 677
     const-string v0, "4"
 
-    goto :goto_35
+    goto :goto_26
 
-    .line 691
-    :cond_68
+    .line 678
+    :cond_59
     sget-object v2, Lcom/bilibili/tv/ui/search/SearchActivity;->Companion:Lcom/bilibili/tv/ui/search/SearchActivity$a;
 
     invoke-virtual {v2}, Lcom/bilibili/tv/ui/search/SearchActivity$a;->c()[Ljava/lang/String;
@@ -192,15 +170,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7a
+    if-eqz v0, :cond_6b
 
-    .line 692
+    .line 679
     const-string v0, "5"
 
-    goto :goto_35
+    goto :goto_26
 
-    :cond_7a
+    :cond_6b
     move-object v0, v1
 
-    goto :goto_35
+    goto :goto_26
 .end method

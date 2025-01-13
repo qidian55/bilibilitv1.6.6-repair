@@ -33,7 +33,7 @@
     .locals 2
 
     .prologue
-    .line 1923
+    .line 1785
     new-instance v0, Lbl/afi$d$a;
 
     const/4 v1, 0x0
@@ -49,15 +49,15 @@
     .locals 1
 
     .prologue
-    .line 1928
+    .line 1790
     invoke-direct {p0, p1}, Landroid/support/v7/widget/RecyclerView$v;-><init>(Landroid/view/View;)V
 
-    .line 1929
+    .line 1791
     const-string v0, "itemView"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1930
+    .line 1792
     return-void
 .end method
 
@@ -67,18 +67,18 @@
     .locals 2
 
     .prologue
-    .line 1933
+    .line 1795
     const-string v0, "category"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1934
+    .line 1796
     iget-object v0, p0, Lbl/afi$d;->a:Landroid/view/View;
 
-    .line 1935
+    .line 1797
     if-nez v0, :cond_11
 
-    .line 1936
+    .line 1798
     new-instance v0, Lkotlin/TypeCastException;
 
     const-string v1, "null cannot be cast to non-null type android.widget.TextView"
@@ -87,45 +87,37 @@
 
     throw v0
 
-    .line 1938
+    .line 1800
     :cond_11
     check-cast v0, Landroid/widget/TextView;
 
     iput-object v0, p0, Lbl/afi$d;->n:Landroid/widget/TextView;
 
-    .line 1939
+    .line 1801
     iget-object v0, p0, Lbl/afi$d;->n:Landroid/widget/TextView;
 
-    .line 1940
-    if-nez v0, :cond_1c
-
-    .line 1941
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 1943
-    :cond_1c
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1944
+    .line 1802
     iget-object v0, p0, Lbl/afi$d;->a:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 1945
+    .line 1803
     instance-of v1, v0, Landroid/view/View$OnLongClickListener;
 
-    if-eqz v1, :cond_30
+    if-eqz v1, :cond_2b
 
-    .line 1946
+    .line 1804
     iget-object v1, p0, Lbl/afi$d;->a:Landroid/view/View;
 
     check-cast v0, Landroid/view/View$OnLongClickListener;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
-    .line 1948
-    :cond_30
+    .line 1806
+    :cond_2b
     return-void
 .end method

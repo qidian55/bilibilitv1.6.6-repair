@@ -26,7 +26,7 @@
     .locals 1
 
     .prologue
-    .line 626
+    .line 614
     new-instance v0, Lcom/bilibili/tv/ui/search/SearchActivity$d;
 
     invoke-direct {v0}, Lcom/bilibili/tv/ui/search/SearchActivity$d;-><init>()V
@@ -40,10 +40,10 @@
     .locals 0
 
     .prologue
-    .line 628
+    .line 616
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 629
+    .line 617
     return-void
 .end method
 
@@ -53,9 +53,9 @@
     .locals 0
 
     .prologue
-    .line 633
+    .line 621
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
-    .line 634
+    .line 622
     return-void
 .end method

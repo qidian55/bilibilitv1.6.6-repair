@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -41,25 +41,11 @@
     .end annotation
 
     .prologue
-    .line 1314
+    .line 1113
     invoke-direct {p0}, Lbl/adb;-><init>()V
 
-    .line 1315
-    const-string v0, "list"
-
-    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 1316
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lbl/afi$n;->a:Ljava/util/List;
-
-    .line 1317
     iput-object p1, p0, Lbl/afi$n;->a:Ljava/util/List;
 
-    .line 1318
     return-void
 .end method
 
@@ -69,7 +55,7 @@
     .locals 1
 
     .prologue
-    .line 1335
+    .line 1125
     iget-object v0, p0, Lbl/afi$n;->a:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -83,7 +69,7 @@
     .locals 2
 
     .prologue
-    .line 1340
+    .line 1127
     invoke-virtual {p0, p1}, Lbl/afi$n;->c(I)I
 
     move-result v0
@@ -110,17 +96,11 @@
     .end annotation
 
     .prologue
-    .line 1344
-    const-string v0, "list"
-
-    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 1345
+    .line 1128
     iget-object v0, p0, Lbl/afi$n;->a:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 1346
     return-void
 .end method
 
@@ -128,12 +108,12 @@
     .locals 2
 
     .prologue
-    .line 1326
+    .line 1118
     invoke-virtual {p0, p1}, Lbl/afi$n;->e(I)I
 
     move-result v0
 
-    .line 1327
+    .line 1119
     iget-object v1, p0, Lbl/afi$n;->a:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
@@ -144,14 +124,14 @@
 
     if-ltz v0, :cond_15
 
-    .line 1328
+    .line 1120
     iget-object v1, p0, Lbl/afi$n;->a:Ljava/util/List;
 
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 1330
+    .line 1122
     :goto_14
     return-object v0
 
@@ -174,7 +154,7 @@
     .end annotation
 
     .prologue
-    .line 1321
+    .line 1114
     iget-object v0, p0, Lbl/afi$n;->a:Ljava/util/List;
 
     return-object v0
@@ -184,7 +164,7 @@
     .locals 1
 
     .prologue
-    .line 1311
+    .line 1112
     const/4 v0, 0x1
 
     return v0

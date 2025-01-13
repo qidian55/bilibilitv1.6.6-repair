@@ -37,10 +37,18 @@
 .field public mCorner:Ljava/lang/String;
 
 .field public mCover:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "cover"
+    .end annotation
+.end field
 
 .field public mCurrentQuality:I
 
 .field public mFace:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "face"
+    .end annotation
+.end field
 
 .field public mIndex:I
 
@@ -49,6 +57,10 @@
 .field public mIsTv:I
 
 .field public mOnline:J
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "online"
+    .end annotation
+.end field
 
 .field public mParsedTime:J
 
@@ -68,12 +80,28 @@
 .field public mRealUrl:Ljava/lang/String;
 
 .field public mRoomId:I
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "roomid"
+    .end annotation
+.end field
 
 .field public mTitle:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "title"
+    .end annotation
+.end field
 
 .field public mUid:J
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "uid"
+    .end annotation
+.end field
 
 .field public mUname:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "uname"
+    .end annotation
+.end field
 
 
 # direct methods
@@ -81,7 +109,7 @@
     .locals 1
 
     .prologue
-    .line 22
+    .line 23
     new-instance v0, Lmybl/BiliLiveContent$1;
 
     invoke-direct {v0}, Lmybl/BiliLiveContent$1;-><init>()V
@@ -95,22 +123,22 @@
     .locals 2
 
     .prologue
-    .line 73
+    .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
+    .line 62
     const/16 v0, 0x2710
 
     iput v0, p0, Lmybl/BiliLiveContent;->mCurrentQuality:I
 
-    .line 74
+    .line 82
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lmybl/BiliLiveContent;->mParsedTime:J
 
-    .line 75
+    .line 83
     return-void
 .end method
 
@@ -118,106 +146,106 @@
     .locals 2
 
     .prologue
-    .line 112
+    .line 120
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
+    .line 62
     const/16 v0, 0x2710
 
     iput v0, p0, Lmybl/BiliLiveContent;->mCurrentQuality:I
-
-    .line 113
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lmybl/BiliLiveContent;->mArea:Ljava/lang/String;
-
-    .line 114
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Lmybl/BiliLiveContent;->mAreaId:I
-
-    .line 115
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lmybl/BiliLiveContent;->mCover:Ljava/lang/String;
-
-    .line 116
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Lmybl/BiliLiveContent;->mOnline:J
-
-    .line 117
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Lmybl/BiliLiveContent;->mUid:J
-
-    .line 118
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lmybl/BiliLiveContent;->mUname:Ljava/lang/String;
-
-    .line 119
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lmybl/BiliLiveContent;->mFace:Ljava/lang/String;
-
-    .line 120
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Lmybl/BiliLiveContent;->mParsedTime:J
 
     .line 121
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lmybl/BiliLiveContent;->mPlayUrl:Ljava/lang/String;
+    iput-object v0, p0, Lmybl/BiliLiveContent;->mArea:Ljava/lang/String;
 
     .line 122
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lmybl/BiliLiveContent;->mAreaId:I
+
+    .line 123
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lmybl/BiliLiveContent;->mCover:Ljava/lang/String;
+
+    .line 124
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lmybl/BiliLiveContent;->mOnline:J
+
+    .line 125
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lmybl/BiliLiveContent;->mUid:J
+
+    .line 126
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lmybl/BiliLiveContent;->mUname:Ljava/lang/String;
+
+    .line 127
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lmybl/BiliLiveContent;->mFace:Ljava/lang/String;
+
+    .line 128
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lmybl/BiliLiveContent;->mParsedTime:J
+
+    .line 129
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lmybl/BiliLiveContent;->mPlayUrl:Ljava/lang/String;
+
+    .line 130
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lmybl/BiliLiveContent;->mRealUrl:Ljava/lang/String;
 
-    .line 123
+    .line 131
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lmybl/BiliLiveContent;->mRoomId:I
 
-    .line 124
+    .line 132
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lmybl/BiliLiveContent;->mTitle:Ljava/lang/String;
 
-    .line 126
+    .line 134
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lmybl/BiliLiveContent;->mCurrentQuality:I
 
-    .line 127
+    .line 135
     invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
 
     move-result-object v0
@@ -228,7 +256,7 @@
 
     iput-object v0, p0, Lmybl/BiliLiveContent;->mAcceptQuality:[I
 
-    .line 128
+    .line 136
     return-void
 .end method
 
@@ -238,7 +266,7 @@
     .locals 1
 
     .prologue
-    .line 58
+    .line 66
     const/4 v0, 0x0
 
     return v0
@@ -248,12 +276,12 @@
     .locals 2
 
     .prologue
-    .line 78
+    .line 86
     invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0
 
-    .line 79
+    .line 87
     new-instance v1, Lmybl/BiliLiveContent$2;
 
     invoke-direct {v1, p0}, Lmybl/BiliLiveContent$2;-><init>(Lmybl/BiliLiveContent;)V
@@ -262,7 +290,7 @@
 
     move-result-object v0
 
-    .line 87
+    .line 95
     :try_start_d
     invoke-interface {v0}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
 
@@ -276,15 +304,15 @@
 
     move-result v0
 
-    .line 89
+    .line 97
     :goto_17
     return v0
 
-    .line 88
+    .line 96
     :catch_18
     move-exception v0
 
-    .line 89
+    .line 97
     const/4 v0, -0x1
 
     goto :goto_17
@@ -294,7 +322,7 @@
     .locals 1
 
     .prologue
-    .line 62
+    .line 70
     iget-object v0, p0, Lmybl/BiliLiveContent;->mPlayUrl:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -308,7 +336,7 @@
     .locals 1
 
     .prologue
-    .line 66
+    .line 74
     iget-object v0, p0, Lmybl/BiliLiveContent;->mRealUrl:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -322,7 +350,7 @@
     .locals 2
 
     .prologue
-    .line 70
+    .line 78
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -368,76 +396,76 @@
     .locals 2
 
     .prologue
-    .line 95
+    .line 103
     iget-object v0, p0, Lmybl/BiliLiveContent;->mArea:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 96
+    .line 104
     iget v0, p0, Lmybl/BiliLiveContent;->mAreaId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 97
+    .line 105
     iget-object v0, p0, Lmybl/BiliLiveContent;->mCover:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 98
+    .line 106
     iget-wide v0, p0, Lmybl/BiliLiveContent;->mOnline:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 99
+    .line 107
     iget-wide v0, p0, Lmybl/BiliLiveContent;->mUid:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 100
+    .line 108
     iget-object v0, p0, Lmybl/BiliLiveContent;->mUname:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 101
+    .line 109
     iget-object v0, p0, Lmybl/BiliLiveContent;->mFace:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 102
+    .line 110
     iget-wide v0, p0, Lmybl/BiliLiveContent;->mParsedTime:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 103
+    .line 111
     iget-object v0, p0, Lmybl/BiliLiveContent;->mPlayUrl:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 104
+    .line 112
     iget-object v0, p0, Lmybl/BiliLiveContent;->mRealUrl:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 105
+    .line 113
     iget v0, p0, Lmybl/BiliLiveContent;->mRoomId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 106
+    .line 114
     iget-object v0, p0, Lmybl/BiliLiveContent;->mTitle:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 108
+    .line 116
     iget v0, p0, Lmybl/BiliLiveContent;->mCurrentQuality:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 109
+    .line 117
     iget-object v0, p0, Lmybl/BiliLiveContent;->mAcceptQuality:[I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
-    .line 110
+    .line 118
     return-void
 .end method

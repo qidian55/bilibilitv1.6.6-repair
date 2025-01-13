@@ -19,10 +19,10 @@
     .locals 0
 
     .prologue
-    .line 89
+    .line 95
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 90
+    .line 96
     return-void
 .end method
 
@@ -30,10 +30,10 @@
     .locals 0
 
     .prologue
-    .line 93
+    .line 99
     invoke-direct {p0}, Lbl/afi$e;-><init>()V
 
-    .line 94
+    .line 100
     return-void
 .end method
 
@@ -43,27 +43,27 @@
     .locals 2
 
     .prologue
-    .line 105
+    .line 111
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 106
+    .line 112
     invoke-virtual {p0}, Lbl/afi$e;->b()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 107
+    .line 113
     new-instance v1, Lbl/afi;
 
     invoke-direct {v1}, Lbl/afi;-><init>()V
 
-    .line 108
+    .line 114
     invoke-virtual {v1, v0}, Lbl/afi;->setArguments(Landroid/os/Bundle;)V
 
-    .line 109
+    .line 115
     return-object v1
 .end method
 
@@ -71,7 +71,7 @@
     .locals 1
 
     .prologue
-    .line 97
+    .line 103
     const-string v0, "SearchResultFragment"
 
     return-object v0
@@ -81,7 +81,7 @@
     .locals 1
 
     .prologue
-    .line 101
+    .line 107
     const-string v0, "com.bilibili.tv.ui.search.SearchResultFragment.EXTRA_TID"
 
     return-object v0

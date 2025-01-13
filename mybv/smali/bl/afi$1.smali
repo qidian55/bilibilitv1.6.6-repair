@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 138
+    .line 140
     iput-object p1, p0, Lbl/afi$1;->this$0:Lbl/afi;
 
     invoke-direct {p0, p2}, Lcom/bilibili/tv/widget/FixLinearLayoutManager;-><init>(Landroid/content/Context;)V
@@ -37,34 +37,27 @@
     .locals 2
 
     .prologue
-    .line 142
-    if-nez p1, :cond_5
-
-    .line 143
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 145
-    :cond_5
+    .line 144
     invoke-virtual {p0, p1}, Lbl/afi$1;->d(Landroid/view/View;)I
 
     move-result v0
 
-    .line 146
+    .line 145
     const/16 v1, 0x11
 
-    if-ne p2, v1, :cond_24
+    if-ne p2, v1, :cond_1f
 
-    .line 147
+    .line 146
     iget-object v0, p0, Lbl/afi$1;->this$0:Lbl/afi;
 
     invoke-virtual {v0}, Lbl/afi;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    .line 148
-    if-nez v0, :cond_1d
+    .line 147
+    if-nez v0, :cond_18
 
-    .line 149
+    .line 148
     new-instance v0, Lkotlin/TypeCastException;
 
     const-string v1, "null cannot be cast to non-null type com.bilibili.tv.ui.search.SearchActivity"
@@ -73,49 +66,49 @@
 
     throw v0
 
-    .line 151
-    :cond_1d
+    .line 150
+    :cond_18
     check-cast v0, Lcom/bilibili/tv/ui/search/SearchActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/search/SearchActivity;->l()Landroid/view/View;
 
     move-result-object p1
 
-    .line 164
-    :cond_23
-    :goto_23
+    .line 163
+    :cond_1e
+    :goto_1e
     return-object p1
 
-    .line 153
-    :cond_24
+    .line 152
+    :cond_1f
     const/16 v1, 0x21
 
-    if-eq p2, v1, :cond_47
+    if-eq p2, v1, :cond_42
 
-    .line 154
+    .line 153
     const/16 v1, 0x42
 
-    if-ne p2, v1, :cond_36
+    if-ne p2, v1, :cond_31
 
-    .line 155
+    .line 154
     iget-object v0, p0, Lbl/afi$1;->this$0:Lbl/afi;
 
     invoke-virtual {v0}, Lbl/afi;->m()Landroid/view/View;
 
     move-result-object v0
 
-    .line 156
-    if-eqz v0, :cond_23
+    .line 155
+    if-eqz v0, :cond_1e
 
     move-object p1, v0
 
-    goto :goto_23
+    goto :goto_1e
 
-    .line 158
-    :cond_36
+    .line 157
+    :cond_31
     const/16 v1, 0x82
 
-    if-ne p2, v1, :cond_42
+    if-ne p2, v1, :cond_3d
 
     invoke-virtual {p0}, Lbl/afi$1;->H()I
 
@@ -123,19 +116,19 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ge v0, v1, :cond_23
+    if-ge v0, v1, :cond_1e
 
-    .line 164
-    :cond_42
+    .line 163
+    :cond_3d
     invoke-super {p0, p1, p2}, Lcom/bilibili/tv/widget/FixLinearLayoutManager;->d(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object p1
 
-    goto :goto_23
+    goto :goto_1e
 
-    .line 161
-    :cond_47
-    if-gtz v0, :cond_42
+    .line 160
+    :cond_42
+    if-gtz v0, :cond_3d
 
-    goto :goto_23
+    goto :goto_1e
 .end method

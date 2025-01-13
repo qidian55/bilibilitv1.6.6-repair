@@ -1,12 +1,7 @@
 package mybl;
 
 import bl.vp;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Field;
-import retrofit2.http.Query;
-import retrofit2.http.BaseUrl;
-import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.*;
 import com.alibaba.fastjson.JSONObject;
 import com.bilibili.okretro.GeneralResponse;
 
@@ -48,4 +43,8 @@ public interface MyBiliApiService {
 
     @GET(a = "/x/space/bangumi/follow/list")
     vp<GeneralResponse<JSONObject>> getFollowBangumi(@Query(a = "access_key") String access_key, @Query(a = "type") int type, @Query(a = "pn") int page, @Query(a = "ps") int page_size, @Query(a = "vmid") long vmid);
+
+    @Headers(a = "Cookie: ")
+    @GET(a = "/x/web-interface/search/type?search_type=live")
+    vp<GeneralResponse<JSONObject>> searchLive(@Query(a = "keyword") String keyword, @Query(a = "page") int page, @Query(a = "page_size") int page_size, @Query(a = "order") String order);
 }

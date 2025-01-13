@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -41,25 +41,11 @@
     .end annotation
 
     .prologue
-    .line 1360
+    .line 1139
     invoke-direct {p0}, Lbl/adb;-><init>()V
 
-    .line 1361
-    const-string v0, "list"
-
-    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 1362
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lbl/afi$k;->a:Ljava/util/List;
-
-    .line 1363
     iput-object p1, p0, Lbl/afi$k;->a:Ljava/util/List;
 
-    .line 1364
     return-void
 .end method
 
@@ -69,7 +55,7 @@
     .locals 1
 
     .prologue
-    .line 1381
+    .line 1152
     iget-object v0, p0, Lbl/afi$k;->a:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -83,7 +69,7 @@
     .locals 2
 
     .prologue
-    .line 1386
+    .line 1154
     invoke-virtual {p0, p1}, Lbl/afi$k;->c(I)I
 
     move-result v0
@@ -97,16 +83,37 @@
     return-wide v0
 .end method
 
+.method public final a(Ljava/util/List;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Lcom/bilibili/tv/api/search/BiliSearchResultUper;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 1155
+    iget-object v0, p0, Lbl/afi$k;->a:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    return-void
+.end method
+
 .method public b(I)Ljava/lang/Object;
     .locals 2
 
     .prologue
-    .line 1372
+    .line 1144
     invoke-virtual {p0, p1}, Lbl/afi$k;->e(I)I
 
     move-result v0
 
-    .line 1373
+    .line 1145
     iget-object v1, p0, Lbl/afi$k;->a:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
@@ -117,14 +124,14 @@
 
     if-ltz v0, :cond_15
 
-    .line 1374
+    .line 1146
     iget-object v1, p0, Lbl/afi$k;->a:Ljava/util/List;
 
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 1376
+    .line 1148
     :goto_14
     return-object v0
 
@@ -147,7 +154,7 @@
     .end annotation
 
     .prologue
-    .line 1367
+    .line 1140
     iget-object v0, p0, Lbl/afi$k;->a:Ljava/util/List;
 
     return-object v0
@@ -157,7 +164,7 @@
     .locals 1
 
     .prologue
-    .line 1357
+    .line 1138
     const/4 v0, 0x3
 
     return v0
