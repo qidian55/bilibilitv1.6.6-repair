@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Prepare the environment
+        run: |
+          sudo apt update
+          chmod +x ./build.sh
+          chmod +x ./mybv/java/build.sh
+          ./build.sh -i
+
+      - name: Build
+        run: ./build.sh
+
+      - name: Upload release
+        uses: actions/upload-artifact@v4
+        with:
+          name: "mybv"
+          path: "mybv.apk"
