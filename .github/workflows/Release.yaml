@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Prepare the environment
+        run: |
+          sudo apt update
+          chmod +x ./build.sh
+          chmod +x ./mybv/java/build.sh
+          ./build.sh -i
+
+      - name: Build
+        run: ./build.sh
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: "mybv"
+          path: "mybv.apk"
+
+      - name: Rename apk
+        run: mv mybv.apk "bilibilitv1.6.6-repair-${{ github.ref_name }}.apk"
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: bilibilitv1.6.6-repair-${{ github.ref_name }}.apk
