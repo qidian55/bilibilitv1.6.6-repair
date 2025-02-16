@@ -26,12 +26,12 @@
     .locals 0
 
     .prologue
-    .line 59
+    .line 73
     iput-object p1, p0, Lcom/bilibili/tv/ui/splash/SplashActivity$b;->this$0:Lcom/bilibili/tv/ui/splash/SplashActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 60
+    .line 74
     return-void
 .end method
 
@@ -41,18 +41,18 @@
     .locals 2
 
     .prologue
-    .line 64
+    .line 78
     sget-object v0, Lcom/bilibili/tv/ui/main/MainActivity;->Companion:Lcom/bilibili/tv/ui/main/MainActivity$a;
 
     iget-object v1, p0, Lcom/bilibili/tv/ui/splash/SplashActivity$b;->this$0:Lcom/bilibili/tv/ui/splash/SplashActivity;
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/ui/main/MainActivity$a;->a(Landroid/content/Context;)V
 
-    .line 65
+    .line 79
     iget-object v0, p0, Lcom/bilibili/tv/ui/splash/SplashActivity$b;->this$0:Lcom/bilibili/tv/ui/splash/SplashActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/splash/SplashActivity;->finish()V
 
-    .line 66
+    .line 80
     return-void
 .end method

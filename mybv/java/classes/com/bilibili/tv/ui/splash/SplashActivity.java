@@ -12,6 +12,9 @@ import com.bilibili.tv.R;
 import com.bilibili.tv.ui.base.BaseActivity;
 import com.bilibili.tv.ui.main.MainActivity;
 
+import android.graphics.*;
+import android.graphics.drawable.*;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public final class SplashActivity extends BaseActivity {
@@ -29,6 +32,17 @@ public final class SplashActivity extends BaseActivity {
         setTheme(R.style.splashTheme);
         View findViewById = findViewById(R.id.splash);
         bbi.a((Object) findViewById, "findViewById(R.id.splash)");
+
+        if(new java.io.File("/data/data/com.bilibili.tv/files/data/splash.png").exists()){
+            try{
+                Bitmap bitmap = BitmapFactory.decodeFile("/data/data/com.bilibili.tv/files/data/splash.png");
+                Drawable drawable = new BitmapDrawable(getResources(), bitmap);
+                findViewById.setBackground(drawable);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+
         this.a = acc.b();
         abd a2 = abd.a(this);
         bbi.a((Object) a2, "preferenceHelper");

@@ -26,12 +26,12 @@
     .locals 0
 
     .prologue
-    .line 85
+    .line 99
     iput-object p1, p0, Lcom/bilibili/tv/ui/splash/SplashActivity$d;->this$0:Lcom/bilibili/tv/ui/splash/SplashActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 86
+    .line 100
     return-void
 .end method
 
@@ -41,17 +41,17 @@
     .locals 1
 
     .prologue
-    .line 90
+    .line 104
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
-    .line 91
+    .line 105
     invoke-virtual {p1}, Lbl/agb;->cancel()V
 
-    .line 92
+    .line 106
     iget-object v0, p0, Lcom/bilibili/tv/ui/splash/SplashActivity$d;->this$0:Lcom/bilibili/tv/ui/splash/SplashActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/splash/SplashActivity;->finish()V
 
-    .line 93
+    .line 107
     return-void
 .end method

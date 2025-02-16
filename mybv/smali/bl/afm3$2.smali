@@ -3,12 +3,12 @@
 .source "afm3.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/afm3;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+    value = Lbl/afm3;->onClick(Landroid/view/View;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,14 +20,18 @@
 # instance fields
 .field final synthetic this$0:Lbl/afm3;
 
+.field final synthetic val$show_splashs:[Ljava/lang/String;
+
 
 # direct methods
-.method constructor <init>(Lbl/afm3;)V
+.method constructor <init>(Lbl/afm3;[Ljava/lang/String;)V
     .locals 0
 
     .prologue
-    .line 52
+    .line 180
     iput-object p1, p0, Lbl/afm3$2;->this$0:Lbl/afm3;
+
+    iput-object p2, p0, Lbl/afm3$2;->val$show_splashs:[Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,172 +40,184 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 5
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 10
 
     .prologue
-    const v4, 0x7f080173
+    .line 184
+    :try_start_0
+    new-instance v1, Ljava/io/File;
 
-    const/4 v1, 0x1
+    const-string v0, "/data/data/com.bilibili.tv/files/data/splash.png"
 
-    const/4 v2, 0x0
+    invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 55
-    sget-boolean v0, Lmybl/BiliFilter;->filter_on:Z
+    .line 185
+    if-nez p2, :cond_32
 
-    if-eqz v0, :cond_3f
+    .line 186
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
-    move-object v0, p1
+    move-result v0
 
-    .line 56
-    check-cast v0, Landroid/view/ViewGroup;
+    if-eqz v0, :cond_12
 
-    invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v1}, Ljava/io/File;->delete()Z
+
+    .line 211
+    :cond_12
+    :goto_12
+    iget-object v0, p0, Lbl/afm3$2;->this$0:Lbl/afm3;
+
+    # getter for: Lbl/afm3;->splash_button:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    invoke-static {v0}, Lbl/afm3;->access$100(Lbl/afm3;)Lcom/bilibili/tv/widget/DrawFrameLayout;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Lcom/bilibili/tv/widget/ShadowTextView;
 
-    const-string v3, "\u7981\u7528\u89c6\u9891\u8fc7\u6ee4"
+    iget-object v1, p0, Lbl/afm3$2;->val$show_splashs:[Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Lcom/bilibili/tv/widget/ShadowTextView;->setText(Ljava/lang/CharSequence;)V
+    aget-object v1, v1, p2
 
-    .line 57
-    const v0, 0x7f0700ef
+    invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/ShadowTextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->setBackgroundResource(I)V
+    .line 212
+    iget-object v0, p0, Lbl/afm3$2;->this$0:Lbl/afm3;
 
-    .line 58
-    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/View;
-
-    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    check-cast v0, Lcom/bilibili/tv/widget/DrawEditText;
+    const-string v1, "\u5f00\u5c4f\u58c1\u7eb8\u5df2\u66f4\u65b0"
 
-    .line 59
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/DrawEditText;->setEnabled(Z)V
+    invoke-static {v0, v1}, Lbl/lr;->b(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 60
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/DrawEditText;->setFocusable(Z)V
-
-    .line 61
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/widget/DrawEditText;->setClickable(Z)V
-
-    .line 62
-    const-string v3, ""
-
-    invoke-virtual {v0, v3}, Lcom/bilibili/tv/widget/DrawEditText;->setText(Ljava/lang/CharSequence;)V
-
-    .line 80
-    :goto_37
-    sget-boolean v0, Lmybl/BiliFilter;->filter_on:Z
-
-    if-nez v0, :cond_8b
-
-    move v0, v1
-
-    :goto_3c
-    sput-boolean v0, Lmybl/BiliFilter;->filter_on:Z
-
-    .line 81
+    .line 217
+    :goto_31
     return-void
 
-    :cond_3f
-    move-object v0, p1
+    .line 189
+    :cond_32
+    iget-object v0, p0, Lbl/afm3$2;->this$0:Lbl/afm3;
 
-    .line 65
-    check-cast v0, Landroid/view/ViewGroup;
-
-    invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0}, Lbl/afm3;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    check-cast v0, Lcom/bilibili/tv/widget/ShadowTextView;
+    const v2, 0x7f070106
 
-    const-string v3, "\u542f\u7528\u89c6\u9891\u8fc7\u6ee4"
-
-    invoke-virtual {v0, v3}, Lcom/bilibili/tv/widget/ShadowTextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 66
-    const v0, 0x7f0700f0
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->setBackgroundResource(I)V
-
-    .line 67
-    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    check-cast v0, Landroid/view/View;
+    check-cast v0, Landroid/graphics/drawable/BitmapDrawable;
 
-    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    .line 190
+    invoke-virtual {v0}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    check-cast v0, Lcom/bilibili/tv/widget/DrawEditText;
+    sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    .line 68
-    invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/DrawEditText;->setEnabled(Z)V
+    const/4 v3, 0x1
 
-    .line 69
-    invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/DrawEditText;->setFocusable(Z)V
+    invoke-virtual {v0, v2, v3}, Landroid/graphics/Bitmap;->copy(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
 
-    .line 70
-    invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/DrawEditText;->setClickable(Z)V
+    move-result-object v2
 
-    .line 72
-    :try_start_68
-    invoke-static {}, Lmybl/BiliFilter;->updateConfig()V
+    .line 191
+    new-instance v3, Landroid/graphics/Canvas;
 
-    .line 73
-    iget-object v3, p0, Lbl/afm3$2;->this$0:Lbl/afm3;
+    invoke-direct {v3, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    invoke-virtual {v3}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    .line 193
+    invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;
 
-    move-result-object v3
+    move-result-object v0
 
-    const-string v4, "\u8fc7\u6ee4\u5668\u914d\u7f6e\u5df2\u66f4\u65b0"
+    .line 194
+    new-instance v4, Lbl/afm3$2$1;
 
-    invoke-static {v3, v4}, Lbl/lr;->b(Landroid/content/Context;Ljava/lang/String;)V
-    :try_end_76
-    .catch Ljava/lang/Exception; {:try_start_68 .. :try_end_76} :catch_7c
+    invoke-direct {v4, p0, p2}, Lbl/afm3$2$1;-><init>(Lbl/afm3$2;I)V
 
-    .line 78
-    :goto_76
-    sget-object v3, Lmybl/BiliFilter;->filter_rule_path:Ljava/lang/String;
+    invoke-interface {v0, v4}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
 
-    invoke-virtual {v0, v3}, Lcom/bilibili/tv/widget/DrawEditText;->setText(Ljava/lang/CharSequence;)V
+    move-result-object v0
 
-    goto :goto_37
+    .line 201
+    invoke-interface {v0}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
 
-    .line 75
-    :catch_7c
-    move-exception v3
+    move-result-object v0
 
-    .line 76
-    iget-object v4, p0, Lbl/afm3$2;->this$0:Lbl/afm3;
+    check-cast v0, Landroid/graphics/Bitmap;
 
-    invoke-virtual {v4}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    .line 202
+    const/4 v4, 0x0
 
-    move-result-object v4
+    new-instance v5, Landroid/graphics/RectF;
 
-    invoke-virtual {v3}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    const v6, 0x442c8000    # 690.0f
 
-    move-result-object v3
+    const/4 v7, 0x0
 
-    invoke-static {v4, v3}, Lbl/lr;->a(Landroid/content/Context;Ljava/lang/String;)V
+    const v8, 0x4499c000    # 1230.0f
 
-    goto :goto_76
+    const/high16 v9, 0x44700000    # 960.0f
 
-    :cond_8b
-    move v0, v2
+    invoke-direct {v5, v6, v7, v8, v9}, Landroid/graphics/RectF;-><init>(FFFF)V
 
-    .line 80
-    goto :goto_3c
+    const/4 v6, 0x0
+
+    invoke-virtual {v3, v0, v4, v5, v6}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/RectF;Landroid/graphics/Paint;)V
+
+    .line 204
+    invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
+
+    .line 205
+    new-instance v0, Ljava/io/FileOutputStream;
+
+    invoke-direct {v0, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+
+    .line 206
+    sget-object v1, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
+
+    const/16 v3, 0x64
+
+    invoke-virtual {v2, v1, v3, v0}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
+
+    .line 207
+    invoke-virtual {v0}, Ljava/io/FileOutputStream;->close()V
+    :try_end_89
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_89} :catch_8a
+
+    goto :goto_12
+
+    .line 213
+    :catch_8a
+    move-exception v0
+
+    .line 214
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    .line 215
+    iget-object v1, p0, Lbl/afm3$2;->this$0:Lbl/afm3;
+
+    invoke-virtual {v1}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Lbl/lr;->a(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto :goto_31
 .end method

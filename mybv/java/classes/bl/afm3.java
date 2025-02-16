@@ -15,13 +15,21 @@ import mybl.VideoViewParams;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
+import java.io.*;
+import java.nio.*;
+import java.util.concurrent.*;
+import android.graphics.*;
+import android.graphics.drawable.*;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public final class afm3 extends adw implements View.OnFocusChangeListener, View.OnClickListener, TextView.OnEditorActionListener, CompoundButton.OnCheckedChangeListener {
     public static final a Companion = new a(null);
     public static List<String> tmp_cdns;
+    public static List<String> tmp_splashs;
     private DrawFrameLayout filter_button;
     private DrawFrameLayout cdn_button;
+    private DrawFrameLayout splash_button;
     private DrawEditText filter_path;
     private DrawEditText cdn_value;
     private CheckBox skip_checkbox0;
@@ -43,6 +51,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         View inflate = inflater.inflate(R.layout.fragment_experiment, viewGroup, false);
         this.filter_button = (DrawFrameLayout)inflate.findViewById(R.id.filter_button);
         this.cdn_button = (DrawFrameLayout)inflate.findViewById(R.id.cdn_button);
+        this.splash_button = (DrawFrameLayout)inflate.findViewById(R.id.splash_button);
         this.filter_path = (DrawEditText)inflate.findViewById(R.id.filter_path);
         this.cdn_value = (DrawEditText)inflate.findViewById(R.id.cdn_value);
         this.skip_checkbox0 = (CheckBox)inflate.findViewById(R.id.skip_checkbox0);
@@ -53,6 +62,8 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         this.filter_button.setOnFocusChangeListener(this);
         this.cdn_button.setUpDrawable(R.drawable.shadow_white_rect);
         this.cdn_button.setOnFocusChangeListener(this);
+        this.splash_button.setUpDrawable(R.drawable.shadow_white_rect);
+        this.splash_button.setOnFocusChangeListener(this);
         if(BiliFilter.filter_on){
             ((ShadowTextView)((ViewGroup)this.filter_button).getChildAt(0)).setText("启用视频过滤");
             this.filter_button.setBackgroundResource(R.drawable.shape_rectangle_trans_with_12corner_white_50);
@@ -75,6 +86,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         this.cdn_value.setText(VideoViewParams.prefect_cdn);
         this.filter_button.setOnClickListener(this);
         this.cdn_button.setOnClickListener(this);
+        this.splash_button.setOnClickListener(this);
         this.filter_path.setOnEditorActionListener(this);
         this.cdn_value.setOnEditorActionListener(this);
         this.skip_checkbox0.setChecked(BiliFilter.skip_categories.contains("intro"));
@@ -110,6 +122,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
                     lr.b(afm3.this.getActivity(), "过滤器配置已更新");
                 }
                 catch(Exception e){
+                    e.printStackTrace();
                     lr.a(afm3.this.getActivity(), e.toString());
                 }
                 filter_path.setText(BiliFilter.filter_rule_path);
@@ -139,11 +152,68 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
                 }
             }
             AlertDialog dialog = new AlertDialog.Builder(getContext())
-                .setItems(show_cdns.toArray(new String[0]), new DialogInterface.OnClickListener() { 
+                .setItems(show_cdns.toArray(new String[0]), new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) { 
+                    public void onClick(DialogInterface dialog, int which) {
                         VideoViewParams.prefect_cdn=afm3.tmp_cdns.get(which);
                         afm3.this.cdn_value.setText(VideoViewParams.prefect_cdn);
+                    }
+                }).create();
+            dialog.show();
+        }
+        if(view == this.splash_button){
+            //最新壁纸
+            //https://api.bilibili.com/x/polymer/web-dynamic/v1/opus/feed/space?host_mid=6823116&offset=&type=dynamic
+            JSONObject default_splashs = null;
+            try{
+                default_splashs = new JSONObject("{\"款式一\":\"http://i0.hdslb.com/bfs/archive/1d40e975b09d5c87b11b3ae0c9ce6c6b82f63d9e.png\",\"款式二\":\"http://i0.hdslb.com/bfs/archive/351c02ba3f75f5eaa107c68ddf2222d74521773a.png\",\"slogan\":\"http://i0.hdslb.com/bfs/archive/06543a163e2a4e0189b12e3025f9c1d69203ed6d.png\",\"10周年\":\"http://i0.hdslb.com/bfs/archive/574469a4a20f41ba4dc9ecd41d15f94eea875ed9.png\",\"11周年\":\"http://i0.hdslb.com/bfs/archive/3007728d674a385306ba0b07055103a78b9eed62.png\",\"BW2020\":\"http://i0.hdslb.com/bfs/archive/e2d2f57e08b511d1a47203859f7bddb4ef9d4e16.png\"}");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            String[] show_splashs={"默认", "款式一", "款式二", "slogan", "10周年", "11周年", "BW2020"};
+            afm3.tmp_splashs = new ArrayList<String>();
+            for (Iterator iterator = default_splashs.keys(); iterator.hasNext();){
+                String key = (String)iterator.next();
+                afm3.tmp_splashs.add(default_splashs.optString(key));
+            }
+            AlertDialog dialog = new AlertDialog.Builder(getContext())
+                .setItems(show_splashs, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        try{
+                            File fImage = new File("/data/data/com.bilibili.tv/files/data/splash.png");  
+                            if(which==0){
+                                if(fImage.exists())fImage.delete();
+                            }
+                            else{
+                                BitmapDrawable bitmapDrawable = (BitmapDrawable) getResources().getDrawable(R.drawable.background_splash);
+                                Bitmap background = bitmapDrawable.getBitmap().copy(Bitmap.Config.ARGB_8888, true);
+                                Canvas canvas = new Canvas(background);
+
+                                ExecutorService threadPool  = Executors.newSingleThreadExecutor();
+                                Future<Bitmap> future = threadPool.submit(new Callable<Bitmap>() {
+                                    @Override
+                                    public Bitmap call() {
+                                        Response response = (Response) pz.a(new qa.a(Response.class).a(afm3.tmp_splashs.get(which-1)).a(new qb()).a(), "GET");
+                                        return response.e();
+                                    }
+                                });
+                                Bitmap frontground = future.get();
+                                canvas.drawBitmap(frontground,null,new RectF(690,0,1230,960),null);
+
+                                fImage.createNewFile();
+                                FileOutputStream iStream = new FileOutputStream(fImage);
+                                background.compress(Bitmap.CompressFormat.PNG, 100, iStream);
+                                iStream.close();
+                                iStream =null;
+                            }
+                            fImage =null;
+                            ((ShadowTextView)((ViewGroup)afm3.this.splash_button).getChildAt(0)).setText(show_splashs[which]);
+                            lr.b(afm3.this.getActivity(), "开屏壁纸已更新");
+                        }catch(Exception e){
+                            e.printStackTrace();
+                            lr.a(afm3.this.getActivity(), e.toString());
+                        }
                     }
                 }).create();
             dialog.show();
@@ -209,7 +279,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
     }
 
     public final boolean a() {
-        if (this.filter_button == null || this.filter_button.hasFocus() || this.filter_path == null || this.filter_path.hasFocus() || this.cdn_button == null || this.cdn_button.hasFocus() || this.cdn_value == null || this.cdn_value.hasFocus() || this.skip_checkbox0 == null || this.skip_checkbox0.hasFocus() || this.skip_checkbox1 == null || this.skip_checkbox1.hasFocus() || this.skip_checkbox2 == null || this.skip_checkbox2.hasFocus()) {
+        if (this.filter_button == null || this.filter_button.hasFocus() || this.filter_path == null || this.filter_path.hasFocus() || this.cdn_button == null || this.cdn_button.hasFocus() || this.cdn_value == null || this.cdn_value.hasFocus() || this.skip_checkbox0 == null || this.skip_checkbox0.hasFocus() || this.skip_checkbox1 == null || this.skip_checkbox1.hasFocus() || this.skip_checkbox2 == null || this.skip_checkbox2.hasFocus() || this.splash_button == null || this.splash_button.hasFocus()) {
             return false;
         }
         this.filter_button.requestFocus();
@@ -228,6 +298,16 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
 
         public final afm3 a() {
             return new afm3();
+        }
+    }
+
+
+    public static class Response extends qe {
+        public Bitmap e() {
+            if (a()) {
+                return BitmapFactory.decodeByteArray(this.b, 0, this.b.length);
+            }
+            return null;
         }
     }
 }

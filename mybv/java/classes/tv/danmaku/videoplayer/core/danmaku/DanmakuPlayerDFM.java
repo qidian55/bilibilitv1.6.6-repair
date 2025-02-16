@@ -322,15 +322,18 @@ public class DanmakuPlayerDFM implements IDanmakuPlayer {
         float baseScreenScale = dm.heightPixels / 15.0f / 25.0f;
         float mScale = abd.f(c);
         JSONArray body = data.optJSONArray("body");
-        double font_size = data.optDouble("font_size");
-        int font_color = Integer.parseInt(data.optString("font_color").substring(1),16);
-        int background_alpha = (int) (data.optDouble("background_alpha") * 255);
-        int background_color = Integer.parseInt(data.optString("background_color").substring(1),16);
-        boolean stroked = data.optString("Stroke").equals("none");
-
-        font_color = 0xffffff;
-        background_alpha = 128;
-        background_color = 0x000000;
+        double font_size = 0.4;
+        int font_color = 0xffffff;
+        int background_alpha = 128;
+        int background_color = 0x000000;//0x9c27b0;
+        boolean stroked = false;
+        if(!data.optString("font_color").isEmpty() && !data.optString("Stroke").isEmpty()){
+            font_size = data.optDouble("font_size");
+            font_color = Integer.parseInt(data.optString("font_color").substring(1),16);
+            background_alpha = (int) (data.optDouble("background_alpha") * 255);
+            //background_color = Integer.parseInt(data.optString("background_color").substring(1),16);
+            stroked = !data.optString("Stroke").equals("none");
+        }
 
         for(int i=0;i<body.length();i++){
             JSONObject item = body.optJSONObject(i);

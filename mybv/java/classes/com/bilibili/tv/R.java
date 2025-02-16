@@ -2078,6 +2078,7 @@ public final class R {
         public static final int ic_live_tv_180 = 0x7f070103;
         public static final int ic_group_180 = 0x7f070104;
         public static final int ic_toview_180 = 0x7f070105;
+        public static final int background_splash = 0x7f070106;
     }
 
     public static final class id {
@@ -2459,6 +2460,7 @@ public final class R {
         public static final int skip_checkbox0 = 0x7f080176;
         public static final int skip_checkbox1 = 0x7f080177;
         public static final int skip_checkbox2 = 0x7f080178;
+        public static final int splash_button = 0x7f080179;
     }
 
     public static final class integer {

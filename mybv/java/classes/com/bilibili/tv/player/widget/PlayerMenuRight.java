@@ -38,7 +38,7 @@ public class PlayerMenuRight extends aay<String> {
     private Animation b;
     private boolean c;
     private a d;
-    private List<String> e;
+    private List<String> main_list;
     private String f;
     private List<String> quality_list;
     private List<String> danmaku_list;
@@ -165,7 +165,7 @@ public class PlayerMenuRight extends aay<String> {
         }
         if (i == 2) {
             try {
-                if (!this.quality_list.get(this.quality_id).equals(str) && !this.danmaku_list.contains(str) && !this.ratio_list.get(this.ratio_id).equals(str) && !this.size_list.get(this.size_id).equals(str) && !this.alpha_list.get(this.alpha_id).equals(str) && !this.speed_list.get(this.speed_id).equals(str) && !this.mode_list.get(this.mode_id).equals(str) && !this.subtitle_list.get(this.subtitle_id).equals(str)) {
+                if (!this.quality_list.get(this.quality_id).equals(str) && !this.ratio_list.get(this.ratio_id).equals(str) && !this.size_list.get(this.size_id).equals(str) && !this.alpha_list.get(this.alpha_id).equals(str) && !this.speed_list.get(this.speed_id).equals(str) && !this.mode_list.get(this.mode_id).equals(str) && !this.subtitle_list.get(this.subtitle_id).equals(str)) {
                     textView.getCompoundDrawables()[0].setAlpha(0);
                 }
                 else {
@@ -177,7 +177,10 @@ public class PlayerMenuRight extends aay<String> {
                     boolean f = false;
                     for(int ii=0;ii<10;ii++){if(danmaku_valid_list[ii])f=true;}
                     switch(w){
-                        case 0:textView.getCompoundDrawables()[0].setAlpha(f?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
+                        case 0:
+                            textView.getCompoundDrawables()[0].setAlpha(f?DanmakuConfig.ALPHA_VALUE_MAX:0);
+                            textView.setText(f?"弹幕开":"弹幕关");
+                            return;
                         case 1:textView.getCompoundDrawables()[0].setAlpha(0);break;
                         case 2:textView.getCompoundDrawables()[0].setAlpha(danmaku_valid_list[1]?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
                         default:textView.getCompoundDrawables()[0].setAlpha(danmaku_valid_list[w+1]?DanmakuConfig.ALPHA_VALUE_MAX:0);break;
@@ -381,7 +384,7 @@ public class PlayerMenuRight extends aay<String> {
     }
 
     private boolean f() {
-        return this.e == null || this.quality_list == null || this.danmaku_list == null || this.ratio_list == null;
+        return this.main_list == null || this.quality_list == null || this.danmaku_list == null || this.ratio_list == null;
     }
 
     private void d(int i) {
@@ -410,7 +413,7 @@ public class PlayerMenuRight extends aay<String> {
                 i3 = this.quality_id;
                 break;
             case 1:
-                i3 = this.danmaku_type;
+                i3 = 1;//i3 = this.danmaku_type;
                 break;
             case 2:
                 i3 = this.ratio_id;
@@ -446,7 +449,7 @@ public class PlayerMenuRight extends aay<String> {
             return null;
         }
         if (i < 1) {
-            return this.e;
+            return this.main_list;
         }
         if (TextUtils.isEmpty(this.f)) {
             switch (i2) {
@@ -569,7 +572,7 @@ public class PlayerMenuRight extends aay<String> {
     }
 
     public void b(List<String> list, int i) {
-        this.e = list;
+        this.main_list = list;
     }
 
     public void init_danmaku(List<String> list, int i) {
