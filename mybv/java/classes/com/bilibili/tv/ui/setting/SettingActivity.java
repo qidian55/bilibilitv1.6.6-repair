@@ -20,7 +20,6 @@ import bl.afn;
 import bl.afo;
 import bl.afp;
 import bl.afq;
-import bl.afm3;
 import bl.agb;
 import bl.agd;
 import bl.agf;
@@ -35,6 +34,9 @@ import com.bilibili.tv.widget.DrawFrameLayout;
 import com.bilibili.tv.widget.side.SideLeftSelectLinearLayout;
 import java.lang.ref.WeakReference;
 import kotlin.TypeCastException;
+
+import bl.afm3;
+import bl.afm4;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -201,6 +203,9 @@ public final class SettingActivity extends BaseUpViewActivity {
                     }
                     if (d2 instanceof afm3) {
                         return ((afm3) d2).a();
+                    }
+                    if (d2 instanceof afm4) {
+                        return ((afm4) d2).a();
                     }
                     return true;
                 }

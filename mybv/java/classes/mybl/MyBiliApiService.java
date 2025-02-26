@@ -47,4 +47,7 @@ public interface MyBiliApiService {
     @Headers(a = "Cookie: ")
     @GET(a = "/x/web-interface/search/type?search_type=live")
     vp<GeneralResponse<JSONObject>> searchLive(@Query(a = "keyword") String keyword, @Query(a = "page") int page, @Query(a = "page_size") int page_size, @Query(a = "order") String order);
+
+    @GET(a = "/x/polymer/web-dynamic/v1/feed/all?type=video")
+    vp<GeneralResponse<JSONObject>> getFeedVideos(@Query(a = "access_key") String access_key, @Query(a = "offset") String offset);
 }

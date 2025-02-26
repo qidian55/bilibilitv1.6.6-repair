@@ -61,6 +61,7 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
     private boolean g = true;
     private boolean h;
 
+    private String offset = "";
     public static boolean uperMode = false;
 
     @Override // bl.wf
@@ -256,7 +257,8 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
         if(AttentionDynamicActivity.uperMode){
             ((MyBiliApiService) vo.a(MyBiliApiService.class)).getFollowings(biliAccount.e(), biliAccount.d(), "attention", 30, this.f).a(new FollowingResponse());
         }else{
-            ((BiliApiService) vo.a(BiliApiService.class)).getFeedUpperArchive(biliAccount.e(), this.f, 30, 1).a(this.e);
+            //((BiliApiService) vo.a(BiliApiService.class)).getFeedUpperArchive(biliAccount.e(), this.f, 30, 1).a(this.e);
+            ((MyBiliApiService) vo.a(MyBiliApiService.class)).getFeedVideos(biliAccount.e(), this.offset).a(new FeedResponse());
         }
     }
 
@@ -278,20 +280,16 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
         }
 
         @Override // bl.vm
-        public void onError(Throwable th) {
-            bbi.b(th, "t");
-            adl.a.a(th, AttentionDynamicActivity.this);
+        public void onError(Throwable t) {
+            bbi.b(t, "t");
+            adl.a.a(t, AttentionDynamicActivity.this);
             if (AttentionDynamicActivity.this.a == null || AttentionDynamicActivity.this.c == null) {
                 return;
             }
             AttentionDynamicActivity.this.h = false;
             if (AttentionDynamicActivity.this.f == 1) {
                 AttentionDynamicActivity.this.a(true);
-                LoadingImageView loadingImageView = AttentionDynamicActivity.this.c;
-                if (loadingImageView == null) {
-                    bbi.a();
-                }
-                loadingImageView.setRefreshError(true);
+                AttentionDynamicActivity.this.c.setRefreshError(true);
             }
         }
 
@@ -302,15 +300,8 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
             }
             AttentionDynamicActivity.this.a(false);
             LoadingImageView loadingImageView = AttentionDynamicActivity.this.c;
-            if (loadingImageView == null) {
-                bbi.a();
-            }
             loadingImageView.b();
-            RecyclerView recyclerView = AttentionDynamicActivity.this.d;
-            if (recyclerView == null) {
-                bbi.a();
-            }
-            recyclerView.setVisibility(0);
+            AttentionDynamicActivity.this.d.setVisibility(0);
             AttentionDynamicActivity.this.h = false;
             if ((upperFeedList != null ? upperFeedList.items : null) == null || upperFeedList.items.size() == 0) {
                 if (AttentionDynamicActivity.this.f == 1) {
@@ -322,12 +313,58 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
                 return;
             }
             List<UpperFeedList.UpperFeedItem> list = BiliFilter.filterUpperFeedItem(upperFeedList.items, "动态");
-            c cVar = AttentionDynamicActivity.this.a;
-            if (cVar == null) {
-                bbi.a();
-            }
             bbi.a((Object) list, "list");
-            cVar.a(list);
+            AttentionDynamicActivity.this.a.a(list);
+        }
+    }
+
+    public final class FeedResponse extends vn<JSONObject> {
+        @Override // bl.vm
+        public boolean isCancel() {
+            return AttentionDynamicActivity.this.a == null;
+        }
+
+        @Override // bl.vm
+        public void onError(Throwable t) {
+            bbi.b(t, "t");
+            adl.a.a(t, AttentionDynamicActivity.this);
+            if (AttentionDynamicActivity.this.a == null || AttentionDynamicActivity.this.c == null) {
+                return;
+            }
+            AttentionDynamicActivity.this.h = false;
+            if (AttentionDynamicActivity.this.f == 1) {
+                AttentionDynamicActivity.this.a(true);
+                AttentionDynamicActivity.this.c.setRefreshError(true);
+            }
+        }
+
+        @Override // bl.vn
+        public void a(JSONObject response) {
+            if (AttentionDynamicActivity.this.a == null || AttentionDynamicActivity.this.c == null) {
+                return;
+            }
+            AttentionDynamicActivity.this.a(false);
+            LoadingImageView loadingImageView = AttentionDynamicActivity.this.c;
+            loadingImageView.b();
+            AttentionDynamicActivity.this.d.setVisibility(0);
+            AttentionDynamicActivity.this.h = false;
+            if (response==null||response.getJSONArray("items")==null||response.getJSONArray("items").size()==0) {
+                if (AttentionDynamicActivity.this.offset.isEmpty()) {
+                    loadingImageView.c();
+                    loadingImageView.a(R.string.nothing_show);
+                    return;
+                }
+                AttentionDynamicActivity.this.g = false;
+                return;
+            }
+            List<JSONObject> list = new ArrayList<JSONObject>();
+            for(int i=0;i<response.getJSONArray("items").size();i++)list.add(response.getJSONArray("items").getJSONObject(i).getJSONObject("modules"));
+            //list = BiliFilter.filterUpperFeedItem(list, "动态");
+            c cVar = AttentionDynamicActivity.this.a;
+            bbi.a((Object) list, "list");
+            AttentionDynamicActivity.this.a.a(list);
+            if(!response.getBoolean("has_more"))AttentionDynamicActivity.this.g = false;
+            AttentionDynamicActivity.this.offset=response.getString("offset");
         }
     }
 
@@ -347,11 +384,7 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
             AttentionDynamicActivity.this.h = false;
             if (AttentionDynamicActivity.this.f == 1) {
                 AttentionDynamicActivity.this.a(true);
-                LoadingImageView loadingImageView = AttentionDynamicActivity.this.c;
-                if (loadingImageView == null) {
-                    bbi.a();
-                }
-                loadingImageView.setRefreshError(true);
+                AttentionDynamicActivity.this.c.setRefreshError(true);
             }
         }
 
@@ -366,11 +399,7 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
                 bbi.a();
             }
             loadingImageView.b();
-            RecyclerView recyclerView = AttentionDynamicActivity.this.d;
-            if (recyclerView == null) {
-                bbi.a();
-            }
-            recyclerView.setVisibility(0);
+            AttentionDynamicActivity.this.d.setVisibility(0);
             AttentionDynamicActivity.this.h = false;
             if (response==null||response.getJSONArray("list")==null||response.getJSONArray("list").size()==0) {
                 if (AttentionDynamicActivity.this.f == 1) {
@@ -383,12 +412,8 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
             }
             List<JSONObject> list = new ArrayList<JSONObject>(response.getJSONArray("list").size());
             for(int i=0;i<response.getJSONArray("list").size();i++)list.add(response.getJSONArray("list").getJSONObject(i));
-            c cVar = AttentionDynamicActivity.this.a;
-            if (cVar == null) {
-                bbi.a();
-            }
             bbi.a((Object) list, "list");
-            cVar.a(list);
+            AttentionDynamicActivity.this.a.a(list);
         }
     }
 
@@ -431,14 +456,24 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
                         nv.a().a(ach.c(MainApplication.a(), followingItem.getString("face")), dVar.z());
                     }
                 }else{
-                    UpperFeedList.UpperFeedItem upperFeedItem = (UpperFeedList.UpperFeedItem)this.a.get(i);
-                    bbi.a((Object) upperFeedItem, "mBiliVideos[position]");
-                    dVar.A().setText(upperFeedItem.title);
-                    dVar.B().setText(upperFeedItem.name);
-                    dVar.C().setText(adh.a(upperFeedItem.play));
-                    dVar.D().setText(adh.a(upperFeedItem.danmamu));
-                    if (upperFeedItem.cover != null) {
-                        nv.a().a(ach.c(MainApplication.a(), upperFeedItem.cover), dVar.z());
+                    //UpperFeedList.UpperFeedItem upperFeedItem = (UpperFeedList.UpperFeedItem)this.a.get(i);
+                    //bbi.a((Object) upperFeedItem, "mBiliVideos[position]");
+                    //dVar.A().setText(upperFeedItem.title);
+                    //dVar.B().setText(upperFeedItem.name);
+                    //dVar.C().setText(adh.a(upperFeedItem.play));
+                    //dVar.D().setText(adh.a(upperFeedItem.danmamu));
+                    //if (upperFeedItem.cover != null) {
+                    //    nv.a().a(ach.c(MainApplication.a(), upperFeedItem.cover), dVar.z());
+                    //}
+                    JSONObject feedItem = (JSONObject)this.a.get(i);
+                    JSONObject feedArchiveItem = feedItem.getJSONObject("module_dynamic").getJSONObject("major").getJSONObject("archive");
+                    bbi.a((Object) feedItem, "mBiliVideos[position]");
+                    dVar.A().setText(feedArchiveItem.getString("title"));
+                    dVar.B().setText(feedItem.getJSONObject("module_author").getString("name"));
+                    dVar.C().setText(feedArchiveItem.getJSONObject("stat").getString("play"));
+                    dVar.D().setText(feedArchiveItem.getJSONObject("stat").getString("danmaku"));
+                    if (feedArchiveItem.getString("cover") != null) {
+                        nv.a().a(ach.c(MainApplication.a(), feedArchiveItem.getString("cover")), dVar.z());
                     }
                 }
                 View view = holder.a;
@@ -475,11 +510,10 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
             Context context = view.getContext();
             bbi.a((Object) context, "v.context");
             Activity a = adl.a(context);
-            if ((tag instanceof UpperFeedList.UpperFeedItem) && a != null) {
-                Long valueOf = Long.valueOf(((UpperFeedList.UpperFeedItem) tag).param);
-                if (valueOf == null) {
-                    bbi.a();
-                }
+            //if ((tag instanceof UpperFeedList.UpperFeedItem) && a != null) {
+            if ((tag instanceof JSONObject) && !AttentionDynamicActivity.uperMode && a != null) {
+                //Long valueOf = Long.valueOf(((UpperFeedList.UpperFeedItem) tag).param);
+                Long valueOf = Long.valueOf(((JSONObject) tag).getJSONObject("module_dynamic").getJSONObject("major").getJSONObject("archive").getString("aid"));
                 a.startActivity(VideoDetailActivity.Companion.a(a, valueOf.longValue()));
             }else if((tag instanceof JSONObject) && a != null){
                 AuthSpaceActivity.Companion.a(a, ((JSONObject)tag).getString("uname"), ((JSONObject)tag).getLongValue("mid"));

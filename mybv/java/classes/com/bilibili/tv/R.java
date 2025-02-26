@@ -2461,6 +2461,7 @@ public final class R {
         public static final int skip_checkbox1 = 0x7f080177;
         public static final int skip_checkbox2 = 0x7f080178;
         public static final int splash_button = 0x7f080179;
+        public static final int progressbar_button = 0x7f08017a;
     }
 
     public static final class integer {
@@ -2614,6 +2615,7 @@ public final class R {
         public static final int tooltip = 0x7f0a0088;
 
         public static final int fragment_experiment = 0x7f0a0089;
+        public static final int fragment_personalization = 0x7f0a008a;
     }
 
     public static final class mipmap {

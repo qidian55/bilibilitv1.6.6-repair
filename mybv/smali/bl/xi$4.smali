@@ -1,6 +1,6 @@
 .class Lbl/xi$4;
 .super Ljava/lang/Object;
-.source "BL"
+.source "xi.java"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -18,15 +18,16 @@
 
 
 # instance fields
-.field final synthetic a:Lbl/xi;
+.field final synthetic this$0:Lbl/xi;
 
 
 # direct methods
 .method constructor <init>(Lbl/xi;)V
     .locals 0
 
-    .line 782
-    iput-object p1, p0, Lbl/xi$4;->a:Lbl/xi;
+    .prologue
+    .line 706
+    iput-object p1, p0, Lbl/xi$4;->this$0:Lbl/xi;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,10 +39,12 @@
 .method public run()V
     .locals 1
 
-    .line 785
-    iget-object v0, p0, Lbl/xi$4;->a:Lbl/xi;
+    .prologue
+    .line 709
+    iget-object v0, p0, Lbl/xi$4;->this$0:Lbl/xi;
 
     invoke-virtual {v0}, Lbl/xi;->M()V
 
+    .line 710
     return-void
 .end method

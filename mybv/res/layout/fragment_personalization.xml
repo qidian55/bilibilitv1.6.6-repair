@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:focusable="false"
+        android:clipChildren="false"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_200">
+        <com.bilibili.tv.widget.ShadowTextView
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:focusable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="进度条常驻："
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_44"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30" />
+        <com.bilibili.tv.widget.DrawFrameLayout
+            android:id="@id/progressbar_button"
+            android:background="@drawable/shape_rectangle_trans_with_12corner_white_10"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingLeft="@dimen/px_30"
+            android:paddingRight="@dimen/px_30"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/px_96">
+            <com.bilibili.tv.widget.ShadowTextView
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:focusable="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="关"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px_44" />
+        </com.bilibili.tv.widget.DrawFrameLayout>
+    </LinearLayout>
+    <!--<LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:focusable="false"
+        android:clipChildren="false"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_200">
+        <com.bilibili.tv.widget.ShadowTextView
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:focusable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="不询问退出："
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_44"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30" />
+        <com.bilibili.tv.widget.DrawFrameLayout
+            android:id="@id/quit_button"
+            android:background="@drawable/shape_rectangle_trans_with_12corner_white_10"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingLeft="@dimen/px_30"
+            android:paddingRight="@dimen/px_30"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/px_96">
+            <com.bilibili.tv.widget.ShadowTextView
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:focusable="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="关"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px_44" />
+        </com.bilibili.tv.widget.DrawFrameLayout>
+    </LinearLayout>-->
+</LinearLayout>

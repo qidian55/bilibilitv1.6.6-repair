@@ -1,6 +1,6 @@
 .class Lbl/xi$3;
 .super Ljava/lang/Object;
-.source "BL"
+.source "xi.java"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -18,15 +18,16 @@
 
 
 # instance fields
-.field final synthetic a:Lbl/xi;
+.field final synthetic this$0:Lbl/xi;
 
 
 # direct methods
 .method constructor <init>(Lbl/xi;)V
     .locals 0
 
-    .line 675
-    iput-object p1, p0, Lbl/xi$3;->a:Lbl/xi;
+    .prologue
+    .line 609
+    iput-object p1, p0, Lbl/xi$3;->this$0:Lbl/xi;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,10 +39,12 @@
 .method public run()V
     .locals 2
 
-    .line 678
-    iget-object v0, p0, Lbl/xi$3;->a:Lbl/xi;
+    .prologue
+    .line 612
+    iget-object v0, p0, Lbl/xi$3;->this$0:Lbl/xi;
 
-    invoke-static {v0}, Lbl/xi;->a(Lbl/xi;)Lcom/bilibili/tv/player/widget/PlayerBufferingView;
+    # getter for: Lbl/xi;->m:Lcom/bilibili/tv/player/widget/PlayerBufferingView;
+    invoke-static {v0}, Lbl/xi;->access$100(Lbl/xi;)Lcom/bilibili/tv/player/widget/PlayerBufferingView;
 
     move-result-object v0
 
@@ -49,5 +52,6 @@
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/player/widget/PlayerBufferingView;->setVisibility(I)V
 
+    .line 613
     return-void
 .end method

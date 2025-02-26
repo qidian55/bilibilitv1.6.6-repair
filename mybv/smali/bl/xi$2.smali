@@ -1,6 +1,6 @@
 .class Lbl/xi$2;
 .super Ljava/lang/Object;
-.source "BL"
+.source "xi.java"
 
 # interfaces
 .implements Ltv/danmaku/videoplayer/core/context/IPlayerContext$PlayerEventListener;
@@ -18,15 +18,16 @@
 
 
 # instance fields
-.field final synthetic a:Lbl/xi;
+.field final synthetic this$0:Lbl/xi;
 
 
 # direct methods
 .method constructor <init>(Lbl/xi;)V
     .locals 0
 
-    .line 366
-    iput-object p1, p0, Lbl/xi$2;->a:Lbl/xi;
+    .prologue
+    .line 315
+    iput-object p1, p0, Lbl/xi$2;->this$0:Lbl/xi;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,19 +37,23 @@
 
 # virtual methods
 .method public varargs onPlayerEvent(I[Ljava/lang/Object;)V
-    .locals 0
+    .locals 2
 
-    const/16 p2, 0xeb
+    .prologue
+    .line 318
+    const/16 v0, 0xeb
 
-    if-ne p1, p2, :cond_0
+    if-ne p1, v0, :cond_a
 
-    .line 370
-    iget-object p1, p0, Lbl/xi$2;->a:Lbl/xi;
+    .line 319
+    iget-object v0, p0, Lbl/xi$2;->this$0:Lbl/xi;
 
-    const/4 p2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p1, p2}, Lbl/xi;->a(Lbl/xi;Z)Z
+    # setter for: Lbl/xi;->s:Z
+    invoke-static {v0, v1}, Lbl/xi;->access$002(Lbl/xi;Z)Z
 
-    :cond_0
+    .line 321
+    :cond_a
     return-void
 .end method

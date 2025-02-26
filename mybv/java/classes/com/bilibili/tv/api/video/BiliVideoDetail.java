@@ -131,7 +131,7 @@ public class BiliVideoDetail implements Parcelable {
         Future<JSONObject> future = threadPool.submit(new Callable<JSONObject>() {
             @Override
             public JSONObject call() {
-                return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https://api.bilibili.com/x/web-interface/view/detail").a(true).b("aid", String.valueOf(BiliVideoDetail.this.mAvid)).a(new qb()).a(), "GET")).result();
+                return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https://api.bilibili.com/x/web-interface/view/detail").a(true).a("User-Agent","Bilibili Freedoooooom/MarkII").b("aid", String.valueOf(BiliVideoDetail.this.mAvid)).a(new qb()).a(), "GET")).result();
             }
         });
         try{

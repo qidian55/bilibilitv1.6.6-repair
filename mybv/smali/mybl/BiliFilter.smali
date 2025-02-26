@@ -10,6 +10,8 @@
 
 .field public static filter_rule_path:Ljava/lang/String;
 
+.field public static progressbar_on:Z
+
 .field public static skip_categories:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -24,13 +26,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 20
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    sput-boolean v0, Lmybl/BiliFilter;->filter_on:Z
+    .line 20
+    sput-boolean v1, Lmybl/BiliFilter;->filter_on:Z
 
     .line 23
     new-instance v0, Ljava/util/HashSet;
@@ -38,6 +40,9 @@
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     sput-object v0, Lmybl/BiliFilter;->skip_categories:Ljava/util/Set;
+
+    .line 24
+    sput-boolean v1, Lmybl/BiliFilter;->progressbar_on:Z
 
     return-void
 .end method
@@ -71,17 +76,17 @@
     .end annotation
 
     .prologue
-    .line 89
+    .line 90
     sget-boolean v0, Lmybl/BiliFilter;->filter_on:Z
 
     if-nez v0, :cond_5
 
-    .line 102
+    .line 103
     :cond_4
     :goto_4
     return-object p0
 
-    .line 90
+    .line 91
     :cond_5
     sget-object v0, Lmybl/BiliFilter;->config:Lmybl/Config;
 
@@ -93,12 +98,12 @@
 
     if-eqz v0, :cond_4
 
-    .line 91
+    .line 92
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 92
+    .line 93
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
@@ -117,10 +122,10 @@
 
     check-cast v0, Lcom/bilibili/tv/api/rank/BiliRankV2;
 
-    .line 93
+    .line 94
     const/4 v3, 0x1
 
-    .line 94
+    .line 95
     sget-object v1, Lmybl/BiliFilter;->config:Lmybl/Config;
 
     iget-object v1, v1, Lmybl/Config;->filter_words:Ljava/util/List;
@@ -142,7 +147,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 95
+    .line 96
     invoke-virtual {v0}, Lcom/bilibili/tv/api/rank/BiliRankV2;->getTitle()Ljava/lang/String;
 
     move-result-object v6
@@ -153,10 +158,10 @@
 
     if-eqz v1, :cond_2d
 
-    .line 96
+    .line 97
     const/4 v1, 0x0
 
-    .line 100
+    .line 101
     :goto_44
     if-eqz v1, :cond_18
 
@@ -167,7 +172,7 @@
     :cond_4a
     move-object p0, v2
 
-    .line 102
+    .line 103
     goto :goto_4
 
     :cond_4c
@@ -195,17 +200,17 @@
     .end annotation
 
     .prologue
-    .line 72
+    .line 73
     sget-boolean v0, Lmybl/BiliFilter;->filter_on:Z
 
     if-nez v0, :cond_5
 
-    .line 85
+    .line 86
     :cond_4
     :goto_4
     return-object p0
 
-    .line 73
+    .line 74
     :cond_5
     sget-object v0, Lmybl/BiliFilter;->config:Lmybl/Config;
 
@@ -217,12 +222,12 @@
 
     if-eqz v0, :cond_4
 
-    .line 74
+    .line 75
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 75
+    .line 76
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
@@ -241,10 +246,10 @@
 
     check-cast v0, Lcom/bilibili/tv/api/auth/BiliSpaceVideo;
 
-    .line 76
+    .line 77
     const/4 v3, 0x1
 
-    .line 77
+    .line 78
     sget-object v1, Lmybl/BiliFilter;->config:Lmybl/Config;
 
     iget-object v1, v1, Lmybl/Config;->filter_words:Ljava/util/List;
@@ -266,7 +271,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 78
+    .line 79
     iget-object v6, v0, Lcom/bilibili/tv/api/auth/BiliSpaceVideo;->title:Ljava/lang/String;
 
     invoke-virtual {v6, v1}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
@@ -275,10 +280,10 @@
 
     if-eqz v1, :cond_2d
 
-    .line 79
+    .line 80
     const/4 v1, 0x0
 
-    .line 83
+    .line 84
     :goto_42
     if-eqz v1, :cond_18
 
@@ -289,7 +294,7 @@
     :cond_48
     move-object p0, v2
 
-    .line 85
+    .line 86
     goto :goto_4
 
     :cond_4a
@@ -317,17 +322,17 @@
     .end annotation
 
     .prologue
-    .line 106
+    .line 107
     sget-boolean v0, Lmybl/BiliFilter;->filter_on:Z
 
     if-nez v0, :cond_5
 
-    .line 119
+    .line 120
     :cond_4
     :goto_4
     return-object p0
 
-    .line 107
+    .line 108
     :cond_5
     sget-object v0, Lmybl/BiliFilter;->config:Lmybl/Config;
 
@@ -339,12 +344,12 @@
 
     if-eqz v0, :cond_4
 
-    .line 108
+    .line 109
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 109
+    .line 110
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
@@ -363,10 +368,10 @@
 
     check-cast v0, Lcom/bilibili/tv/api/area/BiliVideoV2;
 
-    .line 110
+    .line 111
     const/4 v3, 0x1
 
-    .line 111
+    .line 112
     sget-object v1, Lmybl/BiliFilter;->config:Lmybl/Config;
 
     iget-object v1, v1, Lmybl/Config;->filter_words:Ljava/util/List;
@@ -388,7 +393,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 112
+    .line 113
     iget-object v6, v0, Lcom/bilibili/tv/api/area/BiliVideoV2;->title:Ljava/lang/String;
 
     invoke-virtual {v6, v1}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
@@ -397,10 +402,10 @@
 
     if-eqz v1, :cond_2d
 
-    .line 113
+    .line 114
     const/4 v1, 0x0
 
-    .line 117
+    .line 118
     :goto_42
     if-eqz v1, :cond_18
 
@@ -411,7 +416,7 @@
     :cond_48
     move-object p0, v2
 
-    .line 119
+    .line 120
     goto :goto_4
 
     :cond_4a
@@ -439,17 +444,17 @@
     .end annotation
 
     .prologue
-    .line 55
+    .line 56
     sget-boolean v0, Lmybl/BiliFilter;->filter_on:Z
 
     if-nez v0, :cond_5
 
-    .line 68
+    .line 69
     :cond_4
     :goto_4
     return-object p0
 
-    .line 56
+    .line 57
     :cond_5
     sget-object v0, Lmybl/BiliFilter;->config:Lmybl/Config;
 
@@ -461,12 +466,12 @@
 
     if-eqz v0, :cond_4
 
-    .line 57
+    .line 58
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 58
+    .line 59
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
@@ -485,10 +490,10 @@
 
     check-cast v0, Lcom/bilibili/tv/api/attention/UpperFeedList$UpperFeedItem;
 
-    .line 59
+    .line 60
     const/4 v3, 0x1
 
-    .line 60
+    .line 61
     sget-object v1, Lmybl/BiliFilter;->config:Lmybl/Config;
 
     iget-object v1, v1, Lmybl/Config;->filter_words:Ljava/util/List;
@@ -510,7 +515,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 61
+    .line 62
     iget-object v6, v0, Lcom/bilibili/tv/api/attention/UpperFeedList$UpperFeedItem;->title:Ljava/lang/String;
 
     invoke-virtual {v6, v1}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
@@ -519,10 +524,10 @@
 
     if-eqz v1, :cond_2d
 
-    .line 62
+    .line 63
     const/4 v1, 0x0
 
-    .line 66
+    .line 67
     :goto_42
     if-eqz v1, :cond_18
 
@@ -533,7 +538,7 @@
     :cond_48
     move-object p0, v2
 
-    .line 68
+    .line 69
     goto :goto_4
 
     :cond_4a
@@ -546,7 +551,7 @@
     .locals 5
 
     .prologue
-    .line 31
+    .line 32
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
@@ -555,7 +560,7 @@
 
     move-result-object v0
 
-    .line 35
+    .line 36
     :try_start_8
     const-string v1, "data/filter_rule_example.json"
 
@@ -563,7 +568,7 @@
 
     move-result-object v0
 
-    .line 36
+    .line 37
     new-instance v1, Ljava/io/File;
 
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
@@ -584,14 +589,14 @@
 
     invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 37
+    .line 38
     invoke-virtual {v1}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v2
 
     sput-object v2, Lmybl/BiliFilter;->filter_rule_path:Ljava/lang/String;
 
-    .line 38
+    .line 39
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v2
@@ -604,17 +609,17 @@
 
     invoke-static {v2, v3}, Lbl/abd;->set_filter_path(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 40
+    .line 41
     new-instance v2, Ljava/io/FileOutputStream;
 
     invoke-direct {v2, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
-    .line 41
+    .line 42
     const/16 v1, 0x400
 
     new-array v1, v1, [B
 
-    .line 43
+    .line 44
     :goto_3e
     invoke-virtual {v0, v1}, Ljava/io/InputStream;->read([B)I
 
@@ -622,7 +627,7 @@
 
     if-lez v3, :cond_4e
 
-    .line 44
+    .line 45
     const/4 v4, 0x0
 
     invoke-virtual {v2, v1, v4, v3}, Ljava/io/OutputStream;->write([BII)V
@@ -631,26 +636,26 @@
 
     goto :goto_3e
 
-    .line 49
+    .line 50
     :catch_49
     move-exception v0
 
-    .line 50
+    .line 51
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    .line 52
+    .line 53
     :goto_4d
     return-void
 
-    .line 46
+    .line 47
     :cond_4e
     :try_start_4e
     invoke-virtual {v2}, Ljava/io/OutputStream;->flush()V
 
-    .line 47
+    .line 48
     invoke-virtual {v2}, Ljava/io/OutputStream;->close()V
 
-    .line 48
+    .line 49
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
     :try_end_57
     .catch Ljava/io/IOException; {:try_start_4e .. :try_end_57} :catch_49
@@ -667,7 +672,7 @@
     .end annotation
 
     .prologue
-    .line 26
+    .line 27
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
@@ -682,13 +687,13 @@
 
     sput-object v0, Lmybl/BiliFilter;->filter_rule_path:Ljava/lang/String;
 
-    .line 27
+    .line 28
     new-instance v0, Lmybl/Config;
 
     invoke-direct {v0}, Lmybl/Config;-><init>()V
 
     sput-object v0, Lmybl/BiliFilter;->config:Lmybl/Config;
 
-    .line 28
+    .line 29
     return-void
 .end method

@@ -12,6 +12,7 @@
         Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$d;,
         Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;,
         Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;,
+        Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FeedResponse;,
         Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$b;,
         Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$h;,
         Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$g;,
@@ -47,6 +48,8 @@
 
 .field private h:Z
 
+.field private offset:Ljava/lang/String;
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -62,7 +65,7 @@
 
     sput-object v0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->Companion:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$a;
 
-    .line 64
+    .line 65
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->uperMode:Z
@@ -84,6 +87,11 @@
 
     .line 61
     iput-boolean v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->g:Z
+
+    .line 64
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->offset:Ljava/lang/String;
 
     return-void
 .end method
@@ -214,13 +222,33 @@
     return-object v0
 .end method
 
+.method static synthetic access$900(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;)Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 52
+    iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->offset:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$902(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    .prologue
+    .line 52
+    iput-object p1, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->offset:Ljava/lang/String;
+
+    return-object p1
+.end method
+
 
 # virtual methods
 .method public a()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 68
+    .line 69
     const-string v0, "ott-dynamic.dynamic.0.0.pv"
 
     return-object v0
@@ -232,7 +260,7 @@
     .prologue
     const v1, 0x7f080132
 
-    .line 104
+    .line 105
     const v0, 0x7f0800eb
 
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->d(I)Landroid/view/View;
@@ -243,12 +271,12 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->d:Landroid/support/v7/widget/RecyclerView;
 
-    .line 105
+    .line 106
     sget-boolean v0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->uperMode:Z
 
     if-eqz v0, :cond_98
 
-    .line 106
+    .line 107
     invoke-virtual {p0, v1}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->d(I)Landroid/view/View;
 
     move-result-object v0
@@ -259,7 +287,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 110
+    .line 111
     :goto_1d
     sget-object v1, Lcom/bilibili/tv/ui/base/LoadingImageView;->Companion:Lcom/bilibili/tv/ui/base/LoadingImageView$a;
 
@@ -277,7 +305,7 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->c:Lcom/bilibili/tv/ui/base/LoadingImageView;
 
-    .line 111
+    .line 112
     new-instance v0, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
     const/4 v1, 0x2
@@ -286,72 +314,72 @@
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->b:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
-    .line 112
+    .line 113
     new-instance v0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
 
     invoke-direct {v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;-><init>()V
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->a:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
 
-    .line 113
+    .line 114
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->d:Landroid/support/v7/widget/RecyclerView;
 
-    .line 114
+    .line 115
     iget-object v1, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->b:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$h;)V
 
-    .line 115
+    .line 116
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->setFocusable(Z)V
 
-    .line 116
+    .line 117
     const v1, 0x7f0600de
 
     invoke-static {v1}, Lbl/adl;->b(I)I
 
     move-result v1
 
-    .line 117
+    .line 118
     const v2, 0x7f06029a
 
     invoke-static {v2}, Lbl/adl;->b(I)I
 
     move-result v2
 
-    .line 118
+    .line 119
     const v3, 0x7f060309
 
     invoke-static {v3}, Lbl/adl;->b(I)I
 
     move-result v3
 
-    .line 119
+    .line 120
     const v4, 0x7f060091
 
     invoke-static {v4}, Lbl/adl;->b(I)I
 
     move-result v4
 
-    .line 120
+    .line 121
     invoke-virtual {v0, v4, v1, v4, v2}, Landroid/support/v7/widget/RecyclerView;->setPadding(IIII)V
 
-    .line 121
+    .line 122
     new-instance v2, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$e;
 
     invoke-direct {v2, v1, v3}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$e;-><init>(II)V
 
     invoke-virtual {v0, v2}, Landroid/support/v7/widget/RecyclerView;->a(Landroid/support/v7/widget/RecyclerView$g;)V
 
-    .line 122
+    .line 123
     new-instance v1, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$f;
 
     invoke-direct {v1, p0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$f;-><init>(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;)V
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->a(Landroid/support/v7/widget/RecyclerView$m;)V
 
-    .line 123
+    .line 124
     invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v1
@@ -362,31 +390,31 @@
 
     invoke-virtual {v1, v2}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
-    .line 124
+    .line 125
     iget-object v1, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->a:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$a;)V
 
-    .line 125
+    .line 126
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->c:Lcom/bilibili/tv/ui/base/LoadingImageView;
 
-    .line 126
+    .line 127
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/base/LoadingImageView;->a()V
 
-    .line 127
+    .line 128
     new-instance v0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$b;
 
     invoke-direct {v0, p0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$b;-><init>(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;)V
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->e:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$b;
 
-    .line 128
+    .line 129
     invoke-virtual {p0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->i()V
 
-    .line 129
+    .line 130
     return-void
 
-    .line 108
+    .line 109
     :cond_98
     invoke-virtual {p0, v1}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->d(I)Landroid/view/View;
 
@@ -409,16 +437,16 @@
     .locals 2
 
     .prologue
-    .line 236
+    .line 237
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->b:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
-    .line 237
+    .line 238
     if-nez v0, :cond_7
 
-    .line 238
+    .line 239
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 240
+    .line 241
     :cond_7
     new-instance v1, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$h;
 
@@ -426,7 +454,7 @@
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->a(Lcom/bilibili/tv/widget/border/BorderGridLayoutManager$a;)V
 
-    .line 241
+    .line 242
     return-void
 .end method
 
@@ -434,7 +462,7 @@
     .locals 1
 
     .prologue
-    .line 73
+    .line 74
     invoke-static {p0}, Lbl/wg;->a(Lbl/wf;)Z
 
     move-result v0
@@ -446,7 +474,7 @@
     .locals 1
 
     .prologue
-    .line 78
+    .line 79
     const/4 v0, 0x0
 
     return-object v0
@@ -456,10 +484,10 @@
     .locals 0
 
     .prologue
-    .line 265
+    .line 267
     invoke-virtual {p0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->i()V
 
-    .line 266
+    .line 268
     return-void
 .end method
 
@@ -467,7 +495,7 @@
     .locals 1
 
     .prologue
-    .line 83
+    .line 84
     const v0, 0x7f0a002a
 
     return v0
@@ -477,29 +505,27 @@
     .locals 7
 
     .prologue
-    const/16 v5, 0x1e
-
-    const/4 v3, 0x1
-
-    .line 253
-    iput-boolean v3, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->h:Z
-
     .line 254
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->h:Z
+
+    .line 255
     invoke-static {p0}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
     move-result-object v2
 
-    .line 255
+    .line 256
     const-string v0, "BiliAccount.get(this)"
 
     invoke-static {v2, v0}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 256
+    .line 257
     sget-boolean v0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->uperMode:Z
 
     if-eqz v0, :cond_33
 
-    .line 257
+    .line 258
     const-class v0, Lmybl/MyBiliApiService;
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
@@ -518,6 +544,8 @@
 
     const-string v4, "attention"
 
+    const/16 v5, 0x1e
+
     iget v6, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->f:I
 
     invoke-interface/range {v0 .. v6}, Lmybl/MyBiliApiService;->getFollowings(Ljava/lang/String;JLjava/lang/String;II)Lbl/vp;
@@ -530,31 +558,33 @@
 
     invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
 
-    .line 261
+    .line 263
     :goto_32
     return-void
 
-    .line 259
+    .line 261
     :cond_33
-    const-class v0, Lcom/bilibili/tv/api/BiliApiService;
+    const-class v0, Lmybl/MyBiliApiService;
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/bilibili/tv/api/BiliApiService;
+    check-cast v0, Lmybl/MyBiliApiService;
 
     invoke-virtual {v2}, Lbl/mg;->e()Ljava/lang/String;
 
     move-result-object v1
 
-    iget v2, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->f:I
+    iget-object v2, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->offset:Ljava/lang/String;
 
-    invoke-interface {v0, v1, v2, v5, v3}, Lcom/bilibili/tv/api/BiliApiService;->getFeedUpperArchive(Ljava/lang/String;III)Lbl/vp;
+    invoke-interface {v0, v1, v2}, Lmybl/MyBiliApiService;->getFeedVideos(Ljava/lang/String;Ljava/lang/String;)Lbl/vp;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->e:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$b;
+    new-instance v1, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FeedResponse;
+
+    invoke-direct {v1, p0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FeedResponse;-><init>(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;)V
 
     invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
 
@@ -567,15 +597,15 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 246
+    .line 247
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->a:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
 
-    .line 247
+    .line 248
     iput-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->c:Lcom/bilibili/tv/ui/base/LoadingImageView;
 
-    .line 248
+    .line 249
     invoke-super {p0}, Lcom/bilibili/tv/ui/base/BaseReloadActivity;->onDestroy()V
 
-    .line 249
+    .line 250
     return-void
 .end method

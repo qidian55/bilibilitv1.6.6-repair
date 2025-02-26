@@ -2438,6 +2438,8 @@
     <public type="id" name="skip_checkbox1" id="0x7f080177" />
     <public type="id" name="skip_checkbox2" id="0x7f080178" />
     <public type="id" name="splash_button" id="0x7f080179" />
+    <public type="id" name="progressbar_button" id="0x7f08017a" />
+    <public type="id" name="quit_button" id="0x7f08017b" />
 
     <public type="integer" name="config_danmaku_fly_duration" id="0x7f090003" />
     <public type="integer" name="config_danmaku_max_danmaku_on_screen" id="0x7f090005" />
@@ -2584,7 +2586,9 @@
     <public type="layout" name="select_dialog_singlechoice_material" id="0x7f0a0086" />
     <public type="layout" name="support_simple_spinner_dropdown_item" id="0x7f0a0087" />
     <public type="layout" name="tooltip" id="0x7f0a0088" />
+
     <public type="layout" name="fragment_experiment" id="0x7f0a0089" />
+    <public type="layout" name="fragment_personalization" id="0x7f0a008a" />
 
     <public type="mipmap" name="ic_launcher" id="0x7f0b0000" />
     <public type="string" name="dialog_btn_i_know" id="0x7f0c008a" />

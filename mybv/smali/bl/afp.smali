@@ -27,7 +27,7 @@
 
     .prologue
     .line 12
-    const/16 v0, 0x8
+    const/16 v0, 0x9
 
     return v0
 .end method
@@ -37,9 +37,9 @@
 
     .prologue
     .line 23
-    packed-switch p1, :pswitch_data_3e
+    packed-switch p1, :pswitch_data_44
 
-    .line 41
+    .line 43
     const/4 v0, 0x0
 
     :goto_4
@@ -125,10 +125,18 @@
 
     goto :goto_4
 
-    .line 23
-    nop
+    .line 41
+    :pswitch_3d
+    sget-object v0, Lbl/afm4;->Companion:Lbl/afm4$a;
 
-    :pswitch_data_3e
+    invoke-virtual {v0}, Lbl/afm4$a;->a()Lbl/afm4;
+
+    move-result-object v0
+
+    goto :goto_4
+
+    .line 23
+    :pswitch_data_44
     .packed-switch 0x0
         :pswitch_5
         :pswitch_c
@@ -138,6 +146,7 @@
         :pswitch_28
         :pswitch_2f
         :pswitch_36
+        :pswitch_3d
     .end packed-switch
 .end method
 
@@ -145,16 +154,16 @@
     .locals 1
 
     .prologue
-    .line 46
-    packed-switch p1, :pswitch_data_2e
+    .line 48
+    packed-switch p1, :pswitch_data_30
 
-    .line 64
+    .line 68
     const-string v0, ""
 
     :goto_5
     return-object v0
 
-    .line 48
+    .line 50
     :pswitch_6
     const v0, 0x7f0c0122
 
@@ -164,19 +173,19 @@
 
     goto :goto_5
 
-    .line 50
+    .line 52
     :pswitch_e
     const-string v0, "\u64ad\u653e\u8bbe\u7f6e"
 
     goto :goto_5
 
-    .line 52
+    .line 54
     :pswitch_11
     const-string v0, "\u7f13\u5b58\u8bbe\u7f6e"
 
     goto :goto_5
 
-    .line 54
+    .line 56
     :pswitch_14
     const v0, 0x7f0c0116
 
@@ -186,7 +195,7 @@
 
     goto :goto_5
 
-    .line 56
+    .line 58
     :pswitch_1c
     const v0, 0x7f0c0119
 
@@ -196,28 +205,32 @@
 
     goto :goto_5
 
-    .line 58
+    .line 60
     :pswitch_24
     const-string v0, "\u7f51\u7edc\u4fe1\u606f"
 
     goto :goto_5
 
-    .line 60
+    .line 62
     :pswitch_27
     const-string v0, "\u64ad\u653e\u89e3\u7801"
 
     goto :goto_5
 
-    .line 62
+    .line 64
     :pswitch_2a
     const-string v0, "\u5b9e\u9a8c\u5ba4"
 
     goto :goto_5
 
-    .line 46
-    nop
+    .line 66
+    :pswitch_2d
+    const-string v0, "\u4e2a\u6027\u5316"
 
-    :pswitch_data_2e
+    goto :goto_5
+
+    .line 48
+    :pswitch_data_30
     .packed-switch 0x0
         :pswitch_6
         :pswitch_e
@@ -227,5 +240,6 @@
         :pswitch_24
         :pswitch_27
         :pswitch_2a
+        :pswitch_2d
     .end packed-switch
 .end method

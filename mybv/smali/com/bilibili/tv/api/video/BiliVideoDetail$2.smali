@@ -86,6 +86,14 @@
 
     move-result-object v0
 
+    const-string v1, "User-Agent"
+
+    const-string v2, "Bilibili Freedoooooom/MarkII"
+
+    invoke-virtual {v0, v1, v2}, Lbl/qa$a;->a(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
     const-string v1, "aid"
 
     iget-object v2, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$2;->this$0:Lcom/bilibili/tv/api/video/BiliVideoDetail;

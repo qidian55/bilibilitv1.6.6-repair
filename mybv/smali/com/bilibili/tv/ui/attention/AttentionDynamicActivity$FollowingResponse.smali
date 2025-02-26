@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 334
+    .line 371
     iput-object p1, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     invoke-direct {p0}, Lbl/vn;-><init>()V
@@ -48,7 +48,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 360
+    .line 393
     iget-object v1, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->a:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
@@ -67,18 +67,18 @@
 
     if-nez v1, :cond_12
 
-    .line 392
+    .line 417
     :cond_11
     :goto_11
     return-void
 
-    .line 363
+    .line 396
     :cond_12
     iget-object v1, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     invoke-virtual {v1, v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->a(Z)V
 
-    .line 364
+    .line 397
     iget-object v1, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->c:Lcom/bilibili/tv/ui/base/LoadingImageView;
@@ -86,17 +86,17 @@
 
     move-result-object v1
 
-    .line 365
+    .line 398
     if-nez v1, :cond_22
 
-    .line 366
+    .line 399
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 368
+    .line 401
     :cond_22
     invoke-virtual {v1}, Lcom/bilibili/tv/ui/base/LoadingImageView;->b()V
 
-    .line 369
+    .line 402
     iget-object v2, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->d:Landroid/support/v7/widget/RecyclerView;
@@ -104,24 +104,16 @@
 
     move-result-object v2
 
-    .line 370
-    if-nez v2, :cond_30
-
-    .line 371
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 373
-    :cond_30
     invoke-virtual {v2, v0}, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
 
-    .line 374
+    .line 403
     iget-object v2, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     # setter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->h:Z
     invoke-static {v2, v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->access$002(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;Z)Z
 
-    .line 375
-    if-eqz p1, :cond_4e
+    .line 404
+    if-eqz p1, :cond_49
 
     const-string v2, "list"
 
@@ -129,7 +121,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_4e
+    if-eqz v2, :cond_49
 
     const-string v2, "list"
 
@@ -141,10 +133,10 @@
 
     move-result v2
 
-    if-nez v2, :cond_67
+    if-nez v2, :cond_62
 
-    .line 376
-    :cond_4e
+    .line 405
+    :cond_49
     iget-object v2, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->f:I
@@ -154,20 +146,20 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_61
+    if-ne v2, v3, :cond_5c
 
-    .line 377
+    .line 406
     invoke-virtual {v1}, Lcom/bilibili/tv/ui/base/LoadingImageView;->c()V
 
-    .line 378
+    .line 407
     const v0, 0x7f0c00d8
 
     invoke-virtual {v1, v0}, Lcom/bilibili/tv/ui/base/LoadingImageView;->a(I)V
 
     goto :goto_11
 
-    .line 381
-    :cond_61
+    .line 410
+    :cond_5c
     iget-object v1, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     # setter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->g:Z
@@ -175,8 +167,8 @@
 
     goto :goto_11
 
-    .line 384
-    :cond_67
+    .line 413
+    :cond_62
     new-instance v1, Ljava/util/ArrayList;
 
     const-string v2, "list"
@@ -191,8 +183,8 @@
 
     invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 385
-    :goto_76
+    .line 414
+    :goto_71
     const-string v2, "list"
 
     invoke-virtual {p1, v2}, Lcom/alibaba/fastjson/JSONObject;->getJSONArray(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONArray;
@@ -203,7 +195,7 @@
 
     move-result v2
 
-    if-ge v0, v2, :cond_92
+    if-ge v0, v2, :cond_8d
 
     const-string v2, "list"
 
@@ -219,10 +211,15 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_76
+    goto :goto_71
 
-    .line 386
-    :cond_92
+    .line 415
+    :cond_8d
+    const-string v0, "list"
+
+    invoke-static {v1, v0}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 416
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->a:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
@@ -230,19 +227,6 @@
 
     move-result-object v0
 
-    .line 387
-    if-nez v0, :cond_9d
-
-    .line 388
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 390
-    :cond_9d
-    const-string v2, "list"
-
-    invoke-static {v1, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 391
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;->a(Ljava/util/List;)V
 
     goto/16 :goto_11
@@ -252,7 +236,7 @@
     .locals 0
 
     .prologue
-    .line 334
+    .line 371
     check-cast p1, Lcom/alibaba/fastjson/JSONObject;
 
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->a(Lcom/alibaba/fastjson/JSONObject;)V
@@ -264,7 +248,7 @@
     .locals 1
 
     .prologue
-    .line 337
+    .line 374
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->a:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
@@ -291,19 +275,19 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 342
+    .line 379
     const-string v0, "t"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 343
+    .line 380
     sget-object v0, Lbl/adl;->a:Lbl/adl;
 
     iget-object v1, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     invoke-virtual {v0, p1, v1}, Lbl/adl;->a(Ljava/lang/Throwable;Landroid/app/Activity;)V
 
-    .line 344
+    .line 381
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->a:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
@@ -322,12 +306,12 @@
 
     if-nez v0, :cond_1e
 
-    .line 356
+    .line 389
     :cond_1d
     :goto_1d
     return-void
 
-    .line 347
+    .line 384
     :cond_1e
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
@@ -336,7 +320,7 @@
     # setter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->h:Z
     invoke-static {v0, v1}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->access$002(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;Z)Z
 
-    .line 348
+    .line 385
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->f:I
@@ -346,12 +330,12 @@
 
     if-ne v0, v2, :cond_1d
 
-    .line 349
+    .line 386
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     invoke-virtual {v0, v2}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->a(Z)V
 
-    .line 350
+    .line 387
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->c:Lcom/bilibili/tv/ui/base/LoadingImageView;
@@ -359,14 +343,6 @@
 
     move-result-object v0
 
-    .line 351
-    if-nez v0, :cond_3c
-
-    .line 352
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 354
-    :cond_3c
     invoke-virtual {v0, v2}, Lcom/bilibili/tv/ui/base/LoadingImageView;->setRefreshError(Z)V
 
     goto :goto_1d

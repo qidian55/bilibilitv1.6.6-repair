@@ -71,6 +71,37 @@
     .end annotation
 .end method
 
+.method public abstract getFeedVideos(Ljava/lang/String;Ljava/lang/String;)Lbl/vp;
+    .param p1    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "access_key"
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Query;
+            a = "offset"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ")",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/x/polymer/web-dynamic/v1/feed/all?type=video"
+    .end annotation
+.end method
+
 .method public abstract getFollowBangumi(Ljava/lang/String;IIIJ)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
