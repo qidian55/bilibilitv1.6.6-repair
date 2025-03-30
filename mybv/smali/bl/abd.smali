@@ -859,6 +859,54 @@
     return v0
 .end method
 
+.method public static get_personal_config(Landroid/content/Context;)Lorg/json/JSONObject;
+    .locals 5
+
+    .prologue
+    .line 256
+    const/4 v1, 0x0
+
+    .line 257
+    const-string v2, "{\"filter_on\":false,\"progressbar_on\":false,\"fastquit_on\":false}"
+
+    .line 259
+    :try_start_3
+    new-instance v0, Lorg/json/JSONObject;
+
+    invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lbl/abd;->a()Landroid/content/SharedPreferences;
+
+    move-result-object v3
+
+    const-string v4, "personal_config"
+
+    invoke-interface {v3, v4, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v0, v2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+    :try_end_16
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_16} :catch_17
+
+    .line 264
+    :goto_16
+    return-object v0
+
+    .line 261
+    :catch_17
+    move-exception v0
+
+    .line 262
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    move-object v0, v1
+
+    goto :goto_16
+.end method
+
 .method public static get_skip_categories(Landroid/content/Context;)Ljava/util/Set;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
@@ -1201,6 +1249,60 @@
 
     .line 207
     return-void
+.end method
+
+.method public static set_personal_config(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Object;)V
+    .locals 3
+
+    .prologue
+    .line 247
+    :try_start_0
+    invoke-static {p0}, Lbl/abd;->get_personal_config(Landroid/content/Context;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    .line 248
+    invoke-virtual {v0, p1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 249
+    invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lbl/abd;->a()Landroid/content/SharedPreferences;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v1
+
+    const-string v2, "personal_config"
+
+    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
+    :try_end_20
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_20} :catch_21
+
+    .line 253
+    :goto_20
+    return-void
+
+    .line 250
+    :catch_21
+    move-exception v0
+
+    .line 251
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_20
 .end method
 
 .method public static set_skip_categories(Landroid/content/Context;Ljava/util/Set;)V

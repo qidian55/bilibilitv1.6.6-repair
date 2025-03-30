@@ -37,6 +37,8 @@ import kotlin.TypeCastException;
 
 import bl.afm3;
 import bl.afm4;
+import android.os.Environment;
+import android.provider.DocumentsContract;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -137,6 +139,18 @@ public final class SettingActivity extends BaseUpViewActivity {
         this.b = (b) null;
         this.d = (afp) null;
     }
+
+
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            Fragment d = this.d.d(this.b.f());
+            getContentResolver().takePersistableUriPermission(data.getData(), Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            if(d instanceof afm3)((afm3)d).updateFilterPath(data.getData().toString());
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
 
     @Override // com.bilibili.tv.ui.base.BaseActivity, android.support.v7.app.AppCompatActivity, android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {

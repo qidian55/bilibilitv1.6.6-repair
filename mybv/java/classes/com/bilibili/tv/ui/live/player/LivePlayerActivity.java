@@ -155,6 +155,11 @@ public class LivePlayerActivity extends BaseActivity implements View.OnClickList
     }
 
     private void i() {
+        if(mybl.BiliFilter.fastquit_on){
+            this.f=false;
+            finish();
+            return;
+        }
         if (this.e == null) {
             this.e = new agb.a(this).a(1).a("确定要退出播放吗？").a("继续播放", new agb.b() { // from class: com.bilibili.tv.ui.live.player.LivePlayerActivity.2
                 @Override // bl.agb.b

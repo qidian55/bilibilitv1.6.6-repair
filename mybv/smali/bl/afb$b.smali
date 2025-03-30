@@ -1,6 +1,6 @@
 .class final Lbl/afb$b;
 .super Landroid/support/v7/widget/RecyclerView$a;
-.source "BL"
+.source "afb.java"
 
 
 # annotations
@@ -21,7 +21,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/support/v7/widget/RecyclerView$a<",
+        "Landroid/support/v7/widget/RecyclerView$a",
+        "<",
         "Lbl/adv;",
         ">;"
     }
@@ -46,7 +47,8 @@
 .field private final d:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/lang/ref/WeakReference<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
             "Lbl/afb;",
             ">;"
         }
@@ -56,7 +58,8 @@
 .field private final e:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/bilibili/tv/api/main/MainPagerInfo;",
             ">;"
         }
@@ -66,8 +69,8 @@
 .field private f:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
-            "+",
+            "Ljava/util/List",
+            "<+",
             "Lcom/bilibili/bangumi/api/BangumiMainEx$Content;",
             ">;"
         }
@@ -79,6 +82,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 263
     new-instance v0, Lbl/afb$b$a;
 
     const/4 v1, 0x0
@@ -91,102 +96,106 @@
 .end method
 
 .method public constructor <init>(Lbl/afb;)V
-    .locals 6
+    .locals 7
 
+    .prologue
+    const/4 v1, 0x4
+
+    .line 278
+    invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$a;-><init>()V
+
+    .line 279
     const-string v0, "bangumiFragment"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 201
-    invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$a;-><init>()V
+    .line 280
+    new-array v0, v1, [I
 
-    const/4 v0, 0x4
+    fill-array-data v0, :array_54
 
-    .line 202
-    new-array v1, v0, [I
+    iput-object v0, p0, Lbl/afb$b;->a:[I
 
-    fill-array-data v1, :array_0
+    .line 281
+    new-array v0, v1, [I
 
-    iput-object v1, p0, Lbl/afb$b;->a:[I
+    fill-array-data v0, :array_60
 
-    .line 208
-    new-array v1, v0, [I
+    iput-object v0, p0, Lbl/afb$b;->b:[I
 
-    fill-array-data v1, :array_1
+    .line 282
+    new-array v0, v1, [I
 
-    iput-object v1, p0, Lbl/afb$b;->b:[I
-
-    .line 214
-    new-array v0, v0, [I
-
-    fill-array-data v0, :array_2
+    fill-array-data v0, :array_6c
 
     iput-object v0, p0, Lbl/afb$b;->c:[I
 
-    .line 221
+    .line 283
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lbl/afb$b;->d:Ljava/lang/ref/WeakReference;
 
-    .line 222
-    new-instance p1, Ljava/util/ArrayList;
+    .line 284
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p1, p0, Lbl/afb$b;->e:Ljava/util/ArrayList;
+    iput-object v0, p0, Lbl/afb$b;->e:Ljava/util/ArrayList;
 
-    .line 223
-    new-instance p1, Ljava/util/ArrayList;
+    .line 285
+    new-instance v0, Ljava/util/ArrayList;
 
-    const/4 v0, 0x6
+    const/4 v1, 0x6
 
-    invoke-direct {p1, v0}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    check-cast p1, Ljava/util/List;
+    iput-object v0, p0, Lbl/afb$b;->f:Ljava/util/List;
 
-    iput-object p1, p0, Lbl/afb$b;->f:Ljava/util/List;
+    .line 286
+    iget-object v0, p0, Lbl/afb$b;->a:[I
 
-    .line 226
-    iget-object p1, p0, Lbl/afb$b;->a:[I
+    array-length v1, v0
 
-    array-length p1, p1
-
+    .line 287
     const/4 v0, 0x0
 
-    :goto_0
-    if-ge v0, p1, :cond_0
+    :goto_38
+    if-ge v0, v1, :cond_53
 
-    .line 227
-    iget-object v1, p0, Lbl/afb$b;->e:Ljava/util/ArrayList;
+    .line 288
+    iget-object v2, p0, Lbl/afb$b;->e:Ljava/util/ArrayList;
 
-    new-instance v2, Lcom/bilibili/tv/api/main/MainPagerInfo;
+    new-instance v3, Lcom/bilibili/tv/api/main/MainPagerInfo;
 
-    iget-object v3, p0, Lbl/afb$b;->a:[I
-
-    aget v3, v3, v0
-
-    iget-object v4, p0, Lbl/afb$b;->b:[I
+    iget-object v4, p0, Lbl/afb$b;->a:[I
 
     aget v4, v4, v0
 
-    iget-object v5, p0, Lbl/afb$b;->c:[I
+    iget-object v5, p0, Lbl/afb$b;->b:[I
 
     aget v5, v5, v0
 
-    invoke-direct {v2, v3, v4, v5}, Lcom/bilibili/tv/api/main/MainPagerInfo;-><init>(III)V
+    iget-object v6, p0, Lbl/afb$b;->c:[I
 
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    aget v6, v6, v0
 
+    invoke-direct {v3, v4, v5, v6}, Lcom/bilibili/tv/api/main/MainPagerInfo;-><init>(III)V
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 287
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_38
 
-    :cond_0
+    .line 290
+    :cond_53
     return-void
 
-    :array_0
+    .line 280
+    :array_54
     .array-data 4
         0x7f0c0051
         0x7f0c005f
@@ -194,7 +203,8 @@
         0x7f0c00c5
     .end array-data
 
-    :array_1
+    .line 281
+    :array_60
     .array-data 4
         0x7f050039
         0x7f050038
@@ -202,7 +212,8 @@
         0x7f05003a
     .end array-data
 
-    :array_2
+    .line 282
+    :array_6c
     .array-data 4
         0x7f070060
         0x7f070062
@@ -216,6 +227,8 @@
 .method public a()I
     .locals 1
 
+    .prologue
+    .line 275
     const/16 v0, 0xa
 
     return v0
@@ -224,42 +237,87 @@
 .method public a(I)I
     .locals 1
 
-    .line 278
-    invoke-static {}, Lbl/afb;->e()I
+    .prologue
+    .line 343
+    const/4 v0, 0x4
 
-    move-result v0
+    if-lt p1, v0, :cond_5
 
-    if-lt p1, v0, :cond_0
+    .line 344
+    const/4 v0, 0x2
 
-    .line 279
-    sget p1, Lbl/afb$b;->h:I
+    .line 346
+    :goto_4
+    return v0
 
-    return p1
+    :cond_5
+    const/4 v0, 0x1
 
-    .line 281
-    :cond_0
-    sget p1, Lbl/afb$b;->g:I
-
-    return p1
+    goto :goto_4
 .end method
 
-.method public synthetic a(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$v;
-    .locals 0
+.method public bridge synthetic a(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$v;
+    .locals 1
 
-    .line 200
-    invoke-virtual {p0, p1, p2}, Lbl/afb$b;->c(Landroid/view/ViewGroup;I)Lbl/adv;
+    .prologue
+    .line 262
+    invoke-virtual {p0, p1, p2}, Lbl/afb$b;->a(Landroid/view/ViewGroup;I)Lbl/adv;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/support/v7/widget/RecyclerView$v;
+    return-object v0
+.end method
 
-    return-object p1
+.method public a(Landroid/view/ViewGroup;I)Lbl/adv;
+    .locals 2
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 296
+    const-string v1, "parent"
+
+    invoke-static {p1, v1}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 297
+    const/4 v1, 0x1
+
+    if-ne p2, v1, :cond_14
+
+    .line 298
+    check-cast v0, Lbl/afb$d;
+
+    sget-object v0, Lbl/afb$d;->Companion:Lbl/afb$d$a;
+
+    iget-object v1, p0, Lbl/afb$b;->d:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0, p1, v1}, Lbl/afb$d$a;->a(Landroid/view/ViewGroup;Ljava/lang/ref/WeakReference;)Lbl/afb$d;
+
+    move-result-object v0
+
+    .line 300
+    :goto_13
+    return-object v0
+
+    :cond_14
+    check-cast v0, Lbl/afb$e;
+
+    sget-object v0, Lbl/afb$e;->Companion:Lbl/afb$e$a;
+
+    iget-object v1, p0, Lbl/afb$b;->d:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0, p1, v1}, Lbl/afb$e$a;->a(Landroid/view/ViewGroup;Ljava/lang/ref/WeakReference;)Lbl/afb$e;
+
+    move-result-object v0
+
+    goto :goto_13
 .end method
 
 .method public bridge synthetic a(Landroid/support/v7/widget/RecyclerView$v;I)V
     .locals 0
 
-    .line 200
+    .prologue
+    .line 262
     check-cast p1, Lbl/adv;
 
     invoke-virtual {p0, p1, p2}, Lbl/afb$b;->a(Lbl/adv;I)V
@@ -270,72 +328,76 @@
 .method public a(Lbl/adv;I)V
     .locals 5
 
+    .prologue
+    const v4, 0x7f0800d8
+
+    .line 306
     const-string v0, "viewHolder"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 240
+    .line 307
     instance-of v0, p1, Lbl/afb$d;
 
-    const v1, 0x7f0800d8
+    if-eqz v0, :cond_5d
 
-    if-eqz v0, :cond_0
-
-    .line 241
+    .line 308
     iget-object v0, p0, Lbl/afb$b;->e:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    const-string v2, "mMainPagerInfos[position]"
-
-    invoke-static {v0, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
-
     check-cast v0, Lcom/bilibili/tv/api/main/MainPagerInfo;
 
-    .line 242
-    move-object v2, p1
+    .line 309
+    const-string v1, "mMainPagerInfos[position]"
 
-    check-cast v2, Lbl/afb$d;
+    invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Lbl/afb$d;->z()Landroid/widget/TextView;
+    move-object v1, p1
 
-    move-result-object v3
+    .line 311
+    check-cast v1, Lbl/afb$d;
 
-    invoke-virtual {v0}, Lcom/bilibili/tv/api/main/MainPagerInfo;->getName()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
-
-    .line 243
-    invoke-virtual {v2}, Lbl/afb$d;->A()Landroid/widget/ImageView;
+    .line 312
+    invoke-virtual {v1}, Lbl/afb$d;->z()Landroid/widget/TextView;
 
     move-result-object v2
 
-    sget-object v3, Lbl/adl;->a:Lbl/adl;
+    invoke-virtual {v0}, Lcom/bilibili/tv/api/main/MainPagerInfo;->getName()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
+
+    .line 313
+    invoke-virtual {v1}, Lbl/afb$d;->A()Landroid/widget/ImageView;
+
+    move-result-object v1
+
+    sget-object v2, Lbl/adl;->a:Lbl/adl;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/api/main/MainPagerInfo;->getIconId()I
 
-    move-result v4
-
-    invoke-virtual {v3, v4}, Lbl/adl;->c(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    .line 245
-    sget-object v2, Lbl/adl;->a:Lbl/adl;
-
-    const v3, 0x7f070054
+    move-result v3
 
     invoke-virtual {v2, v3}, Lbl/adl;->c(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
-    .line 247
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    .line 314
+    sget-object v1, Lbl/adl;->a:Lbl/adl;
+
+    const v2, 0x7f070054
+
+    invoke-virtual {v1, v2}, Lbl/adl;->c(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    .line 315
     invoke-virtual {v0}, Lcom/bilibili/tv/api/main/MainPagerInfo;->getColorId()I
 
     move-result v0
@@ -344,44 +406,45 @@
 
     move-result v0
 
-    .line 248
-    sget-object v3, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+    sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
-    .line 246
-    invoke-virtual {v2, v0, v3}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    invoke-virtual {v1, v0, v2}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 250
+    .line 316
     iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
-    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 251
-    iget-object p1, p1, Lbl/adv;->a:Landroid/view/View;
+    .line 317
+    iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-virtual {p1, v1, p2}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+    invoke-virtual {v0, v4, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
-    goto/16 :goto_0
+    .line 339
+    :cond_5c
+    :goto_5c
+    return-void
 
-    .line 252
-    :cond_0
+    .line 320
+    :cond_5d
     instance-of v0, p1, Lbl/afb$e;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5c
 
-    .line 253
+    .line 321
     iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v1, v2}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+    invoke-virtual {v0, v4, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
-    .line 254
+    .line 322
     iget-object v0, p0, Lbl/afb$b;->f:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -390,27 +453,28 @@
 
     const/4 v1, 0x6
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_7e
 
-    .line 255
+    .line 323
     check-cast p1, Lbl/afb$e;
 
     invoke-virtual {p1}, Lbl/afb$e;->B()Lcom/bilibili/tv/widget/ScalableImageView;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/4 p2, 0x4
+    const/4 v1, 0x4
 
-    invoke-virtual {p1, p2}, Lcom/bilibili/tv/widget/ScalableImageView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/ScalableImageView;->setVisibility(I)V
 
-    return-void
+    goto :goto_5c
 
-    .line 258
-    :cond_1
+    :cond_7e
     move-object v0, p1
 
+    .line 326
     check-cast v0, Lbl/afb$e;
 
+    .line 327
     invoke-virtual {v0}, Lbl/afb$e;->B()Lcom/bilibili/tv/widget/ScalableImageView;
 
     move-result-object v1
@@ -419,96 +483,79 @@
 
     invoke-virtual {v1, v2}, Lcom/bilibili/tv/widget/ScalableImageView;->setVisibility(I)V
 
-    .line 259
+    .line 328
     iget-object v1, p0, Lbl/afb$b;->f:Ljava/util/List;
 
-    invoke-static {}, Lbl/afb;->e()I
+    add-int/lit8 v2, p2, -0x4
+
+    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;
+
+    .line 329
+    iget-object v2, v1, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;->title:Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    sub-int/2addr p2, v2
+    if-nez v2, :cond_a4
 
-    invoke-interface {v1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object p2
-
-    check-cast p2, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;
-
-    .line 261
-    iget-object v1, p2, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;->title:Ljava/lang/String;
-
-    check-cast v1, Ljava/lang/CharSequence;
-
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    .line 262
+    .line 330
     invoke-virtual {v0}, Lbl/afb$e;->z()Landroid/widget/TextView;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-object v2, p2, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;->title:Ljava/lang/String;
+    iget-object v3, v1, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;->title:Ljava/lang/String;
 
-    check-cast v2, Ljava/lang/CharSequence;
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    .line 332
+    :cond_a4
+    iget-object v2, v1, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;->cover:Ljava/lang/String;
 
-    .line 264
-    :cond_2
-    iget-object v1, p2, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;->cover:Ljava/lang/String;
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    check-cast v1, Ljava/lang/CharSequence;
+    move-result v2
 
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    if-nez v2, :cond_c1
 
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    .line 265
+    .line 333
     invoke-static {}, Lbl/nv;->a()Lbl/nv;
 
-    move-result-object v1
+    move-result-object v2
 
-    .line 267
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Landroid/content/Context;
+    iget-object v4, v1, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;->cover:Ljava/lang/String;
 
-    .line 268
-    iget-object v3, p2, Lcom/bilibili/bangumi/api/BangumiMainEx$Content;->cover:Ljava/lang/String;
+    invoke-static {v3, v4}, Lbl/ach;->a(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 266
-    invoke-static {v2, v3}, Lbl/ach;->a(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v2
-
-    .line 270
     invoke-virtual {v0}, Lbl/afb$e;->A()Landroid/widget/ImageView;
 
     move-result-object v0
 
-    .line 265
-    invoke-virtual {v1, v2, v0}, Lbl/nv;->a(Ljava/lang/String;Landroid/widget/ImageView;)V
+    invoke-virtual {v2, v3, v0}, Lbl/nv;->a(Ljava/lang/String;Landroid/widget/ImageView;)V
 
-    .line 273
-    :cond_3
-    iget-object p1, p1, Lbl/adv;->a:Landroid/view/View;
+    .line 335
+    :cond_c1
+    iget-object v0, p1, Lbl/adv;->a:Landroid/view/View;
 
-    const-string v0, "viewHolder.itemView"
+    .line 336
+    const-string v2, "viewHolder.itemView"
 
-    invoke-static {p1, v0}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+    .line 337
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    :cond_4
-    :goto_0
-    return-void
+    goto :goto_5c
 .end method
 
 .method public final a(Ljava/util/List;)V
@@ -516,62 +563,25 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
-            "+",
+            "Ljava/util/List",
+            "<+",
             "Lcom/bilibili/bangumi/api/BangumiMainEx$Content;",
             ">;)V"
         }
     .end annotation
 
+    .prologue
+    .line 350
     const-string v0, "list"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 289
+    .line 351
     iput-object p1, p0, Lbl/afb$b;->f:Ljava/util/List;
 
-    .line 290
+    .line 352
     invoke-virtual {p0}, Lbl/afb$b;->d()V
 
+    .line 353
     return-void
-.end method
-
-.method public c(Landroid/view/ViewGroup;I)Lbl/adv;
-    .locals 1
-
-    const-string v0, "parent"
-
-    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 232
-    sget v0, Lbl/afb$b;->g:I
-
-    if-ne p2, v0, :cond_0
-
-    .line 233
-    sget-object p2, Lbl/afb$d;->Companion:Lbl/afb$d$a;
-
-    iget-object v0, p0, Lbl/afb$b;->d:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {p2, p1, v0}, Lbl/afb$d$a;->a(Landroid/view/ViewGroup;Ljava/lang/ref/WeakReference;)Lbl/afb$d;
-
-    move-result-object p1
-
-    check-cast p1, Lbl/adv;
-
-    return-object p1
-
-    .line 235
-    :cond_0
-    sget-object p2, Lbl/afb$e;->Companion:Lbl/afb$e$a;
-
-    iget-object v0, p0, Lbl/afb$b;->d:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {p2, p1, v0}, Lbl/afb$e$a;->a(Landroid/view/ViewGroup;Ljava/lang/ref/WeakReference;)Lbl/afb$e;
-
-    move-result-object p1
-
-    check-cast p1, Lbl/adv;
-
-    return-object p1
 .end method

@@ -635,7 +635,7 @@
 
     iget v4, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;->g:I
 
-    const/16 v5, 0x1e
+    const/16 v5, 0x14
 
     invoke-interface/range {v0 .. v5}, Lcom/bilibili/tv/api/auth/BiliSpaceApiService;->loadArchiveVideos(Ljava/lang/String;JII)Lbl/vp;
 

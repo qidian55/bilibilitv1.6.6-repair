@@ -241,4 +241,26 @@ public class abd {
         }
         return h;
     }
+
+    public static void set_personal_config(Context context, String key, Object value) {
+        try{
+            JSONObject config = get_personal_config(context);
+            config.put(key, value);
+            a(context).a().edit().putString("personal_config", config.toString()).apply();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONObject get_personal_config(Context context) {
+        JSONObject config = null;
+        String default_config = "{\"filter_on\":false,\"progressbar_on\":false,\"fastquit_on\":false}";
+        try{
+            config = new JSONObject(a(context).a().getString("personal_config", default_config));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return config;
+    }
 }

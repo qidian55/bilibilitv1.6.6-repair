@@ -13,6 +13,7 @@
             android:background="@drawable/shape_rectangle_trans_with_12corner_white_10"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:nextFocusRight="@id/experiment_folder_open"
             android:layout_width="@dimen/px_350"
             android:layout_height="@dimen/px_96"
             android:layout_marginLeft="@dimen/px_30"
@@ -32,7 +33,8 @@
             android:enabled="false"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="@dimen/px_100"
             android:background="@drawable/ic_login_edit_background"
             android:hint="配置文件路径"
@@ -45,6 +47,33 @@
             android:paddingRight="@dimen/px_30"
             android:layout_marginLeft="@dimen/px_30"
             android:layout_marginRight="@dimen/px_30" />
+        <FrameLayout
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30">
+            <com.bilibili.tv.widget.DrawLinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:id="@id/experiment_folder_open"
+                android:background="@drawable/background_white_rect"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:clipToPadding="false"
+                android:layout_width="wrap_content"
+                android:minWidth="@dimen/px_80"
+                android:layout_height="@dimen/px_80">
+                <ImageView
+                    android:background="@drawable/ic_folder_open_180"
+                    android:layout_width="@dimen/px_42"
+                    android:layout_height="@dimen/px_42"
+                    android:layout_marginLeft="@dimen/px_18"
+                    android:layout_marginRight="@dimen/px_18"
+                    android:scaleType="fitCenter" />
+            </com.bilibili.tv.widget.DrawLinearLayout>
+        </FrameLayout>
     </LinearLayout>
     <LinearLayout
         android:gravity="center"
@@ -69,6 +98,7 @@
             android:background="@drawable/shape_rectangle_trans_with_12corner_white_10"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:nextFocusRight="@id/cdn_value"
             android:paddingLeft="@dimen/px_30"
             android:paddingRight="@dimen/px_30"
             android:layout_width="wrap_content"
@@ -180,6 +210,8 @@
             android:background="@drawable/shape_rectangle_trans_with_12corner_white_10"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:nextFocusRight="@id/splash_button"
+            android:nextFocusDown="@id/splash_button"
             android:paddingLeft="@dimen/px_30"
             android:paddingRight="@dimen/px_30"
             android:layout_width="wrap_content"

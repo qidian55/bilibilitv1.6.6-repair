@@ -2079,6 +2079,7 @@ public final class R {
         public static final int ic_group_180 = 0x7f070104;
         public static final int ic_toview_180 = 0x7f070105;
         public static final int background_splash = 0x7f070106;
+        public static final int ic_folder_open_180 = 0x7f070107;
     }
 
     public static final class id {
@@ -2462,6 +2463,8 @@ public final class R {
         public static final int skip_checkbox2 = 0x7f080178;
         public static final int splash_button = 0x7f080179;
         public static final int progressbar_button = 0x7f08017a;
+        public static final int fastquit_button = 0x7f08017b;
+        public static final int experiment_folder_open = 0x7f08017c;
     }
 
     public static final class integer {

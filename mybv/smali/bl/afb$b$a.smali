@@ -1,6 +1,6 @@
 .class public final Lbl/afb$b$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "afb.java"
 
 
 # annotations
@@ -18,17 +18,21 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 293
+    .prologue
+    .line 357
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 358
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 293
+    .prologue
+    .line 361
     invoke-direct {p0}, Lbl/afb$b$a;-><init>()V
 
+    .line 362
     return-void
 .end method

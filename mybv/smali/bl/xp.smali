@@ -1,6 +1,6 @@
 .class public Lbl/xp;
 .super Lbl/xh;
-.source "BL"
+.source "xp.java"
 
 
 # instance fields
@@ -13,12 +13,13 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 21
+    .prologue
+    .line 11
     invoke-direct {p0}, Lbl/xh;-><init>()V
 
+    .line 13
     const/4 v0, 0x0
 
-    .line 23
     iput-boolean v0, p0, Lbl/xp;->d:Z
 
     return-void
@@ -27,10 +28,11 @@
 .method private P()Z
     .locals 1
 
-    .line 48
+    .prologue
+    .line 43
     iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
@@ -38,309 +40,365 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_d
+    return v0
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_d
 .end method
 
 .method private Q()V
     .locals 4
 
-    .line 52
-    iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
+    .prologue
+    const/4 v3, 0x1
 
-    const/4 v1, 0x1
+    .line 47
+    sget-boolean v0, Lmybl/BiliFilter;->fastquit_on:Z
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_2a
+
+    .line 48
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lbl/xp;->d:Z
+
+    .line 49
+    sget-object v0, Lbl/azo;->a:Lbl/azo$a;
+
+    invoke-virtual {v0}, Lbl/azo$a;->a()Lbl/azo;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lbl/azo;->e()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_22
+
+    .line 50
+    sget-object v0, Lbl/ace;->a:Lbl/ace;
+
+    invoke-virtual {v0}, Lbl/ace;->b()V
+
+    .line 51
+    sget-object v0, Lbl/azo;->a:Lbl/azo$a;
+
+    invoke-virtual {v0}, Lbl/azo$a;->a()Lbl/azo;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lbl/azo;->i()V
 
     .line 53
+    :cond_22
+    invoke-virtual {p0}, Lbl/xp;->o()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
+
+    .line 84
+    :cond_29
+    :goto_29
+    return-void
+
+    .line 56
+    :cond_2a
+    iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
+
+    if-nez v0, :cond_67
+
+    .line 57
     new-instance v0, Lbl/agb$a;
 
     invoke-virtual {p0}, Lbl/xp;->o()Landroid/app/Activity;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v0, v2}, Lbl/agb$a;-><init>(Landroid/app/Activity;)V
+    invoke-direct {v0, v1}, Lbl/agb$a;-><init>(Landroid/app/Activity;)V
 
-    .line 54
-    invoke-virtual {v0, v1}, Lbl/agb$a;->a(I)Lbl/agb$a;
-
-    move-result-object v0
-
-    const-string v2, "\u786e\u5b9a\u8981\u9000\u51fa\u64ad\u653e\u5417\uff1f"
-
-    .line 55
-    invoke-virtual {v0, v2}, Lbl/agb$a;->a(Ljava/lang/String;)Lbl/agb$a;
+    invoke-virtual {v0, v3}, Lbl/agb$a;->a(I)Lbl/agb$a;
 
     move-result-object v0
 
-    const-string v2, "\u7ee7\u7eed\u64ad\u653e"
+    const-string v1, "\u786e\u5b9a\u8981\u9000\u51fa\u64ad\u653e\u5417\uff1f"
 
-    new-instance v3, Lbl/xq;
-
-    invoke-direct {v3, p0}, Lbl/xq;-><init>(Lbl/xp;)V
-
-    .line 56
-    invoke-virtual {v0, v2, v3}, Lbl/agb$a;->a(Ljava/lang/String;Lbl/agb$b;)Lbl/agb$a;
+    invoke-virtual {v0, v1}, Lbl/agb$a;->a(Ljava/lang/String;)Lbl/agb$a;
 
     move-result-object v0
 
-    const-string v2, "\u786e\u8ba4\u9000\u51fa"
+    const-string v1, "\u7ee7\u7eed\u64ad\u653e"
 
-    new-instance v3, Lbl/xr;
+    new-instance v2, Lbl/xp$2;
 
-    invoke-direct {v3, p0}, Lbl/xr;-><init>(Lbl/xp;)V
+    invoke-direct {v2, p0}, Lbl/xp$2;-><init>(Lbl/xp;)V
+
+    invoke-virtual {v0, v1, v2}, Lbl/agb$a;->a(Ljava/lang/String;Lbl/agb$b;)Lbl/agb$a;
+
+    move-result-object v0
+
+    const-string v1, "\u786e\u8ba4\u9000\u51fa"
+
+    new-instance v2, Lbl/xp$1;
+
+    invoke-direct {v2, p0}, Lbl/xp$1;-><init>(Lbl/xp;)V
 
     .line 62
-    invoke-virtual {v0, v2, v3}, Lbl/agb$a;->b(Ljava/lang/String;Lbl/agb$b;)Lbl/agb$a;
+    invoke-virtual {v0, v1, v2}, Lbl/agb$a;->b(Ljava/lang/String;Lbl/agb$b;)Lbl/agb$a;
 
     move-result-object v0
 
-    .line 73
+    .line 67
     invoke-virtual {v0}, Lbl/agb$a;->a()Lbl/agb;
 
     move-result-object v0
 
     iput-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
-    .line 74
+    .line 68
     iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
-    new-instance v2, Lbl/xs;
+    new-instance v1, Lbl/xp$3;
 
-    invoke-direct {v2, p0}, Lbl/xs;-><init>(Lbl/xp;)V
+    invoke-direct {v1, p0}, Lbl/xp$3;-><init>(Lbl/xp;)V
 
-    invoke-virtual {v0, v2}, Lbl/agb;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v0, v1}, Lbl/agb;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 81
-    :cond_0
+    .line 75
+    :cond_67
     iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
     invoke-virtual {v0}, Lbl/agb;->isShowing()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_75
 
-    .line 82
+    .line 76
     iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
     invoke-virtual {v0}, Lbl/agb;->dismiss()V
 
-    goto :goto_0
+    goto :goto_29
 
-    .line 84
-    :cond_1
+    .line 79
+    :cond_75
     iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
     invoke-virtual {v0}, Lbl/agb;->show()V
 
-    .line 85
+    .line 80
     invoke-virtual {p0}, Lbl/xp;->K()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_29
 
-    .line 86
+    .line 81
     invoke-virtual {p0}, Lbl/xp;->B()V
 
-    .line 87
-    iput-boolean v1, p0, Lbl/xp;->d:Z
+    .line 82
+    iput-boolean v3, p0, Lbl/xp;->d:Z
 
-    :cond_2
-    :goto_0
-    return-void
+    goto :goto_29
 .end method
 
 
 # virtual methods
-.method final synthetic a(Landroid/content/DialogInterface;)V
-    .locals 0
+.method final a(Landroid/content/DialogInterface;)V
+    .locals 1
 
-    .line 75
+    .prologue
+    .line 107
     invoke-virtual {p0}, Lbl/xp;->J()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_10
 
-    iget-boolean p1, p0, Lbl/xp;->d:Z
+    iget-boolean v0, p0, Lbl/xp;->d:Z
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_10
 
-    .line 76
+    .line 108
     invoke-virtual {p0}, Lbl/xp;->F()V
 
-    const/4 p1, 0x0
+    .line 109
+    const/4 v0, 0x0
 
-    .line 77
-    iput-boolean p1, p0, Lbl/xp;->d:Z
+    iput-boolean v0, p0, Lbl/xp;->d:Z
 
-    :cond_0
+    .line 111
+    :cond_10
     return-void
 .end method
 
-.method final synthetic a(Lbl/agb;Landroid/view/View;)V
-    .locals 0
+.method final a(Lbl/agb;Landroid/view/View;)V
+    .locals 1
 
-    const/4 p1, 0x0
+    .prologue
+    .line 94
+    const/4 v0, 0x0
 
-    .line 63
-    iput-boolean p1, p0, Lbl/xp;->d:Z
+    iput-boolean v0, p0, Lbl/xp;->d:Z
 
-    .line 64
-    iget-object p1, p0, Lbl/xp;->c:Lbl/agb;
+    .line 95
+    iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_c
 
-    .line 65
-    iget-object p1, p0, Lbl/xp;->c:Lbl/agb;
+    .line 96
+    iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
-    invoke-virtual {p1}, Lbl/agb;->dismiss()V
+    invoke-virtual {v0}, Lbl/agb;->dismiss()V
 
-    :cond_0
-    const/4 p1, 0x0
+    .line 98
+    :cond_c
+    const/4 v0, 0x0
 
-    .line 67
-    iput-object p1, p0, Lbl/xp;->c:Lbl/agb;
+    iput-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
-    .line 68
-    sget-object p1, Lbl/azo;->a:Lbl/azo$a;
+    .line 99
+    sget-object v0, Lbl/azo;->a:Lbl/azo$a;
 
-    invoke-virtual {p1}, Lbl/azo$a;->a()Lbl/azo;
+    invoke-virtual {v0}, Lbl/azo$a;->a()Lbl/azo;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lbl/azo;->e()Z
+    invoke-virtual {v0}, Lbl/azo;->e()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_1
+    if-eqz v0, :cond_29
 
-    .line 69
-    sget-object p1, Lbl/ace;->a:Lbl/ace;
+    .line 100
+    sget-object v0, Lbl/ace;->a:Lbl/ace;
 
-    invoke-virtual {p1}, Lbl/ace;->b()V
+    invoke-virtual {v0}, Lbl/ace;->b()V
 
-    .line 70
-    sget-object p1, Lbl/azo;->a:Lbl/azo$a;
+    .line 101
+    sget-object v0, Lbl/azo;->a:Lbl/azo$a;
 
-    invoke-virtual {p1}, Lbl/azo$a;->a()Lbl/azo;
+    invoke-virtual {v0}, Lbl/azo$a;->a()Lbl/azo;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lbl/azo;->i()V
+    invoke-virtual {v0}, Lbl/azo;->i()V
 
-    .line 72
-    :cond_1
+    .line 103
+    :cond_29
     invoke-virtual {p0}, Lbl/xp;->o()Landroid/app/Activity;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/app/Activity;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
+    .line 104
     return-void
 .end method
 
-.method final synthetic b(Lbl/agb;Landroid/view/View;)V
-    .locals 0
+.method final b(Lbl/agb;Landroid/view/View;)V
+    .locals 1
 
-    .line 57
-    iget-object p1, p0, Lbl/xp;->c:Lbl/agb;
+    .prologue
+    .line 87
+    iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_9
 
-    .line 58
-    iget-object p1, p0, Lbl/xp;->c:Lbl/agb;
+    .line 88
+    iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
-    invoke-virtual {p1}, Lbl/agb;->dismiss()V
+    invoke-virtual {v0}, Lbl/agb;->dismiss()V
 
-    .line 60
-    :cond_0
+    .line 90
+    :cond_9
     invoke-virtual {p0}, Lbl/xp;->F()V
 
+    .line 91
     return-void
 .end method
 
 .method protected e(ILandroid/view/KeyEvent;)Z
-    .locals 0
+    .locals 1
 
-    .line 27
+    .prologue
+    .line 22
     invoke-direct {p0}, Lbl/xp;->P()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public f(ILandroid/view/KeyEvent;)Z
-    .locals 0
+    .locals 1
 
-    .line 32
+    .prologue
+    .line 27
     invoke-direct {p0}, Lbl/xp;->P()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public g(ILandroid/view/KeyEvent;)Z
-    .locals 2
+    .locals 3
 
-    const/4 p2, 0x1
+    .prologue
+    const/4 v1, 0x1
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x4
+    .line 33
+    const/4 v2, 0x4
 
-    if-eq p1, v1, :cond_0
+    if-eq p1, v2, :cond_10
 
-    const/4 p1, 0x0
+    move v2, v0
 
-    goto :goto_0
+    .line 39
+    :goto_6
+    if-nez v2, :cond_e
 
-    .line 40
-    :cond_0
-    invoke-direct {p0}, Lbl/xp;->Q()V
-
-    const/4 p1, 0x1
-
-    :goto_0
-    if-nez p1, :cond_2
-
-    .line 44
     invoke-direct {p0}, Lbl/xp;->P()Z
 
-    move-result p1
+    move-result v2
 
-    if-eqz p1, :cond_1
+    if-eqz v2, :cond_f
 
-    goto :goto_1
+    :cond_e
+    move v0, v1
 
-    :cond_1
-    const/4 p2, 0x0
+    :cond_f
+    return v0
 
-    :cond_2
-    :goto_1
-    return p2
+    .line 36
+    :cond_10
+    invoke-direct {p0}, Lbl/xp;->Q()V
+
+    move v2, v1
+
+    .line 37
+    goto :goto_6
 .end method
 
 .method public h()V
     .locals 1
 
-    .line 94
+    .prologue
+    .line 115
     iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
@@ -348,29 +406,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    .line 95
+    .line 116
     iget-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
     invoke-virtual {v0}, Lbl/agb;->dismiss()V
 
-    :cond_0
+    .line 118
+    :cond_11
     const/4 v0, 0x0
 
-    .line 97
     iput-object v0, p0, Lbl/xp;->c:Lbl/agb;
 
-    .line 98
+    .line 119
     invoke-super {p0}, Lbl/xh;->h()V
 
+    .line 120
     return-void
 .end method
 
 .method public onInfo2(Ltv/danmaku/ijk/media/player/IMediaPlayer;IIJ)Z
-    .locals 0
+    .locals 1
 
-    const/4 p1, 0x0
+    .prologue
+    .line 17
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

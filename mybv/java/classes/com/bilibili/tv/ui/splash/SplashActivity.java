@@ -12,6 +12,9 @@ import com.bilibili.tv.R;
 import com.bilibili.tv.ui.base.BaseActivity;
 import com.bilibili.tv.ui.main.MainActivity;
 
+import bl.aj;
+import java.io.File;
+import com.bilibili.tv.MainApplication;
 import android.graphics.*;
 import android.graphics.drawable.*;
 
@@ -33,9 +36,10 @@ public final class SplashActivity extends BaseActivity {
         View findViewById = findViewById(R.id.splash);
         bbi.a((Object) findViewById, "findViewById(R.id.splash)");
 
-        if(new java.io.File("/data/data/com.bilibili.tv/files/data/splash.png").exists()){
+        File fImage = new File(aj.a(MainApplication.a(),"data")[0],"splash.png");
+        if(fImage.exists()){
             try{
-                Bitmap bitmap = BitmapFactory.decodeFile("/data/data/com.bilibili.tv/files/data/splash.png");
+                Bitmap bitmap = BitmapFactory.decodeFile(fImage.getAbsolutePath());
                 Drawable drawable = new BitmapDrawable(getResources(), bitmap);
                 findViewById.setBackground(drawable);
             }catch(Exception e){

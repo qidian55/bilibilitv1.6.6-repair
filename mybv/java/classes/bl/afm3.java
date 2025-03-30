@@ -19,6 +19,7 @@ import java.io.*;
 import java.nio.*;
 import java.util.concurrent.*;
 import android.graphics.*;
+import android.content.Intent;
 import android.graphics.drawable.*;
 
 /* compiled from: BL */
@@ -28,6 +29,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
     public static List<String> tmp_cdns;
     public static List<String> tmp_splashs;
     private DrawFrameLayout filter_button;
+    private DrawLinearLayout folder_open_button;
     private DrawFrameLayout cdn_button;
     private DrawFrameLayout splash_button;
     private DrawEditText filter_path;
@@ -50,6 +52,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         bbi.b(inflater, "inflater");
         View inflate = inflater.inflate(R.layout.fragment_experiment, viewGroup, false);
         this.filter_button = (DrawFrameLayout)inflate.findViewById(R.id.filter_button);
+        this.folder_open_button = (DrawLinearLayout)inflate.findViewById(R.id.experiment_folder_open);
         this.cdn_button = (DrawFrameLayout)inflate.findViewById(R.id.cdn_button);
         this.splash_button = (DrawFrameLayout)inflate.findViewById(R.id.splash_button);
         this.filter_path = (DrawEditText)inflate.findViewById(R.id.filter_path);
@@ -60,6 +63,8 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
 
         this.filter_button.setUpDrawable(R.drawable.shadow_white_rect);
         this.filter_button.setOnFocusChangeListener(this);
+        this.folder_open_button.setUpDrawable(R.drawable.shadow_white_rect);
+        this.folder_open_button.setOnFocusChangeListener(this);
         this.cdn_button.setUpDrawable(R.drawable.shadow_white_rect);
         this.cdn_button.setOnFocusChangeListener(this);
         this.splash_button.setUpDrawable(R.drawable.shadow_white_rect);
@@ -73,10 +78,6 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
             this.filter_path.setClickable(true);
             this.filter_path.setText(abd.get_filter_path(MainApplication.a().getApplicationContext()));
         }
-        this.cdn_button.setNextFocusRightId(R.id.cdn_value);
-        this.cdn_value.setEnabled(true);
-        this.cdn_value.setFocusable(true);
-        this.cdn_value.setClickable(true);
         if(VideoViewParams.cdn_history.size()==0){
             ((ShadowTextView)((ViewGroup)this.cdn_button).getChildAt(0)).setText("通用CDN");
         }
@@ -85,6 +86,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         }
         this.cdn_value.setText(VideoViewParams.prefect_cdn);
         this.filter_button.setOnClickListener(this);
+        this.folder_open_button.setOnClickListener(this);
         this.cdn_button.setOnClickListener(this);
         this.splash_button.setOnClickListener(this);
         this.filter_path.setOnEditorActionListener(this);
@@ -104,7 +106,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
             if(BiliFilter.filter_on){
                 ((ShadowTextView)((ViewGroup)view).getChildAt(0)).setText("禁用视频过滤");
                 view.setBackgroundResource(R.drawable.shape_rectangle_trans_with_12corner_white_10);
-                this.filter_button.setNextFocusRightId(R.id.filter_button);
+                this.filter_button.setNextFocusRightId(R.id.experiment_folder_open);
                 this.filter_path.setEnabled(false);
                 this.filter_path.setFocusable(false);
                 this.filter_path.setClickable(false);
@@ -128,6 +130,18 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
                 filter_path.setText(BiliFilter.filter_rule_path);
             }
             BiliFilter.filter_on=!BiliFilter.filter_on;
+            abd.set_personal_config(MainApplication.a().getApplicationContext(),"filter_on",BiliFilter.filter_on);
+        }
+        if(view == this.folder_open_button){
+            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.setType("application/*");
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            //intent.setPackage("com.android.documentsui");
+            try {
+                startActivityForResult(Intent.createChooser(intent, "选择配置文件"), 0);
+            } catch (Exception e) {
+                lr.a(afm3.this.getActivity(), "无可用文件管理器，请手动输入");
+            }
         }
         if(view == this.cdn_button){
             afm3.tmp_cdns = VideoViewParams.cdn_history;
@@ -181,7 +195,8 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         try{
-                            File fImage = new File("/data/data/com.bilibili.tv/files/data/splash.png");  
+                            File fImage = new File(aj.a(MainApplication.a(),"data")[0],"splash.png");
+                            if(!fImage.getParentFile().exists())fImage.getParentFile().mkdirs();
                             if(which==0){
                                 if(fImage.exists())fImage.delete();
                             }
@@ -244,33 +259,35 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
     @Override // android.view.View.OnFocusChangeListener
     public final void onFocusChange(View view, boolean z) {
         if (z) {
-            ((DrawFrameLayout)view).setUpEnabled(true);
+            ((afz)view).setUpEnabled(true);
         } else {
-            ((DrawFrameLayout)view).setUpEnabled(false);
+            ((afz)view).setUpEnabled(false);
+        }
+    }
+
+    public void updateFilterPath(String path){
+        abd.set_filter_path(MainApplication.a().getApplicationContext(), path);
+        try{
+            BiliFilter.updateConfig();
+            this.filter_path.setText(BiliFilter.filter_rule_path);
+            lr.b(getActivity(), "过滤器配置已更新");
+        }
+        catch(Exception e){
+            lr.a(getActivity(), e.toString());
         }
     }
 
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         if (actionId == EditorInfo.IME_ACTION_DONE) {
-            if(v==this.filter_path){
-                abd.set_filter_path(MainApplication.a().getApplicationContext(), v.getText().toString());
-                try{
-                    BiliFilter.updateConfig();
-                    v.setText(BiliFilter.filter_rule_path);
-                    lr.b(afm3.this.getActivity(), "过滤器配置已更新");
-                }
-                catch(Exception e){
-                    lr.a(afm3.this.getActivity(), e.toString());
-                }
-            }
+            if(v==this.filter_path)updateFilterPath(v.getText().toString());
             if(v==this.cdn_value){
                 if(v.getText().toString().endsWith(".bilivideo.com")){
                     VideoViewParams.prefect_cdn=v.getText().toString();
-                    lr.b(afm3.this.getActivity(), "已设置默认CDN");
+                    lr.b(getActivity(), "已设置默认CDN");
                 }
                 else{
-                    lr.a(afm3.this.getActivity(), "CDN不合法");
+                    lr.a(getActivity(), "CDN不合法");
                 }
             }
             return false;
@@ -279,7 +296,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
     }
 
     public final boolean a() {
-        if (this.filter_button == null || this.filter_button.hasFocus() || this.filter_path == null || this.filter_path.hasFocus() || this.cdn_button == null || this.cdn_button.hasFocus() || this.cdn_value == null || this.cdn_value.hasFocus() || this.skip_checkbox0 == null || this.skip_checkbox0.hasFocus() || this.skip_checkbox1 == null || this.skip_checkbox1.hasFocus() || this.skip_checkbox2 == null || this.skip_checkbox2.hasFocus() || this.splash_button == null || this.splash_button.hasFocus()) {
+        if (this.filter_button == null || this.filter_button.hasFocus() || this.folder_open_button == null || this.folder_open_button.hasFocus() || this.filter_path == null || this.filter_path.hasFocus() || this.cdn_button == null || this.cdn_button.hasFocus() || this.cdn_value == null || this.cdn_value.hasFocus() || this.skip_checkbox0 == null || this.skip_checkbox0.hasFocus() || this.skip_checkbox1 == null || this.skip_checkbox1.hasFocus() || this.skip_checkbox2 == null || this.skip_checkbox2.hasFocus() || this.splash_button == null || this.splash_button.hasFocus()) {
             return false;
         }
         this.filter_button.requestFocus();

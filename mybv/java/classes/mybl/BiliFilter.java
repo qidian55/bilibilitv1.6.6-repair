@@ -5,6 +5,7 @@ import bl.kz;
 import bl.abd;
 import java.io.*;
 import java.util.*;
+import android.net.Uri;
 import android.util.Base64;
 import com.alibaba.fastjson.*;
 import java.nio.charset.Charset;
@@ -22,6 +23,7 @@ public class BiliFilter {
     public static Config config;
     public static Set<String> skip_categories = new HashSet<String>();
     public static boolean progressbar_on = false;
+    public static boolean fastquit_on = false;
 
     public static void updateConfig() throws Exception{
         BiliFilter.filter_rule_path = abd.get_filter_path(MainApplication.a().getApplicationContext());
@@ -35,6 +37,7 @@ public class BiliFilter {
         try {
             inputStream = assetManager.open("data/filter_rule_example.json");
             File f = new File(aj.a(MainApplication.a(),"data")[0],"filter_rule_example.json");
+            if(!f.getParentFile().exists())f.getParentFile().mkdirs();
             BiliFilter.filter_rule_path = f.getPath();
             abd.set_filter_path(MainApplication.a().getApplicationContext(), BiliFilter.filter_rule_path);
             //if(f.exists()&&f.isFile())return;
@@ -60,6 +63,23 @@ public class BiliFilter {
             boolean f=true;
             for(String filter_word:BiliFilter.config.filter_words){
                 if(item.title.matches(filter_word)){
+                    f=false;
+                    break;
+                }
+            }
+            if(f)outputItems.add(item);
+        }
+        return outputItems;
+    }
+
+    public static List<JSONObject> filterUpperFeedJSONItem(List<JSONObject> inputItems, String scope){
+        if(!BiliFilter.filter_on)return inputItems;
+        if(!BiliFilter.config.scopes.contains(scope))return inputItems;
+        List<JSONObject> outputItems = new ArrayList<>();
+        for(JSONObject item: inputItems){
+            boolean f=true;
+            for(String filter_word:BiliFilter.config.filter_words){
+                if(item.getJSONObject("module_dynamic").getJSONObject("major").getJSONObject("archive").getString("title").matches(filter_word)){
                     f=false;
                     break;
                 }
@@ -131,10 +151,17 @@ class Config{
     Config() throws Exception{
         try {
             if(BiliFilter.filter_rule_path.isEmpty())BiliFilter.saveConfig();
-            File f = new File(BiliFilter.filter_rule_path);
-            FileInputStream fileInputStream = new FileInputStream(f);
-            String content = kz.c(fileInputStream);
-            kz.a((InputStream) fileInputStream);
+            String content=null;
+            if(BiliFilter.filter_rule_path.startsWith("content://")){
+                InputStream inputStream = MainApplication.a().getApplicationContext().getContentResolver().openInputStream(Uri.parse(BiliFilter.filter_rule_path));
+                content = kz.c(inputStream);
+                kz.a(inputStream);
+            }else{
+                File f = new File(BiliFilter.filter_rule_path);
+                FileInputStream fileInputStream = new FileInputStream(f);
+                content = kz.c(fileInputStream);
+                kz.a(fileInputStream);
+            }
             if(content==null|content.length()==0)throw new Exception("no content");
             JSONObject data = JSON.parseObject(content);
             this.live_record = data.getBoolean("直播回放");
@@ -149,7 +176,8 @@ class Config{
         } catch (Exception e) {
             e.printStackTrace();
             BLog.w("Error read filter config!", e);
-            kz.a((InputStream) null);
+            kz.a((InputStream)null);
+            BiliFilter.filter_on=false;
             throw e;
         }
     }

@@ -341,7 +341,7 @@ public final class AuthSpaceActivity extends BaseReloadActivity {
         BiliSpaceApiService biliSpaceApiService = (BiliSpaceApiService) vo.a(BiliSpaceApiService.class);
         mg account = mg.a(this);
         bbi.a((Object) account, "BiliAccount.get(this)");
-        biliSpaceApiService.loadArchiveVideos(account.e(), this.k, this.g, 30).a(this.b);
+        biliSpaceApiService.loadArchiveVideos(account.e(), this.k, this.g, 20).a(this.b);
     }
 
     @Override // com.bilibili.tv.ui.base.BaseReloadActivity, bl.aea
@@ -421,6 +421,12 @@ public final class AuthSpaceActivity extends BaseReloadActivity {
             AuthSpaceActivity.this.a.filter_num += biliSpaceVideoList.videos.size()-list.size();
             if(BiliFilter.filter_on)info+="，已过滤"+String.valueOf(AuthSpaceActivity.this.a.filter_num)+"条";
             AuthSpaceActivity.this.f.setText(info);
+            if(AuthSpaceActivity.this.h&&AuthSpaceActivity.this.a.a()<8){
+                try{Thread.sleep(1000);}catch(Exception e){e.printStackTrace();}
+                loadingImageView.a();
+                AuthSpaceActivity.this.g++;
+                AuthSpaceActivity.this.k();
+            }
         }
     }
 

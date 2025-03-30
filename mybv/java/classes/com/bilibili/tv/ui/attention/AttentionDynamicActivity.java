@@ -359,7 +359,7 @@ public final class AttentionDynamicActivity extends BaseReloadActivity implement
             }
             List<JSONObject> list = new ArrayList<JSONObject>();
             for(int i=0;i<response.getJSONArray("items").size();i++)list.add(response.getJSONArray("items").getJSONObject(i).getJSONObject("modules"));
-            //list = BiliFilter.filterUpperFeedItem(list, "动态");
+            list = BiliFilter.filterUpperFeedJSONItem(list, "动态");
             c cVar = AttentionDynamicActivity.this.a;
             bbi.a((Object) list, "list");
             AttentionDynamicActivity.this.a.a(list);

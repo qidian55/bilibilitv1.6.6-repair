@@ -206,27 +206,34 @@
 
     goto :goto_66
 
-    .line 363
+    .line 362
     :cond_88
-    iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FeedResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
+    const-string v0, "\u52a8\u6001"
 
-    # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->a:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
-    invoke-static {v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->access$200(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;)Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
-
-    .line 364
-    const-string v0, "list"
-
-    invoke-static {v2, v0}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 365
-    iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FeedResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
-
-    # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->a:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
-    invoke-static {v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->access$200(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;)Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
+    invoke-static {v2, v0}, Lmybl/BiliFilter;->filterUpperFeedJSONItem(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;->a(Ljava/util/List;)V
+    .line 363
+    iget-object v2, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FeedResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
+
+    # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->a:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
+    invoke-static {v2}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->access$200(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;)Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
+
+    .line 364
+    const-string v2, "list"
+
+    invoke-static {v0, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 365
+    iget-object v2, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FeedResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
+
+    # getter for: Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->a:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
+    invoke-static {v2}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->access$200(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;)Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$c;->a(Ljava/util/List;)V
 
     .line 366
     const-string v0, "has_more"
@@ -239,7 +246,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_ac
+    if-nez v0, :cond_b2
 
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FeedResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
@@ -247,7 +254,7 @@
     invoke-static {v0, v1}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;->access$102(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;Z)Z
 
     .line 367
-    :cond_ac
+    :cond_b2
     iget-object v0, p0, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FeedResponse;->this$0:Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;
 
     const-string v1, "offset"

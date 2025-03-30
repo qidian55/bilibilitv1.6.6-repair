@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -38,60 +38,85 @@
     .prologue
     const/4 v0, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    .line 131
+    .line 151
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 133
+    .line 153
     :try_start_5
-    sget-object v2, Lmybl/BiliFilter;->filter_rule_path:Ljava/lang/String;
+    sget-object v1, Lmybl/BiliFilter;->filter_rule_path:Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_10
+    if-eqz v1, :cond_10
 
     invoke-static {}, Lmybl/BiliFilter;->saveConfig()V
 
-    .line 134
+    .line 155
     :cond_10
-    new-instance v2, Ljava/io/File;
+    sget-object v1, Lmybl/BiliFilter;->filter_rule_path:Ljava/lang/String;
+
+    const-string v3, "content://"
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5f
+
+    .line 156
+    invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
 
     sget-object v3, Lmybl/BiliFilter;->filter_rule_path:Ljava/lang/String;
 
-    invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    .line 135
-    new-instance v3, Ljava/io/FileInputStream;
+    move-result-object v3
 
-    invoke-direct {v3, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    invoke-virtual {v1, v3}, Landroid/content/ContentResolver;->openInputStream(Landroid/net/Uri;)Ljava/io/InputStream;
 
-    .line 136
+    move-result-object v3
+
+    .line 157
     invoke-static {v3}, Lbl/kz;->c(Ljava/io/InputStream;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v1
 
-    .line 137
+    .line 158
     invoke-static {v3}, Lbl/kz;->a(Ljava/io/InputStream;)V
 
-    .line 138
-    if-nez v4, :cond_48
+    move-object v3, v1
 
-    move v2, v0
+    .line 165
+    :goto_38
+    if-nez v3, :cond_74
 
-    :goto_26
-    invoke-virtual {v4}, Ljava/lang/String;->length()I
+    move v1, v0
 
-    move-result v3
+    :goto_3b
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
-    if-nez v3, :cond_4a
+    move-result v4
 
-    :goto_2c
-    or-int/2addr v0, v2
+    if-nez v4, :cond_76
 
-    if-eqz v0, :cond_4c
+    :goto_41
+    or-int/2addr v0, v1
+
+    if-eqz v0, :cond_78
 
     new-instance v0, Ljava/lang/Exception;
 
@@ -100,52 +125,80 @@
     invoke-direct {v0, v1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_37
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_37} :catch_37
+    :try_end_4c
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_4c} :catch_4c
 
-    .line 149
-    :catch_37
+    .line 176
+    :catch_4c
     move-exception v0
 
     move-object v1, v0
 
-    .line 150
+    .line 177
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 151
+    .line 178
     const-string v0, "Error read filter config!"
 
     invoke-static {v0, v1}, Ltv/danmaku/android/log/BLog;->w(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 152
+    .line 179
     const/4 v0, 0x0
 
     check-cast v0, Ljava/io/InputStream;
 
     invoke-static {v0}, Lbl/kz;->a(Ljava/io/InputStream;)V
 
-    .line 153
+    .line 180
+    sput-boolean v2, Lmybl/BiliFilter;->filter_on:Z
+
+    .line 181
     throw v1
 
-    :cond_48
-    move v2, v1
+    .line 160
+    :cond_5f
+    :try_start_5f
+    new-instance v1, Ljava/io/File;
 
-    .line 138
-    goto :goto_26
+    sget-object v3, Lmybl/BiliFilter;->filter_rule_path:Ljava/lang/String;
 
-    :cond_4a
-    move v0, v1
+    invoke-direct {v1, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2c
+    .line 161
+    new-instance v3, Ljava/io/FileInputStream;
 
-    .line 139
-    :cond_4c
-    :try_start_4c
-    invoke-static {v4}, Lcom/alibaba/fastjson/JSON;->parseObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
+    invoke-direct {v3, v1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+
+    .line 162
+    invoke-static {v3}, Lbl/kz;->c(Ljava/io/InputStream;)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 163
+    invoke-static {v3}, Lbl/kz;->a(Ljava/io/InputStream;)V
+
+    move-object v3, v1
+
+    goto :goto_38
+
+    :cond_74
+    move v1, v2
+
+    .line 165
+    goto :goto_3b
+
+    :cond_76
+    move v0, v2
+
+    goto :goto_41
+
+    .line 166
+    :cond_78
+    invoke-static {v3}, Lcom/alibaba/fastjson/JSON;->parseObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
 
     move-result-object v0
 
-    .line 140
+    .line 167
     const-string v1, "\u76f4\u64ad\u56de\u653e"
 
     invoke-virtual {v0, v1}, Lcom/alibaba/fastjson/JSONObject;->getBoolean(Ljava/lang/String;)Ljava/lang/Boolean;
@@ -158,7 +211,7 @@
 
     iput-boolean v1, p0, Lmybl/Config;->live_record:Z
 
-    .line 141
+    .line 168
     const-string v1, "\u4f5c\u7528\u8303\u56f4"
 
     invoke-virtual {v0, v1}, Lcom/alibaba/fastjson/JSONObject;->getJSONArray(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONArray;
@@ -167,7 +220,7 @@
 
     iput-object v1, p0, Lmybl/Config;->scopes:Lcom/alibaba/fastjson/JSONArray;
 
-    .line 142
+    .line 169
     const-string v1, "\u5c4f\u853d\u8bcd"
 
     invoke-virtual {v0, v1}, Lcom/alibaba/fastjson/JSONObject;->getJSONArray(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONArray;
@@ -176,7 +229,7 @@
 
     iput-object v1, p0, Lmybl/Config;->masked_words:Lcom/alibaba/fastjson/JSONArray;
 
-    .line 143
+    .line 170
     const-string v1, "\u7981\u7528\u8bcd"
 
     invoke-virtual {v0, v1}, Lcom/alibaba/fastjson/JSONObject;->getJSONArray(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONArray;
@@ -185,7 +238,7 @@
 
     iput-object v1, p0, Lmybl/Config;->banned_words:Lcom/alibaba/fastjson/JSONArray;
 
-    .line 144
+    .line 171
     const-string v1, "\u9ed1\u540d\u5355\u7528\u6237"
 
     invoke-virtual {v0, v1}, Lcom/alibaba/fastjson/JSONObject;->getJSONObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
@@ -194,17 +247,17 @@
 
     iput-object v0, p0, Lmybl/Config;->blacklist_users:Lcom/alibaba/fastjson/JSONObject;
 
-    .line 145
+    .line 172
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lmybl/Config;->filter_words:Ljava/util/List;
 
-    .line 146
+    .line 173
     iget-boolean v0, p0, Lmybl/Config;->live_record:Z
 
-    if-nez v0, :cond_8e
+    if-nez v0, :cond_ba
 
     iget-object v0, p0, Lmybl/Config;->filter_words:Ljava/util/List;
 
@@ -212,46 +265,46 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 147
-    :cond_8e
+    .line 174
+    :cond_ba
     iget-object v0, p0, Lmybl/Config;->masked_words:Lcom/alibaba/fastjson/JSONArray;
 
     invoke-virtual {v0}, Lcom/alibaba/fastjson/JSONArray;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_94
+    :goto_c0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_bf
+    if-eqz v0, :cond_eb
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    iget-object v2, p0, Lmybl/Config;->filter_words:Ljava/util/List;
+    iget-object v3, p0, Lmybl/Config;->filter_words:Ljava/util/List;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "(.*)("
+    const-string v5, "(.*)("
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
     check-cast v0, Ljava/lang/String;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    const-string v3, ")(.*)"
+    const-string v4, ")(.*)"
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -259,52 +312,52 @@
 
     move-result-object v0
 
-    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_94
+    goto :goto_c0
 
-    .line 148
-    :cond_bf
+    .line 175
+    :cond_eb
     iget-object v0, p0, Lmybl/Config;->banned_words:Lcom/alibaba/fastjson/JSONArray;
 
     invoke-virtual {v0}, Lcom/alibaba/fastjson/JSONArray;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_c5
+    :goto_f1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_e3
+    if-eqz v0, :cond_10f
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    iget-object v2, p0, Lmybl/Config;->filter_words:Ljava/util/List;
+    iget-object v3, p0, Lmybl/Config;->filter_words:Ljava/util/List;
 
-    new-instance v3, Ljava/lang/String;
+    new-instance v4, Ljava/lang/String;
 
     check-cast v0, Ljava/lang/String;
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    invoke-static {v0, v4}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
+    invoke-static {v0, v5}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
 
     move-result-object v0
 
-    const-string v4, "UTF-8"
+    const-string v5, "UTF-8"
 
-    invoke-direct {v3, v0, v4}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
+    invoke-direct {v4, v0, v5}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_e2
-    .catch Ljava/lang/Exception; {:try_start_4c .. :try_end_e2} :catch_37
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_10e
+    .catch Ljava/lang/Exception; {:try_start_5f .. :try_end_10e} :catch_4c
 
-    goto :goto_c5
+    goto :goto_f1
 
-    .line 155
-    :cond_e3
+    .line 183
+    :cond_10f
     return-void
 .end method

@@ -98,6 +98,11 @@ public class MainApplication extends Application {
         int danmaku_type = abd.get_danmaku_type(this);
         for(int i=0;i<10;i++)PlayerMenuRight.danmaku_valid_list[i]=((danmaku_type>>i)&1)>0;
         BiliFilter.skip_categories=abd.get_skip_categories(this);
+        org.json.JSONObject config=abd.get_personal_config(this);
+        BiliFilter.filter_on=config.optBoolean("filter_on");
+        BiliFilter.progressbar_on=config.optBoolean("progressbar_on");
+        BiliFilter.fastquit_on=config.optBoolean("fastquit_on");
+        try{BiliFilter.updateConfig();}catch(Exception e){e.printStackTrace();}
     }
 
     @Override // android.app.Application, android.content.ComponentCallbacks

@@ -1,6 +1,6 @@
 .class public final Lbl/afb$d$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "afb.java"
 
 
 # annotations
@@ -18,18 +18,22 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 314
+    .prologue
+    .line 400
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 401
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 314
+    .prologue
+    .line 404
     invoke-direct {p0}, Lbl/afb$d$a;-><init>()V
 
+    .line 405
     return-void
 .end method
 
@@ -41,22 +45,26 @@
         value = {
             "(",
             "Landroid/view/ViewGroup;",
-            "Ljava/lang/ref/WeakReference<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
             "Lbl/afb;",
             ">;)",
             "Lbl/afb$d;"
         }
     .end annotation
 
+    .prologue
+    .line 408
     const-string v0, "parent"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
+    .line 409
     const-string v0, "weakReference"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 320
+    .line 410
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -69,19 +77,19 @@
 
     const/4 v2, 0x0
 
-    .line 321
     invoke-virtual {v0, v1, p1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    .line 326
-    new-instance v0, Lbl/afb$d;
-
+    .line 411
     const-string v1, "view"
 
-    invoke-static {p1, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-direct {v0, p1, p2}, Lbl/afb$d;-><init>(Landroid/view/View;Ljava/lang/ref/WeakReference;)V
+    .line 412
+    new-instance v1, Lbl/afb$d;
 
-    return-object v0
+    invoke-direct {v1, v0, p2}, Lbl/afb$d;-><init>(Landroid/view/View;Ljava/lang/ref/WeakReference;)V
+
+    return-object v1
 .end method

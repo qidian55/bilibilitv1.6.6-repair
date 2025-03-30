@@ -2058,6 +2058,7 @@
     <public type="drawable" name="ic_group_180" id="0x7f070104" />
     <public type="drawable" name="ic_toview_180" id="0x7f070105" />
     <public type="drawable" name="background_splash" id="0x7f070106" />
+    <public type="drawable" name="ic_folder_open_180" id="0x7f070107" />
 
     <public type="id" name="ALT" id="0x7f080000" />
     <public type="id" name="CTRL" id="0x7f080001" />
@@ -2439,7 +2440,8 @@
     <public type="id" name="skip_checkbox2" id="0x7f080178" />
     <public type="id" name="splash_button" id="0x7f080179" />
     <public type="id" name="progressbar_button" id="0x7f08017a" />
-    <public type="id" name="quit_button" id="0x7f08017b" />
+    <public type="id" name="fastquit_button" id="0x7f08017b" />
+    <public type="id" name="experiment_folder_open" id="0x7f08017c" />
 
     <public type="integer" name="config_danmaku_fly_duration" id="0x7f090003" />
     <public type="integer" name="config_danmaku_max_danmaku_on_screen" id="0x7f090005" />
