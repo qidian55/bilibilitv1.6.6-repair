@@ -3,6 +3,10 @@
 
 还是bilibilitv1.6.6的界面舒服，缝缝补补继续用
 
+## 相关链接
+- 常见故障排查：[#83](https://github.com/qidian55/bilibilitv1.6.6-repair/discussions/83)
+- 使用指南：[wiki](https://github.com/qidian55/bilibilitv1.6.6-repair/wiki)
+
 ## 版本
 
 ### v1.0
@@ -82,7 +86,7 @@
 - 升级直播弹幕协议
 - 支持表情包及图片直播弹幕
 
-### v10.0 test
+### v10.0
 > 尝试页面调整
 
 - 分区视频默认页调整为分区热门推荐

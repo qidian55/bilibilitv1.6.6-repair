@@ -259,51 +259,52 @@ public class xi extends xh implements bbb<Message, Boolean> {
         if (o() == null) {
             return false;
         }
-        int i = message.what;
-        if (i == 10100) {
-            this.b.sendMessageDelayed(this.b.obtainMessage(5000202, Long.valueOf(System.currentTimeMillis())), 10000L);
-        } else if (i == 10211) {
-            U();
-            IPlayerContext n = n();
-            if (n != null && !n.isAttachedToView(this.e)) {
-                n.attachVideoView(this.e);
-            }
-        } else if (i == 20100) {
-            b(message);
-        } else if (i == 5000200) {
-            Q();
-        } else if (i == 5000202) {
-            Long l = (Long) message.obj;
-            if (l != null) {
-                long currentTimeMillis = System.currentTimeMillis() - l.longValue();
-                if (currentTimeMillis >= 10000 && currentTimeMillis < 18000) {
-                    e(R.string.PlayerReactTips_too_slowly);
+        switch(message.what) {
+            case 10100:
+                this.b.sendMessageDelayed(this.b.obtainMessage(5000202, Long.valueOf(System.currentTimeMillis())), 10000L);
+                break;
+            case 10211:
+                U();
+                IPlayerContext context = n();
+                if (context != null && !context.isAttachedToView(this.e)) {
+                    context.attachVideoView(this.e);
                 }
-            }
-        } else {
-            switch (i) {
-                case 10201:
-                    c(message);
-                    break;
-                case 10202:
-                    if (K()) {
-                        C();
+                break;
+            case 20100:
+                b(message);
+                break;
+            case 5000200:
+                Q();
+                break;
+            case 5000202:
+                Long l = (Long) message.obj;
+                if (l != null) {
+                    long diff = System.currentTimeMillis() - l.longValue();
+                    if (diff >= 10000 && diff < 18000) {
+                        e(R.string.PlayerReactTips_too_slowly);
                     }
-                    this.b.removeMessages(5000202);
-                    e(R.string.PlayerReactTips_resolve_failed);
-                    break;
-                case 10203:
-                case 10204:
-                    break;
-                default:
-                    BLog.ifmt("BasicTVPlayerAdapter", "handled default:%d %s", Integer.valueOf(message.what), true);
-                    z = false;
-                    break;
-            }
-            BLog.ifmt("BasicTVPlayerAdapter", "handled:%d %s", Integer.valueOf(message.what), Boolean.valueOf(z));
-            return !z || super.handleMessage(message);
+                }
+                break;
+            case 10201:
+                c(message);
+                break;
+            case 10202:
+                if (K()) {
+                    C();
+                }
+                this.b.removeMessages(5000202);
+                e(R.string.PlayerReactTips_resolve_failed);
+                break;
+            case 10203:
+            case 10204:
+                break;
+            default:
+                BLog.ifmt("BasicTVPlayerAdapter", "handled default:%d %s", Integer.valueOf(message.what), true);
+                z = false;
+                break;
         }
-        return false;
+        BLog.ifmt("BasicTVPlayerAdapter", "handled:%d %s", Integer.valueOf(message.what), Boolean.valueOf(z));
+        return z || !super.handleMessage(message);
     }
 
     private void U() {

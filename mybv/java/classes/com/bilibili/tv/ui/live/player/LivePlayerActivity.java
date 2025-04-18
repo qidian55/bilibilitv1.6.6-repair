@@ -35,6 +35,7 @@ public class LivePlayerActivity extends BaseActivity implements View.OnClickList
     private LiveVideoPlayer g;
     private LivePlayerController h;
 
+    public static LivePlayerActivity _this = null;
     public static List<BiliLiveContent> lives = null;
     public static int live_index = -1;
 
@@ -92,6 +93,7 @@ public class LivePlayerActivity extends BaseActivity implements View.OnClickList
         ((View) this.h.getParent()).setOnClickListener(this);
 
         this.g.danmakuClient = new DanmakuClient(this.d);
+        LivePlayerActivity._this = this;
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper
@@ -126,8 +128,7 @@ public class LivePlayerActivity extends BaseActivity implements View.OnClickList
                 if(LivePlayerActivity.live_index>0){
                     LivePlayerActivity.live_index-=1;
                     LivePlayerActivity.this.f = false;
-                    LivePlayerActivity.this.finish();
-                    LivePlayerActivity.this.startActivity(LivePlayerActivity.a(LivePlayerActivity.this, LivePlayerActivity.lives.get(LivePlayerActivity.live_index)));
+                    LivePlayerActivity.this.refresh();
                 }
                 else lr.b(this,"已经到顶了");
             }
@@ -135,8 +136,7 @@ public class LivePlayerActivity extends BaseActivity implements View.OnClickList
                 if(LivePlayerActivity.live_index<LivePlayerActivity.lives.size()-1){
                     LivePlayerActivity.live_index+=1;
                     LivePlayerActivity.this.f = false;
-                    LivePlayerActivity.this.finish();
-                    LivePlayerActivity.this.startActivity(LivePlayerActivity.a(LivePlayerActivity.this, LivePlayerActivity.lives.get(LivePlayerActivity.live_index)));
+                    LivePlayerActivity.this.refresh();
                 }
                 else lr.b(this,"已经到底了");
             }
@@ -152,6 +152,11 @@ public class LivePlayerActivity extends BaseActivity implements View.OnClickList
 
     private boolean h() {
         return this.e != null && this.e.isShowing();
+    }
+
+    public void refresh() {
+        finish();
+        startActivity(LivePlayerActivity.a(this, LivePlayerActivity.lives.get(LivePlayerActivity.live_index)));
     }
 
     private void i() {

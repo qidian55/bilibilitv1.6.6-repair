@@ -37,7 +37,7 @@ public class LiveVideoPlayer extends wy {
     protected ViewGroup D;
     protected wt E;
     public IDanmakuPlayer F;
-    public boolean G;
+    public boolean G = abd.e(MainApplication.a().getApplicationContext());
     private int af;
     private boolean ag;
     private int ah;
@@ -377,7 +377,6 @@ public class LiveVideoPlayer extends wy {
         danmakuParams.setRealTimeDanmaku(true);
         danmakuParams.setDanmakuTextSizeScaleFactor(abd.f(MainApplication.a().getApplicationContext()));
         danmakuParams.setDanmakuAlphaFactor(abd.g(MainApplication.a().getApplicationContext()));
-        this.G = abd.e(MainApplication.a().getApplicationContext());
         mg a2 = mg.a(getContext());
         int i = 0;
         if (a2 != null && (c = a2.c()) != null) {

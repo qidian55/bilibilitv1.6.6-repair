@@ -53,6 +53,7 @@ class DanmakuWebSocketClient extends WebSocketClient {
 public class DanmakuClient {
     public int roomId;
     public String token;
+    public Thread client_thread;
     public DanmakuWebSocketClient client;
     public static IDanmakuPlayer player;
     public static float baseScreenScale=0, densityScale=0, mScale ;
@@ -79,12 +80,13 @@ public class DanmakuClient {
         try{
             JSONObject data = future.get();
             token = data.optString("token");
-            new Thread(new Runnable(){
+            client_thread = new Thread(new Runnable(){
                 @Override
                 public void run() {
                     startClient("ws://" + data.optJSONArray("host_list").optJSONObject(0).optString("host") + ":"  + data.optJSONArray("host_list").optJSONObject(0).optInt("ws_port") + "/sub");
                 }
-            }).start();
+            });
+            client_thread.start();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -107,7 +109,6 @@ public class DanmakuClient {
             outToServer.write(info.getBytes());
             client.send(baos.toByteArray());
             while (!client.isClosed()) {
-                Thread.sleep(20000);
                 baos = new ByteArrayOutputStream();
                 outToServer = new DataOutputStream(baos);
                 outToServer.writeInt(16);
@@ -116,6 +117,7 @@ public class DanmakuClient {
                 outToServer.writeInt(2);
                 outToServer.writeInt(0);
                 client.send(baos.toByteArray());
+                Thread.sleep(20000);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -200,7 +202,7 @@ public class DanmakuClient {
 
     public void release(){
         if(client!=null && !client.isClosed()){
-            try{client.close();}
+            try{client.close();client_thread.interrupt();}
             catch(Exception e){e.printStackTrace();}
         }
     }

@@ -23,7 +23,7 @@
     .locals 2
 
     .prologue
-    .line 62
+    .line 67
     new-instance v0, Lbl/wm;
 
     const/4 v1, 0x0
@@ -39,7 +39,7 @@
     .locals 0
 
     .prologue
-    .line 61
+    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -49,7 +49,7 @@
     .locals 1
 
     .prologue
-    .line 61
+    .line 66
     sget-object v0, Lbl/wm$aa;->a:Lbl/wm;
 
     return-object v0

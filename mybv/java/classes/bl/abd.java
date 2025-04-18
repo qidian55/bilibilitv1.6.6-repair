@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import org.json.*;
 import java.util.*;
 import mybl.DanmakuClient;
+import com.bilibili.tv.player.widget.PlayerMenuRight;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -17,7 +18,7 @@ public class abd {
     private static int f;
     private static int g;
     private static int h;
-    private static int i = -1;
+    private static int danmaku_type = -1;
     private static float j;
     private static float k;
     private static int l;
@@ -111,28 +112,29 @@ public class abd {
     }
 
     public static void c(Context context, boolean z) {
-        int i2 = z ? 1 : 0;
-        a(context).a().edit().putInt("danmaku_text_show_type", i2).apply();
-        i = i2;
+        int type = z ? 0b11110010 : 0;
+        a(context).a().edit().putInt("danmaku_text_show_type", type).apply();
+        danmaku_type = type;
+        for(int i=0;i<10;i++)PlayerMenuRight.danmaku_valid_list[i]=((danmaku_type>>i)&1)>0;
     }
 
     public static boolean e(Context context) {
-        if (i == -1) {
-            i = a(context).a().getInt("danmaku_text_show_type", 2);
+        if (danmaku_type == -1) {
+            danmaku_type = a(context).a().getInt("danmaku_text_show_type", 0b11110010);
         }
-        return i>0;
+        return danmaku_type>0;
     }
 
-    public static void set_danmaku_type(Context context, int t) {
-        a(context).a().edit().putInt("danmaku_text_show_type", t).apply();
-        i = t;
+    public static void set_danmaku_type(Context context, int type) {
+        a(context).a().edit().putInt("danmaku_text_show_type", type).apply();
+        danmaku_type = type;
     }
 
     public static int get_danmaku_type(Context context) {
-        if (i == -1) {
-            i = a(context).a().getInt("danmaku_text_show_type", 2);
+        if (danmaku_type == -1) {
+            danmaku_type = a(context).a().getInt("danmaku_text_show_type", 0b11110010);
         }
-        return i;
+        return danmaku_type;
     }
 
     public static void a(Context context, float f2) {

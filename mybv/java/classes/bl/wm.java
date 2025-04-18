@@ -18,9 +18,14 @@ import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaMetadataRetriever;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
+import android.os.Bundle;
+import tv.danmaku.android.log.BLog;
+import tv.danmaku.videoplayer.core.videoview.IVideoView;
+import com.bilibili.tv.ui.live.player.LivePlayerActivity;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
-public class wm implements IMediaPlayer.OnBufferingUpdateListener, IMediaPlayer.OnCompletionListener, IMediaPlayer.OnErrorListener, IMediaPlayer.OnInfoListener, IMediaPlayer.OnPreparedListener, IMediaPlayer.OnSeekCompleteListener, IMediaPlayer.OnVideoSizeChangedListener {
+public class wm implements IMediaPlayer.OnBufferingUpdateListener, IMediaPlayer.OnCompletionListener, IMediaPlayer.OnErrorListener, IMediaPlayer.OnInfoListener, IMediaPlayer.OnPreparedListener, IMediaPlayer.OnSeekCompleteListener, IMediaPlayer.OnVideoSizeChangedListener, IjkMediaPlayer.OnNativeInvokeListener {
     int a;
     int b;
     int c;
@@ -203,6 +208,33 @@ public class wm implements IMediaPlayer.OnBufferingUpdateListener, IMediaPlayer.
         }
     }
 
+    @Override // tv.danmaku.ijk.media.player.IjkMediaPlayer.OnNativeInvokeListener
+    public boolean onNativeInvoke(int what, Bundle args) {
+        BLog.i("IjkCommander", "onNativeInvoke,what:" + i + ", args size:" + args.size());
+        switch (what) {
+            case IVideoView.OnExtraInfoListener.CTRL_WILL_CONCAT_RESOLVE_SEGMENT_SYS /* 65573 */:
+            case IVideoView.OnExtraInfoListener.CTRL_WILL_CONCAT_RESOLVE_SEGMENT /* 131079 */:
+            case IVideoView.OnExtraInfoListener.CTRL_WILL_SET_URL /* 65574 */:
+            case IVideoView.OnExtraInfoListener.CTRL_WILL_TCP_OPEN /*131073*/:
+            case IVideoView.OnExtraInfoListener.CTRL_WILL_HTTP_OPEN /*131075*/:
+            case IVideoView.OnExtraInfoListener.CTRL_WILL_LIVE_OPEN /*131077*/:
+            default:
+                try{
+                    String url = args.getString("url", "");
+                    Long expires = Long.valueOf(Uri.parse(url).getQueryParameter("expires"));
+                    int http_code = args.getInt("http_code", 0);
+                    if(http_code==403 && System.currentTimeMillis()>expires){
+                        LivePlayerActivity._this.refresh();
+                    }
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
+                return true;
+        }
+
+    }
+
     private void a(Message message, boolean z) {
         this.h = new IjkMediaPlayer(this.l);
         this.h.setAudioStreamType(3);
@@ -217,6 +249,11 @@ public class wm implements IMediaPlayer.OnBufferingUpdateListener, IMediaPlayer.
                 return;
             }
         }
+
+        ((IjkMediaPlayer) this.h).setOption(1, "reconnect", 1L);
+        ((IjkMediaPlayer) this.h).setOnNativeInvokeListener(this);
+
+
         //((IjkMediaPlayer) this.h).setOption(1, "user_agent", "Bilibili Freedoooooom/MarkII");
         //if(((wo) message.obj).a().indexOf("platform=web")>=0){
         //    ((IjkMediaPlayer) this.h).setOption(1, "headers", "Referer: https://www.bilibili.com\r\n");

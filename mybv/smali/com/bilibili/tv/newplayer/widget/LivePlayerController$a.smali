@@ -536,7 +536,7 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_a4
+    packed-switch v1, :pswitch_data_a0
 
     .line 480
     :cond_c
@@ -606,47 +606,44 @@
 
     iget-boolean v1, v1, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->G:Z
 
-    if-nez v1, :cond_5e
+    if-nez v1, :cond_5a
 
     :goto_47
     invoke-virtual {p4, v0}, Landroid/widget/ImageView;->setSelected(Z)V
 
     .line 461
-    invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
+    iget-object v0, p0, Lcom/bilibili/tv/newplayer/widget/LivePlayerController$a;->this$0:Lcom/bilibili/tv/newplayer/widget/LivePlayerController;
+
+    # getter for: Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->k:Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
+    invoke-static {v0}, Lcom/bilibili/tv/newplayer/widget/LivePlayerController;->access$200(Lcom/bilibili/tv/newplayer/widget/LivePlayerController;)Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
+    iget-boolean v0, v0, Lcom/bilibili/tv/newplayer/video/LiveVideoPlayer;->G:Z
 
-    move-result-object v0
-
-    invoke-static {v0}, Lbl/abd;->e(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_60
+    if-eqz v0, :cond_5c
 
     const-string v0, "\u5f39\u5e55\u5f00"
 
-    :goto_5a
+    :goto_56
     invoke-virtual {p3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto :goto_c
 
     .line 460
-    :cond_5e
+    :cond_5a
     const/4 v0, 0x0
 
     goto :goto_47
 
     .line 461
-    :cond_60
+    :cond_5c
     const-string v0, "\u5f39\u5e55\u5173"
 
-    goto :goto_5a
+    goto :goto_56
 
     .line 464
-    :pswitch_63
+    :pswitch_5f
     const v0, 0x7f07006b
 
     invoke-virtual {p4, v0}, Landroid/widget/ImageView;->setBackgroundResource(I)V
@@ -659,7 +656,7 @@
     goto :goto_c
 
     .line 468
-    :pswitch_6f
+    :pswitch_6b
     const v0, 0x7f0700a4
 
     invoke-virtual {p4, v0}, Landroid/widget/ImageView;->setBackgroundResource(I)V
@@ -672,7 +669,7 @@
     goto :goto_c
 
     .line 472
-    :pswitch_7b
+    :pswitch_77
     const v0, 0x7f070071
 
     invoke-virtual {p4, v0}, Landroid/widget/ImageView;->setBackgroundResource(I)V
@@ -689,22 +686,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_94
+    if-eqz v0, :cond_90
 
     const-string v0, "\u955c\u50cf\u5f00"
 
-    :goto_8f
+    :goto_8b
     invoke-virtual {p3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_c
 
-    :cond_94
+    :cond_90
     const-string v0, "\u955c\u50cf\u5173"
 
-    goto :goto_8f
+    goto :goto_8b
 
     .line 476
-    :pswitch_97
+    :pswitch_93
     const v0, 0x7f0700fc
 
     invoke-virtual {p4, v0}, Landroid/widget/ImageView;->setBackgroundResource(I)V
@@ -717,14 +714,14 @@
     goto/16 :goto_c
 
     .line 447
-    :pswitch_data_a4
+    :pswitch_data_a0
     .packed-switch 0x1
         :pswitch_d
         :pswitch_37
-        :pswitch_63
-        :pswitch_6f
-        :pswitch_7b
-        :pswitch_97
+        :pswitch_5f
+        :pswitch_6b
+        :pswitch_77
+        :pswitch_93
     .end packed-switch
 .end method
 

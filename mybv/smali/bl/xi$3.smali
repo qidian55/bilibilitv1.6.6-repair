@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 609
+    .line 610
     iput-object p1, p0, Lbl/xi$3;->this$0:Lbl/xi;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .locals 2
 
     .prologue
-    .line 612
+    .line 613
     iget-object v0, p0, Lbl/xi$3;->this$0:Lbl/xi;
 
     # getter for: Lbl/xi;->m:Lcom/bilibili/tv/player/widget/PlayerBufferingView;
@@ -52,6 +52,6 @@
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/player/widget/PlayerBufferingView;->setVisibility(I)V
 
-    .line 613
+    .line 614
     return-void
 .end method

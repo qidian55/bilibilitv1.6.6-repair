@@ -458,7 +458,7 @@ public class LivePlayerController extends FrameLayout implements View.OnClickLis
                 case DANMAKU_DISPLAY:
                     imageView.setBackgroundResource(R.drawable.selector_live_player_danmaku_button);
                     imageView.setSelected(!LivePlayerController.this.k.G);
-                    textView.setText(abd.e(MainApplication.a().getApplicationContext()) ? "弹幕开" : "弹幕关");
+                    textView.setText(LivePlayerController.this.k.G ? "弹幕开" : "弹幕关");
                     return;
                 case DANMAKU_SIZE:
                     imageView.setBackgroundResource(R.drawable.ic_format_size_white_48dp);
