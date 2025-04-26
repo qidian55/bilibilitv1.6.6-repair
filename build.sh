@@ -30,6 +30,17 @@ case "$1" in
         cd mybv/java;./build.sh;cd ../..
         apktool b --use-aapt2 mybv
         signapk platform.x509.pem platform.pk8 ./mybv/dist/mybv.apk mybv.apk
+        exit 0
+    ;;
+    *)
+        #编译java类
+        cd mybv/java
+        ./build.sh
+        cd ../..
+        #编译apk
+        apktool b -c --use-aapt2 mybv
+        #签名apk
+        signapk platform.x509.pem platform.pk8 ./mybv/dist/mybv.apk mybv.apk
         cat <<EOF > update.json
 {
     "apkMd5":"$(md5sum mybv.apk|awk '{print $1}')",
@@ -44,17 +55,6 @@ case "$1" in
     "versionName":"1.6.6.$(date '+%Y%m%d')"
 }
 EOF
-        exit 0
-    ;;
-    *)
-        #编译java类
-        cd mybv/java
-        ./build.sh
-        cd ../..
-        #编译apk
-        apktool b -c --use-aapt2 mybv
-        #签名apk
-        signapk platform.x509.pem platform.pk8 ./mybv/dist/mybv.apk mybv.apk
         exit 0
     ;;
 esac
