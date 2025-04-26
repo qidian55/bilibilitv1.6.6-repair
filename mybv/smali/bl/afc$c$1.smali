@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 513
+    .line 535
     iput-object p1, p0, Lbl/afc$c$1;->this$0:Lbl/afc$c;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,10 +40,10 @@
     .locals 1
 
     .prologue
-    .line 516
+    .line 538
     invoke-static {p1, p2}, Lbl/adj;->a(Landroid/view/View;Z)V
 
-    .line 517
+    .line 539
     iget-object v0, p0, Lbl/afc$c$1;->this$0:Lbl/afc$c;
 
     invoke-virtual {v0}, Lbl/afc$c;->G()Lcom/bilibili/tv/widget/DrawLinearLayout;
@@ -52,6 +52,6 @@
 
     invoke-virtual {v0, p2}, Lcom/bilibili/tv/widget/DrawLinearLayout;->setUpEnabled(Z)V
 
-    .line 518
+    .line 540
     return-void
 .end method

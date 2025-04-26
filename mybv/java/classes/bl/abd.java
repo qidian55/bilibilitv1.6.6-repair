@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
-import org.json.*;
+import com.alibaba.fastjson.*;
 import java.util.*;
 import mybl.DanmakuClient;
 import com.bilibili.tv.player.widget.PlayerMenuRight;
@@ -225,7 +225,7 @@ public class abd {
 
     public static void set_skip_categories(Context context, Set<String> skip_categories) {
         try{
-            a(context).a().edit().putString("skip_categories", new JSONArray(skip_categories).toString()).apply();
+            a(context).a().edit().putString("skip_categories", JSON.toJSONString(skip_categories)).apply();
         }
         catch(Exception e){
             e.printStackTrace();
@@ -235,8 +235,8 @@ public class abd {
     public static Set<String> get_skip_categories(Context context) {
         HashSet<String> h = new HashSet<String>();
         try{
-            JSONArray ja = new JSONArray(a(context).a().getString("skip_categories", ""));
-            for(int i=0;i<ja.length();i++)h.add(ja.optString(i));
+            JSONArray ja = (JSONArray)JSON.toJSON(a(context).a().getString("skip_categories", ""));
+            for(int i=0;i<ja.size();i++)h.add(ja.getString(i));
         }
         catch(Exception e){
             e.printStackTrace();
@@ -258,7 +258,7 @@ public class abd {
         JSONObject config = null;
         String default_config = "{\"filter_on\":false,\"progressbar_on\":false,\"fastquit_on\":false}";
         try{
-            config = new JSONObject(a(context).a().getString("personal_config", default_config));
+            config = JSON.parseObject(a(context).a().getString("personal_config", default_config));
         }
         catch(Exception e){
             e.printStackTrace();

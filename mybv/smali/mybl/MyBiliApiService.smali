@@ -252,6 +252,22 @@
     .end annotation
 .end method
 
+.method public abstract getThirdUpdateInfo()Lbl/vp;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/update.json"
+    .end annotation
+.end method
+
 .method public abstract getVideoDetail(J)Lbl/vp;
     .param p1    # J
         .annotation runtime Lretrofit2/http/Query;

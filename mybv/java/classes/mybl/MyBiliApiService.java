@@ -50,4 +50,7 @@ public interface MyBiliApiService {
 
     @GET(a = "/x/polymer/web-dynamic/v1/feed/all?type=video")
     vp<GeneralResponse<JSONObject>> getFeedVideos(@Query(a = "access_key") String access_key, @Query(a = "offset") String offset);
+
+    @GET(a = "https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/update.json")
+    vp<com.bilibili.tv.ui.upgrade.BiliUpgradeInfo> getThirdUpdateInfo();
 }

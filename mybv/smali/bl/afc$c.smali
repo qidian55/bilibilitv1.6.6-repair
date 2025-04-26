@@ -49,7 +49,7 @@
     .locals 2
 
     .prologue
-    .line 487
+    .line 509
     new-instance v0, Lbl/afc$c$a;
 
     const/4 v1, 0x0
@@ -65,15 +65,15 @@
     .locals 2
 
     .prologue
-    .line 501
+    .line 523
     invoke-direct {p0, p1}, Lbl/adv;-><init>(Landroid/view/View;)V
 
-    .line 502
+    .line 524
     const-string v0, "itemView"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 503
+    .line 525
     const v0, 0x7f0800c3
 
     invoke-virtual {p0, p1, v0}, Lbl/afc$c;->a(Landroid/view/View;I)Landroid/view/View;
@@ -84,7 +84,7 @@
 
     iput-object v0, p0, Lbl/afc$c;->n:Landroid/widget/TextView;
 
-    .line 504
+    .line 526
     const v0, 0x7f0800a3
 
     invoke-virtual {p0, p1, v0}, Lbl/afc$c;->a(Landroid/view/View;I)Landroid/view/View;
@@ -95,7 +95,7 @@
 
     iput-object v0, p0, Lbl/afc$c;->o:Lcom/bilibili/tv/widget/CircleImageView;
 
-    .line 505
+    .line 527
     const v0, 0x7f0800a2
 
     invoke-virtual {p0, p1, v0}, Lbl/afc$c;->a(Landroid/view/View;I)Landroid/view/View;
@@ -106,7 +106,7 @@
 
     iput-object v0, p0, Lbl/afc$c;->p:Lcom/bilibili/tv/widget/CircleImageView;
 
-    .line 506
+    .line 528
     const v0, 0x7f08010e
 
     invoke-virtual {p0, p1, v0}, Lbl/afc$c;->a(Landroid/view/View;I)Landroid/view/View;
@@ -117,7 +117,7 @@
 
     iput-object v0, p0, Lbl/afc$c;->q:Landroid/widget/ImageView;
 
-    .line 507
+    .line 529
     const v0, 0x7f0800af
 
     invoke-virtual {p0, p1, v0}, Lbl/afc$c;->a(Landroid/view/View;I)Landroid/view/View;
@@ -128,7 +128,7 @@
 
     iput-object v0, p0, Lbl/afc$c;->r:Landroid/widget/ImageView;
 
-    .line 508
+    .line 530
     const v0, 0x7f0800bf
 
     invoke-virtual {p0, p1, v0}, Lbl/afc$c;->a(Landroid/view/View;I)Landroid/view/View;
@@ -139,7 +139,7 @@
 
     iput-object v0, p0, Lbl/afc$c;->s:Landroid/widget/TextView;
 
-    .line 509
+    .line 531
     const v0, 0x7f08005f
 
     invoke-virtual {p0, p1, v0}, Lbl/afc$c;->a(Landroid/view/View;I)Landroid/view/View;
@@ -152,12 +152,12 @@
 
     move-object v0, p1
 
-    .line 510
+    .line 532
     check-cast v0, Lcom/bilibili/tv/widget/DrawLinearLayout;
 
     iput-object v0, p0, Lbl/afc$c;->u:Lcom/bilibili/tv/widget/DrawLinearLayout;
 
-    .line 511
+    .line 533
     const v0, 0x7f080093
 
     invoke-virtual {p0, p1, v0}, Lbl/afc$c;->a(Landroid/view/View;I)Landroid/view/View;
@@ -168,21 +168,21 @@
 
     iput-object v0, p0, Lbl/afc$c;->v:Landroid/widget/LinearLayout;
 
-    .line 512
+    .line 534
     iget-object v0, p0, Lbl/afc$c;->u:Lcom/bilibili/tv/widget/DrawLinearLayout;
 
     const v1, 0x7f0700e6
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/DrawLinearLayout;->setUpDrawable(I)V
 
-    .line 513
+    .line 535
     new-instance v0, Lbl/afc$c$1;
 
     invoke-direct {v0, p0}, Lbl/afc$c$1;-><init>(Lbl/afc$c;)V
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    .line 520
+    .line 542
     return-void
 .end method
 
@@ -192,7 +192,7 @@
     .locals 1
 
     .prologue
-    .line 527
+    .line 549
     iget-object v0, p0, Lbl/afc$c;->o:Lcom/bilibili/tv/widget/CircleImageView;
 
     return-object v0
@@ -202,7 +202,7 @@
     .locals 1
 
     .prologue
-    .line 531
+    .line 553
     iget-object v0, p0, Lbl/afc$c;->p:Lcom/bilibili/tv/widget/CircleImageView;
 
     return-object v0
@@ -212,7 +212,7 @@
     .locals 1
 
     .prologue
-    .line 535
+    .line 557
     iget-object v0, p0, Lbl/afc$c;->q:Landroid/widget/ImageView;
 
     return-object v0
@@ -222,7 +222,7 @@
     .locals 1
 
     .prologue
-    .line 539
+    .line 561
     iget-object v0, p0, Lbl/afc$c;->r:Landroid/widget/ImageView;
 
     return-object v0
@@ -232,7 +232,7 @@
     .locals 1
 
     .prologue
-    .line 543
+    .line 565
     iget-object v0, p0, Lbl/afc$c;->s:Landroid/widget/TextView;
 
     return-object v0
@@ -242,7 +242,7 @@
     .locals 1
 
     .prologue
-    .line 547
+    .line 569
     iget-object v0, p0, Lbl/afc$c;->t:Landroid/widget/TextView;
 
     return-object v0
@@ -252,7 +252,7 @@
     .locals 1
 
     .prologue
-    .line 551
+    .line 573
     iget-object v0, p0, Lbl/afc$c;->u:Lcom/bilibili/tv/widget/DrawLinearLayout;
 
     return-object v0
@@ -262,7 +262,7 @@
     .locals 1
 
     .prologue
-    .line 555
+    .line 577
     iget-object v0, p0, Lbl/afc$c;->v:Landroid/widget/LinearLayout;
 
     return-object v0
@@ -272,7 +272,7 @@
     .locals 1
 
     .prologue
-    .line 523
+    .line 545
     iget-object v0, p0, Lbl/afc$c;->n:Landroid/widget/TextView;
 
     return-object v0

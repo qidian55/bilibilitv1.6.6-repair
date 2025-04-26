@@ -26,12 +26,12 @@
     .locals 0
 
     .prologue
-    .line 165
+    .line 167
     iput-object p1, p0, Lbl/afc$e;->this$0:Lbl/afc;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 166
+    .line 168
     return-void
 .end method
 
@@ -41,7 +41,7 @@
     .locals 3
 
     .prologue
-    .line 170
+    .line 172
     iget-object v0, p0, Lbl/afc$e;->this$0:Lbl/afc;
 
     # getter for: Lbl/afc;->b:Lbl/afc$b;
@@ -60,12 +60,12 @@
 
     if-nez v0, :cond_11
 
-    .line 191
+    .line 193
     :cond_10
     :goto_10
     return-void
 
-    .line 173
+    .line 175
     :cond_11
     iget-object v0, p0, Lbl/afc$e;->this$0:Lbl/afc;
 
@@ -74,7 +74,7 @@
     # setter for: Lbl/afc;->c:Z
     invoke-static {v0, v1}, Lbl/afc;->access$102(Lbl/afc;Z)Z
 
-    .line 174
+    .line 176
     iget-object v0, p0, Lbl/afc$e;->this$0:Lbl/afc;
 
     # getter for: Lbl/afc;->a:Landroid/support/v7/widget/GridLayoutManager;
@@ -82,13 +82,13 @@
 
     move-result-object v0
 
-    .line 175
+    .line 177
     if-nez v0, :cond_22
 
-    .line 176
+    .line 178
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 178
+    .line 180
     :cond_22
     iget-object v1, p0, Lbl/afc$e;->this$0:Lbl/afc;
 
@@ -97,13 +97,13 @@
 
     move-result-object v1
 
-    .line 179
+    .line 181
     if-nez v1, :cond_2d
 
-    .line 180
+    .line 182
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 182
+    .line 184
     :cond_2d
     invoke-virtual {v1}, Lbl/afc$b;->e()I
 
@@ -113,32 +113,32 @@
 
     move-result-object v1
 
-    .line 183
+    .line 185
     iget-object v0, p0, Lbl/afc$e;->this$0:Lbl/afc;
 
     invoke-virtual {v0}, Lbl/afc;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    .line 184
+    .line 186
     if-eqz v1, :cond_10
 
     instance-of v2, v0, Lcom/bilibili/tv/ui/main/MainActivity;
 
     if-eqz v2, :cond_10
 
-    .line 187
+    .line 189
     check-cast v0, Lcom/bilibili/tv/ui/main/MainActivity;
 
-    .line 188
+    .line 190
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Lcom/bilibili/tv/ui/main/MainActivity;->a(Z)V
 
-    .line 189
+    .line 191
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/main/MainActivity;->k()V
 
-    .line 190
+    .line 192
     invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
 
     goto :goto_10

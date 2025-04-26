@@ -452,20 +452,22 @@
     :cond_e3
     instance-of v0, v1, Lbl/afq;
 
-    if-eqz v0, :cond_ed
-
-    move-object v0, v1
+    if-eqz v0, :cond_ef
 
     .line 207
-    check-cast v0, Lbl/afq;
+    check-cast v1, Lbl/afq;
 
-    invoke-virtual {v0}, Lbl/afq;->a()V
+    invoke-virtual {v1}, Lbl/afq;->a()Z
+
+    move-result v3
+
+    goto/16 :goto_f
 
     .line 209
-    :cond_ed
+    :cond_ef
     instance-of v0, v1, Lbl/afk;
 
-    if-eqz v0, :cond_f7
+    if-eqz v0, :cond_f9
 
     move-object v0, v1
 
@@ -475,10 +477,10 @@
     invoke-virtual {v0}, Lbl/afk;->a()V
 
     .line 212
-    :cond_f7
+    :cond_f9
     instance-of v0, v1, Lbl/afn;
 
-    if-eqz v0, :cond_103
+    if-eqz v0, :cond_105
 
     .line 213
     check-cast v1, Lbl/afn;
@@ -490,10 +492,10 @@
     goto/16 :goto_f
 
     .line 215
-    :cond_103
+    :cond_105
     instance-of v0, v1, Lbl/afo;
 
-    if-eqz v0, :cond_10f
+    if-eqz v0, :cond_111
 
     .line 216
     check-cast v1, Lbl/afo;
@@ -505,10 +507,10 @@
     goto/16 :goto_f
 
     .line 218
-    :cond_10f
+    :cond_111
     instance-of v0, v1, Lbl/afm3;
 
-    if-eqz v0, :cond_11b
+    if-eqz v0, :cond_11d
 
     .line 219
     check-cast v1, Lbl/afm3;
@@ -520,10 +522,10 @@
     goto/16 :goto_f
 
     .line 221
-    :cond_11b
+    :cond_11d
     instance-of v0, v1, Lbl/afm4;
 
-    if-eqz v0, :cond_127
+    if-eqz v0, :cond_129
 
     .line 222
     check-cast v1, Lbl/afm4;
@@ -534,7 +536,7 @@
 
     goto/16 :goto_f
 
-    :cond_127
+    :cond_129
     move v3, v4
 
     .line 224

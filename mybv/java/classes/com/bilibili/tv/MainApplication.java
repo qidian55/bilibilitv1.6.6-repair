@@ -41,7 +41,9 @@ import com.tencent.bugly.crashreport.CrashReport;
 import com.umeng.analytics.BiliUmeng;
 
 import bl.abd;
+import bl.afc;
 import mybl.BiliFilter;
+import com.alibaba.fastjson.*;
 import com.bilibili.tv.player.widget.PlayerMenuRight;
 
 /* compiled from: BL */
@@ -98,11 +100,16 @@ public class MainApplication extends Application {
         int danmaku_type = abd.get_danmaku_type(this);
         for(int i=0;i<10;i++)PlayerMenuRight.danmaku_valid_list[i]=((danmaku_type>>i)&1)>0;
         BiliFilter.skip_categories=abd.get_skip_categories(this);
-        org.json.JSONObject config=abd.get_personal_config(this);
-        BiliFilter.filter_on=config.optBoolean("filter_on");
-        BiliFilter.progressbar_on=config.optBoolean("progressbar_on");
-        BiliFilter.fastquit_on=config.optBoolean("fastquit_on");
+        JSONObject config=abd.get_personal_config(this);
+        BiliFilter.filter_on=config.getBoolean("filter_on");
+        BiliFilter.progressbar_on=config.getBoolean("progressbar_on");
+        BiliFilter.fastquit_on=config.getBoolean("fastquit_on");
         try{BiliFilter.updateConfig();}catch(Exception e){e.printStackTrace();}
+        JSONArray myarea_map=config.getJSONArray("myarea_map");
+        if(myarea_map==null||myarea_map.size()!=afc.MyMap.length)abd.set_personal_config(this,"myarea_map",JSON.toJSON(afc.MyMap));
+        else{
+            for(int i=0;i<myarea_map.size();i++)afc.MyMap[i]=myarea_map.getIntValue(i);
+        }
     }
 
     @Override // android.app.Application, android.content.ComponentCallbacks

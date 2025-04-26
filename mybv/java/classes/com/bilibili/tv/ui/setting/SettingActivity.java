@@ -204,7 +204,7 @@ public final class SettingActivity extends BaseUpViewActivity {
                         ((SideLeftSelectLinearLayout) currentFocus).c();
                     }
                     if (d2 instanceof afq) {
-                        ((afq) d2).a();
+                        return ((afq) d2).a();
                     }
                     if (d2 instanceof afk) {
                         ((afk) d2).a();
