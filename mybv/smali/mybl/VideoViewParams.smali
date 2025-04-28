@@ -209,7 +209,15 @@
     :cond_7c
     sget-object v0, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
 
-    if-eqz v0, :cond_96
+    if-eqz v0, :cond_9e
+
+    sget-object v0, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_9e
 
     invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -234,7 +242,7 @@
     move-result-object p0
 
     .line 32
-    :cond_96
+    :cond_9e
     return-object p0
 .end method
 

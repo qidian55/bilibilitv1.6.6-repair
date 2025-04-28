@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+    .locals 3
 
     .prologue
     .line 172
@@ -52,6 +52,17 @@
     sput-object v0, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
 
     .line 173
+    invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
+
+    move-result-object v0
+
+    const-string v1, "prefect_cdn"
+
+    sget-object v2, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lbl/abd;->set_personal_config(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 174
     iget-object v0, p0, Lbl/afm3$1;->this$0:Lbl/afm3;
 
     # getter for: Lbl/afm3;->cdn_value:Lcom/bilibili/tv/widget/DrawEditText;
@@ -63,6 +74,6 @@
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/DrawEditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 174
+    .line 175
     return-void
 .end method

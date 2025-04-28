@@ -170,6 +170,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         VideoViewParams.prefect_cdn=afm3.tmp_cdns.get(which);
+                        abd.set_personal_config(MainApplication.a(), "prefect_cdn", VideoViewParams.prefect_cdn);
                         afm3.this.cdn_value.setText(VideoViewParams.prefect_cdn);
                     }
                 }).create();
@@ -284,6 +285,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
             if(v==this.cdn_value){
                 if(v.getText().toString().endsWith(".bilivideo.com")){
                     VideoViewParams.prefect_cdn=v.getText().toString();
+                    abd.set_personal_config(MainApplication.a(), "prefect_cdn", VideoViewParams.prefect_cdn);
                     lr.b(getActivity(), "已设置默认CDN");
                 }
                 else{

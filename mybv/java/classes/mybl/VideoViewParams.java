@@ -28,7 +28,7 @@ public class VideoViewParams {
             info=s.split("\\?")[0].split("/");
             if(info[info.length-1].equals(name))url=s;
         }
-        if(VideoViewParams.prefect_cdn!=null)url = Uri.parse(url).buildUpon().authority(VideoViewParams.prefect_cdn).build().toString();
+        if(VideoViewParams.prefect_cdn!=null&&!VideoViewParams.prefect_cdn.isEmpty())url = Uri.parse(url).buildUpon().authority(VideoViewParams.prefect_cdn).build().toString();
         return url;
     }
 
