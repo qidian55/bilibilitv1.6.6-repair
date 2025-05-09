@@ -2466,6 +2466,11 @@ public final class R {
         public static final int fastquit_button = 0x7f08017b;
         public static final int experiment_folder_open = 0x7f08017c;
         public static final int check_thirdparty_update = 0x7f08017d;
+        public static final int tab_button1 = 0x7f08017e;
+        public static final int tab_button2 = 0x7f08017f;
+        public static final int tab_button3 = 0x7f080180;
+        public static final int tab_button4 = 0x7f080181;
+        public static final int tab_button5 = 0x7f080182;
     }
 
     public static final class integer {

@@ -172,6 +172,9 @@ public final class SettingActivity extends BaseUpViewActivity {
                 if ((d instanceof afo) && ((afo) d).b()) {
                     return false;
                 }
+                if ((d instanceof afm3) && ((afm3) d).b()) {
+                    return false;
+                }
                 if (currentFocus instanceof DrawFrameLayout) {
                     int childCount = this.a.getChildCount() - 1;
                     if (childCount >= 0) {

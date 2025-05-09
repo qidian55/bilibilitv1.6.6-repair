@@ -127,11 +127,24 @@
 
     .prologue
     .line 739
+    sget-boolean v0, Lmybl/BiliFilter;->fastquit_on:Z
+
+    if-eqz v0, :cond_8
+
+    .line 740
+    invoke-virtual {p0}, Lcom/bilibili/tv/ui/main/MainActivity;->onBackPressed()V
+
+    .line 746
+    :goto_7
+    return-void
+
+    .line 743
+    :cond_8
     new-instance v0, Lbl/agb$a;
 
     invoke-direct {v0, p0}, Lbl/agb$a;-><init>(Landroid/app/Activity;)V
 
-    .line 740
+    .line 744
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lbl/agb$a;->a(I)Lbl/agb$a;
@@ -172,15 +185,14 @@
 
     invoke-virtual {v1, v2, v3}, Lbl/agb$a;->a(Ljava/lang/String;Lbl/agb$b;)Lbl/agb$a;
 
-    .line 741
+    .line 745
     invoke-virtual {v0}, Lbl/agb$a;->a()Lbl/agb;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lbl/agb;->show()V
 
-    .line 742
-    return-void
+    goto :goto_7
 .end method
 
 
@@ -690,17 +702,17 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 772
+    .line 776
     iget-object v0, p0, Lcom/bilibili/tv/ui/main/MainActivity;->e:Lbl/aey;
 
-    .line 773
+    .line 777
     if-eqz v0, :cond_16
 
     invoke-virtual {v0}, Lbl/aey;->a()Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
-    .line 774
+    .line 778
     :goto_9
     instance-of v2, v0, Lbl/afc;
 
@@ -708,24 +720,24 @@
 
     move-object v0, v1
 
-    .line 777
+    .line 781
     :cond_e
     check-cast v0, Lbl/afc;
 
-    .line 778
+    .line 782
     if-eqz v0, :cond_15
 
-    .line 779
+    .line 783
     invoke-virtual {v0}, Lbl/afc;->e()V
 
-    .line 781
+    .line 785
     :cond_15
     return-void
 
     :cond_16
     move-object v0, v1
 
-    .line 773
+    .line 777
     goto :goto_9
 .end method
 
@@ -733,12 +745,12 @@
     .locals 1
 
     .prologue
-    .line 784
+    .line 788
     sget-object v0, Lbl/adl;->a:Lbl/adl;
 
     invoke-virtual {v0, p0}, Lbl/adl;->a(Landroid/app/Activity;)V
 
-    .line 785
+    .line 789
     return-void
 .end method
 

@@ -8,11 +8,11 @@ import com.bilibili.tv.widget.*;
 import com.bilibili.tv.MainApplication;
 import android.view.inputmethod.EditorInfo;
 
-import org.json.*;
 import java.util.*;
 import mybl.BiliFilter;
 import mybl.VideoViewParams;
 import android.app.AlertDialog;
+import com.alibaba.fastjson.*;
 import android.content.DialogInterface;
 
 import java.io.*;
@@ -28,6 +28,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
     public static final a Companion = new a(null);
     public static List<String> tmp_cdns;
     public static List<String> tmp_splashs;
+    public static String[] tab_names = {"","动态","待看","关注","收藏","历史"};
     private DrawFrameLayout filter_button;
     private DrawLinearLayout folder_open_button;
     private DrawFrameLayout cdn_button;
@@ -37,6 +38,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
     private CheckBox skip_checkbox0;
     private CheckBox skip_checkbox1;
     private CheckBox skip_checkbox2;
+    private DrawFrameLayout[] tab_buttons = {null,null,null,null,null,null};
 
     @Override // bl.adw
     public boolean c() {
@@ -60,6 +62,11 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         this.skip_checkbox0 = (CheckBox)inflate.findViewById(R.id.skip_checkbox0);
         this.skip_checkbox1 = (CheckBox)inflate.findViewById(R.id.skip_checkbox1);
         this.skip_checkbox2 = (CheckBox)inflate.findViewById(R.id.skip_checkbox2);
+        this.tab_buttons[1] = (DrawFrameLayout)inflate.findViewById(R.id.tab_button1);
+        this.tab_buttons[2] = (DrawFrameLayout)inflate.findViewById(R.id.tab_button2);
+        this.tab_buttons[3] = (DrawFrameLayout)inflate.findViewById(R.id.tab_button3);
+        this.tab_buttons[4] = (DrawFrameLayout)inflate.findViewById(R.id.tab_button4);
+        this.tab_buttons[5] = (DrawFrameLayout)inflate.findViewById(R.id.tab_button5);
 
         this.filter_button.setUpDrawable(R.drawable.shadow_white_rect);
         this.filter_button.setOnFocusChangeListener(this);
@@ -97,6 +104,12 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         this.skip_checkbox0.setOnCheckedChangeListener(this);
         this.skip_checkbox1.setOnCheckedChangeListener(this);
         this.skip_checkbox2.setOnCheckedChangeListener(this);
+        for(int i=1;i<6;i++){
+            this.tab_buttons[i].setUpDrawable(R.drawable.shadow_white_rect);
+            this.tab_buttons[i].setOnFocusChangeListener(this);
+            this.tab_buttons[i].setOnClickListener(this);
+            ((ShadowTextView)this.tab_buttons[i].getChildAt(0)).setText(afm3.tab_names[afc.MyMap[i]]);
+        }
         return inflate;
     }
 
@@ -147,22 +160,16 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
             afm3.tmp_cdns = VideoViewParams.cdn_history;
             List<String> show_cdns = VideoViewParams.cdn_history;
             if(afm3.tmp_cdns.size()==0){
-                try{
-                    JSONObject default_cdns = new JSONObject("{\"腾讯\":[\"upos-sz-mirrorcos.bilivideo.com\",\"upos-sz-mirrorcosb.bilivideo.com\",\"upos-sz-mirrorcoso1.bilivideo.com\"],\"百度\":[\"upos-sz-mirrorbos.bilivideo.com\"],\"阿里\":[\"upos-sz-mirrorali.bilivideo.com\",\"upos-sz-mirroralib.bilivideo.com\",\"upos-sz-mirroralio1.bilivideo.com\"],\"华为\":[\"upos-sz-mirrorhw.bilivideo.com\",\"upos-sz-mirrorhwb.bilivideo.com\",\"upos-sz-mirrorhwo1.bilivideo.com\",\"upos-sz-mirror08c.bilivideo.com\",\"upos-sz-mirror08h.bilivideo.com\",\"upos-sz-mirror08ct.bilivideo.com\"],\"海外\":[\"upos-sz-mirroraliov.bilivideo.com\"],\"其它\":[\"upos-sz-upcdnbda2.bilivideo.com\",\"upos-sz-upcdnws.bilivideo.com\",\"upos-tf-all-tx.bilivideo.com\"]}");
-                    afm3.tmp_cdns = new ArrayList<String>();
-                    show_cdns = new ArrayList<String>();
-                    for (Iterator iterator = default_cdns.keys(); iterator.hasNext();){
-                        String cdn_provider = (String)iterator.next();
-                        JSONArray values = default_cdns.getJSONArray(cdn_provider);
-                        for(int i=0;i<values.length();i++){
-                            String cdn_value=values.getString(i);
-                            afm3.tmp_cdns.add(cdn_value);
-                            show_cdns.add(cdn_value+"（"+cdn_provider+"）");
-                        }
+                JSONObject default_cdns = JSON.parseObject("{\"腾讯\":[\"upos-sz-mirrorcos.bilivideo.com\",\"upos-sz-mirrorcosb.bilivideo.com\",\"upos-sz-mirrorcoso1.bilivideo.com\"],\"百度\":[\"upos-sz-mirrorbos.bilivideo.com\"],\"阿里\":[\"upos-sz-mirrorali.bilivideo.com\",\"upos-sz-mirroralib.bilivideo.com\",\"upos-sz-mirroralio1.bilivideo.com\"],\"华为\":[\"upos-sz-mirrorhw.bilivideo.com\",\"upos-sz-mirrorhwb.bilivideo.com\",\"upos-sz-mirrorhwo1.bilivideo.com\",\"upos-sz-mirror08c.bilivideo.com\",\"upos-sz-mirror08h.bilivideo.com\",\"upos-sz-mirror08ct.bilivideo.com\"],\"海外\":[\"upos-sz-mirroraliov.bilivideo.com\"],\"其它\":[\"upos-sz-upcdnbda2.bilivideo.com\",\"upos-sz-upcdnws.bilivideo.com\",\"upos-tf-all-tx.bilivideo.com\"]}");
+                afm3.tmp_cdns = new ArrayList<String>();
+                show_cdns = new ArrayList<String>();
+                for (String cdn_provider: default_cdns.keySet()){
+                    JSONArray values = default_cdns.getJSONArray(cdn_provider);
+                    for(int i=0;i<values.size();i++){
+                        String cdn_value=values.getString(i);
+                        afm3.tmp_cdns.add(cdn_value);
+                        show_cdns.add(cdn_value+"（"+cdn_provider+"）");
                     }
-                }
-                catch(Exception e){
-                    e.printStackTrace();
                 }
             }
             AlertDialog dialog = new AlertDialog.Builder(getContext())
@@ -179,17 +186,11 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         if(view == this.splash_button){
             //最新壁纸
             //https://api.bilibili.com/x/polymer/web-dynamic/v1/opus/feed/space?host_mid=6823116&offset=&type=dynamic
-            JSONObject default_splashs = null;
-            try{
-                default_splashs = new JSONObject("{\"款式一\":\"http://i0.hdslb.com/bfs/archive/1d40e975b09d5c87b11b3ae0c9ce6c6b82f63d9e.png\",\"款式二\":\"http://i0.hdslb.com/bfs/archive/351c02ba3f75f5eaa107c68ddf2222d74521773a.png\",\"slogan\":\"http://i0.hdslb.com/bfs/archive/06543a163e2a4e0189b12e3025f9c1d69203ed6d.png\",\"10周年\":\"http://i0.hdslb.com/bfs/archive/574469a4a20f41ba4dc9ecd41d15f94eea875ed9.png\",\"11周年\":\"http://i0.hdslb.com/bfs/archive/3007728d674a385306ba0b07055103a78b9eed62.png\",\"BW2020\":\"http://i0.hdslb.com/bfs/archive/e2d2f57e08b511d1a47203859f7bddb4ef9d4e16.png\"}");
-            }catch(Exception e){
-                e.printStackTrace();
-            }
+            JSONObject default_splashs = JSON.parseObject("{\"款式一\":\"http://i0.hdslb.com/bfs/archive/1d40e975b09d5c87b11b3ae0c9ce6c6b82f63d9e.png\",\"款式二\":\"http://i0.hdslb.com/bfs/archive/351c02ba3f75f5eaa107c68ddf2222d74521773a.png\",\"slogan\":\"http://i0.hdslb.com/bfs/archive/06543a163e2a4e0189b12e3025f9c1d69203ed6d.png\",\"10周年\":\"http://i0.hdslb.com/bfs/archive/574469a4a20f41ba4dc9ecd41d15f94eea875ed9.png\",\"11周年\":\"http://i0.hdslb.com/bfs/archive/3007728d674a385306ba0b07055103a78b9eed62.png\",\"BW2020\":\"http://i0.hdslb.com/bfs/archive/e2d2f57e08b511d1a47203859f7bddb4ef9d4e16.png\"}");
             String[] show_splashs={"默认", "款式一", "款式二", "slogan", "10周年", "11周年", "BW2020"};
             afm3.tmp_splashs = new ArrayList<String>();
-            for (Iterator iterator = default_splashs.keys(); iterator.hasNext();){
-                String key = (String)iterator.next();
-                afm3.tmp_splashs.add(default_splashs.optString(key));
+            for (String key: default_splashs.keySet()){
+                afm3.tmp_splashs.add(default_splashs.getString(key));
             }
             AlertDialog dialog = new AlertDialog.Builder(getContext())
                 .setItems(show_splashs, new DialogInterface.OnClickListener() {
@@ -234,6 +235,15 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
                 }).create();
             dialog.show();
         }
+        for(int i=1;i<6;i++){
+            if(this.tab_buttons[i]==view){
+                int t=afc.MyMap[i];
+                for(int j=i-1;j>=1;j--)afc.MyMap[j+1]=afc.MyMap[j];
+                afc.MyMap[1]=t;
+                abd.set_personal_config(MainApplication.a(),"myarea_map",JSON.toJSON(afc.MyMap));
+                for(int j=1;j<6;j++)((ShadowTextView)this.tab_buttons[j].getChildAt(0)).setText((j==i?"≪ ":"")+afm3.tab_names[afc.MyMap[j]]);
+            }
+        }
     }
 
     @Override
@@ -264,6 +274,9 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         } else {
             ((afz)view).setUpEnabled(false);
         }
+        for(int i=1;i<6;i++){
+            if(this.tab_buttons[i]==view && this.tab_buttons[i].getChildAt(0)!=null)((ShadowTextView)this.tab_buttons[i].getChildAt(0)).setText((z?"≪ ":"")+afm3.tab_names[afc.MyMap[i]]);
+        }
     }
 
     public void updateFilterPath(String path){
@@ -283,7 +296,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         if (actionId == EditorInfo.IME_ACTION_DONE) {
             if(v==this.filter_path)updateFilterPath(v.getText().toString());
             if(v==this.cdn_value){
-                if(v.getText().toString().endsWith(".bilivideo.com")){
+                if(v.getText().toString().isEmpty()||v.getText().toString().endsWith(".bilivideo.com")){
                     VideoViewParams.prefect_cdn=v.getText().toString();
                     abd.set_personal_config(MainApplication.a(), "prefect_cdn", VideoViewParams.prefect_cdn);
                     lr.b(getActivity(), "已设置默认CDN");
@@ -297,9 +310,19 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         return true;
     }
 
+    public final boolean b() {
+        for(int i=1;i<6;i++){
+            if(this.tab_buttons[i] != null && this.tab_buttons[i].hasFocus())return true;
+        }
+        return false;
+    }
+
     public final boolean a() {
         if (this.filter_button == null || this.filter_button.hasFocus() || this.folder_open_button == null || this.folder_open_button.hasFocus() || this.filter_path == null || this.filter_path.hasFocus() || this.cdn_button == null || this.cdn_button.hasFocus() || this.cdn_value == null || this.cdn_value.hasFocus() || this.skip_checkbox0 == null || this.skip_checkbox0.hasFocus() || this.skip_checkbox1 == null || this.skip_checkbox1.hasFocus() || this.skip_checkbox2 == null || this.skip_checkbox2.hasFocus() || this.splash_button == null || this.splash_button.hasFocus()) {
             return false;
+        }
+        for(int i=1;i<6;i++){
+            if(this.tab_buttons[i] == null || this.tab_buttons[i].hasFocus())return false;
         }
         this.filter_button.requestFocus();
         return true;

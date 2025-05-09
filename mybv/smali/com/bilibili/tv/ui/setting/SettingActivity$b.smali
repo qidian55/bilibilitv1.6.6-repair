@@ -76,32 +76,32 @@
     .end annotation
 
     .prologue
-    .line 245
+    .line 248
     iput-object p1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->this$0:Lcom/bilibili/tv/ui/setting/SettingActivity;
 
     invoke-direct {p0}, Lbl/adz;-><init>()V
 
-    .line 246
+    .line 249
     const-string v0, "activity"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 247
+    .line 250
     const-string v0, "countInfo"
 
     invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 248
+    .line 251
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->b:Ljava/lang/ref/WeakReference;
 
-    .line 249
+    .line 252
     iput-object p3, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->c:Lbl/cj;
 
-    .line 250
+    .line 253
     return-void
 .end method
 
@@ -109,7 +109,7 @@
     .locals 1
 
     .prologue
-    .line 233
+    .line 236
     iget v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->e:I
 
     return v0
@@ -119,7 +119,7 @@
     .locals 2
 
     .prologue
-    .line 233
+    .line 236
     iget v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->e:I
 
     add-int/lit8 v1, v0, 0x1
@@ -133,7 +133,7 @@
     .locals 1
 
     .prologue
-    .line 233
+    .line 236
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->b:Ljava/lang/ref/WeakReference;
 
     return-object v0
@@ -143,7 +143,7 @@
     .locals 1
 
     .prologue
-    .line 233
+    .line 236
     iget-boolean v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->d:Z
 
     return v0
@@ -155,18 +155,18 @@
     .locals 1
 
     .prologue
-    .line 360
+    .line 363
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->c:Lbl/cj;
 
-    .line 361
+    .line 364
     if-eqz v0, :cond_9
 
-    .line 362
+    .line 365
     invoke-virtual {v0}, Lbl/cj;->b()I
 
     move-result v0
 
-    .line 364
+    .line 367
     :goto_8
     return v0
 
@@ -180,22 +180,22 @@
     .locals 2
 
     .prologue
-    .line 262
+    .line 265
     const-string v0, "parent"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 263
+    .line 266
     invoke-static {p1}, Lbl/agf;->a(Landroid/view/ViewGroup;)Lbl/agf;
 
     move-result-object v0
 
-    .line 264
+    .line 267
     const-string v1, "SideTitleVH.create(parent)"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 265
+    .line 268
     return-object v0
 .end method
 
@@ -203,37 +203,37 @@
     .locals 2
 
     .prologue
-    .line 270
+    .line 273
     const-string v0, "holder"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 271
+    .line 274
     instance-of v0, p1, Lbl/agf;
 
     if-eqz v0, :cond_3d
 
-    .line 272
+    .line 275
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->c:Lbl/cj;
 
     if-eqz v0, :cond_24
 
     move-object v0, p1
 
-    .line 273
+    .line 276
     check-cast v0, Lbl/agf;
 
     iget-object v1, v0, Lbl/agf;->n:Landroid/widget/TextView;
 
-    .line 274
+    .line 277
     const-string v0, "holder.tvTitle"
 
     invoke-static {v1, v0}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 275
+    .line 278
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->c:Lbl/cj;
 
-    .line 276
+    .line 279
     if-eqz v0, :cond_3e
 
     invoke-virtual {v0, p2}, Lbl/cj;->a(I)Ljava/lang/Object;
@@ -245,23 +245,23 @@
     :goto_21
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 278
+    .line 281
     :cond_24
     iget-object v0, p1, Landroid/support/v7/widget/RecyclerView$v;->a:Landroid/view/View;
 
-    .line 279
+    .line 282
     const-string v1, "holder.itemView"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 280
+    .line 283
     new-instance v1, Lcom/bilibili/tv/ui/setting/SettingActivity$b$a;
 
     invoke-direct {v1, p0, p1}, Lcom/bilibili/tv/ui/setting/SettingActivity$b$a;-><init>(Lcom/bilibili/tv/ui/setting/SettingActivity$b;Landroid/support/v7/widget/RecyclerView$v;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    .line 281
+    .line 284
     iget-object v0, p1, Landroid/support/v7/widget/RecyclerView$v;->a:Landroid/view/View;
 
     new-instance v1, Lcom/bilibili/tv/ui/setting/SettingActivity$b$1;
@@ -270,11 +270,11 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 313
+    .line 316
     :cond_3d
     return-void
 
-    .line 276
+    .line 279
     :cond_3e
     const/4 v0, 0x0
 
@@ -285,10 +285,10 @@
     .locals 0
 
     .prologue
-    .line 368
+    .line 371
     iput-boolean p1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->d:Z
 
-    .line 369
+    .line 372
     return-void
 .end method
 
@@ -296,7 +296,7 @@
     .locals 1
 
     .prologue
-    .line 242
+    .line 245
     const/4 v0, 0x0
 
     return v0
@@ -306,10 +306,10 @@
     .locals 0
 
     .prologue
-    .line 253
+    .line 256
     iput p1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->a:I
 
-    .line 254
+    .line 257
     return-void
 .end method
 
@@ -317,7 +317,7 @@
     .locals 1
 
     .prologue
-    .line 257
+    .line 260
     iget v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->a:I
 
     return v0

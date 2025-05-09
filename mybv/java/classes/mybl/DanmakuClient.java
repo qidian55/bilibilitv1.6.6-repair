@@ -73,7 +73,7 @@ public class DanmakuClient {
         Future<JSONObject> future = threadPool.submit(new Callable<JSONObject>() {
             @Override
             public JSONObject call() {
-                Response response = (Response) pz.a(new qa.a(Response.class).a("https://api.live.bilibili.com/xlive/web-room/v1/index/getDanmuInfo").a(true).b("id", String.valueOf(roomId)).a(new qb()).a(), "GET");
+                Response response = (Response) pz.a(new qa.a(Response.class).a("https://api.live.bilibili.com/xlive/web-room/v1/index/getDanmuInfo").a(true).b("Bilibili Freedoooooom/MarkII").b("id", String.valueOf(roomId)).a(new qb()).a(), "GET");
                 return response.e();
             }
         });

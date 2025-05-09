@@ -86,6 +86,12 @@
 
     move-result-object v0
 
+    const-string v1, "Bilibili Freedoooooom/MarkII"
+
+    invoke-virtual {v0, v1}, Lbl/qa$a;->b(Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
     const-string v1, "id"
 
     iget-object v2, p0, Lmybl/DanmakuClient$1;->this$0:Lmybl/DanmakuClient;

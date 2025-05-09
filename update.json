@@ -1,12 +1,12 @@
 {
-    "apkMd5":"19ce338d1f94439ec4358ca79827b687",
+    "apkMd5":"d4fbbd96956f303a3742e42bc78c9a0b",
     "apkUrl":"https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/mybv.apk",
     "fileSize":8210243,
     "id":"",
-    "newFeature":"持久化存储自定义CDN",
+    "newFeature":"尝试降低弹幕获取接口风控概率\n测试性功能——“我的”标签页排序",
     "publishTime":0,
     "title":"New",
     "upgradeType":1,
     "versionCode":1606,
-    "versionName":"1.6.6.20250427"
+    "versionName":"1.6.6.20250509"
 }

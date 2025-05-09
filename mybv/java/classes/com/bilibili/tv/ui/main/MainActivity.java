@@ -736,6 +736,10 @@ public final class MainActivity extends BaseActivity {
     }
 
     private final void p() {
+        if (mybl.BiliFilter.fastquit_on) {
+            MainActivity.this.onBackPressed();
+            return;
+        }
         agb.a aVar = new agb.a(this);
         aVar.a(1).a(getString(R.string.is_really_confirmed_to_exit_the_application)).b(getString(R.string.confirm), new l()).a(getString(R.string.cancel), m.a);
         aVar.a().show();
