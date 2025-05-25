@@ -122,6 +122,12 @@
 
     move-result-object v0
 
+    const-string v1, "Bilibili Freedoooooom/MarkII"
+
+    invoke-virtual {v0, v1}, Lbl/qa$a;->b(Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
     const-string v1, "aid"
 
     iget-object v2, p0, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams$4;->this$0:Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;

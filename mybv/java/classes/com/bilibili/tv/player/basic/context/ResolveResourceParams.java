@@ -180,7 +180,7 @@ public class ResolveResourceParams implements Parcelable, Serializable {
             if(this.subtitle_info == null)this.subtitle_info = threadPool.submit(new Callable<JSONObject>() {
                 @Override
                 public JSONObject call() {
-                    return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https://api.bilibili.com/x/player/wbi/v2").a(true).a("Cookie","SESSDATA="+mg.a(MainApplication.a()).getSESSDATA()).b("aid", String.valueOf(ResolveResourceParams.this.mAvid)).b("cid", String.valueOf(ResolveResourceParams.this.mCid)).a(new qb()).a(), "GET")).result();
+                    return ((JsonResponse) pz.a(new qa.a(JsonResponse.class).a("https://api.bilibili.com/x/player/wbi/v2").a(true).a("Cookie","SESSDATA="+mg.a(MainApplication.a()).getSESSDATA()).b("Bilibili Freedoooooom/MarkII").b("aid", String.valueOf(ResolveResourceParams.this.mAvid)).b("cid", String.valueOf(ResolveResourceParams.this.mCid)).a(new qb()).a(), "GET")).result();
                 }
             }).get().optJSONObject("data").optJSONObject("subtitle");
             int subtitle_id = PlayerMenuRight.subtitle_id - 1;
