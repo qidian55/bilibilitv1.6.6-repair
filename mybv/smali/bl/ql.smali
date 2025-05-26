@@ -505,6 +505,12 @@
 
     move-result-object v0
 
+    const-string v1, "Bilibili Freedoooooom/MarkII"
+
+    invoke-virtual {v0, v1}, Lbl/qa$a;->b(Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v0
+
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lbl/qa$a;->a(Z)Lbl/qa$a;
@@ -645,18 +651,18 @@
 
     const-string v3, "access_key"
 
-    if-eqz p4, :cond_144
+    if-eqz p4, :cond_14a
 
     iget-object v0, p4, Lbl/pu;->c:Ljava/lang/String;
 
-    :goto_9c
+    :goto_a2
     invoke-virtual {v1, v3, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v1
 
     const-string v3, "mid"
 
-    if-eqz p4, :cond_147
+    if-eqz p4, :cond_14d
 
     iget-wide v4, p4, Lbl/pu;->b:J
 
@@ -664,14 +670,14 @@
 
     move-result-object v0
 
-    :goto_aa
+    :goto_b0
     invoke-virtual {v1, v3, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v1
 
     const-string v3, "expire"
 
-    if-eqz p4, :cond_14a
+    if-eqz p4, :cond_150
 
     iget-wide v4, p4, Lbl/pu;->a:J
 
@@ -679,7 +685,7 @@
 
     move-result-object v0
 
-    :goto_b8
+    :goto_be
     invoke-virtual {v1, v3, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v1
@@ -690,11 +696,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_14d
+    if-eqz v0, :cond_153
 
     const-string v0, "1"
 
-    :goto_c6
+    :goto_cc
     invoke-virtual {v1, v3, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v0
@@ -711,26 +717,26 @@
 
     const-string v3, "model"
 
-    if-nez v2, :cond_151
+    if-nez v2, :cond_157
 
     invoke-virtual {p3}, Lbl/ps;->e()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_dc
+    :goto_e2
     invoke-virtual {v1, v3, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v1
 
     const-string v3, "resolution"
 
-    if-nez v2, :cond_153
+    if-nez v2, :cond_159
 
     invoke-virtual {p3}, Lbl/ps;->f()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_e8
+    :goto_ee
     invoke-virtual {v1, v3, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v1
@@ -741,11 +747,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_155
+    if-eqz v0, :cond_15b
 
     const-string v0, "1"
 
-    :goto_f6
+    :goto_fc
     invoke-virtual {v1, v3, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v0
@@ -764,11 +770,11 @@
 
     const-string v3, "try_look"
 
-    if-eqz p4, :cond_116
+    if-eqz p4, :cond_11c
 
     iget-object v0, p4, Lbl/pu;->c:Ljava/lang/String;
 
-    if-eqz v0, :cond_116
+    if-eqz v0, :cond_11c
 
     iget-object v0, p4, Lbl/pu;->c:Ljava/lang/String;
 
@@ -776,12 +782,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_157
+    if-eqz v0, :cond_15d
 
-    :cond_116
+    :cond_11c
     const-string v0, "1"
 
-    :goto_118
+    :goto_11e
     invoke-virtual {v1, v3, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v0
@@ -818,7 +824,7 @@
     const/4 v0, -0x5
 
     .line 64
-    if-nez v3, :cond_159
+    if-nez v3, :cond_15f
 
     .line 65
     new-instance v0, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
@@ -832,53 +838,53 @@
     throw v0
 
     .line 60
-    :cond_144
-    const/4 v0, 0x0
-
-    goto/16 :goto_9c
-
-    :cond_147
-    const/4 v0, 0x0
-
-    goto/16 :goto_aa
-
     :cond_14a
     const/4 v0, 0x0
 
-    goto/16 :goto_b8
+    goto/16 :goto_a2
 
     :cond_14d
-    const-string v0, "0"
-
-    goto/16 :goto_c6
-
-    :cond_151
     const/4 v0, 0x0
 
-    goto :goto_dc
+    goto/16 :goto_b0
+
+    :cond_150
+    const/4 v0, 0x0
+
+    goto/16 :goto_be
 
     :cond_153
-    const/4 v0, 0x0
+    const-string v0, "0"
 
-    goto :goto_e8
-
-    :cond_155
-    const/4 v0, 0x0
-
-    goto :goto_f6
+    goto/16 :goto_cc
 
     :cond_157
     const/4 v0, 0x0
 
-    goto :goto_118
+    goto :goto_e2
+
+    :cond_159
+    const/4 v0, 0x0
+
+    goto :goto_ee
+
+    :cond_15b
+    const/4 v0, 0x0
+
+    goto :goto_fc
+
+    :cond_15d
+    const/4 v0, 0x0
+
+    goto :goto_11e
 
     .line 67
-    :cond_159
+    :cond_15f
     invoke-virtual {v3}, Lbl/qm;->a()Z
 
     move-result v1
 
-    if-nez v1, :cond_174
+    if-nez v1, :cond_17a
 
     .line 68
     iget-object v1, p0, Lbl/ql;->b:Lbl/qx;
@@ -903,7 +909,7 @@
     throw v1
 
     .line 71
-    :cond_174
+    :cond_17a
     iget-object v0, p0, Lbl/ql;->b:Lbl/qx;
 
     invoke-virtual {v3}, Lbl/qm;->b()I
@@ -927,13 +933,13 @@
 
     move v6, v2
 
-    :try_start_186
+    :try_start_18c
     invoke-virtual/range {v3 .. v8}, Lbl/qm;->a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;ILandroid/util/SparseArray;[I)Lcom/bilibili/lib/media/resource/MediaResource;
 
     move-result-object v0
 
     .line 74
-    if-nez v0, :cond_1a5
+    if-nez v0, :cond_1ab
 
     .line 75
     new-instance v0, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
@@ -945,11 +951,11 @@
     invoke-direct {v0, v1, v2}, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;-><init>(Ljava/lang/String;I)V
 
     throw v0
-    :try_end_195
-    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_186 .. :try_end_195} :catch_195
+    :try_end_19b
+    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_18c .. :try_end_19b} :catch_19b
 
     .line 79
-    :catch_195
+    :catch_19b
     move-exception v0
 
     .line 80
@@ -969,13 +975,13 @@
     throw v0
 
     .line 77
-    :cond_1a5
-    :try_start_1a5
+    :cond_1ab
+    :try_start_1ab
     iget-object v1, p0, Lbl/ql;->b:Lbl/qx;
 
     invoke-virtual {v1, v0}, Lbl/qx;->a(Lcom/bilibili/lib/media/resource/MediaResource;)V
-    :try_end_1aa
-    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_1a5 .. :try_end_1aa} :catch_195
+    :try_end_1b0
+    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_1ab .. :try_end_1b0} :catch_19b
 
     .line 78
     return-object v0

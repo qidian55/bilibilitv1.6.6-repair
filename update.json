@@ -1,12 +1,12 @@
 {
-    "apkMd5":"3606a18985cea357c2b6cfc3ff03df48",
+    "apkMd5":"6c167dd6509d58b6c8939d3857a6bfcc",
     "apkUrl":"https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/mybv.apk",
     "fileSize":8210243,
     "id":"",
-    "newFeature":"尝试降低字幕获取接口风控概率\n尝试降低分集信息获取接口风控概率",
+    "newFeature":"",
     "publishTime":0,
     "title":"New",
     "upgradeType":1,
     "versionCode":1606,
-    "versionName":"1.6.6.20250525"
+    "versionName":"1.6.6.20250526"
 }

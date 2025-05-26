@@ -509,6 +509,12 @@
 
     move-result-object v1
 
+    const-string v2, "Bilibili Freedoooooom/MarkII"
+
+    invoke-virtual {v1, v2}, Lbl/qa$a;->b(Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v1
+
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Lbl/qa$a;->a(Z)Lbl/qa$a;
@@ -565,11 +571,11 @@
 
     const-string v2, "access_key"
 
-    if-eqz p4, :cond_51
+    if-eqz p4, :cond_57
 
     iget-object v0, p4, Lbl/pu;->c:Ljava/lang/String;
 
-    :cond_51
+    :cond_57
     invoke-virtual {v1, v2, v0}, Lbl/qa$a;->b(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v0
@@ -629,7 +635,7 @@
     check-cast v0, Lbl/qm;
 
     .line 64
-    if-nez v0, :cond_95
+    if-nez v0, :cond_9b
 
     .line 65
     new-instance v0, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
@@ -641,12 +647,12 @@
     throw v0
 
     .line 67
-    :cond_95
+    :cond_9b
     invoke-virtual {v0}, Lbl/qm;->a()Z
 
     move-result v1
 
-    if-nez v1, :cond_b0
+    if-nez v1, :cond_b6
 
     .line 68
     iget-object v1, p0, Lbl/ql2;->b:Lbl/qx;
@@ -671,7 +677,7 @@
     throw v0
 
     .line 71
-    :cond_b0
+    :cond_b6
     iget-object v1, p0, Lbl/ql2;->b:Lbl/qx;
 
     invoke-virtual {v0}, Lbl/qm;->b()I
@@ -693,13 +699,13 @@
 
     move-object v2, p2
 
-    :try_start_c1
+    :try_start_c7
     invoke-virtual/range {v0 .. v5}, Lbl/qm;->a(Landroid/content/Context;Lcom/bilibili/lib/media/resolver/params/ResolveMediaResourceParams;ILandroid/util/SparseArray;[I)Lcom/bilibili/lib/media/resource/MediaResource;
 
     move-result-object v1
 
     .line 74
-    if-nez v1, :cond_e0
+    if-nez v1, :cond_e6
 
     .line 75
     new-instance v1, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;
@@ -711,11 +717,11 @@
     invoke-direct {v1, v2, v3}, Lcom/bilibili/lib/media/resolver/exception/ResolveMediaSourceException;-><init>(Ljava/lang/String;I)V
 
     throw v1
-    :try_end_d0
-    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_c1 .. :try_end_d0} :catch_d0
+    :try_end_d6
+    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_c7 .. :try_end_d6} :catch_d6
 
     .line 79
-    :catch_d0
+    :catch_d6
     move-exception v1
 
     .line 80
@@ -735,13 +741,13 @@
     throw v1
 
     .line 77
-    :cond_e0
-    :try_start_e0
+    :cond_e6
+    :try_start_e6
     iget-object v2, p0, Lbl/ql2;->b:Lbl/qx;
 
     invoke-virtual {v2, v1}, Lbl/qx;->a(Lcom/bilibili/lib/media/resource/MediaResource;)V
-    :try_end_e5
-    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_e0 .. :try_end_e5} :catch_d0
+    :try_end_eb
+    .catch Lcom/bilibili/lib/media/resolver/exception/ResolveException; {:try_start_e6 .. :try_end_eb} :catch_d6
 
     .line 78
     return-object v1

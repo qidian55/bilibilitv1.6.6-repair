@@ -150,7 +150,7 @@
 
     const-string v1, "User-Agent"
 
-    const-string v2, "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.116 Safari/537.36"
+    const-string v2, "Bilibili Freedoooooom/MarkII"
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 

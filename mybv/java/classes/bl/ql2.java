@@ -57,7 +57,7 @@ public class ql2 implements IMediaResolver {
     private MediaResource a(Context context, ResolveMediaResourceParams resolveMediaResourceParams, ps psVar, pu puVar, ResolveResourceExtra resolveResourceExtra, boolean z) throws ResolveException {
         a(resolveMediaResourceParams);
         int a2 = a(resolveMediaResourceParams, psVar);
-        qa a3 = new qa.a(qm.class).a("https://api.bilibili.com/pugv/player/web/playurl").a(true).b("cid", String.valueOf(resolveMediaResourceParams.c())).b("avid", String.valueOf(resolveMediaResourceParams.a())).b("qn", String.valueOf(a2)).b("buvid", psVar.b()).b("access_key", puVar != null ? puVar.c : null).b("fnval", String.valueOf(0b011111010000)).b("ep_id", String.valueOf(resolveResourceExtra.a())).a(new qd()).a();
+        qa a3 = new qa.a(qm.class).a("https://api.bilibili.com/pugv/player/web/playurl").b("Bilibili Freedoooooom/MarkII").a(true).b("cid", String.valueOf(resolveMediaResourceParams.c())).b("avid", String.valueOf(resolveMediaResourceParams.a())).b("qn", String.valueOf(a2)).b("buvid", psVar.b()).b("access_key", puVar != null ? puVar.c : null).b("fnval", String.valueOf(0b011111010000)).b("ep_id", String.valueOf(resolveResourceExtra.a())).a(new qd()).a();
         this.b.a(a3.g());
         qm qmVar = (qm) pz.a(a3);
         int i = -5;

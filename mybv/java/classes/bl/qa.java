@@ -146,7 +146,7 @@ public class qa {
             this.f.put("Accept", "*/*");
             this.f.put("Accept-Language", "zh-CN,zh;q=0.8");
             this.f.put("Connection", "Keep-Alive");
-            this.f.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.116 Safari/537.36");
+            this.f.put("User-Agent", "Bilibili Freedoooooom/MarkII");
         }
 
         public a a(@NonNull String str) {
