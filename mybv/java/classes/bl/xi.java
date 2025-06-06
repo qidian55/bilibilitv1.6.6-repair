@@ -58,6 +58,8 @@ public class xi extends xh implements bbb<Message, Boolean> {
         }
     };
 
+    public static String error_message;
+
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnInfoListener
     public boolean onInfo2(IMediaPlayer iMediaPlayer, int i, int i2, long j) {
         return false;
@@ -509,9 +511,11 @@ public class xi extends xh implements bbb<Message, Boolean> {
         if (!bll.c(p())) {
             i = R.string.PlayerReactTips_network_problem;
         }
+        if(xi.error_message==null||xi.error_message.isEmpty())xi.error_message=p().getString(i);
         if (this.k != null) {
-            this.k.a(p().getString(i));
+            this.k.a(xi.error_message);
         }
+        xi.error_message=null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -959,9 +959,9 @@
 
     .prologue
     .line 236
-    new-instance v2, Ljava/util/HashSet;
+    new-instance v1, Ljava/util/HashSet;
 
-    invoke-direct {v2}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
 
     .line 238
     :try_start_5
@@ -973,52 +973,50 @@
 
     move-result-object v0
 
-    const-string v1, "skip_categories"
+    const-string v2, "skip_categories"
 
     const-string v3, ""
 
-    invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/alibaba/fastjson/JSON;->toJSON(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/alibaba/fastjson/JSON;->parseArray(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONArray;
 
-    move-result-object v0
-
-    check-cast v0, Lcom/alibaba/fastjson/JSONArray;
+    move-result-object v2
 
     .line 239
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_1c
-    invoke-virtual {v0}, Lcom/alibaba/fastjson/JSONArray;->size()I
+    :goto_1a
+    invoke-virtual {v2}, Lcom/alibaba/fastjson/JSONArray;->size()I
 
     move-result v3
 
-    if-ge v1, v3, :cond_30
+    if-ge v0, v3, :cond_2e
 
-    invoke-virtual {v0, v1}, Lcom/alibaba/fastjson/JSONArray;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v0}, Lcom/alibaba/fastjson/JSONArray;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-    :try_end_29
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_29} :catch_2c
+    invoke-virtual {v1, v3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    :try_end_27
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_27} :catch_2a
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1c
+    goto :goto_1a
 
     .line 241
-    :catch_2c
+    :catch_2a
     move-exception v0
 
     .line 242
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 244
-    :cond_30
-    return-object v2
+    :cond_2e
+    return-object v1
 .end method
 
 .method public static get_speed(I)F

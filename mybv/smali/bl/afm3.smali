@@ -1688,7 +1688,7 @@
     .line 296
     const/4 v0, 0x6
 
-    if-ne p2, v0, :cond_5e
+    if-ne p2, v0, :cond_69
 
     .line 297
     iget-object v0, p0, Lbl/afm3;->filter_path:Lcom/bilibili/tv/widget/DrawEditText;
@@ -1709,7 +1709,7 @@
     :cond_12
     iget-object v0, p0, Lbl/afm3;->cdn_value:Lcom/bilibili/tv/widget/DrawEditText;
 
-    if-ne p1, v0, :cond_52
+    if-ne p1, v0, :cond_5a
 
     .line 299
     invoke-virtual {p1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
@@ -1740,7 +1740,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_54
+    if-eqz v0, :cond_5f
 
     .line 300
     :cond_34
@@ -1768,23 +1768,38 @@
     .line 302
     invoke-virtual {p0}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v1, "\u5df2\u8bbe\u7f6e\u9ed8\u8ba4CDN"
+    sget-object v0, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lbl/lr;->b(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5c
+
+    const-string v0, "\u5df2\u6e05\u7a7a\u9ed8\u8ba4CDN"
+
+    :goto_57
+    invoke-static {v1, v0}, Lbl/lr;->b(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 308
-    :cond_52
-    :goto_52
+    :cond_5a
+    :goto_5a
     const/4 v0, 0x0
 
     .line 310
-    :goto_53
+    :goto_5b
     return v0
 
+    .line 302
+    :cond_5c
+    const-string v0, "\u5df2\u8bbe\u7f6e\u9ed8\u8ba4CDN"
+
+    goto :goto_57
+
     .line 305
-    :cond_54
+    :cond_5f
     invoke-virtual {p0}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -1793,13 +1808,13 @@
 
     invoke-static {v0, v1}, Lbl/lr;->a(Landroid/content/Context;Ljava/lang/String;)V
 
-    goto :goto_52
+    goto :goto_5a
 
     .line 310
-    :cond_5e
+    :cond_69
     const/4 v0, 0x1
 
-    goto :goto_53
+    goto :goto_5b
 .end method
 
 .method public final onFocusChange(Landroid/view/View;Z)V

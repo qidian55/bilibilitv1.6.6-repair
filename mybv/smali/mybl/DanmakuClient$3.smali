@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lmybl/DanmakuClient;->startClient(Ljava/lang/String;I)V
+    value = Lmybl/DanmakuClient;-><init>(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,18 +20,14 @@
 # instance fields
 .field final synthetic this$0:Lmybl/DanmakuClient;
 
-.field final synthetic val$inFromServer:Ljava/io/DataInputStream;
-
 
 # direct methods
-.method constructor <init>(Lmybl/DanmakuClient;Ljava/io/DataInputStream;)V
+.method constructor <init>(Lmybl/DanmakuClient;)V
     .locals 0
 
     .prologue
-    .line 115
+    .line 91
     iput-object p1, p0, Lmybl/DanmakuClient$3;->this$0:Lmybl/DanmakuClient;
-
-    iput-object p2, p0, Lmybl/DanmakuClient$3;->val$inFromServer:Ljava/io/DataInputStream;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -44,13 +40,13 @@
     .locals 2
 
     .prologue
-    .line 118
+    .line 94
     iget-object v0, p0, Lmybl/DanmakuClient$3;->this$0:Lmybl/DanmakuClient;
 
-    iget-object v1, p0, Lmybl/DanmakuClient$3;->val$inFromServer:Ljava/io/DataInputStream;
+    const-string v1, "ws://broadcastlv.chat.bilibili.com:2244/sub"
 
-    invoke-virtual {v0, v1}, Lmybl/DanmakuClient;->readClient(Ljava/io/DataInputStream;)V
+    invoke-virtual {v0, v1}, Lmybl/DanmakuClient;->startClient(Ljava/lang/String;)V
 
-    .line 119
+    .line 95
     return-void
 .end method

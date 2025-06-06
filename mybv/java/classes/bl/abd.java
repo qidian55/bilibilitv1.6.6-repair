@@ -235,7 +235,7 @@ public class abd {
     public static Set<String> get_skip_categories(Context context) {
         HashSet<String> h = new HashSet<String>();
         try{
-            JSONArray ja = (JSONArray)JSON.toJSON(a(context).a().getString("skip_categories", ""));
+            JSONArray ja = JSON.parseArray(a(context).a().getString("skip_categories", ""));
             for(int i=0;i<ja.size();i++)h.add(ja.getString(i));
         }
         catch(Exception e){

@@ -26,6 +26,8 @@ import android.content.Context;
 import com.bilibili.tv.MainApplication;
 import android.graphics.drawable.Drawable;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
 
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
@@ -52,12 +54,25 @@ class DanmakuWebSocketClient extends WebSocketClient {
 
 public class DanmakuClient {
     public int roomId;
-    public String token;
+    public String token="";
     public Thread client_thread;
     public DanmakuWebSocketClient client;
     public static IDanmakuPlayer player;
     public static float baseScreenScale=0, densityScale=0, mScale ;
     public static int mAlpha;
+
+    public String sign(String msg){
+        //String img_url="7cd084941338484aae1ad9425b84077c";
+        //String sub_url="4932caff0ff746eab6f01bf08b70ac45";
+        //MIXIN_TABLE=[46, 47, 18, 2, 53, 8, 23, 32, 15, 50, 10, 31, 58, 3, 45, 35, 27, 43, 5, 49, 33, 9, 42, 19, 29, 28, 14, 39, 12, 38, 41, 13, 37, 48, 7, 16, 24, 55, 40, 61, 26, 17, 0, 1, 60, 51, 30, 4, 22, 25, 54, 21, 56, 59, 6, 63, 57, 62, 11, 36, 20, 34, 44, 52];
+        String mixin_key="ea1db124af3c7062474693fa704f4ff8";
+        try{
+            return String.format("%1$032x", new BigInteger(1, MessageDigest.getInstance("MD5").digest((msg+mixin_key).getBytes())));
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     public DanmakuClient(int rid) {
         if(baseScreenScale==0){
@@ -73,7 +88,14 @@ public class DanmakuClient {
         Future<JSONObject> future = threadPool.submit(new Callable<JSONObject>() {
             @Override
             public JSONObject call() {
-                Response response = (Response) pz.a(new qa.a(Response.class).a("https://api.live.bilibili.com/xlive/web-room/v1/index/getDanmuInfo").a(true).b("Bilibili Freedoooooom/MarkII").b("id", String.valueOf(roomId)).a(new qb()).a(), "GET");
+                long t = System.currentTimeMillis() / 1000;
+                Response response = (Response) pz.a(new qa.a(Response.class)
+                    .a("https://api.live.bilibili.com/xlive/web-room/v1/index/getDanmuInfo")
+                    .a(true).b("Bilibili Freedoooooom/MarkII")
+                    .b("id", String.valueOf(roomId))
+                    .b("ts", String.valueOf(t))
+                    .b("w_rid", sign(String.format("id=%d&ts=%d",roomId,t)))
+                    .a(new qb()).a(), "GET");
                 return response.e();
             }
         });

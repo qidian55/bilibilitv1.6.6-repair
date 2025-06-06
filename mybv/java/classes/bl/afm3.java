@@ -299,7 +299,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
                 if(v.getText().toString().isEmpty()||v.getText().toString().endsWith(".bilivideo.com")){
                     VideoViewParams.prefect_cdn=v.getText().toString();
                     abd.set_personal_config(MainApplication.a(), "prefect_cdn", VideoViewParams.prefect_cdn);
-                    lr.b(getActivity(), "已设置默认CDN");
+                    lr.b(getActivity(), VideoViewParams.prefect_cdn.isEmpty()?"已清空默认CDN":"已设置默认CDN");
                 }
                 else{
                     lr.a(getActivity(), "CDN不合法");

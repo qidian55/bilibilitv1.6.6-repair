@@ -1,12 +1,12 @@
 {
-    "apkMd5":"79d4a2e04ef75b820704182c0e3716a2",
+    "apkMd5":"60e74b1717c25c9219a5aa61998d69e8",
     "apkUrl":"https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/mybv.apk",
     "fileSize":8210243,
     "id":"",
-    "newFeature":"",
+    "newFeature":"优化报错信息显示\n修复清晰度切换出错问题\n修复个性化设置失效问题",
     "publishTime":0,
     "title":"New",
     "upgradeType":1,
     "versionCode":1606,
-    "versionName":"1.6.6.20250605"
+    "versionName":"1.6.6.20250606"
 }

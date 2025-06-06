@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 316
+    .line 318
     iput-object p1, p0, Lbl/xi$2;->this$0:Lbl/xi;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,12 +40,12 @@
     .locals 2
 
     .prologue
-    .line 319
+    .line 321
     const/16 v0, 0xeb
 
     if-ne p1, v0, :cond_a
 
-    .line 320
+    .line 322
     iget-object v0, p0, Lbl/xi$2;->this$0:Lbl/xi;
 
     const/4 v1, 0x0
@@ -53,7 +53,7 @@
     # setter for: Lbl/xi;->s:Z
     invoke-static {v0, v1}, Lbl/xi;->access$002(Lbl/xi;Z)Z
 
-    .line 322
+    .line 324
     :cond_a
     return-void
 .end method

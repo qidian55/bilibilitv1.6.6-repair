@@ -57,7 +57,29 @@ public class ql implements IMediaResolver {
     private MediaResource a(Context context, ResolveMediaResourceParams resolveMediaResourceParams, ps psVar, pu puVar, ResolveResourceExtra resolveResourceExtra, boolean z) throws ResolveException {
         a(resolveMediaResourceParams);
         int a2 = a(resolveMediaResourceParams, psVar);
-        qa a3 = new qa.a(qm.class).a("https://api.bilibili.com/x/player/playurl").b("").a(true).a("X-BVC-FINGERPRINT", a(context, a2, resolveMediaResourceParams, resolveResourceExtra, puVar, psVar)).b("cid", String.valueOf(resolveMediaResourceParams.c())).b("avid", String.valueOf(resolveMediaResourceParams.a())).b("qn", String.valueOf(a2)).b("appkey", qy.a(3, "fSDRQgpusmIbrzyc")).b("otype", "json").b("platform", psVar.d()).b("build", psVar.a()).b("buvid", psVar.b()).b("device", psVar.c()).b("type", resolveMediaResourceParams.g()).b("access_key", puVar != null ? puVar.c : null).b("mid", puVar != null ? String.valueOf(puVar.b) : null).b("expire", puVar != null ? String.valueOf(puVar.a) : null).b("npcybs", resolveMediaResourceParams.d() ? "1" : "0").b("track_path", resolveResourceExtra.e()).b("model", a2 == 0 ? psVar.e() : null).b("resolution", a2 == 0 ? psVar.f() : null).b("unicom_free", resolveResourceExtra.f() ? "1" : null).b("fnval", String.valueOf(0b011111010000)).b("try_look", (puVar==null||puVar.c==null||puVar.c.isEmpty())?"1":null).a(new qd()).a();
+        qa a3 = new qa.a(qm.class).a("https://api.bilibili.com/x/player/playurl").b("").a(true)
+            //.a("X-BVC-FINGERPRINT", a(context, a2, resolveMediaResourceParams, resolveResourceExtra, puVar, psVar))
+            .b("cid", String.valueOf(resolveMediaResourceParams.c()))
+            .b("avid", String.valueOf(resolveMediaResourceParams.a()))
+            .b("qn", String.valueOf(a2))
+            .b("appkey", qy.a(3, "fSDRQgpusmIbrzyc"))
+            .b("otype", "json")
+            .b("platform", psVar.d())
+            .b("build", psVar.a())
+            .b("buvid", psVar.b())
+            .b("device", psVar.c())
+            .b("type", resolveMediaResourceParams.g())
+            .b("access_key", puVar != null ? puVar.c : null)
+            .b("mid", puVar != null ? String.valueOf(puVar.b) : null)
+            .b("expire", puVar != null ? String.valueOf(puVar.a) : null)
+            .b("npcybs", resolveMediaResourceParams.d() ? "1" : "0")
+            .b("track_path", resolveResourceExtra.e())
+            .b("model", a2 == 0 ? psVar.e() : null)
+            .b("resolution", a2 == 0 ? psVar.f() : null)
+            .b("unicom_free", resolveResourceExtra.f() ? "1" : null)
+            .b("fnval", String.valueOf(0b011111010000))
+            .b("try_look", (puVar==null||puVar.c==null||puVar.c.isEmpty())?"1":null)
+            .a(new qd()).a();
         this.b.a(a3.g());
         qm qmVar = (qm) pz.a(a3);
         int i = -5;
