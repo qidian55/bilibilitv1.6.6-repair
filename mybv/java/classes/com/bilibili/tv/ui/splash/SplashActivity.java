@@ -13,10 +13,12 @@ import com.bilibili.tv.ui.base.BaseActivity;
 import com.bilibili.tv.ui.main.MainActivity;
 
 import bl.aj;
+import bl.mg;
 import java.io.File;
-import com.bilibili.tv.MainApplication;
 import android.graphics.*;
 import android.graphics.drawable.*;
+import com.bilibili.tv.MainApplication;
+import android.content.DialogInterface;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -47,6 +49,23 @@ public final class SplashActivity extends BaseActivity {
             }
         }
 
+        if(MainApplication.blacklist_uids!=null && MainApplication.blacklist_uids.contains(mg.a(MainApplication.a()).d())){
+            agb.b blacklist_listener = new agb.b() {
+                @Override
+                public void a(agb dialog, View v) {
+                    System.exit(-1);
+                }
+            };
+            agb blacklist_dialog = new agb.a(this).a(1)
+                .a("由于违规传播该项目，你已被拉黑！！！")
+                .b("消除影响", blacklist_listener)
+                .a("回头是岸", blacklist_listener)
+                .a();
+            blacklist_dialog.setCancelable(false);
+            blacklist_dialog.show();
+            return;
+        }
+
         this.a = acc.b();
         abd a2 = abd.a(this);
         bbi.a((Object) a2, "preferenceHelper");
@@ -61,6 +80,10 @@ public final class SplashActivity extends BaseActivity {
             } else if (z) {
                 b("依据国家现行相关政策规定\n请确认在非互联网电视端使用");
                 a2.a().edit().putBoolean("hint_key", false).apply();
+                return;
+            } else if (a2.a().getBoolean("hint_key2", true)) {
+                b("不得利用本项目进行非法活动；不得干扰B站正常运营；不得传播恶意软件或病毒\n🚫禁止在官方平台及官方账号区域宣传本项目\n🚫禁止在微信公众号平台宣传本项目\n🚫禁止利用本项目牟利");
+                a2.a().edit().putBoolean("hint_key2", false).apply();
                 return;
             } else {
                 a(findViewById);
