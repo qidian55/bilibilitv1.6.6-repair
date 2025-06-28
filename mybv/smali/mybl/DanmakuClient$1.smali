@@ -103,13 +103,22 @@
 
     move-result-object v2
 
+    const-string v3, "Cookie"
+
+    const-string v4, "buvid3=00000000-0000-0000-0000-00000000000000000infoc"
+
+    .line 95
+    invoke-virtual {v2, v3, v4}, Lbl/qa$a;->a(Ljava/lang/String;Ljava/lang/String;)Lbl/qa$a;
+
+    move-result-object v2
+
     const-string v3, "id"
 
     iget-object v4, p0, Lmybl/DanmakuClient$1;->this$0:Lmybl/DanmakuClient;
 
     iget v4, v4, Lmybl/DanmakuClient;->roomId:I
 
-    .line 95
+    .line 96
     invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v4
@@ -120,7 +129,7 @@
 
     const-string v3, "ts"
 
-    .line 96
+    .line 97
     invoke-static {v0, v1}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v4
@@ -145,7 +154,7 @@
 
     iget v8, v8, Lmybl/DanmakuClient;->roomId:I
 
-    .line 97
+    .line 98
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v8
@@ -174,7 +183,7 @@
 
     invoke-direct {v1}, Lbl/qb;-><init>()V
 
-    .line 98
+    .line 99
     invoke-virtual {v0, v1}, Lbl/qa$a;->a(Lbl/qf;)Lbl/qa$a;
 
     move-result-object v0
@@ -192,7 +201,7 @@
 
     check-cast v0, Lmybl/DanmakuClient$Response;
 
-    .line 99
+    .line 100
     invoke-virtual {v0}, Lmybl/DanmakuClient$Response;->e()Lorg/json/JSONObject;
 
     move-result-object v0

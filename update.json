@@ -1,12 +1,12 @@
 {
-    "apkMd5":"de1fb452233e92096b44c5613513c3cf",
+    "apkMd5":"b8701731711ac495a78777300a94805b",
     "apkUrl":"https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/mybv.apk",
     "fileSize":8210315,
     "id":"",
-    "newFeature":"增加用户黑名单\n增加公告",
+    "newFeature":"测试性功能：视频解码器选择\n尝试修复部分弹幕缺失",
     "publishTime":0,
     "title":"New",
     "upgradeType":1,
     "versionCode":1606,
-    "versionName":"1.6.6.20250608"
+    "versionName":"1.6.6.20250628"
 }

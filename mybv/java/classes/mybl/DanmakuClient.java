@@ -92,6 +92,7 @@ public class DanmakuClient {
                 Response response = (Response) pz.a(new qa.a(Response.class)
                     .a("https://api.live.bilibili.com/xlive/web-room/v1/index/getDanmuInfo")
                     .a(true).b("Bilibili Freedoooooom/MarkII")
+                    .a("Cookie","buvid3=00000000-0000-0000-0000-00000000000000000infoc")
                     .b("id", String.valueOf(roomId))
                     .b("ts", String.valueOf(t))
                     .b("w_rid", sign(String.format("id=%d&ts=%d",roomId,t)))

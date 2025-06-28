@@ -2471,6 +2471,7 @@ public final class R {
         public static final int tab_button3 = 0x7f080180;
         public static final int tab_button4 = 0x7f080181;
         public static final int tab_button5 = 0x7f080182;
+        public static final int codec_button = 0x7f080183;
     }
 
     public static final class integer {

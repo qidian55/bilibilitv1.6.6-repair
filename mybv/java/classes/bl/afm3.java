@@ -21,6 +21,9 @@ import java.util.concurrent.*;
 import android.graphics.*;
 import android.content.Intent;
 import android.graphics.drawable.*;
+import android.media.MediaCodecInfo;
+import android.media.MediaCodecList;
+import tv.danmaku.videoplayer.core.media.ijk.IjkMediaCodecInfo;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -29,10 +32,14 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
     public static List<String> tmp_cdns;
     public static List<String> tmp_splashs;
     public static String[] tab_names = {"","动态","待看","关注","收藏","历史"};
+    public static String prefect_codec = null;
+    public static String prefect_decoder = null;
+    public List<String> supported_codecs = new ArrayList<>(Arrays.asList("video/avc","video/hevc","video/av01"));
     private DrawFrameLayout filter_button;
     private DrawLinearLayout folder_open_button;
     private DrawFrameLayout cdn_button;
     private DrawFrameLayout splash_button;
+    private DrawFrameLayout codec_button;
     private DrawEditText filter_path;
     private DrawEditText cdn_value;
     private CheckBox skip_checkbox0;
@@ -57,6 +64,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         this.folder_open_button = (DrawLinearLayout)inflate.findViewById(R.id.experiment_folder_open);
         this.cdn_button = (DrawFrameLayout)inflate.findViewById(R.id.cdn_button);
         this.splash_button = (DrawFrameLayout)inflate.findViewById(R.id.splash_button);
+        this.codec_button = (DrawFrameLayout)inflate.findViewById(R.id.codec_button);
         this.filter_path = (DrawEditText)inflate.findViewById(R.id.filter_path);
         this.cdn_value = (DrawEditText)inflate.findViewById(R.id.cdn_value);
         this.skip_checkbox0 = (CheckBox)inflate.findViewById(R.id.skip_checkbox0);
@@ -76,6 +84,8 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         this.cdn_button.setOnFocusChangeListener(this);
         this.splash_button.setUpDrawable(R.drawable.shadow_white_rect);
         this.splash_button.setOnFocusChangeListener(this);
+        this.codec_button.setUpDrawable(R.drawable.shadow_white_rect);
+        this.codec_button.setOnFocusChangeListener(this);
         if(BiliFilter.filter_on){
             ((ShadowTextView)((ViewGroup)this.filter_button).getChildAt(0)).setText("启用视频过滤");
             this.filter_button.setBackgroundResource(R.drawable.shape_rectangle_trans_with_12corner_white_50);
@@ -91,11 +101,13 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         else{
             ((ShadowTextView)((ViewGroup)this.cdn_button).getChildAt(0)).setText("区域CDN");
         }
+        if(afm3.prefect_codec!=null)((ShadowTextView)((ViewGroup)this.codec_button).getChildAt(0)).setText(afm3.prefect_decoder);
         this.cdn_value.setText(VideoViewParams.prefect_cdn);
         this.filter_button.setOnClickListener(this);
         this.folder_open_button.setOnClickListener(this);
         this.cdn_button.setOnClickListener(this);
         this.splash_button.setOnClickListener(this);
+        this.codec_button.setOnClickListener(this);
         this.filter_path.setOnEditorActionListener(this);
         this.cdn_value.setOnEditorActionListener(this);
         this.skip_checkbox0.setChecked(BiliFilter.skip_categories.contains("intro"));
@@ -235,6 +247,38 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
                 }).create();
             dialog.show();
         }
+        if(view == this.codec_button){
+            List<String> tmp_codecs = new ArrayList<String>();
+            List<String> show_decoders = new ArrayList<String>();
+            for(int i=0;i<MediaCodecList.getCodecCount();i++){
+                MediaCodecInfo info = MediaCodecList.getCodecInfoAt(i);
+                if(!info.isEncoder()){
+                    String[] types = info.getSupportedTypes();
+                    for(int j=0;j<types.length;j++)
+                        if(this.supported_codecs.contains(types[j])){
+                            tmp_codecs.add(types[j]);
+                            show_decoders.add(info.getName());
+                        }
+                }
+            }
+            AlertDialog dialog = new AlertDialog.Builder(getContext())
+                .setItems(show_decoders.toArray(new String[0]), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        afm3.prefect_codec = tmp_codecs.get(which);
+                        afm3.prefect_decoder = show_decoders.get(which);
+                        Map<String, Integer> sKnownCodecList = IjkMediaCodecInfo.getKnownCodecList();
+                        Iterator<Map.Entry<String, Integer>> iterator = sKnownCodecList.entrySet().iterator();
+                        while (iterator.hasNext()) {
+                            Map.Entry<String, Integer> entry = iterator.next();
+                            if (entry.getValue()==IjkMediaCodecInfo.RANK_MAX)iterator.remove();
+                        }
+                        sKnownCodecList.put(afm3.prefect_decoder, IjkMediaCodecInfo.RANK_MAX);
+                        ((ShadowTextView)((ViewGroup)afm3.this.codec_button).getChildAt(0)).setText(show_decoders.get(which));
+                    }
+                }).create();
+            dialog.show();
+        }
         for(int i=1;i<6;i++){
             if(this.tab_buttons[i]==view){
                 int t=afc.MyMap[i];
@@ -318,7 +362,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
     }
 
     public final boolean a() {
-        if (this.filter_button == null || this.filter_button.hasFocus() || this.folder_open_button == null || this.folder_open_button.hasFocus() || this.filter_path == null || this.filter_path.hasFocus() || this.cdn_button == null || this.cdn_button.hasFocus() || this.cdn_value == null || this.cdn_value.hasFocus() || this.skip_checkbox0 == null || this.skip_checkbox0.hasFocus() || this.skip_checkbox1 == null || this.skip_checkbox1.hasFocus() || this.skip_checkbox2 == null || this.skip_checkbox2.hasFocus() || this.splash_button == null || this.splash_button.hasFocus()) {
+        if (this.filter_button == null || this.filter_button.hasFocus() || this.folder_open_button == null || this.folder_open_button.hasFocus() || this.filter_path == null || this.filter_path.hasFocus() || this.cdn_button == null || this.cdn_button.hasFocus() || this.cdn_value == null || this.cdn_value.hasFocus() || this.skip_checkbox0 == null || this.skip_checkbox0.hasFocus() || this.skip_checkbox1 == null || this.skip_checkbox1.hasFocus() || this.skip_checkbox2 == null || this.skip_checkbox2.hasFocus() || this.splash_button == null || this.splash_button.hasFocus() || this.codec_button == null || this.codec_button.hasFocus()) {
             return false;
         }
         for(int i=1;i<6;i++){

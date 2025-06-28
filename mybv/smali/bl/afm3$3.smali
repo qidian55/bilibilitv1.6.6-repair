@@ -3,12 +3,12 @@
 .source "afm3.java"
 
 # interfaces
-.implements Landroid/widget/TextView$OnEditorActionListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/afm3;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+    value = Lbl/afm3;->onClick(Landroid/view/View;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,14 +20,22 @@
 # instance fields
 .field final synthetic this$0:Lbl/afm3;
 
+.field final synthetic val$show_decoders:Ljava/util/List;
+
+.field final synthetic val$tmp_codecs:Ljava/util/List;
+
 
 # direct methods
-.method constructor <init>(Lbl/afm3;)V
+.method constructor <init>(Lbl/afm3;Ljava/util/List;Ljava/util/List;)V
     .locals 0
 
     .prologue
-    .line 83
+    .line 265
     iput-object p1, p0, Lbl/afm3$3;->this$0:Lbl/afm3;
+
+    iput-object p2, p0, Lbl/afm3$3;->val$tmp_codecs:Ljava/util/List;
+
+    iput-object p3, p0, Lbl/afm3$3;->val$show_decoders:Ljava/util/List;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,81 +44,117 @@
 
 
 # virtual methods
-.method public onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
-    .locals 2
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 4
 
     .prologue
-    .line 86
-    const/4 v0, 0x6
+    const/16 v3, 0x3e8
 
-    if-ne p2, v0, :cond_35
+    .line 268
+    iget-object v0, p0, Lbl/afm3$3;->val$tmp_codecs:Ljava/util/List;
 
-    .line 87
-    invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
+    invoke-interface {v0, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {p1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    check-cast v0, Ljava/lang/String;
+
+    sput-object v0, Lbl/afm3;->prefect_codec:Ljava/lang/String;
+
+    .line 269
+    iget-object v0, p0, Lbl/afm3$3;->val$show_decoders:Ljava/util/List;
+
+    invoke-interface {v0, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    sput-object v0, Lbl/afm3;->prefect_decoder:Ljava/lang/String;
+
+    .line 270
+    invoke-static {}, Ltv/danmaku/videoplayer/core/media/ijk/IjkMediaCodecInfo;->getKnownCodecList()Ljava/util/Map;
 
     move-result-object v1
 
-    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    .line 271
+    invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1}, Lbl/abd;->set_filter_path(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    .line 89
-    :try_start_16
-    invoke-static {}, Lmybl/BiliFilter;->updateConfig()V
+    move-result-object v2
 
-    .line 90
+    .line 272
+    :cond_22
+    :goto_22
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3e
+
+    .line 273
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 274
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    if-ne v0, v3, :cond_22
+
+    invoke-interface {v2}, Ljava/util/Iterator;->remove()V
+
+    goto :goto_22
+
+    .line 276
+    :cond_3e
+    sget-object v0, Lbl/afm3;->prefect_decoder:Ljava/lang/String;
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-interface {v1, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 277
     iget-object v0, p0, Lbl/afm3$3;->this$0:Lbl/afm3;
 
-    invoke-virtual {v0}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    # getter for: Lbl/afm3;->codec_button:Lcom/bilibili/tv/widget/DrawFrameLayout;
+    invoke-static {v0}, Lbl/afm3;->access$200(Lbl/afm3;)Lcom/bilibili/tv/widget/DrawFrameLayout;
 
     move-result-object v0
 
-    const-string v1, "\u8fc7\u6ee4\u5668\u914d\u7f6e\u5df2\u66f4\u65b0"
+    const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lbl/lr;->b(Landroid/content/Context;Ljava/lang/String;)V
-    :try_end_24
-    .catch Ljava/lang/Exception; {:try_start_16 .. :try_end_24} :catch_26
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
-    .line 95
-    :goto_24
-    const/4 v0, 0x0
+    move-result-object v0
 
-    .line 97
-    :goto_25
-    return v0
+    check-cast v0, Lcom/bilibili/tv/widget/ShadowTextView;
 
-    .line 92
-    :catch_26
-    move-exception v0
+    iget-object v1, p0, Lbl/afm3$3;->val$show_decoders:Ljava/util/List;
 
-    .line 93
-    iget-object v1, p0, Lbl/afm3$3;->this$0:Lbl/afm3;
-
-    invoke-virtual {v1}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    invoke-interface {v1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    check-cast v1, Ljava/lang/CharSequence;
 
-    move-result-object v0
+    invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/ShadowTextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-static {v1, v0}, Lbl/lr;->a(Landroid/content/Context;Ljava/lang/String;)V
-
-    goto :goto_24
-
-    .line 97
-    :cond_35
-    const/4 v0, 0x1
-
-    goto :goto_25
+    .line 278
+    return-void
 .end method

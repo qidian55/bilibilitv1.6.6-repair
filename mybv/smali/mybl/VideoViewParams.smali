@@ -23,14 +23,14 @@
     .locals 1
 
     .prologue
-    .line 13
+    .line 14
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Lmybl/VideoViewParams;->cdn_history:Ljava/util/List;
 
-    .line 14
+    .line 15
     const/4 v0, 0x0
 
     sput-object v0, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
@@ -42,7 +42,7 @@
     .locals 0
 
     .prologue
-    .line 12
+    .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -54,21 +54,21 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 17
+    .line 18
     const-string v0, "video"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v3
 
-    .line 18
+    .line 19
     const-string v0, "audio"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v4
 
-    .line 19
+    .line 20
     const-string v0, "\\?"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -83,7 +83,7 @@
 
     move-result-object v0
 
-    .line 20
+    .line 21
     array-length v2, v0
 
     add-int/lit8 v2, v2, -0x1
@@ -92,7 +92,7 @@
 
     move v0, v1
 
-    .line 21
+    .line 22
     :goto_21
     invoke-virtual {v3}, Lorg/json/JSONArray;->length()I
 
@@ -100,7 +100,7 @@
 
     if-ge v0, v2, :cond_4e
 
-    .line 22
+    .line 23
     invoke-virtual {v3, v0}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
 
     move-result-object v2
@@ -111,7 +111,7 @@
 
     move-result-object v2
 
-    .line 23
+    .line 24
     const-string v6, "\\?"
 
     invoke-virtual {v2, v6}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -126,7 +126,7 @@
 
     move-result-object v6
 
-    .line 24
+    .line 25
     array-length v7, v6
 
     add-int/lit8 v7, v7, -0x1
@@ -141,7 +141,7 @@
 
     move-object p0, v2
 
-    .line 21
+    .line 22
     :cond_4b
     add-int/lit8 v0, v0, 0x1
 
@@ -150,7 +150,7 @@
     :cond_4e
     move v0, v1
 
-    .line 26
+    .line 27
     :goto_4f
     invoke-virtual {v4}, Lorg/json/JSONArray;->length()I
 
@@ -158,7 +158,7 @@
 
     if-ge v0, v2, :cond_7c
 
-    .line 27
+    .line 28
     invoke-virtual {v4, v0}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
 
     move-result-object v2
@@ -169,7 +169,7 @@
 
     move-result-object v2
 
-    .line 28
+    .line 29
     const-string v3, "\\?"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -184,7 +184,7 @@
 
     move-result-object v3
 
-    .line 29
+    .line 30
     array-length v6, v3
 
     add-int/lit8 v6, v6, -0x1
@@ -199,13 +199,13 @@
 
     move-object p0, v2
 
-    .line 26
+    .line 27
     :cond_79
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_4f
 
-    .line 31
+    .line 32
     :cond_7c
     sget-object v0, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
 
@@ -241,126 +241,92 @@
 
     move-result-object p0
 
-    .line 32
+    .line 33
     :cond_9e
     return-object p0
 .end method
 
-.method private static a(IZLorg/json/JSONArray;)Landroid/os/Bundle;
+.method private static filterData(IZLorg/json/JSONArray;)Landroid/os/Bundle;
     .locals 13
 
     .prologue
     const/4 v1, 0x0
 
-    .line 44
-    new-instance v2, Landroid/os/Bundle;
-
-    invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
-
-    .line 45
+    .line 48
     new-instance v3, Landroid/os/Bundle;
 
     invoke-direct {v3}, Landroid/os/Bundle;-><init>()V
 
-    .line 46
+    .line 49
     new-instance v4, Landroid/os/Bundle;
 
     invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
 
-    .line 47
+    .line 50
     new-instance v5, Landroid/os/Bundle;
 
     invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
 
-    .line 48
+    .line 51
     new-instance v6, Landroid/os/Bundle;
 
     invoke-direct {v6}, Landroid/os/Bundle;-><init>()V
 
-    .line 49
-    new-instance v7, Ljava/util/ArrayList;
+    .line 52
+    new-instance v7, Landroid/os/Bundle;
 
-    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v7}, Landroid/os/Bundle;-><init>()V
+
+    .line 53
+    new-instance v2, Ljava/util/HashSet;
+
+    invoke-direct {v2}, Ljava/util/HashSet;-><init>()V
 
     move v0, v1
 
-    .line 50
+    .line 54
     :goto_20
     invoke-virtual {p2}, Lorg/json/JSONArray;->length()I
 
     move-result v8
 
-    if-ge v0, v8, :cond_9d
+    if-ge v0, v8, :cond_8c
 
-    .line 51
+    .line 55
     invoke-virtual {p2, v0}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
 
     move-result-object v8
 
-    .line 52
-    if-eqz v8, :cond_9a
+    .line 57
+    if-eqz v8, :cond_89
 
-    const/4 v9, -0x1
-
-    if-eq p0, v9, :cond_4b
-
-    const-string v9, "codecid"
-
-    invoke-virtual {v8, v9}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
-
-    move-result v9
-
-    if-eq p0, v9, :cond_4b
-
-    if-eqz p1, :cond_41
-
-    const-string v9, "codecid"
-
-    invoke-virtual {v8, v9}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
-
-    move-result v9
-
-    if-eqz v9, :cond_4b
-
-    :cond_41
+    .line 58
     const-string v9, "id"
 
     invoke-virtual {v8, v9}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v9
 
-    const/16 v10, 0x78
-
-    if-le v9, v10, :cond_9a
-
-    .line 53
-    :cond_4b
-    const-string v9, "id"
-
-    invoke-virtual {v8, v9}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
-
-    move-result v9
-
-    .line 54
+    .line 59
     invoke-static {v9}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v10
 
-    .line 55
+    .line 60
     invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v9
 
-    invoke-virtual {v7, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v9}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 56
+    .line 61
     const-string v9, "base_url"
 
     invoke-virtual {v8, v9}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v9
 
-    .line 57
+    .line 62
     invoke-static {v9}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v11
@@ -369,86 +335,108 @@
 
     move-result-object v11
 
-    .line 58
+    .line 63
     sget-object v12, Lmybl/VideoViewParams;->cdn_history:Ljava/util/List;
 
     invoke-interface {v12, v11}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
     move-result v12
 
-    if-nez v12, :cond_77
+    if-nez v12, :cond_58
 
     sget-object v12, Lmybl/VideoViewParams;->cdn_history:Ljava/util/List;
 
     invoke-interface {v12, v11}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 59
-    :cond_77
-    invoke-virtual {v3, v10, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    .line 64
+    :cond_58
+    invoke-virtual {v4, v10}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 60
+    move-result-object v11
+
+    if-eqz v11, :cond_66
+
+    const-string v11, "codecid"
+
+    invoke-virtual {v8, v11}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+
+    move-result v11
+
+    if-ne p0, v11, :cond_89
+
+    .line 65
+    :cond_66
+    invoke-virtual {v4, v10, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 66
     const-string v9, "backup_url"
 
     invoke-virtual {v8, v9}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v9
 
-    .line 61
-    if-eqz v9, :cond_91
+    .line 67
+    if-eqz v9, :cond_80
 
-    .line 62
+    .line 68
     invoke-virtual {v9, v1}, Lorg/json/JSONArray;->optString(I)Ljava/lang/String;
 
     move-result-object v11
 
-    invoke-virtual {v4, v10, v11}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v5, v10, v11}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 63
+    .line 69
     const/4 v11, 0x1
 
     invoke-virtual {v9, v11}, Lorg/json/JSONArray;->optString(I)Ljava/lang/String;
 
     move-result-object v9
 
-    invoke-virtual {v5, v10, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v6, v10, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 65
-    :cond_91
+    .line 71
+    :cond_80
     const-string v9, "bandwidth"
 
     invoke-virtual {v8, v9}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v8
 
-    invoke-virtual {v6, v10, v8}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v7, v10, v8}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 50
-    :cond_9a
+    .line 54
+    :cond_89
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_20
 
-    .line 68
-    :cond_9d
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
+    .line 75
+    :cond_8c
+    invoke-interface {v2}, Ljava/util/Set;->size()I
 
     move-result v0
 
     new-array v8, v0, [I
 
-    .line 69
-    :goto_a3
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
+    .line 77
+    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v9
+
+    :goto_96
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-ge v1, v0, :cond_b8
+    if-eqz v0, :cond_ac
 
-    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/Integer;
+
+    add-int/lit8 v2, v1, 0x1
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -456,50 +444,52 @@
 
     aput v0, v8, v1
 
-    add-int/lit8 v1, v1, 0x1
+    move v1, v2
 
-    goto :goto_a3
+    goto :goto_96
 
-    .line 70
-    :cond_b8
+    .line 78
+    :cond_ac
     const-string v0, "dash_id"
 
-    invoke-virtual {v2, v0, v8}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
+    invoke-virtual {v3, v0, v8}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
-    .line 71
+    .line 79
     const-string v0, "dash_base_url"
 
-    invoke-virtual {v2, v0, v3}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual {v3, v0, v4}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 72
+    .line 80
     const-string v0, "dash_backup_url0"
 
-    invoke-virtual {v2, v0, v4}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual {v3, v0, v5}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 73
+    .line 81
     const-string v0, "dash_backup_url1"
 
-    invoke-virtual {v2, v0, v5}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual {v3, v0, v6}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 74
+    .line 82
     const-string v0, "dash_bandwidth"
 
-    invoke-virtual {v2, v0, v6}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual {v3, v0, v7}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 75
-    return-object v2
+    .line 83
+    return-object v3
 .end method
 
 .method public static toBundleData(Lorg/json/JSONObject;)Landroid/os/Bundle;
-    .locals 5
+    .locals 6
 
     .prologue
-    .line 36
+    const/4 v5, 0x1
+
+    .line 37
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 37
+    .line 38
     const-string v1, "dash_video_audio"
 
     const/4 v2, -0x1
@@ -512,31 +502,90 @@
 
     move-result-object v4
 
-    invoke-static {v2, v3, v4}, Lmybl/VideoViewParams;->a(IZLorg/json/JSONArray;)Landroid/os/Bundle;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
-
-    .line 38
-    const-string v1, "dash_video_264"
-
-    const/4 v2, 0x7
-
-    const/4 v3, 0x1
-
-    const-string v4, "video"
-
-    invoke-virtual {p0, v4}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
-
-    move-result-object v4
-
-    invoke-static {v2, v3, v4}, Lmybl/VideoViewParams;->a(IZLorg/json/JSONArray;)Landroid/os/Bundle;
+    invoke-static {v2, v3, v4}, Lmybl/VideoViewParams;->filterData(IZLorg/json/JSONArray;)Landroid/os/Bundle;
 
     move-result-object v2
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 40
+    const-string v1, "video/hevc"
+
+    sget-object v2, Lbl/afm3;->prefect_codec:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_33
+
+    const-string v1, "dash_video_264"
+
+    const/16 v2, 0xc
+
+    const-string v3, "video"
+
+    invoke-virtual {p0, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v3
+
+    invoke-static {v2, v5, v3}, Lmybl/VideoViewParams;->filterData(IZLorg/json/JSONArray;)Landroid/os/Bundle;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+
+    .line 44
+    :goto_32
     return-object v0
+
+    .line 41
+    :cond_33
+    const-string v1, "video/av01"
+
+    sget-object v2, Lbl/afm3;->prefect_codec:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4f
+
+    const-string v1, "dash_video_264"
+
+    const/16 v2, 0xd
+
+    const-string v3, "video"
+
+    invoke-virtual {p0, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v3
+
+    invoke-static {v2, v5, v3}, Lmybl/VideoViewParams;->filterData(IZLorg/json/JSONArray;)Landroid/os/Bundle;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+
+    goto :goto_32
+
+    .line 42
+    :cond_4f
+    const-string v1, "dash_video_264"
+
+    const/4 v2, 0x7
+
+    const-string v3, "video"
+
+    invoke-virtual {p0, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v3
+
+    invoke-static {v2, v5, v3}, Lmybl/VideoViewParams;->filterData(IZLorg/json/JSONArray;)Landroid/os/Bundle;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+
+    goto :goto_32
 .end method
