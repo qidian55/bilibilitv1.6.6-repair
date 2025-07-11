@@ -101,7 +101,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         else{
             ((ShadowTextView)((ViewGroup)this.cdn_button).getChildAt(0)).setText("区域CDN");
         }
-        if(afm3.prefect_codec!=null)((ShadowTextView)((ViewGroup)this.codec_button).getChildAt(0)).setText(afm3.prefect_decoder);
+        if(afm3.prefect_decoder!=null)((ShadowTextView)((ViewGroup)this.codec_button).getChildAt(0)).setText(afm3.prefect_decoder);
         this.cdn_value.setText(VideoViewParams.prefect_cdn);
         this.filter_button.setOnClickListener(this);
         this.folder_open_button.setOnClickListener(this);
@@ -249,7 +249,9 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         }
         if(view == this.codec_button){
             List<String> tmp_codecs = new ArrayList<String>();
+            tmp_codecs.add("无");
             List<String> show_decoders = new ArrayList<String>();
+            show_decoders.add("无");
             for(int i=0;i<MediaCodecList.getCodecCount();i++){
                 MediaCodecInfo info = MediaCodecList.getCodecInfoAt(i);
                 if(!info.isEncoder()){
@@ -265,15 +267,22 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
                 .setItems(show_decoders.toArray(new String[0]), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        afm3.prefect_codec = tmp_codecs.get(which);
-                        afm3.prefect_decoder = show_decoders.get(which);
                         Map<String, Integer> sKnownCodecList = IjkMediaCodecInfo.getKnownCodecList();
                         Iterator<Map.Entry<String, Integer>> iterator = sKnownCodecList.entrySet().iterator();
                         while (iterator.hasNext()) {
                             Map.Entry<String, Integer> entry = iterator.next();
                             if (entry.getValue()==IjkMediaCodecInfo.RANK_MAX)iterator.remove();
                         }
-                        sKnownCodecList.put(afm3.prefect_decoder, IjkMediaCodecInfo.RANK_MAX);
+                        if(which>1){
+                            afm3.prefect_codec = tmp_codecs.get(which);
+                            afm3.prefect_decoder = show_decoders.get(which);
+                            sKnownCodecList.put(afm3.prefect_decoder, IjkMediaCodecInfo.RANK_MAX);
+                        }else{
+                            afm3.prefect_codec = null;
+                            afm3.prefect_decoder = null;
+                        }
+                        abd.set_personal_config(MainApplication.a(), "prefect_codec", afm3.prefect_codec);
+                        abd.set_personal_config(MainApplication.a(), "prefect_decoder", afm3.prefect_decoder);
                         ((ShadowTextView)((ViewGroup)afm3.this.codec_button).getChildAt(0)).setText(show_decoders.get(which));
                     }
                 }).create();

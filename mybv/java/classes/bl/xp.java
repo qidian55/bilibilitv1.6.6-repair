@@ -18,19 +18,19 @@ public class xp extends xh {
     }
 
     @Override // bl.xh
-    protected boolean e(int i, KeyEvent keyEvent) {
+    protected boolean e(int keyCode, KeyEvent event) {
         return P();
     }
 
     @Override // bl.xh
-    public boolean f(int i, KeyEvent keyEvent) {
+    public boolean f(int keyCode, KeyEvent event) {
         return P();
     }
 
     @Override // bl.xh
-    public boolean g(int i, KeyEvent keyEvent) {
+    public boolean g(int keyCode, KeyEvent event) {
         boolean z;
-        if (i != 4) {
+        if (keyCode != KeyEvent.KEYCODE_BACK) {
             z = false;
         } else {
             Q();

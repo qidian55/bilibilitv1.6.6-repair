@@ -31,6 +31,9 @@ import tv.danmaku.videoplayer.core.context.IPlayerContext;
 import tv.danmaku.videoplayer.core.media.PlayerReleaseEventManager;
 import tv.danmaku.videoplayer.core.videoview.AspectRatio;
 
+import tv.danmaku.videoplayer.core.context.PlayerEvents;
+import tv.danmaku.videoplayer.core.videoview.IVideoView;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public class xi extends xh implements bbb<Message, Boolean> {
@@ -48,7 +51,7 @@ public class xi extends xh implements bbb<Message, Boolean> {
     private View n;
     private TextView o;
     private volatile long p;
-    private boolean q = false;
+    private boolean isSliding = false;
     private boolean r = false;
     private boolean s = false;
     private Runnable t = new Runnable() { // from class: bl.xi.1
@@ -118,15 +121,15 @@ public class xi extends xh implements bbb<Message, Boolean> {
     }
 
     @Override // bl.xh
-    public boolean f(int i, KeyEvent keyEvent) {
-        switch (i) {
-            case 21:
-            case 22:
-                if (!this.q) {
+    public boolean f(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_DPAD_LEFT:
+            case KeyEvent.KEYCODE_DPAD_RIGHT:
+                if (!this.isSliding) {
                     aal.a(x() / 1000);
-                    this.q = true;
+                    this.isSliding = true;
                 }
-                int a = aal.a(i == 22) * 1000;
+                int a = aal.a(keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) * 1000;
                 Math.min(a, I());
                 this.l.a(Math.min(a, I()), true);
                 t();
@@ -138,54 +141,50 @@ public class xi extends xh implements bbb<Message, Boolean> {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // bl.xh
-    public boolean g(int i, KeyEvent keyEvent) {
-        if (i != 66 && i != 160) {
-            switch (i) {
-                case 19:
-                    T();
-                    return true;
-                case 20:
-                    t();
-                    return true;
-                case 21:
-                    if (this.q) {
-                        int a = aal.a(false);
-                        long x = x();
-                        int min = Math.min(Math.min(a * 1000, x() + IjkMediaMetadataRetriever.IJK_ONERROR), I());
-                        c(min);
-                        aal.a();
-                        this.q = false;
-                        a(IEventCenter.EventType.SEEK, false, Long.valueOf(x), Long.valueOf(min));
-                    }
-                    return false;
-                case 22:
-                    if (this.q) {
-                        int a2 = aal.a(true);
-                        long x2 = x();
-                        int min2 = Math.min(Math.max(a2 * 1000, x() + 10000), I());
-                        c(min2);
-                        aal.a();
-                        this.q = false;
-                        a(IEventCenter.EventType.SEEK, true, Long.valueOf(x2), Long.valueOf(min2));
-                    }
-                    return false;
-                case 23:
-                    break;
-                default:
-                    return false;
-            }
+    public boolean g(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_DPAD_UP:
+            case KeyEvent.KEYCODE_DPAD_DOWN:
+                tt();
+                return true;
+            case KeyEvent.KEYCODE_DPAD_LEFT:
+                if (this.isSliding) {
+                    int a = aal.a(false);
+                    long x = x();
+                    int min = Math.min(Math.min(a * 1000, x() + IjkMediaMetadataRetriever.IJK_ONERROR), I());
+                    c(min);
+                    aal.a();
+                    this.isSliding = false;
+                    a(IEventCenter.EventType.SEEK, false, Long.valueOf(x), Long.valueOf(min));
+                }
+                return false;
+            case KeyEvent.KEYCODE_DPAD_RIGHT:
+                if (this.isSliding) {
+                    int a2 = aal.a(true);
+                    long x2 = x();
+                    int min2 = Math.min(Math.max(a2 * 1000, x() + 10000), I());
+                    c(min2);
+                    aal.a();
+                    this.isSliding = false;
+                    a(IEventCenter.EventType.SEEK, true, Long.valueOf(x2), Long.valueOf(min2));
+                }
+                return false;
+            case KeyEvent.KEYCODE_ENTER:
+            case KeyEvent.KEYCODE_DPAD_CENTER:
+            case KeyEvent.KEYCODE_NUMPAD_ENTER:
+                T();
+                return true;
+            default:
+                return false;
         }
-        T();
-        return true;
     }
 
     private void T() {
         D();
-        if (s()) {
-            return;
-        }
-        t();
+        if(s()){if(!mybl.BiliFilter.progressbar_on && !this.n.isShown())v();}
+        else {P();super.t();}
     }
+
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // bl.xh
@@ -193,6 +192,18 @@ public class xi extends xh implements bbb<Message, Boolean> {
         a(this.t);
         P();
         if(!mybl.BiliFilter.progressbar_on)a(this.t, 6000L);
+        super.t();
+    }
+
+    public void tt() {
+        if(mybl.BiliFilter.progressbar_on){
+            if(s())v();
+            else P();
+        }else{
+            a(this.t);
+            P();
+            a(this.t, 6000L);
+        }
         super.t();
     }
 
@@ -206,8 +217,8 @@ public class xi extends xh implements bbb<Message, Boolean> {
     @Override // bl.xh
     public void v() {
         if (this.g != null && this.f != null) {
-            this.g.setVisibility(4);
-            this.f.setVisibility(4);
+            this.g.setVisibility(View.INVISIBLE);
+            this.f.setVisibility(View.INVISIBLE);
         }
         super.v();
     }
@@ -216,8 +227,8 @@ public class xi extends xh implements bbb<Message, Boolean> {
         if (this.g == null || this.f == null) {
             return;
         }
-        this.g.setVisibility(0);
-        this.f.setVisibility(0);
+        this.g.setVisibility(View.VISIBLE);
+        this.f.setVisibility(View.VISIBLE);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -318,7 +329,7 @@ public class xi extends xh implements bbb<Message, Boolean> {
         n.addPlayerEventListener(new IPlayerContext.PlayerEventListener() { // from class: bl.xi.2
             @Override // tv.danmaku.videoplayer.core.context.IPlayerContext.PlayerEventListener
             public void onPlayerEvent(int i, Object... objArr) {
-                if (i == 235) {
+                if (i == PlayerEvents.PLAYER_EVENT_RELEASED) {
                     xi.this.s = false;
                 }
             }
@@ -343,7 +354,7 @@ public class xi extends xh implements bbb<Message, Boolean> {
             currentPosition = i2;
         } else if (Math.abs(currentPosition - i2) < 5000 || i >= 3) {
             this.b.removeMessages(IjkMediaPlayer.FFP_PROP_INT64_BIT_RATE);
-            this.m.setVisibility(8);
+            this.m.setVisibility(View.GONE);
             return;
         } else {
             BLog.vfmt("BasicTVPlayerAdapter", "[%d] continue buffering due to too far seek %d -> %d", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(currentPosition));
@@ -372,7 +383,7 @@ public class xi extends xh implements bbb<Message, Boolean> {
         } else {
             A();
         }
-        v();
+        if(!mybl.BiliFilter.progressbar_on)v();
         R();
         a(IEventCenter.EventType.RESOLVE_SUCCESS, b());
     }
@@ -413,7 +424,7 @@ public class xi extends xh implements bbb<Message, Boolean> {
             this.p = 0L;
         }
         V();
-        if ((this.p == 0 || K()) && !this.q) {
+        if ((this.p == 0 || K()) && !this.isSliding) {
             int I = I();
             int x = x();
             if (I > 0 && x > -1) {
@@ -572,7 +583,7 @@ public class xi extends xh implements bbb<Message, Boolean> {
         if (this.n == null) {
             this.n = ((ViewStub) a(R.id.tv_toggle_icon)).inflate();
         }
-        this.n.setVisibility(z ? 0 : 8);
+        this.n.setVisibility(z ? View.VISIBLE : View.GONE);
     }
 
     @Override // bl.xh
@@ -661,7 +672,7 @@ public class xi extends xh implements bbb<Message, Boolean> {
     public void M() {
         if (this.m != null) {
             this.m.setText(R.string.buffering);
-            this.m.setVisibility(0);
+            this.m.setVisibility(View.VISIBLE);
         }
     }
 
@@ -670,7 +681,7 @@ public class xi extends xh implements bbb<Message, Boolean> {
     public void d(int i) {
         if (this.m != null) {
             this.m.setText(i);
-            this.m.setVisibility(0);
+            this.m.setVisibility(View.VISIBLE);
         }
     }
 
@@ -680,7 +691,7 @@ public class xi extends xh implements bbb<Message, Boolean> {
         if (this.m == null || !this.m.isShown()) {
             return;
         }
-        this.m.setVisibility(8);
+        this.m.setVisibility(View.GONE);
     }
 
     @Override // bl.xh
@@ -706,7 +717,7 @@ public class xi extends xh implements bbb<Message, Boolean> {
     @Override // bl.xh, tv.danmaku.videoplayer.core.videoview.IVideoView.OnExtraInfoListener
     public void onExtraInfo(int i, Object... objArr) {
         super.onExtraInfo(i, objArr);
-        if (i == 65560) {
+        if (i == IVideoView.OnExtraInfoListener.ON_MEDIA_TRY_RECONNECT_START) {
             if (this.m != null) {
                 this.m.post(new Runnable() { // from class: bl.xi.4
                     @Override // java.lang.Runnable
@@ -716,7 +727,7 @@ public class xi extends xh implements bbb<Message, Boolean> {
                 });
             }
         } else {
-            if (i != 65561 || this.m == null) {
+            if (i != IVideoView.OnExtraInfoListener.ON_MEDIA_TRY_RECONNECT_END || this.m == null) {
                 return;
             }
             this.m.post(new Runnable() { // from class: bl.xi.5

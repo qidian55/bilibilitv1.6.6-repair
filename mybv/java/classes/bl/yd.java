@@ -30,6 +30,7 @@ import tv.danmaku.videoplayer.core.context.IPlayerContext;
 import tv.danmaku.videoplayer.core.videoview.IVideoView;
 
 import mybl.VideoViewParams;
+import tv.danmaku.videoplayer.core.context.PlayerEvents;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -227,7 +228,7 @@ public class yd implements Handler.Callback, IMediaPlayer.OnCompletionListener, 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final /* synthetic */ void a(int i, Object[] objArr) {
         if (this.n != null) {
-            if (i == 234 || i == 233) {
+            if (i == PlayerEvents.PLAYER_EVENT_PAUSE || i == PlayerEvents.PLAYER_EVENT_PLAY) {
                 this.n.b();
             }
         }

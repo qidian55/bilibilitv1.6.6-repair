@@ -43,19 +43,19 @@
     .locals 1
 
     .prologue
-    .line 976
+    .line 983
     iput-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$EpisodesVideoAdapter;->this$0:Lcom/bilibili/tv/ui/video/VideoDetailActivity;
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$a;-><init>()V
 
-    .line 974
+    .line 981
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$EpisodesVideoAdapter;->data:Ljava/util/List;
 
-    .line 976
+    .line 983
     return-void
 .end method
 
@@ -65,10 +65,10 @@
     .locals 2
 
     .prologue
-    .line 999
+    .line 1006
     iget-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$EpisodesVideoAdapter;->data:Ljava/util/List;
 
-    .line 1000
+    .line 1007
     if-eqz v0, :cond_a
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
@@ -77,11 +77,11 @@
 
     if-eqz v1, :cond_c
 
-    .line 1001
+    .line 1008
     :cond_a
     const/4 v0, 0x0
 
-    .line 1003
+    .line 1010
     :goto_b
     return v0
 
@@ -97,12 +97,12 @@
     .locals 1
 
     .prologue
-    .line 980
+    .line 987
     const-string v0, "parent"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 981
+    .line 988
     sget-object v0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;->Companion:Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$a;
 
     invoke-virtual {v0, p1}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f$a;->a(Landroid/view/ViewGroup;)Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
@@ -118,29 +118,29 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 986
+    .line 993
     const-string v0, "holder"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 987
+    .line 994
     instance-of v0, p1, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
 
     if-nez v0, :cond_1b
 
     move-object v0, v1
 
-    .line 990
+    .line 997
     :goto_b
     check-cast v0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;
 
-    .line 991
+    .line 998
     if-eqz v0, :cond_1a
 
-    .line 992
+    .line 999
     iget-object v2, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$EpisodesVideoAdapter;->data:Ljava/util/List;
 
-    .line 993
+    .line 1000
     if-eqz v2, :cond_17
 
     invoke-interface {v2, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -150,7 +150,7 @@
     :cond_17
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$f;->b(Ljava/lang/Object;)V
 
-    .line 995
+    .line 1002
     :cond_1a
     return-void
 
@@ -173,17 +173,17 @@
     .end annotation
 
     .prologue
-    .line 1007
+    .line 1014
     const-string v0, "list"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1008
+    .line 1015
     iput-object p1, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity$EpisodesVideoAdapter;->data:Ljava/util/List;
 
-    .line 1009
+    .line 1016
     invoke-virtual {p0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity$EpisodesVideoAdapter;->d()V
 
-    .line 1010
+    .line 1017
     return-void
 .end method

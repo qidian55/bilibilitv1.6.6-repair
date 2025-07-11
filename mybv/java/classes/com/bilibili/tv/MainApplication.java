@@ -109,6 +109,8 @@ public class MainApplication extends Application {
         BiliFilter.progressbar_on=config.getBoolean("progressbar_on");
         BiliFilter.fastquit_on=config.getBoolean("fastquit_on");
         mybl.VideoViewParams.prefect_cdn=config.getString("prefect_cdn");
+        bl.afm3.prefect_codec=config.getString("prefect_codec");
+        bl.afm3.prefect_decoder=config.getString("prefect_decoder");
         try{BiliFilter.updateConfig();}catch(Exception e){e.printStackTrace();}
         JSONArray myarea_map=config.getJSONArray("myarea_map");
         if(myarea_map==null||myarea_map.size()!=afc.MyMap.length)abd.set_personal_config(this,"myarea_map",JSON.toJSON(afc.MyMap));

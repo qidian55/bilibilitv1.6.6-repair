@@ -68,15 +68,17 @@ import kotlin.TypeCastException;
 import retrofit2.HttpException;
 import tv.danmaku.ijk.media.player.IjkMediaCodecInfo;
 import tv.danmaku.videoplayer.core.pluginapk.PluginApk;
-import u.aly.au;
 
 import mybl.MyBiliApiService;
+import android.app.AlertDialog;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import android.content.DialogInterface;
+import com.bilibili.tv.api.favorite.BiliFavoriteBox;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
-public final class VideoDetailActivity extends BaseActivity implements View.OnClickListener, wf {
+public final class VideoDetailActivity extends BaseActivity implements View.OnClickListener, View.OnLongClickListener, wf {
     private static final String C = "VideoDetailActivity";
     private static final String D = "bundle_ac_id";
     private i A;
@@ -180,6 +182,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             drawLinearLayout.setOnFocusChangeListener(dVar);
             drawLinearLayout.setUpDrawable(R.drawable.shadow_red_rect);
             drawLinearLayout.setOnClickListener(this);
+            drawLinearLayout.setOnLongClickListener(this);
             drawLinearLayout.findViewById(R.id.video_detail_favorite_text).setVisibility(8);
         }
 
@@ -188,7 +191,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             drawLinearLayout.setOnFocusChangeListener(dVar);
             drawLinearLayout.setUpDrawable(R.drawable.shadow_red_rect);
             drawLinearLayout.setOnClickListener(this);
-            drawLinearLayout.setOnLongClickListener(new LikeButtonListener());
+            drawLinearLayout.setOnLongClickListener(this);
             drawLinearLayout.findViewById(R.id.video_detail_like_text).setVisibility(8);
         }
         drawLinearLayout = (DrawLinearLayout) d(R.id.video_detail_coin);
@@ -196,7 +199,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             drawLinearLayout.setOnFocusChangeListener(dVar);
             drawLinearLayout.setUpDrawable(R.drawable.shadow_red_rect);
             drawLinearLayout.setOnClickListener(this);
-            drawLinearLayout.setOnLongClickListener(new CoinButtonListener());
+            drawLinearLayout.setOnLongClickListener(this);
             drawLinearLayout.findViewById(R.id.video_detail_coin_text).setVisibility(8);
         }
 
@@ -339,46 +342,50 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
     }
 
 
-    final class LikeButtonListener implements View.OnLongClickListener {
-        LikeButtonListener() {
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public final boolean onLongClick(View view) {
-            BiliVideoDetail biliVideoDetail = VideoDetailActivity.this.u;
-            bbi.b(view, "v");
-            mg a2 = mg.a(VideoDetailActivity.this);
-            bbi.a((Object) a2, "BiliAccount.get(this)");
-            if (!a2.a()) {
-                lr.a(VideoDetailActivity.this, (int) R.string.bangumi_not_login);
-                LoginActivity.Companion.a(VideoDetailActivity.this, H);
-                return true;
-            }
-            VideoDetailActivity.this.tripleVideo();
+    @Override // android.view.View.OnLongClickListener
+    public final boolean onLongClick(View view) {
+        BiliVideoDetail biliVideoDetail = VideoDetailActivity.this.u;
+        bbi.b(view, "v");
+        mg biliAccount = mg.a(VideoDetailActivity.this);
+        bbi.a((Object) biliAccount, "BiliAccount.get(this)");
+        if (!biliAccount.a()) {
+            lr.a(VideoDetailActivity.this, (int) R.string.bangumi_not_login);
+            LoginActivity.Companion.a(VideoDetailActivity.this, H);
             return true;
         }
+        int id = view.getId();
+        if (id == R.id.video_detail_like) VideoDetailActivity.this.tripleVideo();
+        else if (id == R.id.video_detail_coin) VideoDetailActivity.this.coinVideo(2,1);
+        else if (id == R.id.video_detail_favorite) {
+            ((BiliFavoriteVideoApiService) vo.a(BiliFavoriteVideoApiService.class)).getStatedBoxList(biliAccount.e(), Long.valueOf(biliAccount.d()), 0L).a(new BiliFavoriteBoxResponse());
+        }
+        return true;
     }
 
-    final class CoinButtonListener implements View.OnLongClickListener {
-        CoinButtonListener() {
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public final boolean onLongClick(View view) {
-            BiliVideoDetail biliVideoDetail = VideoDetailActivity.this.u;
-            bbi.b(view, "v");
-            mg a2 = mg.a(VideoDetailActivity.this);
-            bbi.a((Object) a2, "BiliAccount.get(this)");
-            if (!a2.a()) {
-                lr.a(VideoDetailActivity.this, (int) R.string.bangumi_not_login);
-                LoginActivity.Companion.a(VideoDetailActivity.this, H);
-                return true;
+    public final class BiliFavoriteBoxResponse extends vn<List<BiliFavoriteBox>> {
+        /* JADX DEBUG: Method merged with bridge method: a(Ljava/lang/Object;)V */
+        @Override // bl.vn
+        public void a(List<BiliFavoriteBox> list) {
+            List<String> fids = new ArrayList<String>();
+            List<String> names = new ArrayList<String>();
+            for(int i=0;i<list.size();i++){
+                fids.add(String.valueOf(list.get(i).getMId()));
+                names.add(list.get(i).getMName());
             }
-            VideoDetailActivity.this.coinVideo(2,1);
-            return true;
+            AlertDialog dialog = new AlertDialog.Builder(VideoDetailActivity.this)
+                .setItems(names.toArray(new String[0]), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (VideoDetailActivity.this.u != null && VideoDetailActivity.this.u.isFavoriteVideo())VideoDetailActivity.this.q(fids.get(which));
+                        else VideoDetailActivity.this.p(fids.get(which));
+                    }
+                }).create();
+            dialog.show();
         }
-    }
 
+        @Override // bl.vm
+        public void onError(Throwable th){}
+    }
 
     private final void m() {
         Intent intent = getIntent();
@@ -501,9 +508,9 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         return false;
     }
 
-    private final String b(BiliVideoDetail biliVideoDetail) {
-        if ((biliVideoDetail != null ? biliVideoDetail.mBangumiInfo : null) != null) {
-            String str = biliVideoDetail.mBangumiInfo.mSeasonId;
+    private final String b(BiliVideoDetail video) {
+        if ((video != null ? video.mBangumiInfo : null) != null) {
+            String str = video.mBangumiInfo.mSeasonId;
             bbi.a((Object) str, "video.mBangumiInfo.mSeasonId");
             return str;
         }
@@ -549,11 +556,11 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             }
             BiliVideoDetail biliVideoDetail2 = this.u;
             if (biliVideoDetail2 != null && biliVideoDetail2.isFavoriteVideo()) {
-                q();
+                q("0");
                 ok.a("tv_video_view_click_fav", "action", "取消收藏");
                 return;
             }
-            p();
+            p("0");
             ok.a("tv_video_view_click_fav", "action", "收藏");
         } else if (id != R.id.video_detail_more_btn) {
             if (id == R.id.video_detail_up_text && (biliVideoDetail = this.u) != null) {
@@ -623,7 +630,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         }
     }
 
-    private final void p() {
+    private final void p(String fid) {
         if (this.B) {
             return;
         }
@@ -631,7 +638,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         BiliFavoriteVideoApiService biliFavoriteVideoApiService = (BiliFavoriteVideoApiService) vo.a(BiliFavoriteVideoApiService.class);
         mg a2 = mg.a(this);
         bbi.a((Object) a2, "BiliAccount.get(this)");
-        biliFavoriteVideoApiService.addVideoToList(a2.e(), "0", this.s, "0").a(new l());
+        biliFavoriteVideoApiService.addVideoToList(a2.e(), fid, this.s, "0").a(new l());
     }
 
     /* compiled from: BL */
@@ -667,14 +674,14 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         }
     }
 
-    private final void q() {
+    private final void q(String fid) {
         if (this.B) {
             return;
         }
         this.B = true;
         mg a2 = mg.a(this);
         bbi.a((Object) a2, "BiliAccount.get(this)");
-        ((BiliFavoriteVideoApiService) vo.a(BiliFavoriteVideoApiService.class)).deleteVideoFromList(a2.e(), "0", this.s).a(new m());
+        ((BiliFavoriteVideoApiService) vo.a(BiliFavoriteVideoApiService.class)).deleteVideoFromList(a2.e(), fid, this.s).a(new m());
     }
 
     /* compiled from: BL */
@@ -1618,7 +1625,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         }
 
         public final Intent a(Context context, long i) {
-            bbi.b(context, au.aD);
+            bbi.b(context, "context");
             Intent intent = new Intent(context, VideoDetailActivity.class);
             Bundle bundle = new Bundle();
             bundle.putLong(a(), i);

@@ -86,8 +86,8 @@ public class xw extends xh implements bbb<Message, Boolean>, PlayerMenuRight.a {
     }
 
     @Override // bl.xh
-    public boolean f(int i, KeyEvent keyEvent) {
-        if ((i == 23 || i == 66 || i == 160) && !this.f) {
+    public boolean f(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_ENTER || keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER) && !this.f) {
             this.f = true;
             a(this.g);
             a(this.g, ViewConfiguration.getLongPressTimeout());
@@ -96,33 +96,27 @@ public class xw extends xh implements bbb<Message, Boolean>, PlayerMenuRight.a {
     }
 
     @Override // bl.xh
-    public boolean g(int i, KeyEvent keyEvent) {
-        if (i == 4) {
-            if (R()) {
-                d(false);
-                return true;
-            }
-        } else {
-            if (i != 23 && i != 66) {
-                if (i == 82) {
-                    d(!R());
+    public boolean g(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                if (R()) {
+                    d(false);
                     return true;
-                } else if (i != 160) {
-                    switch (i) {
-                        case 19:
-                        case 20:
-                            return R();
-                    }
                 }
-            }
-            boolean R = R();
-            if (this.f) {
-                a(this.g);
-            }
-            this.f = false;
-            return R;
+                return false;
+            case KeyEvent.KEYCODE_MENU:
+                d(!R());
+                return true;
+            case KeyEvent.KEYCODE_DPAD_UP:
+            case KeyEvent.KEYCODE_DPAD_DOWN:
+                return R();
+            default:
+                if (this.f) {
+                    a(this.g);
+                }
+                this.f = false;
+                return R();
         }
-        return false;
     }
 
     @Override // com.bilibili.tv.player.widget.PlayerMenuRight.a
