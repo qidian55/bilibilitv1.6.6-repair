@@ -28,57 +28,59 @@
     .locals 0
 
     .prologue
-    .line 575
+    .line 578
     iput-object p1, p0, Lcom/bilibili/tv/ui/main/MainActivity$d$b;->this$0:Lcom/bilibili/tv/ui/main/MainActivity$d;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 576
+    .line 579
     iput p2, p0, Lcom/bilibili/tv/ui/main/MainActivity$d$b;->b:I
 
-    .line 577
+    .line 580
     return-void
 .end method
 
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 4
+    .locals 5
 
     .prologue
     const v2, 0x7f0c0179
 
+    const/4 v4, 0x6
+
     const/4 v3, 0x1
 
-    .line 581
+    .line 584
     const-string v0, "v"
 
     invoke-static {p1, v0}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 582
+    .line 585
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 583
+    .line 586
     const-string v1, "v.context"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 584
+    .line 587
     invoke-static {v0}, Lbl/adl;->a(Landroid/content/Context;)Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 585
-    if-eqz v0, :cond_26
+    .line 588
+    if-eqz v0, :cond_27
 
-    .line 586
+    .line 589
     iget v1, p0, Lcom/bilibili/tv/ui/main/MainActivity$d$b;->b:I
 
-    if-nez v1, :cond_27
+    if-nez v1, :cond_28
 
-    .line 587
+    .line 590
     sget-object v1, Lcom/bilibili/tv/ui/search/SearchActivity;->Companion:Lcom/bilibili/tv/ui/search/SearchActivity$a;
 
     const/4 v2, 0x0
@@ -89,18 +91,18 @@
 
     invoke-virtual {v1, v0, v2}, Lcom/bilibili/tv/ui/search/SearchActivity$a;->a(Landroid/content/Context;Ljava/lang/Integer;)V
 
-    .line 605
-    :cond_26
-    :goto_26
+    .line 608
+    :cond_27
+    :goto_27
     return-void
 
-    .line 588
-    :cond_27
+    .line 591
+    :cond_28
     iget v1, p0, Lcom/bilibili/tv/ui/main/MainActivity$d$b;->b:I
 
-    if-ne v1, v3, :cond_4c
+    if-ne v1, v3, :cond_4d
 
-    .line 589
+    .line 592
     iget-object v0, p0, Lcom/bilibili/tv/ui/main/MainActivity$d$b;->this$0:Lcom/bilibili/tv/ui/main/MainActivity$d;
 
     # getter for: Lcom/bilibili/tv/ui/main/MainActivity$d;->b:Landroid/util/SparseArray;
@@ -116,7 +118,7 @@
 
     invoke-virtual {v0, v2}, Lcom/bilibili/tv/ui/main/MainActivity$MainTitle;->setResId(I)V
 
-    .line 590
+    .line 593
     const v0, 0x7f080132
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -127,28 +129,28 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
-    .line 591
-    sget-object v0, Lbl/afd;->_this:Lbl/afd;
+    .line 594
+    sget-object v0, Lcom/bilibili/tv/ui/main/content/MainRecommendFragment;->_this:Lcom/bilibili/tv/ui/main/content/MainRecommendFragment;
 
-    invoke-virtual {v0}, Lbl/afd;->getRecommendVideos()V
+    invoke-virtual {v0}, Lcom/bilibili/tv/ui/main/content/MainRecommendFragment;->getRecommendVideos()V
 
-    goto :goto_26
+    goto :goto_27
 
-    .line 592
-    :cond_4c
+    .line 595
+    :cond_4d
     iget v1, p0, Lcom/bilibili/tv/ui/main/MainActivity$d$b;->b:I
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_64
+    if-ne v1, v2, :cond_65
 
-    .line 593
+    .line 596
     iget-object v1, p0, Lcom/bilibili/tv/ui/main/MainActivity$d$b;->this$0:Lcom/bilibili/tv/ui/main/MainActivity$d;
 
     # operator++ for: Lcom/bilibili/tv/ui/main/MainActivity$d;->a:I
     invoke-static {v1}, Lcom/bilibili/tv/ui/main/MainActivity$d;->access$308(Lcom/bilibili/tv/ui/main/MainActivity$d;)I
 
-    .line 594
+    .line 597
     iget-object v1, p0, Lcom/bilibili/tv/ui/main/MainActivity$d$b;->this$0:Lcom/bilibili/tv/ui/main/MainActivity$d;
 
     # getter for: Lcom/bilibili/tv/ui/main/MainActivity$d;->a:I
@@ -158,52 +160,29 @@
 
     const/16 v2, 0x1b
 
-    if-lt v1, v2, :cond_26
+    if-lt v1, v2, :cond_27
 
-    .line 595
+    .line 598
     invoke-static {v0, v3}, Lbl/abd;->b(Landroid/content/Context;Z)V
 
-    goto :goto_26
+    goto :goto_27
 
-    .line 597
-    :cond_64
+    .line 600
+    :cond_65
     iget v1, p0, Lcom/bilibili/tv/ui/main/MainActivity$d$b;->b:I
 
     const/4 v2, 0x4
 
     if-ne v1, v2, :cond_7e
 
-    .line 598
+    .line 601
     iget-object v1, p0, Lcom/bilibili/tv/ui/main/MainActivity$d$b;->this$0:Lcom/bilibili/tv/ui/main/MainActivity$d;
 
     invoke-virtual {v1}, Lcom/bilibili/tv/ui/main/MainActivity$d;->a()I
 
     move-result v1
 
-    const/4 v2, 0x6
-
-    if-ge v1, v2, :cond_26
-
-    .line 599
-    sget-object v1, Lcom/bilibili/tv/ui/setting/SettingActivity;->Companion:Lcom/bilibili/tv/ui/setting/SettingActivity$a;
-
-    sget-object v2, Lcom/bilibili/tv/ui/setting/SettingActivity;->Companion:Lcom/bilibili/tv/ui/setting/SettingActivity$a;
-
-    invoke-virtual {v2}, Lcom/bilibili/tv/ui/setting/SettingActivity$a;->b()I
-
-    move-result v2
-
-    invoke-virtual {v1, v0, v2}, Lcom/bilibili/tv/ui/setting/SettingActivity$a;->a(Landroid/content/Context;I)V
-
-    goto :goto_26
-
-    .line 601
-    :cond_7e
-    iget v1, p0, Lcom/bilibili/tv/ui/main/MainActivity$d$b;->b:I
-
-    const/4 v2, 0x5
-
-    if-ne v1, v2, :cond_26
+    if-ge v1, v4, :cond_27
 
     .line 602
     sget-object v1, Lcom/bilibili/tv/ui/setting/SettingActivity;->Companion:Lcom/bilibili/tv/ui/setting/SettingActivity$a;
@@ -216,5 +195,24 @@
 
     invoke-virtual {v1, v0, v2}, Lcom/bilibili/tv/ui/setting/SettingActivity$a;->a(Landroid/content/Context;I)V
 
-    goto :goto_26
+    goto :goto_27
+
+    .line 604
+    :cond_7e
+    iget v1, p0, Lcom/bilibili/tv/ui/main/MainActivity$d$b;->b:I
+
+    if-ne v1, v4, :cond_27
+
+    .line 605
+    sget-object v1, Lcom/bilibili/tv/ui/setting/SettingActivity;->Companion:Lcom/bilibili/tv/ui/setting/SettingActivity$a;
+
+    sget-object v2, Lcom/bilibili/tv/ui/setting/SettingActivity;->Companion:Lcom/bilibili/tv/ui/setting/SettingActivity$a;
+
+    invoke-virtual {v2}, Lcom/bilibili/tv/ui/setting/SettingActivity$a;->b()I
+
+    move-result v2
+
+    invoke-virtual {v1, v0, v2}, Lcom/bilibili/tv/ui/setting/SettingActivity$a;->a(Landroid/content/Context;I)V
+
+    goto :goto_27
 .end method

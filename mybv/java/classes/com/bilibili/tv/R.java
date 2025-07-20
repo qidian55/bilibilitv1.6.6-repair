@@ -3016,6 +3016,12 @@ public final class R {
         public static final int personal_recommend = 0x7f0c0179;
         public static final int my_follow = 0x7f0c017a;
         public static final int my_toview = 0x7f0c017b;
+        public static final int pgc = 0x7f0c017c;
+        public static final int pgc_main_follow = 0x7f0c017d;
+        public static final int pgc_time = 0x7f0c017e;
+        public static final int area_movie = 0x7f0c017f;
+        public static final int area_tv = 0x7f0c0180;
+        public static final int area_doc = 0x7f0c0181;
     }
 
     public static final class style {

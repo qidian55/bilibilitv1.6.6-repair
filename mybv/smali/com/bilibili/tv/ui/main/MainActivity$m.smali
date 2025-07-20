@@ -26,7 +26,7 @@
     .locals 1
 
     .prologue
-    .line 764
+    .line 767
     new-instance v0, Lcom/bilibili/tv/ui/main/MainActivity$m;
 
     invoke-direct {v0}, Lcom/bilibili/tv/ui/main/MainActivity$m;-><init>()V
@@ -40,10 +40,10 @@
     .locals 0
 
     .prologue
-    .line 766
+    .line 769
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 767
+    .line 770
     return-void
 .end method
 
@@ -53,9 +53,9 @@
     .locals 0
 
     .prologue
-    .line 771
+    .line 774
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
-    .line 772
+    .line 775
     return-void
 .end method

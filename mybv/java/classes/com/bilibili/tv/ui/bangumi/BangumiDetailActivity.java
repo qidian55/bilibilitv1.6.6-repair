@@ -660,23 +660,20 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
             }
             textView6.setText(bangumiUniformSeason4.evaluate);
             a();
-            BangumiUniformSeason bangumiUniformSeason5 = BangumiDetailActivity.this.A;
-            BangumiDetailActivity bangumiDetailActivity2 = BangumiDetailActivity.this;
-            if (bangumiUniformSeason5 == null) {
-                bbi.a();
+            if (BangumiDetailActivity.this.A.userStatus != null) {
+                BangumiDetailActivity.this.v = BangumiDetailActivity.this.A.userStatus.isFollowed;
             }
-            if (bangumiUniformSeason5.userStatus != null && bangumiUniformSeason5.userStatus.isFollowed) {
-                z = true;
-            }
-            bangumiDetailActivity2.v = z;
             BangumiDetailActivity.this.o();
             b(BangumiDetailActivity.this.A);
             mg a = mg.a(BangumiDetailActivity.this);
             bbi.a((Object) a, "BiliAccount.get(this@BangumiDetailActivity)");
-            if (a.a()) {
-                BangumiDetailActivity.this.j();
-            }
+            //if (a.a() && ads.a(BangumiDetailActivity.this.A)) {
+            //    BangumiDetailActivity.this.j();
+            //}
             a(BangumiDetailActivity.this.A);
+            if (BangumiDetailActivity.this.A.userStatus != null && BangumiDetailActivity.this.A.userStatus.watchProgress != null) {
+                BangumiDetailActivity.this.b(String.valueOf(BangumiDetailActivity.this.A.userStatus.watchProgress.lastEpId));
+            }
         }
 
         @Override // bl.vm

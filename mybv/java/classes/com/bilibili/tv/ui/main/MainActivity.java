@@ -32,7 +32,6 @@ import bl.adv;
 import bl.adz;
 import bl.aey;
 import bl.aez;
-import bl.afc;
 import bl.afr;
 import bl.agb;
 import bl.azo;
@@ -65,7 +64,8 @@ import java.util.Locale;
 import java.util.concurrent.Callable;
 import kotlin.TypeCastException;
 
-import bl.afd;
+import com.bilibili.tv.ui.main.content.MainRecommendFragment;
+import com.bilibili.tv.ui.main.content.MainMyFragment;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -267,8 +267,10 @@ public final class MainActivity extends BaseActivity {
                 } else {
                     i = -this.d;
                 }
+            } else if (f == 5) {
+                i = -this.d;
             } else {
-                i = f == 5 ? this.e : 0;
+                i = f == 6 ? this.e : 0;
             }
             rect.set(i, 0, 0, 0);
         }
@@ -481,15 +483,15 @@ public final class MainActivity extends BaseActivity {
     }
 
     @Override // android.support.v7.app.AppCompatActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
-        bbi.b(keyEvent, "event");
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        bbi.b(event, "event");
         View currentFocus = getCurrentFocus();
-        if (i2 == 4 || i2 == 8) {
+        if (keyCode == KeyEvent.KEYCODE_BACK || keyCode == 8) {
             p();
             return true;
         }
-        switch (i2) {
-            case 20:
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_DPAD_DOWN:
                 d dVar = this.d;
                 if (dVar != null && currentFocus != null) {
                     Object tag = currentFocus.getTag(R.id.main_title_position);
@@ -499,7 +501,7 @@ public final class MainActivity extends BaseActivity {
                 }
                 break;
         }
-        return super.onKeyDown(i2, keyEvent);
+        return super.onKeyDown(keyCode, event);
     }
 
     /* compiled from: BL */
@@ -525,8 +527,9 @@ public final class MainActivity extends BaseActivity {
                 this.b.put(1, new MainTitle(e, R.string.hot_recommend));
                 this.b.put(2, new MainTitle(e, R.string.area));
                 this.b.put(3, new MainTitle(e, R.string.bangumi));
-                this.b.put(4, new MainTitle(e, R.string.my));
-                this.b.put(5, new MainTitle(f, R.drawable.selector_main_setting));
+                this.b.put(4, new MainTitle(e, R.string.pgc));
+                this.b.put(5, new MainTitle(e, R.string.my));
+                this.b.put(6, new MainTitle(f, R.drawable.selector_main_setting));
                 return;
             }
             this.b.put(1, new MainTitle(e, R.string.hot_recommend));
@@ -588,7 +591,7 @@ public final class MainActivity extends BaseActivity {
                     } else if (this.b == 1){
                         d.this.b.get(1).setResId(R.string.personal_recommend);
                         ((TextView)view.findViewById(R.id.title)).setText(R.string.personal_recommend);
-                        afd._this.getRecommendVideos();
+                        MainRecommendFragment._this.getRecommendVideos();
                     } else if (this.b == 2) {
                         d.this.a++;
                         if (d.this.a >= 27) {
@@ -598,7 +601,7 @@ public final class MainActivity extends BaseActivity {
                         if (d.this.a() < 6) {
                             SettingActivity.Companion.a(a, SettingActivity.Companion.b());
                         }
-                    } else if (this.b == 5) {
+                    } else if (this.b == 6) {
                         SettingActivity.Companion.a(a, SettingActivity.Companion.b());
                     }
                 }
@@ -775,12 +778,12 @@ public final class MainActivity extends BaseActivity {
     public final void l() {
         aey aeyVar = this.e;
         Fragment a2 = aeyVar != null ? aeyVar.a() : null;
-        if (!(a2 instanceof afc)) {
+        if (!(a2 instanceof MainMyFragment)) {
             a2 = null;
         }
-        afc afcVar = (afc) a2;
-        if (afcVar != null) {
-            afcVar.e();
+        MainMyFragment MainMyFragmentVar = (MainMyFragment) a2;
+        if (MainMyFragmentVar != null) {
+            MainMyFragmentVar.e();
         }
     }
 

@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/afd;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
+    value = Lcom/bilibili/tv/ui/main/content/MainRecommendFragment;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic z:Lbl/afd;
+.field final synthetic z:Lcom/bilibili/tv/ui/main/content/MainRecommendFragment;
 
 
 # direct methods
-.method public constructor <init>(Lbl/afd;Landroid/content/Context;IIZ)V
+.method public constructor <init>(Lcom/bilibili/tv/ui/main/content/MainRecommendFragment;Landroid/content/Context;IIZ)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -30,7 +30,7 @@
     .end annotation
 
     .line 76
-    iput-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainRecommendFragment$onViewCreated$1;->z:Lbl/afd;
+    iput-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainRecommendFragment$onViewCreated$1;->z:Lcom/bilibili/tv/ui/main/content/MainRecommendFragment;
 
     .line 77
     invoke-direct {p0, p2, p3, p4, p5}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;-><init>(Landroid/content/Context;IIZ)V
@@ -131,9 +131,9 @@
     if-nez v1, :cond_a
 
     .line 89
-    iget-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainRecommendFragment$onViewCreated$1;->z:Lbl/afd;
+    iget-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainRecommendFragment$onViewCreated$1;->z:Lcom/bilibili/tv/ui/main/content/MainRecommendFragment;
 
-    invoke-virtual {p1}, Lbl/afd;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    invoke-virtual {p1}, Lcom/bilibili/tv/ui/main/content/MainRecommendFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object p1
 
@@ -166,9 +166,9 @@
     .line 83
     :cond_7
     :goto_1
-    iget-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainRecommendFragment$onViewCreated$1;->z:Lbl/afd;
+    iget-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainRecommendFragment$onViewCreated$1;->z:Lcom/bilibili/tv/ui/main/content/MainRecommendFragment;
 
-    invoke-virtual {p1}, Lbl/afd;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    invoke-virtual {p1}, Lcom/bilibili/tv/ui/main/content/MainRecommendFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object p1
 

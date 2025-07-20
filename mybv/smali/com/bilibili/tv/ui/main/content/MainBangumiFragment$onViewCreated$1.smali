@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/afb;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
+    value = Lcom/bilibili/tv/ui/main/content/MainBangumiFragment;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic z:Lbl/afb;
+.field final synthetic z:Lcom/bilibili/tv/ui/main/content/MainBangumiFragment;
 
 
 # direct methods
-.method public constructor <init>(Lbl/afb;Landroid/content/Context;IIZ)V
+.method public constructor <init>(Lcom/bilibili/tv/ui/main/content/MainBangumiFragment;Landroid/content/Context;IIZ)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -30,7 +30,7 @@
     .end annotation
 
     .line 81
-    iput-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainBangumiFragment$onViewCreated$1;->z:Lbl/afb;
+    iput-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainBangumiFragment$onViewCreated$1;->z:Lcom/bilibili/tv/ui/main/content/MainBangumiFragment;
 
     .line 82
     invoke-direct {p0, p2, p3, p4, p5}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;-><init>(Landroid/content/Context;IIZ)V
@@ -89,9 +89,9 @@
     .line 87
     :cond_4
     :goto_1
-    iget-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainBangumiFragment$onViewCreated$1;->z:Lbl/afb;
+    iget-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainBangumiFragment$onViewCreated$1;->z:Lcom/bilibili/tv/ui/main/content/MainBangumiFragment;
 
-    invoke-virtual {p1}, Lbl/afb;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    invoke-virtual {p1}, Lcom/bilibili/tv/ui/main/content/MainBangumiFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object p1
 

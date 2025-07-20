@@ -28,16 +28,16 @@
     .locals 0
 
     .prologue
-    .line 798
+    .line 801
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 799
+    .line 802
     iput p1, p0, Lcom/bilibili/tv/ui/main/MainActivity$MainTitle;->type:I
 
-    .line 800
+    .line 803
     iput p2, p0, Lcom/bilibili/tv/ui/main/MainActivity$MainTitle;->resId:I
 
-    .line 801
+    .line 804
     return-void
 .end method
 
@@ -47,7 +47,7 @@
     .locals 1
 
     .prologue
-    .line 804
+    .line 807
     iget v0, p0, Lcom/bilibili/tv/ui/main/MainActivity$MainTitle;->resId:I
 
     return v0
@@ -57,7 +57,7 @@
     .locals 1
 
     .prologue
-    .line 808
+    .line 811
     iget v0, p0, Lcom/bilibili/tv/ui/main/MainActivity$MainTitle;->type:I
 
     return v0
@@ -67,10 +67,10 @@
     .locals 0
 
     .prologue
-    .line 812
+    .line 815
     iput p1, p0, Lcom/bilibili/tv/ui/main/MainActivity$MainTitle;->resId:I
 
-    .line 813
+    .line 816
     return-void
 .end method
 
@@ -78,9 +78,9 @@
     .locals 0
 
     .prologue
-    .line 816
+    .line 819
     iput p1, p0, Lcom/bilibili/tv/ui/main/MainActivity$MainTitle;->type:I
 
-    .line 817
+    .line 820
     return-void
 .end method

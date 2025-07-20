@@ -53,6 +53,22 @@
     .end annotation
 .end method
 
+.method public abstract getBangumiInfos()Lbl/vp;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lbl/vp",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/pgc/page/pc/bangumi/tab?is_refresh=0&cursor=0"
+    .end annotation
+.end method
+
 .method public abstract getDanmuFilter()Lbl/vp;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -191,6 +207,22 @@
 
     .annotation runtime Lretrofit2/http/GET;
         a = "/x/relation/followings"
+    .end annotation
+.end method
+
+.method public abstract getPgcInfos()Lbl/vp;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lbl/vp",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/pgc/page/pc/cinema/tab?is_refresh=0&cursor=0"
     .end annotation
 .end method
 

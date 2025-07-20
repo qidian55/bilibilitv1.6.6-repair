@@ -55,9 +55,11 @@
 
 # virtual methods
 .method public a(Landroid/graphics/Rect;Landroid/view/View;Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$s;)V
-    .locals 3
+    .locals 4
 
     .prologue
+    const/4 v3, 0x6
+
     const/4 v1, 0x0
 
     .line 250
@@ -83,14 +85,14 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1a
 
-    .line 274
-    :goto_18
+    .line 276
+    :goto_19
     return-void
 
     .line 256
-    :cond_19
+    :cond_1a
     invoke-virtual {p3, p2}, Landroid/support/v7/widget/RecyclerView;->f(Landroid/view/View;)I
 
     move-result v0
@@ -98,45 +100,45 @@
     .line 257
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_26
+    if-ne v0, v2, :cond_27
 
     .line 258
     iget v0, p0, Lcom/bilibili/tv/ui/main/MainActivity$f;->b:I
 
-    .line 273
-    :goto_22
+    .line 275
+    :goto_23
     invoke-virtual {p1, v0, v1, v1, v1}, Landroid/graphics/Rect;->set(IIII)V
 
-    goto :goto_18
+    goto :goto_19
 
     .line 259
-    :cond_26
+    :cond_27
     const/4 v2, 0x2
 
-    if-ne v0, v2, :cond_2d
+    if-ne v0, v2, :cond_2e
 
     .line 260
     iget v0, p0, Lcom/bilibili/tv/ui/main/MainActivity$f;->c:I
 
     neg-int v0, v0
 
-    goto :goto_22
+    goto :goto_23
 
     .line 261
-    :cond_2d
+    :cond_2e
     const/4 v2, 0x3
 
-    if-ne v0, v2, :cond_34
+    if-ne v0, v2, :cond_35
 
     .line 262
     iget v0, p0, Lcom/bilibili/tv/ui/main/MainActivity$f;->d:I
 
     neg-int v0, v0
 
-    goto :goto_22
+    goto :goto_23
 
     .line 263
-    :cond_34
+    :cond_35
     const/4 v2, 0x4
 
     if-ne v0, v2, :cond_4f
@@ -156,21 +158,19 @@
 
     move-result v0
 
-    :goto_43
-    const/4 v2, 0x6
-
-    if-ge v0, v2, :cond_4b
+    :goto_44
+    if-ge v0, v3, :cond_4b
 
     .line 266
     iget v0, p0, Lcom/bilibili/tv/ui/main/MainActivity$f;->e:I
 
-    goto :goto_22
+    goto :goto_23
 
     :cond_49
     move v0, v1
 
     .line 265
-    goto :goto_43
+    goto :goto_44
 
     .line 268
     :cond_4b
@@ -178,20 +178,31 @@
 
     neg-int v0, v0
 
-    goto :goto_22
+    goto :goto_23
 
-    .line 271
+    .line 270
     :cond_4f
     const/4 v2, 0x5
 
-    if-ne v0, v2, :cond_55
+    if-ne v0, v2, :cond_56
+
+    .line 271
+    iget v0, p0, Lcom/bilibili/tv/ui/main/MainActivity$f;->d:I
+
+    neg-int v0, v0
+
+    goto :goto_23
+
+    .line 273
+    :cond_56
+    if-ne v0, v3, :cond_5b
 
     iget v0, p0, Lcom/bilibili/tv/ui/main/MainActivity$f;->e:I
 
-    goto :goto_22
+    goto :goto_23
 
-    :cond_55
+    :cond_5b
     move v0, v1
 
-    goto :goto_22
+    goto :goto_23
 .end method

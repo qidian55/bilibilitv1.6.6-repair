@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 
+import com.bilibili.tv.ui.main.content.*;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public final class aey extends FragmentPagerAdapter {
@@ -17,15 +19,16 @@ public final class aey extends FragmentPagerAdapter {
         super(fm);
         bbi.b(fm, "fm");
         this.mFragments = new SparseArray<>(4);
-        this.mFragments.put(0, afd.Companion.a());
+        this.mFragments.put(0, MainRecommendFragment.Companion.a());
         if (acc.d()) {
             this.mFragments.put(1, afa.Companion.a());
-            this.mFragments.put(2, afb.Companion.a());
-            this.mFragments.put(3, afc.Companion.a());
+            this.mFragments.put(2, MainBangumiFragment.Companion.a());
+            this.mFragments.put(3, MainPgcFragment.Companion.a());
+            this.mFragments.put(4, MainMyFragment.Companion.a());
             return;
         }
         this.mFragments.put(1, afa.Companion.a());
-        this.mFragments.put(2, afc.Companion.a());
+        this.mFragments.put(2, MainMyFragment.Companion.a());
     }
 
     public final Fragment a() {
@@ -47,16 +50,19 @@ public final class aey extends FragmentPagerAdapter {
     @Override // bl.cy
     public CharSequence getPageTitle(int position) {
         Fragment fragment = this.mFragments.get(position);
-        if (fragment instanceof afd) {
+        if (fragment instanceof MainRecommendFragment) {
             return "热门推荐";
         }
         if (fragment instanceof afa) {
             return "分区";
         }
-        if (fragment instanceof afb) {
+        if (fragment instanceof MainBangumiFragment) {
             return "番剧";
         }
-        if (fragment instanceof afc) {
+        if (fragment instanceof MainPgcFragment) {
+            return "影视";
+        }
+        if (fragment instanceof MainMyFragment) {
             return "我的";
         }
         return "";

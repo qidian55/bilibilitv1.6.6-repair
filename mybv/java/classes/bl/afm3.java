@@ -14,6 +14,7 @@ import mybl.VideoViewParams;
 import android.app.AlertDialog;
 import com.alibaba.fastjson.*;
 import android.content.DialogInterface;
+import com.bilibili.tv.ui.main.content.MainMyFragment;
 
 import java.io.*;
 import java.nio.*;
@@ -120,7 +121,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
             this.tab_buttons[i].setUpDrawable(R.drawable.shadow_white_rect);
             this.tab_buttons[i].setOnFocusChangeListener(this);
             this.tab_buttons[i].setOnClickListener(this);
-            ((ShadowTextView)this.tab_buttons[i].getChildAt(0)).setText(afm3.tab_names[afc.MyMap[i]]);
+            ((ShadowTextView)this.tab_buttons[i].getChildAt(0)).setText(afm3.tab_names[MainMyFragment.MyMap[i]]);
         }
         return inflate;
     }
@@ -290,11 +291,11 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         }
         for(int i=1;i<6;i++){
             if(this.tab_buttons[i]==view){
-                int t=afc.MyMap[i];
-                for(int j=i-1;j>=1;j--)afc.MyMap[j+1]=afc.MyMap[j];
-                afc.MyMap[1]=t;
-                abd.set_personal_config(MainApplication.a(),"myarea_map",JSON.toJSON(afc.MyMap));
-                for(int j=1;j<6;j++)((ShadowTextView)this.tab_buttons[j].getChildAt(0)).setText((j==i?"≪ ":"")+afm3.tab_names[afc.MyMap[j]]);
+                int t=MainMyFragment.MyMap[i];
+                for(int j=i-1;j>=1;j--)MainMyFragment.MyMap[j+1]=MainMyFragment.MyMap[j];
+                MainMyFragment.MyMap[1]=t;
+                abd.set_personal_config(MainApplication.a(),"myarea_map",JSON.toJSON(MainMyFragment.MyMap));
+                for(int j=1;j<6;j++)((ShadowTextView)this.tab_buttons[j].getChildAt(0)).setText((j==i?"≪ ":"")+afm3.tab_names[MainMyFragment.MyMap[j]]);
             }
         }
     }
@@ -328,7 +329,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
             ((afz)view).setUpEnabled(false);
         }
         for(int i=1;i<6;i++){
-            if(this.tab_buttons[i]==view && this.tab_buttons[i].getChildAt(0)!=null)((ShadowTextView)this.tab_buttons[i].getChildAt(0)).setText((z?"≪ ":"")+afm3.tab_names[afc.MyMap[i]]);
+            if(this.tab_buttons[i]==view && this.tab_buttons[i].getChildAt(0)!=null)((ShadowTextView)this.tab_buttons[i].getChildAt(0)).setText((z?"≪ ":"")+afm3.tab_names[MainMyFragment.MyMap[i]]);
         }
     }
 

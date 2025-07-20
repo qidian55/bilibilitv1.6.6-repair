@@ -42,11 +42,11 @@ import com.umeng.analytics.BiliUmeng;
 
 import bl.kz;
 import bl.abd;
-import bl.afc;
 import java.io.*;
 import mybl.BiliFilter;
 import com.alibaba.fastjson.*;
 import com.bilibili.tv.player.widget.PlayerMenuRight;
+import com.bilibili.tv.ui.main.content.MainMyFragment;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -113,9 +113,9 @@ public class MainApplication extends Application {
         bl.afm3.prefect_decoder=config.getString("prefect_decoder");
         try{BiliFilter.updateConfig();}catch(Exception e){e.printStackTrace();}
         JSONArray myarea_map=config.getJSONArray("myarea_map");
-        if(myarea_map==null||myarea_map.size()!=afc.MyMap.length)abd.set_personal_config(this,"myarea_map",JSON.toJSON(afc.MyMap));
+        if(myarea_map==null||myarea_map.size()!=MainMyFragment.MyMap.length)abd.set_personal_config(this,"myarea_map",JSON.toJSON(MainMyFragment.MyMap));
         else{
-            for(int i=0;i<myarea_map.size();i++)afc.MyMap[i]=myarea_map.getIntValue(i);
+            for(int i=0;i<myarea_map.size();i++)MainMyFragment.MyMap[i]=myarea_map.getIntValue(i);
         }
 
         InputStream inputStream=null;

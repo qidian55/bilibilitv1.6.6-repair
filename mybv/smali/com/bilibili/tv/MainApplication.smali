@@ -421,7 +421,7 @@
 
     move-result v3
 
-    sget-object v4, Lbl/afc;->MyMap:[I
+    sget-object v4, Lcom/bilibili/tv/ui/main/content/MainMyFragment;->MyMap:[I
 
     array-length v4, v4
 
@@ -430,7 +430,7 @@
     :cond_76
     const-string v0, "myarea_map"
 
-    sget-object v2, Lbl/afc;->MyMap:[I
+    sget-object v2, Lcom/bilibili/tv/ui/main/content/MainMyFragment;->MyMap:[I
 
     invoke-static {v2}, Lcom/alibaba/fastjson/JSON;->toJSON(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -500,7 +500,7 @@
 
     if-ge v2, v3, :cond_81
 
-    sget-object v3, Lbl/afc;->MyMap:[I
+    sget-object v3, Lcom/bilibili/tv/ui/main/content/MainMyFragment;->MyMap:[I
 
     invoke-virtual {v0, v2}, Lcom/alibaba/fastjson/JSONArray;->getIntValue(I)I
 

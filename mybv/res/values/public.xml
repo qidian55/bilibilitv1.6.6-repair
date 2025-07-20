@@ -2981,6 +2981,12 @@
     <public type="string" name="personal_recommend" id="0x7f0c0179" />
     <public type="string" name="my_follow" id="0x7f0c017a" />
     <public type="string" name="my_toview" id="0x7f0c017b" />
+    <public type="string" name="pgc" id="0x7f0c017c" />
+    <public type="string" name="pgc_main_follow" id="0x7f0c017d" />
+    <public type="string" name="pgc_time" id="0x7f0c017e" />
+    <public type="string" name="area_movie" id="0x7f0c017f" />
+    <public type="string" name="area_tv" id="0x7f0c0180" />
+    <public type="string" name="area_doc" id="0x7f0c0181" />
 
     <public type="style" name="AlertDialog.AppCompat" id="0x7f0d0000" />
     <public type="style" name="AlertDialog.AppCompat.Light" id="0x7f0d0001" />

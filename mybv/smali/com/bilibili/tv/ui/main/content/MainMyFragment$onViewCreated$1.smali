@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/afc;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
+    value = Lcom/bilibili/tv/ui/main/content/MainMyFragment;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic z:Lbl/afc;
+.field final synthetic z:Lcom/bilibili/tv/ui/main/content/MainMyFragment;
 
 
 # direct methods
-.method public constructor <init>(Lbl/afc;Landroid/content/Context;I)V
+.method public constructor <init>(Lcom/bilibili/tv/ui/main/content/MainMyFragment;Landroid/content/Context;I)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -30,7 +30,7 @@
     .end annotation
 
     .line 101
-    iput-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$onViewCreated$1;->z:Lbl/afc;
+    iput-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$onViewCreated$1;->z:Lcom/bilibili/tv/ui/main/content/MainMyFragment;
 
     invoke-direct {p0, p2, p3}, Lcom/bilibili/tv/widget/FixGridLayoutManager;-><init>(Landroid/content/Context;I)V
 
@@ -73,9 +73,9 @@
 
     .line 105
     :cond_2
-    iget-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$onViewCreated$1;->z:Lbl/afc;
+    iget-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$onViewCreated$1;->z:Lcom/bilibili/tv/ui/main/content/MainMyFragment;
 
-    invoke-virtual {p1}, Lbl/afc;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    invoke-virtual {p1}, Lcom/bilibili/tv/ui/main/content/MainMyFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object p1
 

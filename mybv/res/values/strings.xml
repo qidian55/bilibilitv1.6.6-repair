@@ -390,4 +390,10 @@ Jungly   农业银行"</string>
     <string name="personal_recommend">个性推荐</string>
     <string name="my_follow">关注</string>
     <string name="my_toview">稍后再看</string>
+    <string name="pgc">影视</string>
+    <string name="pgc_main_follow">追 剧</string>
+    <string name="pgc_time">时间线</string>
+    <string name="area_movie">电影</string>
+    <string name="area_tv">电视剧</string>
+    <string name="area_doc">纪录片</string>
 </resources>
