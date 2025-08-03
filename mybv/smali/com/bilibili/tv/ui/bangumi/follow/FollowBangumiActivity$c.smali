@@ -41,10 +41,10 @@
     .locals 1
 
     .prologue
-    .line 379
+    .line 340
     invoke-direct {p0}, Lbl/adz;-><init>()V
 
-    .line 380
+    .line 341
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -60,7 +60,7 @@
     .locals 1
 
     .prologue
-    .line 416
+    .line 377
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$c;->a:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -74,7 +74,7 @@
     .locals 1
 
     .prologue
-    .line 379
+    .line 340
     invoke-virtual {p0, p1, p2}, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$c;->a(Landroid/view/ViewGroup;I)Lbl/adv;
 
     move-result-object v0
@@ -86,12 +86,12 @@
     .locals 1
 
     .prologue
-    .line 391
+    .line 352
     const-string v0, "parent"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 392
+    .line 353
     const/4 v0, 0x0
 
     check-cast v0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d;
@@ -109,7 +109,7 @@
     .locals 0
 
     .prologue
-    .line 379
+    .line 340
     check-cast p1, Lbl/adv;
 
     invoke-virtual {p0, p1, p2}, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$c;->a(Lbl/adv;I)V
@@ -121,17 +121,17 @@
     .locals 4
 
     .prologue
-    .line 398
+    .line 359
     const-string v0, "viewHolder"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 399
+    .line 360
     instance-of v0, p1, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d;
 
     if-eqz v0, :cond_51
 
-    .line 400
+    .line 361
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$c;->a:Ljava/util/List;
 
     invoke-interface {v0, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -140,12 +140,12 @@
 
     check-cast v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;
 
-    .line 401
+    .line 362
     iget-object v1, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mCover:Ljava/lang/String;
 
     if-eqz v1, :cond_2d
 
-    .line 402
+    .line 363
     invoke-static {}, Lbl/nv;->a()Lbl/nv;
 
     move-result-object v2
@@ -170,7 +170,7 @@
 
     invoke-virtual {v2, v3, v1}, Lbl/nv;->a(Ljava/lang/String;Landroid/widget/ImageView;)V
 
-    .line 404
+    .line 365
     :cond_2d
     iget-object v1, v0, Lcom/bilibili/bangumi/api/BiliBangumiSeason;->mTitle:Ljava/lang/String;
 
@@ -178,7 +178,7 @@
 
     move-object v1, p1
 
-    .line 405
+    .line 366
     check-cast v1, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d;
 
     invoke-virtual {v1}, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$d;->A()Landroid/widget/TextView;
@@ -189,11 +189,11 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 407
+    .line 368
     :cond_3d
     iget-object v1, p1, Lbl/adv;->a:Landroid/view/View;
 
-    .line 408
+    .line 369
     const v2, 0x7f0800d8
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -202,15 +202,15 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
-    .line 409
+    .line 370
     const-string v2, "itemView"
 
     invoke-static {v1, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 410
+    .line 371
     invoke-virtual {v1, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 412
+    .line 373
     :cond_51
     return-void
 .end method
@@ -228,20 +228,20 @@
     .end annotation
 
     .prologue
-    .line 420
+    .line 381
     const-string v0, "biliBangumiSeasons"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 421
+    .line 382
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$c;->a:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 422
+    .line 383
     invoke-virtual {p0}, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$c;->d()V
 
-    .line 423
+    .line 384
     return-void
 .end method
 
@@ -258,27 +258,27 @@
     .end annotation
 
     .prologue
-    .line 426
+    .line 387
     const-string v0, "biliBangumiSeasons"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 427
+    .line 388
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$c;->a:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
-    .line 428
+    .line 389
     iget-object v1, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$c;->a:Ljava/util/List;
 
     invoke-interface {v1, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 429
+    .line 390
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$c;->d(I)V
 
-    .line 430
+    .line 391
     return-void
 .end method
 
@@ -286,7 +286,7 @@
     .locals 1
 
     .prologue
-    .line 384
+    .line 345
     const/4 v0, 0x0
 
     return v0

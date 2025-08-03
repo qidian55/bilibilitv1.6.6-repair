@@ -110,9 +110,6 @@ public final class FollowBangumiActivity extends BaseReloadActivity implements w
         this.d = new FixGridLayoutManager(followBangumiActivity, i) { // from class: com.bilibili.tv.ui.bangumi.follow.FollowBangumiActivity$continueCreate$1
             @Override // android.support.v7.widget.RecyclerView.h
             public View d(View view, int i2) {
-                if (view == null) {
-                    bbi.a();
-                }
                 int d2 = d(view);
                 if (i2 != 33) {
                     if (i2 == 130) {
@@ -136,11 +133,7 @@ public final class FollowBangumiActivity extends BaseReloadActivity implements w
         recyclerView.a(new f());
         this.b = new b();
         i();
-        LoadingImageView loadingImageView = this.c;
-        if (loadingImageView == null) {
-            bbi.a();
-        }
-        loadingImageView.a();
+        this.c.a();
     }
 
     /* compiled from: BL */
@@ -175,31 +168,12 @@ public final class FollowBangumiActivity extends BaseReloadActivity implements w
             if (FollowBangumiActivity.this.g || !FollowBangumiActivity.this.f || FollowBangumiActivity.this.a == null) {
                 return;
             }
-            FixGridLayoutManager fixGridLayoutManager = FollowBangumiActivity.this.d;
-            if (fixGridLayoutManager == null) {
-                bbi.a();
-            }
-            int p = fixGridLayoutManager.p();
-            FixGridLayoutManager fixGridLayoutManager2 = FollowBangumiActivity.this.d;
-            if (fixGridLayoutManager2 == null) {
-                bbi.a();
-            }
-            if (fixGridLayoutManager2.x() > 0) {
+            int p = FollowBangumiActivity.this.d.p();
+            if (FollowBangumiActivity.this.d.x() > 0) {
                 int i3 = p + 1;
-                if (FollowBangumiActivity.this.d == null) {
-                    bbi.a();
-                }
-                if (i3 >= fixGridLayoutManager2.H() - 1) {
-                    FixGridLayoutManager fixGridLayoutManager3 = FollowBangumiActivity.this.d;
-                    if (fixGridLayoutManager3 == null) {
-                        bbi.a();
-                    }
-                    int H = fixGridLayoutManager3.H();
-                    FixGridLayoutManager fixGridLayoutManager4 = FollowBangumiActivity.this.d;
-                    if (fixGridLayoutManager4 == null) {
-                        bbi.a();
-                    }
-                    if (H > fixGridLayoutManager4.x()) {
+                if (i3 >= FollowBangumiActivity.this.d.H() - 1) {
+                    int H = FollowBangumiActivity.this.d.H();
+                    if (H > FollowBangumiActivity.this.d.x()) {
                         FollowBangumiActivity.this.e++;
                         FollowBangumiActivity.this.i();
                     }
@@ -313,9 +287,6 @@ public final class FollowBangumiActivity extends BaseReloadActivity implements w
                 }
                 return;
             }
-            if (FollowBangumiActivity.this.e >= bangumiApiPageResponse.getIntValue("pn")-1) {
-                FollowBangumiActivity.this.f = false;
-            }
             List<BiliBangumiSeason> list = new ArrayList<BiliBangumiSeason>();
             JSONArray jsonList = bangumiApiPageResponse.getJSONArray("list");
             for(int i=0;i<jsonList.size();i++){
@@ -331,11 +302,9 @@ public final class FollowBangumiActivity extends BaseReloadActivity implements w
             if (list == null || FollowBangumiActivity.this.a == null) {
                 return;
             }
-            if (FollowBangumiActivity.this.e == 1) {
-                FollowBangumiActivity.this.a.a(list);
-                return;
-            }
-            FollowBangumiActivity.this.a.b(list);
+            if (FollowBangumiActivity.this.e == 1) FollowBangumiActivity.this.a.a(list);
+            else FollowBangumiActivity.this.a.b(list);
+            if(FollowBangumiActivity.this.a.a()>=bangumiApiPageResponse.getIntValue("total"))FollowBangumiActivity.this.f = false;
         }
 
         @Override // bl.vm
@@ -358,16 +327,8 @@ public final class FollowBangumiActivity extends BaseReloadActivity implements w
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         bbi.b(keyEvent, "event");
         if (Build.VERSION.SDK_INT == 15 && getCurrentFocus() == null && this.d != null) {
-            FixGridLayoutManager fixGridLayoutManager = this.d;
-            if (fixGridLayoutManager == null) {
-                bbi.a();
-            }
-            int o = fixGridLayoutManager.o();
-            FixGridLayoutManager fixGridLayoutManager2 = this.d;
-            if (fixGridLayoutManager2 == null) {
-                bbi.a();
-            }
-            View c2 = fixGridLayoutManager2.c(o);
+            int o = this.d.o();
+            View c2 = this.d.c(o);
             if (c2 != null) {
                 c2.requestFocus();
             }

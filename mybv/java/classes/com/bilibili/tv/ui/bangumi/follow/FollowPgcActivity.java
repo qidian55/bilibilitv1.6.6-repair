@@ -106,9 +106,6 @@ public final class FollowPgcActivity extends BaseReloadActivity implements wf {
         this.d = new FixGridLayoutManager(FollowPgcActivity, i) { // from class: com.bilibili.tv.ui.bangumi.follow.FollowPgcActivity$continueCreate$1
             @Override // android.support.v7.widget.RecyclerView.h
             public View d(View view, int i2) {
-                if (view == null) {
-                    bbi.a();
-                }
                 int d2 = d(view);
                 if (i2 != 33) {
                     if (i2 == 130) {
@@ -132,11 +129,7 @@ public final class FollowPgcActivity extends BaseReloadActivity implements wf {
         recyclerView.a(new f());
         this.b = new b();
         i();
-        LoadingImageView loadingImageView = this.c;
-        if (loadingImageView == null) {
-            bbi.a();
-        }
-        loadingImageView.a();
+        this.c.a();
     }
 
     /* compiled from: BL */
@@ -171,31 +164,12 @@ public final class FollowPgcActivity extends BaseReloadActivity implements wf {
             if (FollowPgcActivity.this.g || !FollowPgcActivity.this.f || FollowPgcActivity.this.a == null) {
                 return;
             }
-            FixGridLayoutManager fixGridLayoutManager = FollowPgcActivity.this.d;
-            if (fixGridLayoutManager == null) {
-                bbi.a();
-            }
-            int p = fixGridLayoutManager.p();
-            FixGridLayoutManager fixGridLayoutManager2 = FollowPgcActivity.this.d;
-            if (fixGridLayoutManager2 == null) {
-                bbi.a();
-            }
-            if (fixGridLayoutManager2.x() > 0) {
+            int p = FollowPgcActivity.this.d.p();
+            if (FollowPgcActivity.this.d.x() > 0) {
                 int i3 = p + 1;
-                if (FollowPgcActivity.this.d == null) {
-                    bbi.a();
-                }
-                if (i3 >= fixGridLayoutManager2.H() - 1) {
-                    FixGridLayoutManager fixGridLayoutManager3 = FollowPgcActivity.this.d;
-                    if (fixGridLayoutManager3 == null) {
-                        bbi.a();
-                    }
-                    int H = fixGridLayoutManager3.H();
-                    FixGridLayoutManager fixGridLayoutManager4 = FollowPgcActivity.this.d;
-                    if (fixGridLayoutManager4 == null) {
-                        bbi.a();
-                    }
-                    if (H > fixGridLayoutManager4.x()) {
+                if (i3 >= FollowPgcActivity.this.d.H() - 1) {
+                    int H = FollowPgcActivity.this.d.H();
+                    if (H > FollowPgcActivity.this.d.x()) {
                         FollowPgcActivity.this.e++;
                         FollowPgcActivity.this.i();
                     }
@@ -309,9 +283,6 @@ public final class FollowPgcActivity extends BaseReloadActivity implements wf {
                 }
                 return;
             }
-            if (FollowPgcActivity.this.e >= bangumiApiPageResponse.getIntValue("pn")-1) {
-                FollowPgcActivity.this.f = false;
-            }
             List<BiliBangumiSeason> list = new ArrayList<BiliBangumiSeason>();
             JSONArray jsonList = bangumiApiPageResponse.getJSONArray("list");
             for(int i=0;i<jsonList.size();i++){
@@ -327,11 +298,9 @@ public final class FollowPgcActivity extends BaseReloadActivity implements wf {
             if (list == null || FollowPgcActivity.this.a == null) {
                 return;
             }
-            if (FollowPgcActivity.this.e == 1) {
-                FollowPgcActivity.this.a.a(list);
-                return;
-            }
-            FollowPgcActivity.this.a.b(list);
+            if (FollowPgcActivity.this.e == 1) FollowPgcActivity.this.a.a(list);
+            else FollowPgcActivity.this.a.b(list);
+            if(FollowPgcActivity.this.a.a()>=bangumiApiPageResponse.getIntValue("total"))FollowPgcActivity.this.f = false;
         }
 
         @Override // bl.vm
@@ -354,16 +323,8 @@ public final class FollowPgcActivity extends BaseReloadActivity implements wf {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         bbi.b(keyEvent, "event");
         if (Build.VERSION.SDK_INT == 15 && getCurrentFocus() == null && this.d != null) {
-            FixGridLayoutManager fixGridLayoutManager = this.d;
-            if (fixGridLayoutManager == null) {
-                bbi.a();
-            }
-            int o = fixGridLayoutManager.o();
-            FixGridLayoutManager fixGridLayoutManager2 = this.d;
-            if (fixGridLayoutManager2 == null) {
-                bbi.a();
-            }
-            View c2 = fixGridLayoutManager2.c(o);
+            int o = this.d.o();
+            View c2 = this.d.c(o);
             if (c2 != null) {
                 c2.requestFocus();
             }

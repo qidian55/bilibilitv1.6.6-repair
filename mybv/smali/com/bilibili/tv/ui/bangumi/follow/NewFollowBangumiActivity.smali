@@ -519,12 +519,12 @@
     .locals 2
 
     .prologue
-    .line 378
+    .line 373
     const-string v0, "event"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 379
+    .line 374
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0xf
@@ -541,43 +541,43 @@
 
     if-eqz v0, :cond_30
 
-    .line 380
+    .line 375
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/NewFollowBangumiActivity;->f:Lcom/bilibili/tv/widget/FixGridLayoutManager;
 
-    .line 381
+    .line 376
     if-nez v0, :cond_1c
 
-    .line 382
+    .line 377
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 384
+    .line 379
     :cond_1c
     invoke-virtual {v0}, Lcom/bilibili/tv/widget/FixGridLayoutManager;->o()I
 
     move-result v0
 
-    .line 385
+    .line 380
     iget-object v1, p0, Lcom/bilibili/tv/ui/bangumi/follow/NewFollowBangumiActivity;->f:Lcom/bilibili/tv/widget/FixGridLayoutManager;
 
-    .line 386
+    .line 381
     if-nez v1, :cond_27
 
-    .line 387
+    .line 382
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 389
+    .line 384
     :cond_27
     invoke-virtual {v1, v0}, Lcom/bilibili/tv/widget/FixGridLayoutManager;->c(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 390
+    .line 385
     if-eqz v0, :cond_30
 
-    .line 391
+    .line 386
     invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
-    .line 394
+    .line 389
     :cond_30
     invoke-super {p0, p1, p2}, Lcom/bilibili/tv/ui/base/BaseReloadActivity;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
@@ -590,17 +590,17 @@
     .locals 4
 
     .prologue
-    .line 585
+    .line 580
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
 
-    .line 586
+    .line 581
     const-string v1, "MainApplication.getInstance()"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 587
+    .line 582
     invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
@@ -635,7 +635,7 @@
 
     move-result-object v0
 
-    .line 588
+    .line 583
     invoke-static {}, Lbl/ajq;->a()Lbl/ajs;
 
     move-result-object v1
@@ -646,7 +646,7 @@
 
     check-cast v0, Lbl/ajs;
 
-    .line 589
+    .line 584
     iget-object v1, p0, Lcom/bilibili/tv/ui/bangumi/follow/NewFollowBangumiActivity;->d:Lcom/bilibili/tv/widget/FadeImageView;
 
     iget-object v2, p0, Lcom/bilibili/tv/ui/bangumi/follow/NewFollowBangumiActivity;->d:Lcom/bilibili/tv/widget/FadeImageView;
@@ -667,6 +667,6 @@
 
     invoke-virtual {v1, v0}, Lcom/bilibili/tv/widget/FadeImageView;->a(Lbl/alf;)V
 
-    .line 590
+    .line 585
     return-void
 .end method

@@ -36,12 +36,12 @@
     .locals 0
 
     .prologue
-    .line 234
+    .line 208
     iput-object p1, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     invoke-direct {p0}, Lbl/vm;-><init>()V
 
-    .line 235
+    .line 209
     return-void
 .end method
 
@@ -51,7 +51,7 @@
     .locals 1
 
     .prologue
-    .line 239
+    .line 213
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->isFinishing()Z
@@ -67,19 +67,19 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 276
+    .line 250
     const-string v0, "t"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 277
+    .line 251
     sget-object v0, Lbl/adl;->a:Lbl/adl;
 
     iget-object v1, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     invoke-virtual {v0, p1, v1}, Lbl/adl;->a(Ljava/lang/Throwable;Landroid/app/Activity;)V
 
-    .line 278
+    .line 252
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     # getter for: Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->a:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$c;
@@ -98,12 +98,12 @@
 
     if-nez v0, :cond_1e
 
-    .line 286
+    .line 260
     :cond_1d
     :goto_1d
     return-void
 
-    .line 281
+    .line 255
     :cond_1e
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
@@ -112,7 +112,7 @@
     # setter for: Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->g:Z
     invoke-static {v0, v1}, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->access$002(Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;Z)Z
 
-    .line 282
+    .line 256
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     # getter for: Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->e:I
@@ -122,12 +122,12 @@
 
     if-ne v0, v2, :cond_1d
 
-    .line 283
+    .line 257
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     invoke-virtual {v0, v2}, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->a(Z)V
 
-    .line 284
+    .line 258
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     # getter for: Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->c:Lcom/bilibili/tv/ui/base/LoadingImageView;
@@ -159,7 +159,7 @@
 
     const/4 v2, 0x0
 
-    .line 246
+    .line 220
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     # getter for: Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->a:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$c;
@@ -178,24 +178,24 @@
 
     if-nez v0, :cond_13
 
-    .line 272
+    .line 246
     :cond_12
     :goto_12
     return-void
 
-    .line 249
+    .line 223
     :cond_13
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     # setter for: Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->g:Z
     invoke-static {v0, v2}, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->access$002(Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;Z)Z
 
-    .line 250
+    .line 224
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     invoke-virtual {v0, v2}, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->a(Z)V
 
-    .line 251
+    .line 225
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     # getter for: Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->c:Lcom/bilibili/tv/ui/base/LoadingImageView;
@@ -205,7 +205,7 @@
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/base/LoadingImageView;->b()V
 
-    .line 252
+    .line 226
     if-eqz p1, :cond_36
 
     iget-object v0, p1, Lcom/bilibili/bangumi/api/BangumiApiPageResponse;->result:Ljava/lang/Object;
@@ -222,7 +222,7 @@
 
     if-eqz v0, :cond_54
 
-    .line 253
+    .line 227
     :cond_36
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
@@ -233,7 +233,7 @@
 
     if-ne v0, v3, :cond_12
 
-    .line 254
+    .line 228
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     # getter for: Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->c:Lcom/bilibili/tv/ui/base/LoadingImageView;
@@ -243,7 +243,7 @@
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/base/LoadingImageView;->c()V
 
-    .line 255
+    .line 229
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     # getter for: Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->c:Lcom/bilibili/tv/ui/base/LoadingImageView;
@@ -257,7 +257,7 @@
 
     goto :goto_12
 
-    .line 260
+    .line 234
     :cond_54
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
@@ -270,19 +270,19 @@
 
     if-lt v0, v1, :cond_63
 
-    .line 261
+    .line 235
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     # setter for: Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->f:Z
     invoke-static {v0, v2}, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->access$102(Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;Z)Z
 
-    .line 263
+    .line 237
     :cond_63
     iget-object v0, p1, Lcom/bilibili/bangumi/api/BangumiApiPageResponse;->result:Ljava/lang/Object;
 
     check-cast v0, Ljava/util/List;
 
-    .line 264
+    .line 238
     if-eqz v0, :cond_12
 
     iget-object v1, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
@@ -294,7 +294,7 @@
 
     if-eqz v1, :cond_12
 
-    .line 267
+    .line 241
     iget-object v1, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     # getter for: Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->e:I
@@ -304,7 +304,7 @@
 
     if-ne v1, v3, :cond_83
 
-    .line 268
+    .line 242
     iget-object v1, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
     # getter for: Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;->a:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$c;
@@ -316,7 +316,7 @@
 
     goto :goto_12
 
-    .line 271
+    .line 245
     :cond_83
     iget-object v1, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->this$0:Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity;
 
@@ -334,7 +334,7 @@
     .locals 0
 
     .prologue
-    .line 232
+    .line 206
     check-cast p1, Lcom/bilibili/bangumi/api/BangumiApiPageResponse;
 
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$b;->onSuccess(Lcom/bilibili/bangumi/api/BangumiApiPageResponse;)V

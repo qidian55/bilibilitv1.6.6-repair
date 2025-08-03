@@ -26,13 +26,13 @@
     .locals 0
 
     .prologue
-    .line 451
+    .line 446
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 452
+    .line 447
     iput-object p1, p0, Lcom/bilibili/tv/ui/bangumi/follow/NewFollowBangumiActivity$c$a;->a:Lbl/adv;
 
-    .line 453
+    .line 448
     return-void
 .end method
 
@@ -42,17 +42,17 @@
     .locals 1
 
     .prologue
-    .line 440
+    .line 435
     const-string v0, "imageUri"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 441
+    .line 436
     const-string v0, "view"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 442
+    .line 437
     return-void
 .end method
 
@@ -60,22 +60,22 @@
     .locals 2
 
     .prologue
-    .line 457
+    .line 452
     const-string v0, "imageUri"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 458
+    .line 453
     const-string v0, "view"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 459
+    .line 454
     const-string v0, "loadedImage"
 
     invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 460
+    .line 455
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/NewFollowBangumiActivity$c$a;->a:Lbl/adv;
 
     check-cast v0, Lcom/bilibili/tv/ui/bangumi/follow/NewFollowBangumiActivity$d;
@@ -84,23 +84,23 @@
 
     move-result-object v0
 
-    .line 461
+    .line 456
     invoke-virtual {v0}, Landroid/view/View;->hasFocus()Z
 
     move-result v1
 
     if-eqz v1, :cond_22
 
-    .line 462
+    .line 457
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
-    .line 466
+    .line 461
     :goto_21
     return-void
 
-    .line 464
+    .line 459
     :cond_22
     const v1, 0x7f050022
 
@@ -113,21 +113,21 @@
     .locals 1
 
     .prologue
-    .line 446
+    .line 441
     const-string v0, "imageUri"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 447
+    .line 442
     const-string v0, "view"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 448
+    .line 443
     const-string v0, "failReason"
 
     invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 449
+    .line 444
     return-void
 .end method

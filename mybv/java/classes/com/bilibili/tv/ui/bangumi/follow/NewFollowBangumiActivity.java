@@ -331,9 +331,6 @@ public final class NewFollowBangumiActivity extends BaseReloadActivity implement
                 }
                 return;
             }
-            if (NewFollowBangumiActivity.this.g >= bangumiApiPageResponse.getIntValue("pn")-1) {
-                NewFollowBangumiActivity.this.h = false;
-            }
             List<BiliBangumiSeason> list = new ArrayList<BiliBangumiSeason>();
             JSONArray jsonList = bangumiApiPageResponse.getJSONArray("list");
             for(int i=0;i<jsonList.size();i++){
@@ -349,11 +346,9 @@ public final class NewFollowBangumiActivity extends BaseReloadActivity implement
             if (list == null || NewFollowBangumiActivity.this.a == null) {
                 return;
             }
-            if (NewFollowBangumiActivity.this.g == 1) {
-                NewFollowBangumiActivity.this.a.a(list);
-                return;
-            }
-            NewFollowBangumiActivity.this.a.b(list);
+            if (NewFollowBangumiActivity.this.g == 1) NewFollowBangumiActivity.this.a.a(list);
+            else NewFollowBangumiActivity.this.a.b(list);
+            if(NewFollowBangumiActivity.this.a.a()>=bangumiApiPageResponse.getIntValue("total"))NewFollowBangumiActivity.this.h = false;
         }
 
         @Override // bl.vm

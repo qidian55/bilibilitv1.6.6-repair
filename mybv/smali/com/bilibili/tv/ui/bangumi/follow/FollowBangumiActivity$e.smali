@@ -23,13 +23,13 @@
     .locals 0
 
     .prologue
-    .line 150
+    .line 143
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$g;-><init>()V
 
-    .line 151
+    .line 144
     iput p1, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
 
-    .line 152
+    .line 145
     return-void
 .end method
 
@@ -39,22 +39,22 @@
     .locals 4
 
     .prologue
-    .line 156
+    .line 149
     const-string v0, "outRect"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 157
+    .line 150
     const-string v0, "view"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 158
+    .line 151
     const-string v0, "parent"
 
     invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 159
+    .line 152
     invoke-virtual {p3, p2}, Landroid/support/v7/widget/RecyclerView;->g(Landroid/view/View;)I
 
     move-result v0
@@ -63,7 +63,7 @@
 
     if-ge v0, v1, :cond_20
 
-    .line 160
+    .line 153
     iget v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
 
     const/4 v1, 0x0
@@ -74,7 +74,7 @@
 
     invoke-virtual {p2, v0, v1, v2, v3}, Landroid/view/View;->setPadding(IIII)V
 
-    .line 162
+    .line 155
     :cond_20
     iget v0, p0, Lcom/bilibili/tv/ui/bangumi/follow/FollowBangumiActivity$e;->a:I
 
@@ -86,6 +86,6 @@
 
     invoke-virtual {p2, v0, v1, v2, v3}, Landroid/view/View;->setPadding(IIII)V
 
-    .line 163
+    .line 156
     return-void
 .end method

@@ -135,6 +135,8 @@ public class MainApplication extends Application {
             kz.a(inputStream);
             e.printStackTrace();
         }
+        System.setProperty("java.net.preferIPv6Addresses", "false");
+        System.setProperty("java.net.preferIPv4Stack", "true");
     }
 
     @Override // android.app.Application, android.content.ComponentCallbacks

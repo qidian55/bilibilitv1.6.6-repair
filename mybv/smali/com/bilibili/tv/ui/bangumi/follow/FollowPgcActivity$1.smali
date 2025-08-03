@@ -38,43 +38,36 @@
 
     .prologue
     .line 109
-    if-nez p1, :cond_5
-
-    .line 110
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 112
-    :cond_5
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$1;->d(Landroid/view/View;)I
 
     move-result v0
 
-    .line 113
+    .line 110
     const/16 v1, 0x21
 
-    if-eq p2, v1, :cond_24
+    if-eq p2, v1, :cond_1f
 
-    .line 114
+    .line 111
     const/16 v1, 0x82
 
-    if-ne p2, v1, :cond_26
+    if-ne p2, v1, :cond_21
 
-    .line 115
+    .line 112
     invoke-virtual {p0}, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$1;->H()I
 
     move-result v1
 
     add-int/lit8 v1, v1, -0x1
 
-    if-lt v0, v1, :cond_1a
+    if-lt v0, v1, :cond_15
 
-    .line 120
-    :cond_19
-    :goto_19
+    .line 117
+    :cond_14
+    :goto_14
     return-object p1
 
-    .line 115
-    :cond_1a
+    .line 112
+    :cond_15
     invoke-virtual {p0}, Lcom/bilibili/tv/ui/bangumi/follow/FollowPgcActivity$1;->c()I
 
     move-result v1
@@ -85,17 +78,17 @@
 
     move-result-object p1
 
-    goto :goto_19
+    goto :goto_14
+
+    .line 114
+    :cond_1f
+    if-lez v0, :cond_14
 
     .line 117
-    :cond_24
-    if-lez v0, :cond_19
-
-    .line 120
-    :cond_26
+    :cond_21
     invoke-super {p0, p1, p2}, Lcom/bilibili/tv/widget/FixGridLayoutManager;->d(Landroid/view/View;I)Landroid/view/View;
 
     move-result-object p1
 
-    goto :goto_19
+    goto :goto_14
 .end method

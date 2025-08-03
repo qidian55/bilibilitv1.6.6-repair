@@ -52,7 +52,7 @@
     .locals 2
 
     .prologue
-    .line 151
+    .line 153
     new-instance v0, Lcom/bilibili/lib/media/ResolveConfig$a;
 
     invoke-direct {v0}, Lcom/bilibili/lib/media/ResolveConfig$a;-><init>()V
@@ -95,7 +95,7 @@
 
     invoke-static {p0, v0}, Lcom/bilibili/lib/media/resolver/resolve/MediaResolveProvider;->a(Landroid/content/Context;Lcom/bilibili/lib/media/ResolveConfig;)V
 
-    .line 152
+    .line 154
     return-void
 .end method
 
@@ -103,18 +103,18 @@
     .locals 1
 
     .prologue
-    .line 155
+    .line 157
     invoke-static {p1}, Lcom/umeng/analytics/BiliUmeng;->a(Ljava/lang/String;)V
 
-    .line 156
+    .line 158
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/umeng/analytics/BiliUmeng;->a:Z
 
-    .line 157
+    .line 159
     invoke-static {p0}, Lcom/umeng/analytics/BiliUmeng;->a(Landroid/content/Context;)V
 
-    .line 158
+    .line 160
     return-void
 .end method
 
@@ -122,19 +122,19 @@
     .locals 2
 
     .prologue
-    .line 215
+    .line 217
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x11
 
     if-lt v0, v1, :cond_b
 
-    .line 216
+    .line 218
     const-string v0, "user"
 
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/MainApplication;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 218
+    .line 220
     :cond_b
     return-void
 .end method
@@ -145,48 +145,48 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 199
+    .line 201
     sput-boolean v5, Lcom/tencent/bugly/beta/Beta;->E:Z
 
-    .line 200
+    .line 202
     sget-object v0, Lbl/afr;->a:Lcom/tencent/bugly/beta/upgrade/UpgradeListener;
 
     sput-object v0, Lcom/tencent/bugly/beta/Beta;->L:Lcom/tencent/bugly/beta/upgrade/UpgradeListener;
 
-    .line 201
+    .line 203
     new-instance v0, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, v1}, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;-><init>(Landroid/content/Context;)V
 
-    .line 202
+    .line 204
     const-string v1, "com.bilibili.tv"
 
     invoke-virtual {v0, v1}, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;->c(Ljava/lang/String;)Lcom/tencent/bugly/BuglyStrategy;
 
-    .line 203
+    .line 205
     invoke-virtual {v0, p1}, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;->b(Ljava/lang/String;)Lcom/tencent/bugly/BuglyStrategy;
 
-    .line 204
+    .line 206
     invoke-virtual {v0, v5}, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;->b(Z)Lcom/tencent/bugly/BuglyStrategy;
 
-    .line 205
+    .line 207
     const-string v1, "1.6.6"
 
     invoke-virtual {v0, v1}, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;->a(Ljava/lang/String;)Lcom/tencent/bugly/BuglyStrategy;
 
-    .line 206
+    .line 208
     const-wide/16 v2, 0x4e20
 
     invoke-virtual {v0, v2, v3}, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;->a(J)Lcom/tencent/bugly/BuglyStrategy;
 
-    .line 207
+    .line 209
     sget-boolean v1, Lcom/bilibili/tv/MainApplication;->c:Z
 
     invoke-virtual {v0, v1}, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;->a(Z)Lcom/tencent/bugly/BuglyStrategy;
 
-    .line 208
+    .line 210
     invoke-virtual {p0}, Lcom/bilibili/tv/MainApplication;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -195,7 +195,7 @@
 
     move-result-object v1
 
-    .line 209
+    .line 211
     const-string v2, "resolution"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -226,12 +226,12 @@
 
     invoke-static {p0, v2, v1}, Lcom/tencent/bugly/crashreport/CrashReport;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 210
+    .line 212
     const-string v1, "900033619"
 
     invoke-static {p0, v1, v5, v0}, Lcom/tencent/bugly/Bugly;->a(Landroid/content/Context;Ljava/lang/String;ZLcom/tencent/bugly/BuglyStrategy;)V
 
-    .line 211
+    .line 213
     invoke-static {p0}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
     move-result-object v0
@@ -246,7 +246,7 @@
 
     invoke-static {v0}, Lcom/tencent/bugly/crashreport/CrashReport;->a(Ljava/lang/String;)V
 
-    .line 212
+    .line 214
     return-void
 .end method
 
@@ -256,23 +256,23 @@
     .locals 1
 
     .prologue
-    .line 162
+    .line 164
     invoke-super {p0, p1}, Landroid/app/Application;->attachBaseContext(Landroid/content/Context;)V
 
-    .line 163
+    .line 165
     sput-object p0, Lcom/bilibili/tv/MainApplication;->b:Lcom/bilibili/tv/MainApplication;
 
-    .line 164
+    .line 166
     invoke-static {p0}, Lbl/p;->a(Landroid/content/Context;)V
 
-    .line 165
+    .line 167
     new-instance v0, Lcom/bilibili/tv/MainApplication$2;
 
     invoke-direct {v0, p0}, Lcom/bilibili/tv/MainApplication$2;-><init>(Lcom/bilibili/tv/MainApplication;)V
 
     invoke-static {v0}, Lcom/bilibili/api/BiliConfig;->a(Lcom/bilibili/api/BiliConfig$Delegate;)V
 
-    .line 196
+    .line 198
     return-void
 .end method
 
@@ -404,7 +404,7 @@
     :try_start_62
     invoke-static {}, Lmybl/BiliFilter;->updateConfig()V
     :try_end_65
-    .catch Ljava/lang/Exception; {:try_start_62 .. :try_end_65} :catch_9f
+    .catch Ljava/lang/Exception; {:try_start_62 .. :try_end_65} :catch_ad
 
     .line 115
     :goto_65
@@ -425,7 +425,7 @@
 
     array-length v4, v4
 
-    if-eq v3, v4, :cond_a4
+    if-eq v3, v4, :cond_b2
 
     :cond_76
     const-string v0, "myarea_map"
@@ -449,9 +449,9 @@
 
     invoke-virtual {v0, v2}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
     :try_end_8a
-    .catch Ljava/io/IOException; {:try_start_81 .. :try_end_8a} :catch_ce
-    .catch Ljava/lang/RuntimeException; {:try_start_81 .. :try_end_8a} :catch_b5
-    .catch Ljava/lang/Exception; {:try_start_81 .. :try_end_8a} :catch_ba
+    .catch Ljava/io/IOException; {:try_start_81 .. :try_end_8a} :catch_dc
+    .catch Ljava/lang/RuntimeException; {:try_start_81 .. :try_end_8a} :catch_c3
+    .catch Ljava/lang/Exception; {:try_start_81 .. :try_end_8a} :catch_c8
 
     move-result-object v1
 
@@ -477,14 +477,28 @@
     .line 133
     invoke-static {v1}, Lbl/kz;->a(Ljava/io/InputStream;)V
     :try_end_9e
-    .catch Ljava/lang/Exception; {:try_start_8b .. :try_end_9e} :catch_c6
+    .catch Ljava/lang/Exception; {:try_start_8b .. :try_end_9e} :catch_d4
 
     .line 138
     :goto_9e
+    const-string v0, "java.net.preferIPv6Addresses"
+
+    const-string v1, "false"
+
+    invoke-static {v0, v1}, Ljava/lang/System;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    .line 139
+    const-string v0, "java.net.preferIPv4Stack"
+
+    const-string v1, "true"
+
+    invoke-static {v0, v1}, Ljava/lang/System;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    .line 140
     return-void
 
     .line 114
-    :catch_9f
+    :catch_ad
     move-exception v3
 
     invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
@@ -492,8 +506,8 @@
     goto :goto_65
 
     .line 118
-    :cond_a4
-    :goto_a4
+    :cond_b2
+    :goto_b2
     invoke-virtual {v0}, Lcom/alibaba/fastjson/JSONArray;->size()I
 
     move-result v3
@@ -510,20 +524,20 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_a4
+    goto :goto_b2
 
     .line 124
-    :catch_b5
+    :catch_c3
     move-exception v0
 
     .line 126
-    :goto_b6
+    :goto_c4
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_8b
 
     .line 127
-    :catch_ba
+    :catch_c8
     move-exception v0
 
     move-object v2, v0
@@ -541,7 +555,7 @@
     goto :goto_8b
 
     .line 134
-    :catch_c6
+    :catch_d4
     move-exception v0
 
     .line 135
@@ -553,10 +567,10 @@
     goto :goto_9e
 
     .line 124
-    :catch_ce
+    :catch_dc
     move-exception v0
 
-    goto :goto_b6
+    goto :goto_c4
 .end method
 
 .method public onCreate()V
@@ -711,10 +725,10 @@
     .locals 0
 
     .prologue
-    .line 142
+    .line 144
     invoke-super {p0}, Landroid/app/Application;->onLowMemory()V
 
-    .line 143
+    .line 145
     return-void
 .end method
 
@@ -722,9 +736,9 @@
     .locals 0
 
     .prologue
-    .line 147
+    .line 149
     invoke-super {p0, p1}, Landroid/app/Application;->onTrimMemory(I)V
 
-    .line 148
+    .line 150
     return-void
 .end method
