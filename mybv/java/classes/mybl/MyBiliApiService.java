@@ -57,6 +57,9 @@ public interface MyBiliApiService {
     @GET(a = "/pgc/page/pc/cinema/tab?is_refresh=0&cursor=0")
     vp<JSONObject> getPgcInfos();
 
+    @GET(a = "/x/v3/fav/folder/collected/list?platform=web")
+    vp<GeneralResponse<JSONObject>> getCollectedFolders(@Query(a = "pn") int page_number, @Query(a = "ps") int page_size, @Query(a = "up_mid") long up_mid);
+
     @GET(a = "https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/update.json")
     vp<com.bilibili.tv.ui.upgrade.BiliUpgradeInfo> getThirdUpdateInfo();
 }

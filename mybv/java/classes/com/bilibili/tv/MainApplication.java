@@ -105,18 +105,20 @@ public class MainApplication extends Application {
         for(int i=0;i<10;i++)PlayerMenuRight.danmaku_valid_list[i]=((danmaku_type>>i)&1)>0;
         BiliFilter.skip_categories=abd.get_skip_categories(this);
         JSONObject config=abd.get_personal_config(this);
-        BiliFilter.filter_on=config.getBoolean("filter_on");
-        BiliFilter.progressbar_on=config.getBoolean("progressbar_on");
-        BiliFilter.fastquit_on=config.getBoolean("fastquit_on");
+        BiliFilter.filter_on=config.getBooleanValue("filter_on");
+        BiliFilter.progressbar_on=config.getBooleanValue("progressbar_on");
+        BiliFilter.fastquit_on=config.getBooleanValue("fastquit_on");
         mybl.VideoViewParams.prefect_cdn=config.getString("prefect_cdn");
         bl.afm3.prefect_codec=config.getString("prefect_codec");
         bl.afm3.prefect_decoder=config.getString("prefect_decoder");
+        bl.afq.auto_update=config.getBooleanValue("auto_update");
         try{BiliFilter.updateConfig();}catch(Exception e){e.printStackTrace();}
         JSONArray myarea_map=config.getJSONArray("myarea_map");
         if(myarea_map==null||myarea_map.size()!=MainMyFragment.MyMap.length)abd.set_personal_config(this,"myarea_map",JSON.toJSON(MainMyFragment.MyMap));
         else{
             for(int i=0;i<myarea_map.size();i++)MainMyFragment.MyMap[i]=myarea_map.getIntValue(i);
         }
+        bl.afq.AutoCheckUpdate();
 
         InputStream inputStream=null;
         try {

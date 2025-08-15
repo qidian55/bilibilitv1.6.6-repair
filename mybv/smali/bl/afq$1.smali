@@ -38,12 +38,12 @@
     .locals 0
 
     .prologue
-    .line 49
+    .line 55
     iput-object p1, p0, Lbl/afq$1;->this$0:Lbl/afq;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 52
+    .line 58
     return-void
 .end method
 
@@ -53,10 +53,10 @@
     .locals 1
 
     .prologue
-    .line 58
+    .line 64
     invoke-virtual {p0, p1, p2}, Lbl/afq$1;->a2(Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;Ljava/lang/Boolean;)V
 
-    .line 59
+    .line 65
     sget-object v0, Lbl/azy;->a:Lbl/azy;
 
     return-object v0
@@ -66,7 +66,7 @@
     .locals 1
 
     .prologue
-    .line 49
+    .line 55
     check-cast p1, Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;
 
     check-cast p2, Ljava/lang/Boolean;
@@ -82,14 +82,14 @@
     .locals 3
 
     .prologue
-    .line 64
+    .line 70
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
     if-eqz v0, :cond_16
 
-    .line 65
+    .line 71
     sget-object v0, Lbl/afr;->Companion:Lbl/afr$a;
 
     invoke-virtual {v0}, Lbl/afr$a;->a()Lbl/afr;
@@ -104,11 +104,11 @@
 
     invoke-virtual {v0, v1, p1}, Lbl/afr;->a(Landroid/app/Activity;Lcom/bilibili/tv/ui/upgrade/BiliUpgradeInfo;)V
 
-    .line 69
+    .line 75
     :goto_15
     return-void
 
-    .line 68
+    .line 74
     :cond_16
     iget-object v0, p0, Lbl/afq$1;->this$0:Lbl/afq;
 

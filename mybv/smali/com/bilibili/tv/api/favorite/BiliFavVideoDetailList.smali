@@ -1,6 +1,6 @@
 .class public final Lcom/bilibili/tv/api/favorite/BiliFavVideoDetailList;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliFavVideoDetailList.java"
 
 
 # annotations
@@ -16,8 +16,8 @@
 
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
-            "+",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/video/BiliVideoDetail;",
             ">;"
         }
@@ -35,7 +35,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 17
+    .prologue
+    .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,13 +49,15 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/video/BiliVideoDetail;",
             ">;"
         }
     .end annotation
 
-    .line 22
+    .prologue
+    .line 29
     iget-object v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavVideoDetailList;->favVideos:Ljava/util/List;
 
     return-object v0
@@ -63,7 +66,8 @@
 .method public final getPages()I
     .locals 1
 
-    .line 19
+    .prologue
+    .line 20
     iget v0, p0, Lcom/bilibili/tv/api/favorite/BiliFavVideoDetailList;->pages:I
 
     return v0
@@ -74,24 +78,28 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
-            "+",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/video/BiliVideoDetail;",
             ">;)V"
         }
     .end annotation
 
-    .line 22
+    .prologue
+    .line 33
     iput-object p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavVideoDetailList;->favVideos:Ljava/util/List;
 
+    .line 34
     return-void
 .end method
 
 .method public final setPages(I)V
     .locals 0
 
-    .line 19
+    .prologue
+    .line 24
     iput p1, p0, Lcom/bilibili/tv/api/favorite/BiliFavVideoDetailList;->pages:I
 
+    .line 25
     return-void
 .end method

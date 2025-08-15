@@ -1,94 +1,97 @@
 .class final Lbl/aee$e;
 .super Ljava/lang/Object;
-.source "BL"
+.source "aee.java"
 
 # interfaces
 .implements Lcom/bilibili/tv/widget/border/BorderGridLayoutManager$a;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/aee;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lbl/aee;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
+    accessFlags = 0x10
+    name = "e"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lbl/aee;
+.field final b:Lcom/bilibili/tv/ui/favorite/FavoriteActivity;
 
-.field final synthetic b:Lcom/bilibili/tv/ui/favorite/FavoriteActivity;
+.field final synthetic this$0:Lbl/aee;
 
 
 # direct methods
 .method constructor <init>(Lbl/aee;Lcom/bilibili/tv/ui/favorite/FavoriteActivity;)V
     .locals 0
 
-    iput-object p1, p0, Lbl/aee$e;->a:Lbl/aee;
-
-    iput-object p2, p0, Lbl/aee$e;->b:Lcom/bilibili/tv/ui/favorite/FavoriteActivity;
+    .prologue
+    .line 85
+    iput-object p1, p0, Lbl/aee$e;->this$0:Lbl/aee;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 86
+    iput-object p2, p0, Lbl/aee$e;->b:Lcom/bilibili/tv/ui/favorite/FavoriteActivity;
+
+    .line 87
     return-void
 .end method
 
 
 # virtual methods
 .method public final a(Landroid/view/View;Landroid/view/View;III)V
-    .locals 1
+    .locals 3
 
-    .line 70
-    iget-object p2, p0, Lbl/aee$e;->b:Lcom/bilibili/tv/ui/favorite/FavoriteActivity;
+    .prologue
+    .line 91
+    iget-object v0, p0, Lbl/aee$e;->b:Lcom/bilibili/tv/ui/favorite/FavoriteActivity;
 
-    invoke-virtual {p2}, Lcom/bilibili/tv/ui/favorite/FavoriteActivity;->m()Lbl/agd;
+    invoke-virtual {v0}, Lcom/bilibili/tv/ui/favorite/FavoriteActivity;->m()Lbl/agd;
 
-    move-result-object p2
+    move-result-object v0
 
-    if-eqz p2, :cond_1
+    .line 92
+    if-eqz v0, :cond_a
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_b
 
-    goto :goto_0
-
-    .line 76
-    :cond_0
-    iget-object p3, p0, Lbl/aee$e;->b:Lcom/bilibili/tv/ui/favorite/FavoriteActivity;
-
-    check-cast p3, Landroid/content/Context;
-
-    const v0, 0x7f0700e8
-
-    .line 75
-    invoke-static {p3, v0}, Lbl/aj;->a(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p3
-
-    .line 74
-    invoke-virtual {p2, p3}, Lbl/agd;->setUpRectDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    .line 80
-    iget-object p3, p0, Lbl/aee$e;->a:Lbl/aee;
-
-    invoke-static {p3}, Lbl/aee;->e(Lbl/aee;)Z
-
-    move-result p3
-
-    invoke-virtual {p2, p1, p4, p5, p3}, Lbl/agd;->a(Landroid/view/View;IIZ)V
-
-    .line 81
-    iget-object p1, p0, Lbl/aee$e;->a:Lbl/aee;
-
-    const/4 p2, 0x0
-
-    invoke-static {p1, p2}, Lbl/aee;->c(Lbl/aee;Z)V
-
+    .line 98
+    :cond_a
+    :goto_a
     return-void
 
-    :cond_1
-    :goto_0
-    return-void
+    .line 95
+    :cond_b
+    iget-object v1, p0, Lbl/aee$e;->b:Lcom/bilibili/tv/ui/favorite/FavoriteActivity;
+
+    const v2, 0x7f0700e8
+
+    invoke-static {v1, v2}, Lbl/aj;->a(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lbl/agd;->setUpRectDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    .line 96
+    iget-object v1, p0, Lbl/aee$e;->this$0:Lbl/aee;
+
+    # getter for: Lbl/aee;->e:Z
+    invoke-static {v1}, Lbl/aee;->access$000(Lbl/aee;)Z
+
+    move-result v1
+
+    invoke-virtual {v0, p1, p4, p5, v1}, Lbl/agd;->a(Landroid/view/View;IIZ)V
+
+    .line 97
+    iget-object v0, p0, Lbl/aee$e;->this$0:Lbl/aee;
+
+    const/4 v1, 0x0
+
+    # setter for: Lbl/aee;->e:Z
+    invoke-static {v0, v1}, Lbl/aee;->access$002(Lbl/aee;Z)Z
+
+    goto :goto_a
 .end method

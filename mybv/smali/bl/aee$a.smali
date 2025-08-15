@@ -1,6 +1,6 @@
 .class public final Lbl/aee$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "aee.java"
 
 
 # annotations
@@ -18,18 +18,22 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 54
+    .prologue
+    .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 44
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lbl/bbg;)V
+.method public constructor <init>(Lbl/bbg;)V
     .locals 0
 
-    .line 54
+    .prologue
+    .line 48
     invoke-direct {p0}, Lbl/aee$a;-><init>()V
 
+    .line 49
     return-void
 .end method
 
@@ -38,7 +42,8 @@
 .method public final a()Lbl/aee;
     .locals 1
 
-    .line 60
+    .prologue
+    .line 52
     new-instance v0, Lbl/aee;
 
     invoke-direct {v0}, Lbl/aee;-><init>()V

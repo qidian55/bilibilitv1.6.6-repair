@@ -905,7 +905,7 @@
     const/4 v0, 0x0
 
     .line 259
-    const-string v1, "{\"filter_on\":false,\"progressbar_on\":false,\"fastquit_on\":false}"
+    const-string v1, "{\"filter_on\":false,\"progressbar_on\":false,\"fastquit_on\":false,\"auto_update\":false}"
 
     .line 261
     :try_start_3

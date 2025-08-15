@@ -69,6 +69,39 @@
     .end annotation
 .end method
 
+.method public abstract getCollectedFolders(IIJ)Lbl/vp;
+    .param p1    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "pn"
+        .end annotation
+    .end param
+    .param p2    # I
+        .annotation runtime Lretrofit2/http/Query;
+            a = "ps"
+        .end annotation
+    .end param
+    .param p3    # J
+        .annotation runtime Lretrofit2/http/Query;
+            a = "up_mid"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(IIJ)",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        a = "/x/v3/fav/folder/collected/list?platform=web"
+    .end annotation
+.end method
+
 .method public abstract getDanmuFilter()Lbl/vp;
     .annotation system Ldalvik/annotation/Signature;
         value = {

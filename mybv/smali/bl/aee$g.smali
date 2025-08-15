@@ -1,138 +1,137 @@
 .class public final Lbl/aee$g;
 .super Landroid/support/v7/widget/RecyclerView$m;
-.source "BL"
+.source "aee.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/aee;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lbl/aee;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
+    accessFlags = 0x11
+    name = "g"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lbl/aee;
+.field final b:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
 
-.field final synthetic b:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+.field final synthetic this$0:Lbl/aee;
 
 
 # direct methods
 .method constructor <init>(Lbl/aee;Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;",
-            ")V"
-        }
-    .end annotation
 
-    .line 114
-    iput-object p1, p0, Lbl/aee$g;->a:Lbl/aee;
-
-    iput-object p2, p0, Lbl/aee$g;->b:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+    .prologue
+    .line 135
+    iput-object p1, p0, Lbl/aee$g;->this$0:Lbl/aee;
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$m;-><init>()V
 
+    .line 136
+    iput-object p2, p0, Lbl/aee$g;->b:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+
+    .line 137
     return-void
 .end method
 
 
 # virtual methods
 .method public a(Landroid/support/v7/widget/RecyclerView;I)V
-    .locals 0
+    .locals 2
 
-    .line 116
+    .prologue
+    .line 141
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView$m;->a(Landroid/support/v7/widget/RecyclerView;I)V
 
-    .line 117
-    iget-object p1, p0, Lbl/aee$g;->a:Lbl/aee;
+    .line 142
+    iget-object v0, p0, Lbl/aee$g;->this$0:Lbl/aee;
 
-    invoke-static {p1}, Lbl/aee;->b(Lbl/aee;)Z
+    # getter for: Lbl/aee;->h:Z
+    invoke-static {v0}, Lbl/aee;->access$100(Lbl/aee;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_0
+    if-nez v0, :cond_1b
 
-    iget-object p1, p0, Lbl/aee$g;->a:Lbl/aee;
+    iget-object v0, p0, Lbl/aee$g;->this$0:Lbl/aee;
 
-    invoke-static {p1}, Lbl/aee;->d(Lbl/aee;)Z
+    # getter for: Lbl/aee;->g:Z
+    invoke-static {v0}, Lbl/aee;->access$200(Lbl/aee;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_1b
 
-    iget-object p1, p0, Lbl/aee$g;->a:Lbl/aee;
+    iget-object v0, p0, Lbl/aee$g;->this$0:Lbl/aee;
 
-    invoke-static {p1}, Lbl/aee;->a(Lbl/aee;)Lbl/aee$c;
+    # getter for: Lbl/aee;->c:Lbl/aee$c;
+    invoke-static {v0}, Lbl/aee;->access$300(Lbl/aee;)Lbl/aee$c;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_0
+    if-nez v0, :cond_1c
 
-    .line 118
-    iget-object p1, p0, Lbl/aee$g;->b:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
-
-    invoke-virtual {p1}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->p()I
-
-    move-result p1
-
-    .line 121
-    iget-object p2, p0, Lbl/aee$g;->b:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
-
-    invoke-virtual {p2}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->x()I
-
-    move-result p2
-
-    if-lez p2, :cond_0
-
-    add-int/lit8 p1, p1, 0xa
-
-    .line 120
-    iget-object p2, p0, Lbl/aee$g;->b:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
-
-    invoke-virtual {p2}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->H()I
-
-    move-result p2
-
-    add-int/lit8 p2, p2, -0x1
-
-    if-lt p1, p2, :cond_0
-
-    iget-object p1, p0, Lbl/aee$g;->b:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
-
-    invoke-virtual {p1}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->H()I
-
-    move-result p1
-
-    iget-object p2, p0, Lbl/aee$g;->b:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
-
-    invoke-virtual {p2}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->x()I
-
-    move-result p2
-
-    if-le p1, p2, :cond_0
-
-    .line 123
-    iget-object p1, p0, Lbl/aee$g;->a:Lbl/aee;
-
-    invoke-static {p1}, Lbl/aee;->c(Lbl/aee;)I
-
-    move-result p2
-
-    add-int/lit8 p2, p2, 0x1
-
-    invoke-static {p1, p2}, Lbl/aee;->a(Lbl/aee;I)V
-
-    .line 124
-    iget-object p1, p0, Lbl/aee$g;->a:Lbl/aee;
-
-    invoke-static {p1}, Lbl/aee;->f(Lbl/aee;)V
-
-    :cond_0
+    .line 151
+    :cond_1b
+    :goto_1b
     return-void
+
+    .line 145
+    :cond_1c
+    iget-object v0, p0, Lbl/aee$g;->b:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+
+    invoke-virtual {v0}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->p()I
+
+    move-result v0
+
+    .line 146
+    iget-object v1, p0, Lbl/aee$g;->b:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+
+    invoke-virtual {v1}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->x()I
+
+    move-result v1
+
+    if-lez v1, :cond_1b
+
+    add-int/lit8 v0, v0, 0xa
+
+    iget-object v1, p0, Lbl/aee$g;->b:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+
+    invoke-virtual {v1}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->H()I
+
+    move-result v1
+
+    add-int/lit8 v1, v1, -0x1
+
+    if-lt v0, v1, :cond_1b
+
+    iget-object v0, p0, Lbl/aee$g;->b:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+
+    invoke-virtual {v0}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->H()I
+
+    move-result v0
+
+    iget-object v1, p0, Lbl/aee$g;->b:Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;
+
+    invoke-virtual {v1}, Lcom/bilibili/tv/widget/side/SideRightGridLayoutManger;->x()I
+
+    move-result v1
+
+    if-le v0, v1, :cond_1b
+
+    .line 149
+    iget-object v0, p0, Lbl/aee$g;->this$0:Lbl/aee;
+
+    # operator++ for: Lbl/aee;->f:I
+    invoke-static {v0}, Lbl/aee;->access$408(Lbl/aee;)I
+
+    .line 150
+    iget-object v0, p0, Lbl/aee$g;->this$0:Lbl/aee;
+
+    invoke-virtual {v0}, Lbl/aee;->b()V
+
+    goto :goto_1b
 .end method

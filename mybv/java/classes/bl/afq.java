@@ -18,13 +18,19 @@ import com.bilibili.tv.ui.upgrade.BiliUpgradeInfo;
 import com.bilibili.tv.widget.DrawFrameLayout;
 import kotlin.TypeCastException;
 
+import java.io.File;
+import android.widget.*;
 import mybl.MyBiliApiService;
+import android.content.Context;
 import tv.danmaku.android.log.BLog;
+
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
-public final class afq extends adw implements View.OnFocusChangeListener, View.OnClickListener {
+public final class afq extends adw implements View.OnFocusChangeListener, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     public static final a Companion = new a(null);
+    public static boolean auto_update = false;
+    private CheckBox auto_update_checkbox;
     private DrawFrameLayout mCheckUpdateView;
     private DrawFrameLayout mCheckUpdateView2;
     private bbc<BiliUpgradeInfo, Boolean, azy> mOnUpgradeListener;
@@ -77,6 +83,9 @@ public final class afq extends adw implements View.OnFocusChangeListener, View.O
         this.mCheckUpdateView2.setUpDrawable(R.drawable.shadow_white_rect);
         this.mCheckUpdateView2.setOnFocusChangeListener(this);
         this.mCheckUpdateView2.setOnClickListener(this);
+        this.auto_update_checkbox = (CheckBox) view.findViewById(R.id.auto_update_checkbox);
+        this.auto_update_checkbox.setChecked(afq.auto_update);
+        this.auto_update_checkbox.setOnCheckedChangeListener(this);
         return view;
     }
 
@@ -90,15 +99,27 @@ public final class afq extends adw implements View.OnFocusChangeListener, View.O
     }
 
     public static class UpdateResponse extends vm<BiliUpgradeInfo> {
+        public boolean show_toast;
+
+        public UpdateResponse(boolean show_toast){this.show_toast=show_toast;}
+
         @Override // bl.vm
         public void onSuccess(BiliUpgradeInfo biliUpgradeInfo) {
+
+            try{
+                String current_md5 = sr.b(new File(MainApplication.a().getPackageCodePath()));
+                if(current_md5.equals(biliUpgradeInfo.getApkMd5())){
+                    if(show_toast)lr.a(MainApplication.a(), "已是最新第三方版本");
+                    return;
+                }
+            }catch(Exception e){e.printStackTrace();}
             afr.Companion.a().a(biliUpgradeInfo, true);
         }
 
         @Override // bl.vm
         public void onError(Throwable t) {
             BLog.e("ThirdpartyUpgrade", t.getMessage());
-            lr.a(MainApplication.a(), t.getMessage());
+            if(show_toast)lr.a(MainApplication.a(), t.getMessage());
         }
     }
 
@@ -106,9 +127,18 @@ public final class afq extends adw implements View.OnFocusChangeListener, View.O
     public final void onClick(View view) {
         lr.b(MainApplication.a(), "正在检查更新...");
         if(view==this.mCheckUpdateView)afr.Companion.a().a();
-        else ((MyBiliApiService) vo.a(MyBiliApiService.class)).getThirdUpdateInfo().a(new UpdateResponse());
+        else ((MyBiliApiService) vo.a(MyBiliApiService.class)).getThirdUpdateInfo().a(new UpdateResponse(true));
     }
 
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        afq.auto_update=isChecked;
+        abd.set_personal_config(MainApplication.a().getApplicationContext(), "auto_update", afq.auto_update);
+    }
+
+    public static void AutoCheckUpdate() {
+        if(afq.auto_update) ((MyBiliApiService) vo.a(MyBiliApiService.class)).getThirdUpdateInfo().a(new UpdateResponse(false));
+    }
 
     @Override // android.support.v4.app.Fragment
     public void onDestroyView() {
@@ -122,7 +152,7 @@ public final class afq extends adw implements View.OnFocusChangeListener, View.O
     }
 
     public final boolean a() {
-        if (this.mCheckUpdateView == null || this.mCheckUpdateView.hasFocus() || this.mCheckUpdateView2 == null || this.mCheckUpdateView2.hasFocus()) {
+        if (this.mCheckUpdateView == null || this.mCheckUpdateView.hasFocus() || this.mCheckUpdateView2 == null || this.mCheckUpdateView2.hasFocus() || this.auto_update_checkbox == null || this.auto_update_checkbox.hasFocus()) {
             return false;
         }
         this.mCheckUpdateView.requestFocus();

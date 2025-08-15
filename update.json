@@ -1,12 +1,12 @@
 {
-    "apkMd5":"0fb641545469009b4e3cef4c68606373",
+    "apkMd5":"cd936133fec4b04c3167dd41ab73b7b6",
     "apkUrl":"https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/mybv.apk",
     "fileSize":8218507,
     "id":"",
-    "newFeature":"修复追番/追剧显示不全的问题\n优化默认视频过滤规则",
+    "newFeature":"支持自动检查第三方更新\n完善“我的收藏”",
     "publishTime":0,
     "title":"New",
     "upgradeType":1,
     "versionCode":1606,
-    "versionName":"1.6.6.20250803"
+    "versionName":"1.6.6.20250815"
 }

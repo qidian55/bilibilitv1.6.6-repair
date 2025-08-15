@@ -256,7 +256,7 @@ public class abd {
 
     public static JSONObject get_personal_config(Context context) {
         JSONObject config = null;
-        String default_config = "{\"filter_on\":false,\"progressbar_on\":false,\"fastquit_on\":false}";
+        String default_config = "{\"filter_on\":false,\"progressbar_on\":false,\"fastquit_on\":false,\"auto_update\":false}";
         try{
             config = JSON.parseObject(a(context).a().getString("personal_config", default_config));
         }
