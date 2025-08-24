@@ -79,12 +79,12 @@
 
     .line 135
     :cond_0
-    new-instance v3, Lbl/bke;
+    new-instance v3, Lokio/Buffer;
 
-    invoke-direct {v3}, Lbl/bke;-><init>()V
+    invoke-direct {v3}, Lokio/Buffer;-><init>()V
 
     .line 136
-    invoke-virtual {v3, p0, v1, v2}, Lbl/bke;->a(Ljava/lang/String;II)Lbl/bke;
+    invoke-virtual {v3, p0, v1, v2}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;II)Lokio/Buffer;
 
     :goto_1
     if-ge v2, v0, :cond_2
@@ -107,7 +107,7 @@
 
     .line 139
     :goto_2
-    invoke-virtual {v3, v6}, Lbl/bke;->a(I)Lbl/bke;
+    invoke-virtual {v3, v6}, Lokio/Buffer;->writeUtf8CodePoint(I)Lokio/Buffer;
 
     .line 137
     invoke-static {v1}, Ljava/lang/Character;->charCount(I)I
@@ -120,7 +120,7 @@
 
     .line 141
     :cond_2
-    invoke-virtual {v3}, Lbl/bke;->p()Ljava/lang/String;
+    invoke-virtual {v3}, Lokio/Buffer;->readUtf8()Ljava/lang/String;
 
     move-result-object p0
 

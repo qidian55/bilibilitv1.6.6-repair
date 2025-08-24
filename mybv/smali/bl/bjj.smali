@@ -358,11 +358,11 @@
     .line 172
     new-instance v2, Lbl/bjm;
 
-    iget-object v3, v1, Lbl/bjj$a;->d:Lbl/bkf;
+    iget-object v3, v1, Lbl/bjj$a;->d:Lokio/BufferedSink;
 
     iget-boolean v4, v0, Lbl/bjj;->a:Z
 
-    invoke-direct {v2, v3, v4}, Lbl/bjm;-><init>(Lbl/bkf;Z)V
+    invoke-direct {v2, v3, v4}, Lbl/bjm;-><init>(Lokio/BufferedSink;Z)V
 
     iput-object v2, v0, Lbl/bjj;->o:Lbl/bjm;
 
@@ -371,11 +371,11 @@
 
     new-instance v3, Lbl/bjk;
 
-    iget-object v1, v1, Lbl/bjj$a;->c:Lbl/bkg;
+    iget-object v1, v1, Lbl/bjj$a;->c:Lokio/BufferedSource;
 
     iget-boolean v4, v0, Lbl/bjj;->a:Z
 
-    invoke-direct {v3, v1, v4}, Lbl/bjk;-><init>(Lbl/bkg;Z)V
+    invoke-direct {v3, v1, v4}, Lbl/bjk;-><init>(Lokio/BufferedSource;Z)V
 
     invoke-direct {v2, v0, v3}, Lbl/bjj$d;-><init>(Lbl/bjj;Lbl/bjk;)V
 
@@ -784,7 +784,7 @@
     return-void
 .end method
 
-.method a(ILbl/bkg;IZ)V
+.method a(ILokio/BufferedSource;IZ)V
     .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -793,20 +793,20 @@
     .end annotation
 
     .line 886
-    new-instance v5, Lbl/bke;
+    new-instance v5, Lokio/Buffer;
 
-    invoke-direct {v5}, Lbl/bke;-><init>()V
+    invoke-direct {v5}, Lokio/Buffer;-><init>()V
 
     int-to-long v0, p3
 
     .line 887
-    invoke-interface {p2, v0, v1}, Lbl/bkg;->a(J)V
+    invoke-interface {p2, v0, v1}, Lokio/BufferedSource;->require(J)V
 
     .line 888
-    invoke-interface {p2, v5, v0, v1}, Lbl/bkg;->a(Lbl/bke;J)J
+    invoke-interface {p2, v5, v0, v1}, Lokio/BufferedSource;->read(Lokio/Buffer;J)J
 
     .line 889
-    invoke-virtual {v5}, Lbl/bke;->b()J
+    invoke-virtual {v5}, Lokio/Buffer;->size()J
 
     move-result-wide v2
 
@@ -820,7 +820,7 @@
 
     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5}, Lbl/bke;->b()J
+    invoke-virtual {v5}, Lokio/Buffer;->size()J
 
     move-result-wide v0
 
@@ -876,7 +876,7 @@
 
     move v7, p4
 
-    invoke-direct/range {v0 .. v7}, Lbl/bjj$5;-><init>(Lbl/bjj;Ljava/lang/String;[Ljava/lang/Object;ILbl/bke;IZ)V
+    invoke-direct/range {v0 .. v7}, Lbl/bjj$5;-><init>(Lbl/bjj;Ljava/lang/String;[Ljava/lang/Object;ILokio/Buffer;IZ)V
 
     invoke-interface {p2, v8}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
@@ -1095,7 +1095,7 @@
     return-void
 .end method
 
-.method public a(IZLbl/bke;J)V
+.method public a(IZLokio/Buffer;J)V
     .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1114,7 +1114,7 @@
     .line 285
     iget-object p4, p0, Lbl/bjj;->o:Lbl/bjm;
 
-    invoke-virtual {p4, p2, p1, p3, v3}, Lbl/bjm;->a(ZILbl/bke;I)V
+    invoke-virtual {p4, p2, p1, p3, v3}, Lbl/bjm;->a(ZILokio/Buffer;I)V
 
     return-void
 
@@ -1224,7 +1224,7 @@
     const/4 p5, 0x0
 
     :goto_2
-    invoke-virtual {p4, p5, p1, p3, v2}, Lbl/bjm;->a(ZILbl/bke;I)V
+    invoke-virtual {p4, p5, p1, p3, v2}, Lbl/bjm;->a(ZILokio/Buffer;I)V
 
     move-wide p4, v4
 

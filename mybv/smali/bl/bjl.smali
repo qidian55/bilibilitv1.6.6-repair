@@ -311,7 +311,7 @@
     return-void
 .end method
 
-.method a(Lbl/bkg;I)V
+.method a(Lokio/BufferedSource;I)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -342,7 +342,7 @@
 
     int-to-long v1, p2
 
-    invoke-virtual {v0, p1, v1, v2}, Lbl/bjl$b;->a(Lbl/bkg;J)V
+    invoke-virtual {v0, p1, v1, v2}, Lbl/bjl$b;->a(Lokio/BufferedSource;J)V
 
     return-void
 .end method
@@ -695,7 +695,7 @@
     :cond_0
     iget-object v0, p0, Lbl/bjl;->f:Lbl/bjl$c;
 
-    invoke-virtual {v0}, Lbl/bjl$c;->c()V
+    invoke-virtual {v0}, Lbl/bjl$c;->enter()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
@@ -773,7 +773,7 @@
     throw v0
 .end method
 
-.method public e()Lbl/bku;
+.method public e()Lokio/Timeout;
     .locals 1
 
     .line 191
@@ -782,7 +782,7 @@
     return-object v0
 .end method
 
-.method public f()Lbl/bku;
+.method public f()Lokio/Timeout;
     .locals 1
 
     .line 195
@@ -791,7 +791,7 @@
     return-object v0
 .end method
 
-.method public g()Lbl/bkt;
+.method public g()Lokio/Source;
     .locals 1
 
     .line 200
@@ -800,7 +800,7 @@
     return-object v0
 .end method
 
-.method public h()Lbl/bks;
+.method public h()Lokio/Sink;
     .locals 2
 
     .line 210

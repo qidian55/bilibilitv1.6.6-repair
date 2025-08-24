@@ -24,13 +24,13 @@
 
 .field private final c:J
 
-.field private final d:[Lbl/bkt;
+.field private final d:[Lokio/Source;
 
 .field private final e:[J
 
 
 # direct methods
-.method constructor <init>(Lbl/bij;Ljava/lang/String;J[Lbl/bkt;[J)V
+.method constructor <init>(Lbl/bij;Ljava/lang/String;J[Lokio/Source;[J)V
     .locals 0
 
     .line 794
@@ -45,7 +45,7 @@
     iput-wide p3, p0, Lbl/bij$c;->c:J
 
     .line 797
-    iput-object p5, p0, Lbl/bij$c;->d:[Lbl/bkt;
+    iput-object p5, p0, Lbl/bij$c;->d:[Lokio/Source;
 
     .line 798
     iput-object p6, p0, Lbl/bij$c;->e:[J
@@ -55,11 +55,11 @@
 
 
 # virtual methods
-.method public a(I)Lbl/bkt;
+.method public a(I)Lokio/Source;
     .locals 1
 
     .line 815
-    iget-object v0, p0, Lbl/bij$c;->d:[Lbl/bkt;
+    iget-object v0, p0, Lbl/bij$c;->d:[Lokio/Source;
 
     aget-object p1, v0, p1
 
@@ -70,7 +70,7 @@
     .locals 4
 
     .line 824
-    iget-object v0, p0, Lbl/bij$c;->d:[Lbl/bkt;
+    iget-object v0, p0, Lbl/bij$c;->d:[Lokio/Source;
 
     array-length v1, v0
 

@@ -13,11 +13,11 @@
 # instance fields
 .field final a:Lbl/bjg$b;
 
-.field private final c:Lbl/bkf;
+.field private final c:Lokio/BufferedSink;
 
 .field private final d:Z
 
-.field private final e:Lbl/bke;
+.field private final e:Lokio/Buffer;
 
 .field private f:I
 
@@ -44,31 +44,31 @@
     return-void
 .end method
 
-.method constructor <init>(Lbl/bkf;Z)V
+.method constructor <init>(Lokio/BufferedSink;Z)V
     .locals 0
 
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 58
-    iput-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iput-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
     .line 59
     iput-boolean p2, p0, Lbl/bjm;->d:Z
 
     .line 60
-    new-instance p1, Lbl/bke;
+    new-instance p1, Lokio/Buffer;
 
-    invoke-direct {p1}, Lbl/bke;-><init>()V
+    invoke-direct {p1}, Lokio/Buffer;-><init>()V
 
-    iput-object p1, p0, Lbl/bjm;->e:Lbl/bke;
+    iput-object p1, p0, Lbl/bjm;->e:Lokio/Buffer;
 
     .line 61
     new-instance p1, Lbl/bjg$b;
 
-    iget-object p2, p0, Lbl/bjm;->e:Lbl/bke;
+    iget-object p2, p0, Lbl/bjm;->e:Lokio/Buffer;
 
-    invoke-direct {p1, p2}, Lbl/bjg$b;-><init>(Lbl/bke;)V
+    invoke-direct {p1, p2}, Lbl/bjg$b;-><init>(Lokio/Buffer;)V
 
     iput-object p1, p0, Lbl/bjm;->a:Lbl/bjg$b;
 
@@ -80,7 +80,7 @@
     return-void
 .end method
 
-.method private static a(Lbl/bkf;I)V
+.method private static a(Lokio/BufferedSink;I)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -93,19 +93,19 @@
     and-int/lit16 v0, v0, 0xff
 
     .line 283
-    invoke-interface {p0, v0}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p0, v0}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     ushr-int/lit8 v0, p1, 0x8
 
     and-int/lit16 v0, v0, 0xff
 
     .line 284
-    invoke-interface {p0, v0}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p0, v0}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     and-int/lit16 p1, p1, 0xff
 
     .line 285
-    invoke-interface {p0, p1}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p0, p1}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     return-void
 .end method
@@ -158,11 +158,11 @@
     invoke-virtual {p0, p1, v2, p2, p3}, Lbl/bjm;->a(IIBB)V
 
     .line 293
-    iget-object p2, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p2, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    iget-object p3, p0, Lbl/bjm;->e:Lbl/bke;
+    iget-object p3, p0, Lbl/bjm;->e:Lokio/Buffer;
 
-    invoke-interface {p2, p3, v3, v4}, Lbl/bkf;->a_(Lbl/bke;J)V
+    invoke-interface {p2, p3, v3, v4}, Lokio/BufferedSink;->write(Lokio/Buffer;J)V
 
     move-wide p2, v5
 
@@ -236,7 +236,7 @@
 
     sget-object v4, Lbl/bjh;->a:Lokio/ByteString;
 
-    invoke-virtual {v4}, Lokio/ByteString;->f()Ljava/lang/String;
+    invoke-virtual {v4}, Lokio/ByteString;->hex()Ljava/lang/String;
 
     move-result-object v4
 
@@ -250,20 +250,20 @@
 
     .line 71
     :cond_2
-    iget-object v0, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object v0, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
     sget-object v1, Lbl/bjh;->a:Lokio/ByteString;
 
-    invoke-virtual {v1}, Lokio/ByteString;->i()[B
+    invoke-virtual {v1}, Lokio/ByteString;->toByteArray()[B
 
     move-result-object v1
 
-    invoke-interface {v0, v1}, Lbl/bkf;->c([B)Lbl/bkf;
+    invoke-interface {v0, v1}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
     .line 72
-    iget-object v0, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object v0, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lbl/bkf;->flush()V
+    invoke-interface {v0}, Lokio/BufferedSink;->flush()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -281,7 +281,7 @@
     throw v0
 .end method
 
-.method a(IBLbl/bke;I)V
+.method a(IBLokio/Buffer;I)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -297,11 +297,11 @@
     if-lez p4, :cond_0
 
     .line 180
-    iget-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
     int-to-long v0, p4
 
-    invoke-interface {p1, p3, v0, v1}, Lbl/bkf;->a_(Lbl/bke;J)V
+    invoke-interface {p1, p3, v0, v1}, Lokio/BufferedSink;->write(Lokio/Buffer;J)V
 
     :cond_0
     return-void
@@ -397,32 +397,32 @@
 
     .line 271
     :cond_2
-    iget-object v0, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object v0, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-static {v0, p2}, Lbl/bjm;->a(Lbl/bkf;I)V
+    invoke-static {v0, p2}, Lbl/bjm;->a(Lokio/BufferedSink;I)V
 
     .line 272
-    iget-object p2, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p2, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
     and-int/lit16 p3, p3, 0xff
 
-    invoke-interface {p2, p3}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p2, p3}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 273
-    iget-object p2, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p2, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
     and-int/lit16 p3, p4, 0xff
 
-    invoke-interface {p2, p3}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p2, p3}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 274
-    iget-object p2, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p2, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
     const p3, 0x7fffffff
 
     and-int/2addr p1, p3
 
-    invoke-interface {p2, p1}, Lbl/bkf;->g(I)Lbl/bkf;
+    invoke-interface {p2, p1}, Lokio/BufferedSink;->writeInt(I)Lokio/BufferedSink;
 
     return-void
 .end method
@@ -467,9 +467,9 @@
     invoke-virtual {v0, p3}, Lbl/bjg$b;->a(Ljava/util/List;)V
 
     .line 108
-    iget-object p3, p0, Lbl/bjm;->e:Lbl/bke;
+    iget-object p3, p0, Lbl/bjm;->e:Lokio/Buffer;
 
-    invoke-virtual {p3}, Lbl/bke;->b()J
+    invoke-virtual {p3}, Lokio/Buffer;->size()J
 
     move-result-wide v0
 
@@ -510,20 +510,20 @@
     invoke-virtual {p0, p1, p3, v3, v6}, Lbl/bjm;->a(IIBB)V
 
     .line 113
-    iget-object p3, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p3, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
     const v2, 0x7fffffff
 
     and-int/2addr p2, v2
 
-    invoke-interface {p3, p2}, Lbl/bkf;->g(I)Lbl/bkf;
+    invoke-interface {p3, p2}, Lokio/BufferedSink;->writeInt(I)Lokio/BufferedSink;
 
     .line 114
-    iget-object p2, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p2, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    iget-object p3, p0, Lbl/bjm;->e:Lbl/bke;
+    iget-object p3, p0, Lbl/bjm;->e:Lokio/Buffer;
 
-    invoke-interface {p2, p3, v4, v5}, Lbl/bkf;->a_(Lbl/bke;J)V
+    invoke-interface {p2, p3, v4, v5}, Lokio/BufferedSink;->write(Lokio/Buffer;J)V
 
     cmp-long p2, v0, v4
 
@@ -601,16 +601,16 @@
     invoke-virtual {p0, p1, v1, v2, v0}, Lbl/bjm;->a(IIBB)V
 
     .line 261
-    iget-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
     long-to-int p2, p2
 
-    invoke-interface {p1, p2}, Lbl/bkf;->g(I)Lbl/bkf;
+    invoke-interface {p1, p2}, Lokio/BufferedSink;->writeInt(I)Lokio/BufferedSink;
 
     .line 262
-    iget-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lbl/bkf;->flush()V
+    invoke-interface {p1}, Lokio/BufferedSink;->flush()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -703,16 +703,16 @@
     invoke-virtual {p0, p1, v0, v1, v2}, Lbl/bjm;->a(IIBB)V
 
     .line 151
-    iget-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
     iget p2, p2, Lokhttp3/internal/http2/ErrorCode;->httpCode:I
 
-    invoke-interface {p1, p2}, Lbl/bkf;->g(I)Lbl/bkf;
+    invoke-interface {p1, p2}, Lokio/BufferedSink;->writeInt(I)Lokio/BufferedSink;
 
     .line 152
-    iget-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lbl/bkf;->flush()V
+    invoke-interface {p1}, Lokio/BufferedSink;->flush()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -786,16 +786,16 @@
     invoke-virtual {p0, v2, v0, v1, v2}, Lbl/bjm;->a(IIBB)V
 
     .line 239
-    iget-object v0, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object v0, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-interface {v0, p1}, Lbl/bkf;->g(I)Lbl/bkf;
+    invoke-interface {v0, p1}, Lokio/BufferedSink;->writeInt(I)Lokio/BufferedSink;
 
     .line 240
-    iget-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
     iget p2, p2, Lokhttp3/internal/http2/ErrorCode;->httpCode:I
 
-    invoke-interface {p1, p2}, Lbl/bkf;->g(I)Lbl/bkf;
+    invoke-interface {p1, p2}, Lokio/BufferedSink;->writeInt(I)Lokio/BufferedSink;
 
     .line 241
     array-length p1, p3
@@ -803,15 +803,15 @@
     if-lez p1, :cond_2
 
     .line 242
-    iget-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-interface {p1, p3}, Lbl/bkf;->c([B)Lbl/bkf;
+    invoke-interface {p1, p3}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
     .line 244
     :cond_2
-    iget-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lbl/bkf;->flush()V
+    invoke-interface {p1}, Lokio/BufferedSink;->flush()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -892,9 +892,9 @@
     invoke-virtual {p0, v1, v1, p1, v0}, Lbl/bjm;->a(IIBB)V
 
     .line 87
-    iget-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lbl/bkf;->flush()V
+    invoke-interface {p1}, Lokio/BufferedSink;->flush()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -947,19 +947,19 @@
     invoke-virtual {p0, v2, v0, v1, p1}, Lbl/bjm;->a(IIBB)V
 
     .line 217
-    iget-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-interface {p1, p2}, Lbl/bkf;->g(I)Lbl/bkf;
+    invoke-interface {p1, p2}, Lokio/BufferedSink;->writeInt(I)Lokio/BufferedSink;
 
     .line 218
-    iget-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-interface {p1, p3}, Lbl/bkf;->g(I)Lbl/bkf;
+    invoke-interface {p1, p3}, Lokio/BufferedSink;->writeInt(I)Lokio/BufferedSink;
 
     .line 219
-    iget-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lbl/bkf;->flush()V
+    invoke-interface {p1}, Lokio/BufferedSink;->flush()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1030,7 +1030,7 @@
     throw p1
 .end method
 
-.method public declared-synchronized a(ZILbl/bke;I)V
+.method public declared-synchronized a(ZILokio/Buffer;I)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1065,7 +1065,7 @@
 
     .line 173
     :cond_1
-    invoke-virtual {p0, p2, v0, p3, p4}, Lbl/bjm;->a(IBLbl/bke;I)V
+    invoke-virtual {p0, p2, v0, p3, p4}, Lbl/bjm;->a(IBLokio/Buffer;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1120,9 +1120,9 @@
     invoke-virtual {v0, p3}, Lbl/bjg$b;->a(Ljava/util/List;)V
 
     .line 301
-    iget-object p3, p0, Lbl/bjm;->e:Lbl/bke;
+    iget-object p3, p0, Lbl/bjm;->e:Lokio/Buffer;
 
-    invoke-virtual {p3}, Lbl/bke;->b()J
+    invoke-virtual {p3}, Lokio/Buffer;->size()J
 
     move-result-wide v0
 
@@ -1164,11 +1164,11 @@
     invoke-virtual {p0, p2, p3, p1, v4}, Lbl/bjm;->a(IIBB)V
 
     .line 307
-    iget-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    iget-object p3, p0, Lbl/bjm;->e:Lbl/bke;
+    iget-object p3, p0, Lbl/bjm;->e:Lokio/Buffer;
 
-    invoke-interface {p1, p3, v2, v3}, Lbl/bkf;->a_(Lbl/bke;J)V
+    invoke-interface {p1, p3, v2, v3}, Lokio/BufferedSink;->write(Lokio/Buffer;J)V
 
     cmp-long p1, v0, v2
 
@@ -1209,9 +1209,9 @@
 
     .line 121
     :cond_0
-    iget-object v0, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object v0, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lbl/bkf;->flush()V
+    invoke-interface {v0}, Lokio/BufferedSink;->flush()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1303,18 +1303,18 @@
 
     .line 200
     :goto_1
-    iget-object v3, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object v3, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-interface {v3, v0}, Lbl/bkf;->h(I)Lbl/bkf;
+    invoke-interface {v3, v0}, Lokio/BufferedSink;->writeShort(I)Lokio/BufferedSink;
 
     .line 201
-    iget-object v0, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object v0, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
     invoke-virtual {p1, v1}, Lbl/bjp;->b(I)I
 
     move-result v3
 
-    invoke-interface {v0, v3}, Lbl/bkf;->g(I)Lbl/bkf;
+    invoke-interface {v0, v3}, Lokio/BufferedSink;->writeInt(I)Lokio/BufferedSink;
 
     :goto_2
     add-int/lit8 v1, v1, 0x1
@@ -1323,9 +1323,9 @@
 
     .line 203
     :cond_4
-    iget-object p1, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object p1, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lbl/bkf;->flush()V
+    invoke-interface {p1}, Lokio/BufferedSink;->flush()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1369,9 +1369,9 @@
     iput-boolean v0, p0, Lbl/bjm;->g:Z
 
     .line 279
-    iget-object v0, p0, Lbl/bjm;->c:Lbl/bkf;
+    iget-object v0, p0, Lbl/bjm;->c:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lbl/bkf;->close()V
+    invoke-interface {v0}, Lokio/BufferedSink;->close()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

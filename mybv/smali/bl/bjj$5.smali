@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/bjj;->a(ILbl/bkg;IZ)V
+    value = Lbl/bjj;->a(ILokio/BufferedSource;IZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,7 +17,7 @@
 # instance fields
 .field final synthetic a:I
 
-.field final synthetic c:Lbl/bke;
+.field final synthetic c:Lokio/Buffer;
 
 .field final synthetic d:I
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method varargs constructor <init>(Lbl/bjj;Ljava/lang/String;[Ljava/lang/Object;ILbl/bke;IZ)V
+.method varargs constructor <init>(Lbl/bjj;Ljava/lang/String;[Ljava/lang/Object;ILokio/Buffer;IZ)V
     .locals 0
 
     .line 890
@@ -35,7 +35,7 @@
 
     iput p4, p0, Lbl/bjj$5;->a:I
 
-    iput-object p5, p0, Lbl/bjj$5;->c:Lbl/bke;
+    iput-object p5, p0, Lbl/bjj$5;->c:Lokio/Buffer;
 
     iput p6, p0, Lbl/bjj$5;->d:I
 
@@ -59,13 +59,13 @@
 
     iget v1, p0, Lbl/bjj$5;->a:I
 
-    iget-object v2, p0, Lbl/bjj$5;->c:Lbl/bke;
+    iget-object v2, p0, Lbl/bjj$5;->c:Lokio/Buffer;
 
     iget v3, p0, Lbl/bjj$5;->d:I
 
     iget-boolean v4, p0, Lbl/bjj$5;->e:Z
 
-    invoke-interface {v0, v1, v2, v3, v4}, Lbl/bjo;->a(ILbl/bkg;IZ)Z
+    invoke-interface {v0, v1, v2, v3, v4}, Lbl/bjo;->a(ILokio/BufferedSource;IZ)Z
 
     move-result v0
 

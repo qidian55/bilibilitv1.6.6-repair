@@ -1161,16 +1161,16 @@
     :cond_4
     :goto_1
     :try_start_1
-    new-instance v1, Lbl/bke;
+    new-instance v1, Lokio/Buffer;
 
-    invoke-direct {v1}, Lbl/bke;-><init>()V
+    invoke-direct {v1}, Lokio/Buffer;-><init>()V
 
     .line 466
-    invoke-virtual {v0}, Lbl/bia;->c()Lbl/bkg;
+    invoke-virtual {v0}, Lbl/bia;->c()Lokio/BufferedSource;
 
     move-result-object v2
 
-    invoke-interface {v2, v1}, Lbl/bkg;->a(Lbl/bks;)J
+    invoke-interface {v2, v1}, Lokio/BufferedSource;->readAll(Lokio/Sink;)J
 
     .line 467
     invoke-virtual {v0}, Lbl/bia;->a()Lbl/bht;
@@ -1181,7 +1181,7 @@
 
     move-result-wide v3
 
-    invoke-static {v2, v3, v4, v1}, Lbl/bia;->a(Lbl/bht;JLbl/bkg;)Lbl/bia;
+    invoke-static {v2, v3, v4, v1}, Lbl/bia;->a(Lbl/bht;JLokio/BufferedSource;)Lbl/bia;
 
     move-result-object v1
 

@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bks;
+.implements Lokio/Sink;
 
 
 # annotations
@@ -28,7 +28,7 @@
 
 .field final synthetic d:Lbl/bjl;
 
-.field private final e:Lbl/bke;
+.field private final e:Lokio/Buffer;
 
 
 # direct methods
@@ -50,11 +50,11 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 468
-    new-instance p1, Lbl/bke;
+    new-instance p1, Lokio/Buffer;
 
-    invoke-direct {p1}, Lbl/bke;-><init>()V
+    invoke-direct {p1}, Lokio/Buffer;-><init>()V
 
-    iput-object p1, p0, Lbl/bjl$a;->e:Lbl/bke;
+    iput-object p1, p0, Lbl/bjl$a;->e:Lokio/Buffer;
 
     return-void
 .end method
@@ -78,7 +78,7 @@
 
     iget-object v1, v1, Lbl/bjl;->g:Lbl/bjl$c;
 
-    invoke-virtual {v1}, Lbl/bjl$c;->c()V
+    invoke-virtual {v1}, Lbl/bjl$c;->enter()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
@@ -137,9 +137,9 @@
 
     iget-wide v1, v1, Lbl/bjl;->b:J
 
-    iget-object v3, p0, Lbl/bjl$a;->e:Lbl/bke;
+    iget-object v3, p0, Lbl/bjl$a;->e:Lokio/Buffer;
 
-    invoke-virtual {v3}, Lbl/bke;->b()J
+    invoke-virtual {v3}, Lokio/Buffer;->size()J
 
     move-result-wide v3
 
@@ -168,7 +168,7 @@
 
     iget-object v0, v0, Lbl/bjl;->g:Lbl/bjl$c;
 
-    invoke-virtual {v0}, Lbl/bjl$c;->c()V
+    invoke-virtual {v0}, Lbl/bjl$c;->enter()V
 
     .line 508
     :try_start_3
@@ -182,9 +182,9 @@
 
     if-eqz p1, :cond_1
 
-    iget-object p1, p0, Lbl/bjl$a;->e:Lbl/bke;
+    iget-object p1, p0, Lbl/bjl$a;->e:Lokio/Buffer;
 
-    invoke-virtual {p1}, Lbl/bke;->b()J
+    invoke-virtual {p1}, Lokio/Buffer;->size()J
 
     move-result-wide v0
 
@@ -204,9 +204,9 @@
     const/4 v7, 0x0
 
     :goto_1
-    iget-object v8, p0, Lbl/bjl$a;->e:Lbl/bke;
+    iget-object v8, p0, Lbl/bjl$a;->e:Lokio/Buffer;
 
-    invoke-virtual/range {v5 .. v10}, Lbl/bjj;->a(IZLbl/bke;J)V
+    invoke-virtual/range {v5 .. v10}, Lbl/bjj;->a(IZLokio/Buffer;J)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -256,7 +256,7 @@
 
 
 # virtual methods
-.method public a()Lbl/bku;
+.method public timeout()Lokio/Timeout;
     .locals 1
 
     .line 526
@@ -267,7 +267,7 @@
     return-object v0
 .end method
 
-.method public a_(Lbl/bke;J)V
+.method public write(Lokio/Buffer;J)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -296,15 +296,15 @@
 
     .line 479
     :cond_0
-    iget-object v0, p0, Lbl/bjl$a;->e:Lbl/bke;
+    iget-object v0, p0, Lbl/bjl$a;->e:Lokio/Buffer;
 
-    invoke-virtual {v0, p1, p2, p3}, Lbl/bke;->a_(Lbl/bke;J)V
+    invoke-virtual {v0, p1, p2, p3}, Lokio/Buffer;->write(Lokio/Buffer;J)V
 
     .line 480
     :goto_0
-    iget-object p1, p0, Lbl/bjl$a;->e:Lbl/bke;
+    iget-object p1, p0, Lbl/bjl$a;->e:Lokio/Buffer;
 
-    invoke-virtual {p1}, Lbl/bke;->b()J
+    invoke-virtual {p1}, Lokio/Buffer;->size()J
 
     move-result-wide p1
 
@@ -386,9 +386,9 @@
     if-nez v0, :cond_3
 
     .line 536
-    iget-object v0, p0, Lbl/bjl$a;->e:Lbl/bke;
+    iget-object v0, p0, Lbl/bjl$a;->e:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lbl/bke;->b()J
+    invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v2
 
@@ -400,9 +400,9 @@
 
     .line 537
     :goto_0
-    iget-object v0, p0, Lbl/bjl$a;->e:Lbl/bke;
+    iget-object v0, p0, Lbl/bjl$a;->e:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lbl/bke;->b()J
+    invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v2
 
@@ -431,7 +431,7 @@
 
     const-wide/16 v6, 0x0
 
-    invoke-virtual/range {v2 .. v7}, Lbl/bjj;->a(IZLbl/bke;J)V
+    invoke-virtual/range {v2 .. v7}, Lbl/bjj;->a(IZLokio/Buffer;J)V
 
     .line 545
     :cond_3
@@ -531,9 +531,9 @@
 
     .line 519
     :goto_0
-    iget-object v0, p0, Lbl/bjl$a;->e:Lbl/bke;
+    iget-object v0, p0, Lbl/bjl$a;->e:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lbl/bke;->b()J
+    invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v0
 

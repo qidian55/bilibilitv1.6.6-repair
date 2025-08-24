@@ -860,7 +860,7 @@
     .end annotation
 
     .line 596
-    invoke-virtual {p0}, Lokio/ByteString;->h()I
+    invoke-virtual {p0}, Lokio/ByteString;->size()I
 
     move-result v0
 
@@ -870,7 +870,7 @@
     if-ge v1, v0, :cond_1
 
     .line 597
-    invoke-virtual {p0, v1}, Lokio/ByteString;->a(I)B
+    invoke-virtual {p0, v1}, Lokio/ByteString;->getByte(I)B
 
     move-result v2
 
@@ -893,7 +893,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lokio/ByteString;->a()Ljava/lang/String;
+    invoke-virtual {p0}, Lokio/ByteString;->utf8()Ljava/lang/String;
 
     move-result-object p0
 

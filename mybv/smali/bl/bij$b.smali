@@ -196,7 +196,7 @@
 
     iget v0, v0, Lbl/bij;->d:I
 
-    new-array v0, v0, [Lbl/bkt;
+    new-array v0, v0, [Lokio/Source;
 
     .line 1028
     iget-object v1, p0, Lbl/bij$b;->b:[J
@@ -231,7 +231,7 @@
 
     aget-object v3, v3, v1
 
-    invoke-interface {v2, v3}, Lbl/bjq;->a(Ljava/io/File;)Lbl/bkt;
+    invoke-interface {v2, v3}, Lbl/bjq;->a(Ljava/io/File;)Lokio/Source;
 
     move-result-object v2
 
@@ -255,7 +255,7 @@
 
     move-object v6, v0
 
-    invoke-direct/range {v1 .. v7}, Lbl/bij$c;-><init>(Lbl/bij;Ljava/lang/String;J[Lbl/bkt;[J)V
+    invoke-direct/range {v1 .. v7}, Lbl/bij$c;-><init>(Lbl/bij;Ljava/lang/String;J[Lokio/Source;[J)V
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -299,7 +299,7 @@
     return-object v0
 .end method
 
-.method a(Lbl/bkf;)V
+.method a(Lokio/BufferedSink;)V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -322,11 +322,11 @@
     const/16 v5, 0x20
 
     .line 1011
-    invoke-interface {p1, v5}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p1, v5}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     move-result-object v5
 
-    invoke-interface {v5, v3, v4}, Lbl/bkf;->l(J)Lbl/bkf;
+    invoke-interface {v5, v3, v4}, Lokio/BufferedSink;->writeDecimalLong(J)Lokio/BufferedSink;
 
     add-int/lit8 v2, v2, 0x1
 

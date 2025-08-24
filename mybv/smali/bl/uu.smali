@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private final b:Lbl/bke;
+.field private final b:Lokio/Buffer;
 
 .field private c:J
 
@@ -17,11 +17,11 @@
     invoke-direct {p0}, Lbl/uy;-><init>()V
 
     .line 33
-    new-instance v0, Lbl/bke;
+    new-instance v0, Lokio/Buffer;
 
-    invoke-direct {v0}, Lbl/bke;-><init>()V
+    invoke-direct {v0}, Lokio/Buffer;-><init>()V
 
-    iput-object v0, p0, Lbl/uu;->b:Lbl/bke;
+    iput-object v0, p0, Lbl/uu;->b:Lokio/Buffer;
 
     const-wide/16 v0, -0x1
 
@@ -29,9 +29,9 @@
     iput-wide v0, p0, Lbl/uu;->c:J
 
     .line 37
-    iget-object v0, p0, Lbl/uu;->b:Lbl/bke;
+    iget-object v0, p0, Lbl/uu;->b:Lokio/Buffer;
 
-    invoke-virtual {p0, v0, p1, p2}, Lbl/uu;->a(Lbl/bkf;J)V
+    invoke-virtual {p0, v0, p1, p2}, Lbl/uu;->a(Lokio/BufferedSink;J)V
 
     return-void
 .end method
@@ -80,9 +80,9 @@
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
     .line 55
-    iget-object v0, p0, Lbl/uu;->b:Lbl/bke;
+    iget-object v0, p0, Lbl/uu;->b:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lbl/bke;->b()J
+    invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v0
 
@@ -102,10 +102,10 @@
 
     const-string v0, "Content-Length"
 
-    iget-object v1, p0, Lbl/uu;->b:Lbl/bke;
+    iget-object v1, p0, Lbl/uu;->b:Lokio/Buffer;
 
     .line 58
-    invoke-virtual {v1}, Lbl/bke;->b()J
+    invoke-virtual {v1}, Lokio/Buffer;->size()J
 
     move-result-wide v1
 
@@ -125,7 +125,7 @@
     return-object p1
 .end method
 
-.method public a(Lbl/bkf;)V
+.method public a(Lokio/BufferedSink;)V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -134,21 +134,21 @@
     .end annotation
 
     .line 64
-    iget-object v0, p0, Lbl/uu;->b:Lbl/bke;
+    iget-object v0, p0, Lbl/uu;->b:Lokio/Buffer;
 
-    invoke-interface {p1}, Lbl/bkf;->c()Lbl/bke;
+    invoke-interface {p1}, Lokio/BufferedSink;->buffer()Lokio/Buffer;
 
     move-result-object v1
 
-    iget-object p1, p0, Lbl/uu;->b:Lbl/bke;
+    iget-object p1, p0, Lbl/uu;->b:Lokio/Buffer;
 
-    invoke-virtual {p1}, Lbl/bke;->b()J
+    invoke-virtual {p1}, Lokio/Buffer;->size()J
 
     move-result-wide v4
 
     const-wide/16 v2, 0x0
 
-    invoke-virtual/range {v0 .. v5}, Lbl/bke;->a(Lbl/bke;JJ)Lbl/bke;
+    invoke-virtual/range {v0 .. v5}, Lokio/Buffer;->copyTo(Lokio/Buffer;JJ)Lokio/Buffer;
 
     return-void
 .end method

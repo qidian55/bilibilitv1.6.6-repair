@@ -32,7 +32,7 @@
     const-string v0, ":"
 
     .line 24
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -41,7 +41,7 @@
     const-string v0, ":status"
 
     .line 25
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -50,7 +50,7 @@
     const-string v0, ":method"
 
     .line 26
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -59,7 +59,7 @@
     const-string v0, ":path"
 
     .line 27
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -68,7 +68,7 @@
     const-string v0, ":scheme"
 
     .line 28
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -77,7 +77,7 @@
     const-string v0, ":authority"
 
     .line 29
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -90,11 +90,11 @@
     .locals 0
 
     .line 39
-    invoke-static {p1}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {p1}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object p1
 
-    invoke-static {p2}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {p2}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object p2
 
@@ -107,7 +107,7 @@
     .locals 0
 
     .line 43
-    invoke-static {p2}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {p2}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object p2
 
@@ -129,13 +129,13 @@
     iput-object p2, p0, Lbl/bjf;->h:Lokio/ByteString;
 
     .line 49
-    invoke-virtual {p1}, Lokio/ByteString;->h()I
+    invoke-virtual {p1}, Lokio/ByteString;->size()I
 
     move-result p1
 
     add-int/lit8 p1, p1, 0x20
 
-    invoke-virtual {p2}, Lokio/ByteString;->h()I
+    invoke-virtual {p2}, Lokio/ByteString;->size()I
 
     move-result p2
 
@@ -232,7 +232,7 @@
 
     iget-object v2, p0, Lbl/bjf;->g:Lokio/ByteString;
 
-    invoke-virtual {v2}, Lokio/ByteString;->a()Ljava/lang/String;
+    invoke-virtual {v2}, Lokio/ByteString;->utf8()Ljava/lang/String;
 
     move-result-object v2
 
@@ -242,7 +242,7 @@
 
     iget-object v2, p0, Lbl/bjf;->h:Lokio/ByteString;
 
-    invoke-virtual {v2}, Lokio/ByteString;->a()Ljava/lang/String;
+    invoke-virtual {v2}, Lokio/ByteString;->utf8()Ljava/lang/String;
 
     move-result-object v2
 

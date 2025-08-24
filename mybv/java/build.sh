@@ -1,6 +1,6 @@
 #d2j-dex2jar --force ../../bv0/build/apk/classes.dex
 rm $(find classes -name *.class)
-javac -Xdiags:verbose -classpath 'classes-dex2jar.jar:android.jar' $(find classes -name *.java)
+javac -Xdiags:verbose -classpath 'lib/*' $(find classes -name *.java)
 rm $(find classes/com/bilibili/tv -name R\$*.class)
 rm classes/com/bilibili/tv/R.class
 rm classes/bl/u.class

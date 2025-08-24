@@ -236,18 +236,18 @@
     .line 105
     :cond_1
     :goto_1
-    new-instance v3, Lbl/bke;
+    new-instance v3, Lokio/Buffer;
 
-    invoke-direct {v3}, Lbl/bke;-><init>()V
+    invoke-direct {v3}, Lokio/Buffer;-><init>()V
 
     .line 106
-    invoke-virtual {v3, p0, v1, v2}, Lbl/bke;->a(Ljava/lang/String;II)Lbl/bke;
+    invoke-virtual {v3, p0, v1, v2}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;II)Lokio/Buffer;
 
     .line 107
-    invoke-static {v3, p0, v2, v0, p1}, Lbl/blg;->a(Lbl/bke;Ljava/lang/String;IIZ)V
+    invoke-static {v3, p0, v2, v0, p1}, Lbl/blg;->a(Lokio/Buffer;Ljava/lang/String;IIZ)V
 
     .line 108
-    invoke-virtual {v3}, Lbl/bke;->p()Ljava/lang/String;
+    invoke-virtual {v3}, Lokio/Buffer;->readUtf8()Ljava/lang/String;
 
     move-result-object p0
 
@@ -257,7 +257,7 @@
     return-object p0
 .end method
 
-.method private static a(Lbl/bke;Ljava/lang/String;IIZ)V
+.method private static a(Lokio/Buffer;Ljava/lang/String;IIZ)V
     .locals 6
 
     const/4 v0, 0x0
@@ -324,7 +324,7 @@
 
     .line 141
     :cond_1
-    invoke-virtual {p0, v1}, Lbl/bke;->a(I)Lbl/bke;
+    invoke-virtual {p0, v1}, Lokio/Buffer;->writeUtf8CodePoint(I)Lokio/Buffer;
 
     goto :goto_3
 
@@ -333,31 +333,31 @@
     if-nez v0, :cond_3
 
     .line 130
-    new-instance v0, Lbl/bke;
+    new-instance v0, Lokio/Buffer;
 
-    invoke-direct {v0}, Lbl/bke;-><init>()V
+    invoke-direct {v0}, Lokio/Buffer;-><init>()V
 
     .line 132
     :cond_3
-    invoke-virtual {v0, v1}, Lbl/bke;->a(I)Lbl/bke;
+    invoke-virtual {v0, v1}, Lokio/Buffer;->writeUtf8CodePoint(I)Lokio/Buffer;
 
     .line 133
     :goto_2
-    invoke-virtual {v0}, Lbl/bke;->e()Z
+    invoke-virtual {v0}, Lokio/Buffer;->exhausted()Z
 
     move-result v2
 
     if-nez v2, :cond_4
 
     .line 134
-    invoke-virtual {v0}, Lbl/bke;->h()B
+    invoke-virtual {v0}, Lokio/Buffer;->readByte()B
 
     move-result v2
 
     and-int/lit16 v2, v2, 0xff
 
     .line 135
-    invoke-virtual {p0, v3}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {p0, v3}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 136
     sget-object v4, Lbl/blg;->a:[C
@@ -368,7 +368,7 @@
 
     aget-char v4, v4, v5
 
-    invoke-virtual {p0, v4}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {p0, v4}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 137
     sget-object v4, Lbl/blg;->a:[C
@@ -377,7 +377,7 @@
 
     aget-char v2, v4, v2
 
-    invoke-virtual {p0, v2}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {p0, v2}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     goto :goto_2
 

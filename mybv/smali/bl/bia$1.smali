@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/bia;->a(Lbl/bht;JLbl/bkg;)Lbl/bia;
+    value = Lbl/bia;->a(Lbl/bht;JLokio/BufferedSource;)Lbl/bia;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,11 +19,11 @@
 
 .field final synthetic b:J
 
-.field final synthetic c:Lbl/bkg;
+.field final synthetic c:Lokio/BufferedSource;
 
 
 # direct methods
-.method constructor <init>(Lbl/bht;JLbl/bkg;)V
+.method constructor <init>(Lbl/bht;JLokio/BufferedSource;)V
     .locals 0
 
     .line 217
@@ -31,7 +31,7 @@
 
     iput-wide p2, p0, Lbl/bia$1;->b:J
 
-    iput-object p4, p0, Lbl/bia$1;->c:Lbl/bkg;
+    iput-object p4, p0, Lbl/bia$1;->c:Lokio/BufferedSource;
 
     invoke-direct {p0}, Lbl/bia;-><init>()V
 
@@ -60,11 +60,11 @@
     return-wide v0
 .end method
 
-.method public c()Lbl/bkg;
+.method public c()Lokio/BufferedSource;
     .locals 1
 
     .line 227
-    iget-object v0, p0, Lbl/bia$1;->c:Lbl/bkg;
+    iget-object v0, p0, Lbl/bia$1;->c:Lokio/BufferedSource;
 
     return-object v0
 .end method

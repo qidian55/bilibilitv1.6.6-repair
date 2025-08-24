@@ -315,14 +315,14 @@
     .line 1695
     :cond_4
     :goto_1
-    new-instance v10, Lbl/bke;
+    new-instance v10, Lokio/Buffer;
 
-    invoke-direct {v10}, Lbl/bke;-><init>()V
+    invoke-direct {v10}, Lokio/Buffer;-><init>()V
 
     move v0, p1
 
     .line 1696
-    invoke-virtual {v10, v1, v0, v2}, Lbl/bke;->a(Ljava/lang/String;II)Lbl/bke;
+    invoke-virtual {v10, v1, v0, v2}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;II)Lokio/Buffer;
 
     move-object v0, v10
 
@@ -337,10 +337,10 @@
     move-object/from16 v9, p8
 
     .line 1697
-    invoke-static/range {v0 .. v9}, Lokhttp3/HttpUrl;->a(Lbl/bke;Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;)V
+    invoke-static/range {v0 .. v9}, Lokhttp3/HttpUrl;->a(Lokio/Buffer;Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;)V
 
     .line 1699
-    invoke-virtual {v10}, Lbl/bke;->p()Ljava/lang/String;
+    invoke-virtual {v10}, Lokio/Buffer;->readUtf8()Ljava/lang/String;
 
     move-result-object v0
 
@@ -390,18 +390,18 @@
     .line 1627
     :cond_1
     :goto_1
-    new-instance v1, Lbl/bke;
+    new-instance v1, Lokio/Buffer;
 
-    invoke-direct {v1}, Lbl/bke;-><init>()V
+    invoke-direct {v1}, Lokio/Buffer;-><init>()V
 
     .line 1628
-    invoke-virtual {v1, p0, p1, v0}, Lbl/bke;->a(Ljava/lang/String;II)Lbl/bke;
+    invoke-virtual {v1, p0, p1, v0}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;II)Lokio/Buffer;
 
     .line 1629
-    invoke-static {v1, p0, v0, p2, p3}, Lokhttp3/HttpUrl;->a(Lbl/bke;Ljava/lang/String;IIZ)V
+    invoke-static {v1, p0, v0, p2, p3}, Lokhttp3/HttpUrl;->a(Lokio/Buffer;Ljava/lang/String;IIZ)V
 
     .line 1630
-    invoke-virtual {v1}, Lbl/bke;->p()Ljava/lang/String;
+    invoke-virtual {v1}, Lokio/Buffer;->readUtf8()Ljava/lang/String;
 
     move-result-object p0
 
@@ -561,7 +561,7 @@
     return-object p1
 .end method
 
-.method static a(Lbl/bke;Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;)V
+.method static a(Lokio/Buffer;Ljava/lang/String;IILjava/lang/String;ZZZZLjava/nio/charset/Charset;)V
     .locals 6
 
     const/4 v0, 0x0
@@ -612,7 +612,7 @@
 
     .line 1719
     :goto_1
-    invoke-virtual {p0, v2}, Lbl/bke;->a(Ljava/lang/String;)Lbl/bke;
+    invoke-virtual {p0, v2}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;)Lokio/Buffer;
 
     goto/16 :goto_5
 
@@ -660,7 +660,7 @@
 
     .line 1744
     :cond_4
-    invoke-virtual {p0, v1}, Lbl/bke;->a(I)Lbl/bke;
+    invoke-virtual {p0, v1}, Lokio/Buffer;->writeUtf8CodePoint(I)Lokio/Buffer;
 
     goto :goto_5
 
@@ -669,9 +669,9 @@
     if-nez v0, :cond_6
 
     .line 1727
-    new-instance v0, Lbl/bke;
+    new-instance v0, Lokio/Buffer;
 
-    invoke-direct {v0}, Lbl/bke;-><init>()V
+    invoke-direct {v0}, Lokio/Buffer;-><init>()V
 
     :cond_6
     if-eqz p9, :cond_8
@@ -695,32 +695,32 @@
 
     add-int/2addr v2, p2
 
-    invoke-virtual {v0, p1, p2, v2, p9}, Lbl/bke;->a(Ljava/lang/String;IILjava/nio/charset/Charset;)Lbl/bke;
+    invoke-virtual {v0, p1, p2, v2, p9}, Lokio/Buffer;->writeString(Ljava/lang/String;IILjava/nio/charset/Charset;)Lokio/Buffer;
 
     goto :goto_4
 
     .line 1731
     :cond_8
     :goto_3
-    invoke-virtual {v0, v1}, Lbl/bke;->a(I)Lbl/bke;
+    invoke-virtual {v0, v1}, Lokio/Buffer;->writeUtf8CodePoint(I)Lokio/Buffer;
 
     .line 1736
     :goto_4
-    invoke-virtual {v0}, Lbl/bke;->e()Z
+    invoke-virtual {v0}, Lokio/Buffer;->exhausted()Z
 
     move-result v2
 
     if-nez v2, :cond_9
 
     .line 1737
-    invoke-virtual {v0}, Lbl/bke;->h()B
+    invoke-virtual {v0}, Lokio/Buffer;->readByte()B
 
     move-result v2
 
     and-int/lit16 v2, v2, 0xff
 
     .line 1738
-    invoke-virtual {p0, v3}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {p0, v3}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 1739
     sget-object v4, Lokhttp3/HttpUrl;->d:[C
@@ -731,7 +731,7 @@
 
     aget-char v4, v4, v5
 
-    invoke-virtual {p0, v4}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {p0, v4}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 1740
     sget-object v4, Lokhttp3/HttpUrl;->d:[C
@@ -740,7 +740,7 @@
 
     aget-char v2, v4, v2
 
-    invoke-virtual {p0, v2}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {p0, v2}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     goto :goto_4
 
@@ -759,7 +759,7 @@
     return-void
 .end method
 
-.method static a(Lbl/bke;Ljava/lang/String;IIZ)V
+.method static a(Lokio/Buffer;Ljava/lang/String;IIZ)V
     .locals 5
 
     :goto_0
@@ -809,7 +809,7 @@
     add-int/2addr p2, v3
 
     .line 1646
-    invoke-virtual {p0, p2}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {p0, p2}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     move p2, v1
 
@@ -825,13 +825,13 @@
     const/16 v1, 0x20
 
     .line 1651
-    invoke-virtual {p0, v1}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {p0, v1}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     goto :goto_1
 
     .line 1654
     :cond_1
-    invoke-virtual {p0, v0}, Lbl/bke;->a(I)Lbl/bke;
+    invoke-virtual {p0, v0}, Lokio/Buffer;->writeUtf8CodePoint(I)Lokio/Buffer;
 
     .line 1640
     :goto_1

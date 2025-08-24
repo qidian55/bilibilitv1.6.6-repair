@@ -7,7 +7,7 @@
 
 
 # instance fields
-.field private final b:Lbl/bkn;
+.field private final b:Lokio/Pipe;
 
 
 # direct methods
@@ -18,33 +18,33 @@
     invoke-direct {p0}, Lbl/uy;-><init>()V
 
     .line 31
-    new-instance v0, Lbl/bkn;
+    new-instance v0, Lokio/Pipe;
 
     const-wide/16 v1, 0x2000
 
-    invoke-direct {v0, v1, v2}, Lbl/bkn;-><init>(J)V
+    invoke-direct {v0, v1, v2}, Lokio/Pipe;-><init>(J)V
 
-    iput-object v0, p0, Lbl/uz;->b:Lbl/bkn;
+    iput-object v0, p0, Lbl/uz;->b:Lokio/Pipe;
 
     .line 34
-    iget-object v0, p0, Lbl/uz;->b:Lbl/bkn;
+    iget-object v0, p0, Lbl/uz;->b:Lokio/Pipe;
 
-    invoke-virtual {v0}, Lbl/bkn;->b()Lbl/bks;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lbl/bkm;->a(Lbl/bks;)Lbl/bkf;
+    invoke-virtual {v0}, Lokio/Pipe;->sink()Lokio/Sink;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0, p1, p2}, Lbl/uz;->a(Lbl/bkf;J)V
+    invoke-static {v0}, Lokio/Okio;->buffer(Lokio/Sink;)Lokio/BufferedSink;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0, p1, p2}, Lbl/uz;->a(Lokio/BufferedSink;J)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lbl/bkf;)V
+.method public a(Lokio/BufferedSink;)V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -53,21 +53,21 @@
     .end annotation
 
     .line 39
-    new-instance v0, Lbl/bke;
+    new-instance v0, Lokio/Buffer;
 
-    invoke-direct {v0}, Lbl/bke;-><init>()V
+    invoke-direct {v0}, Lokio/Buffer;-><init>()V
 
     .line 40
     :goto_0
-    iget-object v1, p0, Lbl/uz;->b:Lbl/bkn;
+    iget-object v1, p0, Lbl/uz;->b:Lokio/Pipe;
 
-    invoke-virtual {v1}, Lbl/bkn;->a()Lbl/bkt;
+    invoke-virtual {v1}, Lokio/Pipe;->source()Lokio/Source;
 
     move-result-object v1
 
     const-wide/16 v2, 0x2000
 
-    invoke-interface {v1, v0, v2, v3}, Lbl/bkt;->a(Lbl/bke;J)J
+    invoke-interface {v1, v0, v2, v3}, Lokio/Source;->read(Lokio/Buffer;J)J
 
     move-result-wide v1
 
@@ -78,11 +78,11 @@
     if-eqz v5, :cond_0
 
     .line 41
-    invoke-virtual {v0}, Lbl/bke;->b()J
+    invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v1
 
-    invoke-interface {p1, v0, v1, v2}, Lbl/bkf;->a_(Lbl/bke;J)V
+    invoke-interface {p1, v0, v1, v2}, Lokio/BufferedSink;->write(Lokio/Buffer;J)V
 
     goto :goto_0
 

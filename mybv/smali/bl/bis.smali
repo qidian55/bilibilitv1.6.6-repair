@@ -354,17 +354,17 @@
     if-eqz v1, :cond_8
 
     .line 103
-    new-instance v1, Lbl/bkk;
+    new-instance v1, Lokio/GzipSource;
 
     invoke-virtual {p1}, Lbl/bhz;->h()Lbl/bia;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lbl/bia;->c()Lbl/bkg;
+    invoke-virtual {v2}, Lbl/bia;->c()Lokio/BufferedSource;
 
     move-result-object v2
 
-    invoke-direct {v1, v2}, Lbl/bkk;-><init>(Lbl/bkt;)V
+    invoke-direct {v1, v2}, Lokio/GzipSource;-><init>(Lokio/Source;)V
 
     .line 104
     invoke-virtual {p1}, Lbl/bhz;->g()Lbl/bhr;
@@ -407,11 +407,11 @@
     .line 110
     new-instance v2, Lbl/biz;
 
-    invoke-static {v1}, Lbl/bkm;->a(Lbl/bkt;)Lbl/bkg;
+    invoke-static {v1}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object v1
 
-    invoke-direct {v2, p1, v3, v4, v1}, Lbl/biz;-><init>(Ljava/lang/String;JLbl/bkg;)V
+    invoke-direct {v2, p1, v3, v4, v1}, Lbl/biz;-><init>(Ljava/lang/String;JLokio/BufferedSource;)V
 
     invoke-virtual {v0, v2}, Lbl/bhz$a;->a(Lbl/bia;)Lbl/bhz$a;
 

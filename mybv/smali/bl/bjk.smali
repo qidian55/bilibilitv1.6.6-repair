@@ -22,7 +22,7 @@
 # instance fields
 .field final b:Lbl/bjg$a;
 
-.field private final c:Lbl/bkg;
+.field private final c:Lokio/BufferedSource;
 
 .field private final d:Lbl/bjk$a;
 
@@ -49,14 +49,14 @@
     return-void
 .end method
 
-.method constructor <init>(Lbl/bkg;Z)V
+.method constructor <init>(Lokio/BufferedSource;Z)V
     .locals 1
 
     .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 71
-    iput-object p1, p0, Lbl/bjk;->c:Lbl/bkg;
+    iput-object p1, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
     .line 72
     iput-boolean p2, p0, Lbl/bjk;->e:Z
@@ -64,9 +64,9 @@
     .line 73
     new-instance p1, Lbl/bjk$a;
 
-    iget-object p2, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object p2, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-direct {p1, p2}, Lbl/bjk$a;-><init>(Lbl/bkg;)V
+    invoke-direct {p1, p2}, Lbl/bjk$a;-><init>(Lokio/BufferedSource;)V
 
     iput-object p1, p0, Lbl/bjk;->d:Lbl/bjk$a;
 
@@ -77,7 +77,7 @@
 
     const/16 v0, 0x1000
 
-    invoke-direct {p1, v0, p2}, Lbl/bjg$a;-><init>(ILbl/bkt;)V
+    invoke-direct {p1, v0, p2}, Lbl/bjg$a;-><init>(ILokio/Source;)V
 
     iput-object p1, p0, Lbl/bjk;->b:Lbl/bjg$a;
 
@@ -138,7 +138,7 @@
     return p0
 .end method
 
-.method static a(Lbl/bkg;)I
+.method static a(Lokio/BufferedSource;)I
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -147,7 +147,7 @@
     .end annotation
 
     .line 399
-    invoke-interface {p0}, Lbl/bkg;->h()B
+    invoke-interface {p0}, Lokio/BufferedSource;->readByte()B
 
     move-result v0
 
@@ -156,7 +156,7 @@
     shl-int/lit8 v0, v0, 0x10
 
     .line 400
-    invoke-interface {p0}, Lbl/bkg;->h()B
+    invoke-interface {p0}, Lokio/BufferedSource;->readByte()B
 
     move-result v1
 
@@ -167,7 +167,7 @@
     or-int/2addr v0, v1
 
     .line 401
-    invoke-interface {p0}, Lbl/bkg;->h()B
+    invoke-interface {p0}, Lokio/BufferedSource;->readByte()B
 
     move-result p0
 
@@ -243,9 +243,9 @@
     .end annotation
 
     .line 226
-    iget-object v0, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object v0, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lbl/bkg;->j()I
+    invoke-interface {v0}, Lokio/BufferedSource;->readInt()I
 
     move-result v0
 
@@ -270,9 +270,9 @@
     and-int/2addr v0, v3
 
     .line 229
-    iget-object v3, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object v3, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {v3}, Lbl/bkg;->h()B
+    invoke-interface {v3}, Lokio/BufferedSource;->readByte()B
 
     move-result v3
 
@@ -327,9 +327,9 @@
     if-eqz v2, :cond_2
 
     .line 173
-    iget-object v0, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object v0, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lbl/bkg;->h()B
+    invoke-interface {v0}, Lokio/BufferedSource;->readByte()B
 
     move-result v0
 
@@ -433,9 +433,9 @@
     if-eqz v2, :cond_4
 
     .line 211
-    iget-object v0, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object v0, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lbl/bkg;->h()B
+    invoke-interface {v0}, Lokio/BufferedSource;->readByte()B
 
     move-result v0
 
@@ -450,16 +450,16 @@
     move-result p2
 
     .line 214
-    iget-object p3, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object p3, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {p1, v1, p4, p3, p2}, Lbl/bjk$b;->a(ZILbl/bkg;I)V
+    invoke-interface {p1, v1, p4, p3, p2}, Lbl/bjk$b;->a(ZILokio/BufferedSource;I)V
 
     .line 215
-    iget-object p1, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object p1, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
     int-to-long p2, v0
 
-    invoke-interface {p1, p2, p3}, Lbl/bkg;->h(J)V
+    invoke-interface {p1, p2, p3}, Lokio/BufferedSource;->skip(J)V
 
     return-void
 .end method
@@ -567,9 +567,9 @@
 
     .line 237
     :cond_1
-    iget-object p2, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object p2, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {p2}, Lbl/bkg;->j()I
+    invoke-interface {p2}, Lokio/BufferedSource;->readInt()I
 
     move-result p2
 
@@ -687,9 +687,9 @@
     if-ge v1, p2, :cond_6
 
     .line 257
-    iget-object v2, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object v2, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {v2}, Lbl/bkg;->i()S
+    invoke-interface {v2}, Lokio/BufferedSource;->readShort()S
 
     move-result v2
 
@@ -698,9 +698,9 @@
     and-int/2addr v2, v3
 
     .line 258
-    iget-object v3, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object v3, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {v3}, Lbl/bkg;->j()I
+    invoke-interface {v3}, Lokio/BufferedSource;->readInt()I
 
     move-result v3
 
@@ -830,9 +830,9 @@
     if-eqz v1, :cond_1
 
     .line 297
-    iget-object v0, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object v0, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lbl/bkg;->h()B
+    invoke-interface {v0}, Lokio/BufferedSource;->readByte()B
 
     move-result v0
 
@@ -842,9 +842,9 @@
 
     .line 298
     :cond_1
-    iget-object v1, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object v1, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {v1}, Lbl/bkg;->j()I
+    invoke-interface {v1}, Lokio/BufferedSource;->readInt()I
 
     move-result v1
 
@@ -919,16 +919,16 @@
 
     .line 309
     :cond_1
-    iget-object p2, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object p2, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {p2}, Lbl/bkg;->j()I
+    invoke-interface {p2}, Lokio/BufferedSource;->readInt()I
 
     move-result p2
 
     .line 310
-    iget-object p4, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object p4, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {p4}, Lbl/bkg;->j()I
+    invoke-interface {p4}, Lokio/BufferedSource;->readInt()I
 
     move-result p4
 
@@ -994,16 +994,16 @@
 
     .line 319
     :cond_1
-    iget-object p4, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object p4, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {p4}, Lbl/bkg;->j()I
+    invoke-interface {p4}, Lokio/BufferedSource;->readInt()I
 
     move-result p4
 
     .line 320
-    iget-object v2, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object v2, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {v2}, Lbl/bkg;->j()I
+    invoke-interface {v2}, Lokio/BufferedSource;->readInt()I
 
     move-result v2
 
@@ -1040,11 +1040,11 @@
     if-lez p2, :cond_3
 
     .line 328
-    iget-object p3, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object p3, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
     int-to-long v1, p2
 
-    invoke-interface {p3, v1, v2}, Lbl/bkg;->c(J)Lokio/ByteString;
+    invoke-interface {p3, v1, v2}, Lokio/BufferedSource;->readByteString(J)Lokio/ByteString;
 
     move-result-object p3
 
@@ -1090,9 +1090,9 @@
 
     .line 336
     :cond_0
-    iget-object p2, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object p2, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {p2}, Lbl/bkg;->j()I
+    invoke-interface {p2}, Lokio/BufferedSource;->readInt()I
 
     move-result p2
 
@@ -1171,17 +1171,17 @@
 
     .line 85
     :cond_0
-    iget-object p1, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object p1, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
     sget-object v0, Lbl/bjh;->a:Lokio/ByteString;
 
-    invoke-virtual {v0}, Lokio/ByteString;->h()I
+    invoke-virtual {v0}, Lokio/ByteString;->size()I
 
     move-result v0
 
     int-to-long v3, v0
 
-    invoke-interface {p1, v3, v4}, Lbl/bkg;->c(J)Lokio/ByteString;
+    invoke-interface {p1, v3, v4}, Lokio/BufferedSource;->readByteString(J)Lokio/ByteString;
 
     move-result-object p1
 
@@ -1202,7 +1202,7 @@
 
     new-array v4, v2, [Ljava/lang/Object;
 
-    invoke-virtual {p1}, Lokio/ByteString;->f()Ljava/lang/String;
+    invoke-virtual {p1}, Lokio/ByteString;->hex()Ljava/lang/String;
 
     move-result-object v5
 
@@ -1229,7 +1229,7 @@
     .line 88
     new-array v2, v2, [Ljava/lang/Object;
 
-    invoke-virtual {p1}, Lokio/ByteString;->a()Ljava/lang/String;
+    invoke-virtual {p1}, Lokio/ByteString;->utf8()Ljava/lang/String;
 
     move-result-object p1
 
@@ -1257,18 +1257,18 @@
 
     .line 95
     :try_start_0
-    iget-object v1, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object v1, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
     const-wide/16 v2, 0x9
 
-    invoke-interface {v1, v2, v3}, Lbl/bkg;->a(J)V
+    invoke-interface {v1, v2, v3}, Lokio/BufferedSource;->require(J)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 111
-    iget-object v1, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object v1, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-static {v1}, Lbl/bjk;->a(Lbl/bkg;)I
+    invoke-static {v1}, Lbl/bjk;->a(Lokio/BufferedSource;)I
 
     move-result v1
 
@@ -1284,9 +1284,9 @@
 
     .line 115
     :cond_0
-    iget-object v3, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object v3, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {v3}, Lbl/bkg;->h()B
+    invoke-interface {v3}, Lokio/BufferedSource;->readByte()B
 
     move-result v3
 
@@ -1319,9 +1319,9 @@
 
     .line 119
     :cond_1
-    iget-object p1, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object p1, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {p1}, Lbl/bkg;->h()B
+    invoke-interface {p1}, Lokio/BufferedSource;->readByte()B
 
     move-result p1
 
@@ -1330,9 +1330,9 @@
     int-to-byte p1, p1
 
     .line 120
-    iget-object v0, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object v0, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lbl/bkg;->j()I
+    invoke-interface {v0}, Lokio/BufferedSource;->readInt()I
 
     move-result v0
 
@@ -1363,11 +1363,11 @@
     packed-switch v3, :pswitch_data_0
 
     .line 162
-    iget-object p1, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object p1, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
     int-to-long v0, v1
 
-    invoke-interface {p1, v0, v1}, Lbl/bkg;->h(J)V
+    invoke-interface {p1, v0, v1}, Lokio/BufferedSource;->skip(J)V
 
     goto :goto_0
 
@@ -1471,9 +1471,9 @@
     .end annotation
 
     .line 342
-    iget-object v0, p0, Lbl/bjk;->c:Lbl/bkg;
+    iget-object v0, p0, Lbl/bjk;->c:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lbl/bkg;->close()V
+    invoke-interface {v0}, Lokio/BufferedSource;->close()V
 
     return-void
 .end method

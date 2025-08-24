@@ -87,9 +87,9 @@
     return-void
 .end method
 
-.method private a(Lbl/bkf;Z)J
+.method private a(Lokio/BufferedSink;Z)J
     .locals 3
-    .param p1    # Lbl/bkf;
+    .param p1    # Lokio/BufferedSink;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -97,15 +97,15 @@
     if-eqz p2, :cond_0
 
     .line 86
-    new-instance p1, Lbl/bke;
+    new-instance p1, Lokio/Buffer;
 
-    invoke-direct {p1}, Lbl/bke;-><init>()V
+    invoke-direct {p1}, Lokio/Buffer;-><init>()V
 
     goto :goto_0
 
     .line 88
     :cond_0
-    invoke-interface {p1}, Lbl/bkf;->c()Lbl/bke;
+    invoke-interface {p1}, Lokio/BufferedSink;->buffer()Lokio/Buffer;
 
     move-result-object p1
 
@@ -127,7 +127,7 @@
     const/16 v2, 0x26
 
     .line 92
-    invoke-virtual {p1, v2}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {p1, v2}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 93
     :cond_1
@@ -139,12 +139,12 @@
 
     check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Lbl/bke;->a(Ljava/lang/String;)Lbl/bke;
+    invoke-virtual {p1, v2}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;)Lokio/Buffer;
 
     const/16 v2, 0x3d
 
     .line 94
-    invoke-virtual {p1, v2}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {p1, v2}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 95
     iget-object v2, p0, Lbl/bhp;->c:Ljava/util/List;
@@ -155,7 +155,7 @@
 
     check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Lbl/bke;->a(Ljava/lang/String;)Lbl/bke;
+    invoke-virtual {p1, v2}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;)Lokio/Buffer;
 
     add-int/lit8 v0, v0, 0x1
 
@@ -165,12 +165,12 @@
     if-eqz p2, :cond_3
 
     .line 99
-    invoke-virtual {p1}, Lbl/bke;->b()J
+    invoke-virtual {p1}, Lokio/Buffer;->size()J
 
     move-result-wide v0
 
     .line 100
-    invoke-virtual {p1}, Lbl/bke;->s()V
+    invoke-virtual {p1}, Lokio/Buffer;->clear()V
 
     goto :goto_2
 
@@ -191,7 +191,7 @@
     const/4 v1, 0x1
 
     .line 68
-    invoke-direct {p0, v0, v1}, Lbl/bhp;->a(Lbl/bkf;Z)J
+    invoke-direct {p0, v0, v1}, Lbl/bhp;->a(Lokio/BufferedSink;Z)J
 
     move-result-wide v0
 
@@ -213,7 +213,7 @@
     return-object p1
 .end method
 
-.method public a(Lbl/bkf;)V
+.method public a(Lokio/BufferedSink;)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -224,7 +224,7 @@
     const/4 v0, 0x0
 
     .line 72
-    invoke-direct {p0, p1, v0}, Lbl/bhp;->a(Lbl/bkf;Z)J
+    invoke-direct {p0, p1, v0}, Lbl/bhp;->a(Lokio/BufferedSink;Z)J
 
     return-void
 .end method

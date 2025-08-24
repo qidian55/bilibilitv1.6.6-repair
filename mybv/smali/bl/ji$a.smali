@@ -17,7 +17,7 @@
 # instance fields
 .field private final a:Lbl/bij$c;
 
-.field private final b:Lbl/bkg;
+.field private final b:Lokio/BufferedSource;
 
 .field private final c:Ljava/lang/String;
 
@@ -43,20 +43,20 @@
     const/4 p2, 0x1
 
     .line 460
-    invoke-virtual {p1, p2}, Lbl/bij$c;->a(I)Lbl/bkt;
+    invoke-virtual {p1, p2}, Lbl/bij$c;->a(I)Lokio/Source;
 
     move-result-object p2
 
     .line 461
     new-instance p3, Lbl/ji$a$1;
 
-    invoke-direct {p3, p0, p2, p1}, Lbl/ji$a$1;-><init>(Lbl/ji$a;Lbl/bkt;Lbl/bij$c;)V
+    invoke-direct {p3, p0, p2, p1}, Lbl/ji$a$1;-><init>(Lbl/ji$a;Lokio/Source;Lbl/bij$c;)V
 
-    invoke-static {p3}, Lbl/bkm;->a(Lbl/bkt;)Lbl/bkg;
+    invoke-static {p3}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object p1
 
-    iput-object p1, p0, Lbl/ji$a;->b:Lbl/bkg;
+    iput-object p1, p0, Lbl/ji$a;->b:Lokio/BufferedSource;
 
     return-void
 .end method
@@ -114,11 +114,11 @@
     return-wide v0
 .end method
 
-.method public c()Lbl/bkg;
+.method public c()Lokio/BufferedSource;
     .locals 1
 
     .line 486
-    iget-object v0, p0, Lbl/ji$a;->b:Lbl/bkg;
+    iget-object v0, p0, Lbl/ji$a;->b:Lokio/BufferedSource;
 
     return-object v0
 .end method

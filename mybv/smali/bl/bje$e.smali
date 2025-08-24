@@ -59,7 +59,7 @@
 
 
 # virtual methods
-.method public a(Lbl/bke;J)J
+.method public read(Lokio/Buffer;J)J
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -128,7 +128,7 @@
 
     move-result-wide p2
 
-    invoke-super {p0, p1, p2, p3}, Lbl/bje$a;->a(Lbl/bke;J)J
+    invoke-super {p0, p1, p2, p3}, Lbl/bje$a;->read(Lokio/Buffer;J)J
 
     move-result-wide p1
 
@@ -206,7 +206,7 @@
 
     sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-static {p0, v0, v1}, Lbl/bie;->a(Lbl/bkt;ILjava/util/concurrent/TimeUnit;)Z
+    invoke-static {p0, v0, v1}, Lbl/bie;->a(Lokio/Source;ILjava/util/concurrent/TimeUnit;)Z
 
     move-result v0
 

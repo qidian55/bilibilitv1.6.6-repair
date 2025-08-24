@@ -730,17 +730,17 @@
 
     .line 433
     :cond_0
-    new-instance v6, Lbl/bke;
+    new-instance v6, Lokio/Buffer;
 
-    invoke-direct {v6}, Lbl/bke;-><init>()V
+    invoke-direct {v6}, Lokio/Buffer;-><init>()V
 
     .line 434
-    invoke-virtual {v6, p0, v1, v2}, Lbl/bke;->a(Ljava/lang/String;II)Lbl/bke;
+    invoke-virtual {v6, p0, v1, v2}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;II)Lokio/Buffer;
 
     const/16 v1, 0x3f
 
     .line 435
-    invoke-virtual {v6, v1}, Lbl/bke;->a(I)Lbl/bke;
+    invoke-virtual {v6, v1}, Lokio/Buffer;->writeUtf8CodePoint(I)Lokio/Buffer;
 
     .line 436
     :goto_1
@@ -770,13 +770,13 @@
 
     .line 438
     :goto_2
-    invoke-virtual {v6, v7}, Lbl/bke;->a(I)Lbl/bke;
+    invoke-virtual {v6, v7}, Lokio/Buffer;->writeUtf8CodePoint(I)Lokio/Buffer;
 
     goto :goto_1
 
     .line 440
     :cond_2
-    invoke-virtual {v6}, Lbl/bke;->p()Ljava/lang/String;
+    invoke-virtual {v6}, Lokio/Buffer;->readUtf8()Ljava/lang/String;
 
     move-result-object p0
 
@@ -1001,7 +1001,7 @@
 
     .line 396
     :goto_3
-    invoke-virtual {v0}, Lbl/uy;->c()Lbl/bku;
+    invoke-virtual {v0}, Lbl/uy;->c()Lokio/Timeout;
 
     move-result-object v1
 
@@ -1015,7 +1015,7 @@
 
     sget-object v6, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v1, v4, v5, v6}, Lbl/bku;->a(JLjava/util/concurrent/TimeUnit;)Lbl/bku;
+    invoke-virtual {v1, v4, v5, v6}, Lokio/Timeout;->timeout(JLjava/util/concurrent/TimeUnit;)Lokio/Timeout;
 
     goto :goto_4
 

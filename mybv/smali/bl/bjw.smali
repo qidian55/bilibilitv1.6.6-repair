@@ -296,9 +296,9 @@
     .end annotation
 
     .line 234
-    new-instance v0, Lbl/bke;
+    new-instance v0, Lokio/Buffer;
 
-    invoke-direct {v0}, Lbl/bke;-><init>()V
+    invoke-direct {v0}, Lokio/Buffer;-><init>()V
 
     .line 235
     invoke-interface {p0}, Ljava/util/List;->size()I
@@ -334,14 +334,14 @@
 
     move-result v4
 
-    invoke-virtual {v0, v4}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {v0, v4}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 239
     invoke-virtual {v3}, Lokhttp3/Protocol;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Lbl/bke;->a(Ljava/lang/String;)Lbl/bke;
+    invoke-virtual {v0, v3}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;)Lokio/Buffer;
 
     :goto_1
     add-int/lit8 v2, v2, 0x1
@@ -350,7 +350,7 @@
 
     .line 241
     :cond_1
-    invoke-virtual {v0}, Lbl/bke;->r()[B
+    invoke-virtual {v0}, Lokio/Buffer;->readByteArray()[B
 
     move-result-object p0
 

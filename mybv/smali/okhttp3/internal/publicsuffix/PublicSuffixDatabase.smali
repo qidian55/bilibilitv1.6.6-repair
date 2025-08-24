@@ -712,21 +712,21 @@
 
     .line 312
     :cond_0
-    new-instance v1, Lbl/bkk;
+    new-instance v1, Lokio/GzipSource;
 
-    invoke-static {v0}, Lbl/bkm;->a(Ljava/io/InputStream;)Lbl/bkt;
+    invoke-static {v0}, Lokio/Okio;->source(Ljava/io/InputStream;)Lokio/Source;
 
     move-result-object v0
 
-    invoke-direct {v1, v0}, Lbl/bkk;-><init>(Lbl/bkt;)V
+    invoke-direct {v1, v0}, Lokio/GzipSource;-><init>(Lokio/Source;)V
 
-    invoke-static {v1}, Lbl/bkm;->a(Lbl/bkt;)Lbl/bkg;
+    invoke-static {v1}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object v0
 
     .line 314
     :try_start_0
-    invoke-interface {v0}, Lbl/bkg;->j()I
+    invoke-interface {v0}, Lokio/BufferedSource;->readInt()I
 
     move-result v1
 
@@ -734,10 +734,10 @@
     new-array v1, v1, [B
 
     .line 316
-    invoke-interface {v0, v1}, Lbl/bkg;->a([B)V
+    invoke-interface {v0, v1}, Lokio/BufferedSource;->readFully([B)V
 
     .line 318
-    invoke-interface {v0}, Lbl/bkg;->j()I
+    invoke-interface {v0}, Lokio/BufferedSource;->readInt()I
 
     move-result v2
 
@@ -745,7 +745,7 @@
     new-array v2, v2, [B
 
     .line 320
-    invoke-interface {v0, v2}, Lbl/bkg;->a([B)V
+    invoke-interface {v0, v2}, Lokio/BufferedSource;->readFully([B)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 

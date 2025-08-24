@@ -56,7 +56,7 @@
     return-wide v0
 .end method
 
-.method public c()Lbl/bkg;
+.method public c()Lokio/BufferedSource;
     .locals 2
 
     .line 565

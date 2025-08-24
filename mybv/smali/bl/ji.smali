@@ -64,7 +64,7 @@
     return-void
 .end method
 
-.method static synthetic a(Lbl/bkg;)I
+.method static synthetic a(Lokio/BufferedSource;)I
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -73,7 +73,7 @@
     .end annotation
 
     .line 44
-    invoke-static {p0}, Lbl/ji;->b(Lbl/bkg;)I
+    invoke-static {p0}, Lbl/ji;->b(Lokio/BufferedSource;)I
 
     move-result p0
 
@@ -160,7 +160,7 @@
     return p0
 .end method
 
-.method private static b(Lbl/bkg;)I
+.method private static b(Lokio/BufferedSource;)I
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -170,12 +170,12 @@
 
     .line 438
     :try_start_0
-    invoke-interface {p0}, Lbl/bkg;->m()J
+    invoke-interface {p0}, Lokio/BufferedSource;->readDecimalLong()J
 
     move-result-wide v0
 
     .line 439
-    invoke-interface {p0}, Lbl/bkg;->q()Ljava/lang/String;
+    invoke-interface {p0}, Lokio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
 
     move-result-object p0
 
@@ -263,15 +263,15 @@
 
     move-result-object p0
 
-    invoke-static {p0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {p0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lokio/ByteString;->c()Lokio/ByteString;
+    invoke-virtual {p0}, Lokio/ByteString;->md5()Lokio/ByteString;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lokio/ByteString;->f()Ljava/lang/String;
+    invoke-virtual {p0}, Lokio/ByteString;->hex()Ljava/lang/String;
 
     move-result-object p0
 
@@ -310,11 +310,11 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {p1, v2}, Lbl/bij$c;->a(I)Lbl/bkt;
+    invoke-virtual {p1, v2}, Lbl/bij$c;->a(I)Lokio/Source;
 
     move-result-object v2
 
-    invoke-direct {v1, v2}, Lbl/ji$b;-><init>(Lbl/bkt;)V
+    invoke-direct {v1, v2}, Lbl/ji$b;-><init>(Lokio/Source;)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -442,22 +442,22 @@
     const/4 v1, 0x1
 
     .line 156
-    invoke-virtual {p1, v1}, Lbl/bij$a;->a(I)Lbl/bks;
+    invoke-virtual {p1, v1}, Lbl/bij$a;->a(I)Lokio/Sink;
 
     move-result-object v1
 
-    invoke-static {v1}, Lbl/bkm;->a(Lbl/bks;)Lbl/bkf;
+    invoke-static {v1}, Lokio/Okio;->buffer(Lokio/Sink;)Lokio/BufferedSink;
 
     move-result-object v1
 
     .line 157
-    invoke-virtual {v0}, Lbl/bia;->c()Lbl/bkg;
+    invoke-virtual {v0}, Lbl/bia;->c()Lokio/BufferedSource;
 
     move-result-object v0
 
     .line 160
     :try_start_2
-    invoke-interface {v1, v0}, Lbl/bkf;->a(Lbl/bkt;)J
+    invoke-interface {v1, v0}, Lokio/BufferedSink;->writeAll(Lokio/Source;)J
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0

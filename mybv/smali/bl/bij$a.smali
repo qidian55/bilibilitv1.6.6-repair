@@ -58,7 +58,7 @@
 
 
 # virtual methods
-.method public a(I)Lbl/bks;
+.method public a(I)Lokio/Sink;
     .locals 3
 
     .line 886
@@ -88,7 +88,7 @@
     if-eq v1, p0, :cond_1
 
     .line 891
-    invoke-static {}, Lbl/bkm;->a()Lbl/bks;
+    invoke-static {}, Lokio/Okio;->blackhole()Lokio/Sink;
 
     move-result-object p1
 
@@ -127,7 +127,7 @@
 
     iget-object v1, v1, Lbl/bij;->b:Lbl/bjq;
 
-    invoke-interface {v1, p1}, Lbl/bjq;->b(Ljava/io/File;)Lbl/bks;
+    invoke-interface {v1, p1}, Lbl/bjq;->b(Ljava/io/File;)Lokio/Sink;
 
     move-result-object p1
     :try_end_1
@@ -138,7 +138,7 @@
     :try_start_2
     new-instance v1, Lbl/bij$a$1;
 
-    invoke-direct {v1, p0, p1}, Lbl/bij$a$1;-><init>(Lbl/bij$a;Lbl/bks;)V
+    invoke-direct {v1, p0, p1}, Lbl/bij$a$1;-><init>(Lbl/bij$a;Lokio/Sink;)V
 
     monitor-exit v0
 
@@ -146,7 +146,7 @@
 
     .line 901
     :catch_0
-    invoke-static {}, Lbl/bkm;->a()Lbl/bks;
+    invoke-static {}, Lokio/Okio;->blackhole()Lokio/Sink;
 
     move-result-object p1
 

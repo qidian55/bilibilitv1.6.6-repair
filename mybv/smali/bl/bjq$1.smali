@@ -29,7 +29,7 @@
 
 
 # virtual methods
-.method public a(Ljava/io/File;)Lbl/bkt;
+.method public a(Ljava/io/File;)Lokio/Source;
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -38,7 +38,7 @@
     .end annotation
 
     .line 44
-    invoke-static {p1}, Lbl/bkm;->a(Ljava/io/File;)Lbl/bkt;
+    invoke-static {p1}, Lokio/Okio;->source(Ljava/io/File;)Lokio/Source;
 
     move-result-object p1
 
@@ -94,7 +94,7 @@
     return-void
 .end method
 
-.method public b(Ljava/io/File;)Lbl/bks;
+.method public b(Ljava/io/File;)Lokio/Sink;
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -104,7 +104,7 @@
 
     .line 49
     :try_start_0
-    invoke-static {p1}, Lbl/bkm;->b(Ljava/io/File;)Lbl/bks;
+    invoke-static {p1}, Lokio/Okio;->sink(Ljava/io/File;)Lokio/Sink;
 
     move-result-object v0
     :try_end_0
@@ -121,14 +121,14 @@
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
     .line 53
-    invoke-static {p1}, Lbl/bkm;->b(Ljava/io/File;)Lbl/bks;
+    invoke-static {p1}, Lokio/Okio;->sink(Ljava/io/File;)Lokio/Sink;
 
     move-result-object p1
 
     return-object p1
 .end method
 
-.method public c(Ljava/io/File;)Lbl/bks;
+.method public c(Ljava/io/File;)Lokio/Sink;
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -138,7 +138,7 @@
 
     .line 59
     :try_start_0
-    invoke-static {p1}, Lbl/bkm;->c(Ljava/io/File;)Lbl/bks;
+    invoke-static {p1}, Lokio/Okio;->appendingSink(Ljava/io/File;)Lokio/Sink;
 
     move-result-object v0
     :try_end_0
@@ -155,7 +155,7 @@
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
     .line 63
-    invoke-static {p1}, Lbl/bkm;->c(Ljava/io/File;)Lbl/bks;
+    invoke-static {p1}, Lokio/Okio;->appendingSink(Ljava/io/File;)Lokio/Sink;
 
     move-result-object p1
 

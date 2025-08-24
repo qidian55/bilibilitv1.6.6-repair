@@ -36,7 +36,7 @@
 
 
 # virtual methods
-.method public a(Lbl/bke;J)J
+.method public read(Lokio/Buffer;J)J
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -97,7 +97,7 @@
 
     .line 507
     :cond_2
-    invoke-super {p0, p1, p2, p3}, Lbl/bje$a;->a(Lbl/bke;J)J
+    invoke-super {p0, p1, p2, p3}, Lbl/bje$a;->read(Lokio/Buffer;J)J
 
     move-result-wide p1
 

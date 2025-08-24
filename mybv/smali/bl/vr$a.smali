@@ -70,16 +70,16 @@
 
     .line 107
     :try_start_0
-    new-instance v0, Lbl/bke;
+    new-instance v0, Lokio/Buffer;
 
-    invoke-direct {v0}, Lbl/bke;-><init>()V
+    invoke-direct {v0}, Lokio/Buffer;-><init>()V
 
     .line 108
-    invoke-virtual {p1}, Lbl/bia;->c()Lbl/bkg;
+    invoke-virtual {p1}, Lbl/bia;->c()Lokio/BufferedSource;
 
     move-result-object v1
 
-    invoke-interface {v1, v0}, Lbl/bkg;->a(Lbl/bks;)J
+    invoke-interface {v1, v0}, Lokio/BufferedSource;->readAll(Lokio/Sink;)J
 
     .line 109
     invoke-virtual {p1}, Lbl/bia;->a()Lbl/bht;
@@ -90,7 +90,7 @@
 
     move-result-wide v2
 
-    invoke-static {v1, v2, v3, v0}, Lbl/bia;->a(Lbl/bht;JLbl/bkg;)Lbl/bia;
+    invoke-static {v1, v2, v3, v0}, Lbl/bia;->a(Lbl/bht;JLokio/BufferedSource;)Lbl/bia;
 
     move-result-object v0
     :try_end_0

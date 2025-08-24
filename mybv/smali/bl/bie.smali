@@ -88,7 +88,7 @@
     const-string v0, "efbbbf"
 
     .line 54
-    invoke-static {v0}, Lokio/ByteString;->b(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->decodeHex(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -97,7 +97,7 @@
     const-string v0, "feff"
 
     .line 55
-    invoke-static {v0}, Lokio/ByteString;->b(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->decodeHex(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -106,7 +106,7 @@
     const-string v0, "fffe"
 
     .line 56
-    invoke-static {v0}, Lokio/ByteString;->b(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->decodeHex(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -115,7 +115,7 @@
     const-string v0, "0000ffff"
 
     .line 57
-    invoke-static {v0}, Lokio/ByteString;->b(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->decodeHex(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -124,7 +124,7 @@
     const-string v0, "ffff0000"
 
     .line 58
-    invoke-static {v0}, Lokio/ByteString;->b(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->decodeHex(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -837,9 +837,9 @@
 
     .line 607
     :cond_2
-    new-instance v1, Lbl/bke;
+    new-instance v1, Lokio/Buffer;
 
-    invoke-direct {v1}, Lbl/bke;-><init>()V
+    invoke-direct {v1}, Lokio/Buffer;-><init>()V
 
     .line 608
     :cond_3
@@ -853,14 +853,14 @@
     if-ne v0, v3, :cond_4
 
     .line 610
-    invoke-virtual {v1, v4}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {v1, v4}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     add-int/2addr v0, v2
 
     if-ne v0, v5, :cond_3
 
     .line 612
-    invoke-virtual {v1, v4}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {v1, v4}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     goto :goto_2
 
@@ -868,7 +868,7 @@
     if-lez v0, :cond_5
 
     .line 614
-    invoke-virtual {v1, v4}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {v1, v4}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 615
     :cond_5
@@ -889,7 +889,7 @@
     int-to-long v6, v4
 
     .line 616
-    invoke-virtual {v1, v6, v7}, Lbl/bke;->j(J)Lbl/bke;
+    invoke-virtual {v1, v6, v7}, Lokio/Buffer;->writeHexadecimalUnsignedLong(J)Lokio/Buffer;
 
     add-int/lit8 v0, v0, 0x2
 
@@ -897,14 +897,14 @@
 
     .line 620
     :cond_6
-    invoke-virtual {v1}, Lbl/bke;->p()Ljava/lang/String;
+    invoke-virtual {v1}, Lokio/Buffer;->readUtf8()Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public static a(Lbl/bkg;Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
+.method public static a(Lokio/BufferedSource;Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -917,7 +917,7 @@
 
     const-wide/16 v1, 0x0
 
-    invoke-interface {p0, v1, v2, v0}, Lbl/bkg;->a(JLokio/ByteString;)Z
+    invoke-interface {p0, v1, v2, v0}, Lokio/BufferedSource;->rangeEquals(JLokio/ByteString;)Z
 
     move-result v0
 
@@ -926,13 +926,13 @@
     .line 433
     sget-object p1, Lbl/bie;->i:Lokio/ByteString;
 
-    invoke-virtual {p1}, Lokio/ByteString;->h()I
+    invoke-virtual {p1}, Lokio/ByteString;->size()I
 
     move-result p1
 
     int-to-long v0, p1
 
-    invoke-interface {p0, v0, v1}, Lbl/bkg;->h(J)V
+    invoke-interface {p0, v0, v1}, Lokio/BufferedSource;->skip(J)V
 
     .line 434
     sget-object p0, Lbl/bie;->e:Ljava/nio/charset/Charset;
@@ -943,7 +943,7 @@
     :cond_0
     sget-object v0, Lbl/bie;->j:Lokio/ByteString;
 
-    invoke-interface {p0, v1, v2, v0}, Lbl/bkg;->a(JLokio/ByteString;)Z
+    invoke-interface {p0, v1, v2, v0}, Lokio/BufferedSource;->rangeEquals(JLokio/ByteString;)Z
 
     move-result v0
 
@@ -952,13 +952,13 @@
     .line 437
     sget-object p1, Lbl/bie;->j:Lokio/ByteString;
 
-    invoke-virtual {p1}, Lokio/ByteString;->h()I
+    invoke-virtual {p1}, Lokio/ByteString;->size()I
 
     move-result p1
 
     int-to-long v0, p1
 
-    invoke-interface {p0, v0, v1}, Lbl/bkg;->h(J)V
+    invoke-interface {p0, v0, v1}, Lokio/BufferedSource;->skip(J)V
 
     .line 438
     sget-object p0, Lbl/bie;->n:Ljava/nio/charset/Charset;
@@ -969,7 +969,7 @@
     :cond_1
     sget-object v0, Lbl/bie;->k:Lokio/ByteString;
 
-    invoke-interface {p0, v1, v2, v0}, Lbl/bkg;->a(JLokio/ByteString;)Z
+    invoke-interface {p0, v1, v2, v0}, Lokio/BufferedSource;->rangeEquals(JLokio/ByteString;)Z
 
     move-result v0
 
@@ -978,13 +978,13 @@
     .line 441
     sget-object p1, Lbl/bie;->k:Lokio/ByteString;
 
-    invoke-virtual {p1}, Lokio/ByteString;->h()I
+    invoke-virtual {p1}, Lokio/ByteString;->size()I
 
     move-result p1
 
     int-to-long v0, p1
 
-    invoke-interface {p0, v0, v1}, Lbl/bkg;->h(J)V
+    invoke-interface {p0, v0, v1}, Lokio/BufferedSource;->skip(J)V
 
     .line 442
     sget-object p0, Lbl/bie;->o:Ljava/nio/charset/Charset;
@@ -995,7 +995,7 @@
     :cond_2
     sget-object v0, Lbl/bie;->l:Lokio/ByteString;
 
-    invoke-interface {p0, v1, v2, v0}, Lbl/bkg;->a(JLokio/ByteString;)Z
+    invoke-interface {p0, v1, v2, v0}, Lokio/BufferedSource;->rangeEquals(JLokio/ByteString;)Z
 
     move-result v0
 
@@ -1004,13 +1004,13 @@
     .line 445
     sget-object p1, Lbl/bie;->l:Lokio/ByteString;
 
-    invoke-virtual {p1}, Lokio/ByteString;->h()I
+    invoke-virtual {p1}, Lokio/ByteString;->size()I
 
     move-result p1
 
     int-to-long v0, p1
 
-    invoke-interface {p0, v0, v1}, Lbl/bkg;->h(J)V
+    invoke-interface {p0, v0, v1}, Lokio/BufferedSource;->skip(J)V
 
     .line 446
     sget-object p0, Lbl/bie;->p:Ljava/nio/charset/Charset;
@@ -1021,7 +1021,7 @@
     :cond_3
     sget-object v0, Lbl/bie;->m:Lokio/ByteString;
 
-    invoke-interface {p0, v1, v2, v0}, Lbl/bkg;->a(JLokio/ByteString;)Z
+    invoke-interface {p0, v1, v2, v0}, Lokio/BufferedSource;->rangeEquals(JLokio/ByteString;)Z
 
     move-result v0
 
@@ -1030,13 +1030,13 @@
     .line 449
     sget-object p1, Lbl/bie;->m:Lokio/ByteString;
 
-    invoke-virtual {p1}, Lokio/ByteString;->h()I
+    invoke-virtual {p1}, Lokio/ByteString;->size()I
 
     move-result p1
 
     int-to-long v0, p1
 
-    invoke-interface {p0, v0, v1}, Lbl/bkg;->h(J)V
+    invoke-interface {p0, v0, v1}, Lokio/BufferedSource;->skip(J)V
 
     .line 450
     sget-object p0, Lbl/bie;->q:Ljava/nio/charset/Charset;
@@ -1215,12 +1215,12 @@
     return-void
 .end method
 
-.method public static a(Lbl/bkt;ILjava/util/concurrent/TimeUnit;)Z
+.method public static a(Lokio/Source;ILjava/util/concurrent/TimeUnit;)Z
     .locals 0
 
     .line 157
     :try_start_0
-    invoke-static {p0, p1, p2}, Lbl/bie;->b(Lbl/bkt;ILjava/util/concurrent/TimeUnit;)Z
+    invoke-static {p0, p1, p2}, Lbl/bie;->b(Lokio/Source;ILjava/util/concurrent/TimeUnit;)Z
 
     move-result p0
     :try_end_0
@@ -1611,7 +1611,7 @@
     .end sparse-switch
 .end method
 
-.method public static b(Lbl/bkt;ILjava/util/concurrent/TimeUnit;)Z
+.method public static b(Lokio/Source;ILjava/util/concurrent/TimeUnit;)Z
     .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1625,11 +1625,11 @@
     move-result-wide v0
 
     .line 169
-    invoke-interface {p0}, Lbl/bkt;->a()Lbl/bku;
+    invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lbl/bku;->i_()Z
+    invoke-virtual {v2}, Lokio/Timeout;->hasDeadline()Z
 
     move-result v2
 
@@ -1638,11 +1638,11 @@
     if-eqz v2, :cond_0
 
     .line 170
-    invoke-interface {p0}, Lbl/bkt;->a()Lbl/bku;
+    invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lbl/bku;->d()J
+    invoke-virtual {v2}, Lokio/Timeout;->deadlineNanoTime()J
 
     move-result-wide v5
 
@@ -1655,7 +1655,7 @@
 
     .line 172
     :goto_0
-    invoke-interface {p0}, Lbl/bkt;->a()Lbl/bku;
+    invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
 
     move-result-object v2
 
@@ -1671,19 +1671,19 @@
 
     add-long v5, v0, p1
 
-    invoke-virtual {v2, v5, v6}, Lbl/bku;->a(J)Lbl/bku;
+    invoke-virtual {v2, v5, v6}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     .line 174
     :try_start_0
-    new-instance p1, Lbl/bke;
+    new-instance p1, Lokio/Buffer;
 
-    invoke-direct {p1}, Lbl/bke;-><init>()V
+    invoke-direct {p1}, Lokio/Buffer;-><init>()V
 
     :goto_1
     const-wide/16 v5, 0x2000
 
     .line 175
-    invoke-interface {p0, p1, v5, v6}, Lbl/bkt;->a(Lbl/bke;J)J
+    invoke-interface {p0, p1, v5, v6}, Lokio/Source;->read(Lokio/Buffer;J)J
 
     move-result-wide v5
 
@@ -1694,7 +1694,7 @@
     if-eqz p2, :cond_1
 
     .line 176
-    invoke-virtual {p1}, Lbl/bke;->s()V
+    invoke-virtual {p1}, Lokio/Buffer;->clear()V
     :try_end_0
     .catch Ljava/io/InterruptedIOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1709,23 +1709,23 @@
     if-nez p2, :cond_2
 
     .line 183
-    invoke-interface {p0}, Lbl/bkt;->a()Lbl/bku;
+    invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lbl/bku;->f()Lbl/bku;
+    invoke-virtual {p0}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
     goto :goto_2
 
     .line 185
     :cond_2
-    invoke-interface {p0}, Lbl/bkt;->a()Lbl/bku;
+    invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
 
     move-result-object p0
 
     add-long v2, v0, v7
 
-    invoke-virtual {p0, v2, v3}, Lbl/bku;->a(J)Lbl/bku;
+    invoke-virtual {p0, v2, v3}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     :goto_2
     return p1
@@ -1738,23 +1738,23 @@
     if-nez p2, :cond_3
 
     .line 183
-    invoke-interface {p0}, Lbl/bkt;->a()Lbl/bku;
+    invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lbl/bku;->f()Lbl/bku;
+    invoke-virtual {p0}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
     goto :goto_3
 
     .line 185
     :cond_3
-    invoke-interface {p0}, Lbl/bkt;->a()Lbl/bku;
+    invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
 
     move-result-object p0
 
     add-long v2, v0, v7
 
-    invoke-virtual {p0, v2, v3}, Lbl/bku;->a(J)Lbl/bku;
+    invoke-virtual {p0, v2, v3}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     :goto_3
     throw p1
@@ -1767,23 +1767,23 @@
     if-nez p2, :cond_4
 
     .line 183
-    invoke-interface {p0}, Lbl/bkt;->a()Lbl/bku;
+    invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lbl/bku;->f()Lbl/bku;
+    invoke-virtual {p0}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
     goto :goto_4
 
     .line 185
     :cond_4
-    invoke-interface {p0}, Lbl/bkt;->a()Lbl/bku;
+    invoke-interface {p0}, Lokio/Source;->timeout()Lokio/Timeout;
 
     move-result-object p0
 
     add-long v2, v0, v7
 
-    invoke-virtual {p0, v2, v3}, Lbl/bku;->a(J)Lbl/bku;
+    invoke-virtual {p0, v2, v3}, Lokio/Timeout;->deadlineNanoTime(J)Lokio/Timeout;
 
     :goto_4
     return p1

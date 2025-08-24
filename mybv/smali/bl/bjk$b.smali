@@ -61,7 +61,7 @@
     .end annotation
 .end method
 
-.method public abstract a(ZILbl/bkg;I)V
+.method public abstract a(ZILokio/BufferedSource;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

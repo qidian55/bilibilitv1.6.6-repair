@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bkt;
+.implements Lokio/Source;
 
 
 # annotations
@@ -28,9 +28,9 @@
 
 .field final synthetic d:Lbl/bjl;
 
-.field private final e:Lbl/bke;
+.field private final e:Lokio/Buffer;
 
-.field private final f:Lbl/bke;
+.field private final f:Lokio/Buffer;
 
 .field private final g:J
 
@@ -54,18 +54,18 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 311
-    new-instance p1, Lbl/bke;
+    new-instance p1, Lokio/Buffer;
 
-    invoke-direct {p1}, Lbl/bke;-><init>()V
+    invoke-direct {p1}, Lokio/Buffer;-><init>()V
 
-    iput-object p1, p0, Lbl/bjl$b;->e:Lbl/bke;
+    iput-object p1, p0, Lbl/bjl$b;->e:Lokio/Buffer;
 
     .line 314
-    new-instance p1, Lbl/bke;
+    new-instance p1, Lokio/Buffer;
 
-    invoke-direct {p1}, Lbl/bke;-><init>()V
+    invoke-direct {p1}, Lokio/Buffer;-><init>()V
 
-    iput-object p1, p0, Lbl/bjl$b;->f:Lbl/bke;
+    iput-object p1, p0, Lbl/bjl$b;->f:Lokio/Buffer;
 
     .line 329
     iput-wide p2, p0, Lbl/bjl$b;->g:J
@@ -86,14 +86,14 @@
 
     iget-object v0, v0, Lbl/bjl;->f:Lbl/bjl$c;
 
-    invoke-virtual {v0}, Lbl/bjl$c;->c()V
+    invoke-virtual {v0}, Lbl/bjl$c;->enter()V
 
     .line 370
     :goto_0
     :try_start_0
-    iget-object v0, p0, Lbl/bjl$b;->f:Lbl/bke;
+    iget-object v0, p0, Lbl/bjl$b;->f:Lokio/Buffer;
 
-    invoke-virtual {v0}, Lbl/bke;->b()J
+    invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v0
 
@@ -195,7 +195,7 @@
 
 
 # virtual methods
-.method public a(Lbl/bke;J)J
+.method public read(Lokio/Buffer;J)J
     .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -244,9 +244,9 @@
     invoke-direct {p0}, Lbl/bjl$b;->c()V
 
     .line 339
-    iget-object v3, p0, Lbl/bjl$b;->f:Lbl/bke;
+    iget-object v3, p0, Lbl/bjl$b;->f:Lokio/Buffer;
 
-    invoke-virtual {v3}, Lbl/bke;->b()J
+    invoke-virtual {v3}, Lokio/Buffer;->size()J
 
     move-result-wide v3
 
@@ -262,11 +262,11 @@
 
     .line 342
     :cond_1
-    iget-object v3, p0, Lbl/bjl$b;->f:Lbl/bke;
+    iget-object v3, p0, Lbl/bjl$b;->f:Lokio/Buffer;
 
-    iget-object v4, p0, Lbl/bjl$b;->f:Lbl/bke;
+    iget-object v4, p0, Lbl/bjl$b;->f:Lokio/Buffer;
 
-    invoke-virtual {v4}, Lbl/bke;->b()J
+    invoke-virtual {v4}, Lokio/Buffer;->size()J
 
     move-result-wide v4
 
@@ -274,7 +274,7 @@
 
     move-result-wide p2
 
-    invoke-virtual {v3, p1, p2, p3}, Lbl/bke;->a(Lbl/bke;J)J
+    invoke-virtual {v3, p1, p2, p3}, Lokio/Buffer;->read(Lokio/Buffer;J)J
 
     move-result-wide p1
 
@@ -435,7 +435,7 @@
     throw p1
 .end method
 
-.method public a()Lbl/bku;
+.method public timeout()Lokio/Timeout;
     .locals 1
 
     .line 419
@@ -446,7 +446,7 @@
     return-object v0
 .end method
 
-.method a(Lbl/bkg;J)V
+.method a(Lokio/BufferedSource;J)V
     .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -491,9 +491,9 @@
     iget-boolean v3, p0, Lbl/bjl$b;->b:Z
 
     .line 386
-    iget-object v4, p0, Lbl/bjl$b;->f:Lbl/bke;
+    iget-object v4, p0, Lbl/bjl$b;->f:Lokio/Buffer;
 
-    invoke-virtual {v4}, Lbl/bke;->b()J
+    invoke-virtual {v4}, Lokio/Buffer;->size()J
 
     move-result-wide v4
 
@@ -527,7 +527,7 @@
     if-eqz v6, :cond_2
 
     .line 391
-    invoke-interface {p1, p2, p3}, Lbl/bkg;->h(J)V
+    invoke-interface {p1, p2, p3}, Lokio/BufferedSource;->skip(J)V
 
     .line 392
     iget-object p1, p0, Lbl/bjl$b;->d:Lbl/bjl;
@@ -542,15 +542,15 @@
     if-eqz v3, :cond_3
 
     .line 398
-    invoke-interface {p1, p2, p3}, Lbl/bkg;->h(J)V
+    invoke-interface {p1, p2, p3}, Lokio/BufferedSource;->skip(J)V
 
     return-void
 
     .line 403
     :cond_3
-    iget-object v2, p0, Lbl/bjl$b;->e:Lbl/bke;
+    iget-object v2, p0, Lbl/bjl$b;->e:Lokio/Buffer;
 
-    invoke-interface {p1, v2, p2, p3}, Lbl/bkg;->a(Lbl/bke;J)J
+    invoke-interface {p1, v2, p2, p3}, Lokio/BufferedSource;->read(Lokio/Buffer;J)J
 
     move-result-wide v2
 
@@ -579,9 +579,9 @@
 
     .line 409
     :try_start_1
-    iget-object p3, p0, Lbl/bjl$b;->f:Lbl/bke;
+    iget-object p3, p0, Lbl/bjl$b;->f:Lokio/Buffer;
 
-    invoke-virtual {p3}, Lbl/bke;->b()J
+    invoke-virtual {p3}, Lokio/Buffer;->size()J
 
     move-result-wide v2
 
@@ -593,11 +593,11 @@
 
     .line 410
     :cond_5
-    iget-object p3, p0, Lbl/bjl$b;->f:Lbl/bke;
+    iget-object p3, p0, Lbl/bjl$b;->f:Lokio/Buffer;
 
-    iget-object v0, p0, Lbl/bjl$b;->e:Lbl/bke;
+    iget-object v0, p0, Lbl/bjl$b;->e:Lokio/Buffer;
 
-    invoke-virtual {p3, v0}, Lbl/bke;->a(Lbl/bkt;)J
+    invoke-virtual {p3, v0}, Lokio/Buffer;->writeAll(Lokio/Source;)J
 
     if-eqz v4, :cond_6
 
@@ -658,9 +658,9 @@
     iput-boolean v1, p0, Lbl/bjl$b;->a:Z
 
     .line 425
-    iget-object v1, p0, Lbl/bjl$b;->f:Lbl/bke;
+    iget-object v1, p0, Lbl/bjl$b;->f:Lokio/Buffer;
 
-    invoke-virtual {v1}, Lbl/bke;->s()V
+    invoke-virtual {v1}, Lokio/Buffer;->clear()V
 
     .line 426
     iget-object v1, p0, Lbl/bjl$b;->d:Lbl/bjl;

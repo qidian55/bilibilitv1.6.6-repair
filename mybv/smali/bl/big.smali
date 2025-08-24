@@ -200,7 +200,7 @@
 
     .line 162
     :cond_0
-    invoke-interface {p1}, Lbl/bih;->a()Lbl/bks;
+    invoke-interface {p1}, Lbl/bih;->a()Lokio/Sink;
 
     move-result-object v0
 
@@ -214,19 +214,19 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lbl/bia;->c()Lbl/bkg;
+    invoke-virtual {v1}, Lbl/bia;->c()Lokio/BufferedSource;
 
     move-result-object v1
 
     .line 166
-    invoke-static {v0}, Lbl/bkm;->a(Lbl/bks;)Lbl/bkf;
+    invoke-static {v0}, Lokio/Okio;->buffer(Lokio/Sink;)Lokio/BufferedSink;
 
     move-result-object v0
 
     .line 168
     new-instance v2, Lbl/big$1;
 
-    invoke-direct {v2, p0, v1, p1, v0}, Lbl/big$1;-><init>(Lbl/big;Lbl/bkg;Lbl/bih;Lbl/bkf;)V
+    invoke-direct {v2, p0, v1, p1, v0}, Lbl/big$1;-><init>(Lbl/big;Lokio/BufferedSource;Lbl/bih;Lokio/BufferedSink;)V
 
     const-string p1, "Content-Type"
 
@@ -252,11 +252,11 @@
     new-instance v3, Lbl/biz;
 
     .line 213
-    invoke-static {v2}, Lbl/bkm;->a(Lbl/bkt;)Lbl/bkg;
+    invoke-static {v2}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object v2
 
-    invoke-direct {v3, p1, v0, v1, v2}, Lbl/biz;-><init>(Ljava/lang/String;JLbl/bkg;)V
+    invoke-direct {v3, p1, v0, v1, v2}, Lbl/biz;-><init>(Ljava/lang/String;JLokio/BufferedSource;)V
 
     invoke-virtual {p2, v3}, Lbl/bhz$a;->a(Lbl/bia;)Lbl/bhz$a;
 

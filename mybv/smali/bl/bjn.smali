@@ -738,14 +738,14 @@
 
     .line 120
     :goto_0
-    invoke-virtual {p1}, Lokio/ByteString;->h()I
+    invoke-virtual {p1}, Lokio/ByteString;->size()I
 
     move-result v3
 
     if-ge v2, v3, :cond_0
 
     .line 121
-    invoke-virtual {p1, v2}, Lokio/ByteString;->a(I)B
+    invoke-virtual {p1, v2}, Lokio/ByteString;->getByte(I)B
 
     move-result v3
 
@@ -780,7 +780,7 @@
     return p1
 .end method
 
-.method a(Lokio/ByteString;Lbl/bkf;)V
+.method a(Lokio/ByteString;Lokio/BufferedSink;)V
     .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -796,7 +796,7 @@
 
     .line 95
     :goto_0
-    invoke-virtual {p1}, Lokio/ByteString;->h()I
+    invoke-virtual {p1}, Lokio/ByteString;->size()I
 
     move-result v4
 
@@ -807,7 +807,7 @@
     if-ge v0, v4, :cond_1
 
     .line 96
-    invoke-virtual {p1, v0}, Lokio/ByteString;->a(I)B
+    invoke-virtual {p1, v0}, Lokio/ByteString;->getByte(I)B
 
     move-result v4
 
@@ -841,7 +841,7 @@
     long-to-int v1, v1
 
     .line 106
-    invoke-interface {p2, v1}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p2, v1}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     goto :goto_1
 
@@ -868,7 +868,7 @@
     long-to-int p1, v4
 
     .line 113
-    invoke-interface {p2, p1}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p2, p1}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     :cond_2
     return-void

@@ -1,5 +1,5 @@
 .class final Lbl/bit$a;
-.super Lbl/bkh;
+.super Lokio/ForwardingSink;
 .source "BL"
 
 
@@ -19,18 +19,18 @@
 
 
 # direct methods
-.method constructor <init>(Lbl/bks;)V
+.method constructor <init>(Lokio/Sink;)V
     .locals 0
 
     .line 145
-    invoke-direct {p0, p1}, Lbl/bkh;-><init>(Lbl/bks;)V
+    invoke-direct {p0, p1}, Lokio/ForwardingSink;-><init>(Lokio/Sink;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public a_(Lbl/bke;J)V
+.method public write(Lokio/Buffer;J)V
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -39,7 +39,7 @@
     .end annotation
 
     .line 149
-    invoke-super {p0, p1, p2, p3}, Lbl/bkh;->a_(Lbl/bke;J)V
+    invoke-super {p0, p1, p2, p3}, Lokio/ForwardingSink;->write(Lokio/Buffer;J)V
 
     .line 150
     iget-wide v0, p0, Lbl/bit$a;->a:J

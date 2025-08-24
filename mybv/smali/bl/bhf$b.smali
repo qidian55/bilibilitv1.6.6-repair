@@ -215,7 +215,7 @@
 
     iget-object v1, p0, Lbl/bhf$b;->d:Lokio/ByteString;
 
-    invoke-virtual {v1}, Lokio/ByteString;->b()Ljava/lang/String;
+    invoke-virtual {v1}, Lokio/ByteString;->base64()Ljava/lang/String;
 
     move-result-object v1
 

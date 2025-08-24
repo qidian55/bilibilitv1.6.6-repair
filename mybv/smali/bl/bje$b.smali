@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bks;
+.implements Lokio/Sink;
 
 
 # annotations
@@ -20,7 +20,7 @@
 # instance fields
 .field final synthetic a:Lbl/bje;
 
-.field private final b:Lbl/bkj;
+.field private final b:Lokio/ForwardingTimeout;
 
 .field private c:Z
 
@@ -35,35 +35,35 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 318
-    new-instance p1, Lbl/bkj;
+    new-instance p1, Lokio/ForwardingTimeout;
 
     iget-object v0, p0, Lbl/bje$b;->a:Lbl/bje;
 
-    iget-object v0, v0, Lbl/bje;->d:Lbl/bkf;
+    iget-object v0, v0, Lbl/bje;->d:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lbl/bkf;->a()Lbl/bku;
+    invoke-interface {v0}, Lokio/BufferedSink;->timeout()Lokio/Timeout;
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Lbl/bkj;-><init>(Lbl/bku;)V
+    invoke-direct {p1, v0}, Lokio/ForwardingTimeout;-><init>(Lokio/Timeout;)V
 
-    iput-object p1, p0, Lbl/bje$b;->b:Lbl/bkj;
+    iput-object p1, p0, Lbl/bje$b;->b:Lokio/ForwardingTimeout;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public a()Lbl/bku;
+.method public timeout()Lokio/Timeout;
     .locals 1
 
     .line 325
-    iget-object v0, p0, Lbl/bje$b;->b:Lbl/bkj;
+    iget-object v0, p0, Lbl/bje$b;->b:Lokio/ForwardingTimeout;
 
     return-object v0
 .end method
 
-.method public a_(Lbl/bke;J)V
+.method public write(Lokio/Buffer;J)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -97,34 +97,34 @@
     :cond_1
     iget-object v0, p0, Lbl/bje$b;->a:Lbl/bje;
 
-    iget-object v0, v0, Lbl/bje;->d:Lbl/bkf;
+    iget-object v0, v0, Lbl/bje;->d:Lokio/BufferedSink;
 
-    invoke-interface {v0, p2, p3}, Lbl/bkf;->k(J)Lbl/bkf;
+    invoke-interface {v0, p2, p3}, Lokio/BufferedSink;->writeHexadecimalUnsignedLong(J)Lokio/BufferedSink;
 
     .line 333
     iget-object v0, p0, Lbl/bje$b;->a:Lbl/bje;
 
-    iget-object v0, v0, Lbl/bje;->d:Lbl/bkf;
+    iget-object v0, v0, Lbl/bje;->d:Lokio/BufferedSink;
 
     const-string v1, "\r\n"
 
-    invoke-interface {v0, v1}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v0, v1}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     .line 334
     iget-object v0, p0, Lbl/bje$b;->a:Lbl/bje;
 
-    iget-object v0, v0, Lbl/bje;->d:Lbl/bkf;
+    iget-object v0, v0, Lbl/bje;->d:Lokio/BufferedSink;
 
-    invoke-interface {v0, p1, p2, p3}, Lbl/bkf;->a_(Lbl/bke;J)V
+    invoke-interface {v0, p1, p2, p3}, Lokio/BufferedSink;->write(Lokio/Buffer;J)V
 
     .line 335
     iget-object p1, p0, Lbl/bje$b;->a:Lbl/bje;
 
-    iget-object p1, p1, Lbl/bje;->d:Lbl/bkf;
+    iget-object p1, p1, Lbl/bje;->d:Lokio/BufferedSink;
 
     const-string p2, "\r\n"
 
-    invoke-interface {p1, p2}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {p1, p2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     return-void
 .end method
@@ -161,18 +161,18 @@
     .line 346
     iget-object v0, p0, Lbl/bje$b;->a:Lbl/bje;
 
-    iget-object v0, v0, Lbl/bje;->d:Lbl/bkf;
+    iget-object v0, v0, Lbl/bje;->d:Lokio/BufferedSink;
 
     const-string v1, "0\r\n\r\n"
 
-    invoke-interface {v0, v1}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v0, v1}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     .line 347
     iget-object v0, p0, Lbl/bje$b;->a:Lbl/bje;
 
-    iget-object v1, p0, Lbl/bje$b;->b:Lbl/bkj;
+    iget-object v1, p0, Lbl/bje$b;->b:Lokio/ForwardingTimeout;
 
-    invoke-virtual {v0, v1}, Lbl/bje;->a(Lbl/bkj;)V
+    invoke-virtual {v0, v1}, Lbl/bje;->a(Lokio/ForwardingTimeout;)V
 
     .line 348
     iget-object v0, p0, Lbl/bje$b;->a:Lbl/bje;
@@ -224,9 +224,9 @@
     :try_start_1
     iget-object v0, p0, Lbl/bje$b;->a:Lbl/bje;
 
-    iget-object v0, v0, Lbl/bje;->d:Lbl/bkf;
+    iget-object v0, v0, Lbl/bje;->d:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lbl/bkf;->flush()V
+    invoke-interface {v0}, Lokio/BufferedSink;->flush()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

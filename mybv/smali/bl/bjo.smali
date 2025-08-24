@@ -26,7 +26,7 @@
 .method public abstract a(ILokhttp3/internal/http2/ErrorCode;)V
 .end method
 
-.method public abstract a(ILbl/bkg;IZ)Z
+.method public abstract a(ILokio/BufferedSource;IZ)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

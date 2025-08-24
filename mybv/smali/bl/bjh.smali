@@ -20,7 +20,7 @@
     const-string v0, "PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n"
 
     .line 25
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 

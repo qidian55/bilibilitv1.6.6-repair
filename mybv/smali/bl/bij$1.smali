@@ -127,15 +127,15 @@
     .line 189
     iget-object v1, p0, Lbl/bij$1;->a:Lbl/bij;
 
-    invoke-static {}, Lbl/bkm;->a()Lbl/bks;
+    invoke-static {}, Lokio/Okio;->blackhole()Lokio/Sink;
 
     move-result-object v2
 
-    invoke-static {v2}, Lbl/bkm;->a(Lbl/bks;)Lbl/bkf;
+    invoke-static {v2}, Lokio/Okio;->buffer(Lokio/Sink;)Lokio/BufferedSink;
 
     move-result-object v2
 
-    iput-object v2, v1, Lbl/bij;->e:Lbl/bkf;
+    iput-object v2, v1, Lbl/bij;->e:Lokio/BufferedSink;
 
     .line 191
     :cond_1

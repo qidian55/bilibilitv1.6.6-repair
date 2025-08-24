@@ -113,7 +113,7 @@
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lokio/ByteString;->b()Ljava/lang/String;
+    invoke-virtual {p0}, Lokio/ByteString;->base64()Ljava/lang/String;
 
     move-result-object p0
 
@@ -138,11 +138,11 @@
 
     move-result-object p0
 
-    invoke-static {p0}, Lokio/ByteString;->a([B)Lokio/ByteString;
+    invoke-static {p0}, Lokio/ByteString;->of([B)Lokio/ByteString;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lokio/ByteString;->d()Lokio/ByteString;
+    invoke-virtual {p0}, Lokio/ByteString;->sha1()Lokio/ByteString;
 
     move-result-object p0
 
@@ -161,11 +161,11 @@
 
     move-result-object p0
 
-    invoke-static {p0}, Lokio/ByteString;->a([B)Lokio/ByteString;
+    invoke-static {p0}, Lokio/ByteString;->of([B)Lokio/ByteString;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lokio/ByteString;->e()Lokio/ByteString;
+    invoke-virtual {p0}, Lokio/ByteString;->sha256()Lokio/ByteString;
 
     move-result-object p0
 

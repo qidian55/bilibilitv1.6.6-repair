@@ -55,7 +55,7 @@
     return-wide v0
 .end method
 
-.method public a(Lbl/bkf;)V
+.method public a(Lokio/BufferedSink;)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -70,7 +70,7 @@
 
     iget v2, p0, Lbl/bhy$1;->b:I
 
-    invoke-interface {p1, v0, v1, v2}, Lbl/bkf;->c([BII)Lbl/bkf;
+    invoke-interface {p1, v0, v1, v2}, Lokio/BufferedSink;->write([BII)Lokio/BufferedSink;
 
     return-void
 .end method

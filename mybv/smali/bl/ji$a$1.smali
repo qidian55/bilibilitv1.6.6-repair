@@ -1,5 +1,5 @@
 .class Lbl/ji$a$1;
-.super Lbl/bki;
+.super Lokio/ForwardingSource;
 .source "BL"
 
 
@@ -21,7 +21,7 @@
 
 
 # direct methods
-.method constructor <init>(Lbl/ji$a;Lbl/bkt;Lbl/bij$c;)V
+.method constructor <init>(Lbl/ji$a;Lokio/Source;Lbl/bij$c;)V
     .locals 0
 
     .line 461
@@ -29,7 +29,7 @@
 
     iput-object p3, p0, Lbl/ji$a$1;->a:Lbl/bij$c;
 
-    invoke-direct {p0, p2}, Lbl/bki;-><init>(Lbl/bkt;)V
+    invoke-direct {p0, p2}, Lokio/ForwardingSource;-><init>(Lokio/Source;)V
 
     return-void
 .end method
@@ -50,7 +50,7 @@
     invoke-virtual {v0}, Lbl/bij$c;->close()V
 
     .line 465
-    invoke-super {p0}, Lbl/bki;->close()V
+    invoke-super {p0}, Lokio/ForwardingSource;->close()V
 
     return-void
 .end method

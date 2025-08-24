@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/bij$a;->a(I)Lbl/bks;
+    value = Lbl/bij$a;->a(I)Lokio/Sink;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,13 +19,13 @@
 
 
 # direct methods
-.method constructor <init>(Lbl/bij$a;Lbl/bks;)V
+.method constructor <init>(Lbl/bij$a;Lokio/Sink;)V
     .locals 0
 
     .line 903
     iput-object p1, p0, Lbl/bij$a$1;->a:Lbl/bij$a;
 
-    invoke-direct {p0, p2}, Lbl/bik;-><init>(Lbl/bks;)V
+    invoke-direct {p0, p2}, Lbl/bik;-><init>(Lokio/Sink;)V
 
     return-void
 .end method

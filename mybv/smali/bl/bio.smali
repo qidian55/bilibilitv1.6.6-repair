@@ -40,9 +40,9 @@
 
 .field private m:Lbl/bjj;
 
-.field private n:Lbl/bkg;
+.field private n:Lokio/BufferedSource;
 
-.field private o:Lbl/bkf;
+.field private o:Lokio/BufferedSink;
 
 
 # direct methods
@@ -115,18 +115,18 @@
     :goto_0
     new-instance v0, Lbl/bje;
 
-    iget-object v1, p0, Lbl/bio;->n:Lbl/bkg;
+    iget-object v1, p0, Lbl/bio;->n:Lokio/BufferedSource;
 
-    iget-object v2, p0, Lbl/bio;->o:Lbl/bkf;
+    iget-object v2, p0, Lbl/bio;->o:Lokio/BufferedSink;
 
     const/4 v3, 0x0
 
-    invoke-direct {v0, v3, v3, v1, v2}, Lbl/bje;-><init>(Lbl/bhv;Lbl/bir;Lbl/bkg;Lbl/bkf;)V
+    invoke-direct {v0, v3, v3, v1, v2}, Lbl/bje;-><init>(Lbl/bhv;Lbl/bir;Lokio/BufferedSource;Lokio/BufferedSink;)V
 
     .line 364
-    iget-object v1, p0, Lbl/bio;->n:Lbl/bkg;
+    iget-object v1, p0, Lbl/bio;->n:Lokio/BufferedSource;
 
-    invoke-interface {v1}, Lbl/bkg;->a()Lbl/bku;
+    invoke-interface {v1}, Lokio/BufferedSource;->timeout()Lokio/Timeout;
 
     move-result-object v1
 
@@ -134,12 +134,12 @@
 
     sget-object v2, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v1, v4, v5, v2}, Lbl/bku;->a(JLjava/util/concurrent/TimeUnit;)Lbl/bku;
+    invoke-virtual {v1, v4, v5, v2}, Lokio/Timeout;->timeout(JLjava/util/concurrent/TimeUnit;)Lokio/Timeout;
 
     .line 365
-    iget-object v1, p0, Lbl/bio;->o:Lbl/bkf;
+    iget-object v1, p0, Lbl/bio;->o:Lokio/BufferedSink;
 
-    invoke-interface {v1}, Lbl/bkf;->a()Lbl/bku;
+    invoke-interface {v1}, Lokio/BufferedSink;->timeout()Lokio/Timeout;
 
     move-result-object v1
 
@@ -147,7 +147,7 @@
 
     sget-object v2, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v1, v4, v5, v2}, Lbl/bku;->a(JLjava/util/concurrent/TimeUnit;)Lbl/bku;
+    invoke-virtual {v1, v4, v5, v2}, Lokio/Timeout;->timeout(JLjava/util/concurrent/TimeUnit;)Lokio/Timeout;
 
     .line 366
     invoke-virtual {p3}, Lbl/bhx;->c()Lbl/bhr;
@@ -191,7 +191,7 @@
 
     .line 377
     :cond_0
-    invoke-virtual {v0, v1, v2}, Lbl/bje;->b(J)Lbl/bkt;
+    invoke-virtual {v0, v1, v2}, Lbl/bje;->b(J)Lokio/Source;
 
     move-result-object v0
 
@@ -200,10 +200,10 @@
     .line 378
     sget-object v2, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-static {v0, v1, v2}, Lbl/bie;->b(Lbl/bkt;ILjava/util/concurrent/TimeUnit;)Z
+    invoke-static {v0, v1, v2}, Lbl/bie;->b(Lokio/Source;ILjava/util/concurrent/TimeUnit;)Z
 
     .line 379
-    invoke-interface {v0}, Lbl/bkt;->close()V
+    invoke-interface {v0}, Lokio/Source;->close()V
 
     .line 381
     invoke-virtual {p3}, Lbl/bhz;->c()I
@@ -298,25 +298,25 @@
 
     .line 387
     :cond_4
-    iget-object p1, p0, Lbl/bio;->n:Lbl/bkg;
+    iget-object p1, p0, Lbl/bio;->n:Lokio/BufferedSource;
 
-    invoke-interface {p1}, Lbl/bkg;->c()Lbl/bke;
+    invoke-interface {p1}, Lokio/BufferedSource;->buffer()Lokio/Buffer;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lbl/bke;->e()Z
+    invoke-virtual {p1}, Lokio/Buffer;->exhausted()Z
 
     move-result p1
 
     if-eqz p1, :cond_6
 
-    iget-object p1, p0, Lbl/bio;->o:Lbl/bkf;
+    iget-object p1, p0, Lbl/bio;->o:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lbl/bkf;->c()Lbl/bke;
+    invoke-interface {p1}, Lokio/BufferedSink;->buffer()Lokio/Buffer;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lbl/bke;->e()Z
+    invoke-virtual {p1}, Lokio/Buffer;->exhausted()Z
 
     move-result p1
 
@@ -388,10 +388,10 @@
     iput-object v3, p0, Lbl/bio;->i:Ljava/net/Socket;
 
     .line 221
-    iput-object v3, p0, Lbl/bio;->o:Lbl/bkf;
+    iput-object v3, p0, Lbl/bio;->o:Lokio/BufferedSink;
 
     .line 222
-    iput-object v3, p0, Lbl/bio;->n:Lbl/bkg;
+    iput-object v3, p0, Lbl/bio;->n:Lokio/BufferedSource;
 
     .line 223
     iget-object v4, p0, Lbl/bio;->h:Lbl/bib;
@@ -517,28 +517,28 @@
     :try_start_1
     iget-object p1, p0, Lbl/bio;->i:Ljava/net/Socket;
 
-    invoke-static {p1}, Lbl/bkm;->b(Ljava/net/Socket;)Lbl/bkt;
+    invoke-static {p1}, Lokio/Okio;->source(Ljava/net/Socket;)Lokio/Source;
 
     move-result-object p1
 
-    invoke-static {p1}, Lbl/bkm;->a(Lbl/bkt;)Lbl/bkg;
+    invoke-static {p1}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object p1
 
-    iput-object p1, p0, Lbl/bio;->n:Lbl/bkg;
+    iput-object p1, p0, Lbl/bio;->n:Lokio/BufferedSource;
 
     .line 253
     iget-object p1, p0, Lbl/bio;->i:Ljava/net/Socket;
 
-    invoke-static {p1}, Lbl/bkm;->a(Ljava/net/Socket;)Lbl/bks;
+    invoke-static {p1}, Lokio/Okio;->sink(Ljava/net/Socket;)Lokio/Sink;
 
     move-result-object p1
 
-    invoke-static {p1}, Lbl/bkm;->a(Lbl/bks;)Lbl/bkf;
+    invoke-static {p1}, Lokio/Okio;->buffer(Lokio/Sink;)Lokio/BufferedSink;
 
     move-result-object p1
 
-    iput-object p1, p0, Lbl/bio;->o:Lbl/bkf;
+    iput-object p1, p0, Lbl/bio;->o:Lokio/BufferedSink;
     :try_end_1
     .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -869,28 +869,28 @@
     .line 328
     iget-object p1, p0, Lbl/bio;->j:Ljava/net/Socket;
 
-    invoke-static {p1}, Lbl/bkm;->b(Ljava/net/Socket;)Lbl/bkt;
+    invoke-static {p1}, Lokio/Okio;->source(Ljava/net/Socket;)Lokio/Source;
 
     move-result-object p1
 
-    invoke-static {p1}, Lbl/bkm;->a(Lbl/bkt;)Lbl/bkg;
+    invoke-static {p1}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object p1
 
-    iput-object p1, p0, Lbl/bio;->n:Lbl/bkg;
+    iput-object p1, p0, Lbl/bio;->n:Lokio/BufferedSource;
 
     .line 329
     iget-object p1, p0, Lbl/bio;->j:Ljava/net/Socket;
 
-    invoke-static {p1}, Lbl/bkm;->a(Ljava/net/Socket;)Lbl/bks;
+    invoke-static {p1}, Lokio/Okio;->sink(Ljava/net/Socket;)Lokio/Sink;
 
     move-result-object p1
 
-    invoke-static {p1}, Lbl/bkm;->a(Lbl/bks;)Lbl/bkf;
+    invoke-static {p1}, Lokio/Okio;->buffer(Lokio/Sink;)Lokio/BufferedSink;
 
     move-result-object p1
 
-    iput-object p1, p0, Lbl/bio;->o:Lbl/bkf;
+    iput-object p1, p0, Lbl/bio;->o:Lokio/BufferedSink;
 
     .line 330
     iput-object v4, p0, Lbl/bio;->k:Lbl/bhq;
@@ -1069,11 +1069,11 @@
 
     move-result-object p4
 
-    iget-object v0, p0, Lbl/bio;->n:Lbl/bkg;
+    iget-object v0, p0, Lbl/bio;->n:Lokio/BufferedSource;
 
-    iget-object v1, p0, Lbl/bio;->o:Lbl/bkf;
+    iget-object v1, p0, Lbl/bio;->o:Lokio/BufferedSink;
 
-    invoke-virtual {p1, p3, p4, v0, v1}, Lbl/bjj$a;->a(Ljava/net/Socket;Ljava/lang/String;Lbl/bkg;Lbl/bkf;)Lbl/bjj$a;
+    invoke-virtual {p1, p3, p4, v0, v1}, Lbl/bjj$a;->a(Ljava/net/Socket;Ljava/lang/String;Lokio/BufferedSource;Lokio/BufferedSink;)Lbl/bjj$a;
 
     move-result-object p1
 
@@ -1262,9 +1262,9 @@
     invoke-virtual {v0, v1}, Ljava/net/Socket;->setSoTimeout(I)V
 
     .line 488
-    iget-object v0, p0, Lbl/bio;->n:Lbl/bkg;
+    iget-object v0, p0, Lbl/bio;->n:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lbl/bkg;->a()Lbl/bku;
+    invoke-interface {v0}, Lokio/BufferedSource;->timeout()Lokio/Timeout;
 
     move-result-object v0
 
@@ -1276,12 +1276,12 @@
 
     sget-object v3, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v0, v1, v2, v3}, Lbl/bku;->a(JLjava/util/concurrent/TimeUnit;)Lbl/bku;
+    invoke-virtual {v0, v1, v2, v3}, Lokio/Timeout;->timeout(JLjava/util/concurrent/TimeUnit;)Lokio/Timeout;
 
     .line 489
-    iget-object v0, p0, Lbl/bio;->o:Lbl/bkf;
+    iget-object v0, p0, Lbl/bio;->o:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lbl/bkf;->a()Lbl/bku;
+    invoke-interface {v0}, Lokio/BufferedSink;->timeout()Lokio/Timeout;
 
     move-result-object v0
 
@@ -1293,16 +1293,16 @@
 
     sget-object p2, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v0, v1, v2, p2}, Lbl/bku;->a(JLjava/util/concurrent/TimeUnit;)Lbl/bku;
+    invoke-virtual {v0, v1, v2, p2}, Lokio/Timeout;->timeout(JLjava/util/concurrent/TimeUnit;)Lokio/Timeout;
 
     .line 490
     new-instance p2, Lbl/bje;
 
-    iget-object v0, p0, Lbl/bio;->n:Lbl/bkg;
+    iget-object v0, p0, Lbl/bio;->n:Lokio/BufferedSource;
 
-    iget-object v1, p0, Lbl/bio;->o:Lbl/bkf;
+    iget-object v1, p0, Lbl/bio;->o:Lokio/BufferedSink;
 
-    invoke-direct {p2, p1, p3, v0, v1}, Lbl/bje;-><init>(Lbl/bhv;Lbl/bir;Lbl/bkg;Lbl/bkf;)V
+    invoke-direct {p2, p1, p3, v0, v1}, Lbl/bje;-><init>(Lbl/bhv;Lbl/bir;Lokio/BufferedSource;Lokio/BufferedSink;)V
 
     return-object p2
 .end method
@@ -1630,10 +1630,10 @@
     iput-object v11, v7, Lbl/bio;->i:Ljava/net/Socket;
 
     .line 170
-    iput-object v11, v7, Lbl/bio;->n:Lbl/bkg;
+    iput-object v11, v7, Lbl/bio;->n:Lokio/BufferedSource;
 
     .line 171
-    iput-object v11, v7, Lbl/bio;->o:Lbl/bkf;
+    iput-object v11, v7, Lbl/bio;->o:Lokio/BufferedSink;
 
     .line 172
     iput-object v11, v7, Lbl/bio;->k:Lbl/bhq;
@@ -2133,9 +2133,9 @@
     invoke-virtual {v0, v2}, Ljava/net/Socket;->setSoTimeout(I)V
 
     .line 530
-    iget-object v0, p0, Lbl/bio;->n:Lbl/bkg;
+    iget-object v0, p0, Lbl/bio;->n:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lbl/bkg;->e()Z
+    invoke-interface {v0}, Lokio/BufferedSource;->exhausted()Z
 
     move-result v0
     :try_end_1

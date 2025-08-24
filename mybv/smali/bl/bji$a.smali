@@ -1,5 +1,5 @@
 .class Lbl/bji$a;
-.super Lbl/bki;
+.super Lokio/ForwardingSource;
 .source "BL"
 
 
@@ -23,14 +23,14 @@
 
 
 # direct methods
-.method constructor <init>(Lbl/bji;Lbl/bkt;)V
+.method constructor <init>(Lbl/bji;Lokio/Source;)V
     .locals 0
 
     .line 204
     iput-object p1, p0, Lbl/bji$a;->c:Lbl/bji;
 
     .line 205
-    invoke-direct {p0, p2}, Lbl/bki;-><init>(Lbl/bkt;)V
+    invoke-direct {p0, p2}, Lokio/ForwardingSource;-><init>(Lokio/Source;)V
 
     const/4 p1, 0x0
 
@@ -81,7 +81,7 @@
 
 
 # virtual methods
-.method public a(Lbl/bke;J)J
+.method public read(Lokio/Buffer;J)J
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -91,11 +91,11 @@
 
     .line 210
     :try_start_0
-    invoke-virtual {p0}, Lbl/bji$a;->b()Lbl/bkt;
+    invoke-virtual {p0}, Lbl/bji$a;->delegate()Lokio/Source;
 
     move-result-object v0
 
-    invoke-interface {v0, p1, p2, p3}, Lbl/bkt;->a(Lbl/bke;J)J
+    invoke-interface {v0, p1, p2, p3}, Lokio/Source;->read(Lokio/Buffer;J)J
 
     move-result-wide p1
 
@@ -138,7 +138,7 @@
     .end annotation
 
     .line 222
-    invoke-super {p0}, Lbl/bki;->close()V
+    invoke-super {p0}, Lokio/ForwardingSource;->close()V
 
     const/4 v0, 0x0
 

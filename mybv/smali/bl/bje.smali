@@ -24,9 +24,9 @@
 
 .field final b:Lbl/bir;
 
-.field final c:Lbl/bkg;
+.field final c:Lokio/BufferedSource;
 
-.field final d:Lbl/bkf;
+.field final d:Lokio/BufferedSink;
 
 .field e:I
 
@@ -34,7 +34,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lbl/bhv;Lbl/bir;Lbl/bkg;Lbl/bkf;)V
+.method public constructor <init>(Lbl/bhv;Lbl/bir;Lokio/BufferedSource;Lokio/BufferedSink;)V
     .locals 2
 
     .line 90
@@ -57,10 +57,10 @@
     iput-object p2, p0, Lbl/bje;->b:Lbl/bir;
 
     .line 93
-    iput-object p3, p0, Lbl/bje;->c:Lbl/bkg;
+    iput-object p3, p0, Lbl/bje;->c:Lokio/BufferedSource;
 
     .line 94
-    iput-object p4, p0, Lbl/bje;->d:Lbl/bkf;
+    iput-object p4, p0, Lbl/bje;->d:Lokio/BufferedSink;
 
     return-void
 .end method
@@ -74,11 +74,11 @@
     .end annotation
 
     .line 215
-    iget-object v0, p0, Lbl/bje;->c:Lbl/bkg;
+    iget-object v0, p0, Lbl/bje;->c:Lokio/BufferedSource;
 
     iget-wide v1, p0, Lbl/bje;->f:J
 
-    invoke-interface {v0, v1, v2}, Lbl/bkg;->e(J)Ljava/lang/String;
+    invoke-interface {v0, v1, v2}, Lokio/BufferedSource;->readUtf8LineStrict(J)Ljava/lang/String;
 
     move-result-object v0
 
@@ -291,18 +291,18 @@
     const-wide/16 v1, 0x0
 
     .line 138
-    invoke-virtual {p0, v1, v2}, Lbl/bje;->b(J)Lbl/bkt;
+    invoke-virtual {p0, v1, v2}, Lbl/bje;->b(J)Lokio/Source;
 
     move-result-object p1
 
     .line 139
     new-instance v3, Lbl/biz;
 
-    invoke-static {p1}, Lbl/bkm;->a(Lbl/bkt;)Lbl/bkg;
+    invoke-static {p1}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object p1
 
-    invoke-direct {v3, v0, v1, v2, p1}, Lbl/biz;-><init>(Ljava/lang/String;JLbl/bkg;)V
+    invoke-direct {v3, v0, v1, v2, p1}, Lbl/biz;-><init>(Ljava/lang/String;JLokio/BufferedSource;)V
 
     return-object v3
 
@@ -333,18 +333,18 @@
 
     move-result-object p1
 
-    invoke-virtual {p0, p1}, Lbl/bje;->a(Lokhttp3/HttpUrl;)Lbl/bkt;
+    invoke-virtual {p0, p1}, Lbl/bje;->a(Lokhttp3/HttpUrl;)Lokio/Source;
 
     move-result-object p1
 
     .line 144
     new-instance v1, Lbl/biz;
 
-    invoke-static {p1}, Lbl/bkm;->a(Lbl/bkt;)Lbl/bkg;
+    invoke-static {p1}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object p1
 
-    invoke-direct {v1, v0, v2, v3, p1}, Lbl/biz;-><init>(Ljava/lang/String;JLbl/bkg;)V
+    invoke-direct {v1, v0, v2, v3, p1}, Lbl/biz;-><init>(Ljava/lang/String;JLokio/BufferedSource;)V
 
     return-object v1
 
@@ -359,18 +359,18 @@
     if-eqz p1, :cond_2
 
     .line 149
-    invoke-virtual {p0, v4, v5}, Lbl/bje;->b(J)Lbl/bkt;
+    invoke-virtual {p0, v4, v5}, Lbl/bje;->b(J)Lokio/Source;
 
     move-result-object p1
 
     .line 150
     new-instance v1, Lbl/biz;
 
-    invoke-static {p1}, Lbl/bkm;->a(Lbl/bkt;)Lbl/bkg;
+    invoke-static {p1}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object p1
 
-    invoke-direct {v1, v0, v4, v5, p1}, Lbl/biz;-><init>(Ljava/lang/String;JLbl/bkg;)V
+    invoke-direct {v1, v0, v4, v5, p1}, Lbl/biz;-><init>(Ljava/lang/String;JLokio/BufferedSource;)V
 
     return-object v1
 
@@ -378,20 +378,20 @@
     :cond_2
     new-instance p1, Lbl/biz;
 
-    invoke-virtual {p0}, Lbl/bje;->f()Lbl/bkt;
+    invoke-virtual {p0}, Lbl/bje;->f()Lokio/Source;
 
     move-result-object v1
 
-    invoke-static {v1}, Lbl/bkm;->a(Lbl/bkt;)Lbl/bkg;
+    invoke-static {v1}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object v1
 
-    invoke-direct {p1, v0, v2, v3, v1}, Lbl/biz;-><init>(Ljava/lang/String;JLbl/bkg;)V
+    invoke-direct {p1, v0, v2, v3, v1}, Lbl/biz;-><init>(Ljava/lang/String;JLokio/BufferedSource;)V
 
     return-object p1
 .end method
 
-.method public a(J)Lbl/bks;
+.method public a(J)Lokio/Sink;
     .locals 2
 
     .line 237
@@ -437,7 +437,7 @@
     return-object v0
 .end method
 
-.method public a(Lbl/bhx;J)Lbl/bks;
+.method public a(Lbl/bhx;J)Lokio/Sink;
     .locals 2
 
     const-string v0, "chunked"
@@ -456,7 +456,7 @@
     if-eqz p1, :cond_0
 
     .line 100
-    invoke-virtual {p0}, Lbl/bje;->e()Lbl/bks;
+    invoke-virtual {p0}, Lbl/bje;->e()Lokio/Sink;
 
     move-result-object p1
 
@@ -470,7 +470,7 @@
     if-eqz p1, :cond_1
 
     .line 105
-    invoke-virtual {p0, p2, p3}, Lbl/bje;->a(J)Lbl/bks;
+    invoke-virtual {p0, p2, p3}, Lbl/bje;->a(J)Lokio/Sink;
 
     move-result-object p1
 
@@ -487,7 +487,7 @@
     throw p1
 .end method
 
-.method public a(Lokhttp3/HttpUrl;)Lbl/bkt;
+.method public a(Lokhttp3/HttpUrl;)Lokio/Source;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -547,9 +547,9 @@
     .end annotation
 
     .line 162
-    iget-object v0, p0, Lbl/bje;->d:Lbl/bkf;
+    iget-object v0, p0, Lbl/bje;->d:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lbl/bkf;->flush()V
+    invoke-interface {v0}, Lokio/BufferedSink;->flush()V
 
     return-void
 .end method
@@ -591,15 +591,15 @@
 
     .line 172
     :cond_0
-    iget-object v0, p0, Lbl/bje;->d:Lbl/bkf;
+    iget-object v0, p0, Lbl/bje;->d:Lokio/BufferedSink;
 
-    invoke-interface {v0, p2}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v0, p2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object p2
 
     const-string v0, "\r\n"
 
-    invoke-interface {p2, v0}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {p2, v0}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     const/4 p2, 0x0
 
@@ -612,20 +612,20 @@
     if-ge p2, v0, :cond_1
 
     .line 174
-    iget-object v1, p0, Lbl/bje;->d:Lbl/bkf;
+    iget-object v1, p0, Lbl/bje;->d:Lokio/BufferedSink;
 
     invoke-virtual {p1, p2}, Lbl/bhr;->a(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-interface {v1, v2}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v1, v2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object v1
 
     const-string v2, ": "
 
     .line 175
-    invoke-interface {v1, v2}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v1, v2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object v1
 
@@ -634,14 +634,14 @@
 
     move-result-object v2
 
-    invoke-interface {v1, v2}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v1, v2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object v1
 
     const-string v2, "\r\n"
 
     .line 177
-    invoke-interface {v1, v2}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v1, v2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     add-int/lit8 p2, p2, 0x1
 
@@ -649,11 +649,11 @@
 
     .line 179
     :cond_1
-    iget-object p1, p0, Lbl/bje;->d:Lbl/bkf;
+    iget-object p1, p0, Lbl/bje;->d:Lokio/BufferedSink;
 
     const-string p2, "\r\n"
 
-    invoke-interface {p1, p2}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {p1, p2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     const/4 p1, 0x1
 
@@ -706,29 +706,29 @@
     return-void
 .end method
 
-.method a(Lbl/bkj;)V
+.method a(Lokio/ForwardingTimeout;)V
     .locals 2
 
     .line 268
-    invoke-virtual {p1}, Lbl/bkj;->a()Lbl/bku;
+    invoke-virtual {p1}, Lokio/ForwardingTimeout;->delegate()Lokio/Timeout;
 
     move-result-object v0
 
     .line 269
-    sget-object v1, Lbl/bku;->c:Lbl/bku;
+    sget-object v1, Lokio/Timeout;->NONE:Lokio/Timeout;
 
-    invoke-virtual {p1, v1}, Lbl/bkj;->a(Lbl/bku;)Lbl/bkj;
+    invoke-virtual {p1, v1}, Lokio/ForwardingTimeout;->setDelegate(Lokio/Timeout;)Lokio/ForwardingTimeout;
 
     .line 270
-    invoke-virtual {v0}, Lbl/bku;->f()Lbl/bku;
+    invoke-virtual {v0}, Lokio/Timeout;->clearDeadline()Lokio/Timeout;
 
     .line 271
-    invoke-virtual {v0}, Lbl/bku;->j_()Lbl/bku;
+    invoke-virtual {v0}, Lokio/Timeout;->clearTimeout()Lokio/Timeout;
 
     return-void
 .end method
 
-.method public b(J)Lbl/bkt;
+.method public b(J)Lokio/Source;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -788,9 +788,9 @@
     .end annotation
 
     .line 166
-    iget-object v0, p0, Lbl/bje;->d:Lbl/bkf;
+    iget-object v0, p0, Lbl/bje;->d:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lbl/bkf;->flush()V
+    invoke-interface {v0}, Lokio/BufferedSink;->flush()V
 
     return-void
 .end method
@@ -855,7 +855,7 @@
     return-object v0
 .end method
 
-.method public e()Lbl/bks;
+.method public e()Lokio/Sink;
     .locals 3
 
     .line 231
@@ -901,7 +901,7 @@
     return-object v0
 .end method
 
-.method public f()Lbl/bkt;
+.method public f()Lokio/Source;
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {

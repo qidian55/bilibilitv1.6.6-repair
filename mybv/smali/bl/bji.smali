@@ -71,7 +71,7 @@
     const-string v0, "connection"
 
     .line 55
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -80,7 +80,7 @@
     const-string v0, "host"
 
     .line 56
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -89,7 +89,7 @@
     const-string v0, "keep-alive"
 
     .line 57
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -98,7 +98,7 @@
     const-string v0, "proxy-connection"
 
     .line 58
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -107,7 +107,7 @@
     const-string v0, "transfer-encoding"
 
     .line 59
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -116,7 +116,7 @@
     const-string v0, "te"
 
     .line 60
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -125,7 +125,7 @@
     const-string v0, "encoding"
 
     .line 61
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -134,7 +134,7 @@
     const-string v0, "upgrade"
 
     .line 62
-    invoke-static {v0}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v0}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
 
@@ -363,7 +363,7 @@
     .line 172
     iget-object v5, v5, Lbl/bjf;->h:Lokio/ByteString;
 
-    invoke-virtual {v5}, Lokio/ByteString;->a()Ljava/lang/String;
+    invoke-virtual {v5}, Lokio/ByteString;->utf8()Ljava/lang/String;
 
     move-result-object v5
 
@@ -410,7 +410,7 @@
     .line 176
     sget-object v7, Lbl/bic;->a:Lbl/bic;
 
-    invoke-virtual {v6}, Lokio/ByteString;->a()Ljava/lang/String;
+    invoke-virtual {v6}, Lokio/ByteString;->utf8()Ljava/lang/String;
 
     move-result-object v6
 
@@ -589,7 +589,7 @@
 
     move-result-object v3
 
-    invoke-static {v3}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {v3}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v3
 
@@ -701,31 +701,31 @@
 
     iget-object v3, p0, Lbl/bji;->o:Lbl/bjl;
 
-    invoke-virtual {v3}, Lbl/bjl;->g()Lbl/bkt;
+    invoke-virtual {v3}, Lbl/bjl;->g()Lokio/Source;
 
     move-result-object v3
 
-    invoke-direct {p1, p0, v3}, Lbl/bji$a;-><init>(Lbl/bji;Lbl/bkt;)V
+    invoke-direct {p1, p0, v3}, Lbl/bji$a;-><init>(Lbl/bji;Lokio/Source;)V
 
     .line 193
     new-instance v3, Lbl/biz;
 
-    invoke-static {p1}, Lbl/bkm;->a(Lbl/bkt;)Lbl/bkg;
+    invoke-static {p1}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object p1
 
-    invoke-direct {v3, v0, v1, v2, p1}, Lbl/biz;-><init>(Ljava/lang/String;JLbl/bkg;)V
+    invoke-direct {v3, v0, v1, v2, p1}, Lbl/biz;-><init>(Ljava/lang/String;JLokio/BufferedSource;)V
 
     return-object v3
 .end method
 
-.method public a(Lbl/bhx;J)Lbl/bks;
+.method public a(Lbl/bhx;J)Lokio/Sink;
     .locals 0
 
     .line 103
     iget-object p1, p0, Lbl/bji;->o:Lbl/bjl;
 
-    invoke-virtual {p1}, Lbl/bjl;->h()Lbl/bks;
+    invoke-virtual {p1}, Lbl/bjl;->h()Lokio/Sink;
 
     move-result-object p1
 
@@ -796,7 +796,7 @@
     .line 112
     iget-object p1, p0, Lbl/bji;->o:Lbl/bjl;
 
-    invoke-virtual {p1}, Lbl/bjl;->e()Lbl/bku;
+    invoke-virtual {p1}, Lbl/bjl;->e()Lokio/Timeout;
 
     move-result-object p1
 
@@ -810,12 +810,12 @@
 
     sget-object v2, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {p1, v0, v1, v2}, Lbl/bku;->a(JLjava/util/concurrent/TimeUnit;)Lbl/bku;
+    invoke-virtual {p1, v0, v1, v2}, Lokio/Timeout;->timeout(JLjava/util/concurrent/TimeUnit;)Lokio/Timeout;
 
     .line 113
     iget-object p1, p0, Lbl/bji;->o:Lbl/bjl;
 
-    invoke-virtual {p1}, Lbl/bjl;->f()Lbl/bku;
+    invoke-virtual {p1}, Lbl/bjl;->f()Lokio/Timeout;
 
     move-result-object p1
 
@@ -829,7 +829,7 @@
 
     sget-object v2, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {p1, v0, v1, v2}, Lbl/bku;->a(JLjava/util/concurrent/TimeUnit;)Lbl/bku;
+    invoke-virtual {p1, v0, v1, v2}, Lokio/Timeout;->timeout(JLjava/util/concurrent/TimeUnit;)Lokio/Timeout;
 
     return-void
 .end method
@@ -845,11 +845,11 @@
     .line 121
     iget-object v0, p0, Lbl/bji;->o:Lbl/bjl;
 
-    invoke-virtual {v0}, Lbl/bjl;->h()Lbl/bks;
+    invoke-virtual {v0}, Lbl/bjl;->h()Lokio/Sink;
 
     move-result-object v0
 
-    invoke-interface {v0}, Lbl/bks;->close()V
+    invoke-interface {v0}, Lokio/Sink;->close()V
 
     return-void
 .end method

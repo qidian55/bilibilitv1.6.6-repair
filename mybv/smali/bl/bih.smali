@@ -4,7 +4,7 @@
 
 
 # virtual methods
-.method public abstract a()Lbl/bks;
+.method public abstract a()Lokio/Sink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

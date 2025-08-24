@@ -30,7 +30,7 @@
 
 .field final d:I
 
-.field e:Lbl/bkf;
+.field e:Lokio/BufferedSink;
 
 .field final f:Ljava/util/LinkedHashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -542,37 +542,37 @@
 
     iget-object v1, p0, Lbl/bij;->n:Ljava/io/File;
 
-    invoke-interface {v0, v1}, Lbl/bjq;->a(Ljava/io/File;)Lbl/bkt;
+    invoke-interface {v0, v1}, Lbl/bjq;->a(Ljava/io/File;)Lokio/Source;
 
     move-result-object v0
 
-    invoke-static {v0}, Lbl/bkm;->a(Lbl/bkt;)Lbl/bkg;
+    invoke-static {v0}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
     move-result-object v0
 
     .line 278
     :try_start_0
-    invoke-interface {v0}, Lbl/bkg;->q()Ljava/lang/String;
+    invoke-interface {v0}, Lokio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
 
     move-result-object v1
 
     .line 279
-    invoke-interface {v0}, Lbl/bkg;->q()Ljava/lang/String;
+    invoke-interface {v0}, Lokio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
 
     move-result-object v2
 
     .line 280
-    invoke-interface {v0}, Lbl/bkg;->q()Ljava/lang/String;
+    invoke-interface {v0}, Lokio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
 
     move-result-object v3
 
     .line 281
-    invoke-interface {v0}, Lbl/bkg;->q()Ljava/lang/String;
+    invoke-interface {v0}, Lokio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
 
     move-result-object v4
 
     .line 282
-    invoke-interface {v0}, Lbl/bkg;->q()Ljava/lang/String;
+    invoke-interface {v0}, Lokio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
 
     move-result-object v5
 
@@ -639,7 +639,7 @@
     .line 295
     :goto_0
     :try_start_1
-    invoke-interface {v0}, Lbl/bkg;->q()Ljava/lang/String;
+    invoke-interface {v0}, Lokio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
 
     move-result-object v2
 
@@ -666,7 +666,7 @@
     iput v1, p0, Lbl/bij;->g:I
 
     .line 304
-    invoke-interface {v0}, Lbl/bkg;->e()Z
+    invoke-interface {v0}, Lokio/BufferedSource;->exhausted()Z
 
     move-result v1
 
@@ -679,11 +679,11 @@
 
     .line 307
     :cond_1
-    invoke-direct {p0}, Lbl/bij;->h()Lbl/bkf;
+    invoke-direct {p0}, Lbl/bij;->h()Lokio/BufferedSink;
 
     move-result-object v1
 
-    iput-object v1, p0, Lbl/bij;->e:Lbl/bkf;
+    iput-object v1, p0, Lbl/bij;->e:Lokio/BufferedSink;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -750,7 +750,7 @@
     throw v1
 .end method
 
-.method private h()Lbl/bkf;
+.method private h()Lokio/BufferedSink;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -763,17 +763,17 @@
 
     iget-object v1, p0, Lbl/bij;->n:Ljava/io/File;
 
-    invoke-interface {v0, v1}, Lbl/bjq;->c(Ljava/io/File;)Lbl/bks;
+    invoke-interface {v0, v1}, Lbl/bjq;->c(Ljava/io/File;)Lokio/Sink;
 
     move-result-object v0
 
     .line 316
     new-instance v1, Lbl/bij$2;
 
-    invoke-direct {v1, p0, v0}, Lbl/bij$2;-><init>(Lbl/bij;Lbl/bks;)V
+    invoke-direct {v1, p0, v0}, Lbl/bij$2;-><init>(Lbl/bij;Lokio/Sink;)V
 
     .line 322
-    invoke-static {v1}, Lbl/bkm;->a(Lbl/bks;)Lbl/bkf;
+    invoke-static {v1}, Lokio/Okio;->buffer(Lokio/Sink;)Lokio/BufferedSink;
 
     move-result-object v0
 
@@ -1019,32 +1019,32 @@
 
     .line 486
     :cond_3
-    iget-object p2, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object p2, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
     const-string p3, "DIRTY"
 
-    invoke-interface {p2, p3}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {p2, p3}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object p2
 
     const/16 p3, 0x20
 
-    invoke-interface {p2, p3}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p2, p3}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     move-result-object p2
 
-    invoke-interface {p2, p1}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {p2, p1}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object p2
 
     const/16 p3, 0xa
 
-    invoke-interface {p2, p3}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p2, p3}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 487
-    iget-object p2, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object p2, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
-    invoke-interface {p2}, Lbl/bkf;->flush()V
+    invoke-interface {p2}, Lokio/BufferedSink;->flush()V
 
     .line 489
     iget-boolean p2, p0, Lbl/bij;->h:Z
@@ -1179,27 +1179,27 @@
     iput v1, p0, Lbl/bij;->g:I
 
     .line 447
-    iget-object v1, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object v1, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
     const-string v2, "READ"
 
-    invoke-interface {v1, v2}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v1, v2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object v1
 
     const/16 v2, 0x20
 
-    invoke-interface {v1, v2}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {v1, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     move-result-object v1
 
-    invoke-interface {v1, p1}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v1, p1}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object p1
 
     const/16 v1, 0xa
 
-    invoke-interface {p1, v1}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p1, v1}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 448
     invoke-virtual {p0}, Lbl/bij;->c()Z
@@ -1660,32 +1660,32 @@
     iput-boolean v1, v0, Lbl/bij$b;->e:Z
 
     .line 574
-    iget-object p1, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object p1, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
     const-string v1, "CLEAN"
 
-    invoke-interface {p1, v1}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {p1, v1}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object p1
 
-    invoke-interface {p1, v3}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p1, v3}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 575
-    iget-object p1, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object p1, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
     iget-object v1, v0, Lbl/bij$b;->a:Ljava/lang/String;
 
-    invoke-interface {p1, v1}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {p1, v1}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     .line 576
-    iget-object p1, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object p1, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
-    invoke-virtual {v0, p1}, Lbl/bij$b;->a(Lbl/bkf;)V
+    invoke-virtual {v0, p1}, Lbl/bij$b;->a(Lokio/BufferedSink;)V
 
     .line 577
-    iget-object p1, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object p1, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
-    invoke-interface {p1, v2}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p1, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     if-eqz p2, :cond_8
 
@@ -1711,34 +1711,34 @@
     invoke-virtual {p1, p2}, Ljava/util/LinkedHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 583
-    iget-object p1, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object p1, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
     const-string p2, "REMOVE"
 
-    invoke-interface {p1, p2}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {p1, p2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object p1
 
-    invoke-interface {p1, v3}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p1, v3}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 584
-    iget-object p1, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object p1, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
     iget-object p2, v0, Lbl/bij$b;->a:Ljava/lang/String;
 
-    invoke-interface {p1, p2}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {p1, p2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     .line 585
-    iget-object p1, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object p1, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
-    invoke-interface {p1, v2}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {p1, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 587
     :cond_8
     :goto_3
-    iget-object p1, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object p1, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lbl/bkf;->flush()V
+    invoke-interface {p1}, Lokio/BufferedSink;->flush()V
 
     .line 589
     iget-wide p1, p0, Lbl/bij;->s:J
@@ -1849,29 +1849,29 @@
     iput v0, p0, Lbl/bij;->g:I
 
     .line 634
-    iget-object v0, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object v0, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
     const-string v2, "REMOVE"
 
-    invoke-interface {v0, v2}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v0, v2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object v0
 
     const/16 v2, 0x20
 
-    invoke-interface {v0, v2}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {v0, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     move-result-object v0
 
     iget-object v2, p1, Lbl/bij$b;->a:Ljava/lang/String;
 
-    invoke-interface {v0, v2}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v0, v2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object v0
 
     const/16 v2, 0xa
 
-    invoke-interface {v0, v2}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {v0, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 635
     iget-object v0, p0, Lbl/bij;->f:Ljava/util/LinkedHashMap;
@@ -1931,14 +1931,14 @@
 
     .line 392
     :try_start_0
-    iget-object v0, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object v0, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
     if-eqz v0, :cond_0
 
     .line 393
-    iget-object v0, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object v0, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lbl/bkf;->close()V
+    invoke-interface {v0}, Lokio/BufferedSink;->close()V
 
     .line 396
     :cond_0
@@ -1946,11 +1946,11 @@
 
     iget-object v1, p0, Lbl/bij;->o:Ljava/io/File;
 
-    invoke-interface {v0, v1}, Lbl/bjq;->b(Ljava/io/File;)Lbl/bks;
+    invoke-interface {v0, v1}, Lbl/bjq;->b(Ljava/io/File;)Lokio/Sink;
 
     move-result-object v0
 
-    invoke-static {v0}, Lbl/bkm;->a(Lbl/bks;)Lbl/bkf;
+    invoke-static {v0}, Lokio/Okio;->buffer(Lokio/Sink;)Lokio/BufferedSink;
 
     move-result-object v0
     :try_end_0
@@ -1960,47 +1960,47 @@
     const-string v1, "libcore.io.DiskLruCache"
 
     .line 398
-    invoke-interface {v0, v1}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v0, v1}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object v1
 
     const/16 v2, 0xa
 
-    invoke-interface {v1, v2}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {v1, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     const-string v1, "1"
 
     .line 399
-    invoke-interface {v0, v1}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v0, v1}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object v1
 
-    invoke-interface {v1, v2}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {v1, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 400
     iget v1, p0, Lbl/bij;->q:I
 
     int-to-long v3, v1
 
-    invoke-interface {v0, v3, v4}, Lbl/bkf;->l(J)Lbl/bkf;
+    invoke-interface {v0, v3, v4}, Lokio/BufferedSink;->writeDecimalLong(J)Lokio/BufferedSink;
 
     move-result-object v1
 
-    invoke-interface {v1, v2}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {v1, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 401
     iget v1, p0, Lbl/bij;->d:I
 
     int-to-long v3, v1
 
-    invoke-interface {v0, v3, v4}, Lbl/bkf;->l(J)Lbl/bkf;
+    invoke-interface {v0, v3, v4}, Lokio/BufferedSink;->writeDecimalLong(J)Lokio/BufferedSink;
 
     move-result-object v1
 
-    invoke-interface {v1, v2}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {v1, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 402
-    invoke-interface {v0, v2}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {v0, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 404
     iget-object v1, p0, Lbl/bij;->f:Ljava/util/LinkedHashMap;
@@ -2036,19 +2036,19 @@
     const-string v4, "DIRTY"
 
     .line 406
-    invoke-interface {v0, v4}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v0, v4}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object v4
 
-    invoke-interface {v4, v5}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {v4, v5}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 407
     iget-object v3, v3, Lbl/bij$b;->a:Ljava/lang/String;
 
-    invoke-interface {v0, v3}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v0, v3}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     .line 408
-    invoke-interface {v0, v2}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {v0, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     goto :goto_0
 
@@ -2056,22 +2056,22 @@
     const-string v4, "CLEAN"
 
     .line 410
-    invoke-interface {v0, v4}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v0, v4}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object v4
 
-    invoke-interface {v4, v5}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {v4, v5}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 411
     iget-object v4, v3, Lbl/bij$b;->a:Ljava/lang/String;
 
-    invoke-interface {v0, v4}, Lbl/bkf;->b(Ljava/lang/String;)Lbl/bkf;
+    invoke-interface {v0, v4}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     .line 412
-    invoke-virtual {v3, v0}, Lbl/bij$b;->a(Lbl/bkf;)V
+    invoke-virtual {v3, v0}, Lbl/bij$b;->a(Lokio/BufferedSink;)V
 
     .line 413
-    invoke-interface {v0, v2}, Lbl/bkf;->i(I)Lbl/bkf;
+    invoke-interface {v0, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -2080,7 +2080,7 @@
     .line 417
     :cond_2
     :try_start_2
-    invoke-interface {v0}, Lbl/bkf;->close()V
+    invoke-interface {v0}, Lokio/BufferedSink;->close()V
 
     .line 420
     iget-object v0, p0, Lbl/bij;->b:Lbl/bjq;
@@ -2120,11 +2120,11 @@
     invoke-interface {v0, v1}, Lbl/bjq;->d(Ljava/io/File;)V
 
     .line 426
-    invoke-direct {p0}, Lbl/bij;->h()Lbl/bkf;
+    invoke-direct {p0}, Lbl/bij;->h()Lokio/BufferedSink;
 
     move-result-object v0
 
-    iput-object v0, p0, Lbl/bij;->e:Lbl/bkf;
+    iput-object v0, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
     const/4 v0, 0x0
 
@@ -2146,7 +2146,7 @@
 
     .line 417
     :try_start_3
-    invoke-interface {v0}, Lbl/bkf;->close()V
+    invoke-interface {v0}, Lokio/BufferedSink;->close()V
 
     throw v1
     :try_end_3
@@ -2268,14 +2268,14 @@
     invoke-virtual {p0}, Lbl/bij;->e()V
 
     .line 677
-    iget-object v0, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object v0, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lbl/bkf;->close()V
+    invoke-interface {v0}, Lokio/BufferedSink;->close()V
 
     const/4 v0, 0x0
 
     .line 678
-    iput-object v0, p0, Lbl/bij;->e:Lbl/bkf;
+    iput-object v0, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
     .line 679
     iput-boolean v1, p0, Lbl/bij;->j:Z
@@ -2433,9 +2433,9 @@
     invoke-virtual {p0}, Lbl/bij;->e()V
 
     .line 661
-    iget-object v0, p0, Lbl/bij;->e:Lbl/bkf;
+    iget-object v0, p0, Lbl/bij;->e:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lbl/bkf;->flush()V
+    invoke-interface {v0}, Lokio/BufferedSink;->flush()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

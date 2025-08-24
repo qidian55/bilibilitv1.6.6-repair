@@ -6,7 +6,7 @@
 # instance fields
 .field a:Z
 
-.field private b:Lbl/bku;
+.field private b:Lokio/Timeout;
 
 .field private c:J
 
@@ -50,15 +50,15 @@
     return-object p1
 .end method
 
-.method protected a(Lbl/bkf;J)V
+.method protected a(Lokio/BufferedSink;J)V
     .locals 1
 
     .line 43
-    invoke-interface {p1}, Lbl/bkf;->a()Lbl/bku;
+    invoke-interface {p1}, Lokio/BufferedSink;->timeout()Lokio/Timeout;
 
     move-result-object v0
 
-    iput-object v0, p0, Lbl/uy;->b:Lbl/bku;
+    iput-object v0, p0, Lbl/uy;->b:Lokio/Timeout;
 
     .line 44
     iput-wide p2, p0, Lbl/uy;->c:J
@@ -66,7 +66,7 @@
     .line 48
     new-instance v0, Lbl/uy$1;
 
-    invoke-direct {v0, p0, p2, p3, p1}, Lbl/uy$1;-><init>(Lbl/uy;JLbl/bkf;)V
+    invoke-direct {v0, p0, p2, p3, p1}, Lbl/uy$1;-><init>(Lbl/uy;JLokio/BufferedSink;)V
 
     iput-object v0, p0, Lbl/uy;->d:Ljava/io/OutputStream;
 
@@ -82,11 +82,11 @@
     return-object v0
 .end method
 
-.method public final c()Lbl/bku;
+.method public final c()Lokio/Timeout;
     .locals 1
 
     .line 98
-    iget-object v0, p0, Lbl/uy;->b:Lbl/bku;
+    iget-object v0, p0, Lbl/uy;->b:Lokio/Timeout;
 
     return-object v0
 .end method

@@ -1,5 +1,5 @@
 .class Lbl/bjl$c;
-.super Lbl/bkc;
+.super Lokio/AsyncTimeout;
 .source "BL"
 
 
@@ -25,14 +25,14 @@
     .line 587
     iput-object p1, p0, Lbl/bjl$c;->a:Lbl/bjl;
 
-    invoke-direct {p0}, Lbl/bkc;-><init>()V
+    invoke-direct {p0}, Lokio/AsyncTimeout;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected a(Ljava/io/IOException;)Ljava/io/IOException;
+.method protected newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
     .locals 2
 
     .line 593
@@ -73,7 +73,7 @@
     .end annotation
 
     .line 601
-    invoke-virtual {p0}, Lbl/bjl$c;->g_()Z
+    invoke-virtual {p0}, Lbl/bjl$c;->exit()Z
 
     move-result v0
 
@@ -81,7 +81,7 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lbl/bjl$c;->a(Ljava/io/IOException;)Ljava/io/IOException;
+    invoke-virtual {p0, v0}, Lbl/bjl$c;->newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
 
     move-result-object v0
 

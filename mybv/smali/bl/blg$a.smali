@@ -56,7 +56,7 @@
     return-wide v0
 .end method
 
-.method public a(Lbl/bkf;)V
+.method public a(Lokio/BufferedSink;)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -67,7 +67,7 @@
     .line 250
     iget-object v0, p0, Lbl/blg$a;->a:Lbl/bhy;
 
-    invoke-virtual {v0, p1}, Lbl/bhy;->a(Lbl/bkf;)V
+    invoke-virtual {v0, p1}, Lbl/bhy;->a(Lokio/BufferedSink;)V
 
     return-void
 .end method

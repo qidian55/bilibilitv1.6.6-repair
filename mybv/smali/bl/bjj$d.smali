@@ -238,7 +238,7 @@
     .locals 3
 
     .line 771
-    invoke-virtual {p3}, Lokio/ByteString;->h()I
+    invoke-virtual {p3}, Lokio/ByteString;->size()I
 
     .line 776
     iget-object p2, p0, Lbl/bjj$d;->c:Lbl/bjj;
@@ -586,7 +586,7 @@
     throw p1
 .end method
 
-.method public a(ZILbl/bkg;I)V
+.method public a(ZILokio/BufferedSource;I)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -606,7 +606,7 @@
     .line 627
     iget-object v0, p0, Lbl/bjj$d;->c:Lbl/bjj;
 
-    invoke-virtual {v0, p2, p3, p4, p1}, Lbl/bjj;->a(ILbl/bkg;IZ)V
+    invoke-virtual {v0, p2, p3, p4, p1}, Lbl/bjj;->a(ILokio/BufferedSource;IZ)V
 
     return-void
 
@@ -630,13 +630,13 @@
     int-to-long p1, p4
 
     .line 633
-    invoke-interface {p3, p1, p2}, Lbl/bkg;->h(J)V
+    invoke-interface {p3, p1, p2}, Lokio/BufferedSource;->skip(J)V
 
     return-void
 
     .line 636
     :cond_1
-    invoke-virtual {v0, p3, p4}, Lbl/bjl;->a(Lbl/bkg;I)V
+    invoke-virtual {v0, p3, p4}, Lbl/bjl;->a(Lokio/BufferedSource;I)V
 
     if-eqz p1, :cond_2
 

@@ -19,9 +19,9 @@
 
 .field b:Ljava/lang/String;
 
-.field c:Lbl/bkg;
+.field c:Lokio/BufferedSource;
 
-.field d:Lbl/bkf;
+.field d:Lokio/BufferedSink;
 
 .field e:Lbl/bjj$b;
 
@@ -75,7 +75,7 @@
     return-object p0
 .end method
 
-.method public a(Ljava/net/Socket;Ljava/lang/String;Lbl/bkg;Lbl/bkf;)Lbl/bjj$a;
+.method public a(Ljava/net/Socket;Ljava/lang/String;Lokio/BufferedSource;Lokio/BufferedSink;)Lbl/bjj$a;
     .locals 0
 
     .line 564
@@ -85,10 +85,10 @@
     iput-object p2, p0, Lbl/bjj$a;->b:Ljava/lang/String;
 
     .line 566
-    iput-object p3, p0, Lbl/bjj$a;->c:Lbl/bkg;
+    iput-object p3, p0, Lbl/bjj$a;->c:Lokio/BufferedSource;
 
     .line 567
-    iput-object p4, p0, Lbl/bjj$a;->d:Lbl/bkf;
+    iput-object p4, p0, Lbl/bjj$a;->d:Lokio/BufferedSink;
 
     return-object p0
 .end method

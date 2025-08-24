@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/uy;->a(Lbl/bkf;J)V
+    value = Lbl/uy;->a(Lokio/BufferedSink;J)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,7 +17,7 @@
 # instance fields
 .field final synthetic a:J
 
-.field final synthetic b:Lbl/bkf;
+.field final synthetic b:Lokio/BufferedSink;
 
 .field final synthetic c:Lbl/uy;
 
@@ -25,7 +25,7 @@
 
 
 # direct methods
-.method constructor <init>(Lbl/uy;JLbl/bkf;)V
+.method constructor <init>(Lbl/uy;JLokio/BufferedSink;)V
     .locals 0
 
     .line 48
@@ -33,7 +33,7 @@
 
     iput-wide p2, p0, Lbl/uy$1;->a:J
 
-    iput-object p4, p0, Lbl/uy$1;->b:Lbl/bkf;
+    iput-object p4, p0, Lbl/uy$1;->b:Lokio/BufferedSink;
 
     invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
 
@@ -107,9 +107,9 @@
 
     .line 88
     :cond_0
-    iget-object v0, p0, Lbl/uy$1;->b:Lbl/bkf;
+    iget-object v0, p0, Lbl/uy$1;->b:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lbl/bkf;->close()V
+    invoke-interface {v0}, Lokio/BufferedSink;->close()V
 
     return-void
 .end method
@@ -133,9 +133,9 @@
 
     .line 76
     :cond_0
-    iget-object v0, p0, Lbl/uy$1;->b:Lbl/bkf;
+    iget-object v0, p0, Lbl/uy$1;->b:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lbl/bkf;->flush()V
+    invoke-interface {v0}, Lokio/BufferedSink;->flush()V
 
     return-void
 .end method
@@ -254,9 +254,9 @@
 
     .line 67
     :try_start_0
-    iget-object v0, p0, Lbl/uy$1;->b:Lbl/bkf;
+    iget-object v0, p0, Lbl/uy$1;->b:Lokio/BufferedSink;
 
-    invoke-interface {v0, p1, p2, p3}, Lbl/bkf;->c([BII)Lbl/bkf;
+    invoke-interface {v0, p1, p2, p3}, Lokio/BufferedSink;->write([BII)Lokio/BufferedSink;
     :try_end_0
     .catch Ljava/io/InterruptedIOException; {:try_start_0 .. :try_end_0} :catch_0
 

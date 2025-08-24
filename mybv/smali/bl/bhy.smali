@@ -140,7 +140,7 @@
     return-wide v0
 .end method
 
-.method public abstract a(Lbl/bkf;)V
+.method public abstract a(Lokio/BufferedSink;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

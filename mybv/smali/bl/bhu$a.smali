@@ -67,7 +67,7 @@
     iput-object v0, p0, Lbl/bhu$a;->c:Ljava/util/List;
 
     .line 289
-    invoke-static {p1}, Lokio/ByteString;->a(Ljava/lang/String;)Lokio/ByteString;
+    invoke-static {p1}, Lokio/ByteString;->encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object p1
 

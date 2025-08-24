@@ -178,14 +178,14 @@
     new-instance v2, Lbl/bit$a;
 
     .line 69
-    invoke-interface {v0, v3, v8, v9}, Lbl/biu;->a(Lbl/bhx;J)Lbl/bks;
+    invoke-interface {v0, v3, v8, v9}, Lbl/biu;->a(Lbl/bhx;J)Lokio/Sink;
 
     move-result-object v6
 
-    invoke-direct {v2, v6}, Lbl/bit$a;-><init>(Lbl/bks;)V
+    invoke-direct {v2, v6}, Lbl/bit$a;-><init>(Lokio/Sink;)V
 
     .line 70
-    invoke-static {v2}, Lbl/bkm;->a(Lbl/bks;)Lbl/bkf;
+    invoke-static {v2}, Lokio/Okio;->buffer(Lokio/Sink;)Lokio/BufferedSink;
 
     move-result-object v6
 
@@ -194,10 +194,10 @@
 
     move-result-object v8
 
-    invoke-virtual {v8, v6}, Lbl/bhy;->a(Lbl/bkf;)V
+    invoke-virtual {v8, v6}, Lbl/bhy;->a(Lokio/BufferedSink;)V
 
     .line 73
-    invoke-interface {v6}, Lbl/bkf;->close()V
+    invoke-interface {v6}, Lokio/BufferedSink;->close()V
 
     .line 74
     invoke-virtual {p1}, Lbl/biy;->i()Lbl/bho;

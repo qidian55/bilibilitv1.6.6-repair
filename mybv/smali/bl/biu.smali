@@ -20,7 +20,7 @@
     .end annotation
 .end method
 
-.method public abstract a(Lbl/bhx;J)Lbl/bks;
+.method public abstract a(Lbl/bhx;J)Lokio/Sink;
 .end method
 
 .method public abstract a()V

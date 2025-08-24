@@ -71,18 +71,18 @@
     .line 466
     iget-object v0, p0, Lbl/bje$c;->e:Lbl/bje;
 
-    iget-object v0, v0, Lbl/bje;->c:Lbl/bkg;
+    iget-object v0, v0, Lbl/bje;->c:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lbl/bkg;->q()Ljava/lang/String;
+    invoke-interface {v0}, Lokio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
 
     .line 469
     :cond_0
     :try_start_0
     iget-object v0, p0, Lbl/bje$c;->e:Lbl/bje;
 
-    iget-object v0, v0, Lbl/bje;->c:Lbl/bkg;
+    iget-object v0, v0, Lbl/bje;->c:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lbl/bkg;->n()J
+    invoke-interface {v0}, Lokio/BufferedSource;->readHexadecimalUnsignedLong()J
 
     move-result-wide v0
 
@@ -91,9 +91,9 @@
     .line 470
     iget-object v0, p0, Lbl/bje$c;->e:Lbl/bje;
 
-    iget-object v0, v0, Lbl/bje;->c:Lbl/bkg;
+    iget-object v0, v0, Lbl/bje;->c:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lbl/bkg;->q()Ljava/lang/String;
+    invoke-interface {v0}, Lokio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
 
     move-result-object v0
 
@@ -221,7 +221,7 @@
 
 
 # virtual methods
-.method public a(Lbl/bke;J)J
+.method public read(Lokio/Buffer;J)J
     .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -313,7 +313,7 @@
 
     move-result-wide p2
 
-    invoke-super {p0, p1, p2, p3}, Lbl/bje$a;->a(Lbl/bke;J)J
+    invoke-super {p0, p1, p2, p3}, Lbl/bje$a;->read(Lokio/Buffer;J)J
 
     move-result-wide p1
 
@@ -372,7 +372,7 @@
 
     sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-static {p0, v0, v1}, Lbl/bie;->a(Lbl/bkt;ILjava/util/concurrent/TimeUnit;)Z
+    invoke-static {p0, v0, v1}, Lbl/bie;->a(Lokio/Source;ILjava/util/concurrent/TimeUnit;)Z
 
     move-result v0
 

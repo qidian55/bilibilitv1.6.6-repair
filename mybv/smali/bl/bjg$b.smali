@@ -27,7 +27,7 @@
 
 .field f:I
 
-.field private final g:Lbl/bke;
+.field private final g:Lokio/Buffer;
 
 .field private final h:Z
 
@@ -37,7 +37,7 @@
 
 
 # direct methods
-.method constructor <init>(IZLbl/bke;)V
+.method constructor <init>(IZLokio/Buffer;)V
     .locals 1
 
     .line 400
@@ -82,12 +82,12 @@
     iput-boolean p2, p0, Lbl/bjg$b;->h:Z
 
     .line 404
-    iput-object p3, p0, Lbl/bjg$b;->g:Lbl/bke;
+    iput-object p3, p0, Lbl/bjg$b;->g:Lokio/Buffer;
 
     return-void
 .end method
 
-.method constructor <init>(Lbl/bke;)V
+.method constructor <init>(Lokio/Buffer;)V
     .locals 2
 
     const/16 v0, 0x1000
@@ -95,7 +95,7 @@
     const/4 v1, 0x1
 
     .line 397
-    invoke-direct {p0, v0, v1, p1}, Lbl/bjg$b;-><init>(IZLbl/bke;)V
+    invoke-direct {p0, v0, v1, p1}, Lbl/bjg$b;-><init>(IZLokio/Buffer;)V
 
     return-void
 .end method
@@ -433,21 +433,21 @@
     if-ge p1, p2, :cond_0
 
     .line 534
-    iget-object p2, p0, Lbl/bjg$b;->g:Lbl/bke;
+    iget-object p2, p0, Lbl/bjg$b;->g:Lokio/Buffer;
 
     or-int/2addr p1, p3
 
-    invoke-virtual {p2, p1}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {p2, p1}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     return-void
 
     .line 539
     :cond_0
-    iget-object v0, p0, Lbl/bjg$b;->g:Lbl/bke;
+    iget-object v0, p0, Lbl/bjg$b;->g:Lokio/Buffer;
 
     or-int/2addr p3, p2
 
-    invoke-virtual {v0, p3}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {v0, p3}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     sub-int/2addr p1, p2
 
@@ -459,11 +459,11 @@
     and-int/lit8 p3, p1, 0x7f
 
     .line 545
-    iget-object v0, p0, Lbl/bjg$b;->g:Lbl/bke;
+    iget-object v0, p0, Lbl/bjg$b;->g:Lokio/Buffer;
 
     or-int/2addr p2, p3
 
-    invoke-virtual {v0, p2}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {v0, p2}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     ushr-int/lit8 p1, p1, 0x7
 
@@ -471,9 +471,9 @@
 
     .line 548
     :cond_1
-    iget-object p2, p0, Lbl/bjg$b;->g:Lbl/bke;
+    iget-object p2, p0, Lbl/bjg$b;->g:Lokio/Buffer;
 
-    invoke-virtual {p2, p1}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {p2, p1}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     return-void
 .end method
@@ -553,7 +553,7 @@
     .line 473
     iget-object v4, v3, Lbl/bjf;->g:Lokio/ByteString;
 
-    invoke-virtual {v4}, Lokio/ByteString;->g()Lokio/ByteString;
+    invoke-virtual {v4}, Lokio/ByteString;->toAsciiLowercase()Lokio/ByteString;
 
     move-result-object v4
 
@@ -735,9 +735,9 @@
     if-ne v9, v7, :cond_9
 
     .line 512
-    iget-object v7, p0, Lbl/bjg$b;->g:Lbl/bke;
+    iget-object v7, p0, Lbl/bjg$b;->g:Lokio/Buffer;
 
-    invoke-virtual {v7, v6}, Lbl/bke;->b(I)Lbl/bke;
+    invoke-virtual {v7, v6}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 513
     invoke-virtual {p0, v4}, Lbl/bjg$b;->a(Lokio/ByteString;)V
@@ -754,7 +754,7 @@
     :cond_9
     sget-object v7, Lbl/bjf;->a:Lokio/ByteString;
 
-    invoke-virtual {v4, v7}, Lokio/ByteString;->a(Lokio/ByteString;)Z
+    invoke-virtual {v4, v7}, Lokio/ByteString;->startsWith(Lokio/ByteString;)Z
 
     move-result v7
 
@@ -822,31 +822,31 @@
 
     move-result v0
 
-    invoke-virtual {p1}, Lokio/ByteString;->h()I
+    invoke-virtual {p1}, Lokio/ByteString;->size()I
 
     move-result v2
 
     if-ge v0, v2, :cond_0
 
     .line 553
-    new-instance v0, Lbl/bke;
+    new-instance v0, Lokio/Buffer;
 
-    invoke-direct {v0}, Lbl/bke;-><init>()V
+    invoke-direct {v0}, Lokio/Buffer;-><init>()V
 
     .line 554
     invoke-static {}, Lbl/bjn;->a()Lbl/bjn;
 
     move-result-object v2
 
-    invoke-virtual {v2, p1, v0}, Lbl/bjn;->a(Lokio/ByteString;Lbl/bkf;)V
+    invoke-virtual {v2, p1, v0}, Lbl/bjn;->a(Lokio/ByteString;Lokio/BufferedSink;)V
 
     .line 555
-    invoke-virtual {v0}, Lbl/bke;->o()Lokio/ByteString;
+    invoke-virtual {v0}, Lokio/Buffer;->readByteString()Lokio/ByteString;
 
     move-result-object p1
 
     .line 556
-    invoke-virtual {p1}, Lokio/ByteString;->h()I
+    invoke-virtual {p1}, Lokio/ByteString;->size()I
 
     move-result v0
 
@@ -855,15 +855,15 @@
     invoke-virtual {p0, v0, v1, v2}, Lbl/bjg$b;->a(III)V
 
     .line 557
-    iget-object v0, p0, Lbl/bjg$b;->g:Lbl/bke;
+    iget-object v0, p0, Lbl/bjg$b;->g:Lokio/Buffer;
 
-    invoke-virtual {v0, p1}, Lbl/bke;->a(Lokio/ByteString;)Lbl/bke;
+    invoke-virtual {v0, p1}, Lokio/Buffer;->write(Lokio/ByteString;)Lokio/Buffer;
 
     goto :goto_0
 
     .line 559
     :cond_0
-    invoke-virtual {p1}, Lokio/ByteString;->h()I
+    invoke-virtual {p1}, Lokio/ByteString;->size()I
 
     move-result v0
 
@@ -872,9 +872,9 @@
     invoke-virtual {p0, v0, v1, v2}, Lbl/bjg$b;->a(III)V
 
     .line 560
-    iget-object v0, p0, Lbl/bjg$b;->g:Lbl/bke;
+    iget-object v0, p0, Lbl/bjg$b;->g:Lokio/Buffer;
 
-    invoke-virtual {v0, p1}, Lbl/bke;->a(Lokio/ByteString;)Lbl/bke;
+    invoke-virtual {v0, p1}, Lokio/Buffer;->write(Lokio/ByteString;)Lokio/Buffer;
 
     :goto_0
     return-void

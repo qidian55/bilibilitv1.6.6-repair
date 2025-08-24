@@ -23,7 +23,7 @@
 
 
 # virtual methods
-.method public abstract a(Ljava/io/File;)Lbl/bkt;
+.method public abstract a(Ljava/io/File;)Lokio/Source;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -39,7 +39,7 @@
     .end annotation
 .end method
 
-.method public abstract b(Ljava/io/File;)Lbl/bks;
+.method public abstract b(Ljava/io/File;)Lokio/Sink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -47,7 +47,7 @@
     .end annotation
 .end method
 
-.method public abstract c(Ljava/io/File;)Lbl/bks;
+.method public abstract c(Ljava/io/File;)Lokio/Sink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;

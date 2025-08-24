@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bkt;
+.implements Lokio/Source;
 
 
 # annotations
@@ -20,27 +20,27 @@
 # instance fields
 .field a:Z
 
-.field final synthetic b:Lbl/bkg;
+.field final synthetic b:Lokio/BufferedSource;
 
 .field final synthetic c:Lbl/bih;
 
-.field final synthetic d:Lbl/bkf;
+.field final synthetic d:Lokio/BufferedSink;
 
 .field final synthetic e:Lbl/big;
 
 
 # direct methods
-.method constructor <init>(Lbl/big;Lbl/bkg;Lbl/bih;Lbl/bkf;)V
+.method constructor <init>(Lbl/big;Lokio/BufferedSource;Lbl/bih;Lokio/BufferedSink;)V
     .locals 0
 
     .line 168
     iput-object p1, p0, Lbl/big$1;->e:Lbl/big;
 
-    iput-object p2, p0, Lbl/big$1;->b:Lbl/bkg;
+    iput-object p2, p0, Lbl/big$1;->b:Lokio/BufferedSource;
 
     iput-object p3, p0, Lbl/big$1;->c:Lbl/bih;
 
-    iput-object p4, p0, Lbl/big$1;->d:Lbl/bkf;
+    iput-object p4, p0, Lbl/big$1;->d:Lokio/BufferedSink;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -49,7 +49,7 @@
 
 
 # virtual methods
-.method public a(Lbl/bke;J)J
+.method public read(Lokio/Buffer;J)J
     .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -61,9 +61,9 @@
 
     .line 174
     :try_start_0
-    iget-object v1, p0, Lbl/big$1;->b:Lbl/bkg;
+    iget-object v1, p0, Lbl/big$1;->b:Lokio/BufferedSource;
 
-    invoke-interface {v1, p1, p2, p3}, Lbl/bkg;->a(Lbl/bke;J)J
+    invoke-interface {v1, p1, p2, p3}, Lokio/BufferedSource;->read(Lokio/Buffer;J)J
 
     move-result-wide p2
     :try_end_0
@@ -84,22 +84,22 @@
     iput-boolean v0, p0, Lbl/big$1;->a:Z
 
     .line 186
-    iget-object p1, p0, Lbl/big$1;->d:Lbl/bkf;
+    iget-object p1, p0, Lbl/big$1;->d:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lbl/bkf;->close()V
+    invoke-interface {p1}, Lokio/BufferedSink;->close()V
 
     :cond_0
     return-wide v1
 
     .line 191
     :cond_1
-    iget-object v0, p0, Lbl/big$1;->d:Lbl/bkf;
+    iget-object v0, p0, Lbl/big$1;->d:Lokio/BufferedSink;
 
-    invoke-interface {v0}, Lbl/bkf;->c()Lbl/bke;
+    invoke-interface {v0}, Lokio/BufferedSink;->buffer()Lokio/Buffer;
 
     move-result-object v3
 
-    invoke-virtual {p1}, Lbl/bke;->b()J
+    invoke-virtual {p1}, Lokio/Buffer;->size()J
 
     move-result-wide v0
 
@@ -109,12 +109,12 @@
 
     move-wide v6, p2
 
-    invoke-virtual/range {v2 .. v7}, Lbl/bke;->a(Lbl/bke;JJ)Lbl/bke;
+    invoke-virtual/range {v2 .. v7}, Lokio/Buffer;->copyTo(Lokio/Buffer;JJ)Lokio/Buffer;
 
     .line 192
-    iget-object p1, p0, Lbl/big$1;->d:Lbl/bkf;
+    iget-object p1, p0, Lbl/big$1;->d:Lokio/BufferedSink;
 
-    invoke-interface {p1}, Lbl/bkf;->v()Lbl/bkf;
+    invoke-interface {p1}, Lokio/BufferedSink;->emitCompleteSegments()Lokio/BufferedSink;
 
     return-wide p2
 
@@ -139,13 +139,13 @@
     throw p1
 .end method
 
-.method public a()Lbl/bku;
+.method public timeout()Lokio/Timeout;
     .locals 1
 
     .line 197
-    iget-object v0, p0, Lbl/big$1;->b:Lbl/bkg;
+    iget-object v0, p0, Lbl/big$1;->b:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lbl/bkg;->a()Lbl/bku;
+    invoke-interface {v0}, Lokio/BufferedSource;->timeout()Lokio/Timeout;
 
     move-result-object v0
 
@@ -170,7 +170,7 @@
     sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     .line 202
-    invoke-static {p0, v0, v1}, Lbl/bie;->a(Lbl/bkt;ILjava/util/concurrent/TimeUnit;)Z
+    invoke-static {p0, v0, v1}, Lbl/bie;->a(Lokio/Source;ILjava/util/concurrent/TimeUnit;)Z
 
     move-result v0
 
@@ -188,9 +188,9 @@
 
     .line 206
     :cond_0
-    iget-object v0, p0, Lbl/big$1;->b:Lbl/bkg;
+    iget-object v0, p0, Lbl/big$1;->b:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lbl/bkg;->close()V
+    invoke-interface {v0}, Lokio/BufferedSource;->close()V
 
     return-void
 .end method

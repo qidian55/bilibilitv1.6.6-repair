@@ -11,11 +11,11 @@
 
 .field private final b:J
 
-.field private final c:Lbl/bkg;
+.field private final c:Lokio/BufferedSource;
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;JLbl/bkg;)V
+.method public constructor <init>(Ljava/lang/String;JLokio/BufferedSource;)V
     .locals 0
     .param p1    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
@@ -32,7 +32,7 @@
     iput-wide p2, p0, Lbl/biz;->b:J
 
     .line 36
-    iput-object p4, p0, Lbl/biz;->c:Lbl/bkg;
+    iput-object p4, p0, Lbl/biz;->c:Lokio/BufferedSource;
 
     return-void
 .end method
@@ -71,11 +71,11 @@
     return-wide v0
 .end method
 
-.method public c()Lbl/bkg;
+.method public c()Lokio/BufferedSource;
     .locals 1
 
     .line 48
-    iget-object v0, p0, Lbl/biz;->c:Lbl/bkg;
+    iget-object v0, p0, Lbl/biz;->c:Lokio/BufferedSource;
 
     return-object v0
 .end method

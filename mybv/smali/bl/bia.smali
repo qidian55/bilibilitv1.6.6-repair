@@ -16,7 +16,7 @@
     return-void
 .end method
 
-.method public static a(Lbl/bht;JLbl/bkg;)Lbl/bia;
+.method public static a(Lbl/bht;JLokio/BufferedSource;)Lbl/bia;
     .locals 1
     .param p0    # Lbl/bht;
         .annotation runtime Ljavax/annotation/Nullable;
@@ -38,7 +38,7 @@
     :cond_0
     new-instance v0, Lbl/bia$1;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lbl/bia$1;-><init>(Lbl/bht;JLbl/bkg;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lbl/bia$1;-><init>(Lbl/bht;JLokio/BufferedSource;)V
 
     return-object v0
 .end method
@@ -86,20 +86,20 @@
 
     .line 203
     :cond_0
-    new-instance v1, Lbl/bke;
+    new-instance v1, Lokio/Buffer;
 
-    invoke-direct {v1}, Lbl/bke;-><init>()V
+    invoke-direct {v1}, Lokio/Buffer;-><init>()V
 
-    invoke-virtual {v1, p1, v0}, Lbl/bke;->a(Ljava/lang/String;Ljava/nio/charset/Charset;)Lbl/bke;
+    invoke-virtual {v1, p1, v0}, Lokio/Buffer;->writeString(Ljava/lang/String;Ljava/nio/charset/Charset;)Lokio/Buffer;
 
     move-result-object p1
 
     .line 204
-    invoke-virtual {p1}, Lbl/bke;->b()J
+    invoke-virtual {p1}, Lokio/Buffer;->size()J
 
     move-result-wide v0
 
-    invoke-static {p0, v0, v1, p1}, Lbl/bia;->a(Lbl/bht;JLbl/bkg;)Lbl/bia;
+    invoke-static {p0, v0, v1, p1}, Lbl/bia;->a(Lbl/bht;JLokio/BufferedSource;)Lbl/bia;
 
     move-result-object p0
 
@@ -114,11 +114,11 @@
     .end param
 
     .line 209
-    new-instance v0, Lbl/bke;
+    new-instance v0, Lokio/Buffer;
 
-    invoke-direct {v0}, Lbl/bke;-><init>()V
+    invoke-direct {v0}, Lokio/Buffer;-><init>()V
 
-    invoke-virtual {v0, p1}, Lbl/bke;->b([B)Lbl/bke;
+    invoke-virtual {v0, p1}, Lokio/Buffer;->write([B)Lokio/Buffer;
 
     move-result-object v0
 
@@ -127,7 +127,7 @@
 
     int-to-long v1, p1
 
-    invoke-static {p0, v1, v2, v0}, Lbl/bia;->a(Lbl/bht;JLbl/bkg;)Lbl/bia;
+    invoke-static {p0, v1, v2, v0}, Lbl/bia;->a(Lbl/bht;JLokio/BufferedSource;)Lbl/bia;
 
     move-result-object p0
 
@@ -170,14 +170,14 @@
 .method public abstract b()J
 .end method
 
-.method public abstract c()Lbl/bkg;
+.method public abstract c()Lokio/BufferedSource;
 .end method
 
 .method public close()V
     .locals 1
 
     .line 187
-    invoke-virtual {p0}, Lbl/bia;->c()Lbl/bkg;
+    invoke-virtual {p0}, Lbl/bia;->c()Lokio/BufferedSource;
 
     move-result-object v0
 
@@ -190,11 +190,11 @@
     .locals 1
 
     .line 115
-    invoke-virtual {p0}, Lbl/bia;->c()Lbl/bkg;
+    invoke-virtual {p0}, Lbl/bia;->c()Lokio/BufferedSource;
 
     move-result-object v0
 
-    invoke-interface {v0}, Lbl/bkg;->f()Ljava/io/InputStream;
+    invoke-interface {v0}, Lokio/BufferedSource;->inputStream()Ljava/io/InputStream;
 
     move-result-object v0
 
@@ -243,13 +243,13 @@
 
     .line 133
     :cond_0
-    invoke-virtual {p0}, Lbl/bia;->c()Lbl/bkg;
+    invoke-virtual {p0}, Lbl/bia;->c()Lokio/BufferedSource;
 
     move-result-object v2
 
     .line 136
     :try_start_0
-    invoke-interface {v2}, Lbl/bkg;->r()[B
+    invoke-interface {v2}, Lokio/BufferedSource;->readByteArray()[B
 
     move-result-object v3
     :try_end_0
@@ -327,7 +327,7 @@
     .end annotation
 
     .line 172
-    invoke-virtual {p0}, Lbl/bia;->c()Lbl/bkg;
+    invoke-virtual {p0}, Lbl/bia;->c()Lokio/BufferedSource;
 
     move-result-object v0
 
@@ -337,12 +337,12 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lbl/bie;->a(Lbl/bkg;Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
+    invoke-static {v0, v1}, Lbl/bie;->a(Lokio/BufferedSource;Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
 
     move-result-object v1
 
     .line 175
-    invoke-interface {v0, v1}, Lbl/bkg;->a(Ljava/nio/charset/Charset;)Ljava/lang/String;
+    invoke-interface {v0, v1}, Lokio/BufferedSource;->readString(Ljava/nio/charset/Charset;)Ljava/lang/String;
 
     move-result-object v1
     :try_end_0

@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bkt;
+.implements Lokio/Source;
 
 
 # annotations
@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field protected final a:Lbl/bkj;
+.field protected final a:Lokio/ForwardingTimeout;
 
 .field protected b:Z
 
@@ -37,19 +37,19 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 353
-    new-instance p1, Lbl/bkj;
+    new-instance p1, Lokio/ForwardingTimeout;
 
     iget-object v0, p0, Lbl/bje$a;->d:Lbl/bje;
 
-    iget-object v0, v0, Lbl/bje;->c:Lbl/bkg;
+    iget-object v0, v0, Lbl/bje;->c:Lokio/BufferedSource;
 
-    invoke-interface {v0}, Lbl/bkg;->a()Lbl/bku;
+    invoke-interface {v0}, Lokio/BufferedSource;->timeout()Lokio/Timeout;
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Lbl/bkj;-><init>(Lbl/bku;)V
+    invoke-direct {p1, v0}, Lokio/ForwardingTimeout;-><init>(Lokio/Timeout;)V
 
-    iput-object p1, p0, Lbl/bje$a;->a:Lbl/bkj;
+    iput-object p1, p0, Lbl/bje$a;->a:Lokio/ForwardingTimeout;
 
     const-wide/16 v0, 0x0
 
@@ -70,7 +70,7 @@
 
 
 # virtual methods
-.method public a(Lbl/bke;J)J
+.method public read(Lokio/Buffer;J)J
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -82,9 +82,9 @@
     :try_start_0
     iget-object v0, p0, Lbl/bje$a;->d:Lbl/bje;
 
-    iget-object v0, v0, Lbl/bje;->c:Lbl/bkg;
+    iget-object v0, v0, Lbl/bje;->c:Lokio/BufferedSource;
 
-    invoke-interface {v0, p1, p2, p3}, Lbl/bkg;->a(Lbl/bke;J)J
+    invoke-interface {v0, p1, p2, p3}, Lokio/BufferedSource;->read(Lokio/Buffer;J)J
 
     move-result-wide p1
 
@@ -120,11 +120,11 @@
     throw p1
 .end method
 
-.method public a()Lbl/bku;
+.method public timeout()Lokio/Timeout;
     .locals 1
 
     .line 358
-    iget-object v0, p0, Lbl/bje$a;->a:Lbl/bkj;
+    iget-object v0, p0, Lbl/bje$a;->a:Lokio/ForwardingTimeout;
 
     return-object v0
 .end method
@@ -186,9 +186,9 @@
     :cond_1
     iget-object v0, p0, Lbl/bje$a;->d:Lbl/bje;
 
-    iget-object v2, p0, Lbl/bje$a;->a:Lbl/bkj;
+    iget-object v2, p0, Lbl/bje$a;->a:Lokio/ForwardingTimeout;
 
-    invoke-virtual {v0, v2}, Lbl/bje;->a(Lbl/bkj;)V
+    invoke-virtual {v0, v2}, Lbl/bje;->a(Lokio/ForwardingTimeout;)V
 
     .line 384
     iget-object v0, p0, Lbl/bje$a;->d:Lbl/bje;
