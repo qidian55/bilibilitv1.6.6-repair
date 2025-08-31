@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 37
+    .line 35
     invoke-direct {p0, p1}, Lorg/java_websocket/client/WebSocketClient;-><init>(Ljava/net/URI;)V
 
     return-void
@@ -20,7 +20,7 @@
     .locals 0
 
     .prologue
-    .line 43
+    .line 41
     return-void
 .end method
 
@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 46
+    .line 44
     return-void
 .end method
 
@@ -36,7 +36,7 @@
     .locals 0
 
     .prologue
-    .line 52
+    .line 50
     return-void
 .end method
 
@@ -44,7 +44,7 @@
     .locals 1
 
     .prologue
-    .line 49
+    .line 47
     sget-object v0, Lmybl/DanmakuClient;->player:Ltv/danmaku/videoplayer/core/danmaku/IDanmakuPlayer;
 
     if-eqz v0, :cond_b
@@ -63,6 +63,6 @@
     .locals 0
 
     .prologue
-    .line 40
+    .line 38
     return-void
 .end method

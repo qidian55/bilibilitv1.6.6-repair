@@ -122,7 +122,7 @@
 
     move-result-object v0
 
-    const-string v1, "Bilibili Freedoooooom/MarkII"
+    const-string v1, ""
 
     invoke-virtual {v0, v1}, Lbl/qa$a;->b(Ljava/lang/String;)Lbl/qa$a;
 

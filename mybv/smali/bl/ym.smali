@@ -589,853 +589,780 @@
 .end method
 
 .method public static a(Landroid/content/Context;Ljava/lang/String;ZLjava/lang/String;)Ljava/io/InputStream;
-    .locals 11
+    .locals 17
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 171
-    const/4 v6, 0x0
+    .line 259
+    invoke-static/range {p0 .. p0}, Lbl/bll;->c(Landroid/content/Context;)Z
 
-    .line 172
-    invoke-static {p0}, Lbl/bll;->c(Landroid/content/Context;)Z
+    move-result v1
 
-    move-result v0
+    const/4 v2, 0x1
 
-    if-eqz v0, :cond_f
+    if-eqz v1, :cond_0
 
-    .line 173
+    .line 260
     invoke-static {}, Lbl/yn;->a()Lbl/yn;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x1
+    invoke-virtual {v1, v2}, Lbl/yn;->b(I)V
 
-    invoke-virtual {v0, v1}, Lbl/yn;->b(I)V
-
-    .line 175
-    :cond_f
+    .line 262
+    :cond_0
     invoke-static {}, Lbl/ym;->b()Lbl/bhv;
 
-    move-result-object v4
+    move-result-object v1
 
-    .line 176
-    if-eqz p2, :cond_100
+    if-eqz p2, :cond_1
 
-    move-object v0, p3
+    move-object/from16 v3, p3
 
-    :goto_16
-    invoke-static {v0}, Lokhttp3/HttpUrl;->f(Ljava/lang/String;)Lokhttp3/HttpUrl;
+    goto :goto_0
+
+    :cond_1
+    move-object/from16 v3, p1
+
+    .line 264
+    :goto_0
+    invoke-static {v3}, Lokhttp3/HttpUrl;->f(Ljava/lang/String;)Lokhttp3/HttpUrl;
 
     move-result-object v9
 
-    .line 177
+    .line 265
     invoke-static {v9}, Lbl/ym;->a(Lokhttp3/HttpUrl;)Lbl/bhx;
 
-    move-result-object v1
+    move-result-object v4
 
-    .line 180
-    :try_start_1e
+    const/4 v10, 0x3
+
+    .line 268
+    :try_start_0
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    .line 181
-    new-instance v0, Lbl/vp;
+    .line 269
+    new-instance v11, Lbl/vp;
 
-    const-class v2, Lbl/bia;
+    const-class v5, Lbl/bia;
 
-    const/4 v3, 0x0
+    const/4 v12, 0x0
 
-    new-array v3, v3, [Ljava/lang/annotation/Annotation;
+    new-array v6, v12, [Ljava/lang/annotation/Annotation;
 
     invoke-static {}, Lbl/jk;->c()Lbl/ji;
 
+    move-result-object v8
+
+    move-object v3, v11
+
+    move-object v7, v1
+
+    invoke-direct/range {v3 .. v8}, Lbl/vp;-><init>(Lbl/bhx;Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lbl/bhv;Lbl/ji;)V
+
+    .line 270
+    new-instance v3, Lbl/vx;
+
+    invoke-direct {v3}, Lbl/vx;-><init>()V
+
+    invoke-virtual {v11, v3}, Lbl/vp;->a(Lbl/vz;)Lbl/vp;
+
+    move-object v3, v11
+
+    const/4 v11, 0x0
+
+    const/4 v14, 0x0
+
+    :goto_1
+    if-ge v11, v10, :cond_c
+
+    if-lez v11, :cond_3
+
+    .line 273
+    invoke-static/range {p0 .. p3}, Lbl/ym;->b(Landroid/content/Context;Ljava/lang/String;ZLjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 274
+    sget-object v5, Lbl/ym;->c:Ljava/lang/String;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "try danmaku url:"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v5, "https"
+
+    .line 275
+    invoke-virtual {v4, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    .line 276
+    invoke-virtual {v3}, Lbl/vp;->b()Lbl/vp;
+
+    move-result-object v3
+
+    goto :goto_2
+
+    .line 278
+    :cond_2
+    new-instance v8, Lbl/vp;
+
+    invoke-virtual {v9}, Lokhttp3/HttpUrl;->q()Lokhttp3/HttpUrl$Builder;
+
+    move-result-object v3
+
+    const-string v4, "https"
+
+    invoke-virtual {v3, v4}, Lokhttp3/HttpUrl$Builder;->a(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lokhttp3/HttpUrl$Builder;->c()Lokhttp3/HttpUrl;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lbl/ym;->a(Lokhttp3/HttpUrl;)Lbl/bhx;
+
+    move-result-object v4
+
+    const-class v5, Lbl/bia;
+
+    new-array v6, v12, [Ljava/lang/annotation/Annotation;
+
+    .line 279
+    invoke-static {}, Lbl/jk;->c()Lbl/ji;
+
+    move-result-object v15
+
+    move-object v3, v8
+
+    move-object v7, v1
+
+    move-object v13, v8
+
+    move-object v8, v15
+
+    invoke-direct/range {v3 .. v8}, Lbl/vp;-><init>(Lbl/bhx;Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lbl/bhv;Lbl/ji;)V
+
+    .line 280
+    new-instance v3, Lbl/vx;
+
+    invoke-direct {v3}, Lbl/vx;-><init>()V
+
+    invoke-virtual {v13, v3}, Lbl/vp;->a(Lbl/vz;)Lbl/vp;
+    :try_end_0
+    .catch Ljava/net/SocketTimeoutException; {:try_start_0 .. :try_end_0} :catch_4
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-object v3, v13
+
+    .line 285
+    :cond_3
+    :goto_2
+    :try_start_1
+    invoke-virtual {v3}, Lbl/vp;->d()Lbl/blh;
+
+    move-result-object v4
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/net/SocketTimeoutException; {:try_start_1 .. :try_end_1} :catch_4
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_3
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-nez v4, :cond_4
+
+    :try_start_2
+    const-string v13, "response is null!"
+
+    goto :goto_3
+
+    :catch_0
+    move-exception v0
+
+    move-object v13, v0
+
+    goto/16 :goto_4
+
+    .line 289
+    :cond_4
+    invoke-virtual {v4}, Lbl/blh;->d()Lbl/bhr;
+
     move-result-object v5
 
-    invoke-direct/range {v0 .. v5}, Lbl/vp;-><init>(Lbl/bhx;Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lbl/bhv;Lbl/ji;)V
+    const-string v6, "Content-Length"
 
-    .line 182
-    new-instance v1, Lbl/vx;
+    invoke-virtual {v5, v6}, Lbl/bhr;->c(Ljava/lang/String;)Ljava/util/List;
 
-    invoke-direct {v1}, Lbl/vx;-><init>()V
+    move-result-object v5
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/vz;)Lbl/vp;
+    invoke-interface {v5}, Ljava/util/List;->size()I
 
-    .line 184
-    const/4 v2, 0x0
+    move-result v5
 
-    .line 185
-    const/4 v1, 0x0
+    if-lez v5, :cond_5
 
-    move v7, v1
+    invoke-virtual {v4}, Lbl/blh;->d()Lbl/bhr;
 
-    move-object v8, v2
+    move-result-object v5
 
-    :goto_3b
-    const/4 v1, 0x3
+    const-string v6, "Content-Length"
 
-    if-ge v7, v1, :cond_1cd
+    invoke-virtual {v5, v6}, Lbl/bhr;->c(Ljava/lang/String;)Ljava/util/List;
 
-    .line 186
-    if-lez v7, :cond_2ae
+    move-result-object v5
 
-    .line 187
-    invoke-static {p0, p1, p2, p3}, Lbl/ym;->b(Landroid/content/Context;Ljava/lang/String;ZLjava/lang/String;)Ljava/lang/String;
+    invoke-interface {v5, v12}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v5
 
-    .line 188
-    const-string v2, "bl.ym"
+    check-cast v5, Ljava/lang/String;
+
+    invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    if-gtz v5, :cond_5
+
+    const-string v13, "content-length is 0!"
+
+    goto :goto_3
+
+    .line 291
+    :cond_5
+    invoke-virtual {v4}, Lbl/blh;->f()Ljava/lang/Object;
+
+    move-result-object v5
+
+    if-nez v5, :cond_6
+
+    const-string v13, "the body of response is null!"
+
+    goto :goto_3
+
+    .line 293
+    :cond_6
+    invoke-virtual {v4}, Lbl/blh;->f()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lbl/bia;
+
+    invoke-virtual {v5}, Lbl/bia;->d()Ljava/io/InputStream;
+
+    move-result-object v5
+
+    if-nez v5, :cond_7
+
+    const-string v13, "the body stream of response is null!"
+
+    goto :goto_3
+
+    .line 295
+    :cond_7
+    invoke-virtual {v4}, Lbl/blh;->f()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lbl/bia;
+
+    invoke-virtual {v5}, Lbl/bia;->d()Ljava/io/InputStream;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/io/InputStream;->available()I
+
+    move-result v5
+
+    if-gtz v5, :cond_8
+
+    const-string v13, "the body stream length of response is 0!"
+
+    goto :goto_3
+
+    :cond_8
+    const/4 v13, 0x0
+
+    :goto_3
+    if-eqz v13, :cond_9
+
+    .line 299
+    new-instance v5, Ljava/io/IOException;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "the inputstream length is 0 for msg = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-direct {v5, v6}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v5
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/net/SocketTimeoutException; {:try_start_2 .. :try_end_2} :catch_4
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :cond_9
+    move-object/from16 v7, p1
+
+    move-object v14, v4
+
+    const/4 v13, 0x0
+
+    goto :goto_5
+
+    :catch_1
+    move-exception v0
+
+    move-object v13, v0
+
+    move-object v4, v14
+
+    .line 302
+    :goto_4
+    :try_start_3
+    sget-object v5, Lbl/ym;->c:Ljava/lang/String;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, " load new danmaku error :"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-object/from16 v7, p1
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v8, " for :"
+
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v13}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v8, " times : "
+
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v5, 0x2
+
+    if-lt v11, v5, :cond_a
+
+    .line 305
+    throw v13
+    :try_end_3
+    .catch Ljava/net/SocketTimeoutException; {:try_start_3 .. :try_end_3} :catch_4
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :cond_a
+    move-object v14, v4
+
+    :goto_5
+    if-nez v13, :cond_b
+
+    goto :goto_6
+
+    :cond_b
+    add-int/lit8 v11, v11, 0x1
+
+    goto/16 :goto_1
+
+    .line 327
+    :cond_c
+    :goto_6
+    invoke-virtual {v14}, Lbl/blh;->b()I
+
+    move-result v1
+
+    const/16 v3, 0xc8
+
+    if-eq v1, v3, :cond_e
+
+    .line 330
+    invoke-virtual {v14}, Lbl/blh;->f()Ljava/lang/Object;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_d
+
+    .line 331
+    invoke-virtual {v14}, Lbl/blh;->f()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lbl/bia;
+
+    invoke-virtual {v2}, Lbl/bia;->close()V
+
+    .line 333
+    :cond_d
+    sget-object v2, Lbl/ym;->c:Ljava/lang/String;
+
+    const-string v3, " load new danmaku error : code != 200"
+
+    invoke-static {v2, v3}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 334
+    new-instance v2, Ljava/io/FileNotFoundException;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "try danmaku url:"
+    const-string v4, "Unexpected response code: "
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v2, v1}, Ljava/io/FileNotFoundException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    .line 336
+    :cond_e
+    invoke-virtual {v14}, Lbl/blh;->f()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lbl/bia;
+
+    .line 337
+    invoke-static {}, Lbl/yn;->a()Lbl/yn;
 
     move-result-object v3
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Lbl/bia;->b()J
+
+    move-result-wide v4
+
+    invoke-virtual {v3, v4, v5}, Lbl/yn;->a(J)V
+
+    .line 338
+    invoke-virtual {v14}, Lbl/blh;->f()Ljava/lang/Object;
 
     move-result-object v3
+
+    if-eqz v3, :cond_11
+
+    invoke-virtual {v14}, Lbl/blh;->d()Lbl/bhr;
+
+    move-result-object v3
+
+    const-string v4, "Content-Encoding"
+
+    invoke-virtual {v3, v4}, Lbl/bhr;->c(Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    if-lez v3, :cond_11
+
+    const-string v3, "deflate"
+
+    .line 339
+    invoke-virtual {v14}, Lbl/blh;->d()Lbl/bhr;
+
+    move-result-object v4
+
+    const-string v5, "Content-Encoding"
+
+    invoke-virtual {v4, v5}, Lbl/bhr;->c(Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v4
+
+    invoke-interface {v4, v12}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    const/16 v4, 0x400
+
+    if-eqz v3, :cond_f
+
+    .line 340
+    new-instance v3, Ljava/util/zip/InflaterInputStream;
+
+    invoke-virtual {v1}, Lbl/bia;->d()Ljava/io/InputStream;
+
+    move-result-object v1
+
+    new-instance v5, Ljava/util/zip/Inflater;
+
+    invoke-direct {v5, v2}, Ljava/util/zip/Inflater;-><init>(Z)V
+
+    invoke-direct {v3, v1, v5, v4}, Ljava/util/zip/InflaterInputStream;-><init>(Ljava/io/InputStream;Ljava/util/zip/Inflater;I)V
+
+    return-object v3
+
+    .line 342
+    :cond_f
+    sget-object v2, Lbl/ym;->c:Ljava/lang/String;
+
+    const-string v3, "response do not have deflate header"
+
+    invoke-static {v2, v3}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v2, "gzip"
+
+    .line 344
+    invoke-virtual {v14}, Lbl/blh;->d()Lbl/bhr;
+
+    move-result-object v3
+
+    const-string v5, "Content-Encoding"
+
+    invoke-virtual {v3, v5}, Lbl/bhr;->c(Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-interface {v3, v12}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_10
+
+    .line 345
+    new-instance v2, Ljava/util/zip/GZIPInputStream;
+
+    invoke-virtual {v1}, Lbl/bia;->d()Ljava/io/InputStream;
+
+    move-result-object v1
+
+    invoke-direct {v2, v1, v4}, Ljava/util/zip/GZIPInputStream;-><init>(Ljava/io/InputStream;I)V
+
+    return-object v2
+
+    .line 347
+    :cond_10
+    sget-object v2, Lbl/ym;->c:Ljava/lang/String;
+
+    const-string v3, "response do not have gzip header"
+
+    invoke-static {v2, v3}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 350
+    :cond_11
+    invoke-virtual {v1}, Lbl/bia;->d()Ljava/io/InputStream;
+
+    move-result-object v1
+
+    return-object v1
+
+    :catchall_0
+    move-exception v0
+
+    move-object v1, v0
+
+    goto/16 :goto_7
+
+    :catch_2
+    move-exception v0
+
+    move-object v1, v0
+
+    .line 322
+    :try_start_4
+    sget-object v2, Lbl/ym;->c:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, " load new danmaku error :"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 189
-    const-string v2, "https"
+    .line 323
+    new-instance v2, Ljava/io/IOException;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-direct {v2, v1}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
 
-    move-result v1
+    throw v2
 
-    if-eqz v1, :cond_103
-
-    .line 190
-    invoke-virtual {v0}, Lbl/vp;->b()Lbl/vp;
-    :try_end_67
-    .catch Ljava/net/SocketTimeoutException; {:try_start_1e .. :try_end_67} :catch_8d
-    .catch Ljava/io/IOException; {:try_start_1e .. :try_end_67} :catch_204
-    .catch Ljava/lang/Exception; {:try_start_1e .. :try_end_67} :catch_dd
-
-    move-result-object v0
+    :catch_3
+    move-exception v0
 
     move-object v1, v0
 
-    .line 198
-    :goto_69
-    :try_start_69
-    invoke-virtual {v1}, Lbl/vp;->d()Lbl/blh;
+    .line 319
+    sget-object v2, Lbl/ym;->c:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, " load new danmaku error :"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 199
-    if-nez v3, :cond_12e
+    invoke-static {v2, v3}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 200
-    const-string v0, "response is null!"
-    :try_end_71
-    .catch Ljava/lang/Exception; {:try_start_69 .. :try_end_71} :catch_1bf
-    .catch Ljava/net/SocketTimeoutException; {:try_start_69 .. :try_end_71} :catch_8d
-    .catch Ljava/io/IOException; {:try_start_69 .. :try_end_71} :catch_204
-
-    :goto_71
-    move-object v6, v0
-
-    .line 223
-    :goto_72
-    if-eqz v6, :cond_1c6
-
-    .line 224
-    :try_start_74
-    new-instance v0, Ljava/io/IOException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "the inputstream length is 0 for msg = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-    :try_end_8d
-    .catch Ljava/net/SocketTimeoutException; {:try_start_74 .. :try_end_8d} :catch_8d
-    .catch Ljava/io/IOException; {:try_start_74 .. :try_end_8d} :catch_204
-    .catch Ljava/lang/Exception; {:try_start_74 .. :try_end_8d} :catch_dd
-
-    .line 249
-    :catch_8d
-    move-exception v0
-
-    .line 250
-    :try_start_8e
-    const-string v1, "bl.ym"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, " load new danmaku error :"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v0}, Ljava/net/SocketTimeoutException;->getMessage()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 251
-    invoke-static {}, Lbl/yn;->a()Lbl/yn;
-
-    move-result-object v1
-
-    const/4 v2, 0x3
-
-    invoke-virtual {v1, v2}, Lbl/yn;->b(I)V
-
-    .line 252
-    invoke-static {}, Lbl/yn;->a()Lbl/yn;
-
-    move-result-object v1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, ":"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v0}, Ljava/net/SocketTimeoutException;->getMessage()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lbl/yn;->a(Ljava/lang/String;)V
-
-    .line 253
-    throw v0
-    :try_end_dd
-    .catch Ljava/lang/Exception; {:try_start_8e .. :try_end_dd} :catch_dd
-
-    .line 258
-    :catch_dd
-    move-exception v0
-
-    .line 259
-    const-string v1, "bl.ym"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, " load new danmaku error :"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 260
-    new-instance v1, Ljava/io/IOException;
-
-    invoke-direct {v1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
-
+    .line 320
     throw v1
 
-    :cond_100
-    move-object v0, p1
-
-    .line 176
-    goto/16 :goto_16
-
-    .line 192
-    :cond_103
-    :try_start_103
-    new-instance v0, Lbl/vp;
-
-    invoke-virtual {v9}, Lokhttp3/HttpUrl;->q()Lokhttp3/HttpUrl$Builder;
-
-    move-result-object v1
-
-    const-string v2, "https"
-
-    invoke-virtual {v1, v2}, Lokhttp3/HttpUrl$Builder;->a(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lokhttp3/HttpUrl$Builder;->c()Lokhttp3/HttpUrl;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lbl/ym;->a(Lokhttp3/HttpUrl;)Lbl/bhx;
-
-    move-result-object v1
-
-    const-class v2, Lbl/bia;
-
-    const/4 v3, 0x0
-
-    new-array v3, v3, [Ljava/lang/annotation/Annotation;
-
-    invoke-static {}, Lbl/jk;->c()Lbl/ji;
-
-    move-result-object v5
-
-    invoke-direct/range {v0 .. v5}, Lbl/vp;-><init>(Lbl/bhx;Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lbl/bhv;Lbl/ji;)V
-
-    .line 193
-    new-instance v1, Lbl/vx;
-
-    invoke-direct {v1}, Lbl/vx;-><init>()V
-
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/vz;)Lbl/vp;
-    :try_end_12b
-    .catch Ljava/net/SocketTimeoutException; {:try_start_103 .. :try_end_12b} :catch_8d
-    .catch Ljava/io/IOException; {:try_start_103 .. :try_end_12b} :catch_204
-    .catch Ljava/lang/Exception; {:try_start_103 .. :try_end_12b} :catch_dd
+    :catch_4
+    move-exception v0
 
     move-object v1, v0
 
-    .line 194
-    goto/16 :goto_69
+    .line 314
+    sget-object v2, Lbl/ym;->c:Ljava/lang/String;
 
-    .line 203
-    :cond_12e
-    :try_start_12e
-    invoke-virtual {v3}, Lbl/blh;->d()Lbl/bhr;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Content-Length"
+    const-string v4, " load new danmaku error :"
 
-    invoke-virtual {v0, v2}, Lbl/bhr;->c(Ljava/lang/String;)Ljava/util/List;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    invoke-virtual {v1}, Ljava/net/SocketTimeoutException;->getMessage()Ljava/lang/String;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    move-result-object v4
 
-    move-result v0
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-lez v0, :cond_159
-
-    invoke-virtual {v3}, Lbl/blh;->d()Lbl/bhr;
-
-    move-result-object v0
-
-    const-string v2, "Content-Length"
-
-    invoke-virtual {v0, v2}, Lbl/bhr;->c(Ljava/lang/String;)Ljava/util/List;
-
-    move-result-object v0
-
-    const/4 v2, 0x0
-
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v0
-
-    if-gtz v0, :cond_159
-
-    .line 204
-    const-string v0, "content-length is 0!"
-
-    goto/16 :goto_71
-
-    .line 205
-    :cond_159
-    invoke-virtual {v3}, Lbl/blh;->f()Ljava/lang/Object;
-
-    move-result-object v0
-
-    if-nez v0, :cond_163
-
-    .line 206
-    const-string v0, "the body of response is null!"
-
-    goto/16 :goto_71
-
-    .line 207
-    :cond_163
-    invoke-virtual {v3}, Lbl/blh;->f()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lbl/bia;
-
-    invoke-virtual {v0}, Lbl/bia;->d()Ljava/io/InputStream;
-
-    move-result-object v0
-
-    if-nez v0, :cond_173
-
-    .line 208
-    const-string v0, "the body stream of response is null!"
-
-    goto/16 :goto_71
-
-    .line 210
-    :cond_173
-    invoke-virtual {v3}, Lbl/blh;->f()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lbl/bia;
-
-    invoke-virtual {v0}, Lbl/bia;->d()Ljava/io/InputStream;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/io/InputStream;->available()I
-
-    move-result v0
-
-    if-gtz v0, :cond_187
-
-    const-string v0, "the body stream length of response is 0!"
-    :try_end_185
-    .catch Ljava/lang/Exception; {:try_start_12e .. :try_end_185} :catch_18a
-    .catch Ljava/net/SocketTimeoutException; {:try_start_12e .. :try_end_185} :catch_8d
-    .catch Ljava/io/IOException; {:try_start_12e .. :try_end_185} :catch_204
-
-    goto/16 :goto_71
-
-    :cond_187
-    const/4 v0, 0x0
-
-    goto/16 :goto_71
-
-    .line 212
-    :catch_18a
-    move-exception v0
-
-    .line 213
-    :try_start_18b
-    const-string v2, "bl.ym"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, " load new danmaku error :"
-
-    invoke-virtual {v5, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v10, " for :"
-
-    invoke-virtual {v5, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v5, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v10, " times : "
-
-    invoke-virtual {v5, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v2, v5}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 214
-    const/4 v2, 0x2
-
-    if-lt v7, v2, :cond_1c3
-
-    .line 215
-    throw v0
-    :try_end_1bf
-    .catch Ljava/lang/Exception; {:try_start_18b .. :try_end_1bf} :catch_1bf
-    .catch Ljava/net/SocketTimeoutException; {:try_start_18b .. :try_end_1bf} :catch_8d
-    .catch Ljava/io/IOException; {:try_start_18b .. :try_end_1bf} :catch_204
-
-    .line 220
-    :catch_1bf
-    move-exception v0
-
-    move-object v3, v8
-
-    .line 221
-    goto/16 :goto_72
-
-    :cond_1c3
-    move-object v0, v6
-
-    .line 217
-    goto/16 :goto_71
-
-    .line 185
-    :cond_1c6
-    add-int/lit8 v2, v7, 0x1
-
-    move v7, v2
-
-    move-object v8, v3
-
-    move-object v0, v1
-
-    goto/16 :goto_3b
-
-    .line 228
-    :cond_1cd
-    :try_start_1cd
-    invoke-virtual {v8}, Lbl/blh;->b()I
-
-    move-result v1
-
-    .line 229
-    const/16 v0, 0xc8
-
-    if-eq v1, v0, :cond_222
-
-    .line 230
-    invoke-virtual {v8}, Lbl/blh;->f()Ljava/lang/Object;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1e4
-
-    .line 231
-    invoke-virtual {v8}, Lbl/blh;->f()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lbl/bia;
-
-    invoke-virtual {v0}, Lbl/bia;->close()V
-
-    .line 233
-    :cond_1e4
-    const-string v0, "bl.ym"
-
-    const-string v2, " load new danmaku error : code != 200"
-
-    invoke-static {v0, v2}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 234
-    new-instance v0, Ljava/io/FileNotFoundException;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Unexpected response code: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/io/FileNotFoundException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-    :try_end_204
-    .catch Ljava/net/SocketTimeoutException; {:try_start_1cd .. :try_end_204} :catch_8d
-    .catch Ljava/io/IOException; {:try_start_1cd .. :try_end_204} :catch_204
-    .catch Ljava/lang/Exception; {:try_start_1cd .. :try_end_204} :catch_dd
-
-    .line 254
-    :catch_204
-    move-exception v0
-
-    .line 255
-    :try_start_205
-    const-string v1, "bl.ym"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, " load new danmaku error :"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v2, v3}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Ltv/danmaku/android/log/BLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 256
-    throw v0
-    :try_end_222
-    .catch Ljava/lang/Exception; {:try_start_205 .. :try_end_222} :catch_dd
-
-    .line 236
-    :cond_222
-    :try_start_222
-    invoke-virtual {v8}, Lbl/blh;->f()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lbl/bia;
-
-    .line 237
+    .line 315
     invoke-static {}, Lbl/yn;->a()Lbl/yn;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0}, Lbl/bia;->b()J
+    invoke-virtual {v2, v10}, Lbl/yn;->b(I)V
 
-    move-result-wide v2
+    .line 316
+    invoke-static {}, Lbl/yn;->a()Lbl/yn;
 
-    invoke-virtual {v1, v2, v3}, Lbl/yn;->a(J)V
+    move-result-object v2
 
-    .line 238
-    invoke-virtual {v8}, Lbl/blh;->f()Ljava/lang/Object;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz v1, :cond_2a9
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-virtual {v8}, Lbl/blh;->d()Lbl/bhr;
+    move-result-object v4
 
-    move-result-object v1
+    invoke-virtual {v4}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    const-string v2, "Content-Encoding"
+    move-result-object v4
 
-    invoke-virtual {v1, v2}, Lbl/bhr;->c(Ljava/lang/String;)Ljava/util/List;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    const-string v4, ":"
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v1
+    invoke-virtual {v1}, Ljava/net/SocketTimeoutException;->getMessage()Ljava/lang/String;
 
-    if-lez v1, :cond_2a9
+    move-result-object v4
 
-    .line 239
-    const-string v2, "deflate"
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Lbl/blh;->d()Lbl/bhr;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    const-string v3, "Content-Encoding"
+    invoke-virtual {v2, v3}, Lbl/yn;->a(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v3}, Lbl/bhr;->c(Ljava/lang/String;)Ljava/util/List;
+    .line 317
+    throw v1
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    move-result-object v1
-
-    const/4 v3, 0x0
-
-    invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_275
-
-    .line 240
-    new-instance v1, Ljava/util/zip/InflaterInputStream;
-
-    invoke-virtual {v0}, Lbl/bia;->d()Ljava/io/InputStream;
-
-    move-result-object v0
-
-    new-instance v2, Ljava/util/zip/Inflater;
-
-    const/4 v3, 0x1
-
-    invoke-direct {v2, v3}, Ljava/util/zip/Inflater;-><init>(Z)V
-
-    const/16 v3, 0x400
-
-    invoke-direct {v1, v0, v2, v3}, Ljava/util/zip/InflaterInputStream;-><init>(Ljava/io/InputStream;Ljava/util/zip/Inflater;I)V
-
-    move-object v0, v1
-
-    .line 248
-    :goto_274
-    return-object v0
-
-    .line 242
-    :cond_275
-    const-string v1, "bl.ym"
-
-    const-string v2, "response do not have deflate header"
-
-    invoke-static {v1, v2}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 243
-    const-string v2, "gzip"
-
-    invoke-virtual {v8}, Lbl/blh;->d()Lbl/bhr;
-
-    move-result-object v1
-
-    const-string v3, "Content-Encoding"
-
-    invoke-virtual {v1, v3}, Lbl/bhr;->c(Ljava/lang/String;)Ljava/util/List;
-
-    move-result-object v1
-
-    const/4 v3, 0x0
-
-    invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2a2
-
-    .line 244
-    new-instance v1, Ljava/util/zip/GZIPInputStream;
-
-    invoke-virtual {v0}, Lbl/bia;->d()Ljava/io/InputStream;
-
-    move-result-object v0
-
-    const/16 v2, 0x400
-
-    invoke-direct {v1, v0, v2}, Ljava/util/zip/GZIPInputStream;-><init>(Ljava/io/InputStream;I)V
-
-    move-object v0, v1
-
-    goto :goto_274
-
-    .line 246
-    :cond_2a2
-    const-string v1, "bl.ym"
-
-    const-string v2, "response do not have gzip header"
-
-    invoke-static {v1, v2}, Ltv/danmaku/android/log/BLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 248
-    :cond_2a9
-    invoke-virtual {v0}, Lbl/bia;->d()Ljava/io/InputStream;
-    :try_end_2ac
-    .catch Ljava/net/SocketTimeoutException; {:try_start_222 .. :try_end_2ac} :catch_8d
-    .catch Ljava/io/IOException; {:try_start_222 .. :try_end_2ac} :catch_204
-    .catch Ljava/lang/Exception; {:try_start_222 .. :try_end_2ac} :catch_dd
-
-    move-result-object v0
-
-    goto :goto_274
-
-    :cond_2ae
-    move-object v1, v0
-
-    goto/16 :goto_69
+    .line 324
+    :goto_7
+    throw v1
 .end method
 
 .method public static a(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;

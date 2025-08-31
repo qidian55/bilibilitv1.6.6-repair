@@ -45,14 +45,14 @@ public class ym {
         return str;
     }
 
-    public static String a(Context context, String str) {
+    public static String getOldDanmakuUrl(Context context, String str) {
         long d = mg.a(context).d();
         String e = mg.a(context).e();
         HttpUrl.Builder q = HttpUrl.f("http://api.bilibili.com/x/v1/dm/list.so").q();
         q.a("oid", str);
-        if (!TextUtils.isEmpty(e) && d > 0) {
-            q.a("access_key", e);
-        }
+        //if (!TextUtils.isEmpty(e) && d > 0) {
+        //    q.a("access_key", e);
+        //}
         return new wa().intercept(new bhx.a().a(q.c()).b()).a().toString();
     }
 
@@ -67,7 +67,7 @@ public class ym {
         return new wa().intercept(new bhx.a().a(q.c()).b()).a().toString();
     }
 
-    public static String a(String str) {
+    public static String getOldCommentUrl(String str) {
         Uri.Builder buildUpon = Uri.parse("http://comment.bilibili.com").buildUpon();
         buildUpon.appendEncodedPath(String.format("dm,%s", str));
         return buildUpon.toString();
@@ -265,9 +265,9 @@ public class ym {
         String a2;
         ResolveResourceParams obtainResolveParams = playerParams.mVideoParams.obtainResolveParams();
         if (obtainResolveParams.isEmptyCid()) {
-            a2 = a(obtainResolveParams.mVid);
+            a2 = getOldCommentUrl(obtainResolveParams.mVid);
         } else {
-            a2 = a(context, String.valueOf(obtainResolveParams.mCid));
+            a2 = getOldDanmakuUrl(context, String.valueOf(obtainResolveParams.mCid));
         }
         BLog.i(c, "load old danmaku url :" + a2);
         yn.a().b(a2);
