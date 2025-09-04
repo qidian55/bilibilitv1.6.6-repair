@@ -762,9 +762,9 @@
 
     invoke-direct {v0, p0}, Lcom/bilibili/tv/ui/bangumi/time/BangumiTimelineActivity$k;-><init>(Lcom/bilibili/tv/ui/bangumi/time/BangumiTimelineActivity;)V
 
-    check-cast v0, Lbl/bkz;
+    check-cast v0, Lretrofit2/Callback;
 
-    invoke-virtual {p1, v0}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {p1, v0}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     return-void
 .end method

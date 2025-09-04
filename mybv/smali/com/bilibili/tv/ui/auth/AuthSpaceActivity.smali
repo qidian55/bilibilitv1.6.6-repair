@@ -430,7 +430,7 @@
 
     invoke-direct {v1, p0}, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$3;-><init>(Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 172
     new-instance v0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$b;
@@ -643,7 +643,7 @@
 
     iget-object v1, p0, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity;->b:Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$b;
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 345
     return-void

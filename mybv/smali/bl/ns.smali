@@ -26,7 +26,7 @@
 # static fields
 .field private static final a:Lbl/ns;
 
-.field private static final b:Lbl/bhc;
+.field private static final b:Lokhttp3/CacheControl;
 
 
 # instance fields
@@ -35,7 +35,7 @@
     .end annotation
 .end field
 
-.field private final d:Lbl/bhv;
+.field private final d:Lokhttp3/OkHttpClient;
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 .end field
@@ -63,19 +63,19 @@
     sput-object v0, Lbl/ns;->a:Lbl/ns;
 
     .line 49
-    new-instance v0, Lbl/bhc$a;
+    new-instance v0, Lokhttp3/CacheControl$a;
 
-    invoke-direct {v0}, Lbl/bhc$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/CacheControl$a;-><init>()V
 
-    invoke-virtual {v0}, Lbl/bhc$a;->b()Lbl/bhc$a;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lbl/bhc$a;->d()Lbl/bhc;
+    invoke-virtual {v0}, Lokhttp3/CacheControl$a;->b()Lokhttp3/CacheControl$a;
 
     move-result-object v0
 
-    sput-object v0, Lbl/ns;->b:Lbl/bhc;
+    invoke-virtual {v0}, Lokhttp3/CacheControl$a;->d()Lokhttp3/CacheControl;
+
+    move-result-object v0
+
+    sput-object v0, Lbl/ns;->b:Lokhttp3/CacheControl;
 
     return-void
 .end method
@@ -87,11 +87,11 @@
     invoke-direct {p0}, Lbl/ara;-><init>()V
 
     .line 55
-    invoke-static {}, Lbl/us;->b()Lbl/bhv$a;
+    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$a;
 
     move-result-object v0
 
-    new-instance v1, Lbl/bhi;
+    new-instance v1, Lokhttp3/ConnectionPool;
 
     sget-object v2, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
 
@@ -99,10 +99,10 @@
 
     const-wide/16 v4, 0x1
 
-    invoke-direct {v1, v3, v4, v5, v2}, Lbl/bhi;-><init>(IJLjava/util/concurrent/TimeUnit;)V
+    invoke-direct {v1, v3, v4, v5, v2}, Lokhttp3/ConnectionPool;-><init>(IJLjava/util/concurrent/TimeUnit;)V
 
     .line 56
-    invoke-virtual {v0, v1}, Lbl/bhv$a;->a(Lbl/bhi;)Lbl/bhv$a;
+    invoke-virtual {v0, v1}, Lokhttp3/OkHttpClient$a;->a(Lokhttp3/ConnectionPool;)Lokhttp3/OkHttpClient$a;
 
     move-result-object v0
 
@@ -111,7 +111,7 @@
     const-wide/16 v2, 0xa
 
     .line 57
-    invoke-virtual {v0, v2, v3, v1}, Lbl/bhv$a;->a(JLjava/util/concurrent/TimeUnit;)Lbl/bhv$a;
+    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$a;->a(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
 
     move-result-object v0
 
@@ -120,32 +120,32 @@
     const-wide/16 v2, 0xf
 
     .line 58
-    invoke-virtual {v0, v2, v3, v1}, Lbl/bhv$a;->b(JLjava/util/concurrent/TimeUnit;)Lbl/bhv$a;
+    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$a;->b(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
 
     move-result-object v0
 
-    sget-object v1, Lbl/nt;->a:Lbl/bhs;
+    sget-object v1, Lbl/nt;->a:Lokhttp3/Interceptor;
 
     .line 59
-    invoke-virtual {v0, v1}, Lbl/bhv$a;->b(Lbl/bhs;)Lbl/bhv$a;
+    invoke-virtual {v0, v1}, Lokhttp3/OkHttpClient$a;->b(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient$a;
 
     move-result-object v0
 
     .line 66
-    invoke-virtual {v0}, Lbl/bhv$a;->c()Lbl/bhv;
+    invoke-virtual {v0}, Lokhttp3/OkHttpClient$a;->c()Lokhttp3/OkHttpClient;
 
     move-result-object v0
 
-    iput-object v0, p0, Lbl/ns;->d:Lbl/bhv;
+    iput-object v0, p0, Lbl/ns;->d:Lokhttp3/OkHttpClient;
 
     .line 67
-    iget-object v0, p0, Lbl/ns;->d:Lbl/bhv;
+    iget-object v0, p0, Lbl/ns;->d:Lokhttp3/OkHttpClient;
 
-    invoke-virtual {v0}, Lbl/bhv;->t()Lbl/bhm;
+    invoke-virtual {v0}, Lokhttp3/OkHttpClient;->t()Lokhttp3/Dispatcher;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lbl/bhm;->a()Ljava/util/concurrent/ExecutorService;
+    invoke-virtual {v0}, Lokhttp3/Dispatcher;->a()Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0
 
@@ -154,7 +154,7 @@
     return-void
 .end method
 
-.method static final synthetic a(Lbl/bhs$a;)Lbl/bhz;
+.method static final synthetic a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -163,12 +163,12 @@
     .end annotation
 
     .line 60
-    invoke-interface {p0}, Lbl/bhs$a;->a()Lbl/bhx;
+    invoke-interface {p0}, Lokhttp3/Interceptor$a;->a()Lokhttp3/Request;
 
     move-result-object v0
 
     .line 61
-    invoke-virtual {v0}, Lbl/bhx;->e()Lbl/bhx$a;
+    invoke-virtual {v0}, Lokhttp3/Request;->e()Lokhttp3/Request$a;
 
     move-result-object v0
 
@@ -183,17 +183,17 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lbl/bhx$a;->a(Ljava/lang/String;Ljava/lang/String;)Lbl/bhx$a;
+    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
 
     move-result-object v0
 
     .line 63
-    invoke-virtual {v0}, Lbl/bhx$a;->b()Lbl/bhx;
+    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
 
     move-result-object v0
 
     .line 64
-    invoke-interface {p0, v0}, Lbl/bhs$a;->a(Lbl/bhx;)Lbl/bhz;
+    invoke-interface {p0, v0}, Lokhttp3/Interceptor$a;->a(Lokhttp3/Request;)Lokhttp3/Response;
 
     move-result-object p0
 
@@ -209,11 +209,11 @@
     return-object v0
 .end method
 
-.method static synthetic b()Lbl/bhc;
+.method static synthetic b()Lokhttp3/CacheControl;
     .locals 1
 
     .line 43
-    sget-object v0, Lbl/ns;->b:Lbl/bhc;
+    sget-object v0, Lbl/ns;->b:Lokhttp3/CacheControl;
 
     return-object v0
 .end method
@@ -285,7 +285,7 @@
     .line 90
     new-instance v7, Lbl/ns$d;
 
-    iget-object v1, p0, Lbl/ns;->d:Lbl/bhv;
+    iget-object v1, p0, Lbl/ns;->d:Lokhttp3/OkHttpClient;
 
     iget-object v4, p0, Lbl/ns;->f:Ljava/util/concurrent/ExecutorService;
 
@@ -299,7 +299,7 @@
 
     move-object v3, p2
 
-    invoke-direct/range {v0 .. v6}, Lbl/ns$d;-><init>(Lbl/bhd$a;Lbl/ns$a;Lbl/ase$a;Ljava/util/concurrent/Executor;Lbl/ns$b;Lbl/ns$e;)V
+    invoke-direct/range {v0 .. v6}, Lbl/ns$d;-><init>(Lokhttp3/Call$a;Lbl/ns$a;Lbl/ase$a;Ljava/util/concurrent/Executor;Lbl/ns$b;Lbl/ns$e;)V
 
     .line 92
     invoke-virtual {p1}, Lbl/ns$a;->b()Lbl/asj;

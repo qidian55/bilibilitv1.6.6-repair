@@ -251,7 +251,7 @@
 
 
 # virtual methods
-.method public convert(Lbl/bia;)Lcom/bilibili/okretro/GeneralResponse;
+.method public convert(Lokhttp3/ResponseBody;)Lcom/bilibili/okretro/GeneralResponse;
     .locals 5
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
@@ -259,7 +259,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lbl/bia;",
+            "Lokhttp3/ResponseBody;",
             ")",
             "Lcom/bilibili/okretro/GeneralResponse<",
             "Lcom/bilibili/tv/api/video/BiliVideoDetail;",
@@ -274,7 +274,7 @@
     .end annotation
 
     .line 34
-    invoke-virtual {p1}, Lbl/bia;->f()Ljava/lang/String;
+    invoke-virtual {p1}, Lokhttp3/ResponseBody;->f()Ljava/lang/String;
 
     move-result-object p1
 
@@ -516,7 +516,7 @@
     throw p1
 .end method
 
-.method public bridge synthetic convert(Lbl/bia;)Ljava/lang/Object;
+.method public bridge synthetic convert(Lokhttp3/ResponseBody;)Ljava/lang/Object;
     .locals 0
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
@@ -529,7 +529,7 @@
     .end annotation
 
     .line 27
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/video/VideoApiParser;->convert(Lbl/bia;)Lcom/bilibili/okretro/GeneralResponse;
+    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/video/VideoApiParser;->convert(Lokhttp3/ResponseBody;)Lcom/bilibili/okretro/GeneralResponse;
 
     move-result-object p1
 
@@ -548,9 +548,9 @@
     .end annotation
 
     .line 27
-    check-cast p1, Lbl/bia;
+    check-cast p1, Lokhttp3/ResponseBody;
 
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/video/VideoApiParser;->convert(Lbl/bia;)Lcom/bilibili/okretro/GeneralResponse;
+    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/video/VideoApiParser;->convert(Lokhttp3/ResponseBody;)Lcom/bilibili/okretro/GeneralResponse;
 
     move-result-object p1
 

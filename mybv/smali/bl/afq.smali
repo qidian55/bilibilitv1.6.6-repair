@@ -103,7 +103,7 @@
 
     invoke-direct {v1, v2}, Lbl/afq$UpdateResponse;-><init>(Z)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 141
     :cond_19
@@ -285,7 +285,7 @@
 
     invoke-direct {v1, v2}, Lbl/afq$UpdateResponse;-><init>(Z)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     goto :goto_16
 .end method

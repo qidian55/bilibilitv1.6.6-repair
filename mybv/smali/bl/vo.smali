@@ -16,9 +16,9 @@
 
 .field public static b:Lbl/vo$a;
 
-.field private static volatile c:Lbl/bhv;
+.field private static volatile c:Lokhttp3/OkHttpClient;
 
-.field private static volatile d:Lbl/bli;
+.field private static volatile d:Lretrofit2/Retrofit;
 
 
 # direct methods
@@ -51,11 +51,11 @@
     return-void
 .end method
 
-.method private static a()Lbl/bli;
+.method private static a()Lretrofit2/Retrofit;
     .locals 5
 
     .line 43
-    sget-object v0, Lbl/vo;->d:Lbl/bli;
+    sget-object v0, Lbl/vo;->d:Lretrofit2/Retrofit;
 
     if-nez v0, :cond_1
 
@@ -66,19 +66,19 @@
 
     .line 45
     :try_start_0
-    sget-object v1, Lbl/vo;->d:Lbl/bli;
+    sget-object v1, Lbl/vo;->d:Lretrofit2/Retrofit;
 
     if-nez v1, :cond_0
 
     .line 46
-    invoke-static {}, Lbl/vo;->b()Lbl/bhv;
+    invoke-static {}, Lbl/vo;->b()Lokhttp3/OkHttpClient;
 
     move-result-object v1
 
     .line 47
-    new-instance v2, Lbl/bli$a;
+    new-instance v2, Lretrofit2/Retrofit$a;
 
-    invoke-direct {v2}, Lbl/bli$a;-><init>()V
+    invoke-direct {v2}, Lretrofit2/Retrofit$a;-><init>()V
 
     new-instance v3, Lbl/vq;
 
@@ -87,30 +87,30 @@
 
     move-result-object v4
 
-    invoke-direct {v3, v1, v4}, Lbl/vq;-><init>(Lbl/bhv;Lbl/ji;)V
+    invoke-direct {v3, v1, v4}, Lbl/vq;-><init>(Lokhttp3/OkHttpClient;Lbl/ji;)V
 
-    invoke-virtual {v2, v3}, Lbl/bli$a;->a(Lbl/bky$a;)Lbl/bli$a;
+    invoke-virtual {v2, v3}, Lretrofit2/Retrofit$a;->a(Lretrofit2/CallAdapter$a;)Lretrofit2/Retrofit$a;
 
     move-result-object v2
 
     sget-object v3, Lbl/vr;->a:Lbl/vr;
 
     .line 49
-    invoke-virtual {v2, v3}, Lbl/bli$a;->a(Lbl/bla$a;)Lbl/bli$a;
+    invoke-virtual {v2, v3}, Lretrofit2/Retrofit$a;->a(Lretrofit2/Converter$a;)Lretrofit2/Retrofit$a;
 
     move-result-object v2
 
     .line 50
-    invoke-virtual {v2, v1}, Lbl/bli$a;->a(Lbl/bhv;)Lbl/bli$a;
+    invoke-virtual {v2, v1}, Lretrofit2/Retrofit$a;->a(Lokhttp3/OkHttpClient;)Lretrofit2/Retrofit$a;
 
     move-result-object v1
 
     .line 51
-    invoke-virtual {v1}, Lbl/bli$a;->a()Lbl/bli;
+    invoke-virtual {v1}, Lretrofit2/Retrofit$a;->a()Lretrofit2/Retrofit;
 
     move-result-object v1
 
-    sput-object v1, Lbl/vo;->d:Lbl/bli;
+    sput-object v1, Lbl/vo;->d:Lretrofit2/Retrofit;
 
     .line 53
     :cond_0
@@ -130,7 +130,7 @@
     .line 55
     :cond_1
     :goto_0
-    sget-object v0, Lbl/vo;->d:Lbl/bli;
+    sget-object v0, Lbl/vo;->d:Lretrofit2/Retrofit;
 
     return-object v0
 .end method
@@ -148,22 +148,22 @@
     .end annotation
 
     .line 39
-    invoke-static {}, Lbl/vo;->a()Lbl/bli;
+    invoke-static {}, Lbl/vo;->a()Lretrofit2/Retrofit;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lbl/bli;->a(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v0, p0}, Lretrofit2/Retrofit;->a(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method private static b()Lbl/bhv;
+.method private static b()Lokhttp3/OkHttpClient;
     .locals 5
 
     .line 59
-    sget-object v0, Lbl/vo;->c:Lbl/bhv;
+    sget-object v0, Lbl/vo;->c:Lokhttp3/OkHttpClient;
 
     if-nez v0, :cond_1
 
@@ -174,12 +174,12 @@
 
     .line 61
     :try_start_0
-    sget-object v1, Lbl/vo;->c:Lbl/bhv;
+    sget-object v1, Lbl/vo;->c:Lokhttp3/OkHttpClient;
 
     if-nez v1, :cond_0
 
     .line 62
-    invoke-static {}, Lbl/us;->b()Lbl/bhv$a;
+    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$a;
 
     move-result-object v1
 
@@ -192,7 +192,7 @@
 
     sget-object v4, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v1, v2, v3, v4}, Lbl/bhv$a;->a(JLjava/util/concurrent/TimeUnit;)Lbl/bhv$a;
+    invoke-virtual {v1, v2, v3, v4}, Lokhttp3/OkHttpClient$a;->a(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
 
     .line 64
     sget-object v2, Lbl/vo;->b:Lbl/vo$a;
@@ -203,7 +203,7 @@
 
     sget-object v4, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v1, v2, v3, v4}, Lbl/bhv$a;->b(JLjava/util/concurrent/TimeUnit;)Lbl/bhv$a;
+    invoke-virtual {v1, v2, v3, v4}, Lokhttp3/OkHttpClient$a;->b(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
 
     .line 65
     sget-object v2, Lbl/vo;->b:Lbl/vo$a;
@@ -214,10 +214,10 @@
 
     sget-object v4, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v1, v2, v3, v4}, Lbl/bhv$a;->c(JLjava/util/concurrent/TimeUnit;)Lbl/bhv$a;
+    invoke-virtual {v1, v2, v3, v4}, Lokhttp3/OkHttpClient$a;->c(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
 
     .line 66
-    invoke-virtual {v1}, Lbl/bhv$a;->a()Ljava/util/List;
+    invoke-virtual {v1}, Lokhttp3/OkHttpClient$a;->a()Ljava/util/List;
 
     move-result-object v2
 
@@ -230,7 +230,7 @@
     invoke-interface {v2, v3}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 67
-    invoke-virtual {v1}, Lbl/bhv$a;->b()Ljava/util/List;
+    invoke-virtual {v1}, Lokhttp3/OkHttpClient$a;->b()Ljava/util/List;
 
     move-result-object v2
 
@@ -249,14 +249,14 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lbl/bhv$a;->a(Ljava/util/List;)Lbl/bhv$a;
+    invoke-virtual {v1, v2}, Lokhttp3/OkHttpClient$a;->a(Ljava/util/List;)Lokhttp3/OkHttpClient$a;
 
     .line 69
-    invoke-virtual {v1}, Lbl/bhv$a;->c()Lbl/bhv;
+    invoke-virtual {v1}, Lokhttp3/OkHttpClient$a;->c()Lokhttp3/OkHttpClient;
 
     move-result-object v1
 
-    sput-object v1, Lbl/vo;->c:Lbl/bhv;
+    sput-object v1, Lbl/vo;->c:Lokhttp3/OkHttpClient;
 
     .line 71
     :cond_0
@@ -276,7 +276,7 @@
     .line 73
     :cond_1
     :goto_0
-    sget-object v0, Lbl/vo;->c:Lbl/bhv;
+    sget-object v0, Lbl/vo;->c:Lokhttp3/OkHttpClient;
 
     return-object v0
 .end method

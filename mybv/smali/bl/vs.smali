@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bla;
+.implements Lretrofit2/Converter;
 
 
 # annotations
@@ -13,8 +13,8 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lbl/bla<",
-        "Lbl/bia;",
+        "Lretrofit2/Converter<",
+        "Lokhttp3/ResponseBody;",
         "TT;>;"
     }
 .end annotation
@@ -60,12 +60,12 @@
 
 
 # virtual methods
-.method public a(Lbl/bia;)Ljava/lang/Object;
+.method public a(Lokhttp3/ResponseBody;)Ljava/lang/Object;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lbl/bia;",
+            "Lokhttp3/ResponseBody;",
             ")TT;"
         }
     .end annotation
@@ -77,7 +77,7 @@
     .end annotation
 
     .line 34
-    invoke-virtual {p1}, Lbl/bia;->f()Ljava/lang/String;
+    invoke-virtual {p1}, Lokhttp3/ResponseBody;->f()Ljava/lang/String;
 
     move-result-object p1
 
@@ -106,9 +106,9 @@
     .end annotation
 
     .line 22
-    check-cast p1, Lbl/bia;
+    check-cast p1, Lokhttp3/ResponseBody;
 
-    invoke-virtual {p0, p1}, Lbl/vs;->a(Lbl/bia;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lbl/vs;->a(Lokhttp3/ResponseBody;)Ljava/lang/Object;
 
     move-result-object p1
 

@@ -412,9 +412,9 @@
     .line 226
     iget-object v1, p0, Lcom/bilibili/tv/ui/bangumi/tag/BangumiTagListActivity;->e:Lcom/bilibili/tv/ui/bangumi/tag/BangumiTagListActivity$b;
 
-    check-cast v1, Lbl/bkz;
+    check-cast v1, Lretrofit2/Callback;
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     return-void
 .end method

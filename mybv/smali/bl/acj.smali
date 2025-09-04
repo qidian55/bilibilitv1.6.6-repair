@@ -80,25 +80,25 @@
     invoke-direct {v1}, Lbl/ur;-><init>()V
 
     .line 66
-    invoke-virtual {p0, v1}, Lbl/us;->a(Lbl/bhl;)Lbl/us;
+    invoke-virtual {p0, v1}, Lbl/us;->a(Lokhttp3/CookieJar;)Lbl/us;
 
     move-result-object p0
 
-    new-instance v1, Lbl/bhm;
+    new-instance v1, Lokhttp3/Dispatcher;
 
     .line 67
     invoke-static {}, Lbl/jk;->b()Ljava/util/concurrent/ExecutorService;
 
     move-result-object v2
 
-    invoke-direct {v1, v2}, Lbl/bhm;-><init>(Ljava/util/concurrent/ExecutorService;)V
+    invoke-direct {v1, v2}, Lokhttp3/Dispatcher;-><init>(Ljava/util/concurrent/ExecutorService;)V
 
-    invoke-virtual {p0, v1}, Lbl/us;->a(Lbl/bhm;)Lbl/us;
+    invoke-virtual {p0, v1}, Lbl/us;->a(Lokhttp3/Dispatcher;)Lbl/us;
 
     move-result-object p0
 
     .line 68
-    invoke-virtual {p0, v0}, Lbl/us;->a(Lbl/bhn;)Lbl/us;
+    invoke-virtual {p0, v0}, Lbl/us;->a(Lokhttp3/Dns;)Lbl/us;
 
     move-result-object p0
 
@@ -109,7 +109,7 @@
     invoke-direct {v0, v1}, Lbl/acj$a;-><init>(Lbl/acj$1;)V
 
     .line 69
-    invoke-virtual {p0, v0}, Lbl/us;->a(Lbl/bhs;)Lbl/us;
+    invoke-virtual {p0, v0}, Lbl/us;->a(Lokhttp3/Interceptor;)Lbl/us;
 
     move-result-object p0
 
@@ -118,7 +118,7 @@
     invoke-direct {v0}, Lbl/acm;-><init>()V
 
     .line 70
-    invoke-virtual {p0, v0}, Lbl/us;->a(Lbl/bhs;)Lbl/us;
+    invoke-virtual {p0, v0}, Lbl/us;->a(Lokhttp3/Interceptor;)Lbl/us;
 
     .line 95
     :try_start_0

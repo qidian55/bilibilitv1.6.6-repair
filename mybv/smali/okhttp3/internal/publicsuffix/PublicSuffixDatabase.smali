@@ -284,7 +284,7 @@
     :cond_a
     new-instance v1, Ljava/lang/String;
 
-    sget-object v2, Lbl/bie;->e:Ljava/nio/charset/Charset;
+    sget-object v2, Lokhttp3/internal/Util;->e:Ljava/nio/charset/Charset;
 
     invoke-direct {v1, v0, v5, v6, v2}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
 
@@ -395,7 +395,7 @@
     .line 128
     aget-object v4, p1, v3
 
-    sget-object v5, Lbl/bie;->e:Ljava/nio/charset/Charset;
+    sget-object v5, Lokhttp3/internal/Util;->e:Ljava/nio/charset/Charset;
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
@@ -647,7 +647,7 @@
 
     .line 294
     :try_start_1
-    invoke-static {}, Lbl/bjw;->c()Lbl/bjw;
+    invoke-static {}, Lokhttp3/internal/platform/Platform;->c()Lokhttp3/internal/platform/Platform;
 
     move-result-object v2
 
@@ -655,7 +655,7 @@
 
     const-string v4, "Failed to read public suffix list"
 
-    invoke-virtual {v2, v3, v4, v1}, Lbl/bjw;->a(ILjava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {v2, v3, v4, v1}, Lokhttp3/internal/platform/Platform;->a(ILjava/lang/String;Ljava/lang/Throwable;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -750,7 +750,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 322
-    invoke-static {v0}, Lbl/bie;->a(Ljava/io/Closeable;)V
+    invoke-static {v0}, Lokhttp3/internal/Util;->a(Ljava/io/Closeable;)V
 
     .line 325
     monitor-enter p0
@@ -789,7 +789,7 @@
     move-exception v1
 
     .line 322
-    invoke-static {v0}, Lbl/bie;->a(Ljava/io/Closeable;)V
+    invoke-static {v0}, Lokhttp3/internal/Util;->a(Ljava/io/Closeable;)V
 
     throw v1
 .end method

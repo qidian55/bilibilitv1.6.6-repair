@@ -15,7 +15,7 @@
 
 
 # static fields
-.field static final INTERCEPTOR:Lbl/bhs;
+.field static final INTERCEPTOR:Lokhttp3/Interceptor;
 
 
 # direct methods
@@ -27,7 +27,7 @@
 
     invoke-direct {v0}, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$UnexpectedException$1;-><init>()V
 
-    sput-object v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$UnexpectedException;->INTERCEPTOR:Lbl/bhs;
+    sput-object v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$UnexpectedException;->INTERCEPTOR:Lokhttp3/Interceptor;
 
     return-void
 .end method

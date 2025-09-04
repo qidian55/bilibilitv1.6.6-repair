@@ -895,9 +895,9 @@
 
     invoke-direct {v4, v1, v6, v3}, Lbl/azq$a;-><init>(Lbl/azq;ILbl/azp;)V
 
-    check-cast v4, Lbl/bkz;
+    check-cast v4, Lretrofit2/Callback;
 
-    invoke-virtual {v2, v4}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v2, v4}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     goto :goto_7
 
@@ -942,9 +942,9 @@
 
     invoke-direct {v4, v1, v6, v3}, Lbl/azq$c;-><init>(Lbl/azq;ILbl/azp;)V
 
-    check-cast v4, Lbl/bkz;
+    check-cast v4, Lretrofit2/Callback;
 
-    invoke-virtual {v2, v4}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v2, v4}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     :goto_7
     return-void

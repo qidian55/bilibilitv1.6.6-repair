@@ -126,7 +126,7 @@
 
     iget-object v1, p0, Lbl/aed;->d:Lbl/aed$a;
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 116
     return-void

@@ -256,7 +256,7 @@
 
     invoke-direct {v1, p0}, Lcom/bilibili/tv/ui/history/VideoToviewActivity$ToviewResponse;-><init>(Lcom/bilibili/tv/ui/history/VideoToviewActivity;)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 234
     :cond_31

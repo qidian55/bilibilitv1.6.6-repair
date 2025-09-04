@@ -4,5 +4,5 @@
 
 
 # virtual methods
-.method public abstract intercept(Lbl/bhx;)Lbl/bhx;
+.method public abstract intercept(Lokhttp3/Request;)Lokhttp3/Request;
 .end method

@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bhs;
+.implements Lokhttp3/Interceptor;
 
 
 # direct methods
@@ -250,7 +250,7 @@
 
 
 # virtual methods
-.method public a(Lbl/bhs$a;)Lbl/bhz;
+.method public a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -259,12 +259,12 @@
     .end annotation
 
     .line 26
-    invoke-interface {p1}, Lbl/bhs$a;->a()Lbl/bhx;
+    invoke-interface {p1}, Lokhttp3/Interceptor$a;->a()Lokhttp3/Request;
 
     move-result-object v0
 
     .line 27
-    invoke-virtual {v0}, Lbl/bhx;->a()Lokhttp3/HttpUrl;
+    invoke-virtual {v0}, Lokhttp3/Request;->a()Lokhttp3/HttpUrl;
 
     move-result-object v1
 
@@ -295,7 +295,7 @@
     if-eqz v2, :cond_1
 
     .line 30
-    invoke-virtual {v0}, Lbl/bhx;->e()Lbl/bhx$a;
+    invoke-virtual {v0}, Lokhttp3/Request;->e()Lokhttp3/Request$a;
 
     move-result-object v2
 
@@ -314,18 +314,18 @@
 
     move-result-object v1
 
-    invoke-virtual {v2, v1}, Lbl/bhx$a;->a(Lokhttp3/HttpUrl;)Lbl/bhx$a;
+    invoke-virtual {v2, v1}, Lokhttp3/Request$a;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$a;
 
     move-result-object v1
 
     .line 32
-    invoke-virtual {v1}, Lbl/bhx$a;->b()Lbl/bhx;
+    invoke-virtual {v1}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
 
     move-result-object v1
 
     .line 36
     :try_start_0
-    invoke-interface {p1, v1}, Lbl/bhs$a;->a(Lbl/bhx;)Lbl/bhz;
+    invoke-interface {p1, v1}, Lokhttp3/Interceptor$a;->a(Lokhttp3/Request;)Lokhttp3/Response;
 
     move-result-object v1
     :try_end_0
@@ -344,7 +344,7 @@
     if-eqz v2, :cond_0
 
     .line 39
-    invoke-interface {p1, v0}, Lbl/bhs$a;->a(Lbl/bhx;)Lbl/bhz;
+    invoke-interface {p1, v0}, Lokhttp3/Interceptor$a;->a(Lokhttp3/Request;)Lokhttp3/Response;
 
     move-result-object p1
 
@@ -356,7 +356,7 @@
 
     .line 45
     :cond_1
-    invoke-interface {p1, v0}, Lbl/bhs$a;->a(Lbl/bhx;)Lbl/bhz;
+    invoke-interface {p1, v0}, Lokhttp3/Interceptor$a;->a(Lokhttp3/Request;)Lokhttp3/Response;
 
     move-result-object p1
 

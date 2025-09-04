@@ -61,16 +61,16 @@
     .end annotation
 .end method
 
-.method public onResponse(Lbl/bkx;Lbl/blh;)V
+.method public onResponse(Lretrofit2/Call;Lretrofit2/Response;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lbl/bkx",
+            "Lretrofit2/Call",
             "<",
             "Lcom/bilibili/okretro/GeneralResponse",
             "<TT;>;>;",
-            "Lbl/blh",
+            "Lretrofit2/Response",
             "<",
             "Lcom/bilibili/okretro/GeneralResponse",
             "<TT;>;>;)V"
@@ -91,7 +91,7 @@
 
     .line 26
     :cond_7
-    invoke-virtual {p2}, Lbl/blh;->e()Z
+    invoke-virtual {p2}, Lretrofit2/Response;->e()Z
 
     move-result v0
 
@@ -107,15 +107,15 @@
     :cond_13
     new-instance v0, Lretrofit2/HttpException;
 
-    invoke-direct {v0, p2}, Lretrofit2/HttpException;-><init>(Lbl/blh;)V
+    invoke-direct {v0, p2}, Lretrofit2/HttpException;-><init>(Lretrofit2/Response;)V
 
-    invoke-virtual {p0, p1, v0}, Lbl/vn;->onFailure(Lbl/bkx;Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1, v0}, Lbl/vn;->onFailure(Lretrofit2/Call;Ljava/lang/Throwable;)V
 
     goto :goto_6
 
     .line 30
     :cond_1c
-    invoke-virtual {p2}, Lbl/blh;->f()Ljava/lang/Object;
+    invoke-virtual {p2}, Lretrofit2/Response;->f()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -167,7 +167,7 @@
 
     invoke-direct {v1, v2, v0}, Lcom/bilibili/api/BiliApiException;-><init>(ILjava/lang/String;)V
 
-    invoke-virtual {p0, p1, v1}, Lbl/vn;->onFailure(Lbl/bkx;Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1, v1}, Lbl/vn;->onFailure(Lretrofit2/Call;Ljava/lang/Throwable;)V
 
     goto :goto_6
 

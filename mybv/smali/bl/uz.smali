@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bjd;
+.implements Lokhttp3/internal/http/UnrepeatableRequestBody;
 
 
 # instance fields

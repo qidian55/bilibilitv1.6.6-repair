@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bla;
+.implements Lretrofit2/Converter;
 
 
 # annotations
@@ -13,8 +13,8 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lbl/bla<",
-        "Lbl/bia;",
+        "Lretrofit2/Converter<",
+        "Lokhttp3/ResponseBody;",
         "Lcom/bilibili/okretro/GeneralResponse<",
         "TT;>;>;"
     }
@@ -68,16 +68,16 @@
 
 
 # virtual methods
-.method public a(Lbl/bia;)Lcom/bilibili/okretro/GeneralResponse;
+.method public a(Lokhttp3/ResponseBody;)Lcom/bilibili/okretro/GeneralResponse;
     .locals 5
-    .param p1    # Lbl/bia;
+    .param p1    # Lokhttp3/ResponseBody;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lbl/bia;",
+            "Lokhttp3/ResponseBody;",
             ")",
             "Lcom/bilibili/okretro/GeneralResponse<",
             "TT;>;"
@@ -102,7 +102,7 @@
     .line 37
     iget-object v0, p0, Lbl/vt;->b:Ljava/lang/reflect/Type;
 
-    invoke-static {v0}, Lbl/vv;->a(Ljava/lang/reflect/Type;)Lbl/bla;
+    invoke-static {v0}, Lbl/vv;->a(Ljava/lang/reflect/Type;)Lretrofit2/Converter;
 
     move-result-object v0
 
@@ -161,7 +161,7 @@
 
     .line 47
     :cond_2
-    invoke-interface {v0, p1}, Lbl/bla;->convert(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Lretrofit2/Converter;->convert(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -183,9 +183,9 @@
     .end annotation
 
     .line 23
-    check-cast p1, Lbl/bia;
+    check-cast p1, Lokhttp3/ResponseBody;
 
-    invoke-virtual {p0, p1}, Lbl/vt;->a(Lbl/bia;)Lcom/bilibili/okretro/GeneralResponse;
+    invoke-virtual {p0, p1}, Lbl/vt;->a(Lokhttp3/ResponseBody;)Lcom/bilibili/okretro/GeneralResponse;
 
     move-result-object p1
 

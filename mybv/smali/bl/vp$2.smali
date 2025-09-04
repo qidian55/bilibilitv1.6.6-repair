@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bkx;
+.implements Lretrofit2/Call;
 
 
 # annotations
@@ -19,7 +19,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lbl/bkx<",
+        "Lretrofit2/Call<",
         "TT;>;"
     }
 .end annotation
@@ -43,12 +43,12 @@
 
 
 # virtual methods
-.method public a()Lbl/bkx;
+.method public a()Lretrofit2/Call;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lbl/bkx<",
+            "Lretrofit2/Call<",
             "TT;>;"
         }
     .end annotation
@@ -61,13 +61,13 @@
     throw v0
 .end method
 
-.method public b()Lbl/bhx;
+.method public b()Lokhttp3/Request;
     .locals 1
 
     .line 200
     iget-object v0, p0, Lbl/vp$2;->a:Lbl/vp;
 
-    invoke-static {v0}, Lbl/vp;->a(Lbl/vp;)Lbl/bhd;
+    invoke-static {v0}, Lbl/vp;->a(Lbl/vp;)Lokhttp3/Call;
 
     move-result-object v0
 
@@ -75,11 +75,11 @@
 
     iget-object v0, p0, Lbl/vp$2;->a:Lbl/vp;
 
-    invoke-static {v0}, Lbl/vp;->a(Lbl/vp;)Lbl/bhd;
+    invoke-static {v0}, Lbl/vp;->a(Lbl/vp;)Lokhttp3/Call;
 
     move-result-object v0
 
-    invoke-interface {v0}, Lbl/bhd;->a()Lbl/bhx;
+    invoke-interface {v0}, Lokhttp3/Call;->a()Lokhttp3/Request;
 
     move-result-object v0
 
@@ -88,7 +88,7 @@
     :cond_0
     iget-object v0, p0, Lbl/vp$2;->a:Lbl/vp;
 
-    invoke-static {v0}, Lbl/vp;->b(Lbl/vp;)Lbl/bhx;
+    invoke-static {v0}, Lbl/vp;->b(Lbl/vp;)Lokhttp3/Request;
 
     move-result-object v0
 
@@ -105,7 +105,7 @@
     .end annotation
 
     .line 167
-    invoke-virtual {p0}, Lbl/vp$2;->a()Lbl/bkx;
+    invoke-virtual {p0}, Lbl/vp$2;->a()Lretrofit2/Call;
 
     move-result-object v0
 

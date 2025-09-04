@@ -20,13 +20,13 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/net/URL;Lbl/bhv;)V
+.method public constructor <init>(Ljava/net/URL;Lokhttp3/OkHttpClient;)V
     .locals 1
 
     .line 34
     new-instance v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;
 
-    invoke-direct {v0, p1, p2}, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;-><init>(Ljava/net/URL;Lbl/bhv;)V
+    invoke-direct {v0, p1, p2}, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;-><init>(Ljava/net/URL;Lokhttp3/OkHttpClient;)V
 
     invoke-direct {p0, v0}, Lbl/ux;-><init>(Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;)V
 
@@ -35,13 +35,13 @@
 
 
 # virtual methods
-.method protected a()Lbl/bhq;
+.method protected a()Lokhttp3/Handshake;
     .locals 2
 
     .line 44
     iget-object v0, p0, Lbl/ux;->a:Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;
 
-    iget-object v0, v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->d:Lbl/bhd;
+    iget-object v0, v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->d:Lokhttp3/Call;
 
     if-nez v0, :cond_0
 
@@ -58,7 +58,7 @@
     :cond_0
     iget-object v0, p0, Lbl/ux;->a:Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;
 
-    iget-object v0, v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->h:Lbl/bhq;
+    iget-object v0, v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->h:Lokhttp3/Handshake;
 
     return-object v0
 .end method
@@ -359,9 +359,9 @@
     .line 60
     iget-object v0, p0, Lbl/ux;->a:Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;
 
-    iget-object v0, v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->c:Lbl/bhv;
+    iget-object v0, v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->c:Lokhttp3/OkHttpClient;
 
-    invoke-virtual {v0}, Lbl/bhv;->l()Ljavax/net/ssl/HostnameVerifier;
+    invoke-virtual {v0}, Lokhttp3/OkHttpClient;->l()Ljavax/net/ssl/HostnameVerifier;
 
     move-result-object v0
 
@@ -569,9 +569,9 @@
     .line 73
     iget-object v0, p0, Lbl/ux;->a:Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;
 
-    iget-object v0, v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->c:Lbl/bhv;
+    iget-object v0, v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->c:Lokhttp3/OkHttpClient;
 
-    invoke-virtual {v0}, Lbl/bhv;->k()Ljavax/net/ssl/SSLSocketFactory;
+    invoke-virtual {v0}, Lokhttp3/OkHttpClient;->k()Ljavax/net/ssl/SSLSocketFactory;
 
     move-result-object v0
 
@@ -699,23 +699,23 @@
 
     iget-object v1, p0, Lbl/ux;->a:Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;
 
-    iget-object v1, v1, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->c:Lbl/bhv;
+    iget-object v1, v1, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->c:Lokhttp3/OkHttpClient;
 
-    invoke-virtual {v1}, Lbl/bhv;->z()Lbl/bhv$a;
+    invoke-virtual {v1}, Lokhttp3/OkHttpClient;->z()Lokhttp3/OkHttpClient$a;
 
     move-result-object v1
 
     .line 54
-    invoke-virtual {v1, p1}, Lbl/bhv$a;->a(Ljavax/net/ssl/HostnameVerifier;)Lbl/bhv$a;
+    invoke-virtual {v1, p1}, Lokhttp3/OkHttpClient$a;->a(Ljavax/net/ssl/HostnameVerifier;)Lokhttp3/OkHttpClient$a;
 
     move-result-object p1
 
     .line 55
-    invoke-virtual {p1}, Lbl/bhv$a;->c()Lbl/bhv;
+    invoke-virtual {p1}, Lokhttp3/OkHttpClient$a;->c()Lokhttp3/OkHttpClient;
 
     move-result-object p1
 
-    iput-object p1, v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->c:Lbl/bhv;
+    iput-object p1, v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->c:Lokhttp3/OkHttpClient;
 
     return-void
 .end method
@@ -778,23 +778,23 @@
 
     iget-object v1, p0, Lbl/ux;->a:Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;
 
-    iget-object v1, v1, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->c:Lbl/bhv;
+    iget-object v1, v1, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->c:Lokhttp3/OkHttpClient;
 
-    invoke-virtual {v1}, Lbl/bhv;->z()Lbl/bhv$a;
+    invoke-virtual {v1}, Lokhttp3/OkHttpClient;->z()Lokhttp3/OkHttpClient$a;
 
     move-result-object v1
 
     .line 67
-    invoke-virtual {v1, p1}, Lbl/bhv$a;->a(Ljavax/net/ssl/SSLSocketFactory;)Lbl/bhv$a;
+    invoke-virtual {v1, p1}, Lokhttp3/OkHttpClient$a;->a(Ljavax/net/ssl/SSLSocketFactory;)Lokhttp3/OkHttpClient$a;
 
     move-result-object p1
 
     .line 68
-    invoke-virtual {p1}, Lbl/bhv$a;->c()Lbl/bhv;
+    invoke-virtual {p1}, Lokhttp3/OkHttpClient$a;->c()Lokhttp3/OkHttpClient;
 
     move-result-object p1
 
-    iput-object p1, v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->c:Lbl/bhv;
+    iput-object p1, v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->c:Lokhttp3/OkHttpClient;
 
     return-void
 .end method

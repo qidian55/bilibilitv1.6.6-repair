@@ -3,12 +3,12 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bky;
+.implements Lretrofit2/CallAdapter;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/vq;->a(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lbl/bli;)Lbl/bky;
+    value = Lbl/vq;->a(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/CallAdapter;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,7 +19,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lbl/bky<",
+        "Lretrofit2/CallAdapter<",
         "Ljava/lang/Object;",
         "Lbl/vp;",
         ">;"
@@ -53,12 +53,12 @@
 
 
 # virtual methods
-.method public a(Lbl/bkx;)Lbl/vp;
+.method public a(Lretrofit2/Call;)Lbl/vp;
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lbl/bkx<",
+            "Lretrofit2/Call<",
             "Ljava/lang/Object;",
             ">;)",
             "Lbl/vp;"
@@ -68,7 +68,7 @@
     .line 46
     new-instance v6, Lbl/vp;
 
-    invoke-interface {p1}, Lbl/bkx;->b()Lbl/bhx;
+    invoke-interface {p1}, Lretrofit2/Call;->b()Lokhttp3/Request;
 
     move-result-object v1
 
@@ -80,7 +80,7 @@
 
     iget-object p1, p0, Lbl/vq$1;->c:Lbl/vq;
 
-    invoke-static {p1}, Lbl/vq;->a(Lbl/vq;)Lbl/bhv;
+    invoke-static {p1}, Lbl/vq;->a(Lbl/vq;)Lokhttp3/OkHttpClient;
 
     move-result-object v4
 
@@ -92,7 +92,7 @@
 
     move-object v0, v6
 
-    invoke-direct/range {v0 .. v5}, Lbl/vp;-><init>(Lbl/bhx;Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lbl/bhv;Lbl/ji;)V
+    invoke-direct/range {v0 .. v5}, Lbl/vp;-><init>(Lokhttp3/Request;Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lokhttp3/OkHttpClient;Lbl/ji;)V
 
     return-object v6
 .end method
@@ -114,11 +114,11 @@
     return-object v0
 .end method
 
-.method public synthetic b(Lbl/bkx;)Ljava/lang/Object;
+.method public synthetic b(Lretrofit2/Call;)Ljava/lang/Object;
     .locals 0
 
     .line 38
-    invoke-virtual {p0, p1}, Lbl/vq$1;->a(Lbl/bkx;)Lbl/vp;
+    invoke-virtual {p0, p1}, Lbl/vq$1;->a(Lretrofit2/Call;)Lbl/vp;
 
     move-result-object p1
 

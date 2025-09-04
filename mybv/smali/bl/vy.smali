@@ -15,19 +15,19 @@
 
 
 # virtual methods
-.method public final intercept(Lbl/bhx;)Lbl/bhx;
+.method public final intercept(Lokhttp3/Request;)Lokhttp3/Request;
     .locals 0
 
     .line 19
-    invoke-virtual {p1}, Lbl/bhx;->e()Lbl/bhx$a;
+    invoke-virtual {p1}, Lokhttp3/Request;->e()Lokhttp3/Request$a;
 
     move-result-object p1
 
     .line 20
-    invoke-virtual {p0, p1}, Lbl/vy;->a(Lbl/bhx$a;)V
+    invoke-virtual {p0, p1}, Lbl/vy;->a(Lokhttp3/Request$a;)V
 
     .line 21
-    invoke-virtual {p1}, Lbl/bhx$a;->b()Lbl/bhx;
+    invoke-virtual {p1}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
 
     move-result-object p1
 

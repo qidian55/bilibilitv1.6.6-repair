@@ -187,12 +187,12 @@
     move-result-object v0
 
     .line 152
-    invoke-virtual {v0}, Lbl/vp;->d()Lbl/blh;
+    invoke-virtual {v0}, Lbl/vp;->d()Lretrofit2/Response;
 
     move-result-object v0
 
     .line 149
-    invoke-static {v0}, Lbl/we;->b(Lbl/blh;)Ljava/lang/Object;
+    invoke-static {v0}, Lbl/we;->b(Lretrofit2/Response;)Ljava/lang/Object;
 
     move-result-object v0
 

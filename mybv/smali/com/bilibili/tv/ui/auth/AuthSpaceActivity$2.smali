@@ -99,7 +99,7 @@
 
     invoke-direct {v1, p0}, Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$2$1;-><init>(Lcom/bilibili/tv/ui/auth/AuthSpaceActivity$2;)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 152
     return-void

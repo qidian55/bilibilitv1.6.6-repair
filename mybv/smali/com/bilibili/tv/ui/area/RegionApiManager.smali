@@ -85,9 +85,9 @@
     move-result-object p1
 
     .line 63
-    check-cast p5, Lbl/bkz;
+    check-cast p5, Lretrofit2/Callback;
 
-    invoke-virtual {p1, p5}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {p1, p5}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     return-void
 .end method
@@ -125,9 +125,9 @@
     move-result-object p1
 
     .line 48
-    check-cast p4, Lbl/bkz;
+    check-cast p4, Lretrofit2/Callback;
 
-    invoke-virtual {p1, p4}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {p1, p4}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     return-void
 .end method

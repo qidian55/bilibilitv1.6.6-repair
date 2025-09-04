@@ -220,7 +220,7 @@
 
     invoke-direct {v1, p0}, Lcom/bilibili/tv/ui/main/content/MainRecommendFragment$d;-><init>(Lcom/bilibili/tv/ui/main/content/MainRecommendFragment;)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 141
     new-instance v0, Lcom/bilibili/tv/ui/main/content/MainRecommendFragment$MyRecycledViewPool;
@@ -385,7 +385,7 @@
 
     invoke-direct {v1, p0}, Lcom/bilibili/tv/ui/main/content/MainRecommendFragment$RecommendsResponse;-><init>(Lcom/bilibili/tv/ui/main/content/MainRecommendFragment;)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 155
     return-void

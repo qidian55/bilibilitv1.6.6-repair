@@ -19,8 +19,8 @@
 
 
 # virtual methods
-.method public abstract a(Lbl/bhy;)Lbl/vp;
-    .param p1    # Lbl/bhy;
+.method public abstract a(Lokhttp3/RequestBody;)Lbl/vp;
+    .param p1    # Lokhttp3/RequestBody;
         .annotation runtime Lretrofit2/http/Body;
         .end annotation
     .end param
@@ -31,7 +31,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lbl/bhy;",
+            "Lokhttp3/RequestBody;",
             ")",
             "Lbl/vp<",
             "Ljava/lang/String;",

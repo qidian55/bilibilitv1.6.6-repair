@@ -2,11 +2,11 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lbl/bhs;
+.implements Lokhttp3/Interceptor;
 
 
 # static fields
-.field static final a:Lbl/bhs;
+.field static final a:Lokhttp3/Interceptor;
 
 
 # direct methods
@@ -17,7 +17,7 @@
 
     invoke-direct {v0}, Lbl/nt;-><init>()V
 
-    sput-object v0, Lbl/nt;->a:Lbl/bhs;
+    sput-object v0, Lbl/nt;->a:Lokhttp3/Interceptor;
 
     return-void
 .end method
@@ -32,10 +32,10 @@
 
 
 # virtual methods
-.method public a(Lbl/bhs$a;)Lbl/bhz;
+.method public a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
     .locals 0
 
-    invoke-static {p1}, Lbl/ns;->a(Lbl/bhs$a;)Lbl/bhz;
+    invoke-static {p1}, Lbl/ns;->a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
 
     move-result-object p1
 

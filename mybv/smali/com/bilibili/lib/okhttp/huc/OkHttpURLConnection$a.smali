@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bhs;
+.implements Lokhttp3/Interceptor;
 
 
 # annotations
@@ -37,7 +37,7 @@
 
 
 # virtual methods
-.method public a(Lbl/bhs$a;)Lbl/bhz;
+.method public a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -46,7 +46,7 @@
     .end annotation
 
     .line 657
-    invoke-interface {p1}, Lbl/bhs$a;->a()Lbl/bhx;
+    invoke-interface {p1}, Lokhttp3/Interceptor$a;->a()Lokhttp3/Request;
 
     move-result-object v0
 
@@ -70,15 +70,15 @@
     .line 661
     iget-object v2, p0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$a;->a:Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;
 
-    invoke-interface {p1}, Lbl/bhs$a;->b()Lbl/bhh;
+    invoke-interface {p1}, Lokhttp3/Interceptor$a;->b()Lokhttp3/Connection;
 
     move-result-object v3
 
-    invoke-interface {v3}, Lbl/bhh;->a()Lbl/bib;
+    invoke-interface {v3}, Lokhttp3/Connection;->a()Lokhttp3/Route;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lbl/bib;->b()Ljava/net/Proxy;
+    invoke-virtual {v3}, Lokhttp3/Route;->b()Ljava/net/Proxy;
 
     move-result-object v3
 
@@ -87,15 +87,15 @@
     .line 662
     iget-object v2, p0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$a;->a:Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;
 
-    invoke-interface {p1}, Lbl/bhs$a;->b()Lbl/bhh;
+    invoke-interface {p1}, Lokhttp3/Interceptor$a;->b()Lokhttp3/Connection;
 
     move-result-object v3
 
-    invoke-interface {v3}, Lbl/bhh;->b()Lbl/bhq;
+    invoke-interface {v3}, Lokhttp3/Connection;->b()Lokhttp3/Handshake;
 
     move-result-object v3
 
-    iput-object v3, v2, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->h:Lbl/bhq;
+    iput-object v3, v2, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->h:Lokhttp3/Handshake;
 
     .line 663
     iget-object v2, p0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$a;->a:Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;
@@ -137,7 +137,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 675
-    invoke-virtual {v0}, Lbl/bhx;->d()Lbl/bhy;
+    invoke-virtual {v0}, Lokhttp3/Request;->d()Lokhttp3/RequestBody;
 
     move-result-object v1
 
@@ -146,20 +146,20 @@
     if-eqz v1, :cond_1
 
     .line 676
-    invoke-virtual {v0}, Lbl/bhx;->d()Lbl/bhy;
+    invoke-virtual {v0}, Lokhttp3/Request;->d()Lokhttp3/RequestBody;
 
     move-result-object v1
 
     check-cast v1, Lbl/uy;
 
     .line 677
-    invoke-virtual {v1, v0}, Lbl/uy;->a(Lbl/bhx;)Lbl/bhx;
+    invoke-virtual {v1, v0}, Lbl/uy;->a(Lokhttp3/Request;)Lokhttp3/Request;
 
     move-result-object v0
 
     .line 680
     :cond_1
-    invoke-interface {p1, v0}, Lbl/bhs$a;->a(Lbl/bhx;)Lbl/bhz;
+    invoke-interface {p1, v0}, Lokhttp3/Interceptor$a;->a(Lokhttp3/Request;)Lokhttp3/Response;
 
     move-result-object p1
 
@@ -176,16 +176,16 @@
     :try_start_3
     iget-object v1, p0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$a;->a:Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;
 
-    iput-object p1, v1, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->e:Lbl/bhz;
+    iput-object p1, v1, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->e:Lokhttp3/Response;
 
     .line 684
     iget-object v1, p0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$a;->a:Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;
 
-    invoke-virtual {p1}, Lbl/bhz;->a()Lbl/bhx;
+    invoke-virtual {p1}, Lokhttp3/Response;->a()Lokhttp3/Request;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lbl/bhx;->a()Lokhttp3/HttpUrl;
+    invoke-virtual {v2}, Lokhttp3/Request;->a()Lokhttp3/HttpUrl;
 
     move-result-object v2
 

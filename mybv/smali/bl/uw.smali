@@ -29,12 +29,12 @@
     return-void
 .end method
 
-.method public static a(Lbl/bhr;Ljava/lang/String;)Ljava/util/Map;
+.method public static a(Lokhttp3/Headers;Ljava/lang/String;)Ljava/util/Map;
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lbl/bhr;",
+            "Lokhttp3/Headers;",
             "Ljava/lang/String;",
             ")",
             "Ljava/util/Map<",
@@ -53,7 +53,7 @@
     invoke-direct {v0, v1}, Ljava/util/TreeMap;-><init>(Ljava/util/Comparator;)V
 
     .line 55
-    invoke-virtual {p0}, Lbl/bhr;->a()I
+    invoke-virtual {p0}, Lokhttp3/Headers;->a()I
 
     move-result v1
 
@@ -63,12 +63,12 @@
     if-ge v2, v1, :cond_1
 
     .line 56
-    invoke-virtual {p0, v2}, Lbl/bhr;->a(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Lokhttp3/Headers;->a(I)Ljava/lang/String;
 
     move-result-object v3
 
     .line 57
-    invoke-virtual {p0, v2}, Lbl/bhr;->b(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Lokhttp3/Headers;->b(I)Ljava/lang/String;
 
     move-result-object v4
 

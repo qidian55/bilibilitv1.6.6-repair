@@ -84,7 +84,7 @@
 
     invoke-direct {v1}, Lbl/zq$1;-><init>()V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 28
     :cond_44

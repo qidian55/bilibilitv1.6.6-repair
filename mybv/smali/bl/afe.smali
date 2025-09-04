@@ -70,7 +70,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p3}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, p3}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 18
     return-void
@@ -120,7 +120,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p3}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, p3}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 38
     return-void

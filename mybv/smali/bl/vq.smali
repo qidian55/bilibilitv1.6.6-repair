@@ -1,23 +1,23 @@
 .class public Lbl/vq;
-.super Lbl/bky$a;
+.super Lretrofit2/CallAdapter$a;
 .source "BL"
 
 
 # instance fields
-.field private a:Lbl/bhv;
+.field private a:Lokhttp3/OkHttpClient;
 
 .field private b:Lbl/ji;
 
 
 # direct methods
-.method public constructor <init>(Lbl/bhv;Lbl/ji;)V
+.method public constructor <init>(Lokhttp3/OkHttpClient;Lbl/ji;)V
     .locals 0
 
     .line 27
-    invoke-direct {p0}, Lbl/bky$a;-><init>()V
+    invoke-direct {p0}, Lretrofit2/CallAdapter$a;-><init>()V
 
     .line 28
-    iput-object p1, p0, Lbl/vq;->a:Lbl/bhv;
+    iput-object p1, p0, Lbl/vq;->a:Lokhttp3/OkHttpClient;
 
     .line 29
     iput-object p2, p0, Lbl/vq;->b:Lbl/ji;
@@ -25,11 +25,11 @@
     return-void
 .end method
 
-.method static synthetic a(Lbl/vq;)Lbl/bhv;
+.method static synthetic a(Lbl/vq;)Lokhttp3/OkHttpClient;
     .locals 0
 
     .line 22
-    iget-object p0, p0, Lbl/vq;->a:Lbl/bhv;
+    iget-object p0, p0, Lbl/vq;->a:Lokhttp3/OkHttpClient;
 
     return-object p0
 .end method
@@ -56,7 +56,7 @@
 
 
 # virtual methods
-.method public a(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lbl/bli;)Lbl/bky;
+.method public a(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/CallAdapter;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -64,9 +64,9 @@
             "Ljava/lang/reflect/Type;",
             "[",
             "Ljava/lang/annotation/Annotation;",
-            "Lbl/bli;",
+            "Lretrofit2/Retrofit;",
             ")",
-            "Lbl/bky<",
+            "Lretrofit2/CallAdapter<",
             "*",
             "Lbl/vp;",
             ">;"

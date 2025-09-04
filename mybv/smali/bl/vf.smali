@@ -38,7 +38,7 @@
 
     .line 256
     :try_start_0
-    invoke-virtual {p0}, Lbl/vp;->d()Lbl/blh;
+    invoke-virtual {p0}, Lbl/vp;->d()Lretrofit2/Response;
 
     move-result-object p0
     :try_end_0
@@ -46,20 +46,20 @@
     .catch Lcom/bilibili/okretro/BiliApiParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 261
-    invoke-static {p0}, Lbl/vf;->a(Lbl/blh;)Ljava/lang/Object;
+    invoke-static {p0}, Lbl/vf;->a(Lretrofit2/Response;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lbl/mk;
 
     .line 262
-    invoke-virtual {p0}, Lbl/blh;->d()Lbl/bhr;
+    invoke-virtual {p0}, Lretrofit2/Response;->d()Lokhttp3/Headers;
 
     move-result-object p0
 
     const-string v1, "Date"
 
-    invoke-virtual {p0, v1}, Lbl/bhr;->b(Ljava/lang/String;)Ljava/util/Date;
+    invoke-virtual {p0, v1}, Lokhttp3/Headers;->b(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object p0
 
@@ -188,7 +188,7 @@
     invoke-virtual {p0, p1}, Lbl/vp;->a(Lbl/vz;)Lbl/vp;
 
     .line 317
-    invoke-virtual {p0}, Lbl/vp;->d()Lbl/blh;
+    invoke-virtual {p0}, Lbl/vp;->d()Lretrofit2/Response;
 
     move-result-object p0
     :try_end_0
@@ -196,20 +196,20 @@
     .catch Lcom/bilibili/okretro/BiliApiParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 323
-    invoke-static {p0}, Lbl/vf;->a(Lbl/blh;)Ljava/lang/Object;
+    invoke-static {p0}, Lbl/vf;->a(Lretrofit2/Response;)Ljava/lang/Object;
 
     move-result-object p1
 
     check-cast p1, Lbl/vd;
 
     .line 325
-    invoke-virtual {p0}, Lbl/blh;->d()Lbl/bhr;
+    invoke-virtual {p0}, Lretrofit2/Response;->d()Lokhttp3/Headers;
 
     move-result-object p0
 
     const-string v0, "Date"
 
-    invoke-virtual {p0, v0}, Lbl/bhr;->b(Ljava/lang/String;)Ljava/util/Date;
+    invoke-virtual {p0, v0}, Lokhttp3/Headers;->b(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object p0
 
@@ -450,7 +450,7 @@
     invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/vz;)Lbl/vp;
 
     .line 117
-    invoke-virtual {v0}, Lbl/vp;->d()Lbl/blh;
+    invoke-virtual {v0}, Lbl/vp;->d()Lretrofit2/Response;
 
     move-result-object p0
     :try_end_0
@@ -458,14 +458,14 @@
     .catch Lcom/bilibili/okretro/BiliApiParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 123
-    invoke-virtual {p0}, Lbl/blh;->e()Z
+    invoke-virtual {p0}, Lretrofit2/Response;->e()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
     .line 124
-    invoke-virtual {p0}, Lbl/blh;->f()Ljava/lang/Object;
+    invoke-virtual {p0}, Lretrofit2/Response;->f()Ljava/lang/Object;
 
     move-result-object p0
 
@@ -526,7 +526,7 @@
     :cond_2
     new-instance v0, Lcom/bilibili/lib/passport/BiliPassportException;
 
-    invoke-virtual {p0}, Lbl/blh;->b()I
+    invoke-virtual {p0}, Lretrofit2/Response;->b()I
 
     move-result p0
 
@@ -555,14 +555,14 @@
     throw v0
 .end method
 
-.method private static a(Lbl/blh;)Ljava/lang/Object;
+.method private static a(Lretrofit2/Response;)Ljava/lang/Object;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
             "Ljava/lang/Object;",
             ">(",
-            "Lbl/blh<",
+            "Lretrofit2/Response<",
             "Lcom/bilibili/okretro/GeneralResponse<",
             "TT;>;>;)TT;"
         }
@@ -575,14 +575,14 @@
     .end annotation
 
     .line 293
-    invoke-virtual {p0}, Lbl/blh;->e()Z
+    invoke-virtual {p0}, Lretrofit2/Response;->e()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
     .line 294
-    invoke-virtual {p0}, Lbl/blh;->f()Ljava/lang/Object;
+    invoke-virtual {p0}, Lretrofit2/Response;->f()Ljava/lang/Object;
 
     move-result-object p0
 
@@ -614,7 +614,7 @@
     :cond_1
     new-instance v0, Lcom/bilibili/lib/passport/BiliPassportException;
 
-    invoke-virtual {p0}, Lbl/blh;->b()I
+    invoke-virtual {p0}, Lretrofit2/Response;->b()I
 
     move-result p0
 
@@ -692,7 +692,7 @@
 
     .line 283
     :try_start_0
-    invoke-virtual {p0}, Lbl/vp;->d()Lbl/blh;
+    invoke-virtual {p0}, Lbl/vp;->d()Lretrofit2/Response;
 
     move-result-object p0
     :try_end_0
@@ -700,7 +700,7 @@
     .catch Lcom/bilibili/okretro/BiliApiParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 289
-    invoke-static {p0}, Lbl/vf;->a(Lbl/blh;)Ljava/lang/Object;
+    invoke-static {p0}, Lbl/vf;->a(Lretrofit2/Response;)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -753,7 +753,7 @@
     invoke-virtual {p0, p1}, Lbl/vp;->a(Lbl/vz;)Lbl/vp;
 
     .line 361
-    invoke-virtual {p0}, Lbl/vp;->d()Lbl/blh;
+    invoke-virtual {p0}, Lbl/vp;->d()Lretrofit2/Response;
 
     move-result-object p0
     :try_end_0
@@ -761,7 +761,7 @@
     .catch Lcom/bilibili/okretro/BiliApiParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 367
-    invoke-static {p0}, Lbl/vf;->a(Lbl/blh;)Ljava/lang/Object;
+    invoke-static {p0}, Lbl/vf;->a(Lretrofit2/Response;)Ljava/lang/Object;
 
     move-result-object p0
 

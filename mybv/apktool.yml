@@ -12,7 +12,7 @@ packageInfo:
   forcedPackageId: '127'
   renameManifestPackage: com.bilibili.tv
 sdkInfo:
-  minSdkVersion: '17'
+  minSdkVersion: '15'
   targetSdkVersion: '27'
 sharedLibrary: false
 sparseResources: false

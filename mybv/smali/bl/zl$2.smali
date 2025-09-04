@@ -228,31 +228,31 @@
     const-string v3, "application/octet-stream"
 
     .line 72
-    invoke-static {v3}, Lbl/bht;->a(Ljava/lang/String;)Lbl/bht;
+    invoke-static {v3}, Lokhttp3/MediaType;->a(Ljava/lang/String;)Lokhttp3/MediaType;
 
     move-result-object v3
 
-    invoke-static {v3, v1}, Lbl/bhy;->a(Lbl/bht;[B)Lbl/bhy;
+    invoke-static {v3, v1}, Lokhttp3/RequestBody;->a(Lokhttp3/MediaType;[B)Lokhttp3/RequestBody;
 
     move-result-object v1
 
-    invoke-interface {v2, v1}, Lbl/zl$a;->a(Lbl/bhy;)Lbl/vp;
+    invoke-interface {v2, v1}, Lbl/zl$a;->a(Lokhttp3/RequestBody;)Lbl/vp;
 
     move-result-object v1
 
     .line 73
-    invoke-virtual {v1}, Lbl/vp;->d()Lbl/blh;
+    invoke-virtual {v1}, Lbl/vp;->d()Lretrofit2/Response;
 
     move-result-object v1
 
     .line 75
-    invoke-virtual {v1}, Lbl/blh;->b()I
+    invoke-virtual {v1}, Lretrofit2/Response;->b()I
 
     .line 76
-    invoke-virtual {v1}, Lbl/blh;->c()Ljava/lang/String;
+    invoke-virtual {v1}, Lretrofit2/Response;->c()Ljava/lang/String;
 
     .line 77
-    invoke-virtual {v1}, Lbl/blh;->f()Ljava/lang/Object;
+    invoke-virtual {v1}, Lretrofit2/Response;->f()Ljava/lang/Object;
 
     move-result-object v1
 

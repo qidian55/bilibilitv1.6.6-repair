@@ -30,7 +30,7 @@
 
 
 # virtual methods
-.method public a(Lbl/bia;)Lcom/bilibili/okretro/GeneralResponse;
+.method public a(Lokhttp3/ResponseBody;)Lcom/bilibili/okretro/GeneralResponse;
     .locals 3
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
@@ -38,7 +38,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lbl/bia;",
+            "Lokhttp3/ResponseBody;",
             ")",
             "Lcom/bilibili/okretro/GeneralResponse<",
             "Lcom/bilibili/lib/account/model/AccountInfo;",
@@ -68,7 +68,7 @@
 
     .line 37
     :cond_0
-    invoke-virtual {p1}, Lbl/bia;->f()Ljava/lang/String;
+    invoke-virtual {p1}, Lokhttp3/ResponseBody;->f()Ljava/lang/String;
 
     move-result-object p1
 
@@ -146,9 +146,9 @@
     .end annotation
 
     .line 26
-    check-cast p1, Lbl/bia;
+    check-cast p1, Lokhttp3/ResponseBody;
 
-    invoke-virtual {p0, p1}, Lbl/md;->a(Lbl/bia;)Lcom/bilibili/okretro/GeneralResponse;
+    invoke-virtual {p0, p1}, Lbl/md;->a(Lokhttp3/ResponseBody;)Lcom/bilibili/okretro/GeneralResponse;
 
     move-result-object p1
 

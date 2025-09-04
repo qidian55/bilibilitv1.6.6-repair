@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bla;
+.implements Lretrofit2/Converter;
 
 
 # annotations
@@ -19,9 +19,9 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lbl/bla<",
-        "Lbl/bia;",
-        "Lbl/bia;",
+        "Lretrofit2/Converter<",
+        "Lokhttp3/ResponseBody;",
+        "Lokhttp3/ResponseBody;",
         ">;"
     }
 .end annotation
@@ -56,9 +56,9 @@
 
 
 # virtual methods
-.method public a(Lbl/bia;)Lbl/bia;
+.method public a(Lokhttp3/ResponseBody;)Lokhttp3/ResponseBody;
     .locals 4
-    .param p1    # Lbl/bia;
+    .param p1    # Lokhttp3/ResponseBody;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -75,36 +75,36 @@
     invoke-direct {v0}, Lokio/Buffer;-><init>()V
 
     .line 108
-    invoke-virtual {p1}, Lbl/bia;->c()Lokio/BufferedSource;
+    invoke-virtual {p1}, Lokhttp3/ResponseBody;->c()Lokio/BufferedSource;
 
     move-result-object v1
 
     invoke-interface {v1, v0}, Lokio/BufferedSource;->readAll(Lokio/Sink;)J
 
     .line 109
-    invoke-virtual {p1}, Lbl/bia;->a()Lbl/bht;
+    invoke-virtual {p1}, Lokhttp3/ResponseBody;->a()Lokhttp3/MediaType;
 
     move-result-object v1
 
-    invoke-virtual {p1}, Lbl/bia;->b()J
+    invoke-virtual {p1}, Lokhttp3/ResponseBody;->b()J
 
     move-result-wide v2
 
-    invoke-static {v1, v2, v3, v0}, Lbl/bia;->a(Lbl/bht;JLokio/BufferedSource;)Lbl/bia;
+    invoke-static {v1, v2, v3, v0}, Lokhttp3/ResponseBody;->a(Lokhttp3/MediaType;JLokio/BufferedSource;)Lokhttp3/ResponseBody;
 
     move-result-object v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 111
-    invoke-virtual {p1}, Lbl/bia;->close()V
+    invoke-virtual {p1}, Lokhttp3/ResponseBody;->close()V
 
     return-object v0
 
     :catchall_0
     move-exception v0
 
-    invoke-virtual {p1}, Lbl/bia;->close()V
+    invoke-virtual {p1}, Lokhttp3/ResponseBody;->close()V
 
     .line 112
     throw v0
@@ -123,9 +123,9 @@
     .end annotation
 
     .line 99
-    check-cast p1, Lbl/bia;
+    check-cast p1, Lokhttp3/ResponseBody;
 
-    invoke-virtual {p0, p1}, Lbl/vr$a;->a(Lbl/bia;)Lbl/bia;
+    invoke-virtual {p0, p1}, Lbl/vr$a;->a(Lokhttp3/ResponseBody;)Lokhttp3/ResponseBody;
 
     move-result-object p1
 

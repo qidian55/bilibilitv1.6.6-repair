@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bkz;
+.implements Lretrofit2/Callback;
 
 
 # annotations
@@ -13,7 +13,7 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lbl/bkz<",
+        "Lretrofit2/Callback<",
         "TT;>;"
     }
 .end annotation
@@ -42,16 +42,16 @@
 .method public abstract onError(Ljava/lang/Throwable;)V
 .end method
 
-.method public onFailure(Lbl/bkx;Ljava/lang/Throwable;)V
+.method public onFailure(Lretrofit2/Call;Ljava/lang/Throwable;)V
     .locals 2
-    .param p1    # Lbl/bkx;
+    .param p1    # Lretrofit2/Call;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lbl/bkx<",
+            "Lretrofit2/Call<",
             "TT;>;",
             "Ljava/lang/Throwable;",
             ")V"
@@ -84,11 +84,11 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-interface {p1}, Lbl/bkx;->b()Lbl/bhx;
+    invoke-interface {p1}, Lretrofit2/Call;->b()Lokhttp3/Request;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lbl/bhx;->a()Lokhttp3/HttpUrl;
+    invoke-virtual {p1}, Lokhttp3/Request;->a()Lokhttp3/HttpUrl;
 
     move-result-object p1
 
@@ -128,18 +128,18 @@
     return-void
 .end method
 
-.method public onResponse(Lbl/bkx;Lbl/blh;)V
+.method public onResponse(Lretrofit2/Call;Lretrofit2/Response;)V
     .locals 1
-    .param p1    # Lbl/bkx;
+    .param p1    # Lretrofit2/Call;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lbl/bkx<",
+            "Lretrofit2/Call<",
             "TT;>;",
-            "Lbl/blh<",
+            "Lretrofit2/Response<",
             "TT;>;)V"
         }
     .end annotation
@@ -155,7 +155,7 @@
 
     .line 30
     :cond_0
-    invoke-virtual {p2}, Lbl/blh;->e()Z
+    invoke-virtual {p2}, Lretrofit2/Response;->e()Z
 
     move-result v0
 
@@ -164,15 +164,15 @@
     .line 31
     new-instance v0, Lretrofit2/HttpException;
 
-    invoke-direct {v0, p2}, Lretrofit2/HttpException;-><init>(Lbl/blh;)V
+    invoke-direct {v0, p2}, Lretrofit2/HttpException;-><init>(Lretrofit2/Response;)V
 
-    invoke-virtual {p0, p1, v0}, Lbl/vm;->onFailure(Lbl/bkx;Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1, v0}, Lbl/vm;->onFailure(Lretrofit2/Call;Ljava/lang/Throwable;)V
 
     return-void
 
     .line 35
     :cond_1
-    invoke-virtual {p2}, Lbl/blh;->f()Ljava/lang/Object;
+    invoke-virtual {p2}, Lretrofit2/Response;->f()Ljava/lang/Object;
 
     move-result-object p1
 

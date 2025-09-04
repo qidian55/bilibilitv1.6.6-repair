@@ -1,5 +1,5 @@
 .class public abstract Lbl/uy;
-.super Lbl/bhy;
+.super Lokhttp3/RequestBody;
 .source "BL"
 
 
@@ -18,7 +18,7 @@
     .locals 0
 
     .line 36
-    invoke-direct {p0}, Lbl/bhy;-><init>()V
+    invoke-direct {p0}, Lokhttp3/RequestBody;-><init>()V
 
     return-void
 .end method
@@ -39,7 +39,7 @@
     return-wide v0
 .end method
 
-.method public a(Lbl/bhx;)Lbl/bhx;
+.method public a(Lokhttp3/Request;)Lokhttp3/Request;
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -100,7 +100,7 @@
     return v0
 .end method
 
-.method public final e()Lbl/bht;
+.method public final e()Lokhttp3/MediaType;
     .locals 1
 
     const/4 v0, 0x0

@@ -57,34 +57,34 @@
     invoke-static {v1, v0}, Ltv/danmaku/android/log/BLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 52
-    new-instance v1, Lbl/bhx$a;
+    new-instance v1, Lokhttp3/Request$a;
 
-    invoke-direct {v1}, Lbl/bhx$a;-><init>()V
+    invoke-direct {v1}, Lokhttp3/Request$a;-><init>()V
 
     const-string v2, "http://116.62.182.15/http_dns"
 
     .line 53
-    invoke-virtual {v1, v2}, Lbl/bhx$a;->a(Ljava/lang/String;)Lbl/bhx$a;
+    invoke-virtual {v1, v2}, Lokhttp3/Request$a;->a(Ljava/lang/String;)Lokhttp3/Request$a;
 
     move-result-object v1
 
     const-string v2, "text/json"
 
     .line 54
-    invoke-static {v2}, Lbl/bht;->a(Ljava/lang/String;)Lbl/bht;
+    invoke-static {v2}, Lokhttp3/MediaType;->a(Ljava/lang/String;)Lokhttp3/MediaType;
 
     move-result-object v2
 
-    invoke-static {v2, v0}, Lbl/bhy;->a(Lbl/bht;Ljava/lang/String;)Lbl/bhy;
+    invoke-static {v2, v0}, Lokhttp3/RequestBody;->a(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/RequestBody;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lbl/bhx$a;->a(Lbl/bhy;)Lbl/bhx$a;
+    invoke-virtual {v1, v0}, Lokhttp3/Request$a;->a(Lokhttp3/RequestBody;)Lokhttp3/Request$a;
 
     move-result-object v0
 
     .line 55
-    invoke-virtual {v0}, Lbl/bhx$a;->b()Lbl/bhx;
+    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
 
     move-result-object v0
 
@@ -92,15 +92,15 @@
 
     .line 58
     :try_start_0
-    invoke-static {}, Lbl/us;->c()Lbl/bhv;
+    invoke-static {}, Lbl/us;->c()Lokhttp3/OkHttpClient;
 
     move-result-object v2
 
-    invoke-virtual {v2, v0}, Lbl/bhv;->a(Lbl/bhx;)Lbl/bhd;
+    invoke-virtual {v2, v0}, Lokhttp3/OkHttpClient;->a(Lokhttp3/Request;)Lokhttp3/Call;
 
     move-result-object v0
 
-    invoke-interface {v0}, Lbl/bhd;->b()Lbl/bhz;
+    invoke-interface {v0}, Lokhttp3/Call;->b()Lokhttp3/Response;
 
     move-result-object v0
     :try_end_0

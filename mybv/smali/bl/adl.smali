@@ -197,7 +197,7 @@
 
     invoke-direct {v1, p2, p0, p1}, Lbl/adl$c;-><init>(Landroid/content/Context;J)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 446
     return-void

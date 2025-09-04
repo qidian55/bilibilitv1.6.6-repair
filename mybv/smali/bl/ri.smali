@@ -100,12 +100,12 @@
     move-result-object p1
 
     .line 68
-    invoke-virtual {p1}, Lbl/vp;->d()Lbl/blh;
+    invoke-virtual {p1}, Lbl/vp;->d()Lretrofit2/Response;
 
     move-result-object p1
 
     .line 69
-    invoke-static {p1}, Lbl/we;->b(Lbl/blh;)Ljava/lang/Object;
+    invoke-static {p1}, Lbl/we;->b(Lretrofit2/Response;)Ljava/lang/Object;
 
     move-result-object p2
 
@@ -141,11 +141,11 @@
     const/16 v2, 0xd3
 
     .line 75
-    invoke-virtual {p1}, Lbl/blh;->a()Lbl/bhz;
+    invoke-virtual {p1}, Lretrofit2/Response;->a()Lokhttp3/Response;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lbl/bhz;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Lokhttp3/Response;->toString()Ljava/lang/String;
 
     move-result-object p1
 

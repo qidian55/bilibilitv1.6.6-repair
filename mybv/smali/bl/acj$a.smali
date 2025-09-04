@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bhs;
+.implements Lokhttp3/Interceptor;
 
 
 # annotations
@@ -132,7 +132,7 @@
 
 
 # virtual methods
-.method public a(Lbl/bhs$a;)Lbl/bhz;
+.method public a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -141,14 +141,14 @@
     .end annotation
 
     .line 109
-    invoke-interface {p1}, Lbl/bhs$a;->a()Lbl/bhx;
+    invoke-interface {p1}, Lokhttp3/Interceptor$a;->a()Lokhttp3/Request;
 
     move-result-object v0
 
     const-string v1, "User-Agent"
 
     .line 110
-    invoke-virtual {v0, v1}, Lbl/bhx;->a(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lokhttp3/Request;->a(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -201,7 +201,7 @@
     const-string v2, "apigame.bilibili.com"
 
     .line 119
-    invoke-virtual {v0}, Lbl/bhx;->a()Lokhttp3/HttpUrl;
+    invoke-virtual {v0}, Lokhttp3/Request;->a()Lokhttp3/HttpUrl;
 
     move-result-object v3
 
@@ -255,23 +255,23 @@
 
     .line 124
     :cond_3
-    invoke-virtual {v0}, Lbl/bhx;->e()Lbl/bhx$a;
+    invoke-virtual {v0}, Lokhttp3/Request;->e()Lokhttp3/Request$a;
 
     move-result-object v0
 
     const-string v2, "User-Agent"
 
-    invoke-virtual {v0, v2, v1}, Lbl/bhx$a;->a(Ljava/lang/String;Ljava/lang/String;)Lbl/bhx$a;
+    invoke-virtual {v0, v2, v1}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lbl/bhx$a;->b()Lbl/bhx;
+    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
 
     move-result-object v0
 
     .line 125
     :goto_1
-    invoke-interface {p1, v0}, Lbl/bhs$a;->a(Lbl/bhx;)Lbl/bhz;
+    invoke-interface {p1, v0}, Lokhttp3/Interceptor$a;->a(Lokhttp3/Request;)Lokhttp3/Response;
 
     move-result-object p1
 

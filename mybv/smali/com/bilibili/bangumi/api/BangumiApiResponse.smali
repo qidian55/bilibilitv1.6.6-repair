@@ -37,14 +37,14 @@
     return-void
 .end method
 
-.method public static extractResult(Lbl/blh;)Ljava/lang/Object;
+.method public static extractResult(Lretrofit2/Response;)Ljava/lang/Object;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
             "Ljava/lang/Object;",
             ">(",
-            "Lbl/blh<",
+            "Lretrofit2/Response<",
             "Lcom/bilibili/bangumi/api/BangumiApiResponse<",
             "TT;>;>;)TT;"
         }
@@ -58,7 +58,7 @@
     .end annotation
 
     .line 26
-    invoke-virtual {p0}, Lbl/blh;->e()Z
+    invoke-virtual {p0}, Lretrofit2/Response;->e()Z
 
     move-result v0
 
@@ -67,13 +67,13 @@
     .line 27
     new-instance v0, Lretrofit2/HttpException;
 
-    invoke-direct {v0, p0}, Lretrofit2/HttpException;-><init>(Lbl/blh;)V
+    invoke-direct {v0, p0}, Lretrofit2/HttpException;-><init>(Lretrofit2/Response;)V
 
     throw v0
 
     .line 30
     :cond_0
-    invoke-virtual {p0}, Lbl/blh;->f()Ljava/lang/Object;
+    invoke-virtual {p0}, Lretrofit2/Response;->f()Ljava/lang/Object;
 
     move-result-object p0
 

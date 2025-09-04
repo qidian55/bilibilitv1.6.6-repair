@@ -169,7 +169,8 @@ public class MainApplication extends Application {
         BiliConfig.a(new BiliConfig.Delegate() { // from class: com.bilibili.tv.MainApplication.2
             @Override // com.bilibili.api.BiliConfig.Delegate
             public String getAppDefaultUA() {
-                return "Mozilla/5.0 BiliTV/1.6.6 (bbcallen@gmail.com)";
+                return System.getProperty("http.agent");
+                //return "Mozilla/5.0 BiliTV/1.6.6 (bbcallen@gmail.com)";
             }
 
             @Override // com.bilibili.api.BiliConfig.Delegate

@@ -25,7 +25,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
-            "Lbl/bhs;",
+            "Lokhttp3/Interceptor;",
             ">;"
         }
     .end annotation
@@ -35,7 +35,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
-            "Lbl/bhs;",
+            "Lokhttp3/Interceptor;",
             ">;"
         }
     .end annotation
@@ -114,7 +114,7 @@
         value = {
             "()",
             "Ljava/util/List<",
-            "Lbl/bhs;",
+            "Lokhttp3/Interceptor;",
             ">;"
         }
     .end annotation
@@ -131,7 +131,7 @@
         value = {
             "()",
             "Ljava/util/List<",
-            "Lbl/bhs;",
+            "Lokhttp3/Interceptor;",
             ">;"
         }
     .end annotation

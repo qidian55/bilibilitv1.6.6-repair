@@ -217,7 +217,7 @@
 
     iget-object v1, p0, Lcom/bilibili/tv/ui/main/content/MainPgcFragment;->c:Lcom/bilibili/tv/ui/main/content/MainPgcFragment$a;
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 146
     return-void

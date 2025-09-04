@@ -248,7 +248,7 @@
 
     invoke-direct {v1, p0}, Lbl/adq$DynamicVideoResponse;-><init>(Lbl/adq;)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 377
     return-void

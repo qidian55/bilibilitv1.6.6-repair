@@ -556,7 +556,7 @@
 
     invoke-direct {v1, p0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FollowingResponse;-><init>(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 263
     :goto_32
@@ -586,7 +586,7 @@
 
     invoke-direct {v1, p0}, Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity$FeedResponse;-><init>(Lcom/bilibili/tv/ui/attention/AttentionDynamicActivity;)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     goto :goto_32
 .end method

@@ -220,7 +220,7 @@
 
     iget-object v1, p0, Lbl/aef;->d:Lbl/aef$a;
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 149
     :cond_26
@@ -409,7 +409,7 @@
 
     invoke-direct {v1, p0}, Lbl/aef$aa;-><init>(Lbl/aef;)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     goto/16 :goto_1a
 
@@ -437,7 +437,7 @@
 
     iget-object v1, p0, Lbl/aef;->d:Lbl/aef$a;
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     goto/16 :goto_1a
 .end method

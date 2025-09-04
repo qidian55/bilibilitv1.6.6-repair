@@ -607,7 +607,7 @@
 
     iget-object v1, p0, Lcom/bilibili/tv/ui/video/tag/VideoTagSearchActivity;->b:Lcom/bilibili/tv/ui/video/tag/VideoTagSearchActivity$d;
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 312
     :goto_1e
@@ -633,7 +633,7 @@
 
     iget-object v1, p0, Lcom/bilibili/tv/ui/video/tag/VideoTagSearchActivity;->c:Lcom/bilibili/tv/ui/video/tag/VideoTagSearchActivity$e;
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     goto :goto_1e
 .end method

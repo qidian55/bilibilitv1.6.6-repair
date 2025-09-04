@@ -65,7 +65,7 @@
     return-void
 .end method
 
-.method static a(Ljava/lang/Class;Ljava/lang/reflect/Type;)Lbl/bla;
+.method static a(Ljava/lang/Class;Ljava/lang/reflect/Type;)Lretrofit2/Converter;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -74,8 +74,8 @@
             "*>;",
             "Ljava/lang/reflect/Type;",
             ")",
-            "Lbl/bla<",
-            "Lbl/bia;",
+            "Lretrofit2/Converter<",
+            "Lokhttp3/ResponseBody;",
             "*>;"
         }
     .end annotation
@@ -114,7 +114,7 @@
     return-object p0
 .end method
 
-.method static a(Ljava/lang/reflect/Type;)Lbl/bla;
+.method static a(Ljava/lang/reflect/Type;)Lretrofit2/Converter;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -123,8 +123,8 @@
             ">(",
             "Ljava/lang/reflect/Type;",
             ")",
-            "Lbl/bla<",
-            "Lbl/bia;",
+            "Lretrofit2/Converter<",
+            "Lokhttp3/ResponseBody;",
             "Lcom/bilibili/okretro/GeneralResponse<",
             "TT;>;>;"
         }

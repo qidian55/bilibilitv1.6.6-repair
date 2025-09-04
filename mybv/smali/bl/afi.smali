@@ -892,7 +892,7 @@
 
     iget-object v1, p0, Lbl/afi;->h:Lbl/afi$g;
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 369
     return-void
@@ -952,7 +952,7 @@
 
     iget-object v1, p0, Lbl/afi;->i:Lbl/afi$j;
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 378
     return-void
@@ -1012,7 +1012,7 @@
 
     iget-object v1, p0, Lbl/afi;->j:Lbl/afi$h;
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 387
     return-void
@@ -1070,7 +1070,7 @@
 
     invoke-direct {v1, p0}, Lbl/afi$SearchLiveResponse;-><init>(Lbl/afi;)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 405
     return-void
@@ -1128,7 +1128,7 @@
 
     iget-object v1, p0, Lbl/afi;->k:Lbl/afi$i;
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     .line 396
     return-void

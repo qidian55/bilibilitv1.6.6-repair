@@ -44,9 +44,9 @@
     .end annotation
 
     .line 44
-    new-instance v0, Lbl/bhp$a;
+    new-instance v0, Lokhttp3/FormBody$a;
 
-    invoke-direct {v0}, Lbl/bhp$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/FormBody$a;-><init>()V
 
     .line 45
     invoke-interface {p3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -84,7 +84,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    invoke-virtual {v0, v2, v1}, Lbl/bhp$a;->a(Ljava/lang/String;Ljava/lang/String;)Lbl/bhp$a;
+    invoke-virtual {v0, v2, v1}, Lokhttp3/FormBody$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$a;
 
     goto :goto_0
 
@@ -205,35 +205,35 @@
     move-result-object p0
 
     .line 68
-    new-instance p1, Lbl/bhx$a;
+    new-instance p1, Lokhttp3/Request$a;
 
-    invoke-direct {p1}, Lbl/bhx$a;-><init>()V
+    invoke-direct {p1}, Lokhttp3/Request$a;-><init>()V
 
     .line 69
-    invoke-virtual {p1, p0}, Lbl/bhx$a;->a(Lokhttp3/HttpUrl;)Lbl/bhx$a;
+    invoke-virtual {p1, p0}, Lokhttp3/Request$a;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$a;
 
     move-result-object p0
 
     .line 70
-    invoke-virtual {v0}, Lbl/bhp$a;->a()Lbl/bhp;
+    invoke-virtual {v0}, Lokhttp3/FormBody$a;->a()Lokhttp3/FormBody;
 
     move-result-object p1
 
-    invoke-virtual {p0, p1}, Lbl/bhx$a;->a(Lbl/bhy;)Lbl/bhx$a;
+    invoke-virtual {p0, p1}, Lokhttp3/Request$a;->a(Lokhttp3/RequestBody;)Lokhttp3/Request$a;
 
     move-result-object p0
 
     .line 71
-    invoke-virtual {p0}, Lbl/bhx$a;->b()Lbl/bhx;
+    invoke-virtual {p0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
 
     move-result-object v1
 
     .line 73
-    invoke-static {}, Lbl/us;->b()Lbl/bhv$a;
+    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$a;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lbl/bhv$a;->c()Lbl/bhv;
+    invoke-virtual {p0}, Lokhttp3/OkHttpClient$a;->c()Lokhttp3/OkHttpClient;
 
     move-result-object v4
 
@@ -252,7 +252,7 @@
 
     move-object v0, p0
 
-    invoke-direct/range {v0 .. v5}, Lbl/vp;-><init>(Lbl/bhx;Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lbl/bhv;Lbl/ji;)V
+    invoke-direct/range {v0 .. v5}, Lbl/vp;-><init>(Lokhttp3/Request;Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lokhttp3/OkHttpClient;Lbl/ji;)V
 
     .line 76
     new-instance p1, Lbl/wa;
@@ -262,11 +262,11 @@
     invoke-virtual {p0, p1}, Lbl/vp;->a(Lbl/vz;)Lbl/vp;
 
     .line 78
-    invoke-virtual {p0}, Lbl/vp;->d()Lbl/blh;
+    invoke-virtual {p0}, Lbl/vp;->d()Lretrofit2/Response;
 
     move-result-object p0
 
-    invoke-static {p0}, Lbl/we;->a(Lbl/blh;)Ljava/lang/Object;
+    invoke-static {p0}, Lbl/we;->a(Lretrofit2/Response;)Ljava/lang/Object;
 
     move-result-object p0
 

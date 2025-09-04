@@ -48,15 +48,15 @@
     .line 238
     iget-object v0, p0, Lbl/ns$d$1;->a:Lbl/ns$d;
 
-    iget-object v0, v0, Lbl/ns$d;->a:Lbl/bhd;
+    iget-object v0, v0, Lbl/ns$d;->a:Lokhttp3/Call;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lbl/ns$d$1;->a:Lbl/ns$d;
 
-    iget-object v0, v0, Lbl/ns$d;->a:Lbl/bhd;
+    iget-object v0, v0, Lbl/ns$d;->a:Lokhttp3/Call;
 
-    invoke-interface {v0}, Lbl/bhd;->c()V
+    invoke-interface {v0}, Lokhttp3/Call;->c()V
 
     :cond_0
     return-void

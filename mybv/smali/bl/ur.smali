@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bhl;
+.implements Lokhttp3/CookieJar;
 
 
 # annotations
@@ -20,7 +20,7 @@
         value = {
             "Ljava/util/HashMap<",
             "Lbl/ur$a;",
-            "Lbl/bhk;",
+            "Lokhttp3/Cookie;",
             ">;"
         }
     .end annotation
@@ -54,7 +54,7 @@
             "Lokhttp3/HttpUrl;",
             ")",
             "Ljava/util/List<",
-            "Lbl/bhk;",
+            "Lokhttp3/Cookie;",
             ">;"
         }
     .end annotation
@@ -97,10 +97,10 @@
 
     move-result-object v2
 
-    check-cast v2, Lbl/bhk;
+    check-cast v2, Lokhttp3/Cookie;
 
     .line 38
-    invoke-virtual {v2}, Lbl/bhk;->c()J
+    invoke-virtual {v2}, Lokhttp3/Cookie;->c()J
 
     move-result-wide v3
 
@@ -119,7 +119,7 @@
 
     .line 40
     :cond_1
-    invoke-virtual {v2, p1}, Lbl/bhk;->a(Lokhttp3/HttpUrl;)Z
+    invoke-virtual {v2, p1}, Lokhttp3/Cookie;->a(Lokhttp3/HttpUrl;)Z
 
     move-result v3
 
@@ -154,7 +154,7 @@
             "(",
             "Lokhttp3/HttpUrl;",
             "Ljava/util/List<",
-            "Lbl/bhk;",
+            "Lokhttp3/Cookie;",
             ">;)V"
         }
     .end annotation
@@ -178,12 +178,12 @@
 
     move-result-object p2
 
-    check-cast p2, Lbl/bhk;
+    check-cast p2, Lokhttp3/Cookie;
 
     .line 27
     new-instance v0, Lbl/ur$a;
 
-    invoke-direct {v0, p2}, Lbl/ur$a;-><init>(Lbl/bhk;)V
+    invoke-direct {v0, p2}, Lbl/ur$a;-><init>(Lokhttp3/Cookie;)V
 
     .line 28
     iget-object v1, p0, Lbl/ur;->b:Ljava/util/HashMap;

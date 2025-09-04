@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bhn;
+.implements Lokhttp3/Dns;
 
 
 # instance fields
@@ -136,9 +136,9 @@
     invoke-static {v0, v1, v2}, Ltv/danmaku/android/log/BLog;->dfmt(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 47
-    sget-object v0, Lbl/acu;->a:Lbl/bhn;
+    sget-object v0, Lbl/acu;->a:Lokhttp3/Dns;
 
-    invoke-interface {v0, p1}, Lbl/bhn;->a(Ljava/lang/String;)Ljava/util/List;
+    invoke-interface {v0, p1}, Lokhttp3/Dns;->a(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v0
     :try_end_0

@@ -107,7 +107,7 @@
 
 
 # virtual methods
-.method public convert(Lbl/bia;)Lcom/bilibili/tv/api/category/CategoryMeta;
+.method public convert(Lokhttp3/ResponseBody;)Lcom/bilibili/tv/api/category/CategoryMeta;
     .locals 3
     .annotation build Landroid/support/annotation/WorkerThread;
     .end annotation
@@ -120,7 +120,7 @@
 
     .prologue
     .line 315
-    invoke-virtual {p1}, Lbl/bia;->f()Ljava/lang/String;
+    invoke-virtual {p1}, Lokhttp3/ResponseBody;->f()Ljava/lang/String;
 
     move-result-object v0
 
@@ -163,9 +163,9 @@
 
     .prologue
     .line 305
-    check-cast p1, Lbl/bia;
+    check-cast p1, Lokhttp3/ResponseBody;
 
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/category/CategoryManager$CategoryParser;->convert(Lbl/bia;)Lcom/bilibili/tv/api/category/CategoryMeta;
+    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/category/CategoryManager$CategoryParser;->convert(Lokhttp3/ResponseBody;)Lcom/bilibili/tv/api/category/CategoryMeta;
 
     move-result-object v0
 

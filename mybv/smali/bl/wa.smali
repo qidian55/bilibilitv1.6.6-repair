@@ -15,32 +15,32 @@
 
 
 # virtual methods
-.method protected final a(Lokhttp3/HttpUrl;Lbl/bhy;Lbl/bhx$a;)V
+.method protected final a(Lokhttp3/HttpUrl;Lokhttp3/RequestBody;Lokhttp3/Request$a;)V
     .locals 0
 
     return-void
 .end method
 
-.method public final intercept(Lbl/bhx;)Lbl/bhx;
+.method public final intercept(Lokhttp3/Request;)Lokhttp3/Request;
     .locals 1
 
     .line 17
-    invoke-virtual {p1}, Lbl/bhx;->e()Lbl/bhx$a;
+    invoke-virtual {p1}, Lokhttp3/Request;->e()Lokhttp3/Request$a;
 
     move-result-object v0
 
     .line 18
-    invoke-virtual {p0, v0}, Lbl/wa;->a(Lbl/bhx$a;)V
+    invoke-virtual {p0, v0}, Lbl/wa;->a(Lokhttp3/Request$a;)V
 
     .line 19
-    invoke-virtual {p1}, Lbl/bhx;->a()Lokhttp3/HttpUrl;
+    invoke-virtual {p1}, Lokhttp3/Request;->a()Lokhttp3/HttpUrl;
 
     move-result-object p1
 
-    invoke-virtual {p0, p1, v0}, Lbl/wa;->a(Lokhttp3/HttpUrl;Lbl/bhx$a;)V
+    invoke-virtual {p0, p1, v0}, Lbl/wa;->a(Lokhttp3/HttpUrl;Lokhttp3/Request$a;)V
 
     .line 20
-    invoke-virtual {v0}, Lbl/bhx$a;->b()Lbl/bhx;
+    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
 
     move-result-object p1
 

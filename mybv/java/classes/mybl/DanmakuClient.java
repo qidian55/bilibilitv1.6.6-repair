@@ -133,7 +133,7 @@ public class DanmakuClient {
                 outToServer.writeInt(2);
                 outToServer.writeInt(0);
                 client.send(baos.toByteArray());
-                Thread.sleep(20000);
+                Thread.sleep(10000);
             }
         } catch (Exception e) {
             e.printStackTrace();

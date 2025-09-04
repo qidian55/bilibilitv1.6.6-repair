@@ -26,7 +26,7 @@
 
 
 # virtual methods
-.method protected abstract a()Lbl/bhq;
+.method protected abstract a()Lokhttp3/Handshake;
 .end method
 
 .method public addRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
@@ -89,18 +89,18 @@
     .locals 1
 
     .line 68
-    invoke-virtual {p0}, Lbl/uv;->a()Lbl/bhq;
+    invoke-virtual {p0}, Lbl/uv;->a()Lokhttp3/Handshake;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
     .line 69
-    invoke-virtual {v0}, Lbl/bhq;->a()Lbl/bhg;
+    invoke-virtual {v0}, Lokhttp3/Handshake;->a()Lokhttp3/CipherSuite;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lbl/bhg;->a()Ljava/lang/String;
+    invoke-virtual {v0}, Lokhttp3/CipherSuite;->a()Ljava/lang/String;
 
     move-result-object v0
 
@@ -460,7 +460,7 @@
     .locals 3
 
     .line 74
-    invoke-virtual {p0}, Lbl/uv;->a()Lbl/bhq;
+    invoke-virtual {p0}, Lbl/uv;->a()Lokhttp3/Handshake;
 
     move-result-object v0
 
@@ -472,7 +472,7 @@
 
     .line 76
     :cond_0
-    invoke-virtual {v0}, Lbl/bhq;->d()Ljava/util/List;
+    invoke-virtual {v0}, Lokhttp3/Handshake;->d()Ljava/util/List;
 
     move-result-object v0
 
@@ -505,14 +505,14 @@
     .locals 1
 
     .line 96
-    invoke-virtual {p0}, Lbl/uv;->a()Lbl/bhq;
+    invoke-virtual {p0}, Lbl/uv;->a()Lokhttp3/Handshake;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
     .line 97
-    invoke-virtual {v0}, Lbl/bhq;->e()Ljava/security/Principal;
+    invoke-virtual {v0}, Lokhttp3/Handshake;->e()Ljava/security/Principal;
 
     move-result-object v0
 
@@ -552,14 +552,14 @@
     .end annotation
 
     .line 90
-    invoke-virtual {p0}, Lbl/uv;->a()Lbl/bhq;
+    invoke-virtual {p0}, Lbl/uv;->a()Lokhttp3/Handshake;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
     .line 91
-    invoke-virtual {v0}, Lbl/bhq;->c()Ljava/security/Principal;
+    invoke-virtual {v0}, Lokhttp3/Handshake;->c()Ljava/security/Principal;
 
     move-result-object v0
 
@@ -697,7 +697,7 @@
     .end annotation
 
     .line 82
-    invoke-virtual {p0}, Lbl/uv;->a()Lbl/bhq;
+    invoke-virtual {p0}, Lbl/uv;->a()Lokhttp3/Handshake;
 
     move-result-object v0
 
@@ -709,7 +709,7 @@
 
     .line 84
     :cond_0
-    invoke-virtual {v0}, Lbl/bhq;->b()Ljava/util/List;
+    invoke-virtual {v0}, Lokhttp3/Handshake;->b()Ljava/util/List;
 
     move-result-object v0
 

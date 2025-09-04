@@ -1195,7 +1195,7 @@
 
     invoke-direct {v1, p0}, Lcom/bilibili/tv/api/category/CategoryManager$1;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     goto :goto_2a
 .end method

@@ -1,5 +1,5 @@
 .class Lbl/ji$a;
-.super Lbl/bia;
+.super Lokhttp3/ResponseBody;
 .source "BL"
 
 
@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final a:Lbl/bij$c;
+.field private final a:Lokhttp3/internal/cache/DiskLruCache$c;
 
 .field private final b:Lokio/BufferedSource;
 
@@ -25,14 +25,14 @@
 
 
 # direct methods
-.method constructor <init>(Lbl/bij$c;Ljava/lang/String;Ljava/lang/String;)V
+.method constructor <init>(Lokhttp3/internal/cache/DiskLruCache$c;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
     .line 455
-    invoke-direct {p0}, Lbl/bia;-><init>()V
+    invoke-direct {p0}, Lokhttp3/ResponseBody;-><init>()V
 
     .line 456
-    iput-object p1, p0, Lbl/ji$a;->a:Lbl/bij$c;
+    iput-object p1, p0, Lbl/ji$a;->a:Lokhttp3/internal/cache/DiskLruCache$c;
 
     .line 457
     iput-object p2, p0, Lbl/ji$a;->c:Ljava/lang/String;
@@ -43,14 +43,14 @@
     const/4 p2, 0x1
 
     .line 460
-    invoke-virtual {p1, p2}, Lbl/bij$c;->a(I)Lokio/Source;
+    invoke-virtual {p1, p2}, Lokhttp3/internal/cache/DiskLruCache$c;->a(I)Lokio/Source;
 
     move-result-object p2
 
     .line 461
     new-instance p3, Lbl/ji$a$1;
 
-    invoke-direct {p3, p0, p2, p1}, Lbl/ji$a$1;-><init>(Lbl/ji$a;Lokio/Source;Lbl/bij$c;)V
+    invoke-direct {p3, p0, p2, p1}, Lbl/ji$a$1;-><init>(Lbl/ji$a;Lokio/Source;Lokhttp3/internal/cache/DiskLruCache$c;)V
 
     invoke-static {p3}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
@@ -63,7 +63,7 @@
 
 
 # virtual methods
-.method public a()Lbl/bht;
+.method public a()Lokhttp3/MediaType;
     .locals 1
 
     .line 472
@@ -73,7 +73,7 @@
 
     iget-object v0, p0, Lbl/ji$a;->c:Ljava/lang/String;
 
-    invoke-static {v0}, Lbl/bht;->a(Ljava/lang/String;)Lbl/bht;
+    invoke-static {v0}, Lokhttp3/MediaType;->a(Ljava/lang/String;)Lokhttp3/MediaType;
 
     move-result-object v0
 

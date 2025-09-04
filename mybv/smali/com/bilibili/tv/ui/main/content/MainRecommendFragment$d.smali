@@ -216,7 +216,7 @@
 
     invoke-direct {v1, v2}, Lcom/bilibili/tv/ui/main/content/MainRecommendFragment$dd;-><init>(Lcom/bilibili/tv/ui/main/content/MainRecommendFragment;)V
 
-    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/bkz;)V
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
     goto :goto_10
 .end method

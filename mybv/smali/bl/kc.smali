@@ -53,15 +53,15 @@
     .end annotation
 .end method
 
-.method public onResponse(Lbl/bkx;Lbl/blh;)V
+.method public onResponse(Lretrofit2/Call;Lretrofit2/Response;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lbl/bkx<",
+            "Lretrofit2/Call<",
             "Lcom/bilibili/bangumi/api/BangumiApiResponse<",
             "TT;>;>;",
-            "Lbl/blh<",
+            "Lretrofit2/Response<",
             "Lcom/bilibili/bangumi/api/BangumiApiResponse<",
             "TT;>;>;)V"
         }
@@ -78,7 +78,7 @@
 
     .line 29
     :cond_0
-    invoke-virtual {p2}, Lbl/blh;->e()Z
+    invoke-virtual {p2}, Lretrofit2/Response;->e()Z
 
     move-result v0
 
@@ -94,7 +94,7 @@
 
     .line 34
     :cond_1
-    invoke-virtual {p2}, Lbl/blh;->f()Ljava/lang/Object;
+    invoke-virtual {p2}, Lretrofit2/Response;->f()Ljava/lang/Object;
 
     move-result-object p2
 
@@ -124,7 +124,7 @@
 
     invoke-direct {v0, v1, p2}, Lcom/bilibili/api/BiliApiException;-><init>(ILjava/lang/String;)V
 
-    invoke-virtual {p0, p1, v0}, Lbl/kc;->onFailure(Lbl/bkx;Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1, v0}, Lbl/kc;->onFailure(Lretrofit2/Call;Ljava/lang/Throwable;)V
 
     return-void
 
@@ -141,9 +141,9 @@
     :goto_0
     new-instance v0, Lretrofit2/HttpException;
 
-    invoke-direct {v0, p2}, Lretrofit2/HttpException;-><init>(Lbl/blh;)V
+    invoke-direct {v0, p2}, Lretrofit2/HttpException;-><init>(Lretrofit2/Response;)V
 
-    invoke-virtual {p0, p1, v0}, Lbl/kc;->onFailure(Lbl/bkx;Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1, v0}, Lbl/kc;->onFailure(Lretrofit2/Call;Ljava/lang/Throwable;)V
 
     return-void
 .end method

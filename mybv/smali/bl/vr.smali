@@ -1,5 +1,5 @@
 .class public Lbl/vr;
-.super Lbl/bla$a;
+.super Lretrofit2/Converter$a;
 .source "BL"
 
 
@@ -36,14 +36,14 @@
     .locals 0
 
     .line 32
-    invoke-direct {p0}, Lbl/bla$a;-><init>()V
+    invoke-direct {p0}, Lretrofit2/Converter$a;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lbl/bli;)Lbl/bla;
+.method public a(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/Converter;
     .locals 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
@@ -54,10 +54,10 @@
             "Ljava/lang/reflect/Type;",
             "[",
             "Ljava/lang/annotation/Annotation;",
-            "Lbl/bli;",
+            "Lretrofit2/Retrofit;",
             ")",
-            "Lbl/bla<",
-            "Lbl/bia;",
+            "Lretrofit2/Converter<",
+            "Lokhttp3/ResponseBody;",
             "*>;"
         }
     .end annotation
@@ -79,7 +79,7 @@
 
     .line 62
     :cond_0
-    const-class v0, Lbl/bia;
+    const-class v0, Lokhttp3/ResponseBody;
 
     if-ne p3, v0, :cond_2
 
@@ -161,7 +161,7 @@
     if-eqz p2, :cond_7
 
     .line 91
-    invoke-static {p3, p1}, Lbl/vv;->a(Ljava/lang/Class;Ljava/lang/reflect/Type;)Lbl/bla;
+    invoke-static {p3, p1}, Lbl/vv;->a(Ljava/lang/Class;Ljava/lang/reflect/Type;)Lretrofit2/Converter;
 
     move-result-object p2
 
@@ -178,7 +178,7 @@
     return-object p2
 .end method
 
-.method public a(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;Lbl/bli;)Lbl/bla;
+.method public a(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/Converter;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -188,11 +188,11 @@
             "Ljava/lang/annotation/Annotation;",
             "[",
             "Ljava/lang/annotation/Annotation;",
-            "Lbl/bli;",
+            "Lretrofit2/Retrofit;",
             ")",
-            "Lbl/bla<",
+            "Lretrofit2/Converter<",
             "*",
-            "Lbl/bhy;",
+            "Lokhttp3/RequestBody;",
             ">;"
         }
     .end annotation

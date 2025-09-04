@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bhs;
+.implements Lokhttp3/Interceptor;
 
 
 # annotations
@@ -29,7 +29,7 @@
 
 
 # virtual methods
-.method public a(Lbl/bhs$a;)Lbl/bhz;
+.method public a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -39,11 +39,11 @@
 
     .line 617
     :try_start_0
-    invoke-interface {p1}, Lbl/bhs$a;->a()Lbl/bhx;
+    invoke-interface {p1}, Lokhttp3/Interceptor$a;->a()Lokhttp3/Request;
 
     move-result-object v0
 
-    invoke-interface {p1, v0}, Lbl/bhs$a;->a(Lbl/bhx;)Lbl/bhz;
+    invoke-interface {p1, v0}, Lokhttp3/Interceptor$a;->a(Lokhttp3/Request;)Lokhttp3/Response;
 
     move-result-object p1
     :try_end_0

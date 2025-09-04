@@ -4,14 +4,14 @@
 
 
 # direct methods
-.method public static a(Lbl/blh;)Ljava/lang/Object;
+.method public static a(Lretrofit2/Response;)Ljava/lang/Object;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
             "Ljava/lang/Object;",
             ">(",
-            "Lbl/blh<",
+            "Lretrofit2/Response<",
             "TT;>;)TT;"
         }
     .end annotation
@@ -23,7 +23,7 @@
     .end annotation
 
     .line 42
-    invoke-virtual {p0}, Lbl/blh;->e()Z
+    invoke-virtual {p0}, Lretrofit2/Response;->e()Z
 
     move-result v0
 
@@ -32,13 +32,13 @@
     .line 43
     new-instance v0, Lretrofit2/HttpException;
 
-    invoke-direct {v0, p0}, Lretrofit2/HttpException;-><init>(Lbl/blh;)V
+    invoke-direct {v0, p0}, Lretrofit2/HttpException;-><init>(Lretrofit2/Response;)V
 
     throw v0
 
     .line 46
     :cond_0
-    invoke-virtual {p0}, Lbl/blh;->f()Ljava/lang/Object;
+    invoke-virtual {p0}, Lretrofit2/Response;->f()Ljava/lang/Object;
 
     move-result-object p0
 
@@ -90,14 +90,14 @@
     return v1
 .end method
 
-.method public static b(Lbl/blh;)Ljava/lang/Object;
+.method public static b(Lretrofit2/Response;)Ljava/lang/Object;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
             "Ljava/lang/Object;",
             ">(",
-            "Lbl/blh<",
+            "Lretrofit2/Response<",
             "Lcom/bilibili/okretro/GeneralResponse<",
             "TT;>;>;)TT;"
         }
@@ -111,7 +111,7 @@
     .end annotation
 
     .line 53
-    invoke-virtual {p0}, Lbl/blh;->e()Z
+    invoke-virtual {p0}, Lretrofit2/Response;->e()Z
 
     move-result v0
 
@@ -120,13 +120,13 @@
     .line 54
     new-instance v0, Lretrofit2/HttpException;
 
-    invoke-direct {v0, p0}, Lretrofit2/HttpException;-><init>(Lbl/blh;)V
+    invoke-direct {v0, p0}, Lretrofit2/HttpException;-><init>(Lretrofit2/Response;)V
 
     throw v0
 
     .line 57
     :cond_0
-    invoke-virtual {p0}, Lbl/blh;->f()Ljava/lang/Object;
+    invoke-virtual {p0}, Lretrofit2/Response;->f()Ljava/lang/Object;
 
     move-result-object p0
 

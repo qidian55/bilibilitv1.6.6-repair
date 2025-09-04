@@ -677,7 +677,7 @@
     if-eqz p9, :cond_8
 
     .line 1730
-    sget-object v2, Lbl/bie;->e:Ljava/nio/charset/Charset;
+    sget-object v2, Lokhttp3/internal/Util;->e:Ljava/nio/charset/Charset;
 
     invoke-virtual {p9, v2}, Ljava/nio/charset/Charset;->equals(Ljava/lang/Object;)Z
 
@@ -785,7 +785,7 @@
 
     move-result v2
 
-    invoke-static {v2}, Lbl/bie;->a(C)I
+    invoke-static {v2}, Lokhttp3/internal/Util;->a(C)I
 
     move-result v2
 
@@ -794,7 +794,7 @@
 
     move-result v3
 
-    invoke-static {v3}, Lbl/bie;->a(C)I
+    invoke-static {v3}, Lokhttp3/internal/Util;->a(C)I
 
     move-result v3
 
@@ -916,7 +916,7 @@
 
     move-result p1
 
-    invoke-static {p1}, Lbl/bie;->a(C)I
+    invoke-static {p1}, Lokhttp3/internal/Util;->a(C)I
 
     move-result p1
 
@@ -929,7 +929,7 @@
 
     move-result p0
 
-    invoke-static {p0}, Lbl/bie;->a(C)I
+    invoke-static {p0}, Lokhttp3/internal/Util;->a(C)I
 
     move-result p0
 
@@ -1519,7 +1519,7 @@
 
     const-string v3, ":@"
 
-    invoke-static {v1, v0, v2, v3}, Lbl/bie;->a(Ljava/lang/String;IILjava/lang/String;)I
+    invoke-static {v1, v0, v2, v3}, Lokhttp3/internal/Util;->a(Ljava/lang/String;IILjava/lang/String;)I
 
     move-result v1
 
@@ -1714,7 +1714,7 @@
 
     const-string v3, "?#"
 
-    invoke-static {v1, v0, v2, v3}, Lbl/bie;->a(Ljava/lang/String;IILjava/lang/String;)I
+    invoke-static {v1, v0, v2, v3}, Lokhttp3/internal/Util;->a(Ljava/lang/String;IILjava/lang/String;)I
 
     move-result v1
 
@@ -1767,7 +1767,7 @@
 
     const-string v4, "?#"
 
-    invoke-static {v1, v0, v3, v4}, Lbl/bie;->a(Ljava/lang/String;IILjava/lang/String;)I
+    invoke-static {v1, v0, v3, v4}, Lokhttp3/internal/Util;->a(Ljava/lang/String;IILjava/lang/String;)I
 
     move-result v1
 
@@ -1784,7 +1784,7 @@
     .line 575
     iget-object v4, p0, Lokhttp3/HttpUrl;->j:Ljava/lang/String;
 
-    invoke-static {v4, v0, v1, v2}, Lbl/bie;->a(Ljava/lang/String;IIC)I
+    invoke-static {v4, v0, v1, v2}, Lokhttp3/internal/Util;->a(Ljava/lang/String;IIC)I
 
     move-result v4
 
@@ -1859,7 +1859,7 @@
 
     const/16 v3, 0x23
 
-    invoke-static {v1, v0, v2, v3}, Lbl/bie;->a(Ljava/lang/String;IIC)I
+    invoke-static {v1, v0, v2, v3}, Lokhttp3/internal/Util;->a(Ljava/lang/String;IIC)I
 
     move-result v1
 

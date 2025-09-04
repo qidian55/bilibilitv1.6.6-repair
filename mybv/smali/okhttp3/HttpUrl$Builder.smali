@@ -173,7 +173,7 @@
     const-string p2, "/\\"
 
     .line 1465
-    invoke-static {p1, v5, p3, p2}, Lbl/bie;->a(Ljava/lang/String;IILjava/lang/String;)I
+    invoke-static {p1, v5, p3, p2}, Lokhttp3/internal/Util;->a(Ljava/lang/String;IILjava/lang/String;)I
 
     move-result p2
 
@@ -572,7 +572,7 @@
     move-result-object p0
 
     .line 1592
-    invoke-static {p0}, Lbl/bie;->a(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0}, Lokhttp3/internal/Util;->a(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -766,7 +766,7 @@
 
     const/4 v8, 0x0
 
-    invoke-static {v10, v8, v2}, Lbl/bie;->a(Ljava/lang/String;II)I
+    invoke-static {v10, v8, v2}, Lokhttp3/internal/Util;->a(Ljava/lang/String;II)I
 
     move-result v9
 
@@ -775,7 +775,7 @@
 
     move-result v2
 
-    invoke-static {v10, v9, v2}, Lbl/bie;->b(Ljava/lang/String;II)I
+    invoke-static {v10, v9, v2}, Lokhttp3/internal/Util;->b(Ljava/lang/String;II)I
 
     move-result v11
 
@@ -975,7 +975,7 @@
     const-string v1, "@/\\?#"
 
     .line 1360
-    invoke-static {v10, v2, v11, v1}, Lbl/bie;->a(Ljava/lang/String;IILjava/lang/String;)I
+    invoke-static {v10, v2, v11, v1}, Lokhttp3/internal/Util;->a(Ljava/lang/String;IILjava/lang/String;)I
 
     move-result v9
 
@@ -1014,7 +1014,7 @@
     const/16 v1, 0x3a
 
     .line 1368
-    invoke-static {v10, v2, v9, v1}, Lbl/bie;->a(Ljava/lang/String;IIC)I
+    invoke-static {v10, v2, v9, v1}, Lokhttp3/internal/Util;->a(Ljava/lang/String;IIC)I
 
     move-result v8
 
@@ -1226,7 +1226,7 @@
     const-string v1, "?#"
 
     .line 1425
-    invoke-static {v10, v13, v11, v1}, Lbl/bie;->a(Ljava/lang/String;IILjava/lang/String;)I
+    invoke-static {v10, v13, v11, v1}, Lokhttp3/internal/Util;->a(Ljava/lang/String;IILjava/lang/String;)I
 
     move-result v1
 
@@ -1247,7 +1247,7 @@
     const/16 v2, 0x23
 
     .line 1431
-    invoke-static {v10, v1, v11, v2}, Lbl/bie;->a(Ljava/lang/String;IIC)I
+    invoke-static {v10, v1, v11, v2}, Lokhttp3/internal/Util;->a(Ljava/lang/String;IIC)I
 
     move-result v12
 

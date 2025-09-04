@@ -15,12 +15,12 @@
 
 
 # instance fields
-.field a:Lbl/bhd;
+.field a:Lokhttp3/Call;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
 
-.field final b:Lbl/bhd$a;
+.field final b:Lokhttp3/Call$a;
 
 .field final c:Lbl/ns$a;
 
@@ -36,14 +36,14 @@
 
 
 # direct methods
-.method constructor <init>(Lbl/bhd$a;Lbl/ns$a;Lbl/ase$a;Ljava/util/concurrent/Executor;Lbl/ns$b;Lbl/ns$e;)V
+.method constructor <init>(Lokhttp3/Call$a;Lbl/ns$a;Lbl/ase$a;Ljava/util/concurrent/Executor;Lbl/ns$b;Lbl/ns$e;)V
     .locals 0
 
     .line 137
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 138
-    iput-object p1, p0, Lbl/ns$d;->b:Lbl/bhd$a;
+    iput-object p1, p0, Lbl/ns$d;->b:Lokhttp3/Call$a;
 
     .line 139
     iput-object p2, p0, Lbl/ns$d;->c:Lbl/ns$a;
@@ -133,13 +133,13 @@
     invoke-interface {v0}, Lbl/ase$a;->a()V
 
     .line 233
-    iget-object v0, p0, Lbl/ns$d;->a:Lbl/bhd;
+    iget-object v0, p0, Lbl/ns$d;->a:Lokhttp3/Call;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lbl/ns$d;->a:Lbl/bhd;
+    iget-object v0, p0, Lbl/ns$d;->a:Lokhttp3/Call;
 
-    invoke-interface {v0}, Lbl/bhd;->c()V
+    invoke-interface {v0}, Lokhttp3/Call;->c()V
 
     goto :goto_0
 
@@ -253,7 +253,7 @@
     const/4 v0, 0x0
 
     .line 259
-    iput-object v0, p0, Lbl/ns$d;->a:Lbl/bhd;
+    iput-object v0, p0, Lbl/ns$d;->a:Lokhttp3/Call;
 
     return-void
 .end method
@@ -262,7 +262,7 @@
     .locals 8
 
     .line 147
-    iget-object v0, p0, Lbl/ns$d;->a:Lbl/bhd;
+    iget-object v0, p0, Lbl/ns$d;->a:Lokhttp3/Call;
 
     const/4 v1, 0x0
 
@@ -319,42 +319,42 @@
 
     .line 163
     :cond_1
-    new-instance v0, Lbl/bhx$a;
+    new-instance v0, Lokhttp3/Request$a;
 
-    invoke-direct {v0}, Lbl/bhx$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/Request$a;-><init>()V
 
     .line 164
-    invoke-static {}, Lbl/ns;->b()Lbl/bhc;
+    invoke-static {}, Lbl/ns;->b()Lokhttp3/CacheControl;
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Lbl/bhx$a;->a(Lbl/bhc;)Lbl/bhx$a;
+    invoke-virtual {v0, v3}, Lokhttp3/Request$a;->a(Lokhttp3/CacheControl;)Lokhttp3/Request$a;
 
     move-result-object v0
 
     .line 165
-    invoke-virtual {v0, v2}, Lbl/bhx$a;->a(Ljava/lang/String;)Lbl/bhx$a;
+    invoke-virtual {v0, v2}, Lokhttp3/Request$a;->a(Ljava/lang/String;)Lokhttp3/Request$a;
 
     move-result-object v0
 
     .line 166
-    invoke-virtual {v0}, Lbl/bhx$a;->a()Lbl/bhx$a;
+    invoke-virtual {v0}, Lokhttp3/Request$a;->a()Lokhttp3/Request$a;
 
     move-result-object v0
 
     .line 167
-    invoke-virtual {v0}, Lbl/bhx$a;->b()Lbl/bhx;
+    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
 
     move-result-object v0
 
     .line 168
-    iget-object v2, p0, Lbl/ns$d;->b:Lbl/bhd$a;
+    iget-object v2, p0, Lbl/ns$d;->b:Lokhttp3/Call$a;
 
-    invoke-interface {v2, v0}, Lbl/bhd$a;->a(Lbl/bhx;)Lbl/bhd;
+    invoke-interface {v2, v0}, Lokhttp3/Call$a;->a(Lokhttp3/Request;)Lokhttp3/Call;
 
     move-result-object v0
 
-    iput-object v0, p0, Lbl/ns$d;->a:Lbl/bhd;
+    iput-object v0, p0, Lbl/ns$d;->a:Lokhttp3/Call;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -393,9 +393,9 @@
     iput-wide v2, v0, Lbl/ns$a;->d:J
 
     .line 182
-    iget-object v0, p0, Lbl/ns$d;->a:Lbl/bhd;
+    iget-object v0, p0, Lbl/ns$d;->a:Lokhttp3/Call;
 
-    invoke-interface {v0}, Lbl/bhd;->b()Lbl/bhz;
+    invoke-interface {v0}, Lokhttp3/Call;->b()Lokhttp3/Response;
 
     move-result-object v0
     :try_end_2
@@ -404,18 +404,18 @@
 
     .line 189
     :try_start_3
-    invoke-virtual {v0}, Lbl/bhz;->c()I
+    invoke-virtual {v0}, Lokhttp3/Response;->c()I
 
     move-result v1
 
     .line 190
-    invoke-virtual {v0}, Lbl/bhz;->a()Lbl/bhx;
+    invoke-virtual {v0}, Lokhttp3/Response;->a()Lokhttp3/Request;
 
     move-result-object v2
 
     const-string v3, "X-Bili-Img-Request"
 
-    invoke-virtual {v2, v3}, Lbl/bhx;->a(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Lokhttp3/Request;->a(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -476,7 +476,7 @@
     if-eqz v0, :cond_5
 
     .line 220
-    invoke-virtual {v0}, Lbl/bhz;->close()V
+    invoke-virtual {v0}, Lokhttp3/Response;->close()V
 
     .line 222
     :cond_5
@@ -498,7 +498,7 @@
     if-eqz v0, :cond_7
 
     .line 220
-    invoke-virtual {v0}, Lbl/bhz;->close()V
+    invoke-virtual {v0}, Lokhttp3/Response;->close()V
 
     .line 222
     :cond_7
@@ -509,12 +509,12 @@
     .line 205
     :cond_8
     :try_start_5
-    invoke-virtual {v0}, Lbl/bhz;->h()Lbl/bia;
+    invoke-virtual {v0}, Lokhttp3/Response;->h()Lokhttp3/ResponseBody;
 
     move-result-object v1
 
     .line 206
-    invoke-virtual {v1}, Lbl/bia;->b()J
+    invoke-virtual {v1}, Lokhttp3/ResponseBody;->b()J
 
     move-result-wide v2
 
@@ -538,7 +538,7 @@
     :try_start_6
     iget-object v4, p0, Lbl/ns$d;->d:Lbl/ase$a;
 
-    invoke-virtual {v1}, Lbl/bia;->d()Ljava/io/InputStream;
+    invoke-virtual {v1}, Lokhttp3/ResponseBody;->d()Ljava/io/InputStream;
 
     move-result-object v5
 
@@ -552,7 +552,7 @@
     .line 216
     :goto_2
     :try_start_7
-    invoke-virtual {v1}, Lbl/bia;->close()V
+    invoke-virtual {v1}, Lokhttp3/ResponseBody;->close()V
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
@@ -580,7 +580,7 @@
     if-eqz v0, :cond_a
 
     .line 220
-    invoke-virtual {v0}, Lbl/bhz;->close()V
+    invoke-virtual {v0}, Lokhttp3/Response;->close()V
 
     .line 222
     :cond_a
@@ -591,7 +591,7 @@
     .line 216
     :goto_4
     :try_start_9
-    invoke-virtual {v1}, Lbl/bia;->close()V
+    invoke-virtual {v1}, Lokhttp3/ResponseBody;->close()V
 
     throw v2
     :try_end_9
@@ -638,7 +638,7 @@
     if-eqz v0, :cond_b
 
     .line 220
-    invoke-virtual {v0}, Lbl/bhz;->close()V
+    invoke-virtual {v0}, Lokhttp3/Response;->close()V
 
     .line 222
     :cond_b

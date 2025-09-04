@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/vp;->a(Lbl/bkz;)V
+    value = Lbl/vp;->a(Lretrofit2/Callback;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,19 +18,19 @@
 
 
 # instance fields
-.field final synthetic a:Lbl/bkz;
+.field final synthetic a:Lretrofit2/Callback;
 
 .field final synthetic b:Lbl/vp;
 
 
 # direct methods
-.method constructor <init>(Lbl/vp;Lbl/bkz;)V
+.method constructor <init>(Lbl/vp;Lretrofit2/Callback;)V
     .locals 0
 
     .line 137
     iput-object p1, p0, Lbl/vp$1;->b:Lbl/vp;
 
-    iput-object p2, p0, Lbl/vp$1;->a:Lbl/bkz;
+    iput-object p2, p0, Lbl/vp$1;->a:Lretrofit2/Callback;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -51,7 +51,7 @@
     :try_start_0
     iget-object v0, p0, Lbl/vp$1;->b:Lbl/vp;
 
-    invoke-virtual {v0}, Lbl/vp;->d()Lbl/blh;
+    invoke-virtual {v0}, Lbl/vp;->d()Lretrofit2/Response;
 
     move-result-object v0
     :try_end_0
@@ -60,9 +60,9 @@
     .line 149
     iget-object v1, p0, Lbl/vp$1;->b:Lbl/vp;
 
-    iget-object v2, p0, Lbl/vp$1;->a:Lbl/bkz;
+    iget-object v2, p0, Lbl/vp$1;->a:Lretrofit2/Callback;
 
-    invoke-static {v1, v2, v0}, Lbl/vp;->a(Lbl/vp;Lbl/bkz;Lbl/blh;)V
+    invoke-static {v1, v2, v0}, Lbl/vp;->a(Lbl/vp;Lretrofit2/Callback;Lretrofit2/Response;)V
 
     return-void
 
@@ -72,9 +72,9 @@
     .line 146
     iget-object v1, p0, Lbl/vp$1;->b:Lbl/vp;
 
-    iget-object v2, p0, Lbl/vp$1;->a:Lbl/bkz;
+    iget-object v2, p0, Lbl/vp$1;->a:Lretrofit2/Callback;
 
-    invoke-static {v1, v2, v0}, Lbl/vp;->a(Lbl/vp;Lbl/bkz;Ljava/lang/Throwable;)V
+    invoke-static {v1, v2, v0}, Lbl/vp;->a(Lbl/vp;Lretrofit2/Callback;Ljava/lang/Throwable;)V
 
     return-void
 .end method

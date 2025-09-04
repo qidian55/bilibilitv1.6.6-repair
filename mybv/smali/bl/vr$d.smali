@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lbl/bla;
+.implements Lretrofit2/Converter;
 
 
 # annotations
@@ -19,8 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lbl/bla<",
-        "Lbl/bia;",
+        "Lretrofit2/Converter<",
+        "Lokhttp3/ResponseBody;",
         "Ljava/lang/Void;",
         ">;"
     }
@@ -56,9 +56,9 @@
 
 
 # virtual methods
-.method public a(Lbl/bia;)Ljava/lang/Void;
+.method public a(Lokhttp3/ResponseBody;)Ljava/lang/Void;
     .locals 0
-    .param p1    # Lbl/bia;
+    .param p1    # Lokhttp3/ResponseBody;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -69,7 +69,7 @@
     .end annotation
 
     .line 134
-    invoke-virtual {p1}, Lbl/bia;->close()V
+    invoke-virtual {p1}, Lokhttp3/ResponseBody;->close()V
 
     const/4 p1, 0x0
 
@@ -89,9 +89,9 @@
     .end annotation
 
     .line 127
-    check-cast p1, Lbl/bia;
+    check-cast p1, Lokhttp3/ResponseBody;
 
-    invoke-virtual {p0, p1}, Lbl/vr$d;->a(Lbl/bia;)Ljava/lang/Void;
+    invoke-virtual {p0, p1}, Lbl/vr$d;->a(Lokhttp3/ResponseBody;)Ljava/lang/Void;
 
     move-result-object p1
 

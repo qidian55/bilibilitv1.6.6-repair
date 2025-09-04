@@ -46,23 +46,23 @@
 
 
 # virtual methods
-.method public synthetic a(Lbl/bia;)Ljava/lang/Object;
+.method public synthetic a(Lokhttp3/ResponseBody;)Ljava/lang/Object;
     .locals 0
 
     .line 112
-    invoke-virtual {p0, p1}, Lbl/ju$a;->b(Lbl/bia;)Lcom/bilibili/okretro/GeneralResponse;
+    invoke-virtual {p0, p1}, Lbl/ju$a;->b(Lokhttp3/ResponseBody;)Lcom/bilibili/okretro/GeneralResponse;
 
     move-result-object p1
 
     return-object p1
 .end method
 
-.method public final b(Lbl/bia;)Lcom/bilibili/okretro/GeneralResponse;
+.method public final b(Lokhttp3/ResponseBody;)Lcom/bilibili/okretro/GeneralResponse;
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lbl/bia;",
+            "Lokhttp3/ResponseBody;",
             ")",
             "Lcom/bilibili/okretro/GeneralResponse<",
             "Lbl/jv;",
@@ -71,7 +71,7 @@
     .end annotation
 
     .line 135
-    invoke-virtual {p1}, Lbl/bia;->f()Ljava/lang/String;
+    invoke-virtual {p1}, Lokhttp3/ResponseBody;->f()Ljava/lang/String;
 
     move-result-object p1
 
@@ -153,9 +153,9 @@
     .locals 0
 
     .line 134
-    check-cast p1, Lbl/bia;
+    check-cast p1, Lokhttp3/ResponseBody;
 
-    invoke-virtual {p0, p1}, Lbl/ju$a;->a(Lbl/bia;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lbl/ju$a;->a(Lokhttp3/ResponseBody;)Ljava/lang/Object;
 
     move-result-object p1
 

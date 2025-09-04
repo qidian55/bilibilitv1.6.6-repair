@@ -18,7 +18,7 @@
 
 
 # virtual methods
-.method public intercept(Lbl/bhx;)Lbl/bhx;
+.method public intercept(Lokhttp3/Request;)Lokhttp3/Request;
     .locals 0
 
     return-object p1
