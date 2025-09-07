@@ -9,7 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/internal/http2/Http2Codec$a;
+        Lokhttp3/internal/http2/Http2Codec$StreamFinishingSource;
     }
 .end annotation
 
@@ -57,7 +57,7 @@
 
 .field private final l:Lokhttp3/OkHttpClient;
 
-.field private final m:Lokhttp3/Interceptor$a;
+.field private final m:Lokhttp3/Interceptor$Chain;
 
 .field private final n:Lokhttp3/internal/http2/Http2Connection;
 
@@ -267,7 +267,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lokhttp3/OkHttpClient;Lokhttp3/Interceptor$a;Lokhttp3/internal/connection/StreamAllocation;Lokhttp3/internal/http2/Http2Connection;)V
+.method public constructor <init>(Lokhttp3/OkHttpClient;Lokhttp3/Interceptor$Chain;Lokhttp3/internal/connection/StreamAllocation;Lokhttp3/internal/http2/Http2Connection;)V
     .locals 0
 
     .line 95
@@ -277,7 +277,7 @@
     iput-object p1, p0, Lokhttp3/internal/http2/Http2Codec;->l:Lokhttp3/OkHttpClient;
 
     .line 97
-    iput-object p2, p0, Lokhttp3/internal/http2/Http2Codec;->m:Lokhttp3/Interceptor$a;
+    iput-object p2, p0, Lokhttp3/internal/http2/Http2Codec;->m:Lokhttp3/Interceptor$Chain;
 
     .line 98
     iput-object p3, p0, Lokhttp3/internal/http2/Http2Codec;->a:Lokhttp3/internal/connection/StreamAllocation;
@@ -288,7 +288,7 @@
     return-void
 .end method
 
-.method public static a(Ljava/util/List;)Lokhttp3/Response$a;
+.method public static a(Ljava/util/List;)Lokhttp3/Response$Builder;
     .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -296,7 +296,7 @@
             "Ljava/util/List<",
             "Lokhttp3/internal/http2/Header;",
             ">;)",
-            "Lokhttp3/Response$a;"
+            "Lokhttp3/Response$Builder;"
         }
     .end annotation
 
@@ -307,9 +307,9 @@
     .end annotation
 
     .line 157
-    new-instance v0, Lokhttp3/Headers$a;
+    new-instance v0, Lokhttp3/Headers$Builder;
 
-    invoke-direct {v0}, Lokhttp3/Headers$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/Headers$Builder;-><init>()V
 
     .line 158
     invoke-interface {p0}, Ljava/util/List;->size()I
@@ -346,9 +346,9 @@
     if-ne v5, v6, :cond_2
 
     .line 166
-    new-instance v0, Lokhttp3/Headers$a;
+    new-instance v0, Lokhttp3/Headers$Builder;
 
-    invoke-direct {v0}, Lokhttp3/Headers$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/Headers$Builder;-><init>()V
 
     move-object v4, v0
 
@@ -414,7 +414,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v7, v4, v6, v5}, Lokhttp3/internal/Internal;->a(Lokhttp3/Headers$a;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v7, v4, v6, v5}, Lokhttp3/internal/Internal;->a(Lokhttp3/Headers$Builder;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_2
     :goto_1
@@ -436,37 +436,37 @@
 
     .line 181
     :cond_4
-    new-instance p0, Lokhttp3/Response$a;
+    new-instance p0, Lokhttp3/Response$Builder;
 
-    invoke-direct {p0}, Lokhttp3/Response$a;-><init>()V
+    invoke-direct {p0}, Lokhttp3/Response$Builder;-><init>()V
 
     sget-object v1, Lokhttp3/Protocol;->HTTP_2:Lokhttp3/Protocol;
 
     .line 182
-    invoke-virtual {p0, v1}, Lokhttp3/Response$a;->a(Lokhttp3/Protocol;)Lokhttp3/Response$a;
+    invoke-virtual {p0, v1}, Lokhttp3/Response$Builder;->a(Lokhttp3/Protocol;)Lokhttp3/Response$Builder;
 
     move-result-object p0
 
     iget v1, v0, Lokhttp3/internal/http/StatusLine;->b:I
 
     .line 183
-    invoke-virtual {p0, v1}, Lokhttp3/Response$a;->a(I)Lokhttp3/Response$a;
+    invoke-virtual {p0, v1}, Lokhttp3/Response$Builder;->a(I)Lokhttp3/Response$Builder;
 
     move-result-object p0
 
     iget-object v0, v0, Lokhttp3/internal/http/StatusLine;->c:Ljava/lang/String;
 
     .line 184
-    invoke-virtual {p0, v0}, Lokhttp3/Response$a;->a(Ljava/lang/String;)Lokhttp3/Response$a;
+    invoke-virtual {p0, v0}, Lokhttp3/Response$Builder;->a(Ljava/lang/String;)Lokhttp3/Response$Builder;
 
     move-result-object p0
 
     .line 185
-    invoke-virtual {v4}, Lokhttp3/Headers$a;->a()Lokhttp3/Headers;
+    invoke-virtual {v4}, Lokhttp3/Headers$Builder;->a()Lokhttp3/Headers;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lokhttp3/Response$a;->a(Lokhttp3/Headers;)Lokhttp3/Response$a;
+    invoke-virtual {p0, v0}, Lokhttp3/Response$Builder;->a(Lokhttp3/Headers;)Lokhttp3/Response$Builder;
 
     move-result-object p0
 
@@ -624,7 +624,7 @@
 
 
 # virtual methods
-.method public a(Z)Lokhttp3/Response$a;
+.method public a(Z)Lokhttp3/Response$Builder;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -640,7 +640,7 @@
     move-result-object v0
 
     .line 126
-    invoke-static {v0}, Lokhttp3/internal/http2/Http2Codec;->a(Ljava/util/List;)Lokhttp3/Response$a;
+    invoke-static {v0}, Lokhttp3/internal/http2/Http2Codec;->a(Ljava/util/List;)Lokhttp3/Response$Builder;
 
     move-result-object v0
 
@@ -649,7 +649,7 @@
     .line 127
     sget-object p1, Lokhttp3/internal/Internal;->a:Lokhttp3/internal/Internal;
 
-    invoke-virtual {p1, v0}, Lokhttp3/internal/Internal;->a(Lokhttp3/Response$a;)I
+    invoke-virtual {p1, v0}, Lokhttp3/internal/Internal;->a(Lokhttp3/Response$Builder;)I
 
     move-result p1
 
@@ -697,7 +697,7 @@
     move-result-wide v1
 
     .line 192
-    new-instance p1, Lokhttp3/internal/http2/Http2Codec$a;
+    new-instance p1, Lokhttp3/internal/http2/Http2Codec$StreamFinishingSource;
 
     iget-object v3, p0, Lokhttp3/internal/http2/Http2Codec;->o:Lokhttp3/internal/http2/Http2Stream;
 
@@ -705,7 +705,7 @@
 
     move-result-object v3
 
-    invoke-direct {p1, p0, v3}, Lokhttp3/internal/http2/Http2Codec$a;-><init>(Lokhttp3/internal/http2/Http2Codec;Lokio/Source;)V
+    invoke-direct {p1, p0, v3}, Lokhttp3/internal/http2/Http2Codec$StreamFinishingSource;-><init>(Lokhttp3/internal/http2/Http2Codec;Lokio/Source;)V
 
     .line 193
     new-instance v3, Lokhttp3/internal/http/RealResponseBody;
@@ -800,9 +800,9 @@
 
     move-result-object p1
 
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Codec;->m:Lokhttp3/Interceptor$a;
+    iget-object v0, p0, Lokhttp3/internal/http2/Http2Codec;->m:Lokhttp3/Interceptor$Chain;
 
-    invoke-interface {v0}, Lokhttp3/Interceptor$a;->d()I
+    invoke-interface {v0}, Lokhttp3/Interceptor$Chain;->d()I
 
     move-result v0
 
@@ -819,9 +819,9 @@
 
     move-result-object p1
 
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Codec;->m:Lokhttp3/Interceptor$a;
+    iget-object v0, p0, Lokhttp3/internal/http2/Http2Codec;->m:Lokhttp3/Interceptor$Chain;
 
-    invoke-interface {v0}, Lokhttp3/Interceptor$a;->e()I
+    invoke-interface {v0}, Lokhttp3/Interceptor$Chain;->e()I
 
     move-result v0
 

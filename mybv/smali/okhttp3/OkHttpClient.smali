@@ -3,14 +3,14 @@
 .source "BL"
 
 # interfaces
-.implements Lokhttp3/Call$a;
+.implements Lokhttp3/Call$Factory;
 .implements Ljava/lang/Cloneable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/OkHttpClient$a;
+        Lokhttp3/OkHttpClient$Builder;
     }
 .end annotation
 
@@ -91,7 +91,7 @@
     .end annotation
 .end field
 
-.field final i:Lokhttp3/EventListener$a;
+.field final i:Lokhttp3/EventListener$Factory;
 
 .field final j:Ljava/net/ProxySelector;
 
@@ -198,43 +198,43 @@
     .locals 1
 
     .line 228
-    new-instance v0, Lokhttp3/OkHttpClient$a;
+    new-instance v0, Lokhttp3/OkHttpClient$Builder;
 
-    invoke-direct {v0}, Lokhttp3/OkHttpClient$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/OkHttpClient$Builder;-><init>()V
 
-    invoke-direct {p0, v0}, Lokhttp3/OkHttpClient;-><init>(Lokhttp3/OkHttpClient$a;)V
+    invoke-direct {p0, v0}, Lokhttp3/OkHttpClient;-><init>(Lokhttp3/OkHttpClient$Builder;)V
 
     return-void
 .end method
 
-.method constructor <init>(Lokhttp3/OkHttpClient$a;)V
+.method constructor <init>(Lokhttp3/OkHttpClient$Builder;)V
     .locals 4
 
     .line 231
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 232
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->a:Lokhttp3/Dispatcher;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->a:Lokhttp3/Dispatcher;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->c:Lokhttp3/Dispatcher;
 
     .line 233
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->b:Ljava/net/Proxy;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->b:Ljava/net/Proxy;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->d:Ljava/net/Proxy;
 
     .line 234
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->c:Ljava/util/List;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->c:Ljava/util/List;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->e:Ljava/util/List;
 
     .line 235
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->d:Ljava/util/List;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->d:Ljava/util/List;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->f:Ljava/util/List;
 
     .line 236
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->e:Ljava/util/List;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->e:Ljava/util/List;
 
     invoke-static {v0}, Lokhttp3/internal/Util;->a(Ljava/util/List;)Ljava/util/List;
 
@@ -243,7 +243,7 @@
     iput-object v0, p0, Lokhttp3/OkHttpClient;->g:Ljava/util/List;
 
     .line 237
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->f:Ljava/util/List;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->f:Ljava/util/List;
 
     invoke-static {v0}, Lokhttp3/internal/Util;->a(Ljava/util/List;)Ljava/util/List;
 
@@ -252,32 +252,32 @@
     iput-object v0, p0, Lokhttp3/OkHttpClient;->h:Ljava/util/List;
 
     .line 238
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->g:Lokhttp3/EventListener$a;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->g:Lokhttp3/EventListener$Factory;
 
-    iput-object v0, p0, Lokhttp3/OkHttpClient;->i:Lokhttp3/EventListener$a;
+    iput-object v0, p0, Lokhttp3/OkHttpClient;->i:Lokhttp3/EventListener$Factory;
 
     .line 239
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->h:Ljava/net/ProxySelector;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->h:Ljava/net/ProxySelector;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->j:Ljava/net/ProxySelector;
 
     .line 240
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->i:Lokhttp3/CookieJar;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->i:Lokhttp3/CookieJar;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->k:Lokhttp3/CookieJar;
 
     .line 241
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->j:Lokhttp3/Cache;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->j:Lokhttp3/Cache;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->l:Lokhttp3/Cache;
 
     .line 242
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->k:Lokhttp3/internal/cache/InternalCache;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->k:Lokhttp3/internal/cache/InternalCache;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->m:Lokhttp3/internal/cache/InternalCache;
 
     .line 243
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->l:Ljavax/net/SocketFactory;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->l:Ljavax/net/SocketFactory;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->n:Ljavax/net/SocketFactory;
 
@@ -322,7 +322,7 @@
 
     .line 250
     :cond_2
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->m:Ljavax/net/ssl/SSLSocketFactory;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->m:Ljavax/net/ssl/SSLSocketFactory;
 
     if-nez v0, :cond_4
 
@@ -355,23 +355,23 @@
     .line 251
     :cond_4
     :goto_1
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->m:Ljavax/net/ssl/SSLSocketFactory;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->m:Ljavax/net/ssl/SSLSocketFactory;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->o:Ljavax/net/ssl/SSLSocketFactory;
 
     .line 252
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->n:Lokhttp3/internal/tls/CertificateChainCleaner;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->n:Lokhttp3/internal/tls/CertificateChainCleaner;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->p:Lokhttp3/internal/tls/CertificateChainCleaner;
 
     .line 259
     :goto_2
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->o:Ljavax/net/ssl/HostnameVerifier;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->o:Ljavax/net/ssl/HostnameVerifier;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->q:Ljavax/net/ssl/HostnameVerifier;
 
     .line 260
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->p:Lokhttp3/CertificatePinner;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->p:Lokhttp3/CertificatePinner;
 
     iget-object v1, p0, Lokhttp3/OkHttpClient;->p:Lokhttp3/internal/tls/CertificateChainCleaner;
 
@@ -382,57 +382,57 @@
     iput-object v0, p0, Lokhttp3/OkHttpClient;->r:Lokhttp3/CertificatePinner;
 
     .line 262
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->q:Lokhttp3/Authenticator;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->q:Lokhttp3/Authenticator;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->s:Lokhttp3/Authenticator;
 
     .line 263
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->r:Lokhttp3/Authenticator;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->r:Lokhttp3/Authenticator;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->t:Lokhttp3/Authenticator;
 
     .line 264
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->s:Lokhttp3/ConnectionPool;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->s:Lokhttp3/ConnectionPool;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->u:Lokhttp3/ConnectionPool;
 
     .line 265
-    iget-object v0, p1, Lokhttp3/OkHttpClient$a;->t:Lokhttp3/Dns;
+    iget-object v0, p1, Lokhttp3/OkHttpClient$Builder;->t:Lokhttp3/Dns;
 
     iput-object v0, p0, Lokhttp3/OkHttpClient;->v:Lokhttp3/Dns;
 
     .line 266
-    iget-boolean v0, p1, Lokhttp3/OkHttpClient$a;->u:Z
+    iget-boolean v0, p1, Lokhttp3/OkHttpClient$Builder;->u:Z
 
     iput-boolean v0, p0, Lokhttp3/OkHttpClient;->w:Z
 
     .line 267
-    iget-boolean v0, p1, Lokhttp3/OkHttpClient$a;->v:Z
+    iget-boolean v0, p1, Lokhttp3/OkHttpClient$Builder;->v:Z
 
     iput-boolean v0, p0, Lokhttp3/OkHttpClient;->x:Z
 
     .line 268
-    iget-boolean v0, p1, Lokhttp3/OkHttpClient$a;->w:Z
+    iget-boolean v0, p1, Lokhttp3/OkHttpClient$Builder;->w:Z
 
     iput-boolean v0, p0, Lokhttp3/OkHttpClient;->y:Z
 
     .line 269
-    iget v0, p1, Lokhttp3/OkHttpClient$a;->x:I
+    iget v0, p1, Lokhttp3/OkHttpClient$Builder;->x:I
 
     iput v0, p0, Lokhttp3/OkHttpClient;->z:I
 
     .line 270
-    iget v0, p1, Lokhttp3/OkHttpClient$a;->y:I
+    iget v0, p1, Lokhttp3/OkHttpClient$Builder;->y:I
 
     iput v0, p0, Lokhttp3/OkHttpClient;->A:I
 
     .line 271
-    iget v0, p1, Lokhttp3/OkHttpClient$a;->z:I
+    iget v0, p1, Lokhttp3/OkHttpClient$Builder;->z:I
 
     iput v0, p0, Lokhttp3/OkHttpClient;->B:I
 
     .line 272
-    iget p1, p1, Lokhttp3/OkHttpClient$a;->A:I
+    iget p1, p1, Lokhttp3/OkHttpClient$Builder;->A:I
 
     iput p1, p0, Lokhttp3/OkHttpClient;->C:I
 
@@ -924,22 +924,22 @@
     return-object v0
 .end method
 
-.method public y()Lokhttp3/EventListener$a;
+.method public y()Lokhttp3/EventListener$Factory;
     .locals 1
 
     .line 423
-    iget-object v0, p0, Lokhttp3/OkHttpClient;->i:Lokhttp3/EventListener$a;
+    iget-object v0, p0, Lokhttp3/OkHttpClient;->i:Lokhttp3/EventListener$Factory;
 
     return-object v0
 .end method
 
-.method public z()Lokhttp3/OkHttpClient$a;
+.method public z()Lokhttp3/OkHttpClient$Builder;
     .locals 1
 
     .line 443
-    new-instance v0, Lokhttp3/OkHttpClient$a;
+    new-instance v0, Lokhttp3/OkHttpClient$Builder;
 
-    invoke-direct {v0, p0}, Lokhttp3/OkHttpClient$a;-><init>(Lokhttp3/OkHttpClient;)V
+    invoke-direct {v0, p0}, Lokhttp3/OkHttpClient$Builder;-><init>(Lokhttp3/OkHttpClient;)V
 
     return-object v0
 .end method

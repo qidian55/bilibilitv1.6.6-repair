@@ -44,9 +44,9 @@
     .end annotation
 
     .line 44
-    new-instance v0, Lokhttp3/FormBody$a;
+    new-instance v0, Lokhttp3/FormBody$Builder;
 
-    invoke-direct {v0}, Lokhttp3/FormBody$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/FormBody$Builder;-><init>()V
 
     .line 45
     invoke-interface {p3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -84,7 +84,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    invoke-virtual {v0, v2, v1}, Lokhttp3/FormBody$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$a;
+    invoke-virtual {v0, v2, v1}, Lokhttp3/FormBody$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
 
     goto :goto_0
 
@@ -205,35 +205,35 @@
     move-result-object p0
 
     .line 68
-    new-instance p1, Lokhttp3/Request$a;
+    new-instance p1, Lokhttp3/Request$Builder;
 
-    invoke-direct {p1}, Lokhttp3/Request$a;-><init>()V
+    invoke-direct {p1}, Lokhttp3/Request$Builder;-><init>()V
 
     .line 69
-    invoke-virtual {p1, p0}, Lokhttp3/Request$a;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$a;
+    invoke-virtual {p1, p0}, Lokhttp3/Request$Builder;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
 
     move-result-object p0
 
     .line 70
-    invoke-virtual {v0}, Lokhttp3/FormBody$a;->a()Lokhttp3/FormBody;
+    invoke-virtual {v0}, Lokhttp3/FormBody$Builder;->a()Lokhttp3/FormBody;
 
     move-result-object p1
 
-    invoke-virtual {p0, p1}, Lokhttp3/Request$a;->a(Lokhttp3/RequestBody;)Lokhttp3/Request$a;
+    invoke-virtual {p0, p1}, Lokhttp3/Request$Builder;->a(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
 
     move-result-object p0
 
     .line 71
-    invoke-virtual {p0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {p0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object v1
 
     .line 73
-    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$a;
+    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lokhttp3/OkHttpClient$a;->c()Lokhttp3/OkHttpClient;
+    invoke-virtual {p0}, Lokhttp3/OkHttpClient$Builder;->c()Lokhttp3/OkHttpClient;
 
     move-result-object v4
 

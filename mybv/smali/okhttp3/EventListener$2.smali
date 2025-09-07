@@ -3,12 +3,12 @@
 .source "BL"
 
 # interfaces
-.implements Lokhttp3/EventListener$a;
+.implements Lokhttp3/EventListener$Factory;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lokhttp3/EventListener;->a(Lokhttp3/EventListener;)Lokhttp3/EventListener$a;
+    value = Lokhttp3/EventListener;->a(Lokhttp3/EventListener;)Lokhttp3/EventListener$Factory;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

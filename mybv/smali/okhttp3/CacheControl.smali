@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/CacheControl$a;
+        Lokhttp3/CacheControl$Builder;
     }
 .end annotation
 
@@ -53,27 +53,27 @@
     .locals 3
 
     .line 18
-    new-instance v0, Lokhttp3/CacheControl$a;
+    new-instance v0, Lokhttp3/CacheControl$Builder;
 
-    invoke-direct {v0}, Lokhttp3/CacheControl$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/CacheControl$Builder;-><init>()V
 
-    invoke-virtual {v0}, Lokhttp3/CacheControl$a;->a()Lokhttp3/CacheControl$a;
+    invoke-virtual {v0}, Lokhttp3/CacheControl$Builder;->a()Lokhttp3/CacheControl$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lokhttp3/CacheControl$a;->d()Lokhttp3/CacheControl;
+    invoke-virtual {v0}, Lokhttp3/CacheControl$Builder;->d()Lokhttp3/CacheControl;
 
     move-result-object v0
 
     sput-object v0, Lokhttp3/CacheControl;->a:Lokhttp3/CacheControl;
 
     .line 25
-    new-instance v0, Lokhttp3/CacheControl$a;
+    new-instance v0, Lokhttp3/CacheControl$Builder;
 
-    invoke-direct {v0}, Lokhttp3/CacheControl$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/CacheControl$Builder;-><init>()V
 
     .line 26
-    invoke-virtual {v0}, Lokhttp3/CacheControl$a;->c()Lokhttp3/CacheControl$a;
+    invoke-virtual {v0}, Lokhttp3/CacheControl$Builder;->c()Lokhttp3/CacheControl$Builder;
 
     move-result-object v0
 
@@ -82,12 +82,12 @@
     const v2, 0x7fffffff
 
     .line 27
-    invoke-virtual {v0, v2, v1}, Lokhttp3/CacheControl$a;->a(ILjava/util/concurrent/TimeUnit;)Lokhttp3/CacheControl$a;
+    invoke-virtual {v0, v2, v1}, Lokhttp3/CacheControl$Builder;->a(ILjava/util/concurrent/TimeUnit;)Lokhttp3/CacheControl$Builder;
 
     move-result-object v0
 
     .line 28
-    invoke-virtual {v0}, Lokhttp3/CacheControl$a;->d()Lokhttp3/CacheControl;
+    invoke-virtual {v0}, Lokhttp3/CacheControl$Builder;->d()Lokhttp3/CacheControl;
 
     move-result-object v0
 
@@ -96,24 +96,24 @@
     return-void
 .end method
 
-.method constructor <init>(Lokhttp3/CacheControl$a;)V
+.method constructor <init>(Lokhttp3/CacheControl$Builder;)V
     .locals 1
 
     .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 65
-    iget-boolean v0, p1, Lokhttp3/CacheControl$a;->a:Z
+    iget-boolean v0, p1, Lokhttp3/CacheControl$Builder;->a:Z
 
     iput-boolean v0, p0, Lokhttp3/CacheControl;->d:Z
 
     .line 66
-    iget-boolean v0, p1, Lokhttp3/CacheControl$a;->b:Z
+    iget-boolean v0, p1, Lokhttp3/CacheControl$Builder;->b:Z
 
     iput-boolean v0, p0, Lokhttp3/CacheControl;->e:Z
 
     .line 67
-    iget v0, p1, Lokhttp3/CacheControl$a;->c:I
+    iget v0, p1, Lokhttp3/CacheControl$Builder;->c:I
 
     iput v0, p0, Lokhttp3/CacheControl;->f:I
 
@@ -134,27 +134,27 @@
     iput-boolean v0, p0, Lokhttp3/CacheControl;->j:Z
 
     .line 72
-    iget v0, p1, Lokhttp3/CacheControl$a;->d:I
+    iget v0, p1, Lokhttp3/CacheControl$Builder;->d:I
 
     iput v0, p0, Lokhttp3/CacheControl;->k:I
 
     .line 73
-    iget v0, p1, Lokhttp3/CacheControl$a;->e:I
+    iget v0, p1, Lokhttp3/CacheControl$Builder;->e:I
 
     iput v0, p0, Lokhttp3/CacheControl;->l:I
 
     .line 74
-    iget-boolean v0, p1, Lokhttp3/CacheControl$a;->f:Z
+    iget-boolean v0, p1, Lokhttp3/CacheControl$Builder;->f:Z
 
     iput-boolean v0, p0, Lokhttp3/CacheControl;->m:Z
 
     .line 75
-    iget-boolean v0, p1, Lokhttp3/CacheControl$a;->g:Z
+    iget-boolean v0, p1, Lokhttp3/CacheControl$Builder;->g:Z
 
     iput-boolean v0, p0, Lokhttp3/CacheControl;->n:Z
 
     .line 76
-    iget-boolean p1, p1, Lokhttp3/CacheControl$a;->h:Z
+    iget-boolean p1, p1, Lokhttp3/CacheControl$Builder;->h:Z
 
     iput-boolean p1, p0, Lokhttp3/CacheControl;->o:Z
 

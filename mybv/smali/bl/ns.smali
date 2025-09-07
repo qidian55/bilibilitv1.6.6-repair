@@ -63,15 +63,15 @@
     sput-object v0, Lbl/ns;->a:Lbl/ns;
 
     .line 49
-    new-instance v0, Lokhttp3/CacheControl$a;
+    new-instance v0, Lokhttp3/CacheControl$Builder;
 
-    invoke-direct {v0}, Lokhttp3/CacheControl$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/CacheControl$Builder;-><init>()V
 
-    invoke-virtual {v0}, Lokhttp3/CacheControl$a;->b()Lokhttp3/CacheControl$a;
+    invoke-virtual {v0}, Lokhttp3/CacheControl$Builder;->b()Lokhttp3/CacheControl$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lokhttp3/CacheControl$a;->d()Lokhttp3/CacheControl;
+    invoke-virtual {v0}, Lokhttp3/CacheControl$Builder;->d()Lokhttp3/CacheControl;
 
     move-result-object v0
 
@@ -87,7 +87,7 @@
     invoke-direct {p0}, Lbl/ara;-><init>()V
 
     .line 55
-    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$a;
+    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
@@ -102,7 +102,7 @@
     invoke-direct {v1, v3, v4, v5, v2}, Lokhttp3/ConnectionPool;-><init>(IJLjava/util/concurrent/TimeUnit;)V
 
     .line 56
-    invoke-virtual {v0, v1}, Lokhttp3/OkHttpClient$a;->a(Lokhttp3/ConnectionPool;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, v1}, Lokhttp3/OkHttpClient$Builder;->a(Lokhttp3/ConnectionPool;)Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
@@ -111,7 +111,7 @@
     const-wide/16 v2, 0xa
 
     .line 57
-    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$a;->a(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$Builder;->a(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
@@ -120,19 +120,19 @@
     const-wide/16 v2, 0xf
 
     .line 58
-    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$a;->b(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$Builder;->b(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
     sget-object v1, Lbl/nt;->a:Lokhttp3/Interceptor;
 
     .line 59
-    invoke-virtual {v0, v1}, Lokhttp3/OkHttpClient$a;->b(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, v1}, Lokhttp3/OkHttpClient$Builder;->b(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
     .line 66
-    invoke-virtual {v0}, Lokhttp3/OkHttpClient$a;->c()Lokhttp3/OkHttpClient;
+    invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->c()Lokhttp3/OkHttpClient;
 
     move-result-object v0
 
@@ -154,7 +154,7 @@
     return-void
 .end method
 
-.method static final synthetic a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
+.method static final synthetic a(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -163,12 +163,12 @@
     .end annotation
 
     .line 60
-    invoke-interface {p0}, Lokhttp3/Interceptor$a;->a()Lokhttp3/Request;
+    invoke-interface {p0}, Lokhttp3/Interceptor$Chain;->a()Lokhttp3/Request;
 
     move-result-object v0
 
     .line 61
-    invoke-virtual {v0}, Lokhttp3/Request;->e()Lokhttp3/Request$a;
+    invoke-virtual {v0}, Lokhttp3/Request;->e()Lokhttp3/Request$Builder;
 
     move-result-object v0
 
@@ -183,17 +183,17 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     .line 63
-    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object v0
 
     .line 64
-    invoke-interface {p0, v0}, Lokhttp3/Interceptor$a;->a(Lokhttp3/Request;)Lokhttp3/Response;
+    invoke-interface {p0, v0}, Lokhttp3/Interceptor$Chain;->a(Lokhttp3/Request;)Lokhttp3/Response;
 
     move-result-object p0
 
@@ -299,7 +299,7 @@
 
     move-object v3, p2
 
-    invoke-direct/range {v0 .. v6}, Lbl/ns$d;-><init>(Lokhttp3/Call$a;Lbl/ns$a;Lbl/ase$a;Ljava/util/concurrent/Executor;Lbl/ns$b;Lbl/ns$e;)V
+    invoke-direct/range {v0 .. v6}, Lbl/ns$d;-><init>(Lokhttp3/Call$Factory;Lbl/ns$a;Lbl/ase$a;Ljava/util/concurrent/Executor;Lbl/ns$b;Lbl/ns$e;)V
 
     .line 92
     invoke-virtual {p1}, Lbl/ns$a;->b()Lbl/asj;

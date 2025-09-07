@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/Request$a;
+        Lokhttp3/Request$Builder;
     }
 .end annotation
 
@@ -29,42 +29,42 @@
 
 
 # direct methods
-.method constructor <init>(Lokhttp3/Request$a;)V
+.method constructor <init>(Lokhttp3/Request$Builder;)V
     .locals 1
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 38
-    iget-object v0, p1, Lokhttp3/Request$a;->a:Lokhttp3/HttpUrl;
+    iget-object v0, p1, Lokhttp3/Request$Builder;->a:Lokhttp3/HttpUrl;
 
     iput-object v0, p0, Lokhttp3/Request;->a:Lokhttp3/HttpUrl;
 
     .line 39
-    iget-object v0, p1, Lokhttp3/Request$a;->b:Ljava/lang/String;
+    iget-object v0, p1, Lokhttp3/Request$Builder;->b:Ljava/lang/String;
 
     iput-object v0, p0, Lokhttp3/Request;->b:Ljava/lang/String;
 
     .line 40
-    iget-object v0, p1, Lokhttp3/Request$a;->c:Lokhttp3/Headers$a;
+    iget-object v0, p1, Lokhttp3/Request$Builder;->c:Lokhttp3/Headers$Builder;
 
-    invoke-virtual {v0}, Lokhttp3/Headers$a;->a()Lokhttp3/Headers;
+    invoke-virtual {v0}, Lokhttp3/Headers$Builder;->a()Lokhttp3/Headers;
 
     move-result-object v0
 
     iput-object v0, p0, Lokhttp3/Request;->c:Lokhttp3/Headers;
 
     .line 41
-    iget-object v0, p1, Lokhttp3/Request$a;->d:Lokhttp3/RequestBody;
+    iget-object v0, p1, Lokhttp3/Request$Builder;->d:Lokhttp3/RequestBody;
 
     iput-object v0, p0, Lokhttp3/Request;->d:Lokhttp3/RequestBody;
 
     .line 42
-    iget-object v0, p1, Lokhttp3/Request$a;->e:Ljava/lang/Object;
+    iget-object v0, p1, Lokhttp3/Request$Builder;->e:Ljava/lang/Object;
 
     if-eqz v0, :cond_0
 
-    iget-object p1, p1, Lokhttp3/Request$a;->e:Ljava/lang/Object;
+    iget-object p1, p1, Lokhttp3/Request$Builder;->e:Ljava/lang/Object;
 
     goto :goto_0
 
@@ -132,13 +132,13 @@
     return-object v0
 .end method
 
-.method public e()Lokhttp3/Request$a;
+.method public e()Lokhttp3/Request$Builder;
     .locals 1
 
     .line 74
-    new-instance v0, Lokhttp3/Request$a;
+    new-instance v0, Lokhttp3/Request$Builder;
 
-    invoke-direct {v0, p0}, Lokhttp3/Request$a;-><init>(Lokhttp3/Request;)V
+    invoke-direct {v0, p0}, Lokhttp3/Request$Builder;-><init>(Lokhttp3/Request;)V
 
     return-object v0
 .end method

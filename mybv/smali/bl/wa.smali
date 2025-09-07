@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method protected final a(Lokhttp3/HttpUrl;Lokhttp3/RequestBody;Lokhttp3/Request$a;)V
+.method protected final a(Lokhttp3/HttpUrl;Lokhttp3/RequestBody;Lokhttp3/Request$Builder;)V
     .locals 0
 
     return-void
@@ -25,22 +25,22 @@
     .locals 1
 
     .line 17
-    invoke-virtual {p1}, Lokhttp3/Request;->e()Lokhttp3/Request$a;
+    invoke-virtual {p1}, Lokhttp3/Request;->e()Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     .line 18
-    invoke-virtual {p0, v0}, Lbl/wa;->a(Lokhttp3/Request$a;)V
+    invoke-virtual {p0, v0}, Lbl/wa;->a(Lokhttp3/Request$Builder;)V
 
     .line 19
     invoke-virtual {p1}, Lokhttp3/Request;->a()Lokhttp3/HttpUrl;
 
     move-result-object p1
 
-    invoke-virtual {p0, p1, v0}, Lbl/wa;->a(Lokhttp3/HttpUrl;Lokhttp3/Request$a;)V
+    invoke-virtual {p0, p1, v0}, Lbl/wa;->a(Lokhttp3/HttpUrl;Lokhttp3/Request$Builder;)V
 
     .line 20
-    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object p1
 

@@ -1,5 +1,5 @@
 .class Lokhttp3/internal/http1/Http1Codec$f;
-.super Lokhttp3/internal/http1/Http1Codec$a;
+.super Lokhttp3/internal/http1/Http1Codec$AbstractSource;
 .source "BL"
 
 
@@ -29,7 +29,7 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, v0}, Lokhttp3/internal/http1/Http1Codec$a;-><init>(Lokhttp3/internal/http1/Http1Codec;Lokhttp3/internal/http1/Http1Codec$1;)V
+    invoke-direct {p0, p1, v0}, Lokhttp3/internal/http1/Http1Codec$AbstractSource;-><init>(Lokhttp3/internal/http1/Http1Codec;Lokhttp3/internal/http1/Http1Codec$1;)V
 
     return-void
 .end method
@@ -97,7 +97,7 @@
 
     .line 507
     :cond_2
-    invoke-super {p0, p1, p2, p3}, Lokhttp3/internal/http1/Http1Codec$a;->read(Lokio/Buffer;J)J
+    invoke-super {p0, p1, p2, p3}, Lokhttp3/internal/http1/Http1Codec$AbstractSource;->read(Lokio/Buffer;J)J
 
     move-result-wide p1
 

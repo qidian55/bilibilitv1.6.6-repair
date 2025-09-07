@@ -39,15 +39,15 @@
 
     .prologue
     .line 161
-    new-instance v0, Lokhttp3/Request$a;
+    new-instance v0, Lokhttp3/Request$Builder;
 
-    invoke-direct {v0}, Lokhttp3/Request$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/Request$Builder;-><init>()V
 
     const-string v1, "Accept"
 
     const-string v2, "application/xhtml+xml,application/xml"
 
-    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
@@ -55,7 +55,7 @@
 
     const-string v2, "gzip, deflate"
 
-    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
@@ -65,7 +65,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
@@ -73,19 +73,19 @@
 
     const-string v2, "keep-alive"
 
-    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lokhttp3/Request$a;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$a;
+    invoke-virtual {v0, p0}, Lokhttp3/Request$Builder;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lokhttp3/Request$a;->a()Lokhttp3/Request$a;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->a()Lokhttp3/Request$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object v0
 
@@ -1427,19 +1427,19 @@
 
     invoke-direct {v0}, Lbl/wa;-><init>()V
 
-    new-instance v1, Lokhttp3/Request$a;
+    new-instance v1, Lokhttp3/Request$Builder;
 
-    invoke-direct {v1}, Lokhttp3/Request$a;-><init>()V
+    invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
 
     invoke-virtual {v3}, Lokhttp3/HttpUrl$Builder;->c()Lokhttp3/HttpUrl;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lokhttp3/Request$a;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$a;
+    invoke-virtual {v1, v2}, Lokhttp3/Request$Builder;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v1}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object v1
 
@@ -1552,19 +1552,19 @@
 
     invoke-direct {v0}, Lbl/wa;-><init>()V
 
-    new-instance v1, Lokhttp3/Request$a;
+    new-instance v1, Lokhttp3/Request$Builder;
 
-    invoke-direct {v1}, Lokhttp3/Request$a;-><init>()V
+    invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
 
     invoke-virtual {v3}, Lokhttp3/HttpUrl$Builder;->c()Lokhttp3/HttpUrl;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lokhttp3/Request$a;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$a;
+    invoke-virtual {v1, v2}, Lokhttp3/Request$Builder;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v1}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object v1
 
@@ -1885,7 +1885,7 @@
 
     .prologue
     .line 157
-    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$a;
+    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
@@ -1893,7 +1893,7 @@
 
     sget-object v1, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$a;->b(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$Builder;->b(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
@@ -1901,7 +1901,7 @@
 
     sget-object v1, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$a;->c(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$Builder;->c(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
@@ -1909,17 +1909,17 @@
 
     sget-object v1, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$a;->a(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$Builder;->a(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lokhttp3/OkHttpClient$a;->b(Z)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, v1}, Lokhttp3/OkHttpClient$Builder;->b(Z)Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lokhttp3/OkHttpClient$a;->c()Lokhttp3/OkHttpClient;
+    invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->c()Lokhttp3/OkHttpClient;
 
     move-result-object v0
 

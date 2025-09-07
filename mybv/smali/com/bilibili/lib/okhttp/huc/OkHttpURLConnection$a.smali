@@ -37,7 +37,7 @@
 
 
 # virtual methods
-.method public a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
+.method public a(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -46,7 +46,7 @@
     .end annotation
 
     .line 657
-    invoke-interface {p1}, Lokhttp3/Interceptor$a;->a()Lokhttp3/Request;
+    invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->a()Lokhttp3/Request;
 
     move-result-object v0
 
@@ -70,7 +70,7 @@
     .line 661
     iget-object v2, p0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$a;->a:Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;
 
-    invoke-interface {p1}, Lokhttp3/Interceptor$a;->b()Lokhttp3/Connection;
+    invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->b()Lokhttp3/Connection;
 
     move-result-object v3
 
@@ -87,7 +87,7 @@
     .line 662
     iget-object v2, p0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$a;->a:Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;
 
-    invoke-interface {p1}, Lokhttp3/Interceptor$a;->b()Lokhttp3/Connection;
+    invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->b()Lokhttp3/Connection;
 
     move-result-object v3
 
@@ -159,7 +159,7 @@
 
     .line 680
     :cond_1
-    invoke-interface {p1, v0}, Lokhttp3/Interceptor$a;->a(Lokhttp3/Request;)Lokhttp3/Response;
+    invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->a(Lokhttp3/Request;)Lokhttp3/Response;
 
     move-result-object p1
 

@@ -145,7 +145,7 @@
     return-void
 .end method
 
-.method protected addCommonParamToBody(Lokhttp3/HttpUrl;Lokhttp3/RequestBody;Lokhttp3/Request$a;)V
+.method protected addCommonParamToBody(Lokhttp3/HttpUrl;Lokhttp3/RequestBody;Lokhttp3/Request$Builder;)V
     .locals 6
 
     .line 92
@@ -305,11 +305,11 @@
     move-result-object p2
 
     .line 128
-    invoke-virtual {p3, p1}, Lokhttp3/Request$a;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$a;
+    invoke-virtual {p3, p1}, Lokhttp3/Request$Builder;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
 
     move-result-object p1
 
-    invoke-virtual {p1, p2}, Lokhttp3/Request$a;->a(Lokhttp3/RequestBody;)Lokhttp3/Request$a;
+    invoke-virtual {p1, p2}, Lokhttp3/Request$Builder;->a(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
 
     return-void
 
@@ -317,7 +317,7 @@
     return-void
 .end method
 
-.method protected addCommonParamToUrl(Lokhttp3/HttpUrl;Lokhttp3/Request$a;)V
+.method protected addCommonParamToUrl(Lokhttp3/HttpUrl;Lokhttp3/Request$Builder;)V
     .locals 6
 
     .line 132
@@ -402,12 +402,12 @@
     move-result-object p1
 
     .line 145
-    invoke-virtual {p2, p1}, Lokhttp3/Request$a;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$a;
+    invoke-virtual {p2, p1}, Lokhttp3/Request$Builder;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
 
     return-void
 .end method
 
-.method protected addHeader(Lokhttp3/Request$a;)V
+.method protected addHeader(Lokhttp3/Request$Builder;)V
     .locals 2
 
     .line 58
@@ -425,7 +425,7 @@
     const-string v1, "Display-ID"
 
     .line 60
-    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 64
     :cond_0
@@ -443,7 +443,7 @@
     const-string v1, "Buvid"
 
     .line 66
-    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 70
     :cond_1
@@ -461,7 +461,7 @@
     const-string v1, "User-Agent"
 
     .line 72
-    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 76
     :cond_2
@@ -479,7 +479,7 @@
     const-string v1, "Device-ID"
 
     .line 78
-    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     :cond_3
     return-void
@@ -489,12 +489,12 @@
     .locals 3
 
     .line 42
-    invoke-virtual {p1}, Lokhttp3/Request;->e()Lokhttp3/Request$a;
+    invoke-virtual {p1}, Lokhttp3/Request;->e()Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     .line 44
-    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/video/VideoRequestInterceptor;->addHeader(Lokhttp3/Request$a;)V
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/video/VideoRequestInterceptor;->addHeader(Lokhttp3/Request$Builder;)V
 
     const-string v1, "GET"
 
@@ -514,7 +514,7 @@
 
     move-result-object p1
 
-    invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/api/video/VideoRequestInterceptor;->addCommonParamToUrl(Lokhttp3/HttpUrl;Lokhttp3/Request$a;)V
+    invoke-virtual {p0, p1, v0}, Lcom/bilibili/tv/api/video/VideoRequestInterceptor;->addCommonParamToUrl(Lokhttp3/HttpUrl;Lokhttp3/Request$Builder;)V
 
     goto :goto_0
 
@@ -541,12 +541,12 @@
 
     move-result-object p1
 
-    invoke-virtual {p0, v1, p1, v0}, Lcom/bilibili/tv/api/video/VideoRequestInterceptor;->addCommonParamToBody(Lokhttp3/HttpUrl;Lokhttp3/RequestBody;Lokhttp3/Request$a;)V
+    invoke-virtual {p0, v1, p1, v0}, Lcom/bilibili/tv/api/video/VideoRequestInterceptor;->addCommonParamToBody(Lokhttp3/HttpUrl;Lokhttp3/RequestBody;Lokhttp3/Request$Builder;)V
 
     .line 52
     :cond_1
     :goto_0
-    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object p1
 

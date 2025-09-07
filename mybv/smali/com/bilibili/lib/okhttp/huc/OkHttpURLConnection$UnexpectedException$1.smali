@@ -29,7 +29,7 @@
 
 
 # virtual methods
-.method public a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
+.method public a(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -39,11 +39,11 @@
 
     .line 617
     :try_start_0
-    invoke-interface {p1}, Lokhttp3/Interceptor$a;->a()Lokhttp3/Request;
+    invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->a()Lokhttp3/Request;
 
     move-result-object v0
 
-    invoke-interface {p1, v0}, Lokhttp3/Interceptor$a;->a(Lokhttp3/Request;)Lokhttp3/Response;
+    invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->a(Lokhttp3/Request;)Lokhttp3/Response;
 
     move-result-object p1
     :try_end_0

@@ -509,7 +509,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lokhttp3/Request;->e()Lokhttp3/Request$a;
+    invoke-virtual {v0}, Lokhttp3/Request;->e()Lokhttp3/Request$Builder;
 
     move-result-object v0
 
@@ -535,7 +535,7 @@
     const-string v1, "GET"
 
     .line 321
-    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$a;->a(Ljava/lang/String;Lokhttp3/RequestBody;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
 
     goto :goto_1
 
@@ -553,7 +553,7 @@
 
     .line 324
     :cond_f
-    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$a;->a(Ljava/lang/String;Lokhttp3/RequestBody;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
 
     :goto_1
     if-nez v3, :cond_10
@@ -561,17 +561,17 @@
     const-string v1, "Transfer-Encoding"
 
     .line 327
-    invoke-virtual {v0, v1}, Lokhttp3/Request$a;->b(Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v1}, Lokhttp3/Request$Builder;->b(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     const-string v1, "Content-Length"
 
     .line 328
-    invoke-virtual {v0, v1}, Lokhttp3/Request$a;->b(Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v1}, Lokhttp3/Request$Builder;->b(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     const-string v1, "Content-Type"
 
     .line 329
-    invoke-virtual {v0, v1}, Lokhttp3/Request$a;->b(Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v1}, Lokhttp3/Request$Builder;->b(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 336
     :cond_10
@@ -584,15 +584,15 @@
     const-string p1, "Authorization"
 
     .line 337
-    invoke-virtual {v0, p1}, Lokhttp3/Request$a;->b(Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v0, p1}, Lokhttp3/Request$Builder;->b(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 340
     :cond_11
-    invoke-virtual {v0, p2}, Lokhttp3/Request$a;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$a;
+    invoke-virtual {v0, p2}, Lokhttp3/Request$Builder;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {p1}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object p1
 
@@ -801,7 +801,7 @@
 
 
 # virtual methods
-.method public a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
+.method public a(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
     .locals 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -810,7 +810,7 @@
     .end annotation
 
     .line 106
-    invoke-interface {p1}, Lokhttp3/Interceptor$a;->a()Lokhttp3/Request;
+    invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->a()Lokhttp3/Request;
 
     move-result-object v0
 
@@ -899,32 +899,32 @@
     if-eqz v1, :cond_2
 
     .line 151
-    invoke-virtual {v3}, Lokhttp3/Response;->i()Lokhttp3/Response$a;
+    invoke-virtual {v3}, Lokhttp3/Response;->i()Lokhttp3/Response$Builder;
 
     move-result-object v0
 
     .line 152
-    invoke-virtual {v1}, Lokhttp3/Response;->i()Lokhttp3/Response$a;
+    invoke-virtual {v1}, Lokhttp3/Response;->i()Lokhttp3/Response$Builder;
 
     move-result-object v1
 
     .line 153
-    invoke-virtual {v1, v11}, Lokhttp3/Response$a;->a(Lokhttp3/ResponseBody;)Lokhttp3/Response$a;
+    invoke-virtual {v1, v11}, Lokhttp3/Response$Builder;->a(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
 
     move-result-object v1
 
     .line 154
-    invoke-virtual {v1}, Lokhttp3/Response$a;->a()Lokhttp3/Response;
+    invoke-virtual {v1}, Lokhttp3/Response$Builder;->a()Lokhttp3/Response;
 
     move-result-object v1
 
     .line 152
-    invoke-virtual {v0, v1}, Lokhttp3/Response$a;->c(Lokhttp3/Response;)Lokhttp3/Response$a;
+    invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->c(Lokhttp3/Response;)Lokhttp3/Response$Builder;
 
     move-result-object v0
 
     .line 155
-    invoke-virtual {v0}, Lokhttp3/Response$a;->a()Lokhttp3/Response;
+    invoke-virtual {v0}, Lokhttp3/Response$Builder;->a()Lokhttp3/Response;
 
     move-result-object v0
 

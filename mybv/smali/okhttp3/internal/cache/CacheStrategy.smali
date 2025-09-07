@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/internal/cache/CacheStrategy$a;
+        Lokhttp3/internal/cache/CacheStrategy$Factory;
     }
 .end annotation
 

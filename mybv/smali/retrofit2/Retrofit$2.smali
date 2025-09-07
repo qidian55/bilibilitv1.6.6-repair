@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lretrofit2/Retrofit;-><init>(Lokhttp3/Call$a;ILjava/util/List;Ljava/util/List;Ljava/util/concurrent/Executor;Z)V
+    value = Lretrofit2/Retrofit;-><init>(Lokhttp3/Call$Factory;ILjava/util/List;Ljava/util/List;Ljava/util/concurrent/Executor;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

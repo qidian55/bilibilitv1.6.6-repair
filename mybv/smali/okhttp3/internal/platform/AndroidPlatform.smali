@@ -6,9 +6,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/internal/platform/AndroidPlatform$b;,
-        Lokhttp3/internal/platform/AndroidPlatform$c;,
-        Lokhttp3/internal/platform/AndroidPlatform$a;
+        Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;,
+        Lokhttp3/internal/platform/AndroidPlatform$CloseGuard;,
+        Lokhttp3/internal/platform/AndroidPlatform$AndroidCertificateChainCleaner;
     }
 .end annotation
 
@@ -63,7 +63,7 @@
     .end annotation
 .end field
 
-.field private final f:Lokhttp3/internal/platform/AndroidPlatform$c;
+.field private final f:Lokhttp3/internal/platform/AndroidPlatform$CloseGuard;
 
 
 # direct methods
@@ -93,11 +93,11 @@
     invoke-direct {p0}, Lokhttp3/internal/platform/Platform;-><init>()V
 
     .line 56
-    invoke-static {}, Lokhttp3/internal/platform/AndroidPlatform$c;->a()Lokhttp3/internal/platform/AndroidPlatform$c;
+    invoke-static {}, Lokhttp3/internal/platform/AndroidPlatform$CloseGuard;->a()Lokhttp3/internal/platform/AndroidPlatform$CloseGuard;
 
     move-result-object v0
 
-    iput-object v0, p0, Lokhttp3/internal/platform/AndroidPlatform;->f:Lokhttp3/internal/platform/AndroidPlatform$c;
+    iput-object v0, p0, Lokhttp3/internal/platform/AndroidPlatform;->f:Lokhttp3/internal/platform/AndroidPlatform$CloseGuard;
 
     .line 61
     iput-object p1, p0, Lokhttp3/internal/platform/AndroidPlatform;->a:Ljava/lang/Class;
@@ -459,9 +459,9 @@
     move-result-object v0
 
     .line 226
-    new-instance v1, Lokhttp3/internal/platform/AndroidPlatform$a;
+    new-instance v1, Lokhttp3/internal/platform/AndroidPlatform$AndroidCertificateChainCleaner;
 
-    invoke-direct {v1, v2, v0}, Lokhttp3/internal/platform/AndroidPlatform$a;-><init>(Ljava/lang/Object;Ljava/lang/reflect/Method;)V
+    invoke-direct {v1, v2, v0}, Lokhttp3/internal/platform/AndroidPlatform$AndroidCertificateChainCleaner;-><init>(Ljava/lang/Object;Ljava/lang/reflect/Method;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -480,9 +480,9 @@
     .locals 1
 
     .line 156
-    iget-object v0, p0, Lokhttp3/internal/platform/AndroidPlatform;->f:Lokhttp3/internal/platform/AndroidPlatform$c;
+    iget-object v0, p0, Lokhttp3/internal/platform/AndroidPlatform;->f:Lokhttp3/internal/platform/AndroidPlatform$CloseGuard;
 
-    invoke-virtual {v0, p1}, Lokhttp3/internal/platform/AndroidPlatform$c;->a(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Lokhttp3/internal/platform/AndroidPlatform$CloseGuard;->a(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -723,9 +723,9 @@
     .locals 1
 
     .line 160
-    iget-object v0, p0, Lokhttp3/internal/platform/AndroidPlatform;->f:Lokhttp3/internal/platform/AndroidPlatform$c;
+    iget-object v0, p0, Lokhttp3/internal/platform/AndroidPlatform;->f:Lokhttp3/internal/platform/AndroidPlatform$CloseGuard;
 
-    invoke-virtual {v0, p2}, Lokhttp3/internal/platform/AndroidPlatform$c;->a(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p2}, Lokhttp3/internal/platform/AndroidPlatform$CloseGuard;->a(Ljava/lang/Object;)Z
 
     move-result p2
 
@@ -926,9 +926,9 @@
     invoke-virtual {v0, v2}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
     .line 276
-    new-instance v1, Lokhttp3/internal/platform/AndroidPlatform$b;
+    new-instance v1, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;
 
-    invoke-direct {v1, p1, v0}, Lokhttp3/internal/platform/AndroidPlatform$b;-><init>(Ljavax/net/ssl/X509TrustManager;Ljava/lang/reflect/Method;)V
+    invoke-direct {v1, p1, v0}, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;-><init>(Ljavax/net/ssl/X509TrustManager;Ljava/lang/reflect/Method;)V
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 

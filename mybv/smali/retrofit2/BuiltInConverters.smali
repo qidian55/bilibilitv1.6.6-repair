@@ -1,16 +1,16 @@
 .class final Lretrofit2/BuiltInConverters;
-.super Lretrofit2/Converter$a;
+.super Lretrofit2/Converter$Factory;
 .source "BL"
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lretrofit2/BuiltInConverters$d;,
-        Lretrofit2/BuiltInConverters$a;,
-        Lretrofit2/BuiltInConverters$c;,
-        Lretrofit2/BuiltInConverters$b;,
-        Lretrofit2/BuiltInConverters$e;
+        Lretrofit2/BuiltInConverters$ToStringConverter;,
+        Lretrofit2/BuiltInConverters$BufferingResponseBodyConverter;,
+        Lretrofit2/BuiltInConverters$StreamingResponseBodyConverter;,
+        Lretrofit2/BuiltInConverters$RequestBodyConverter;,
+        Lretrofit2/BuiltInConverters$VoidResponseBodyConverter;
     }
 .end annotation
 
@@ -20,7 +20,7 @@
     .locals 0
 
     .line 25
-    invoke-direct {p0}, Lretrofit2/Converter$a;-><init>()V
+    invoke-direct {p0}, Lretrofit2/Converter$Factory;-><init>()V
 
     return-void
 .end method
@@ -57,12 +57,12 @@
 
     if-eqz p1, :cond_0
 
-    sget-object p1, Lretrofit2/BuiltInConverters$c;->a:Lretrofit2/BuiltInConverters$c;
+    sget-object p1, Lretrofit2/BuiltInConverters$StreamingResponseBodyConverter;->a:Lretrofit2/BuiltInConverters$StreamingResponseBodyConverter;
 
     goto :goto_0
 
     :cond_0
-    sget-object p1, Lretrofit2/BuiltInConverters$a;->a:Lretrofit2/BuiltInConverters$a;
+    sget-object p1, Lretrofit2/BuiltInConverters$BufferingResponseBodyConverter;->a:Lretrofit2/BuiltInConverters$BufferingResponseBodyConverter;
 
     :goto_0
     return-object p1
@@ -74,7 +74,7 @@
     if-ne p1, p2, :cond_2
 
     .line 35
-    sget-object p1, Lretrofit2/BuiltInConverters$e;->a:Lretrofit2/BuiltInConverters$e;
+    sget-object p1, Lretrofit2/BuiltInConverters$VoidResponseBodyConverter;->a:Lretrofit2/BuiltInConverters$VoidResponseBodyConverter;
 
     return-object p1
 
@@ -117,7 +117,7 @@
     if-eqz p1, :cond_0
 
     .line 44
-    sget-object p1, Lretrofit2/BuiltInConverters$b;->a:Lretrofit2/BuiltInConverters$b;
+    sget-object p1, Lretrofit2/BuiltInConverters$RequestBodyConverter;->a:Lretrofit2/BuiltInConverters$RequestBodyConverter;
 
     return-object p1
 

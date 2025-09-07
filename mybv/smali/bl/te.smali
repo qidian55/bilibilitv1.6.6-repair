@@ -36,7 +36,7 @@
     iput-boolean v0, p0, Lbl/te;->f:Z
 
     .line 57
-    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$a;
+    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
@@ -45,26 +45,26 @@
     const-wide/32 v2, 0xea60
 
     .line 58
-    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$a;->a(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$Builder;->a(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
     sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     .line 59
-    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$a;->c(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$Builder;->c(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
     sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     .line 60
-    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$a;->b(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$Builder;->b(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
     .line 61
-    invoke-virtual {v0}, Lokhttp3/OkHttpClient$a;->c()Lokhttp3/OkHttpClient;
+    invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->c()Lokhttp3/OkHttpClient;
 
     move-result-object v0
 
@@ -147,21 +147,21 @@
     move-result-object v3
 
     .line 128
-    new-instance v6, Lokhttp3/Request$a;
+    new-instance v6, Lokhttp3/Request$Builder;
 
-    invoke-direct {v6}, Lokhttp3/Request$a;-><init>()V
+    invoke-direct {v6}, Lokhttp3/Request$Builder;-><init>()V
 
     .line 129
     invoke-virtual/range {p1 .. p1}, Lbl/tf;->a()Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v6, v7}, Lokhttp3/Request$a;->a(Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v6, v7}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v6
 
     .line 130
-    invoke-virtual {v6, v3}, Lokhttp3/Request$a;->a(Lokhttp3/RequestBody;)Lokhttp3/Request$a;
+    invoke-virtual {v6, v3}, Lokhttp3/Request$Builder;->a(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
 
     move-result-object v3
 
@@ -176,7 +176,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v3, v6, v7}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v3, v6, v7}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v3
 
@@ -192,7 +192,7 @@
     const-string v7, "gzip"
 
     .line 133
-    invoke-virtual {v3, v6, v7}, Lokhttp3/Request$a;->b(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v3, v6, v7}, Lokhttp3/Request$Builder;->b(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 135
     :cond_0
@@ -200,7 +200,7 @@
 
     move-result-object v6
 
-    invoke-direct {v1, v6, v3}, Lbl/te;->a(Ljava/lang/String;Lokhttp3/Request$a;)V
+    invoke-direct {v1, v6, v3}, Lbl/te;->a(Ljava/lang/String;Lokhttp3/Request$Builder;)V
 
     const/4 v6, 0x0
 
@@ -218,7 +218,7 @@
     :try_start_1
     iget-object v10, v1, Lbl/te;->a:Lokhttp3/OkHttpClient;
 
-    invoke-virtual {v3}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v3}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object v3
 
@@ -521,13 +521,13 @@
     return-object v3
 .end method
 
-.method private a(Ljava/lang/String;Lokhttp3/Request$a;)V
+.method private a(Ljava/lang/String;Lokhttp3/Request$Builder;)V
     .locals 3
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2    # Lokhttp3/Request$a;
+    .param p2    # Lokhttp3/Request$Builder;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -592,12 +592,12 @@
 
     move-result-object p1
 
-    invoke-virtual {p2, p1}, Lokhttp3/Request$a;->a(Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {p2, p1}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     const-string p1, "Host"
 
     .line 183
-    invoke-virtual {p2, p1, v0}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {p2, p1, v0}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 

@@ -9,7 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/internal/http/CallServerInterceptor$a;
+        Lokhttp3/internal/http/CallServerInterceptor$CountingSink;
     }
 .end annotation
 
@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method public a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
+.method public a(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
     .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -147,7 +147,7 @@
     const/4 v6, 0x1
 
     .line 61
-    invoke-interface {v0, v6}, Lokhttp3/internal/http/HttpCodec;->a(Z)Lokhttp3/Response$a;
+    invoke-interface {v0, v6}, Lokhttp3/internal/http/HttpCodec;->a(Z)Lokhttp3/Response$Builder;
 
     move-result-object v7
 
@@ -175,14 +175,14 @@
     move-result-wide v8
 
     .line 68
-    new-instance v2, Lokhttp3/internal/http/CallServerInterceptor$a;
+    new-instance v2, Lokhttp3/internal/http/CallServerInterceptor$CountingSink;
 
     .line 69
     invoke-interface {v0, v3, v8, v9}, Lokhttp3/internal/http/HttpCodec;->a(Lokhttp3/Request;J)Lokio/Sink;
 
     move-result-object v6
 
-    invoke-direct {v2, v6}, Lokhttp3/internal/http/CallServerInterceptor$a;-><init>(Lokio/Sink;)V
+    invoke-direct {v2, v6}, Lokhttp3/internal/http/CallServerInterceptor$CountingSink;-><init>(Lokio/Sink;)V
 
     .line 70
     invoke-static {v2}, Lokio/Okio;->buffer(Lokio/Sink;)Lokio/BufferedSink;
@@ -209,7 +209,7 @@
 
     move-result-object v8
 
-    iget-wide v9, v2, Lokhttp3/internal/http/CallServerInterceptor$a;->a:J
+    iget-wide v9, v2, Lokhttp3/internal/http/CallServerInterceptor$CountingSink;->a:J
 
     invoke-virtual {v6, v8, v9, v10}, Lokhttp3/EventListener;->a(Lokhttp3/Call;J)V
 
@@ -247,13 +247,13 @@
     invoke-virtual {v6, v7}, Lokhttp3/EventListener;->e(Lokhttp3/Call;)V
 
     .line 88
-    invoke-interface {v0, v2}, Lokhttp3/internal/http/HttpCodec;->a(Z)Lokhttp3/Response$a;
+    invoke-interface {v0, v2}, Lokhttp3/internal/http/HttpCodec;->a(Z)Lokhttp3/Response$Builder;
 
     move-result-object v7
 
     .line 92
     :cond_3
-    invoke-virtual {v7, v3}, Lokhttp3/Response$a;->a(Lokhttp3/Request;)Lokhttp3/Response$a;
+    invoke-virtual {v7, v3}, Lokhttp3/Response$Builder;->a(Lokhttp3/Request;)Lokhttp3/Response$Builder;
 
     move-result-object v6
 
@@ -266,12 +266,12 @@
 
     move-result-object v7
 
-    invoke-virtual {v6, v7}, Lokhttp3/Response$a;->a(Lokhttp3/Handshake;)Lokhttp3/Response$a;
+    invoke-virtual {v6, v7}, Lokhttp3/Response$Builder;->a(Lokhttp3/Handshake;)Lokhttp3/Response$Builder;
 
     move-result-object v6
 
     .line 94
-    invoke-virtual {v6, v4, v5}, Lokhttp3/Response$a;->a(J)Lokhttp3/Response$a;
+    invoke-virtual {v6, v4, v5}, Lokhttp3/Response$Builder;->a(J)Lokhttp3/Response$Builder;
 
     move-result-object v6
 
@@ -280,12 +280,12 @@
 
     move-result-wide v7
 
-    invoke-virtual {v6, v7, v8}, Lokhttp3/Response$a;->b(J)Lokhttp3/Response$a;
+    invoke-virtual {v6, v7, v8}, Lokhttp3/Response$Builder;->b(J)Lokhttp3/Response$Builder;
 
     move-result-object v6
 
     .line 96
-    invoke-virtual {v6}, Lokhttp3/Response$a;->a()Lokhttp3/Response;
+    invoke-virtual {v6}, Lokhttp3/Response$Builder;->a()Lokhttp3/Response;
 
     move-result-object v6
 
@@ -299,12 +299,12 @@
     if-ne v7, v8, :cond_4
 
     .line 102
-    invoke-interface {v0, v2}, Lokhttp3/internal/http/HttpCodec;->a(Z)Lokhttp3/Response$a;
+    invoke-interface {v0, v2}, Lokhttp3/internal/http/HttpCodec;->a(Z)Lokhttp3/Response$Builder;
 
     move-result-object v2
 
     .line 105
-    invoke-virtual {v2, v3}, Lokhttp3/Response$a;->a(Lokhttp3/Request;)Lokhttp3/Response$a;
+    invoke-virtual {v2, v3}, Lokhttp3/Response$Builder;->a(Lokhttp3/Request;)Lokhttp3/Response$Builder;
 
     move-result-object v2
 
@@ -317,12 +317,12 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Lokhttp3/Response$a;->a(Lokhttp3/Handshake;)Lokhttp3/Response$a;
+    invoke-virtual {v2, v3}, Lokhttp3/Response$Builder;->a(Lokhttp3/Handshake;)Lokhttp3/Response$Builder;
 
     move-result-object v2
 
     .line 107
-    invoke-virtual {v2, v4, v5}, Lokhttp3/Response$a;->a(J)Lokhttp3/Response$a;
+    invoke-virtual {v2, v4, v5}, Lokhttp3/Response$Builder;->a(J)Lokhttp3/Response$Builder;
 
     move-result-object v2
 
@@ -331,12 +331,12 @@
 
     move-result-wide v3
 
-    invoke-virtual {v2, v3, v4}, Lokhttp3/Response$a;->b(J)Lokhttp3/Response$a;
+    invoke-virtual {v2, v3, v4}, Lokhttp3/Response$Builder;->b(J)Lokhttp3/Response$Builder;
 
     move-result-object v2
 
     .line 109
-    invoke-virtual {v2}, Lokhttp3/Response$a;->a()Lokhttp3/Response;
+    invoke-virtual {v2}, Lokhttp3/Response$Builder;->a()Lokhttp3/Response;
 
     move-result-object v6
 
@@ -368,19 +368,19 @@
     if-ne v7, p1, :cond_5
 
     .line 119
-    invoke-virtual {v6}, Lokhttp3/Response;->i()Lokhttp3/Response$a;
+    invoke-virtual {v6}, Lokhttp3/Response;->i()Lokhttp3/Response$Builder;
 
     move-result-object p1
 
     sget-object v0, Lokhttp3/internal/Util;->c:Lokhttp3/ResponseBody;
 
     .line 120
-    invoke-virtual {p1, v0}, Lokhttp3/Response$a;->a(Lokhttp3/ResponseBody;)Lokhttp3/Response$a;
+    invoke-virtual {p1, v0}, Lokhttp3/Response$Builder;->a(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
 
     move-result-object p1
 
     .line 121
-    invoke-virtual {p1}, Lokhttp3/Response$a;->a()Lokhttp3/Response;
+    invoke-virtual {p1}, Lokhttp3/Response$Builder;->a()Lokhttp3/Response;
 
     move-result-object p1
 
@@ -388,7 +388,7 @@
 
     .line 123
     :cond_5
-    invoke-virtual {v6}, Lokhttp3/Response;->i()Lokhttp3/Response$a;
+    invoke-virtual {v6}, Lokhttp3/Response;->i()Lokhttp3/Response$Builder;
 
     move-result-object p1
 
@@ -397,12 +397,12 @@
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Lokhttp3/Response$a;->a(Lokhttp3/ResponseBody;)Lokhttp3/Response$a;
+    invoke-virtual {p1, v0}, Lokhttp3/Response$Builder;->a(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
 
     move-result-object p1
 
     .line 125
-    invoke-virtual {p1}, Lokhttp3/Response$a;->a()Lokhttp3/Response;
+    invoke-virtual {p1}, Lokhttp3/Response$Builder;->a()Lokhttp3/Response;
 
     move-result-object p1
 

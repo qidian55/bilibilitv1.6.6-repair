@@ -190,7 +190,7 @@
 
     .line 267
     :cond_1
-    check-cast v3, Lokhttp3/internal/connection/StreamAllocation$a;
+    check-cast v3, Lokhttp3/internal/connection/StreamAllocation$StreamAllocationReference;
 
     .line 269
     new-instance v4, Ljava/lang/StringBuilder;
@@ -228,7 +228,7 @@
 
     move-result-object v5
 
-    iget-object v3, v3, Lokhttp3/internal/connection/StreamAllocation$a;->a:Ljava/lang/Object;
+    iget-object v3, v3, Lokhttp3/internal/connection/StreamAllocation$StreamAllocationReference;->a:Ljava/lang/Object;
 
     invoke-virtual {v5, v4, v3}, Lokhttp3/internal/platform/Platform;->a(Ljava/lang/String;Ljava/lang/Object;)V
 

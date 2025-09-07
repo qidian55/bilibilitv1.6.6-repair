@@ -165,7 +165,7 @@
     move-result-object v0
 
     .line 440
-    invoke-virtual {v0}, Lokhttp3/Request;->e()Lokhttp3/Request$a;
+    invoke-virtual {v0}, Lokhttp3/Request;->e()Lokhttp3/Request$Builder;
 
     move-result-object v0
 
@@ -176,22 +176,22 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lokhttp3/Request$a;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v1}, Lokhttp3/Request$Builder;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     .line 442
-    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object v0
 
     .line 443
-    invoke-virtual {p1}, Lokhttp3/Response;->i()Lokhttp3/Response$a;
+    invoke-virtual {p1}, Lokhttp3/Response;->i()Lokhttp3/Response$Builder;
 
     move-result-object v1
 
     .line 444
-    invoke-virtual {v1, v0}, Lokhttp3/Response$a;->a(Lokhttp3/Request;)Lokhttp3/Response$a;
+    invoke-virtual {v1, v0}, Lokhttp3/Response$Builder;->a(Lokhttp3/Request;)Lokhttp3/Response$Builder;
 
     move-result-object v0
 
@@ -202,7 +202,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lokhttp3/Response$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Response$a;
+    invoke-virtual {v0, v1, v2}, Lokhttp3/Response$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Response$Builder;
 
     move-result-object v0
 
@@ -219,12 +219,12 @@
 
     move-result-object p1
 
-    invoke-virtual {v0, p1}, Lokhttp3/Response$a;->a(Lokhttp3/ResponseBody;)Lokhttp3/Response$a;
+    invoke-virtual {v0, p1}, Lokhttp3/Response$Builder;->a(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
 
     move-result-object p1
 
     .line 447
-    invoke-virtual {p1}, Lokhttp3/Response$a;->a()Lokhttp3/Response;
+    invoke-virtual {p1}, Lokhttp3/Response$Builder;->a()Lokhttp3/Response;
 
     move-result-object p1
 
@@ -451,7 +451,7 @@
     move-result-wide v14
 
     .line 104
-    invoke-virtual {v8}, Lokhttp3/OkHttpClient;->z()Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v8}, Lokhttp3/OkHttpClient;->z()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v8
 
@@ -464,7 +464,7 @@
     .line 106
     sget-object v9, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v8, v10, v11, v9}, Lokhttp3/OkHttpClient$a;->a(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v8, v10, v11, v9}, Lokhttp3/OkHttpClient$Builder;->a(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
     :cond_2
     cmp-long v9, v12, v16
@@ -474,7 +474,7 @@
     .line 109
     sget-object v9, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v8, v12, v13, v9}, Lokhttp3/OkHttpClient$a;->b(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v8, v12, v13, v9}, Lokhttp3/OkHttpClient$Builder;->b(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
     :cond_3
     cmp-long v9, v14, v16
@@ -484,11 +484,11 @@
     .line 112
     sget-object v9, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v8, v14, v15, v9}, Lokhttp3/OkHttpClient$a;->c(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v8, v14, v15, v9}, Lokhttp3/OkHttpClient$Builder;->c(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
     .line 114
     :cond_4
-    invoke-virtual {v8}, Lokhttp3/OkHttpClient$a;->c()Lokhttp3/OkHttpClient;
+    invoke-virtual {v8}, Lokhttp3/OkHttpClient$Builder;->c()Lokhttp3/OkHttpClient;
 
     move-result-object v8
 
@@ -627,7 +627,7 @@
     move-result-object v0
 
     .line 379
-    invoke-virtual {p1}, Lokhttp3/Response;->i()Lokhttp3/Response$a;
+    invoke-virtual {p1}, Lokhttp3/Response;->i()Lokhttp3/Response$Builder;
 
     move-result-object p1
 
@@ -644,12 +644,12 @@
 
     invoke-direct {v2, v3, v4, v5}, Lbl/vp$b;-><init>(Lokhttp3/MediaType;J)V
 
-    invoke-virtual {p1, v2}, Lokhttp3/Response$a;->a(Lokhttp3/ResponseBody;)Lokhttp3/Response$a;
+    invoke-virtual {p1, v2}, Lokhttp3/Response$Builder;->a(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
 
     move-result-object p1
 
     .line 381
-    invoke-virtual {p1}, Lokhttp3/Response$a;->a()Lokhttp3/Response;
+    invoke-virtual {p1}, Lokhttp3/Response$Builder;->a()Lokhttp3/Response;
 
     move-result-object p1
 
@@ -1047,7 +1047,7 @@
     move-result-object v0
 
     .line 457
-    invoke-virtual {p1}, Lokhttp3/Response;->i()Lokhttp3/Response$a;
+    invoke-virtual {p1}, Lokhttp3/Response;->i()Lokhttp3/Response$Builder;
 
     move-result-object p1
 
@@ -1064,12 +1064,12 @@
 
     invoke-direct {v1, v2, v3, v4}, Lbl/vp$b;-><init>(Lokhttp3/MediaType;J)V
 
-    invoke-virtual {p1, v1}, Lokhttp3/Response$a;->a(Lokhttp3/ResponseBody;)Lokhttp3/Response$a;
+    invoke-virtual {p1, v1}, Lokhttp3/Response$Builder;->a(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
 
     move-result-object p1
 
     .line 459
-    invoke-virtual {p1}, Lokhttp3/Response$a;->a()Lokhttp3/Response;
+    invoke-virtual {p1}, Lokhttp3/Response$Builder;->a()Lokhttp3/Response;
 
     move-result-object p1
 
@@ -1472,19 +1472,19 @@
     if-nez v4, :cond_3
 
     .line 277
-    invoke-virtual {v0}, Lokhttp3/Request;->e()Lokhttp3/Request$a;
+    invoke-virtual {v0}, Lokhttp3/Request;->e()Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     const-string v4, "If-None-Match"
 
     .line 278
-    invoke-virtual {v0, v4, v3}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v4, v3}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     .line 279
-    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object v0
 

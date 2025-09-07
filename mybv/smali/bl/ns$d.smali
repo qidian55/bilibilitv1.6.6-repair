@@ -20,7 +20,7 @@
     .end annotation
 .end field
 
-.field final b:Lokhttp3/Call$a;
+.field final b:Lokhttp3/Call$Factory;
 
 .field final c:Lbl/ns$a;
 
@@ -36,14 +36,14 @@
 
 
 # direct methods
-.method constructor <init>(Lokhttp3/Call$a;Lbl/ns$a;Lbl/ase$a;Ljava/util/concurrent/Executor;Lbl/ns$b;Lbl/ns$e;)V
+.method constructor <init>(Lokhttp3/Call$Factory;Lbl/ns$a;Lbl/ase$a;Ljava/util/concurrent/Executor;Lbl/ns$b;Lbl/ns$e;)V
     .locals 0
 
     .line 137
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 138
-    iput-object p1, p0, Lbl/ns$d;->b:Lokhttp3/Call$a;
+    iput-object p1, p0, Lbl/ns$d;->b:Lokhttp3/Call$Factory;
 
     .line 139
     iput-object p2, p0, Lbl/ns$d;->c:Lbl/ns$a;
@@ -319,38 +319,38 @@
 
     .line 163
     :cond_1
-    new-instance v0, Lokhttp3/Request$a;
+    new-instance v0, Lokhttp3/Request$Builder;
 
-    invoke-direct {v0}, Lokhttp3/Request$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/Request$Builder;-><init>()V
 
     .line 164
     invoke-static {}, Lbl/ns;->b()Lokhttp3/CacheControl;
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Lokhttp3/Request$a;->a(Lokhttp3/CacheControl;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v3}, Lokhttp3/Request$Builder;->a(Lokhttp3/CacheControl;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     .line 165
-    invoke-virtual {v0, v2}, Lokhttp3/Request$a;->a(Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v2}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     .line 166
-    invoke-virtual {v0}, Lokhttp3/Request$a;->a()Lokhttp3/Request$a;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->a()Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     .line 167
-    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object v0
 
     .line 168
-    iget-object v2, p0, Lbl/ns$d;->b:Lokhttp3/Call$a;
+    iget-object v2, p0, Lbl/ns$d;->b:Lokhttp3/Call$Factory;
 
-    invoke-interface {v2, v0}, Lokhttp3/Call$a;->a(Lokhttp3/Request;)Lokhttp3/Call;
+    invoke-interface {v2, v0}, Lokhttp3/Call$Factory;->a(Lokhttp3/Request;)Lokhttp3/Call;
 
     move-result-object v0
 

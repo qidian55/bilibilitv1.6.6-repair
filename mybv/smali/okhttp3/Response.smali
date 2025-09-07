@@ -9,7 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/Response$a;
+        Lokhttp3/Response$Builder;
     }
 .end annotation
 
@@ -58,73 +58,73 @@
 
 
 # direct methods
-.method constructor <init>(Lokhttp3/Response$a;)V
+.method constructor <init>(Lokhttp3/Response$Builder;)V
     .locals 2
 
     .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 60
-    iget-object v0, p1, Lokhttp3/Response$a;->a:Lokhttp3/Request;
+    iget-object v0, p1, Lokhttp3/Response$Builder;->a:Lokhttp3/Request;
 
     iput-object v0, p0, Lokhttp3/Response;->a:Lokhttp3/Request;
 
     .line 61
-    iget-object v0, p1, Lokhttp3/Response$a;->b:Lokhttp3/Protocol;
+    iget-object v0, p1, Lokhttp3/Response$Builder;->b:Lokhttp3/Protocol;
 
     iput-object v0, p0, Lokhttp3/Response;->b:Lokhttp3/Protocol;
 
     .line 62
-    iget v0, p1, Lokhttp3/Response$a;->c:I
+    iget v0, p1, Lokhttp3/Response$Builder;->c:I
 
     iput v0, p0, Lokhttp3/Response;->c:I
 
     .line 63
-    iget-object v0, p1, Lokhttp3/Response$a;->d:Ljava/lang/String;
+    iget-object v0, p1, Lokhttp3/Response$Builder;->d:Ljava/lang/String;
 
     iput-object v0, p0, Lokhttp3/Response;->d:Ljava/lang/String;
 
     .line 64
-    iget-object v0, p1, Lokhttp3/Response$a;->e:Lokhttp3/Handshake;
+    iget-object v0, p1, Lokhttp3/Response$Builder;->e:Lokhttp3/Handshake;
 
     iput-object v0, p0, Lokhttp3/Response;->e:Lokhttp3/Handshake;
 
     .line 65
-    iget-object v0, p1, Lokhttp3/Response$a;->f:Lokhttp3/Headers$a;
+    iget-object v0, p1, Lokhttp3/Response$Builder;->f:Lokhttp3/Headers$Builder;
 
-    invoke-virtual {v0}, Lokhttp3/Headers$a;->a()Lokhttp3/Headers;
+    invoke-virtual {v0}, Lokhttp3/Headers$Builder;->a()Lokhttp3/Headers;
 
     move-result-object v0
 
     iput-object v0, p0, Lokhttp3/Response;->f:Lokhttp3/Headers;
 
     .line 66
-    iget-object v0, p1, Lokhttp3/Response$a;->g:Lokhttp3/ResponseBody;
+    iget-object v0, p1, Lokhttp3/Response$Builder;->g:Lokhttp3/ResponseBody;
 
     iput-object v0, p0, Lokhttp3/Response;->g:Lokhttp3/ResponseBody;
 
     .line 67
-    iget-object v0, p1, Lokhttp3/Response$a;->h:Lokhttp3/Response;
+    iget-object v0, p1, Lokhttp3/Response$Builder;->h:Lokhttp3/Response;
 
     iput-object v0, p0, Lokhttp3/Response;->h:Lokhttp3/Response;
 
     .line 68
-    iget-object v0, p1, Lokhttp3/Response$a;->i:Lokhttp3/Response;
+    iget-object v0, p1, Lokhttp3/Response$Builder;->i:Lokhttp3/Response;
 
     iput-object v0, p0, Lokhttp3/Response;->i:Lokhttp3/Response;
 
     .line 69
-    iget-object v0, p1, Lokhttp3/Response$a;->j:Lokhttp3/Response;
+    iget-object v0, p1, Lokhttp3/Response$Builder;->j:Lokhttp3/Response;
 
     iput-object v0, p0, Lokhttp3/Response;->j:Lokhttp3/Response;
 
     .line 70
-    iget-wide v0, p1, Lokhttp3/Response$a;->k:J
+    iget-wide v0, p1, Lokhttp3/Response$Builder;->k:J
 
     iput-wide v0, p0, Lokhttp3/Response;->k:J
 
     .line 71
-    iget-wide v0, p1, Lokhttp3/Response$a;->l:J
+    iget-wide v0, p1, Lokhttp3/Response$Builder;->l:J
 
     iput-wide v0, p0, Lokhttp3/Response;->l:J
 
@@ -293,13 +293,13 @@
     return-object v0
 .end method
 
-.method public i()Lokhttp3/Response$a;
+.method public i()Lokhttp3/Response$Builder;
     .locals 1
 
     .line 181
-    new-instance v0, Lokhttp3/Response$a;
+    new-instance v0, Lokhttp3/Response$Builder;
 
-    invoke-direct {v0, p0}, Lokhttp3/Response$a;-><init>(Lokhttp3/Response;)V
+    invoke-direct {v0, p0}, Lokhttp3/Response$Builder;-><init>(Lokhttp3/Response;)V
 
     return-object v0
 .end method

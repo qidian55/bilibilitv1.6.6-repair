@@ -6,9 +6,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lretrofit2/Utils$c;,
-        Lretrofit2/Utils$a;,
-        Lretrofit2/Utils$b;
+        Lretrofit2/Utils$WildcardTypeImpl;,
+        Lretrofit2/Utils$GenericArrayTypeImpl;,
+        Lretrofit2/Utils$ParameterizedTypeImpl;
     }
 .end annotation
 
@@ -630,9 +630,9 @@
 
     .line 197
     :cond_2
-    new-instance v0, Lretrofit2/Utils$a;
+    new-instance v0, Lretrofit2/Utils$GenericArrayTypeImpl;
 
-    invoke-direct {v0, p0}, Lretrofit2/Utils$a;-><init>(Ljava/lang/reflect/Type;)V
+    invoke-direct {v0, p0}, Lretrofit2/Utils$GenericArrayTypeImpl;-><init>(Ljava/lang/reflect/Type;)V
 
     :goto_1
     return-object v0
@@ -662,9 +662,9 @@
 
     .line 204
     :cond_4
-    new-instance p2, Lretrofit2/Utils$a;
+    new-instance p2, Lretrofit2/Utils$GenericArrayTypeImpl;
 
-    invoke-direct {p2, p0}, Lretrofit2/Utils$a;-><init>(Ljava/lang/reflect/Type;)V
+    invoke-direct {p2, p0}, Lretrofit2/Utils$GenericArrayTypeImpl;-><init>(Ljava/lang/reflect/Type;)V
 
     :goto_2
     return-object p2
@@ -751,14 +751,14 @@
     if-eqz v0, :cond_a
 
     .line 225
-    new-instance p0, Lretrofit2/Utils$b;
+    new-instance p0, Lretrofit2/Utils$ParameterizedTypeImpl;
 
     .line 226
     invoke-interface {p2}, Ljava/lang/reflect/ParameterizedType;->getRawType()Ljava/lang/reflect/Type;
 
     move-result-object p1
 
-    invoke-direct {p0, v3, p1, v4}, Lretrofit2/Utils$b;-><init>(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)V
+    invoke-direct {p0, v3, p1, v4}, Lretrofit2/Utils$ParameterizedTypeImpl;-><init>(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)V
 
     goto :goto_5
 
@@ -805,7 +805,7 @@
     if-eq p0, p1, :cond_d
 
     .line 237
-    new-instance p1, Lretrofit2/Utils$c;
+    new-instance p1, Lretrofit2/Utils$WildcardTypeImpl;
 
     new-array p2, v1, [Ljava/lang/reflect/Type;
 
@@ -817,7 +817,7 @@
 
     aput-object p0, v0, v2
 
-    invoke-direct {p1, p2, v0}, Lretrofit2/Utils$c;-><init>([Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)V
+    invoke-direct {p1, p2, v0}, Lretrofit2/Utils$WildcardTypeImpl;-><init>([Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)V
 
     return-object p1
 
@@ -840,7 +840,7 @@
     if-eq p0, p1, :cond_d
 
     .line 242
-    new-instance p1, Lretrofit2/Utils$c;
+    new-instance p1, Lretrofit2/Utils$WildcardTypeImpl;
 
     new-array p2, v1, [Ljava/lang/reflect/Type;
 
@@ -848,7 +848,7 @@
 
     sget-object p0, Lretrofit2/Utils;->a:[Ljava/lang/reflect/Type;
 
-    invoke-direct {p1, p2, p0}, Lretrofit2/Utils$c;-><init>([Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)V
+    invoke-direct {p1, p2, p0}, Lretrofit2/Utils$WildcardTypeImpl;-><init>([Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)V
 
     return-object p1
 

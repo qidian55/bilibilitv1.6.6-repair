@@ -1,5 +1,5 @@
 .class public Lbl/vr;
-.super Lretrofit2/Converter$a;
+.super Lretrofit2/Converter$Factory;
 .source "BL"
 
 
@@ -36,7 +36,7 @@
     .locals 0
 
     .line 32
-    invoke-direct {p0}, Lretrofit2/Converter$a;-><init>()V
+    invoke-direct {p0}, Lretrofit2/Converter$Factory;-><init>()V
 
     return-void
 .end method

@@ -57,14 +57,14 @@
     invoke-static {v1, v0}, Ltv/danmaku/android/log/BLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 52
-    new-instance v1, Lokhttp3/Request$a;
+    new-instance v1, Lokhttp3/Request$Builder;
 
-    invoke-direct {v1}, Lokhttp3/Request$a;-><init>()V
+    invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
 
     const-string v2, "http://116.62.182.15/http_dns"
 
     .line 53
-    invoke-virtual {v1, v2}, Lokhttp3/Request$a;->a(Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v1, v2}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v1
 
@@ -79,12 +79,12 @@
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lokhttp3/Request$a;->a(Lokhttp3/RequestBody;)Lokhttp3/Request$a;
+    invoke-virtual {v1, v0}, Lokhttp3/Request$Builder;->a(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     .line 55
-    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object v0
 

@@ -1,5 +1,5 @@
 .class public Lbl/vq;
-.super Lretrofit2/CallAdapter$a;
+.super Lretrofit2/CallAdapter$Factory;
 .source "BL"
 
 
@@ -14,7 +14,7 @@
     .locals 0
 
     .line 27
-    invoke-direct {p0}, Lretrofit2/CallAdapter$a;-><init>()V
+    invoke-direct {p0}, Lretrofit2/CallAdapter$Factory;-><init>()V
 
     .line 28
     iput-object p1, p0, Lbl/vq;->a:Lokhttp3/OkHttpClient;

@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/CertificatePinner$a;,
-        Lokhttp3/CertificatePinner$b;
+        Lokhttp3/CertificatePinner$Builder;,
+        Lokhttp3/CertificatePinner$Pin;
     }
 .end annotation
 
@@ -21,7 +21,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
-            "Lokhttp3/CertificatePinner$b;",
+            "Lokhttp3/CertificatePinner$Pin;",
             ">;"
         }
     .end annotation
@@ -38,11 +38,11 @@
     .locals 1
 
     .line 129
-    new-instance v0, Lokhttp3/CertificatePinner$a;
+    new-instance v0, Lokhttp3/CertificatePinner$Builder;
 
-    invoke-direct {v0}, Lokhttp3/CertificatePinner$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/CertificatePinner$Builder;-><init>()V
 
-    invoke-virtual {v0}, Lokhttp3/CertificatePinner$a;->a()Lokhttp3/CertificatePinner;
+    invoke-virtual {v0}, Lokhttp3/CertificatePinner$Builder;->a()Lokhttp3/CertificatePinner;
 
     move-result-object v0
 
@@ -61,7 +61,7 @@
         value = {
             "(",
             "Ljava/util/Set<",
-            "Lokhttp3/CertificatePinner$b;",
+            "Lokhttp3/CertificatePinner$Pin;",
             ">;",
             "Lokhttp3/internal/tls/CertificateChainCleaner;",
             ")V"
@@ -214,7 +214,7 @@
             "Ljava/lang/String;",
             ")",
             "Ljava/util/List<",
-            "Lokhttp3/CertificatePinner$b;",
+            "Lokhttp3/CertificatePinner$Pin;",
             ">;"
         }
     .end annotation
@@ -243,10 +243,10 @@
 
     move-result-object v2
 
-    check-cast v2, Lokhttp3/CertificatePinner$b;
+    check-cast v2, Lokhttp3/CertificatePinner$Pin;
 
     .line 220
-    invoke-virtual {v2, p1}, Lokhttp3/CertificatePinner$b;->a(Ljava/lang/String;)Z
+    invoke-virtual {v2, p1}, Lokhttp3/CertificatePinner$Pin;->a(Ljava/lang/String;)Z
 
     move-result v3
 
@@ -359,10 +359,10 @@
 
     move-result-object v9
 
-    check-cast v9, Lokhttp3/CertificatePinner$b;
+    check-cast v9, Lokhttp3/CertificatePinner$Pin;
 
     .line 178
-    iget-object v10, v9, Lokhttp3/CertificatePinner$b;->c:Ljava/lang/String;
+    iget-object v10, v9, Lokhttp3/CertificatePinner$Pin;->c:Ljava/lang/String;
 
     const-string v11, "sha256/"
 
@@ -381,7 +381,7 @@
 
     .line 180
     :cond_2
-    iget-object v9, v9, Lokhttp3/CertificatePinner$b;->d:Lokio/ByteString;
+    iget-object v9, v9, Lokhttp3/CertificatePinner$Pin;->d:Lokio/ByteString;
 
     invoke-virtual {v9, v7}, Lokio/ByteString;->equals(Ljava/lang/Object;)Z
 
@@ -393,7 +393,7 @@
 
     .line 181
     :cond_3
-    iget-object v10, v9, Lokhttp3/CertificatePinner$b;->c:Ljava/lang/String;
+    iget-object v10, v9, Lokhttp3/CertificatePinner$Pin;->c:Ljava/lang/String;
 
     const-string v11, "sha1/"
 
@@ -412,7 +412,7 @@
 
     .line 183
     :cond_4
-    iget-object v9, v9, Lokhttp3/CertificatePinner$b;->d:Lokio/ByteString;
+    iget-object v9, v9, Lokhttp3/CertificatePinner$Pin;->d:Lokio/ByteString;
 
     invoke-virtual {v9, v8}, Lokio/ByteString;->equals(Ljava/lang/Object;)Z
 
@@ -439,7 +439,7 @@
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, v9, Lokhttp3/CertificatePinner$b;->c:Ljava/lang/String;
+    iget-object v0, v9, Lokhttp3/CertificatePinner$Pin;->c:Ljava/lang/String;
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -544,7 +544,7 @@
 
     move-result-object p2
 
-    check-cast p2, Lokhttp3/CertificatePinner$b;
+    check-cast p2, Lokhttp3/CertificatePinner$Pin;
 
     const-string v3, "\n    "
 

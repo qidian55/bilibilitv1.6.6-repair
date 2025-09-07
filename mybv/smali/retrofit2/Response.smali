@@ -111,50 +111,50 @@
 
     .line 71
     :cond_0
-    new-instance v0, Lokhttp3/Response$a;
+    new-instance v0, Lokhttp3/Response$Builder;
 
-    invoke-direct {v0}, Lokhttp3/Response$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/Response$Builder;-><init>()V
 
     .line 72
-    invoke-virtual {v0, p0}, Lokhttp3/Response$a;->a(I)Lokhttp3/Response$a;
+    invoke-virtual {v0, p0}, Lokhttp3/Response$Builder;->a(I)Lokhttp3/Response$Builder;
 
     move-result-object p0
 
     const-string v0, "Response.error()"
 
     .line 73
-    invoke-virtual {p0, v0}, Lokhttp3/Response$a;->a(Ljava/lang/String;)Lokhttp3/Response$a;
+    invoke-virtual {p0, v0}, Lokhttp3/Response$Builder;->a(Ljava/lang/String;)Lokhttp3/Response$Builder;
 
     move-result-object p0
 
     sget-object v0, Lokhttp3/Protocol;->HTTP_1_1:Lokhttp3/Protocol;
 
     .line 74
-    invoke-virtual {p0, v0}, Lokhttp3/Response$a;->a(Lokhttp3/Protocol;)Lokhttp3/Response$a;
+    invoke-virtual {p0, v0}, Lokhttp3/Response$Builder;->a(Lokhttp3/Protocol;)Lokhttp3/Response$Builder;
 
     move-result-object p0
 
-    new-instance v0, Lokhttp3/Request$a;
+    new-instance v0, Lokhttp3/Request$Builder;
 
-    invoke-direct {v0}, Lokhttp3/Request$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/Request$Builder;-><init>()V
 
     const-string v1, "http://localhost/"
 
     .line 75
-    invoke-virtual {v0, v1}, Lokhttp3/Request$a;->a(Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v1}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lokhttp3/Response$a;->a(Lokhttp3/Request;)Lokhttp3/Response$a;
+    invoke-virtual {p0, v0}, Lokhttp3/Response$Builder;->a(Lokhttp3/Request;)Lokhttp3/Response$Builder;
 
     move-result-object p0
 
     .line 76
-    invoke-virtual {p0}, Lokhttp3/Response$a;->a()Lokhttp3/Response;
+    invoke-virtual {p0}, Lokhttp3/Response$Builder;->a()Lokhttp3/Response;
 
     move-result-object p0
 
@@ -235,52 +235,52 @@
     .end annotation
 
     .line 30
-    new-instance v0, Lokhttp3/Response$a;
+    new-instance v0, Lokhttp3/Response$Builder;
 
-    invoke-direct {v0}, Lokhttp3/Response$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/Response$Builder;-><init>()V
 
     const/16 v1, 0xc8
 
     .line 31
-    invoke-virtual {v0, v1}, Lokhttp3/Response$a;->a(I)Lokhttp3/Response$a;
+    invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->a(I)Lokhttp3/Response$Builder;
 
     move-result-object v0
 
     const-string v1, "OK"
 
     .line 32
-    invoke-virtual {v0, v1}, Lokhttp3/Response$a;->a(Ljava/lang/String;)Lokhttp3/Response$a;
+    invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->a(Ljava/lang/String;)Lokhttp3/Response$Builder;
 
     move-result-object v0
 
     sget-object v1, Lokhttp3/Protocol;->HTTP_1_1:Lokhttp3/Protocol;
 
     .line 33
-    invoke-virtual {v0, v1}, Lokhttp3/Response$a;->a(Lokhttp3/Protocol;)Lokhttp3/Response$a;
+    invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->a(Lokhttp3/Protocol;)Lokhttp3/Response$Builder;
 
     move-result-object v0
 
-    new-instance v1, Lokhttp3/Request$a;
+    new-instance v1, Lokhttp3/Request$Builder;
 
-    invoke-direct {v1}, Lokhttp3/Request$a;-><init>()V
+    invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
 
     const-string v2, "http://localhost/"
 
     .line 34
-    invoke-virtual {v1, v2}, Lokhttp3/Request$a;->a(Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v1, v2}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v1}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lokhttp3/Response$a;->a(Lokhttp3/Request;)Lokhttp3/Response$a;
+    invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->a(Lokhttp3/Request;)Lokhttp3/Response$Builder;
 
     move-result-object v0
 
     .line 35
-    invoke-virtual {v0}, Lokhttp3/Response$a;->a()Lokhttp3/Response;
+    invoke-virtual {v0}, Lokhttp3/Response$Builder;->a()Lokhttp3/Response;
 
     move-result-object v0
 

@@ -1,12 +1,12 @@
 .class final Lretrofit2/ExecutorCallAdapterFactory;
-.super Lretrofit2/CallAdapter$a;
+.super Lretrofit2/CallAdapter$Factory;
 .source "BL"
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lretrofit2/ExecutorCallAdapterFactory$a;
+        Lretrofit2/ExecutorCallAdapterFactory$ExecutorCallbackCall;
     }
 .end annotation
 
@@ -20,7 +20,7 @@
     .locals 0
 
     .line 29
-    invoke-direct {p0}, Lretrofit2/CallAdapter$a;-><init>()V
+    invoke-direct {p0}, Lretrofit2/CallAdapter$Factory;-><init>()V
 
     .line 30
     iput-object p1, p0, Lretrofit2/ExecutorCallAdapterFactory;->a:Ljava/util/concurrent/Executor;

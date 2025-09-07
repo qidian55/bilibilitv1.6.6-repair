@@ -26,11 +26,11 @@
 
 
 # virtual methods
-.method public a(Lokhttp3/Response$a;)I
+.method public a(Lokhttp3/Response$Builder;)I
     .locals 0
 
     .line 176
-    iget p1, p1, Lokhttp3/Response$a;->c:I
+    iget p1, p1, Lokhttp3/Response$Builder;->c:I
 
     return p1
 .end method
@@ -92,20 +92,20 @@
     return-void
 .end method
 
-.method public a(Lokhttp3/Headers$a;Ljava/lang/String;)V
+.method public a(Lokhttp3/Headers$Builder;Ljava/lang/String;)V
     .locals 0
 
     .line 137
-    invoke-virtual {p1, p2}, Lokhttp3/Headers$a;->a(Ljava/lang/String;)Lokhttp3/Headers$a;
+    invoke-virtual {p1, p2}, Lokhttp3/Headers$Builder;->a(Ljava/lang/String;)Lokhttp3/Headers$Builder;
 
     return-void
 .end method
 
-.method public a(Lokhttp3/Headers$a;Ljava/lang/String;Ljava/lang/String;)V
+.method public a(Lokhttp3/Headers$Builder;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
     .line 141
-    invoke-virtual {p1, p2, p3}, Lokhttp3/Headers$a;->b(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$a;
+    invoke-virtual {p1, p2, p3}, Lokhttp3/Headers$Builder;->b(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
 
     return-void
 .end method

@@ -52,15 +52,15 @@
     .end annotation
 
     .line 50
-    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$a;
+    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p2}, Lokhttp3/OkHttpClient$a;->a(Ljava/net/Proxy;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, p2}, Lokhttp3/OkHttpClient$Builder;->a(Ljava/net/Proxy;)Lokhttp3/OkHttpClient$Builder;
 
     move-result-object p2
 
-    invoke-virtual {p2}, Lokhttp3/OkHttpClient$a;->c()Lokhttp3/OkHttpClient;
+    invoke-virtual {p2}, Lokhttp3/OkHttpClient$Builder;->c()Lokhttp3/OkHttpClient;
 
     move-result-object p2
 

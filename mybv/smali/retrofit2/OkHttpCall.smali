@@ -102,9 +102,9 @@
     .line 181
     iget-object v1, p0, Lretrofit2/OkHttpCall;->a:Lretrofit2/ServiceMethod;
 
-    iget-object v1, v1, Lretrofit2/ServiceMethod;->c:Lokhttp3/Call$a;
+    iget-object v1, v1, Lretrofit2/ServiceMethod;->c:Lokhttp3/Call$Factory;
 
-    invoke-interface {v1, v0}, Lokhttp3/Call$a;->a(Lokhttp3/Request;)Lokhttp3/Call;
+    invoke-interface {v1, v0}, Lokhttp3/Call$Factory;->a(Lokhttp3/Request;)Lokhttp3/Call;
 
     move-result-object v0
 

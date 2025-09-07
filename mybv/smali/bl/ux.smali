@@ -701,17 +701,17 @@
 
     iget-object v1, v1, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->c:Lokhttp3/OkHttpClient;
 
-    invoke-virtual {v1}, Lokhttp3/OkHttpClient;->z()Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v1}, Lokhttp3/OkHttpClient;->z()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v1
 
     .line 54
-    invoke-virtual {v1, p1}, Lokhttp3/OkHttpClient$a;->a(Ljavax/net/ssl/HostnameVerifier;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v1, p1}, Lokhttp3/OkHttpClient$Builder;->a(Ljavax/net/ssl/HostnameVerifier;)Lokhttp3/OkHttpClient$Builder;
 
     move-result-object p1
 
     .line 55
-    invoke-virtual {p1}, Lokhttp3/OkHttpClient$a;->c()Lokhttp3/OkHttpClient;
+    invoke-virtual {p1}, Lokhttp3/OkHttpClient$Builder;->c()Lokhttp3/OkHttpClient;
 
     move-result-object p1
 
@@ -780,17 +780,17 @@
 
     iget-object v1, v1, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection;->c:Lokhttp3/OkHttpClient;
 
-    invoke-virtual {v1}, Lokhttp3/OkHttpClient;->z()Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v1}, Lokhttp3/OkHttpClient;->z()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v1
 
     .line 67
-    invoke-virtual {v1, p1}, Lokhttp3/OkHttpClient$a;->a(Ljavax/net/ssl/SSLSocketFactory;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v1, p1}, Lokhttp3/OkHttpClient$Builder;->a(Ljavax/net/ssl/SSLSocketFactory;)Lokhttp3/OkHttpClient$Builder;
 
     move-result-object p1
 
     .line 68
-    invoke-virtual {p1}, Lokhttp3/OkHttpClient$a;->c()Lokhttp3/OkHttpClient;
+    invoke-virtual {p1}, Lokhttp3/OkHttpClient$Builder;->c()Lokhttp3/OkHttpClient;
 
     move-result-object p1
 

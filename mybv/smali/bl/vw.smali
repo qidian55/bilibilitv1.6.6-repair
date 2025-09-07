@@ -95,7 +95,7 @@
 
 
 # virtual methods
-.method protected a(Lokhttp3/Request$a;)V
+.method protected a(Lokhttp3/Request$Builder;)V
     .locals 2
 
     .line 57
@@ -113,7 +113,7 @@
     const-string v1, "Display-ID"
 
     .line 59
-    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 63
     :cond_0
@@ -131,7 +131,7 @@
     const-string v1, "Buvid"
 
     .line 65
-    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 69
     :cond_1
@@ -149,7 +149,7 @@
     const-string v1, "User-Agent"
 
     .line 71
-    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 75
     :cond_2
@@ -167,7 +167,7 @@
     const-string v1, "Device-ID"
 
     .line 77
-    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     :cond_3
     return-void
@@ -229,7 +229,7 @@
     return-void
 .end method
 
-.method protected a(Lokhttp3/HttpUrl;Lokhttp3/Request$a;)V
+.method protected a(Lokhttp3/HttpUrl;Lokhttp3/Request$Builder;)V
     .locals 6
 
     .line 131
@@ -314,12 +314,12 @@
     move-result-object p1
 
     .line 144
-    invoke-virtual {p2, p1}, Lokhttp3/Request$a;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$a;
+    invoke-virtual {p2, p1}, Lokhttp3/Request$Builder;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
 
     return-void
 .end method
 
-.method protected a(Lokhttp3/HttpUrl;Lokhttp3/RequestBody;Lokhttp3/Request$a;)V
+.method protected a(Lokhttp3/HttpUrl;Lokhttp3/RequestBody;Lokhttp3/Request$Builder;)V
     .locals 6
 
     .line 91
@@ -479,11 +479,11 @@
     move-result-object p2
 
     .line 127
-    invoke-virtual {p3, p1}, Lokhttp3/Request$a;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$a;
+    invoke-virtual {p3, p1}, Lokhttp3/Request$Builder;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
 
     move-result-object p1
 
-    invoke-virtual {p1, p2}, Lokhttp3/Request$a;->a(Lokhttp3/RequestBody;)Lokhttp3/Request$a;
+    invoke-virtual {p1, p2}, Lokhttp3/Request$Builder;->a(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
 
     return-void
 
@@ -495,12 +495,12 @@
     .locals 3
 
     .line 41
-    invoke-virtual {p1}, Lokhttp3/Request;->e()Lokhttp3/Request$a;
+    invoke-virtual {p1}, Lokhttp3/Request;->e()Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     .line 43
-    invoke-virtual {p0, v0}, Lbl/vw;->a(Lokhttp3/Request$a;)V
+    invoke-virtual {p0, v0}, Lbl/vw;->a(Lokhttp3/Request$Builder;)V
 
     const-string v1, "GET"
 
@@ -520,7 +520,7 @@
 
     move-result-object p1
 
-    invoke-virtual {p0, p1, v0}, Lbl/vw;->a(Lokhttp3/HttpUrl;Lokhttp3/Request$a;)V
+    invoke-virtual {p0, p1, v0}, Lbl/vw;->a(Lokhttp3/HttpUrl;Lokhttp3/Request$Builder;)V
 
     goto :goto_0
 
@@ -547,12 +547,12 @@
 
     move-result-object p1
 
-    invoke-virtual {p0, v1, p1, v0}, Lbl/vw;->a(Lokhttp3/HttpUrl;Lokhttp3/RequestBody;Lokhttp3/Request$a;)V
+    invoke-virtual {p0, v1, p1, v0}, Lbl/vw;->a(Lokhttp3/HttpUrl;Lokhttp3/RequestBody;Lokhttp3/Request$Builder;)V
 
     .line 51
     :cond_1
     :goto_0
-    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object p1
 

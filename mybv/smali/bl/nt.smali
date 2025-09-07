@@ -32,10 +32,10 @@
 
 
 # virtual methods
-.method public a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
+.method public a(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
     .locals 0
 
-    invoke-static {p1}, Lbl/ns;->a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
+    invoke-static {p1}, Lbl/ns;->a(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
 
     move-result-object p1
 

@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lretrofit2/RequestBuilder$a;
+        Lretrofit2/RequestBuilder$ContentTypeOverridingRequestBody;
     }
 .end annotation
 
@@ -30,7 +30,7 @@
     .end annotation
 .end field
 
-.field private final f:Lokhttp3/Request$a;
+.field private final f:Lokhttp3/Request$Builder;
 
 .field private g:Lokhttp3/MediaType;
     .annotation runtime Ljavax/annotation/Nullable;
@@ -39,12 +39,12 @@
 
 .field private final h:Z
 
-.field private i:Lokhttp3/MultipartBody$a;
+.field private i:Lokhttp3/MultipartBody$Builder;
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 .end field
 
-.field private j:Lokhttp3/FormBody$a;
+.field private j:Lokhttp3/FormBody$Builder;
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 .end field
@@ -119,11 +119,11 @@
     iput-object p3, p0, Lretrofit2/RequestBuilder;->d:Ljava/lang/String;
 
     .line 55
-    new-instance p1, Lokhttp3/Request$a;
+    new-instance p1, Lokhttp3/Request$Builder;
 
-    invoke-direct {p1}, Lokhttp3/Request$a;-><init>()V
+    invoke-direct {p1}, Lokhttp3/Request$Builder;-><init>()V
 
-    iput-object p1, p0, Lretrofit2/RequestBuilder;->f:Lokhttp3/Request$a;
+    iput-object p1, p0, Lretrofit2/RequestBuilder;->f:Lokhttp3/Request$Builder;
 
     .line 56
     iput-object p5, p0, Lretrofit2/RequestBuilder;->g:Lokhttp3/MediaType;
@@ -134,19 +134,19 @@
     if-eqz p4, :cond_0
 
     .line 60
-    iget-object p1, p0, Lretrofit2/RequestBuilder;->f:Lokhttp3/Request$a;
+    iget-object p1, p0, Lretrofit2/RequestBuilder;->f:Lokhttp3/Request$Builder;
 
-    invoke-virtual {p1, p4}, Lokhttp3/Request$a;->a(Lokhttp3/Headers;)Lokhttp3/Request$a;
+    invoke-virtual {p1, p4}, Lokhttp3/Request$Builder;->a(Lokhttp3/Headers;)Lokhttp3/Request$Builder;
 
     :cond_0
     if-eqz p7, :cond_1
 
     .line 65
-    new-instance p1, Lokhttp3/FormBody$a;
+    new-instance p1, Lokhttp3/FormBody$Builder;
 
-    invoke-direct {p1}, Lokhttp3/FormBody$a;-><init>()V
+    invoke-direct {p1}, Lokhttp3/FormBody$Builder;-><init>()V
 
-    iput-object p1, p0, Lretrofit2/RequestBuilder;->j:Lokhttp3/FormBody$a;
+    iput-object p1, p0, Lretrofit2/RequestBuilder;->j:Lokhttp3/FormBody$Builder;
 
     goto :goto_0
 
@@ -154,18 +154,18 @@
     if-eqz p8, :cond_2
 
     .line 68
-    new-instance p1, Lokhttp3/MultipartBody$a;
+    new-instance p1, Lokhttp3/MultipartBody$Builder;
 
-    invoke-direct {p1}, Lokhttp3/MultipartBody$a;-><init>()V
+    invoke-direct {p1}, Lokhttp3/MultipartBody$Builder;-><init>()V
 
-    iput-object p1, p0, Lretrofit2/RequestBuilder;->i:Lokhttp3/MultipartBody$a;
+    iput-object p1, p0, Lretrofit2/RequestBuilder;->i:Lokhttp3/MultipartBody$Builder;
 
     .line 69
-    iget-object p1, p0, Lretrofit2/RequestBuilder;->i:Lokhttp3/MultipartBody$a;
+    iget-object p1, p0, Lretrofit2/RequestBuilder;->i:Lokhttp3/MultipartBody$Builder;
 
     sget-object p2, Lokhttp3/MultipartBody;->e:Lokhttp3/MediaType;
 
-    invoke-virtual {p1, p2}, Lokhttp3/MultipartBody$a;->a(Lokhttp3/MediaType;)Lokhttp3/MultipartBody$a;
+    invoke-virtual {p1, p2}, Lokhttp3/MultipartBody$Builder;->a(Lokhttp3/MediaType;)Lokhttp3/MultipartBody$Builder;
 
     :cond_2
     :goto_0
@@ -464,14 +464,14 @@
     if-nez v1, :cond_4
 
     .line 207
-    iget-object v2, p0, Lretrofit2/RequestBuilder;->j:Lokhttp3/FormBody$a;
+    iget-object v2, p0, Lretrofit2/RequestBuilder;->j:Lokhttp3/FormBody$Builder;
 
     if-eqz v2, :cond_2
 
     .line 208
-    iget-object v1, p0, Lretrofit2/RequestBuilder;->j:Lokhttp3/FormBody$a;
+    iget-object v1, p0, Lretrofit2/RequestBuilder;->j:Lokhttp3/FormBody$Builder;
 
-    invoke-virtual {v1}, Lokhttp3/FormBody$a;->a()Lokhttp3/FormBody;
+    invoke-virtual {v1}, Lokhttp3/FormBody$Builder;->a()Lokhttp3/FormBody;
 
     move-result-object v1
 
@@ -479,14 +479,14 @@
 
     .line 209
     :cond_2
-    iget-object v2, p0, Lretrofit2/RequestBuilder;->i:Lokhttp3/MultipartBody$a;
+    iget-object v2, p0, Lretrofit2/RequestBuilder;->i:Lokhttp3/MultipartBody$Builder;
 
     if-eqz v2, :cond_3
 
     .line 210
-    iget-object v1, p0, Lretrofit2/RequestBuilder;->i:Lokhttp3/MultipartBody$a;
+    iget-object v1, p0, Lretrofit2/RequestBuilder;->i:Lokhttp3/MultipartBody$Builder;
 
-    invoke-virtual {v1}, Lokhttp3/MultipartBody$a;->a()Lokhttp3/MultipartBody;
+    invoke-virtual {v1}, Lokhttp3/MultipartBody$Builder;->a()Lokhttp3/MultipartBody;
 
     move-result-object v1
 
@@ -519,9 +519,9 @@
     if-eqz v1, :cond_5
 
     .line 220
-    new-instance v3, Lretrofit2/RequestBuilder$a;
+    new-instance v3, Lretrofit2/RequestBuilder$ContentTypeOverridingRequestBody;
 
-    invoke-direct {v3, v1, v2}, Lretrofit2/RequestBuilder$a;-><init>(Lokhttp3/RequestBody;Lokhttp3/MediaType;)V
+    invoke-direct {v3, v1, v2}, Lretrofit2/RequestBuilder$ContentTypeOverridingRequestBody;-><init>(Lokhttp3/RequestBody;Lokhttp3/MediaType;)V
 
     move-object v1, v3
 
@@ -529,7 +529,7 @@
 
     .line 222
     :cond_5
-    iget-object v3, p0, Lretrofit2/RequestBuilder;->f:Lokhttp3/Request$a;
+    iget-object v3, p0, Lretrofit2/RequestBuilder;->f:Lokhttp3/Request$Builder;
 
     const-string v4, "Content-Type"
 
@@ -537,27 +537,27 @@
 
     move-result-object v2
 
-    invoke-virtual {v3, v4, v2}, Lokhttp3/Request$a;->b(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v3, v4, v2}, Lokhttp3/Request$Builder;->b(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 226
     :cond_6
     :goto_2
-    iget-object v2, p0, Lretrofit2/RequestBuilder;->f:Lokhttp3/Request$a;
+    iget-object v2, p0, Lretrofit2/RequestBuilder;->f:Lokhttp3/Request$Builder;
 
     .line 227
-    invoke-virtual {v2, v0}, Lokhttp3/Request$a;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$a;
+    invoke-virtual {v2, v0}, Lokhttp3/Request$Builder;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     iget-object v2, p0, Lretrofit2/RequestBuilder;->b:Ljava/lang/String;
 
     .line 228
-    invoke-virtual {v0, v2, v1}, Lokhttp3/Request$a;->a(Ljava/lang/String;Lokhttp3/RequestBody;)Lokhttp3/Request$a;
+    invoke-virtual {v0, v2, v1}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     .line 229
-    invoke-virtual {v0}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object v0
 
@@ -568,20 +568,20 @@
     .locals 1
 
     .line 177
-    iget-object v0, p0, Lretrofit2/RequestBuilder;->i:Lokhttp3/MultipartBody$a;
+    iget-object v0, p0, Lretrofit2/RequestBuilder;->i:Lokhttp3/MultipartBody$Builder;
 
-    invoke-virtual {v0, p1, p2}, Lokhttp3/MultipartBody$a;->a(Lokhttp3/Headers;Lokhttp3/RequestBody;)Lokhttp3/MultipartBody$a;
+    invoke-virtual {v0, p1, p2}, Lokhttp3/MultipartBody$Builder;->a(Lokhttp3/Headers;Lokhttp3/RequestBody;)Lokhttp3/MultipartBody$Builder;
 
     return-void
 .end method
 
-.method a(Lokhttp3/MultipartBody$b;)V
+.method a(Lokhttp3/MultipartBody$Part;)V
     .locals 1
 
     .line 182
-    iget-object v0, p0, Lretrofit2/RequestBuilder;->i:Lokhttp3/MultipartBody$a;
+    iget-object v0, p0, Lretrofit2/RequestBuilder;->i:Lokhttp3/MultipartBody$Builder;
 
-    invoke-virtual {v0, p1}, Lokhttp3/MultipartBody$a;->a(Lokhttp3/MultipartBody$b;)Lokhttp3/MultipartBody$a;
+    invoke-virtual {v0, p1}, Lokhttp3/MultipartBody$Builder;->a(Lokhttp3/MultipartBody$Part;)Lokhttp3/MultipartBody$Builder;
 
     return-void
 .end method
@@ -656,9 +656,9 @@
 
     .line 85
     :cond_1
-    iget-object v0, p0, Lretrofit2/RequestBuilder;->f:Lokhttp3/Request$a;
+    iget-object v0, p0, Lretrofit2/RequestBuilder;->f:Lokhttp3/Request$Builder;
 
-    invoke-virtual {v0, p1, p2}, Lokhttp3/Request$a;->b(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v0, p1, p2}, Lokhttp3/Request$Builder;->b(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     :goto_0
     return-void
@@ -805,17 +805,17 @@
     if-eqz p3, :cond_0
 
     .line 169
-    iget-object p3, p0, Lretrofit2/RequestBuilder;->j:Lokhttp3/FormBody$a;
+    iget-object p3, p0, Lretrofit2/RequestBuilder;->j:Lokhttp3/FormBody$Builder;
 
-    invoke-virtual {p3, p1, p2}, Lokhttp3/FormBody$a;->b(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$a;
+    invoke-virtual {p3, p1, p2}, Lokhttp3/FormBody$Builder;->b(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
 
     goto :goto_0
 
     .line 171
     :cond_0
-    iget-object p3, p0, Lretrofit2/RequestBuilder;->j:Lokhttp3/FormBody$a;
+    iget-object p3, p0, Lretrofit2/RequestBuilder;->j:Lokhttp3/FormBody$Builder;
 
-    invoke-virtual {p3, p1, p2}, Lokhttp3/FormBody$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$a;
+    invoke-virtual {p3, p1, p2}, Lokhttp3/FormBody$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
 
     :goto_0
     return-void

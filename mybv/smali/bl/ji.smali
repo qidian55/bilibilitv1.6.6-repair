@@ -80,14 +80,14 @@
     return p0
 .end method
 
-.method private a(Lokhttp3/internal/cache/DiskLruCache$a;)V
+.method private a(Lokhttp3/internal/cache/DiskLruCache$Editor;)V
     .locals 0
 
     if-eqz p1, :cond_0
 
     .line 185
     :try_start_0
-    invoke-virtual {p1}, Lokhttp3/internal/cache/DiskLruCache$a;->c()V
+    invoke-virtual {p1}, Lokhttp3/internal/cache/DiskLruCache$Editor;->c()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -293,7 +293,7 @@
 
     move-result-object p1
 
-    invoke-virtual {v1, p1}, Lokhttp3/internal/cache/DiskLruCache;->a(Ljava/lang/String;)Lokhttp3/internal/cache/DiskLruCache$c;
+    invoke-virtual {v1, p1}, Lokhttp3/internal/cache/DiskLruCache;->a(Ljava/lang/String;)Lokhttp3/internal/cache/DiskLruCache$Snapshot;
 
     move-result-object p1
     :try_end_0
@@ -310,7 +310,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {p1, v2}, Lokhttp3/internal/cache/DiskLruCache$c;->a(I)Lokio/Source;
+    invoke-virtual {p1, v2}, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->a(I)Lokio/Source;
 
     move-result-object v2
 
@@ -319,7 +319,7 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 103
-    invoke-virtual {v1, p1}, Lbl/ji$b;->a(Lokhttp3/internal/cache/DiskLruCache$c;)Lokhttp3/Response;
+    invoke-virtual {v1, p1}, Lbl/ji$b;->a(Lokhttp3/internal/cache/DiskLruCache$Snapshot;)Lokhttp3/Response;
 
     move-result-object p1
 
@@ -422,7 +422,7 @@
 
     move-result-object p1
 
-    invoke-virtual {v3, p1}, Lokhttp3/internal/cache/DiskLruCache;->b(Ljava/lang/String;)Lokhttp3/internal/cache/DiskLruCache$a;
+    invoke-virtual {v3, p1}, Lokhttp3/internal/cache/DiskLruCache;->b(Ljava/lang/String;)Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     move-result-object p1
     :try_end_0
@@ -435,14 +435,14 @@
     .line 150
     :cond_2
     :try_start_1
-    invoke-virtual {v1, p1}, Lbl/ji$b;->a(Lokhttp3/internal/cache/DiskLruCache$a;)V
+    invoke-virtual {v1, p1}, Lbl/ji$b;->a(Lokhttp3/internal/cache/DiskLruCache$Editor;)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
     const/4 v1, 0x1
 
     .line 156
-    invoke-virtual {p1, v1}, Lokhttp3/internal/cache/DiskLruCache$a;->a(I)Lokio/Sink;
+    invoke-virtual {p1, v1}, Lokhttp3/internal/cache/DiskLruCache$Editor;->a(I)Lokio/Sink;
 
     move-result-object v1
 
@@ -492,14 +492,14 @@
     if-eqz v2, :cond_3
 
     .line 168
-    invoke-virtual {p1}, Lokhttp3/internal/cache/DiskLruCache$a;->c()V
+    invoke-virtual {p1}, Lokhttp3/internal/cache/DiskLruCache$Editor;->c()V
 
     .line 169
     throw v2
 
     .line 171
     :cond_3
-    invoke-virtual {p1}, Lokhttp3/internal/cache/DiskLruCache$a;->b()V
+    invoke-virtual {p1}, Lokhttp3/internal/cache/DiskLruCache$Editor;->b()V
 
     return-void
 
@@ -508,7 +508,7 @@
 
     .line 152
     :catch_2
-    invoke-direct {p0, v2}, Lbl/ji;->a(Lokhttp3/internal/cache/DiskLruCache$a;)V
+    invoke-direct {p0, v2}, Lbl/ji;->a(Lokhttp3/internal/cache/DiskLruCache$Editor;)V
 
     return-void
 .end method

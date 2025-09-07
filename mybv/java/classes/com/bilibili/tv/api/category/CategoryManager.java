@@ -7,7 +7,6 @@ import android.support.annotation.WorkerThread;
 import android.text.TextUtils;
 import android.util.SparseIntArray;
 import bl.adl;
-import bl.bia;
 import bl.kz;
 import bl.lj;
 import bl.vm;
@@ -28,6 +27,8 @@ import java.util.Collections;
 import java.util.List;
 import tv.danmaku.android.log.BLog;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
+
+import okhttp3.ResponseBody;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -311,8 +312,8 @@ public final class CategoryManager {
 
         @Override // bl.bla
         @WorkerThread
-        public CategoryMeta convert(bia biaVar) throws IOException {
-            String f = biaVar.f();
+        public CategoryMeta convert(ResponseBody responseBody) throws IOException {
+            String f = responseBody.f();
             JSONObject parseObject = JSON.parseObject(f);
             if (parseObject.getIntValue("code") == 0) {
                 saveToFile(f);

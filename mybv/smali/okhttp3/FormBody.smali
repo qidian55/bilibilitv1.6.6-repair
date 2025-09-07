@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/FormBody$a;
+        Lokhttp3/FormBody$Builder;
     }
 .end annotation
 

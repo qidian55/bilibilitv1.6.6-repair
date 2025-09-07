@@ -11,7 +11,7 @@
 
 
 # instance fields
-.field final a:Lokhttp3/internal/http2/Hpack$b;
+.field final a:Lokhttp3/internal/http2/Hpack$Writer;
 
 .field private final c:Lokio/BufferedSink;
 
@@ -64,13 +64,13 @@
     iput-object p1, p0, Lokhttp3/internal/http2/Http2Writer;->e:Lokio/Buffer;
 
     .line 61
-    new-instance p1, Lokhttp3/internal/http2/Hpack$b;
+    new-instance p1, Lokhttp3/internal/http2/Hpack$Writer;
 
     iget-object p2, p0, Lokhttp3/internal/http2/Http2Writer;->e:Lokio/Buffer;
 
-    invoke-direct {p1, p2}, Lokhttp3/internal/http2/Hpack$b;-><init>(Lokio/Buffer;)V
+    invoke-direct {p1, p2}, Lokhttp3/internal/http2/Hpack$Writer;-><init>(Lokio/Buffer;)V
 
-    iput-object p1, p0, Lokhttp3/internal/http2/Http2Writer;->a:Lokhttp3/internal/http2/Hpack$b;
+    iput-object p1, p0, Lokhttp3/internal/http2/Http2Writer;->a:Lokhttp3/internal/http2/Hpack$Writer;
 
     const/16 p1, 0x4000
 
@@ -462,9 +462,9 @@
 
     .line 106
     :cond_0
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->a:Lokhttp3/internal/http2/Hpack$b;
+    iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->a:Lokhttp3/internal/http2/Hpack$Writer;
 
-    invoke-virtual {v0, p3}, Lokhttp3/internal/http2/Hpack$b;->a(Ljava/util/List;)V
+    invoke-virtual {v0, p3}, Lokhttp3/internal/http2/Hpack$Writer;->a(Ljava/util/List;)V
 
     .line 108
     iget-object p3, p0, Lokhttp3/internal/http2/Http2Writer;->e:Lokio/Buffer;
@@ -873,13 +873,13 @@
     if-eq v0, v1, :cond_1
 
     .line 80
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->a:Lokhttp3/internal/http2/Hpack$b;
+    iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->a:Lokhttp3/internal/http2/Hpack$Writer;
 
     invoke-virtual {p1}, Lokhttp3/internal/http2/Settings;->c()I
 
     move-result p1
 
-    invoke-virtual {v0, p1}, Lokhttp3/internal/http2/Hpack$b;->a(I)V
+    invoke-virtual {v0, p1}, Lokhttp3/internal/http2/Hpack$Writer;->a(I)V
 
     :cond_1
     const/4 p1, 0x4
@@ -1115,9 +1115,9 @@
 
     .line 299
     :cond_0
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->a:Lokhttp3/internal/http2/Hpack$b;
+    iget-object v0, p0, Lokhttp3/internal/http2/Http2Writer;->a:Lokhttp3/internal/http2/Hpack$Writer;
 
-    invoke-virtual {v0, p3}, Lokhttp3/internal/http2/Hpack$b;->a(Ljava/util/List;)V
+    invoke-virtual {v0, p3}, Lokhttp3/internal/http2/Hpack$Writer;->a(Ljava/util/List;)V
 
     .line 301
     iget-object p3, p0, Lokhttp3/internal/http2/Http2Writer;->e:Lokio/Buffer;

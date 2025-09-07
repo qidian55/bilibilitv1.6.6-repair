@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/internal/http2/Hpack$b;,
-        Lokhttp3/internal/http2/Hpack$a;
+        Lokhttp3/internal/http2/Hpack$Writer;,
+        Lokhttp3/internal/http2/Hpack$Reader;
     }
 .end annotation
 

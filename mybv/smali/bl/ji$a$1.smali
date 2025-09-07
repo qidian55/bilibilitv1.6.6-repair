@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/ji$a;-><init>(Lokhttp3/internal/cache/DiskLruCache$c;Ljava/lang/String;Ljava/lang/String;)V
+    value = Lbl/ji$a;-><init>(Lokhttp3/internal/cache/DiskLruCache$Snapshot;Ljava/lang/String;Ljava/lang/String;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,19 +15,19 @@
 
 
 # instance fields
-.field final synthetic a:Lokhttp3/internal/cache/DiskLruCache$c;
+.field final synthetic a:Lokhttp3/internal/cache/DiskLruCache$Snapshot;
 
 .field final synthetic b:Lbl/ji$a;
 
 
 # direct methods
-.method constructor <init>(Lbl/ji$a;Lokio/Source;Lokhttp3/internal/cache/DiskLruCache$c;)V
+.method constructor <init>(Lbl/ji$a;Lokio/Source;Lokhttp3/internal/cache/DiskLruCache$Snapshot;)V
     .locals 0
 
     .line 461
     iput-object p1, p0, Lbl/ji$a$1;->b:Lbl/ji$a;
 
-    iput-object p3, p0, Lbl/ji$a$1;->a:Lokhttp3/internal/cache/DiskLruCache$c;
+    iput-object p3, p0, Lbl/ji$a$1;->a:Lokhttp3/internal/cache/DiskLruCache$Snapshot;
 
     invoke-direct {p0, p2}, Lokio/ForwardingSource;-><init>(Lokio/Source;)V
 
@@ -45,9 +45,9 @@
     .end annotation
 
     .line 464
-    iget-object v0, p0, Lbl/ji$a$1;->a:Lokhttp3/internal/cache/DiskLruCache$c;
+    iget-object v0, p0, Lbl/ji$a$1;->a:Lokhttp3/internal/cache/DiskLruCache$Snapshot;
 
-    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache$c;->close()V
+    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->close()V
 
     .line 465
     invoke-super {p0}, Lokio/ForwardingSource;->close()V

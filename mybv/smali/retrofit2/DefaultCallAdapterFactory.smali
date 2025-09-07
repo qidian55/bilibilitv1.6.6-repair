@@ -1,10 +1,10 @@
 .class final Lretrofit2/DefaultCallAdapterFactory;
-.super Lretrofit2/CallAdapter$a;
+.super Lretrofit2/CallAdapter$Factory;
 .source "BL"
 
 
 # static fields
-.field static final a:Lretrofit2/CallAdapter$a;
+.field static final a:Lretrofit2/CallAdapter$Factory;
 
 
 # direct methods
@@ -16,7 +16,7 @@
 
     invoke-direct {v0}, Lretrofit2/DefaultCallAdapterFactory;-><init>()V
 
-    sput-object v0, Lretrofit2/DefaultCallAdapterFactory;->a:Lretrofit2/CallAdapter$a;
+    sput-object v0, Lretrofit2/DefaultCallAdapterFactory;->a:Lretrofit2/CallAdapter$Factory;
 
     return-void
 .end method
@@ -25,7 +25,7 @@
     .locals 0
 
     .line 26
-    invoke-direct {p0}, Lretrofit2/CallAdapter$a;-><init>()V
+    invoke-direct {p0}, Lretrofit2/CallAdapter$Factory;-><init>()V
 
     return-void
 .end method

@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/EventListener$a;
+        Lokhttp3/EventListener$Factory;
     }
 .end annotation
 
@@ -38,7 +38,7 @@
     return-void
 .end method
 
-.method static a(Lokhttp3/EventListener;)Lokhttp3/EventListener$a;
+.method static a(Lokhttp3/EventListener;)Lokhttp3/EventListener$Factory;
     .locals 1
 
     .line 63

@@ -8,7 +8,7 @@
 
 
 # instance fields
-.field private volatile b:Lokhttp3/OkHttpClient$a;
+.field private volatile b:Lokhttp3/OkHttpClient$Builder;
 
 
 # direct methods
@@ -70,7 +70,7 @@
     return-object v0
 .end method
 
-.method public static b()Lokhttp3/OkHttpClient$a;
+.method public static b()Lokhttp3/OkHttpClient$Builder;
     .locals 1
 
     .line 41
@@ -78,7 +78,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lokhttp3/OkHttpClient;->z()Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0}, Lokhttp3/OkHttpClient;->z()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
@@ -100,11 +100,11 @@
     return-object v0
 .end method
 
-.method private e()Lokhttp3/OkHttpClient$a;
+.method private e()Lokhttp3/OkHttpClient$Builder;
     .locals 2
 
     .line 48
-    iget-object v0, p0, Lbl/us;->b:Lokhttp3/OkHttpClient$a;
+    iget-object v0, p0, Lbl/us;->b:Lokhttp3/OkHttpClient$Builder;
 
     if-nez v0, :cond_1
 
@@ -115,16 +115,16 @@
 
     .line 50
     :try_start_0
-    iget-object v1, p0, Lbl/us;->b:Lokhttp3/OkHttpClient$a;
+    iget-object v1, p0, Lbl/us;->b:Lokhttp3/OkHttpClient$Builder;
 
     if-nez v1, :cond_0
 
     .line 51
-    new-instance v1, Lokhttp3/OkHttpClient$a;
+    new-instance v1, Lokhttp3/OkHttpClient$Builder;
 
-    invoke-direct {v1}, Lokhttp3/OkHttpClient$a;-><init>()V
+    invoke-direct {v1}, Lokhttp3/OkHttpClient$Builder;-><init>()V
 
-    iput-object v1, p0, Lbl/us;->b:Lokhttp3/OkHttpClient$a;
+    iput-object v1, p0, Lbl/us;->b:Lokhttp3/OkHttpClient$Builder;
 
     .line 53
     :cond_0
@@ -144,7 +144,7 @@
     .line 55
     :cond_1
     :goto_0
-    iget-object v0, p0, Lbl/us;->b:Lokhttp3/OkHttpClient$a;
+    iget-object v0, p0, Lbl/us;->b:Lokhttp3/OkHttpClient$Builder;
 
     return-object v0
 .end method
@@ -155,11 +155,11 @@
     .locals 1
 
     .line 174
-    invoke-direct {p0}, Lbl/us;->e()Lokhttp3/OkHttpClient$a;
+    invoke-direct {p0}, Lbl/us;->e()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$a;->a(Lokhttp3/CookieJar;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->a(Lokhttp3/CookieJar;)Lokhttp3/OkHttpClient$Builder;
 
     return-object p0
 .end method
@@ -168,11 +168,11 @@
     .locals 1
 
     .line 130
-    invoke-direct {p0}, Lbl/us;->e()Lokhttp3/OkHttpClient$a;
+    invoke-direct {p0}, Lbl/us;->e()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$a;->a(Lokhttp3/Dispatcher;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->a(Lokhttp3/Dispatcher;)Lokhttp3/OkHttpClient$Builder;
 
     return-object p0
 .end method
@@ -181,11 +181,11 @@
     .locals 1
 
     .line 118
-    invoke-direct {p0}, Lbl/us;->e()Lokhttp3/OkHttpClient$a;
+    invoke-direct {p0}, Lbl/us;->e()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$a;->a(Lokhttp3/Dns;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->a(Lokhttp3/Dns;)Lokhttp3/OkHttpClient$Builder;
 
     return-object p0
 .end method
@@ -194,11 +194,11 @@
     .locals 1
 
     .line 90
-    invoke-direct {p0}, Lbl/us;->e()Lokhttp3/OkHttpClient$a;
+    invoke-direct {p0}, Lbl/us;->e()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lokhttp3/OkHttpClient$a;->a()Ljava/util/List;
+    invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->a()Ljava/util/List;
 
     move-result-object v0
 
@@ -209,11 +209,11 @@
     if-nez v0, :cond_0
 
     .line 91
-    invoke-direct {p0}, Lbl/us;->e()Lokhttp3/OkHttpClient$a;
+    invoke-direct {p0}, Lbl/us;->e()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$a;->a(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient$a;
+    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->a(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient$Builder;
 
     :cond_0
     return-object p0
@@ -223,11 +223,11 @@
     .locals 1
 
     .line 183
-    invoke-direct {p0}, Lbl/us;->e()Lokhttp3/OkHttpClient$a;
+    invoke-direct {p0}, Lbl/us;->e()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lokhttp3/OkHttpClient$a;->c()Lokhttp3/OkHttpClient;
+    invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->c()Lokhttp3/OkHttpClient;
 
     move-result-object v0
 

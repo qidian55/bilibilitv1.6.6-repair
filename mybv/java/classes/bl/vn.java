@@ -3,7 +3,9 @@ package bl;
 import android.support.annotation.Nullable;
 import com.bilibili.api.BiliApiException;
 import com.bilibili.okretro.GeneralResponse;
+import retrofit2.Call;
 import retrofit2.HttpException;
+import retrofit2.Response;
 import tv.danmaku.android.log.BLog;
 
 /* compiled from: BL */
@@ -16,25 +18,25 @@ public abstract class vn<T> extends vm<GeneralResponse<T>> {
         a(generalResponse);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: bl.bkx<com.bilibili.okretro.GeneralResponse<T>> */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: retrofit2.Call<com.bilibili.okretro.GeneralResponse<T>> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // bl.vm, bl.bkz
-    public void onResponse(bkx<GeneralResponse<T>> bkxVar, blh<GeneralResponse<T>> blhVar) {
+    @Override // bl.vm, retrofit2.Callback
+    public void onResponse(Call<GeneralResponse<T>> call, Response<GeneralResponse<T>> response) {
         if (isCancel()) {
             return;
         }
-        if (!blhVar.e() || isCancel()) {
-            onFailure(bkxVar, new HttpException(blhVar));
+        if (!response.e() || isCancel()) {
+            onFailure(call, new HttpException(response));
             return;
         }
-        GeneralResponse<T> f = blhVar.f();
+        GeneralResponse<T> f = response.f();
         if (f == null) {
             a((T)null);
         } else if (f.code != 0) {
             if (jh.a() && f.code == -400) {
                 BLog.e("BiliApi", "WTF?! Check your parameters!");
             }
-            onFailure(bkxVar, new BiliApiException(f.code, f.message));
+            onFailure(call, new BiliApiException(f.code, f.message));
         } else {
             a(f.data);
         }

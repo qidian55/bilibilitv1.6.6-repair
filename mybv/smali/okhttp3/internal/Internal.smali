@@ -19,7 +19,7 @@
 
 
 # virtual methods
-.method public abstract a(Lokhttp3/Response$a;)I
+.method public abstract a(Lokhttp3/Response$Builder;)I
 .end method
 
 .method public abstract a(Lokhttp3/ConnectionPool;Lokhttp3/Address;Lokhttp3/internal/connection/StreamAllocation;Lokhttp3/Route;)Lokhttp3/internal/connection/RealConnection;
@@ -43,10 +43,10 @@
 .method public abstract a(Lokhttp3/ConnectionSpec;Ljavax/net/ssl/SSLSocket;Z)V
 .end method
 
-.method public abstract a(Lokhttp3/Headers$a;Ljava/lang/String;)V
+.method public abstract a(Lokhttp3/Headers$Builder;Ljava/lang/String;)V
 .end method
 
-.method public abstract a(Lokhttp3/Headers$a;Ljava/lang/String;Ljava/lang/String;)V
+.method public abstract a(Lokhttp3/Headers$Builder;Ljava/lang/String;Ljava/lang/String;)V
 .end method
 
 .method public abstract a(Lokhttp3/Address;Lokhttp3/Address;)Z

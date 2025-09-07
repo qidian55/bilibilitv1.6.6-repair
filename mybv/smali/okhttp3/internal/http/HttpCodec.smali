@@ -4,7 +4,7 @@
 
 
 # virtual methods
-.method public abstract a(Z)Lokhttp3/Response$a;
+.method public abstract a(Z)Lokhttp3/Response$Builder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

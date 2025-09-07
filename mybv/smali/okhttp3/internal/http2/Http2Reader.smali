@@ -9,8 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/internal/http2/Http2Reader$b;,
-        Lokhttp3/internal/http2/Http2Reader$a;
+        Lokhttp3/internal/http2/Http2Reader$Handler;,
+        Lokhttp3/internal/http2/Http2Reader$ContinuationSource;
     }
 .end annotation
 
@@ -20,11 +20,11 @@
 
 
 # instance fields
-.field final b:Lokhttp3/internal/http2/Hpack$a;
+.field final b:Lokhttp3/internal/http2/Hpack$Reader;
 
 .field private final c:Lokio/BufferedSource;
 
-.field private final d:Lokhttp3/internal/http2/Http2Reader$a;
+.field private final d:Lokhttp3/internal/http2/Http2Reader$ContinuationSource;
 
 .field private final e:Z
 
@@ -62,24 +62,24 @@
     iput-boolean p2, p0, Lokhttp3/internal/http2/Http2Reader;->e:Z
 
     .line 73
-    new-instance p1, Lokhttp3/internal/http2/Http2Reader$a;
+    new-instance p1, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;
 
     iget-object p2, p0, Lokhttp3/internal/http2/Http2Reader;->c:Lokio/BufferedSource;
 
-    invoke-direct {p1, p2}, Lokhttp3/internal/http2/Http2Reader$a;-><init>(Lokio/BufferedSource;)V
+    invoke-direct {p1, p2}, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;-><init>(Lokio/BufferedSource;)V
 
-    iput-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->d:Lokhttp3/internal/http2/Http2Reader$a;
+    iput-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->d:Lokhttp3/internal/http2/Http2Reader$ContinuationSource;
 
     .line 74
-    new-instance p1, Lokhttp3/internal/http2/Hpack$a;
+    new-instance p1, Lokhttp3/internal/http2/Hpack$Reader;
 
-    iget-object p2, p0, Lokhttp3/internal/http2/Http2Reader;->d:Lokhttp3/internal/http2/Http2Reader$a;
+    iget-object p2, p0, Lokhttp3/internal/http2/Http2Reader;->d:Lokhttp3/internal/http2/Http2Reader$ContinuationSource;
 
     const/16 v0, 0x1000
 
-    invoke-direct {p1, v0, p2}, Lokhttp3/internal/http2/Hpack$a;-><init>(ILokio/Source;)V
+    invoke-direct {p1, v0, p2}, Lokhttp3/internal/http2/Hpack$Reader;-><init>(ILokio/Source;)V
 
-    iput-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->b:Lokhttp3/internal/http2/Hpack$a;
+    iput-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->b:Lokhttp3/internal/http2/Hpack$Reader;
 
     return-void
 .end method
@@ -196,45 +196,45 @@
     .end annotation
 
     .line 189
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Reader;->d:Lokhttp3/internal/http2/Http2Reader$a;
+    iget-object v0, p0, Lokhttp3/internal/http2/Http2Reader;->d:Lokhttp3/internal/http2/Http2Reader$ContinuationSource;
 
-    iget-object v1, p0, Lokhttp3/internal/http2/Http2Reader;->d:Lokhttp3/internal/http2/Http2Reader$a;
+    iget-object v1, p0, Lokhttp3/internal/http2/Http2Reader;->d:Lokhttp3/internal/http2/Http2Reader$ContinuationSource;
 
-    iput p1, v1, Lokhttp3/internal/http2/Http2Reader$a;->d:I
+    iput p1, v1, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->d:I
 
-    iput p1, v0, Lokhttp3/internal/http2/Http2Reader$a;->a:I
+    iput p1, v0, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->a:I
 
     .line 190
-    iget-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->d:Lokhttp3/internal/http2/Http2Reader$a;
+    iget-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->d:Lokhttp3/internal/http2/Http2Reader$ContinuationSource;
 
-    iput-short p2, p1, Lokhttp3/internal/http2/Http2Reader$a;->e:S
+    iput-short p2, p1, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->e:S
 
     .line 191
-    iget-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->d:Lokhttp3/internal/http2/Http2Reader$a;
+    iget-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->d:Lokhttp3/internal/http2/Http2Reader$ContinuationSource;
 
-    iput-byte p3, p1, Lokhttp3/internal/http2/Http2Reader$a;->b:B
+    iput-byte p3, p1, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->b:B
 
     .line 192
-    iget-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->d:Lokhttp3/internal/http2/Http2Reader$a;
+    iget-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->d:Lokhttp3/internal/http2/Http2Reader$ContinuationSource;
 
-    iput p4, p1, Lokhttp3/internal/http2/Http2Reader$a;->c:I
+    iput p4, p1, Lokhttp3/internal/http2/Http2Reader$ContinuationSource;->c:I
 
     .line 196
-    iget-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->b:Lokhttp3/internal/http2/Hpack$a;
+    iget-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->b:Lokhttp3/internal/http2/Hpack$Reader;
 
-    invoke-virtual {p1}, Lokhttp3/internal/http2/Hpack$a;->a()V
+    invoke-virtual {p1}, Lokhttp3/internal/http2/Hpack$Reader;->a()V
 
     .line 197
-    iget-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->b:Lokhttp3/internal/http2/Hpack$a;
+    iget-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->b:Lokhttp3/internal/http2/Hpack$Reader;
 
-    invoke-virtual {p1}, Lokhttp3/internal/http2/Hpack$a;->b()Ljava/util/List;
+    invoke-virtual {p1}, Lokhttp3/internal/http2/Hpack$Reader;->b()Ljava/util/List;
 
     move-result-object p1
 
     return-object p1
 .end method
 
-.method private a(Lokhttp3/internal/http2/Http2Reader$b;I)V
+.method private a(Lokhttp3/internal/http2/Http2Reader$Handler;I)V
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -281,12 +281,12 @@
     add-int/2addr v3, v2
 
     .line 230
-    invoke-interface {p1, p2, v0, v3, v1}, Lokhttp3/internal/http2/Http2Reader$b;->a(IIIZ)V
+    invoke-interface {p1, p2, v0, v3, v1}, Lokhttp3/internal/http2/Http2Reader$Handler;->a(IIIZ)V
 
     return-void
 .end method
 
-.method private a(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+.method private a(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -343,7 +343,7 @@
     if-eqz v2, :cond_3
 
     .line 176
-    invoke-direct {p0, p1, p4}, Lokhttp3/internal/http2/Http2Reader;->a(Lokhttp3/internal/http2/Http2Reader$b;I)V
+    invoke-direct {p0, p1, p4}, Lokhttp3/internal/http2/Http2Reader;->a(Lokhttp3/internal/http2/Http2Reader$Handler;I)V
 
     add-int/lit8 p2, p2, -0x5
 
@@ -361,12 +361,12 @@
     const/4 p3, -0x1
 
     .line 184
-    invoke-interface {p1, v1, p4, p3, p2}, Lokhttp3/internal/http2/Http2Reader$b;->a(ZIILjava/util/List;)V
+    invoke-interface {p1, v1, p4, p3, p2}, Lokhttp3/internal/http2/Http2Reader$Handler;->a(ZIILjava/util/List;)V
 
     return-void
 .end method
 
-.method private b(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+.method private b(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -452,7 +452,7 @@
     .line 214
     iget-object p3, p0, Lokhttp3/internal/http2/Http2Reader;->c:Lokio/BufferedSource;
 
-    invoke-interface {p1, v1, p4, p3, p2}, Lokhttp3/internal/http2/Http2Reader$b;->a(ZILokio/BufferedSource;I)V
+    invoke-interface {p1, v1, p4, p3, p2}, Lokhttp3/internal/http2/Http2Reader$Handler;->a(ZILokio/BufferedSource;I)V
 
     .line 215
     iget-object p1, p0, Lokhttp3/internal/http2/Http2Reader;->c:Lokio/BufferedSource;
@@ -464,7 +464,7 @@
     return-void
 .end method
 
-.method private c(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+.method private c(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -513,12 +513,12 @@
 
     .line 222
     :cond_1
-    invoke-direct {p0, p1, p4}, Lokhttp3/internal/http2/Http2Reader;->a(Lokhttp3/internal/http2/Http2Reader$b;I)V
+    invoke-direct {p0, p1, p4}, Lokhttp3/internal/http2/Http2Reader;->a(Lokhttp3/internal/http2/Http2Reader$Handler;I)V
 
     return-void
 .end method
 
-.method private d(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+.method private d(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -599,12 +599,12 @@
 
     .line 242
     :cond_2
-    invoke-interface {p1, p4, v1}, Lokhttp3/internal/http2/Http2Reader$b;->a(ILokhttp3/internal/http2/ErrorCode;)V
+    invoke-interface {p1, p4, v1}, Lokhttp3/internal/http2/Http2Reader$Handler;->a(ILokhttp3/internal/http2/ErrorCode;)V
 
     return-void
 .end method
 
-.method private e(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+.method private e(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -649,7 +649,7 @@
 
     .line 250
     :cond_1
-    invoke-interface {p1}, Lokhttp3/internal/http2/Http2Reader$b;->a()V
+    invoke-interface {p1}, Lokhttp3/internal/http2/Http2Reader$Handler;->a()V
 
     return-void
 
@@ -784,7 +784,7 @@
 
     .line 289
     :cond_6
-    invoke-interface {p1, v0, p3}, Lokhttp3/internal/http2/Http2Reader$b;->a(ZLokhttp3/internal/http2/Settings;)V
+    invoke-interface {p1, v0, p3}, Lokhttp3/internal/http2/Http2Reader$Handler;->a(ZLokhttp3/internal/http2/Settings;)V
 
     return-void
 
@@ -801,7 +801,7 @@
     .end packed-switch
 .end method
 
-.method private f(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+.method private f(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -865,12 +865,12 @@
     move-result-object p2
 
     .line 302
-    invoke-interface {p1, p4, v1, p2}, Lokhttp3/internal/http2/Http2Reader$b;->a(IILjava/util/List;)V
+    invoke-interface {p1, p4, v1, p2}, Lokhttp3/internal/http2/Http2Reader$Handler;->a(IILjava/util/List;)V
 
     return-void
 .end method
 
-.method private g(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+.method private g(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -940,12 +940,12 @@
 
     .line 312
     :cond_2
-    invoke-interface {p1, v0, p2, p4}, Lokhttp3/internal/http2/Http2Reader$b;->a(ZII)V
+    invoke-interface {p1, v0, p2, p4}, Lokhttp3/internal/http2/Http2Reader$Handler;->a(ZII)V
 
     return-void
 .end method
 
-.method private h(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+.method private h(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1050,12 +1050,12 @@
 
     .line 330
     :cond_3
-    invoke-interface {p1, p4, v0, p3}, Lokhttp3/internal/http2/Http2Reader$b;->a(ILokhttp3/internal/http2/ErrorCode;Lokio/ByteString;)V
+    invoke-interface {p1, p4, v0, p3}, Lokhttp3/internal/http2/Http2Reader$Handler;->a(ILokhttp3/internal/http2/ErrorCode;Lokio/ByteString;)V
 
     return-void
 .end method
 
-.method private i(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+.method private i(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
     .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1127,14 +1127,14 @@
 
     .line 338
     :cond_1
-    invoke-interface {p1, p4, v5, v6}, Lokhttp3/internal/http2/Http2Reader$b;->a(IJ)V
+    invoke-interface {p1, p4, v5, v6}, Lokhttp3/internal/http2/Http2Reader$Handler;->a(IJ)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lokhttp3/internal/http2/Http2Reader$b;)V
+.method public a(Lokhttp3/internal/http2/Http2Reader$Handler;)V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1152,7 +1152,7 @@
     if-eqz v0, :cond_0
 
     .line 80
-    invoke-virtual {p0, v2, p1}, Lokhttp3/internal/http2/Http2Reader;->a(ZLokhttp3/internal/http2/Http2Reader$b;)Z
+    invoke-virtual {p0, v2, p1}, Lokhttp3/internal/http2/Http2Reader;->a(ZLokhttp3/internal/http2/Http2Reader$Handler;)Z
 
     move-result p1
 
@@ -1245,7 +1245,7 @@
     return-void
 .end method
 
-.method public a(ZLokhttp3/internal/http2/Http2Reader$b;)Z
+.method public a(ZLokhttp3/internal/http2/Http2Reader$Handler;)Z
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1373,55 +1373,55 @@
 
     .line 157
     :pswitch_0
-    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->i(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->i(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
 
     goto :goto_0
 
     .line 153
     :pswitch_1
-    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->h(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->h(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
 
     goto :goto_0
 
     .line 149
     :pswitch_2
-    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->g(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->g(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
 
     goto :goto_0
 
     .line 145
     :pswitch_3
-    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->f(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->f(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
 
     goto :goto_0
 
     .line 141
     :pswitch_4
-    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->e(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->e(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
 
     goto :goto_0
 
     .line 137
     :pswitch_5
-    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->d(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->d(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
 
     goto :goto_0
 
     .line 133
     :pswitch_6
-    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->c(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->c(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
 
     goto :goto_0
 
     .line 129
     :pswitch_7
-    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->a(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->a(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
 
     goto :goto_0
 
     .line 125
     :pswitch_8
-    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->b(Lokhttp3/internal/http2/Http2Reader$b;IBI)V
+    invoke-direct {p0, p2, v1, p1, v0}, Lokhttp3/internal/http2/Http2Reader;->b(Lokhttp3/internal/http2/Http2Reader$Handler;IBI)V
 
     :goto_0
     return v2

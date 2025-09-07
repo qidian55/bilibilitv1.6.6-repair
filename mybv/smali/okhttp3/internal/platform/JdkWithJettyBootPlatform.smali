@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/internal/platform/JdkWithJettyBootPlatform$a;
+        Lokhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;
     }
 .end annotation
 
@@ -239,14 +239,14 @@
 
     move-result-object v0
 
-    check-cast v0, Lokhttp3/internal/platform/JdkWithJettyBootPlatform$a;
+    check-cast v0, Lokhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;
 
     .line 74
-    iget-boolean v1, v0, Lokhttp3/internal/platform/JdkWithJettyBootPlatform$a;->a:Z
+    iget-boolean v1, v0, Lokhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;->a:Z
 
     if-nez v1, :cond_0
 
-    iget-object v1, v0, Lokhttp3/internal/platform/JdkWithJettyBootPlatform$a;->b:Ljava/lang/String;
+    iget-object v1, v0, Lokhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;->b:Ljava/lang/String;
 
     if-nez v1, :cond_0
 
@@ -265,14 +265,14 @@
 
     .line 79
     :cond_0
-    iget-boolean v1, v0, Lokhttp3/internal/platform/JdkWithJettyBootPlatform$a;->a:Z
+    iget-boolean v1, v0, Lokhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;->a:Z
 
     if-eqz v1, :cond_1
 
     goto :goto_0
 
     :cond_1
-    iget-object p1, v0, Lokhttp3/internal/platform/JdkWithJettyBootPlatform$a;->b:Ljava/lang/String;
+    iget-object p1, v0, Lokhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;->b:Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
@@ -335,9 +335,9 @@
 
     aput-object v2, v1, v4
 
-    new-instance v2, Lokhttp3/internal/platform/JdkWithJettyBootPlatform$a;
+    new-instance v2, Lokhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;
 
-    invoke-direct {v2, p2}, Lokhttp3/internal/platform/JdkWithJettyBootPlatform$a;-><init>(Ljava/util/List;)V
+    invoke-direct {v2, p2}, Lokhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;-><init>(Ljava/util/List;)V
 
     invoke-static {p3, v1, v2}, Ljava/lang/reflect/Proxy;->newProxyInstance(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
 

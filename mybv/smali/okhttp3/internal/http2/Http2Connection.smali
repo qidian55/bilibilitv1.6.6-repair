@@ -9,10 +9,10 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/internal/http2/Http2Connection$b;,
-        Lokhttp3/internal/http2/Http2Connection$d;,
-        Lokhttp3/internal/http2/Http2Connection$a;,
-        Lokhttp3/internal/http2/Http2Connection$c;
+        Lokhttp3/internal/http2/Http2Connection$Listener;,
+        Lokhttp3/internal/http2/Http2Connection$ReaderRunnable;,
+        Lokhttp3/internal/http2/Http2Connection$Builder;,
+        Lokhttp3/internal/http2/Http2Connection$PingRunnable;
     }
 .end annotation
 
@@ -26,7 +26,7 @@
 # instance fields
 .field final a:Z
 
-.field final b:Lokhttp3/internal/http2/Http2Connection$b;
+.field final b:Lokhttp3/internal/http2/Http2Connection$Listener;
 
 .field final c:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -63,7 +63,7 @@
 
 .field final o:Lokhttp3/internal/http2/Http2Writer;
 
-.field final p:Lokhttp3/internal/http2/Http2Connection$d;
+.field final p:Lokhttp3/internal/http2/Http2Connection$ReaderRunnable;
 
 .field final q:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
@@ -119,7 +119,7 @@
     return-void
 .end method
 
-.method constructor <init>(Lokhttp3/internal/http2/Http2Connection$a;)V
+.method constructor <init>(Lokhttp3/internal/http2/Http2Connection$Builder;)V
     .locals 21
 
     move-object/from16 v0, p0
@@ -168,22 +168,22 @@
     iput-object v3, v0, Lokhttp3/internal/http2/Http2Connection;->q:Ljava/util/Set;
 
     .line 138
-    iget-object v3, v1, Lokhttp3/internal/http2/Http2Connection$a;->f:Lokhttp3/internal/http2/PushObserver;
+    iget-object v3, v1, Lokhttp3/internal/http2/Http2Connection$Builder;->f:Lokhttp3/internal/http2/PushObserver;
 
     iput-object v3, v0, Lokhttp3/internal/http2/Http2Connection;->h:Lokhttp3/internal/http2/PushObserver;
 
     .line 139
-    iget-boolean v3, v1, Lokhttp3/internal/http2/Http2Connection$a;->g:Z
+    iget-boolean v3, v1, Lokhttp3/internal/http2/Http2Connection$Builder;->g:Z
 
     iput-boolean v3, v0, Lokhttp3/internal/http2/Http2Connection;->a:Z
 
     .line 140
-    iget-object v3, v1, Lokhttp3/internal/http2/Http2Connection$a;->e:Lokhttp3/internal/http2/Http2Connection$b;
+    iget-object v3, v1, Lokhttp3/internal/http2/Http2Connection$Builder;->e:Lokhttp3/internal/http2/Http2Connection$Listener;
 
-    iput-object v3, v0, Lokhttp3/internal/http2/Http2Connection;->b:Lokhttp3/internal/http2/Http2Connection$b;
+    iput-object v3, v0, Lokhttp3/internal/http2/Http2Connection;->b:Lokhttp3/internal/http2/Http2Connection$Listener;
 
     .line 142
-    iget-boolean v3, v1, Lokhttp3/internal/http2/Http2Connection$a;->g:Z
+    iget-boolean v3, v1, Lokhttp3/internal/http2/Http2Connection$Builder;->g:Z
 
     const/4 v4, 0x2
 
@@ -202,7 +202,7 @@
     iput v3, v0, Lokhttp3/internal/http2/Http2Connection;->f:I
 
     .line 143
-    iget-boolean v3, v1, Lokhttp3/internal/http2/Http2Connection$a;->g:Z
+    iget-boolean v3, v1, Lokhttp3/internal/http2/Http2Connection$Builder;->g:Z
 
     if-eqz v3, :cond_1
 
@@ -215,7 +215,7 @@
 
     .line 151
     :cond_1
-    iget-boolean v3, v1, Lokhttp3/internal/http2/Http2Connection$a;->g:Z
+    iget-boolean v3, v1, Lokhttp3/internal/http2/Http2Connection$Builder;->g:Z
 
     const/4 v4, 0x7
 
@@ -230,7 +230,7 @@
 
     .line 155
     :cond_2
-    iget-object v3, v1, Lokhttp3/internal/http2/Http2Connection$a;->b:Ljava/lang/String;
+    iget-object v3, v1, Lokhttp3/internal/http2/Http2Connection$Builder;->b:Ljava/lang/String;
 
     iput-object v3, v0, Lokhttp3/internal/http2/Http2Connection;->d:Ljava/lang/String;
 
@@ -259,22 +259,22 @@
     iput-object v3, v0, Lokhttp3/internal/http2/Http2Connection;->t:Ljava/util/concurrent/ScheduledExecutorService;
 
     .line 159
-    iget v3, v1, Lokhttp3/internal/http2/Http2Connection$a;->h:I
+    iget v3, v1, Lokhttp3/internal/http2/Http2Connection$Builder;->h:I
 
     if-eqz v3, :cond_3
 
     .line 160
     iget-object v6, v0, Lokhttp3/internal/http2/Http2Connection;->t:Ljava/util/concurrent/ScheduledExecutorService;
 
-    new-instance v7, Lokhttp3/internal/http2/Http2Connection$c;
+    new-instance v7, Lokhttp3/internal/http2/Http2Connection$PingRunnable;
 
-    invoke-direct {v7, v0, v2, v2, v2}, Lokhttp3/internal/http2/Http2Connection$c;-><init>(Lokhttp3/internal/http2/Http2Connection;ZII)V
+    invoke-direct {v7, v0, v2, v2, v2}, Lokhttp3/internal/http2/Http2Connection$PingRunnable;-><init>(Lokhttp3/internal/http2/Http2Connection;ZII)V
 
-    iget v3, v1, Lokhttp3/internal/http2/Http2Connection$a;->h:I
+    iget v3, v1, Lokhttp3/internal/http2/Http2Connection$Builder;->h:I
 
     int-to-long v8, v3
 
-    iget v3, v1, Lokhttp3/internal/http2/Http2Connection$a;->h:I
+    iget v3, v1, Lokhttp3/internal/http2/Http2Connection$Builder;->h:I
 
     int-to-long v10, v3
 
@@ -351,14 +351,14 @@
     iput-wide v2, v0, Lokhttp3/internal/http2/Http2Connection;->j:J
 
     .line 171
-    iget-object v2, v1, Lokhttp3/internal/http2/Http2Connection$a;->a:Ljava/net/Socket;
+    iget-object v2, v1, Lokhttp3/internal/http2/Http2Connection$Builder;->a:Ljava/net/Socket;
 
     iput-object v2, v0, Lokhttp3/internal/http2/Http2Connection;->n:Ljava/net/Socket;
 
     .line 172
     new-instance v2, Lokhttp3/internal/http2/Http2Writer;
 
-    iget-object v3, v1, Lokhttp3/internal/http2/Http2Connection$a;->d:Lokio/BufferedSink;
+    iget-object v3, v1, Lokhttp3/internal/http2/Http2Connection$Builder;->d:Lokio/BufferedSink;
 
     iget-boolean v4, v0, Lokhttp3/internal/http2/Http2Connection;->a:Z
 
@@ -367,19 +367,19 @@
     iput-object v2, v0, Lokhttp3/internal/http2/Http2Connection;->o:Lokhttp3/internal/http2/Http2Writer;
 
     .line 174
-    new-instance v2, Lokhttp3/internal/http2/Http2Connection$d;
+    new-instance v2, Lokhttp3/internal/http2/Http2Connection$ReaderRunnable;
 
     new-instance v3, Lokhttp3/internal/http2/Http2Reader;
 
-    iget-object v1, v1, Lokhttp3/internal/http2/Http2Connection$a;->c:Lokio/BufferedSource;
+    iget-object v1, v1, Lokhttp3/internal/http2/Http2Connection$Builder;->c:Lokio/BufferedSource;
 
     iget-boolean v4, v0, Lokhttp3/internal/http2/Http2Connection;->a:Z
 
     invoke-direct {v3, v1, v4}, Lokhttp3/internal/http2/Http2Reader;-><init>(Lokio/BufferedSource;Z)V
 
-    invoke-direct {v2, v0, v3}, Lokhttp3/internal/http2/Http2Connection$d;-><init>(Lokhttp3/internal/http2/Http2Connection;Lokhttp3/internal/http2/Http2Reader;)V
+    invoke-direct {v2, v0, v3}, Lokhttp3/internal/http2/Http2Connection$ReaderRunnable;-><init>(Lokhttp3/internal/http2/Http2Connection;Lokhttp3/internal/http2/Http2Reader;)V
 
-    iput-object v2, v0, Lokhttp3/internal/http2/Http2Connection;->p:Lokhttp3/internal/http2/Http2Connection$d;
+    iput-object v2, v0, Lokhttp3/internal/http2/Http2Connection;->p:Lokhttp3/internal/http2/Http2Connection$ReaderRunnable;
 
     return-void
 .end method
@@ -1601,7 +1601,7 @@
     :cond_0
     new-instance p1, Ljava/lang/Thread;
 
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->p:Lokhttp3/internal/http2/Http2Connection$d;
+    iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection;->p:Lokhttp3/internal/http2/Http2Connection$ReaderRunnable;
 
     invoke-direct {p1, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 

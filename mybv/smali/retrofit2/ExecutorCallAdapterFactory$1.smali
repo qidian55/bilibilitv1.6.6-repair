@@ -64,13 +64,13 @@
     .end annotation
 
     .line 45
-    new-instance v0, Lretrofit2/ExecutorCallAdapterFactory$a;
+    new-instance v0, Lretrofit2/ExecutorCallAdapterFactory$ExecutorCallbackCall;
 
     iget-object v1, p0, Lretrofit2/ExecutorCallAdapterFactory$1;->b:Lretrofit2/ExecutorCallAdapterFactory;
 
     iget-object v1, v1, Lretrofit2/ExecutorCallAdapterFactory;->a:Ljava/util/concurrent/Executor;
 
-    invoke-direct {v0, v1, p1}, Lretrofit2/ExecutorCallAdapterFactory$a;-><init>(Ljava/util/concurrent/Executor;Lretrofit2/Call;)V
+    invoke-direct {v0, v1, p1}, Lretrofit2/ExecutorCallAdapterFactory$ExecutorCallbackCall;-><init>(Ljava/util/concurrent/Executor;Lretrofit2/Call;)V
 
     return-object v0
 .end method

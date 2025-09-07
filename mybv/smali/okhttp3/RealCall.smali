@@ -9,7 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/RealCall$a;
+        Lokhttp3/RealCall$AsyncCall;
     }
 .end annotation
 
@@ -72,11 +72,11 @@
     invoke-direct {v0, p0, p1, p2}, Lokhttp3/RealCall;-><init>(Lokhttp3/OkHttpClient;Lokhttp3/Request;Z)V
 
     .line 60
-    invoke-virtual {p0}, Lokhttp3/OkHttpClient;->y()Lokhttp3/EventListener$a;
+    invoke-virtual {p0}, Lokhttp3/OkHttpClient;->y()Lokhttp3/EventListener$Factory;
 
     move-result-object p0
 
-    invoke-interface {p0, v0}, Lokhttp3/EventListener$a;->a(Lokhttp3/Call;)Lokhttp3/EventListener;
+    invoke-interface {p0, v0}, Lokhttp3/EventListener$Factory;->a(Lokhttp3/Call;)Lokhttp3/EventListener;
 
     move-result-object p0
 
@@ -164,11 +164,11 @@
 
     move-result-object v0
 
-    new-instance v1, Lokhttp3/RealCall$a;
+    new-instance v1, Lokhttp3/RealCall$AsyncCall;
 
-    invoke-direct {v1, p0, p1}, Lokhttp3/RealCall$a;-><init>(Lokhttp3/RealCall;Lokhttp3/Callback;)V
+    invoke-direct {v1, p0, p1}, Lokhttp3/RealCall$AsyncCall;-><init>(Lokhttp3/RealCall;Lokhttp3/Callback;)V
 
-    invoke-virtual {v0, v1}, Lokhttp3/Dispatcher;->a(Lokhttp3/RealCall$a;)V
+    invoke-virtual {v0, v1}, Lokhttp3/Dispatcher;->a(Lokhttp3/RealCall$AsyncCall;)V
 
     return-void
 
@@ -573,7 +573,7 @@
     .line 200
     iget-object v0, p0, Lokhttp3/RealCall;->c:Lokhttp3/Request;
 
-    invoke-interface {v12, v0}, Lokhttp3/Interceptor$a;->a(Lokhttp3/Request;)Lokhttp3/Response;
+    invoke-interface {v12, v0}, Lokhttp3/Interceptor$Chain;->a(Lokhttp3/Request;)Lokhttp3/Response;
 
     move-result-object v0
 

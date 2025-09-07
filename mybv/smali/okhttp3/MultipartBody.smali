@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/MultipartBody$a;,
-        Lokhttp3/MultipartBody$b;
+        Lokhttp3/MultipartBody$Builder;,
+        Lokhttp3/MultipartBody$Part;
     }
 .end annotation
 
@@ -41,7 +41,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
-            "Lokhttp3/MultipartBody$b;",
+            "Lokhttp3/MultipartBody$Part;",
             ">;"
         }
     .end annotation
@@ -157,7 +157,7 @@
             "Lokio/ByteString;",
             "Lokhttp3/MediaType;",
             "Ljava/util/List<",
-            "Lokhttp3/MultipartBody$b;",
+            "Lokhttp3/MultipartBody$Part;",
             ">;)V"
         }
     .end annotation
@@ -265,13 +265,13 @@
 
     move-result-object v6
 
-    check-cast v6, Lokhttp3/MultipartBody$b;
+    check-cast v6, Lokhttp3/MultipartBody$Part;
 
     .line 134
-    iget-object v7, v6, Lokhttp3/MultipartBody$b;->a:Lokhttp3/Headers;
+    iget-object v7, v6, Lokhttp3/MultipartBody$Part;->a:Lokhttp3/Headers;
 
     .line 135
-    iget-object v6, v6, Lokhttp3/MultipartBody$b;->b:Lokhttp3/RequestBody;
+    iget-object v6, v6, Lokhttp3/MultipartBody$Part;->b:Lokhttp3/RequestBody;
 
     .line 137
     sget-object v8, Lokhttp3/MultipartBody;->h:[B

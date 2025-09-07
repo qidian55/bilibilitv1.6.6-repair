@@ -89,14 +89,14 @@
     iput-wide v0, p0, Lbl/uu;->c:J
 
     .line 56
-    invoke-virtual {p1}, Lokhttp3/Request;->e()Lokhttp3/Request$a;
+    invoke-virtual {p1}, Lokhttp3/Request;->e()Lokhttp3/Request$Builder;
 
     move-result-object p1
 
     const-string v0, "Transfer-Encoding"
 
     .line 57
-    invoke-virtual {p1, v0}, Lokhttp3/Request$a;->b(Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {p1, v0}, Lokhttp3/Request$Builder;->b(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object p1
 
@@ -113,12 +113,12 @@
 
     move-result-object v1
 
-    invoke-virtual {p1, v0, v1}, Lokhttp3/Request$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {p1, v0, v1}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object p1
 
     .line 59
-    invoke-virtual {p1}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {p1}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object p1
 

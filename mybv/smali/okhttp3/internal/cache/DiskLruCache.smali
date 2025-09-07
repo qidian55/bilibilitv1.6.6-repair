@@ -10,9 +10,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/internal/cache/DiskLruCache$b;,
-        Lokhttp3/internal/cache/DiskLruCache$a;,
-        Lokhttp3/internal/cache/DiskLruCache$c;
+        Lokhttp3/internal/cache/DiskLruCache$Entry;,
+        Lokhttp3/internal/cache/DiskLruCache$Editor;,
+        Lokhttp3/internal/cache/DiskLruCache$Snapshot;
     }
 .end annotation
 
@@ -37,7 +37,7 @@
         value = {
             "Ljava/util/LinkedHashMap<",
             "Ljava/lang/String;",
-            "Lokhttp3/internal/cache/DiskLruCache$b;",
+            "Lokhttp3/internal/cache/DiskLruCache$Entry;",
             ">;"
         }
     .end annotation
@@ -346,14 +346,14 @@
 
     move-result-object v4
 
-    check-cast v4, Lokhttp3/internal/cache/DiskLruCache$b;
+    check-cast v4, Lokhttp3/internal/cache/DiskLruCache$Entry;
 
     if-nez v4, :cond_3
 
     .line 346
-    new-instance v4, Lokhttp3/internal/cache/DiskLruCache$b;
+    new-instance v4, Lokhttp3/internal/cache/DiskLruCache$Entry;
 
-    invoke-direct {v4, p0, v3}, Lokhttp3/internal/cache/DiskLruCache$b;-><init>(Lokhttp3/internal/cache/DiskLruCache;Ljava/lang/String;)V
+    invoke-direct {v4, p0, v3}, Lokhttp3/internal/cache/DiskLruCache$Entry;-><init>(Lokhttp3/internal/cache/DiskLruCache;Ljava/lang/String;)V
 
     .line 347
     iget-object v5, p0, Lokhttp3/internal/cache/DiskLruCache;->f:Ljava/util/LinkedHashMap;
@@ -396,15 +396,15 @@
     move-result-object p1
 
     .line 352
-    iput-boolean v1, v4, Lokhttp3/internal/cache/DiskLruCache$b;->e:Z
+    iput-boolean v1, v4, Lokhttp3/internal/cache/DiskLruCache$Entry;->e:Z
 
     const/4 v0, 0x0
 
     .line 353
-    iput-object v0, v4, Lokhttp3/internal/cache/DiskLruCache$b;->f:Lokhttp3/internal/cache/DiskLruCache$a;
+    iput-object v0, v4, Lokhttp3/internal/cache/DiskLruCache$Entry;->f:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     .line 354
-    invoke-virtual {v4, p1}, Lokhttp3/internal/cache/DiskLruCache$b;->a([Ljava/lang/String;)V
+    invoke-virtual {v4, p1}, Lokhttp3/internal/cache/DiskLruCache$Entry;->a([Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -429,11 +429,11 @@
     if-eqz v3, :cond_5
 
     .line 356
-    new-instance p1, Lokhttp3/internal/cache/DiskLruCache$a;
+    new-instance p1, Lokhttp3/internal/cache/DiskLruCache$Editor;
 
-    invoke-direct {p1, p0, v4}, Lokhttp3/internal/cache/DiskLruCache$a;-><init>(Lokhttp3/internal/cache/DiskLruCache;Lokhttp3/internal/cache/DiskLruCache$b;)V
+    invoke-direct {p1, p0, v4}, Lokhttp3/internal/cache/DiskLruCache$Editor;-><init>(Lokhttp3/internal/cache/DiskLruCache;Lokhttp3/internal/cache/DiskLruCache$Entry;)V
 
-    iput-object p1, v4, Lokhttp3/internal/cache/DiskLruCache$b;->f:Lokhttp3/internal/cache/DiskLruCache$a;
+    iput-object p1, v4, Lokhttp3/internal/cache/DiskLruCache$Entry;->f:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     goto :goto_0
 
@@ -819,10 +819,10 @@
 
     move-result-object v1
 
-    check-cast v1, Lokhttp3/internal/cache/DiskLruCache$b;
+    check-cast v1, Lokhttp3/internal/cache/DiskLruCache$Entry;
 
     .line 372
-    iget-object v2, v1, Lokhttp3/internal/cache/DiskLruCache$b;->f:Lokhttp3/internal/cache/DiskLruCache$a;
+    iget-object v2, v1, Lokhttp3/internal/cache/DiskLruCache$Entry;->f:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     const/4 v3, 0x0
 
@@ -837,7 +837,7 @@
     .line 374
     iget-wide v4, p0, Lokhttp3/internal/cache/DiskLruCache;->s:J
 
-    iget-object v2, v1, Lokhttp3/internal/cache/DiskLruCache$b;->b:[J
+    iget-object v2, v1, Lokhttp3/internal/cache/DiskLruCache$Entry;->b:[J
 
     aget-wide v6, v2, v3
 
@@ -853,7 +853,7 @@
     const/4 v2, 0x0
 
     .line 377
-    iput-object v2, v1, Lokhttp3/internal/cache/DiskLruCache$b;->f:Lokhttp3/internal/cache/DiskLruCache$a;
+    iput-object v2, v1, Lokhttp3/internal/cache/DiskLruCache$Entry;->f:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     .line 378
     :goto_2
@@ -864,7 +864,7 @@
     .line 379
     iget-object v2, p0, Lokhttp3/internal/cache/DiskLruCache;->b:Lokhttp3/internal/io/FileSystem;
 
-    iget-object v4, v1, Lokhttp3/internal/cache/DiskLruCache$b;->c:[Ljava/io/File;
+    iget-object v4, v1, Lokhttp3/internal/cache/DiskLruCache$Entry;->c:[Ljava/io/File;
 
     aget-object v4, v4, v3
 
@@ -873,7 +873,7 @@
     .line 380
     iget-object v2, p0, Lokhttp3/internal/cache/DiskLruCache;->b:Lokhttp3/internal/io/FileSystem;
 
-    iget-object v4, v1, Lokhttp3/internal/cache/DiskLruCache$b;->d:[Ljava/io/File;
+    iget-object v4, v1, Lokhttp3/internal/cache/DiskLruCache$Entry;->d:[Ljava/io/File;
 
     aget-object v4, v4, v3
 
@@ -934,7 +934,7 @@
 
 
 # virtual methods
-.method declared-synchronized a(Ljava/lang/String;J)Lokhttp3/internal/cache/DiskLruCache$a;
+.method declared-synchronized a(Ljava/lang/String;J)Lokhttp3/internal/cache/DiskLruCache$Editor;
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -961,7 +961,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lokhttp3/internal/cache/DiskLruCache$b;
+    check-cast v0, Lokhttp3/internal/cache/DiskLruCache$Entry;
 
     const-wide/16 v1, -0x1
 
@@ -974,7 +974,7 @@
     if-eqz v0, :cond_0
 
     .line 468
-    iget-wide v2, v0, Lokhttp3/internal/cache/DiskLruCache$b;->g:J
+    iget-wide v2, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->g:J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -993,7 +993,7 @@
 
     .line 472
     :try_start_1
-    iget-object p2, v0, Lokhttp3/internal/cache/DiskLruCache$b;->f:Lokhttp3/internal/cache/DiskLruCache$a;
+    iget-object p2, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->f:Lokhttp3/internal/cache/DiskLruCache$Editor;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -1063,9 +1063,9 @@
 
     .line 494
     :try_start_3
-    new-instance v0, Lokhttp3/internal/cache/DiskLruCache$b;
+    new-instance v0, Lokhttp3/internal/cache/DiskLruCache$Entry;
 
-    invoke-direct {v0, p0, p1}, Lokhttp3/internal/cache/DiskLruCache$b;-><init>(Lokhttp3/internal/cache/DiskLruCache;Ljava/lang/String;)V
+    invoke-direct {v0, p0, p1}, Lokhttp3/internal/cache/DiskLruCache$Entry;-><init>(Lokhttp3/internal/cache/DiskLruCache;Ljava/lang/String;)V
 
     .line 495
     iget-object p2, p0, Lokhttp3/internal/cache/DiskLruCache;->f:Ljava/util/LinkedHashMap;
@@ -1074,12 +1074,12 @@
 
     .line 497
     :cond_5
-    new-instance p1, Lokhttp3/internal/cache/DiskLruCache$a;
+    new-instance p1, Lokhttp3/internal/cache/DiskLruCache$Editor;
 
-    invoke-direct {p1, p0, v0}, Lokhttp3/internal/cache/DiskLruCache$a;-><init>(Lokhttp3/internal/cache/DiskLruCache;Lokhttp3/internal/cache/DiskLruCache$b;)V
+    invoke-direct {p1, p0, v0}, Lokhttp3/internal/cache/DiskLruCache$Editor;-><init>(Lokhttp3/internal/cache/DiskLruCache;Lokhttp3/internal/cache/DiskLruCache$Entry;)V
 
     .line 498
-    iput-object p1, v0, Lokhttp3/internal/cache/DiskLruCache$b;->f:Lokhttp3/internal/cache/DiskLruCache$a;
+    iput-object p1, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->f:Lokhttp3/internal/cache/DiskLruCache$Editor;
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -1114,7 +1114,7 @@
     throw p1
 .end method
 
-.method public declared-synchronized a(Ljava/lang/String;)Lokhttp3/internal/cache/DiskLruCache$c;
+.method public declared-synchronized a(Ljava/lang/String;)Lokhttp3/internal/cache/DiskLruCache$Snapshot;
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1141,14 +1141,14 @@
 
     move-result-object v0
 
-    check-cast v0, Lokhttp3/internal/cache/DiskLruCache$b;
+    check-cast v0, Lokhttp3/internal/cache/DiskLruCache$Entry;
 
     const/4 v1, 0x0
 
     if-eqz v0, :cond_3
 
     .line 441
-    iget-boolean v2, v0, Lokhttp3/internal/cache/DiskLruCache$b;->e:Z
+    iget-boolean v2, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->e:Z
 
     if-nez v2, :cond_0
 
@@ -1156,7 +1156,7 @@
 
     .line 443
     :cond_0
-    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache$b;->a()Lokhttp3/internal/cache/DiskLruCache$c;
+    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache$Entry;->a()Lokhttp3/internal/cache/DiskLruCache$Snapshot;
 
     move-result-object v0
     :try_end_0
@@ -1450,7 +1450,7 @@
     throw v0
 .end method
 
-.method declared-synchronized a(Lokhttp3/internal/cache/DiskLruCache$a;Z)V
+.method declared-synchronized a(Lokhttp3/internal/cache/DiskLruCache$Editor;Z)V
     .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1462,10 +1462,10 @@
 
     .line 535
     :try_start_0
-    iget-object v0, p1, Lokhttp3/internal/cache/DiskLruCache$a;->a:Lokhttp3/internal/cache/DiskLruCache$b;
+    iget-object v0, p1, Lokhttp3/internal/cache/DiskLruCache$Editor;->a:Lokhttp3/internal/cache/DiskLruCache$Entry;
 
     .line 536
-    iget-object v1, v0, Lokhttp3/internal/cache/DiskLruCache$b;->f:Lokhttp3/internal/cache/DiskLruCache$a;
+    iget-object v1, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->f:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     if-eq v1, p1, :cond_0
 
@@ -1482,7 +1482,7 @@
     if-eqz p2, :cond_3
 
     .line 541
-    iget-boolean v2, v0, Lokhttp3/internal/cache/DiskLruCache$b;->e:Z
+    iget-boolean v2, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->e:Z
 
     if-nez v2, :cond_3
 
@@ -1495,14 +1495,14 @@
     if-ge v2, v3, :cond_3
 
     .line 543
-    iget-object v3, p1, Lokhttp3/internal/cache/DiskLruCache$a;->b:[Z
+    iget-object v3, p1, Lokhttp3/internal/cache/DiskLruCache$Editor;->b:[Z
 
     aget-boolean v3, v3, v2
 
     if-nez v3, :cond_1
 
     .line 544
-    invoke-virtual {p1}, Lokhttp3/internal/cache/DiskLruCache$a;->c()V
+    invoke-virtual {p1}, Lokhttp3/internal/cache/DiskLruCache$Editor;->c()V
 
     .line 545
     new-instance p1, Ljava/lang/IllegalStateException;
@@ -1529,7 +1529,7 @@
     :cond_1
     iget-object v3, p0, Lokhttp3/internal/cache/DiskLruCache;->b:Lokhttp3/internal/io/FileSystem;
 
-    iget-object v4, v0, Lokhttp3/internal/cache/DiskLruCache$b;->d:[Ljava/io/File;
+    iget-object v4, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->d:[Ljava/io/File;
 
     aget-object v4, v4, v2
 
@@ -1540,7 +1540,7 @@
     if-nez v3, :cond_2
 
     .line 548
-    invoke-virtual {p1}, Lokhttp3/internal/cache/DiskLruCache$a;->c()V
+    invoke-virtual {p1}, Lokhttp3/internal/cache/DiskLruCache$Editor;->c()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1563,7 +1563,7 @@
     if-ge v1, p1, :cond_6
 
     .line 555
-    iget-object p1, v0, Lokhttp3/internal/cache/DiskLruCache$b;->d:[Ljava/io/File;
+    iget-object p1, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->d:[Ljava/io/File;
 
     aget-object p1, p1, v1
 
@@ -1579,7 +1579,7 @@
     if-eqz v2, :cond_5
 
     .line 558
-    iget-object v2, v0, Lokhttp3/internal/cache/DiskLruCache$b;->c:[Ljava/io/File;
+    iget-object v2, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->c:[Ljava/io/File;
 
     aget-object v2, v2, v1
 
@@ -1589,7 +1589,7 @@
     invoke-interface {v3, p1, v2}, Lokhttp3/internal/io/FileSystem;->a(Ljava/io/File;Ljava/io/File;)V
 
     .line 560
-    iget-object p1, v0, Lokhttp3/internal/cache/DiskLruCache$b;->b:[J
+    iget-object p1, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->b:[J
 
     aget-wide v3, p1, v1
 
@@ -1601,7 +1601,7 @@
     move-result-wide v5
 
     .line 562
-    iget-object p1, v0, Lokhttp3/internal/cache/DiskLruCache$b;->b:[J
+    iget-object p1, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->b:[J
 
     aput-wide v5, p1, v1
 
@@ -1643,10 +1643,10 @@
     const/4 p1, 0x0
 
     .line 571
-    iput-object p1, v0, Lokhttp3/internal/cache/DiskLruCache$b;->f:Lokhttp3/internal/cache/DiskLruCache$a;
+    iput-object p1, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->f:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     .line 572
-    iget-boolean p1, v0, Lokhttp3/internal/cache/DiskLruCache$b;->e:Z
+    iget-boolean p1, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->e:Z
 
     or-int/2addr p1, p2
 
@@ -1657,7 +1657,7 @@
     if-eqz p1, :cond_7
 
     .line 573
-    iput-boolean v1, v0, Lokhttp3/internal/cache/DiskLruCache$b;->e:Z
+    iput-boolean v1, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->e:Z
 
     .line 574
     iget-object p1, p0, Lokhttp3/internal/cache/DiskLruCache;->e:Lokio/BufferedSink;
@@ -1673,14 +1673,14 @@
     .line 575
     iget-object p1, p0, Lokhttp3/internal/cache/DiskLruCache;->e:Lokio/BufferedSink;
 
-    iget-object v1, v0, Lokhttp3/internal/cache/DiskLruCache$b;->a:Ljava/lang/String;
+    iget-object v1, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->a:Ljava/lang/String;
 
     invoke-interface {p1, v1}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     .line 576
     iget-object p1, p0, Lokhttp3/internal/cache/DiskLruCache;->e:Lokio/BufferedSink;
 
-    invoke-virtual {v0, p1}, Lokhttp3/internal/cache/DiskLruCache$b;->a(Lokio/BufferedSink;)V
+    invoke-virtual {v0, p1}, Lokhttp3/internal/cache/DiskLruCache$Entry;->a(Lokio/BufferedSink;)V
 
     .line 577
     iget-object p1, p0, Lokhttp3/internal/cache/DiskLruCache;->e:Lokio/BufferedSink;
@@ -1698,7 +1698,7 @@
 
     iput-wide v3, p0, Lokhttp3/internal/cache/DiskLruCache;->t:J
 
-    iput-wide p1, v0, Lokhttp3/internal/cache/DiskLruCache$b;->g:J
+    iput-wide p1, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->g:J
 
     goto :goto_3
 
@@ -1706,7 +1706,7 @@
     :cond_7
     iget-object p1, p0, Lokhttp3/internal/cache/DiskLruCache;->f:Ljava/util/LinkedHashMap;
 
-    iget-object p2, v0, Lokhttp3/internal/cache/DiskLruCache$b;->a:Ljava/lang/String;
+    iget-object p2, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->a:Ljava/lang/String;
 
     invoke-virtual {p1, p2}, Ljava/util/LinkedHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1724,7 +1724,7 @@
     .line 584
     iget-object p1, p0, Lokhttp3/internal/cache/DiskLruCache;->e:Lokio/BufferedSink;
 
-    iget-object p2, v0, Lokhttp3/internal/cache/DiskLruCache$b;->a:Ljava/lang/String;
+    iget-object p2, v0, Lokhttp3/internal/cache/DiskLruCache$Entry;->a:Ljava/lang/String;
 
     invoke-interface {p1, p2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
@@ -1780,7 +1780,7 @@
     throw p1
 .end method
 
-.method a(Lokhttp3/internal/cache/DiskLruCache$b;)Z
+.method a(Lokhttp3/internal/cache/DiskLruCache$Entry;)Z
     .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1789,14 +1789,14 @@
     .end annotation
 
     .line 623
-    iget-object v0, p1, Lokhttp3/internal/cache/DiskLruCache$b;->f:Lokhttp3/internal/cache/DiskLruCache$a;
+    iget-object v0, p1, Lokhttp3/internal/cache/DiskLruCache$Entry;->f:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     if-eqz v0, :cond_0
 
     .line 624
-    iget-object v0, p1, Lokhttp3/internal/cache/DiskLruCache$b;->f:Lokhttp3/internal/cache/DiskLruCache$a;
+    iget-object v0, p1, Lokhttp3/internal/cache/DiskLruCache$Entry;->f:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
-    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache$a;->a()V
+    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->a()V
 
     :cond_0
     const/4 v0, 0x0
@@ -1810,7 +1810,7 @@
     .line 628
     iget-object v1, p0, Lokhttp3/internal/cache/DiskLruCache;->b:Lokhttp3/internal/io/FileSystem;
 
-    iget-object v2, p1, Lokhttp3/internal/cache/DiskLruCache$b;->c:[Ljava/io/File;
+    iget-object v2, p1, Lokhttp3/internal/cache/DiskLruCache$Entry;->c:[Ljava/io/File;
 
     aget-object v2, v2, v0
 
@@ -1819,7 +1819,7 @@
     .line 629
     iget-wide v1, p0, Lokhttp3/internal/cache/DiskLruCache;->s:J
 
-    iget-object v3, p1, Lokhttp3/internal/cache/DiskLruCache$b;->b:[J
+    iget-object v3, p1, Lokhttp3/internal/cache/DiskLruCache$Entry;->b:[J
 
     aget-wide v4, v3, v0
 
@@ -1828,7 +1828,7 @@
     iput-wide v6, p0, Lokhttp3/internal/cache/DiskLruCache;->s:J
 
     .line 630
-    iget-object v1, p1, Lokhttp3/internal/cache/DiskLruCache$b;->b:[J
+    iget-object v1, p1, Lokhttp3/internal/cache/DiskLruCache$Entry;->b:[J
 
     const-wide/16 v2, 0x0
 
@@ -1863,7 +1863,7 @@
 
     move-result-object v0
 
-    iget-object v2, p1, Lokhttp3/internal/cache/DiskLruCache$b;->a:Ljava/lang/String;
+    iget-object v2, p1, Lokhttp3/internal/cache/DiskLruCache$Entry;->a:Ljava/lang/String;
 
     invoke-interface {v0, v2}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
@@ -1876,7 +1876,7 @@
     .line 635
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache;->f:Ljava/util/LinkedHashMap;
 
-    iget-object p1, p1, Lokhttp3/internal/cache/DiskLruCache$b;->a:Ljava/lang/String;
+    iget-object p1, p1, Lokhttp3/internal/cache/DiskLruCache$Entry;->a:Ljava/lang/String;
 
     invoke-virtual {v0, p1}, Ljava/util/LinkedHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1898,7 +1898,7 @@
     return v1
 .end method
 
-.method public b(Ljava/lang/String;)Lokhttp3/internal/cache/DiskLruCache$a;
+.method public b(Ljava/lang/String;)Lokhttp3/internal/cache/DiskLruCache$Editor;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1912,7 +1912,7 @@
     const-wide/16 v0, -0x1
 
     .line 459
-    invoke-virtual {p0, p1, v0, v1}, Lokhttp3/internal/cache/DiskLruCache;->a(Ljava/lang/String;J)Lokhttp3/internal/cache/DiskLruCache$a;
+    invoke-virtual {p0, p1, v0, v1}, Lokhttp3/internal/cache/DiskLruCache;->a(Ljava/lang/String;J)Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     move-result-object p1
 
@@ -2024,10 +2024,10 @@
 
     move-result-object v3
 
-    check-cast v3, Lokhttp3/internal/cache/DiskLruCache$b;
+    check-cast v3, Lokhttp3/internal/cache/DiskLruCache$Entry;
 
     .line 405
-    iget-object v4, v3, Lokhttp3/internal/cache/DiskLruCache$b;->f:Lokhttp3/internal/cache/DiskLruCache$a;
+    iget-object v4, v3, Lokhttp3/internal/cache/DiskLruCache$Entry;->f:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     const/16 v5, 0x20
 
@@ -2043,7 +2043,7 @@
     invoke-interface {v4, v5}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 407
-    iget-object v3, v3, Lokhttp3/internal/cache/DiskLruCache$b;->a:Ljava/lang/String;
+    iget-object v3, v3, Lokhttp3/internal/cache/DiskLruCache$Entry;->a:Ljava/lang/String;
 
     invoke-interface {v0, v3}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
@@ -2063,12 +2063,12 @@
     invoke-interface {v4, v5}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
 
     .line 411
-    iget-object v4, v3, Lokhttp3/internal/cache/DiskLruCache$b;->a:Ljava/lang/String;
+    iget-object v4, v3, Lokhttp3/internal/cache/DiskLruCache$Entry;->a:Ljava/lang/String;
 
     invoke-interface {v0, v4}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     .line 412
-    invoke-virtual {v3, v0}, Lokhttp3/internal/cache/DiskLruCache$b;->a(Lokio/BufferedSink;)V
+    invoke-virtual {v3, v0}, Lokhttp3/internal/cache/DiskLruCache$Entry;->a(Lokio/BufferedSink;)V
 
     .line 413
     invoke-interface {v0, v2}, Lokio/BufferedSink;->writeByte(I)Lokio/BufferedSink;
@@ -2231,13 +2231,13 @@
 
     move-result v2
 
-    new-array v2, v2, [Lokhttp3/internal/cache/DiskLruCache$b;
+    new-array v2, v2, [Lokhttp3/internal/cache/DiskLruCache$Entry;
 
     invoke-interface {v0, v2}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, [Lokhttp3/internal/cache/DiskLruCache$b;
+    check-cast v0, [Lokhttp3/internal/cache/DiskLruCache$Entry;
 
     array-length v2, v0
 
@@ -2249,14 +2249,14 @@
     aget-object v4, v0, v3
 
     .line 672
-    iget-object v5, v4, Lokhttp3/internal/cache/DiskLruCache$b;->f:Lokhttp3/internal/cache/DiskLruCache$a;
+    iget-object v5, v4, Lokhttp3/internal/cache/DiskLruCache$Entry;->f:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     if-eqz v5, :cond_1
 
     .line 673
-    iget-object v4, v4, Lokhttp3/internal/cache/DiskLruCache$b;->f:Lokhttp3/internal/cache/DiskLruCache$a;
+    iget-object v4, v4, Lokhttp3/internal/cache/DiskLruCache$Entry;->f:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
-    invoke-virtual {v4}, Lokhttp3/internal/cache/DiskLruCache$a;->c()V
+    invoke-virtual {v4}, Lokhttp3/internal/cache/DiskLruCache$Editor;->c()V
 
     :cond_1
     add-int/lit8 v3, v3, 0x1
@@ -2365,10 +2365,10 @@
 
     move-result-object v0
 
-    check-cast v0, Lokhttp3/internal/cache/DiskLruCache$b;
+    check-cast v0, Lokhttp3/internal/cache/DiskLruCache$Entry;
 
     .line 685
-    invoke-virtual {p0, v0}, Lokhttp3/internal/cache/DiskLruCache;->a(Lokhttp3/internal/cache/DiskLruCache$b;)Z
+    invoke-virtual {p0, v0}, Lokhttp3/internal/cache/DiskLruCache;->a(Lokhttp3/internal/cache/DiskLruCache$Entry;)Z
 
     goto :goto_0
 

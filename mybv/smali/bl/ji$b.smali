@@ -152,9 +152,9 @@
     iput-object v0, p0, Lbl/ji$b;->e:Ljava/lang/String;
 
     .line 351
-    new-instance v0, Lokhttp3/Headers$a;
+    new-instance v0, Lokhttp3/Headers$Builder;
 
-    invoke-direct {v0}, Lokhttp3/Headers$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/Headers$Builder;-><init>()V
 
     .line 352
     invoke-static {p1}, Lbl/ji;->a(Lokio/BufferedSource;)I
@@ -171,7 +171,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Lokhttp3/Headers$a;->b(Ljava/lang/String;)Lokhttp3/Headers$a;
+    invoke-virtual {v0, v3}, Lokhttp3/Headers$Builder;->b(Ljava/lang/String;)Lokhttp3/Headers$Builder;
 
     add-int/lit8 v2, v2, 0x1
 
@@ -179,7 +179,7 @@
 
     .line 357
     :cond_0
-    invoke-virtual {v0}, Lokhttp3/Headers$a;->a()Lokhttp3/Headers;
+    invoke-virtual {v0}, Lokhttp3/Headers$Builder;->a()Lokhttp3/Headers;
 
     move-result-object v0
 
@@ -233,9 +233,9 @@
     move-result-object p1
 
     .line 383
-    new-instance v7, Lokhttp3/Headers$a;
+    new-instance v7, Lokhttp3/Headers$Builder;
 
-    invoke-direct {v7}, Lokhttp3/Headers$a;-><init>()V
+    invoke-direct {v7}, Lokhttp3/Headers$Builder;-><init>()V
 
     .line 384
     invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -256,7 +256,7 @@
     check-cast v8, Ljava/lang/String;
 
     .line 385
-    invoke-virtual {v7, v0, v8}, Lokhttp3/Headers$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$a;
+    invoke-virtual {v7, v0, v8}, Lokhttp3/Headers$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
 
     goto :goto_0
 
@@ -280,7 +280,7 @@
     check-cast v4, Ljava/lang/String;
 
     .line 388
-    invoke-virtual {v7, v1, v4}, Lokhttp3/Headers$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$a;
+    invoke-virtual {v7, v1, v4}, Lokhttp3/Headers$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
 
     goto :goto_1
 
@@ -304,7 +304,7 @@
     check-cast v1, Ljava/lang/String;
 
     .line 391
-    invoke-virtual {v7, v2, v1}, Lokhttp3/Headers$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$a;
+    invoke-virtual {v7, v2, v1}, Lokhttp3/Headers$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
 
     goto :goto_2
 
@@ -328,13 +328,13 @@
     check-cast v0, Ljava/lang/String;
 
     .line 394
-    invoke-virtual {v7, v3, v0}, Lokhttp3/Headers$a;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$a;
+    invoke-virtual {v7, v3, v0}, Lokhttp3/Headers$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Headers$Builder;
 
     goto :goto_3
 
     .line 397
     :cond_3
-    invoke-virtual {v7}, Lokhttp3/Headers$a;->a()Lokhttp3/Headers;
+    invoke-virtual {v7}, Lokhttp3/Headers$Builder;->a()Lokhttp3/Headers;
 
     move-result-object p1
 
@@ -343,7 +343,7 @@
 
 
 # virtual methods
-.method public a(Lokhttp3/internal/cache/DiskLruCache$c;)Lokhttp3/Response;
+.method public a(Lokhttp3/internal/cache/DiskLruCache$Snapshot;)Lokhttp3/Response;
     .locals 5
 
     .line 419
@@ -365,14 +365,14 @@
     move-result-object v1
 
     .line 421
-    new-instance v2, Lokhttp3/Request$a;
+    new-instance v2, Lokhttp3/Request$Builder;
 
-    invoke-direct {v2}, Lokhttp3/Request$a;-><init>()V
+    invoke-direct {v2}, Lokhttp3/Request$Builder;-><init>()V
 
     iget-object v3, p0, Lbl/ji$b;->a:Ljava/lang/String;
 
     .line 422
-    invoke-virtual {v2, v3}, Lokhttp3/Request$a;->a(Ljava/lang/String;)Lokhttp3/Request$a;
+    invoke-virtual {v2, v3}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v2
 
@@ -381,71 +381,71 @@
     const/4 v4, 0x0
 
     .line 423
-    invoke-virtual {v2, v3, v4}, Lokhttp3/Request$a;->a(Ljava/lang/String;Lokhttp3/RequestBody;)Lokhttp3/Request$a;
+    invoke-virtual {v2, v3, v4}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
 
     move-result-object v2
 
     .line 424
-    invoke-virtual {v2}, Lokhttp3/Request$a;->b()Lokhttp3/Request;
+    invoke-virtual {v2}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
 
     move-result-object v2
 
     .line 425
-    new-instance v3, Lokhttp3/Response$a;
+    new-instance v3, Lokhttp3/Response$Builder;
 
-    invoke-direct {v3}, Lokhttp3/Response$a;-><init>()V
+    invoke-direct {v3}, Lokhttp3/Response$Builder;-><init>()V
 
     .line 426
-    invoke-virtual {v3, v2}, Lokhttp3/Response$a;->a(Lokhttp3/Request;)Lokhttp3/Response$a;
+    invoke-virtual {v3, v2}, Lokhttp3/Response$Builder;->a(Lokhttp3/Request;)Lokhttp3/Response$Builder;
 
     move-result-object v2
 
     iget-object v3, p0, Lbl/ji$b;->c:Lokhttp3/Protocol;
 
     .line 427
-    invoke-virtual {v2, v3}, Lokhttp3/Response$a;->a(Lokhttp3/Protocol;)Lokhttp3/Response$a;
+    invoke-virtual {v2, v3}, Lokhttp3/Response$Builder;->a(Lokhttp3/Protocol;)Lokhttp3/Response$Builder;
 
     move-result-object v2
 
     iget v3, p0, Lbl/ji$b;->d:I
 
     .line 428
-    invoke-virtual {v2, v3}, Lokhttp3/Response$a;->a(I)Lokhttp3/Response$a;
+    invoke-virtual {v2, v3}, Lokhttp3/Response$Builder;->a(I)Lokhttp3/Response$Builder;
 
     move-result-object v2
 
     iget-object v3, p0, Lbl/ji$b;->e:Ljava/lang/String;
 
     .line 429
-    invoke-virtual {v2, v3}, Lokhttp3/Response$a;->a(Ljava/lang/String;)Lokhttp3/Response$a;
+    invoke-virtual {v2, v3}, Lokhttp3/Response$Builder;->a(Ljava/lang/String;)Lokhttp3/Response$Builder;
 
     move-result-object v2
 
     iget-object v3, p0, Lbl/ji$b;->f:Lokhttp3/Headers;
 
     .line 430
-    invoke-virtual {v2, v3}, Lokhttp3/Response$a;->a(Lokhttp3/Headers;)Lokhttp3/Response$a;
+    invoke-virtual {v2, v3}, Lokhttp3/Response$Builder;->a(Lokhttp3/Headers;)Lokhttp3/Response$Builder;
 
     move-result-object v2
 
     new-instance v3, Lbl/ji$a;
 
-    invoke-direct {v3, p1, v0, v1}, Lbl/ji$a;-><init>(Lokhttp3/internal/cache/DiskLruCache$c;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v3, p1, v0, v1}, Lbl/ji$a;-><init>(Lokhttp3/internal/cache/DiskLruCache$Snapshot;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 431
-    invoke-virtual {v2, v3}, Lokhttp3/Response$a;->a(Lokhttp3/ResponseBody;)Lokhttp3/Response$a;
+    invoke-virtual {v2, v3}, Lokhttp3/Response$Builder;->a(Lokhttp3/ResponseBody;)Lokhttp3/Response$Builder;
 
     move-result-object p1
 
     .line 432
-    invoke-virtual {p1}, Lokhttp3/Response$a;->a()Lokhttp3/Response;
+    invoke-virtual {p1}, Lokhttp3/Response$Builder;->a()Lokhttp3/Response;
 
     move-result-object p1
 
     return-object p1
 .end method
 
-.method a(Lokhttp3/internal/cache/DiskLruCache$a;)V
+.method a(Lokhttp3/internal/cache/DiskLruCache$Editor;)V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -456,7 +456,7 @@
     const/4 v0, 0x0
 
     .line 401
-    invoke-virtual {p1, v0}, Lokhttp3/internal/cache/DiskLruCache$a;->a(I)Lokio/Sink;
+    invoke-virtual {p1, v0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->a(I)Lokio/Sink;
 
     move-result-object p1
 

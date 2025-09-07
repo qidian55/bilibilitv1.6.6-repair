@@ -25,7 +25,7 @@
 
 
 # virtual methods
-.method public a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
+.method public a(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -64,7 +64,7 @@
     .line 42
     iget-object v4, p0, Lokhttp3/internal/connection/ConnectInterceptor;->a:Lokhttp3/OkHttpClient;
 
-    invoke-virtual {v2, v4, p1, v3}, Lokhttp3/internal/connection/StreamAllocation;->a(Lokhttp3/OkHttpClient;Lokhttp3/Interceptor$a;Z)Lokhttp3/internal/http/HttpCodec;
+    invoke-virtual {v2, v4, p1, v3}, Lokhttp3/internal/connection/StreamAllocation;->a(Lokhttp3/OkHttpClient;Lokhttp3/Interceptor$Chain;Z)Lokhttp3/internal/http/HttpCodec;
 
     move-result-object p1
 

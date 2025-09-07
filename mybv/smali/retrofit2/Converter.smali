@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lretrofit2/Converter$a;
+        Lretrofit2/Converter$Factory;
     }
 .end annotation
 

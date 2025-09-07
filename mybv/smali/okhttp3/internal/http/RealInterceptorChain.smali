@@ -3,7 +3,7 @@
 .source "BL"
 
 # interfaces
-.implements Lokhttp3/Interceptor$a;
+.implements Lokhttp3/Interceptor$Chain;
 
 
 # instance fields
@@ -310,7 +310,7 @@
     check-cast v3, Lokhttp3/Interceptor;
 
     .line 147
-    invoke-interface {v3, v1}, Lokhttp3/Interceptor;->a(Lokhttp3/Interceptor$a;)Lokhttp3/Response;
+    invoke-interface {v3, v1}, Lokhttp3/Interceptor;->a(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
 
     move-result-object v4
 

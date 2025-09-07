@@ -9,7 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/Call$a;
+        Lokhttp3/Call$Factory;
     }
 .end annotation
 

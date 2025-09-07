@@ -22,7 +22,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Deque<",
-            "Lokhttp3/RealCall$a;",
+            "Lokhttp3/RealCall$AsyncCall;",
             ">;"
         }
     .end annotation
@@ -32,7 +32,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Deque<",
-            "Lokhttp3/RealCall$a;",
+            "Lokhttp3/RealCall$AsyncCall;",
             ">;"
         }
     .end annotation
@@ -206,7 +206,7 @@
     throw p1
 .end method
 
-.method private c(Lokhttp3/RealCall$a;)I
+.method private c(Lokhttp3/RealCall$AsyncCall;)I
     .locals 4
 
     .line 176
@@ -230,10 +230,10 @@
 
     move-result-object v2
 
-    check-cast v2, Lokhttp3/RealCall$a;
+    check-cast v2, Lokhttp3/RealCall$AsyncCall;
 
     .line 177
-    invoke-virtual {v2}, Lokhttp3/RealCall$a;->b()Lokhttp3/RealCall;
+    invoke-virtual {v2}, Lokhttp3/RealCall$AsyncCall;->b()Lokhttp3/RealCall;
 
     move-result-object v3
 
@@ -245,11 +245,11 @@
 
     .line 178
     :cond_1
-    invoke-virtual {v2}, Lokhttp3/RealCall$a;->a()Ljava/lang/String;
+    invoke-virtual {v2}, Lokhttp3/RealCall$AsyncCall;->a()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {p1}, Lokhttp3/RealCall$a;->a()Ljava/lang/String;
+    invoke-virtual {p1}, Lokhttp3/RealCall$AsyncCall;->a()Ljava/lang/String;
 
     move-result-object v3
 
@@ -315,10 +315,10 @@
 
     move-result-object v1
 
-    check-cast v1, Lokhttp3/RealCall$a;
+    check-cast v1, Lokhttp3/RealCall$AsyncCall;
 
     .line 163
-    invoke-direct {p0, v1}, Lokhttp3/Dispatcher;->c(Lokhttp3/RealCall$a;)I
+    invoke-direct {p0, v1}, Lokhttp3/Dispatcher;->c(Lokhttp3/RealCall$AsyncCall;)I
 
     move-result v2
 
@@ -421,7 +421,7 @@
     throw v0
 .end method
 
-.method declared-synchronized a(Lokhttp3/RealCall$a;)V
+.method declared-synchronized a(Lokhttp3/RealCall$AsyncCall;)V
     .locals 2
 
     monitor-enter p0
@@ -438,7 +438,7 @@
 
     if-ge v0, v1, :cond_0
 
-    invoke-direct {p0, p1}, Lokhttp3/Dispatcher;->c(Lokhttp3/RealCall$a;)I
+    invoke-direct {p0, p1}, Lokhttp3/Dispatcher;->c(Lokhttp3/RealCall$AsyncCall;)I
 
     move-result v0
 
@@ -545,7 +545,7 @@
     throw v0
 .end method
 
-.method b(Lokhttp3/RealCall$a;)V
+.method b(Lokhttp3/RealCall$AsyncCall;)V
     .locals 2
 
     .line 190

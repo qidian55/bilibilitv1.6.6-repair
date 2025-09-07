@@ -10,11 +10,11 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lokhttp3/internal/http1/Http1Codec$f;,
-        Lokhttp3/internal/http1/Http1Codec$c;,
-        Lokhttp3/internal/http1/Http1Codec$e;,
-        Lokhttp3/internal/http1/Http1Codec$a;,
-        Lokhttp3/internal/http1/Http1Codec$b;,
-        Lokhttp3/internal/http1/Http1Codec$d;
+        Lokhttp3/internal/http1/Http1Codec$ChunkedSource;,
+        Lokhttp3/internal/http1/Http1Codec$FixedLengthSource;,
+        Lokhttp3/internal/http1/Http1Codec$AbstractSource;,
+        Lokhttp3/internal/http1/Http1Codec$ChunkedSink;,
+        Lokhttp3/internal/http1/Http1Codec$FixedLengthSink;
     }
 .end annotation
 
@@ -100,7 +100,7 @@
 
 
 # virtual methods
-.method public a(Z)Lokhttp3/Response$a;
+.method public a(Z)Lokhttp3/Response$Builder;
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -156,28 +156,28 @@
     move-result-object v0
 
     .line 191
-    new-instance v2, Lokhttp3/Response$a;
+    new-instance v2, Lokhttp3/Response$Builder;
 
-    invoke-direct {v2}, Lokhttp3/Response$a;-><init>()V
+    invoke-direct {v2}, Lokhttp3/Response$Builder;-><init>()V
 
     iget-object v3, v0, Lokhttp3/internal/http/StatusLine;->a:Lokhttp3/Protocol;
 
     .line 192
-    invoke-virtual {v2, v3}, Lokhttp3/Response$a;->a(Lokhttp3/Protocol;)Lokhttp3/Response$a;
+    invoke-virtual {v2, v3}, Lokhttp3/Response$Builder;->a(Lokhttp3/Protocol;)Lokhttp3/Response$Builder;
 
     move-result-object v2
 
     iget v3, v0, Lokhttp3/internal/http/StatusLine;->b:I
 
     .line 193
-    invoke-virtual {v2, v3}, Lokhttp3/Response$a;->a(I)Lokhttp3/Response$a;
+    invoke-virtual {v2, v3}, Lokhttp3/Response$Builder;->a(I)Lokhttp3/Response$Builder;
 
     move-result-object v2
 
     iget-object v3, v0, Lokhttp3/internal/http/StatusLine;->c:Ljava/lang/String;
 
     .line 194
-    invoke-virtual {v2, v3}, Lokhttp3/Response$a;->a(Ljava/lang/String;)Lokhttp3/Response$a;
+    invoke-virtual {v2, v3}, Lokhttp3/Response$Builder;->a(Ljava/lang/String;)Lokhttp3/Response$Builder;
 
     move-result-object v2
 
@@ -186,7 +186,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Lokhttp3/Response$a;->a(Lokhttp3/Headers;)Lokhttp3/Response$a;
+    invoke-virtual {v2, v3}, Lokhttp3/Response$Builder;->a(Lokhttp3/Headers;)Lokhttp3/Response$Builder;
 
     move-result-object v2
 
@@ -430,9 +430,9 @@
     iput v0, p0, Lokhttp3/internal/http1/Http1Codec;->e:I
 
     .line 239
-    new-instance v0, Lokhttp3/internal/http1/Http1Codec$d;
+    new-instance v0, Lokhttp3/internal/http1/Http1Codec$FixedLengthSink;
 
-    invoke-direct {v0, p0, p1, p2}, Lokhttp3/internal/http1/Http1Codec$d;-><init>(Lokhttp3/internal/http1/Http1Codec;J)V
+    invoke-direct {v0, p0, p1, p2}, Lokhttp3/internal/http1/Http1Codec$FixedLengthSink;-><init>(Lokhttp3/internal/http1/Http1Codec;J)V
 
     return-object v0
 .end method
@@ -531,9 +531,9 @@
     iput v0, p0, Lokhttp3/internal/http1/Http1Codec;->e:I
 
     .line 251
-    new-instance v0, Lokhttp3/internal/http1/Http1Codec$c;
+    new-instance v0, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;
 
-    invoke-direct {v0, p0, p1}, Lokhttp3/internal/http1/Http1Codec$c;-><init>(Lokhttp3/internal/http1/Http1Codec;Lokhttp3/HttpUrl;)V
+    invoke-direct {v0, p0, p1}, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;-><init>(Lokhttp3/internal/http1/Http1Codec;Lokhttp3/HttpUrl;)V
 
     return-object v0
 .end method
@@ -772,9 +772,9 @@
     iput v0, p0, Lokhttp3/internal/http1/Http1Codec;->e:I
 
     .line 245
-    new-instance v0, Lokhttp3/internal/http1/Http1Codec$e;
+    new-instance v0, Lokhttp3/internal/http1/Http1Codec$FixedLengthSource;
 
-    invoke-direct {v0, p0, p1, p2}, Lokhttp3/internal/http1/Http1Codec$e;-><init>(Lokhttp3/internal/http1/Http1Codec;J)V
+    invoke-direct {v0, p0, p1, p2}, Lokhttp3/internal/http1/Http1Codec$FixedLengthSource;-><init>(Lokhttp3/internal/http1/Http1Codec;J)V
 
     return-object v0
 .end method
@@ -823,9 +823,9 @@
     .end annotation
 
     .line 222
-    new-instance v0, Lokhttp3/Headers$a;
+    new-instance v0, Lokhttp3/Headers$Builder;
 
-    invoke-direct {v0}, Lokhttp3/Headers$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/Headers$Builder;-><init>()V
 
     .line 224
     :goto_0
@@ -842,13 +842,13 @@
     .line 225
     sget-object v2, Lokhttp3/internal/Internal;->a:Lokhttp3/internal/Internal;
 
-    invoke-virtual {v2, v0, v1}, Lokhttp3/internal/Internal;->a(Lokhttp3/Headers$a;Ljava/lang/String;)V
+    invoke-virtual {v2, v0, v1}, Lokhttp3/internal/Internal;->a(Lokhttp3/Headers$Builder;Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 227
     :cond_0
-    invoke-virtual {v0}, Lokhttp3/Headers$a;->a()Lokhttp3/Headers;
+    invoke-virtual {v0}, Lokhttp3/Headers$Builder;->a()Lokhttp3/Headers;
 
     move-result-object v0
 
@@ -894,9 +894,9 @@
     iput v0, p0, Lokhttp3/internal/http1/Http1Codec;->e:I
 
     .line 233
-    new-instance v0, Lokhttp3/internal/http1/Http1Codec$b;
+    new-instance v0, Lokhttp3/internal/http1/Http1Codec$ChunkedSink;
 
-    invoke-direct {v0, p0}, Lokhttp3/internal/http1/Http1Codec$b;-><init>(Lokhttp3/internal/http1/Http1Codec;)V
+    invoke-direct {v0, p0}, Lokhttp3/internal/http1/Http1Codec$ChunkedSink;-><init>(Lokhttp3/internal/http1/Http1Codec;)V
 
     return-object v0
 .end method

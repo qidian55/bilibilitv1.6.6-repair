@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lretrofit2/ServiceMethod$a;
+        Lretrofit2/ServiceMethod$Builder;
     }
 .end annotation
 
@@ -29,7 +29,7 @@
 
 
 # instance fields
-.field final c:Lokhttp3/Call$a;
+.field final c:Lokhttp3/Call$Factory;
 
 .field final d:Lretrofit2/CallAdapter;
     .annotation system Ldalvik/annotation/Signature;
@@ -102,12 +102,12 @@
     return-void
 .end method
 
-.method constructor <init>(Lretrofit2/ServiceMethod$a;)V
+.method constructor <init>(Lretrofit2/ServiceMethod$Builder;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lretrofit2/ServiceMethod$a<",
+            "Lretrofit2/ServiceMethod$Builder<",
             "TR;TT;>;)V"
         }
     .end annotation
@@ -116,66 +116,66 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 82
-    iget-object v0, p1, Lretrofit2/ServiceMethod$a;->a:Lretrofit2/Retrofit;
+    iget-object v0, p1, Lretrofit2/ServiceMethod$Builder;->a:Lretrofit2/Retrofit;
 
-    invoke-virtual {v0}, Lretrofit2/Retrofit;->a()Lokhttp3/Call$a;
+    invoke-virtual {v0}, Lretrofit2/Retrofit;->a()Lokhttp3/Call$Factory;
 
     move-result-object v0
 
-    iput-object v0, p0, Lretrofit2/ServiceMethod;->c:Lokhttp3/Call$a;
+    iput-object v0, p0, Lretrofit2/ServiceMethod;->c:Lokhttp3/Call$Factory;
 
     .line 83
-    iget-object v0, p1, Lretrofit2/ServiceMethod$a;->x:Lretrofit2/CallAdapter;
+    iget-object v0, p1, Lretrofit2/ServiceMethod$Builder;->x:Lretrofit2/CallAdapter;
 
     iput-object v0, p0, Lretrofit2/ServiceMethod;->d:Lretrofit2/CallAdapter;
 
     .line 84
-    iget-object v0, p1, Lretrofit2/ServiceMethod$a;->b:Lokhttp3/HttpUrl;
+    iget-object v0, p1, Lretrofit2/ServiceMethod$Builder;->b:Lokhttp3/HttpUrl;
 
     iput-object v0, p0, Lretrofit2/ServiceMethod;->e:Lokhttp3/HttpUrl;
 
     .line 85
-    iget-object v0, p1, Lretrofit2/ServiceMethod$a;->w:Lretrofit2/Converter;
+    iget-object v0, p1, Lretrofit2/ServiceMethod$Builder;->w:Lretrofit2/Converter;
 
     iput-object v0, p0, Lretrofit2/ServiceMethod;->f:Lretrofit2/Converter;
 
     .line 86
-    iget-object v0, p1, Lretrofit2/ServiceMethod$a;->n:Ljava/lang/String;
+    iget-object v0, p1, Lretrofit2/ServiceMethod$Builder;->n:Ljava/lang/String;
 
     iput-object v0, p0, Lretrofit2/ServiceMethod;->g:Ljava/lang/String;
 
     .line 87
-    iget-object v0, p1, Lretrofit2/ServiceMethod$a;->r:Ljava/lang/String;
+    iget-object v0, p1, Lretrofit2/ServiceMethod$Builder;->r:Ljava/lang/String;
 
     iput-object v0, p0, Lretrofit2/ServiceMethod;->h:Ljava/lang/String;
 
     .line 88
-    iget-object v0, p1, Lretrofit2/ServiceMethod$a;->s:Lokhttp3/Headers;
+    iget-object v0, p1, Lretrofit2/ServiceMethod$Builder;->s:Lokhttp3/Headers;
 
     iput-object v0, p0, Lretrofit2/ServiceMethod;->i:Lokhttp3/Headers;
 
     .line 89
-    iget-object v0, p1, Lretrofit2/ServiceMethod$a;->t:Lokhttp3/MediaType;
+    iget-object v0, p1, Lretrofit2/ServiceMethod$Builder;->t:Lokhttp3/MediaType;
 
     iput-object v0, p0, Lretrofit2/ServiceMethod;->j:Lokhttp3/MediaType;
 
     .line 90
-    iget-boolean v0, p1, Lretrofit2/ServiceMethod$a;->o:Z
+    iget-boolean v0, p1, Lretrofit2/ServiceMethod$Builder;->o:Z
 
     iput-boolean v0, p0, Lretrofit2/ServiceMethod;->k:Z
 
     .line 91
-    iget-boolean v0, p1, Lretrofit2/ServiceMethod$a;->p:Z
+    iget-boolean v0, p1, Lretrofit2/ServiceMethod$Builder;->p:Z
 
     iput-boolean v0, p0, Lretrofit2/ServiceMethod;->l:Z
 
     .line 92
-    iget-boolean v0, p1, Lretrofit2/ServiceMethod$a;->q:Z
+    iget-boolean v0, p1, Lretrofit2/ServiceMethod$Builder;->q:Z
 
     iput-boolean v0, p0, Lretrofit2/ServiceMethod;->m:Z
 
     .line 93
-    iget-object p1, p1, Lretrofit2/ServiceMethod$a;->v:[Lretrofit2/ParameterHandler;
+    iget-object p1, p1, Lretrofit2/ServiceMethod$Builder;->v:[Lretrofit2/ParameterHandler;
 
     iput-object p1, p0, Lretrofit2/ServiceMethod;->n:[Lretrofit2/ParameterHandler;
 

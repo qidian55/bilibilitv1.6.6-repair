@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lretrofit2/CallAdapter$a;
+        Lretrofit2/CallAdapter$Factory;
     }
 .end annotation
 

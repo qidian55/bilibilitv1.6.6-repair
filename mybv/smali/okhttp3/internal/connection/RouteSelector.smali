@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/internal/connection/RouteSelector$a;
+        Lokhttp3/internal/connection/RouteSelector$Selection;
     }
 .end annotation
 
@@ -677,7 +677,7 @@
     return v0
 .end method
 
-.method public b()Lokhttp3/internal/connection/RouteSelector$a;
+.method public b()Lokhttp3/internal/connection/RouteSelector$Selection;
     .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -798,9 +798,9 @@
 
     .line 105
     :cond_5
-    new-instance v1, Lokhttp3/internal/connection/RouteSelector$a;
+    new-instance v1, Lokhttp3/internal/connection/RouteSelector$Selection;
 
-    invoke-direct {v1, v0}, Lokhttp3/internal/connection/RouteSelector$a;-><init>(Ljava/util/List;)V
+    invoke-direct {v1, v0}, Lokhttp3/internal/connection/RouteSelector$Selection;-><init>(Ljava/util/List;)V
 
     return-object v1
 .end method

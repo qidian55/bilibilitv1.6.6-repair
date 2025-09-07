@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/Headers$a;
+        Lokhttp3/Headers$Builder;
     }
 .end annotation
 
@@ -16,16 +16,16 @@
 
 
 # direct methods
-.method constructor <init>(Lokhttp3/Headers$a;)V
+.method constructor <init>(Lokhttp3/Headers$Builder;)V
     .locals 1
 
     .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 54
-    iget-object v0, p1, Lokhttp3/Headers$a;->a:Ljava/util/List;
+    iget-object v0, p1, Lokhttp3/Headers$Builder;->a:Ljava/util/List;
 
-    iget-object p1, p1, Lokhttp3/Headers$a;->a:Ljava/util/List;
+    iget-object p1, p1, Lokhttp3/Headers$Builder;->a:Ljava/util/List;
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
@@ -296,16 +296,16 @@
     return-object p1
 .end method
 
-.method public b()Lokhttp3/Headers$a;
+.method public b()Lokhttp3/Headers$Builder;
     .locals 3
 
     .line 131
-    new-instance v0, Lokhttp3/Headers$a;
+    new-instance v0, Lokhttp3/Headers$Builder;
 
-    invoke-direct {v0}, Lokhttp3/Headers$a;-><init>()V
+    invoke-direct {v0}, Lokhttp3/Headers$Builder;-><init>()V
 
     .line 132
-    iget-object v1, v0, Lokhttp3/Headers$a;->a:Ljava/util/List;
+    iget-object v1, v0, Lokhttp3/Headers$Builder;->a:Ljava/util/List;
 
     iget-object v2, p0, Lokhttp3/Headers;->a:[Ljava/lang/String;
 

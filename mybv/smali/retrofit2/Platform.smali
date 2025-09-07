@@ -6,8 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lretrofit2/Platform$a;,
-        Lretrofit2/Platform$b;
+        Lretrofit2/Platform$Android;,
+        Lretrofit2/Platform$Java8;
     }
 .end annotation
 
@@ -63,9 +63,9 @@
     if-eqz v0, :cond_0
 
     .line 39
-    new-instance v0, Lretrofit2/Platform$a;
+    new-instance v0, Lretrofit2/Platform$Android;
 
-    invoke-direct {v0}, Lretrofit2/Platform$a;-><init>()V
+    invoke-direct {v0}, Lretrofit2/Platform$Android;-><init>()V
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -80,9 +80,9 @@
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     .line 45
-    new-instance v0, Lretrofit2/Platform$b;
+    new-instance v0, Lretrofit2/Platform$Java8;
 
-    invoke-direct {v0}, Lretrofit2/Platform$b;-><init>()V
+    invoke-direct {v0}, Lretrofit2/Platform$Java8;-><init>()V
     :try_end_1
     .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -99,7 +99,7 @@
 
 
 # virtual methods
-.method a(Ljava/util/concurrent/Executor;)Lretrofit2/CallAdapter$a;
+.method a(Ljava/util/concurrent/Executor;)Lretrofit2/CallAdapter$Factory;
     .locals 1
     .param p1    # Ljava/util/concurrent/Executor;
         .annotation runtime Ljavax/annotation/Nullable;
@@ -117,7 +117,7 @@
 
     .line 59
     :cond_0
-    sget-object p1, Lretrofit2/DefaultCallAdapterFactory;->a:Lretrofit2/CallAdapter$a;
+    sget-object p1, Lretrofit2/DefaultCallAdapterFactory;->a:Lretrofit2/CallAdapter$Factory;
 
     return-object p1
 .end method

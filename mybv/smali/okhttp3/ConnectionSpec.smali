@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/ConnectionSpec$a;
+        Lokhttp3/ConnectionSpec$Builder;
     }
 .end annotation
 
@@ -127,14 +127,14 @@
     sput-object v0, Lokhttp3/ConnectionSpec;->h:[Lokhttp3/CipherSuite;
 
     .line 67
-    new-instance v0, Lokhttp3/ConnectionSpec$a;
+    new-instance v0, Lokhttp3/ConnectionSpec$Builder;
 
-    invoke-direct {v0, v3}, Lokhttp3/ConnectionSpec$a;-><init>(Z)V
+    invoke-direct {v0, v3}, Lokhttp3/ConnectionSpec$Builder;-><init>(Z)V
 
     sget-object v1, Lokhttp3/ConnectionSpec;->h:[Lokhttp3/CipherSuite;
 
     .line 68
-    invoke-virtual {v0, v1}, Lokhttp3/ConnectionSpec$a;->a([Lokhttp3/CipherSuite;)Lokhttp3/ConnectionSpec$a;
+    invoke-virtual {v0, v1}, Lokhttp3/ConnectionSpec$Builder;->a([Lokhttp3/CipherSuite;)Lokhttp3/ConnectionSpec$Builder;
 
     move-result-object v0
 
@@ -157,28 +157,28 @@
     aput-object v4, v1, v5
 
     .line 69
-    invoke-virtual {v0, v1}, Lokhttp3/ConnectionSpec$a;->a([Lokhttp3/TlsVersion;)Lokhttp3/ConnectionSpec$a;
+    invoke-virtual {v0, v1}, Lokhttp3/ConnectionSpec$Builder;->a([Lokhttp3/TlsVersion;)Lokhttp3/ConnectionSpec$Builder;
 
     move-result-object v0
 
     .line 70
-    invoke-virtual {v0, v3}, Lokhttp3/ConnectionSpec$a;->a(Z)Lokhttp3/ConnectionSpec$a;
+    invoke-virtual {v0, v3}, Lokhttp3/ConnectionSpec$Builder;->a(Z)Lokhttp3/ConnectionSpec$Builder;
 
     move-result-object v0
 
     .line 71
-    invoke-virtual {v0}, Lokhttp3/ConnectionSpec$a;->a()Lokhttp3/ConnectionSpec;
+    invoke-virtual {v0}, Lokhttp3/ConnectionSpec$Builder;->a()Lokhttp3/ConnectionSpec;
 
     move-result-object v0
 
     sput-object v0, Lokhttp3/ConnectionSpec;->a:Lokhttp3/ConnectionSpec;
 
     .line 74
-    new-instance v0, Lokhttp3/ConnectionSpec$a;
+    new-instance v0, Lokhttp3/ConnectionSpec$Builder;
 
     sget-object v1, Lokhttp3/ConnectionSpec;->a:Lokhttp3/ConnectionSpec;
 
-    invoke-direct {v0, v1}, Lokhttp3/ConnectionSpec$a;-><init>(Lokhttp3/ConnectionSpec;)V
+    invoke-direct {v0, v1}, Lokhttp3/ConnectionSpec$Builder;-><init>(Lokhttp3/ConnectionSpec;)V
 
     new-array v1, v3, [Lokhttp3/TlsVersion;
 
@@ -187,28 +187,28 @@
     aput-object v4, v1, v2
 
     .line 75
-    invoke-virtual {v0, v1}, Lokhttp3/ConnectionSpec$a;->a([Lokhttp3/TlsVersion;)Lokhttp3/ConnectionSpec$a;
+    invoke-virtual {v0, v1}, Lokhttp3/ConnectionSpec$Builder;->a([Lokhttp3/TlsVersion;)Lokhttp3/ConnectionSpec$Builder;
 
     move-result-object v0
 
     .line 76
-    invoke-virtual {v0, v3}, Lokhttp3/ConnectionSpec$a;->a(Z)Lokhttp3/ConnectionSpec$a;
+    invoke-virtual {v0, v3}, Lokhttp3/ConnectionSpec$Builder;->a(Z)Lokhttp3/ConnectionSpec$Builder;
 
     move-result-object v0
 
     .line 77
-    invoke-virtual {v0}, Lokhttp3/ConnectionSpec$a;->a()Lokhttp3/ConnectionSpec;
+    invoke-virtual {v0}, Lokhttp3/ConnectionSpec$Builder;->a()Lokhttp3/ConnectionSpec;
 
     move-result-object v0
 
     sput-object v0, Lokhttp3/ConnectionSpec;->b:Lokhttp3/ConnectionSpec;
 
     .line 80
-    new-instance v0, Lokhttp3/ConnectionSpec$a;
+    new-instance v0, Lokhttp3/ConnectionSpec$Builder;
 
-    invoke-direct {v0, v2}, Lokhttp3/ConnectionSpec$a;-><init>(Z)V
+    invoke-direct {v0, v2}, Lokhttp3/ConnectionSpec$Builder;-><init>(Z)V
 
-    invoke-virtual {v0}, Lokhttp3/ConnectionSpec$a;->a()Lokhttp3/ConnectionSpec;
+    invoke-virtual {v0}, Lokhttp3/ConnectionSpec$Builder;->a()Lokhttp3/ConnectionSpec;
 
     move-result-object v0
 
@@ -217,29 +217,29 @@
     return-void
 .end method
 
-.method constructor <init>(Lokhttp3/ConnectionSpec$a;)V
+.method constructor <init>(Lokhttp3/ConnectionSpec$Builder;)V
     .locals 1
 
     .line 87
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 88
-    iget-boolean v0, p1, Lokhttp3/ConnectionSpec$a;->a:Z
+    iget-boolean v0, p1, Lokhttp3/ConnectionSpec$Builder;->a:Z
 
     iput-boolean v0, p0, Lokhttp3/ConnectionSpec;->d:Z
 
     .line 89
-    iget-object v0, p1, Lokhttp3/ConnectionSpec$a;->b:[Ljava/lang/String;
+    iget-object v0, p1, Lokhttp3/ConnectionSpec$Builder;->b:[Ljava/lang/String;
 
     iput-object v0, p0, Lokhttp3/ConnectionSpec;->f:[Ljava/lang/String;
 
     .line 90
-    iget-object v0, p1, Lokhttp3/ConnectionSpec$a;->c:[Ljava/lang/String;
+    iget-object v0, p1, Lokhttp3/ConnectionSpec$Builder;->c:[Ljava/lang/String;
 
     iput-object v0, p0, Lokhttp3/ConnectionSpec;->g:[Ljava/lang/String;
 
     .line 91
-    iget-boolean p1, p1, Lokhttp3/ConnectionSpec$a;->d:Z
+    iget-boolean p1, p1, Lokhttp3/ConnectionSpec$Builder;->d:Z
 
     iput-boolean p1, p0, Lokhttp3/ConnectionSpec;->e:Z
 
@@ -332,22 +332,22 @@
 
     .line 152
     :cond_2
-    new-instance p1, Lokhttp3/ConnectionSpec$a;
+    new-instance p1, Lokhttp3/ConnectionSpec$Builder;
 
-    invoke-direct {p1, p0}, Lokhttp3/ConnectionSpec$a;-><init>(Lokhttp3/ConnectionSpec;)V
+    invoke-direct {p1, p0}, Lokhttp3/ConnectionSpec$Builder;-><init>(Lokhttp3/ConnectionSpec;)V
 
     .line 153
-    invoke-virtual {p1, v0}, Lokhttp3/ConnectionSpec$a;->a([Ljava/lang/String;)Lokhttp3/ConnectionSpec$a;
+    invoke-virtual {p1, v0}, Lokhttp3/ConnectionSpec$Builder;->a([Ljava/lang/String;)Lokhttp3/ConnectionSpec$Builder;
 
     move-result-object p1
 
     .line 154
-    invoke-virtual {p1, v1}, Lokhttp3/ConnectionSpec$a;->b([Ljava/lang/String;)Lokhttp3/ConnectionSpec$a;
+    invoke-virtual {p1, v1}, Lokhttp3/ConnectionSpec$Builder;->b([Ljava/lang/String;)Lokhttp3/ConnectionSpec$Builder;
 
     move-result-object p1
 
     .line 155
-    invoke-virtual {p1}, Lokhttp3/ConnectionSpec$a;->a()Lokhttp3/ConnectionSpec;
+    invoke-virtual {p1}, Lokhttp3/ConnectionSpec$Builder;->a()Lokhttp3/ConnectionSpec;
 
     move-result-object p1
 

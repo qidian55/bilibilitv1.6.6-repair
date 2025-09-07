@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lokhttp3/internal/connection/StreamAllocation$a;
+        Lokhttp3/internal/connection/StreamAllocation$StreamAllocationReference;
     }
 .end annotation
 
@@ -22,7 +22,7 @@
 
 .field public final c:Lokhttp3/EventListener;
 
-.field private e:Lokhttp3/internal/connection/RouteSelector$a;
+.field private e:Lokhttp3/internal/connection/RouteSelector$Selection;
 
 .field private f:Lokhttp3/Route;
 
@@ -267,13 +267,13 @@
     if-nez v10, :cond_b
 
     .line 212
-    iget-object v2, v1, Lokhttp3/internal/connection/StreamAllocation;->e:Lokhttp3/internal/connection/RouteSelector$a;
+    iget-object v2, v1, Lokhttp3/internal/connection/StreamAllocation;->e:Lokhttp3/internal/connection/RouteSelector$Selection;
 
     if-eqz v2, :cond_a
 
-    iget-object v2, v1, Lokhttp3/internal/connection/StreamAllocation;->e:Lokhttp3/internal/connection/RouteSelector$a;
+    iget-object v2, v1, Lokhttp3/internal/connection/StreamAllocation;->e:Lokhttp3/internal/connection/RouteSelector$Selection;
 
-    invoke-virtual {v2}, Lokhttp3/internal/connection/RouteSelector$a;->a()Z
+    invoke-virtual {v2}, Lokhttp3/internal/connection/RouteSelector$Selection;->a()Z
 
     move-result v2
 
@@ -283,11 +283,11 @@
     :cond_a
     iget-object v2, v1, Lokhttp3/internal/connection/StreamAllocation;->i:Lokhttp3/internal/connection/RouteSelector;
 
-    invoke-virtual {v2}, Lokhttp3/internal/connection/RouteSelector;->b()Lokhttp3/internal/connection/RouteSelector$a;
+    invoke-virtual {v2}, Lokhttp3/internal/connection/RouteSelector;->b()Lokhttp3/internal/connection/RouteSelector$Selection;
 
     move-result-object v2
 
-    iput-object v2, v1, Lokhttp3/internal/connection/StreamAllocation;->e:Lokhttp3/internal/connection/RouteSelector$a;
+    iput-object v2, v1, Lokhttp3/internal/connection/StreamAllocation;->e:Lokhttp3/internal/connection/RouteSelector$Selection;
 
     const/4 v2, 0x1
 
@@ -320,9 +320,9 @@
     if-eqz v2, :cond_e
 
     .line 223
-    iget-object v2, v1, Lokhttp3/internal/connection/StreamAllocation;->e:Lokhttp3/internal/connection/RouteSelector$a;
+    iget-object v2, v1, Lokhttp3/internal/connection/StreamAllocation;->e:Lokhttp3/internal/connection/RouteSelector$Selection;
 
-    invoke-virtual {v2}, Lokhttp3/internal/connection/RouteSelector$a;->c()Ljava/util/List;
+    invoke-virtual {v2}, Lokhttp3/internal/connection/RouteSelector$Selection;->c()Ljava/util/List;
 
     move-result-object v2
 
@@ -379,9 +379,9 @@
     if-nez v10, :cond_f
 
     .line 238
-    iget-object v2, v1, Lokhttp3/internal/connection/StreamAllocation;->e:Lokhttp3/internal/connection/RouteSelector$a;
+    iget-object v2, v1, Lokhttp3/internal/connection/StreamAllocation;->e:Lokhttp3/internal/connection/RouteSelector$Selection;
 
-    invoke-virtual {v2}, Lokhttp3/internal/connection/RouteSelector$a;->b()Lokhttp3/Route;
+    invoke-virtual {v2}, Lokhttp3/internal/connection/RouteSelector$Selection;->b()Lokhttp3/Route;
 
     move-result-object v10
 
@@ -889,21 +889,21 @@
     throw v1
 .end method
 
-.method public a(Lokhttp3/OkHttpClient;Lokhttp3/Interceptor$a;Z)Lokhttp3/internal/http/HttpCodec;
+.method public a(Lokhttp3/OkHttpClient;Lokhttp3/Interceptor$Chain;Z)Lokhttp3/internal/http/HttpCodec;
     .locals 7
 
     .line 107
-    invoke-interface {p2}, Lokhttp3/Interceptor$a;->c()I
+    invoke-interface {p2}, Lokhttp3/Interceptor$Chain;->c()I
 
     move-result v1
 
     .line 108
-    invoke-interface {p2}, Lokhttp3/Interceptor$a;->d()I
+    invoke-interface {p2}, Lokhttp3/Interceptor$Chain;->d()I
 
     move-result v2
 
     .line 109
-    invoke-interface {p2}, Lokhttp3/Interceptor$a;->e()I
+    invoke-interface {p2}, Lokhttp3/Interceptor$Chain;->e()I
 
     move-result v3
 
@@ -928,7 +928,7 @@
     move-result-object p3
 
     .line 116
-    invoke-virtual {p3, p1, p2, p0}, Lokhttp3/internal/connection/RealConnection;->a(Lokhttp3/OkHttpClient;Lokhttp3/Interceptor$a;Lokhttp3/internal/connection/StreamAllocation;)Lokhttp3/internal/http/HttpCodec;
+    invoke-virtual {p3, p1, p2, p0}, Lokhttp3/internal/connection/RealConnection;->a(Lokhttp3/OkHttpClient;Lokhttp3/Interceptor$Chain;Lokhttp3/internal/connection/StreamAllocation;)Lokhttp3/internal/http/HttpCodec;
 
     move-result-object p1
 
@@ -1097,11 +1097,11 @@
     .line 473
     iget-object p1, p1, Lokhttp3/internal/connection/RealConnection;->d:Ljava/util/List;
 
-    new-instance p2, Lokhttp3/internal/connection/StreamAllocation$a;
+    new-instance p2, Lokhttp3/internal/connection/StreamAllocation$StreamAllocationReference;
 
     iget-object v0, p0, Lokhttp3/internal/connection/StreamAllocation;->h:Ljava/lang/Object;
 
-    invoke-direct {p2, p0, v0}, Lokhttp3/internal/connection/StreamAllocation$a;-><init>(Lokhttp3/internal/connection/StreamAllocation;Ljava/lang/Object;)V
+    invoke-direct {p2, p0, v0}, Lokhttp3/internal/connection/StreamAllocation$StreamAllocationReference;-><init>(Lokhttp3/internal/connection/StreamAllocation;Ljava/lang/Object;)V
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -1637,14 +1637,14 @@
 
     if-nez v0, :cond_2
 
-    iget-object v0, p0, Lokhttp3/internal/connection/StreamAllocation;->e:Lokhttp3/internal/connection/RouteSelector$a;
+    iget-object v0, p0, Lokhttp3/internal/connection/StreamAllocation;->e:Lokhttp3/internal/connection/RouteSelector$Selection;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lokhttp3/internal/connection/StreamAllocation;->e:Lokhttp3/internal/connection/RouteSelector$a;
+    iget-object v0, p0, Lokhttp3/internal/connection/StreamAllocation;->e:Lokhttp3/internal/connection/RouteSelector$Selection;
 
     .line 513
-    invoke-virtual {v0}, Lokhttp3/internal/connection/RouteSelector$a;->a()Z
+    invoke-virtual {v0}, Lokhttp3/internal/connection/RouteSelector$Selection;->a()Z
 
     move-result v0
 
