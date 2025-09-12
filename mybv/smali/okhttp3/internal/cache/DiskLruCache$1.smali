@@ -1,6 +1,6 @@
 .class Lokhttp3/internal/cache/DiskLruCache$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "DiskLruCache.java"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -18,15 +18,16 @@
 
 
 # instance fields
-.field final synthetic a:Lokhttp3/internal/cache/DiskLruCache;
+.field final synthetic this$0:Lokhttp3/internal/cache/DiskLruCache;
 
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/cache/DiskLruCache;)V
     .locals 0
 
+    .prologue
     .line 169
-    iput-object p1, p0, Lokhttp3/internal/cache/DiskLruCache$1;->a:Lokhttp3/internal/cache/DiskLruCache;
+    iput-object p1, p0, Lokhttp3/internal/cache/DiskLruCache$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,118 +39,140 @@
 .method public run()V
     .locals 4
 
-    .line 171
-    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$1;->a:Lokhttp3/internal/cache/DiskLruCache;
+    .prologue
+    const/4 v1, 0x0
 
-    monitor-enter v0
+    const/4 v0, 0x1
+
+    .line 171
+    iget-object v2, p0, Lokhttp3/internal/cache/DiskLruCache$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
+
+    monitor-enter v2
 
     .line 172
-    :try_start_0
-    iget-object v1, p0, Lokhttp3/internal/cache/DiskLruCache$1;->a:Lokhttp3/internal/cache/DiskLruCache;
+    :try_start_5
+    iget-object v3, p0, Lokhttp3/internal/cache/DiskLruCache$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
-    iget-boolean v1, v1, Lokhttp3/internal/cache/DiskLruCache;->i:Z
+    iget-boolean v3, v3, Lokhttp3/internal/cache/DiskLruCache;->initialized:Z
 
-    const/4 v2, 0x1
+    if-nez v3, :cond_14
 
-    xor-int/2addr v1, v2
+    :goto_b
+    iget-object v1, p0, Lokhttp3/internal/cache/DiskLruCache$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
-    iget-object v3, p0, Lokhttp3/internal/cache/DiskLruCache$1;->a:Lokhttp3/internal/cache/DiskLruCache;
+    iget-boolean v1, v1, Lokhttp3/internal/cache/DiskLruCache;->closed:Z
 
-    iget-boolean v3, v3, Lokhttp3/internal/cache/DiskLruCache;->j:Z
+    or-int/2addr v0, v1
 
-    or-int/2addr v1, v3
-
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_16
 
     .line 173
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    monitor-exit v2
+    :try_end_13
+    .catchall {:try_start_5 .. :try_end_13} :catchall_2f
 
+    .line 192
+    :goto_13
     return-void
 
+    :cond_14
+    move v0, v1
+
+    .line 172
+    goto :goto_b
+
     .line 177
-    :cond_0
-    :try_start_1
-    iget-object v1, p0, Lokhttp3/internal/cache/DiskLruCache$1;->a:Lokhttp3/internal/cache/DiskLruCache;
+    :cond_16
+    :try_start_16
+    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
-    invoke-virtual {v1}, Lokhttp3/internal/cache/DiskLruCache;->e()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    .line 179
-    :catch_0
-    :try_start_2
-    iget-object v1, p0, Lokhttp3/internal/cache/DiskLruCache$1;->a:Lokhttp3/internal/cache/DiskLruCache;
-
-    iput-boolean v2, v1, Lokhttp3/internal/cache/DiskLruCache;->k:Z
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache;->trimToSize()V
+    :try_end_1b
+    .catch Ljava/io/IOException; {:try_start_16 .. :try_end_1b} :catch_32
+    .catchall {:try_start_16 .. :try_end_1b} :catchall_2f
 
     .line 183
-    :goto_0
-    :try_start_3
-    iget-object v1, p0, Lokhttp3/internal/cache/DiskLruCache$1;->a:Lokhttp3/internal/cache/DiskLruCache;
+    :goto_1b
+    :try_start_1b
+    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
-    invoke-virtual {v1}, Lokhttp3/internal/cache/DiskLruCache;->c()Z
+    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache;->journalRebuildRequired()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_2d
 
     .line 184
-    iget-object v1, p0, Lokhttp3/internal/cache/DiskLruCache$1;->a:Lokhttp3/internal/cache/DiskLruCache;
+    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
-    invoke-virtual {v1}, Lokhttp3/internal/cache/DiskLruCache;->b()V
+    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache;->rebuildJournal()V
 
     .line 185
-    iget-object v1, p0, Lokhttp3/internal/cache/DiskLruCache$1;->a:Lokhttp3/internal/cache/DiskLruCache;
+    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    iput v3, v1, Lokhttp3/internal/cache/DiskLruCache;->g:I
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    iput v1, v0, Lokhttp3/internal/cache/DiskLruCache;->redundantOpCount:I
+    :try_end_2d
+    .catch Ljava/io/IOException; {:try_start_1b .. :try_end_2d} :catch_39
+    .catchall {:try_start_1b .. :try_end_2d} :catchall_2f
 
-    goto :goto_1
+    .line 191
+    :cond_2d
+    :goto_2d
+    :try_start_2d
+    monitor-exit v2
+
+    goto :goto_13
+
+    :catchall_2f
+    move-exception v0
+
+    monitor-exit v2
+    :try_end_31
+    .catchall {:try_start_2d .. :try_end_31} :catchall_2f
+
+    throw v0
+
+    .line 178
+    :catch_32
+    move-exception v0
+
+    .line 179
+    :try_start_33
+    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, v0, Lokhttp3/internal/cache/DiskLruCache;->mostRecentTrimFailed:Z
+
+    goto :goto_1b
+
+    .line 187
+    :catch_39
+    move-exception v0
 
     .line 188
-    :catch_1
-    :try_start_4
-    iget-object v1, p0, Lokhttp3/internal/cache/DiskLruCache$1;->a:Lokhttp3/internal/cache/DiskLruCache;
+    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
-    iput-boolean v2, v1, Lokhttp3/internal/cache/DiskLruCache;->l:Z
+    const/4 v1, 0x1
+
+    iput-boolean v1, v0, Lokhttp3/internal/cache/DiskLruCache;->mostRecentRebuildFailed:Z
 
     .line 189
-    iget-object v1, p0, Lokhttp3/internal/cache/DiskLruCache$1;->a:Lokhttp3/internal/cache/DiskLruCache;
+    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$1;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
     invoke-static {}, Lokio/Okio;->blackhole()Lokio/Sink;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v2}, Lokio/Okio;->buffer(Lokio/Sink;)Lokio/BufferedSink;
+    invoke-static {v1}, Lokio/Okio;->buffer(Lokio/Sink;)Lokio/BufferedSink;
 
-    move-result-object v2
+    move-result-object v1
 
-    iput-object v2, v1, Lokhttp3/internal/cache/DiskLruCache;->e:Lokio/BufferedSink;
+    iput-object v1, v0, Lokhttp3/internal/cache/DiskLruCache;->journalWriter:Lokio/BufferedSink;
+    :try_end_4b
+    .catchall {:try_start_33 .. :try_end_4b} :catchall_2f
 
-    .line 191
-    :cond_1
-    :goto_1
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    throw v1
+    goto :goto_2d
 .end method

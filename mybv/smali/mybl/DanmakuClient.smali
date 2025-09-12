@@ -1088,7 +1088,7 @@
     invoke-virtual {v1, v0}, Lmybl/DanmakuWebSocketClient;->send([B)V
 
     .line 136
-    const-wide/16 v0, 0x4e20
+    const-wide/16 v0, 0x2710
 
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
     :try_end_a6

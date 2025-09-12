@@ -1,6 +1,6 @@
 .class final Lbl/acj$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "acj.java"
 
 # interfaces
 .implements Lbl/kn$c;
@@ -18,15 +18,16 @@
 
 
 # instance fields
-.field final synthetic a:Lbl/acu;
+.field final synthetic val$acuVar:Lbl/acu;
 
 
 # direct methods
 .method constructor <init>(Lbl/acu;)V
     .locals 0
 
-    .line 58
-    iput-object p1, p0, Lbl/acj$1;->a:Lbl/acu;
+    .prologue
+    .line 74
+    iput-object p1, p0, Lbl/acj$1;->val$acuVar:Lbl/acu;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,12 +37,14 @@
 
 # virtual methods
 .method public a(I)V
-    .locals 0
+    .locals 1
 
-    .line 61
-    iget-object p1, p0, Lbl/acj$1;->a:Lbl/acu;
+    .prologue
+    .line 77
+    iget-object v0, p0, Lbl/acj$1;->val$acuVar:Lbl/acu;
 
-    invoke-virtual {p1}, Lbl/acu;->a()V
+    invoke-virtual {v0}, Lbl/acu;->a()V
 
+    .line 78
     return-void
 .end method

@@ -1,11 +1,11 @@
 .class public interface abstract Lbl/kg;
 .super Ljava/lang/Object;
-.source "BL"
+.source "kg.java"
 
 
 # annotations
 .annotation runtime Lretrofit2/http/BaseUrl;
-    a = "https://bangumi.bilibili.com"
+    value = "https://bangumi.bilibili.com"
 .end annotation
 
 
@@ -14,21 +14,22 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lbl/vp<",
+            "Lbl/vp",
+            "<",
             "Lcom/bilibili/bangumi/api/timeline/BiliTimelineList;",
             ">;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/api/timeline_v2"
+        value = "/api/timeline_v2"
     .end annotation
 .end method
 
 .method public abstract a(Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "episode_id"
+            value = "episode_id"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -36,15 +37,18 @@
             "(",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/bangumi/api/BangumiApiResponse<",
-            "Ljava/util/List<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/bangumi/api/BangumiApiResponse",
+            "<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/bangumi/api/BiliBangumiSource;",
             ">;>;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/api/get_source"
+        value = "/api/get_source"
     .end annotation
 .end method

@@ -1,6 +1,6 @@
 .class public Lretrofit2/HttpException;
 .super Ljava/lang/RuntimeException;
-.source "BL"
+.source "HttpException.java"
 
 
 # instance fields
@@ -11,8 +11,8 @@
 .field private final transient response:Lretrofit2/Response;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lretrofit2/Response<",
-            "*>;"
+            "Lretrofit2/Response",
+            "<*>;"
         }
     .end annotation
 .end field
@@ -24,27 +24,28 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lretrofit2/Response<",
-            "*>;)V"
+            "Lretrofit2/Response",
+            "<*>;)V"
         }
     .end annotation
 
+    .prologue
     .line 32
-    invoke-static {p1}, Lretrofit2/HttpException;->a(Lretrofit2/Response;)Ljava/lang/String;
+    invoke-static {p1}, Lretrofit2/HttpException;->getMessage(Lretrofit2/Response;)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 33
-    invoke-virtual {p1}, Lretrofit2/Response;->b()I
+    invoke-virtual {p1}, Lretrofit2/Response;->code()I
 
     move-result v0
 
     iput v0, p0, Lretrofit2/HttpException;->code:I
 
     .line 34
-    invoke-virtual {p1}, Lretrofit2/Response;->c()Ljava/lang/String;
+    invoke-virtual {p1}, Lretrofit2/Response;->message()Ljava/lang/String;
 
     move-result-object v0
 
@@ -53,24 +54,26 @@
     .line 35
     iput-object p1, p0, Lretrofit2/HttpException;->response:Lretrofit2/Response;
 
+    .line 36
     return-void
 .end method
 
-.method private static a(Lretrofit2/Response;)Ljava/lang/String;
+.method private static getMessage(Lretrofit2/Response;)Ljava/lang/String;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lretrofit2/Response<",
-            "*>;)",
+            "Lretrofit2/Response",
+            "<*>;)",
             "Ljava/lang/String;"
         }
     .end annotation
 
+    .prologue
+    .line 23
     const-string v0, "response == null"
 
-    .line 23
-    invoke-static {p0, v0}, Lretrofit2/Utils;->a(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p0, v0}, Lretrofit2/Utils;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 24
     new-instance v0, Ljava/lang/StringBuilder;
@@ -81,36 +84,72 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lretrofit2/Response;->b()I
+    move-result-object v0
+
+    invoke-virtual {p0}, Lretrofit2/Response;->code()I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lretrofit2/Response;->c()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object p0
+    invoke-virtual {p0}, Lretrofit2/Response;->message()Ljava/lang/String;
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public a()I
+.method public code()I
     .locals 1
 
+    .prologue
     .line 40
     iget v0, p0, Lretrofit2/HttpException;->code:I
 
     return v0
+.end method
+
+.method public message()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 45
+    iget-object v0, p0, Lretrofit2/HttpException;->message:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public response()Lretrofit2/Response;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lretrofit2/Response",
+            "<*>;"
+        }
+    .end annotation
+
+    .prologue
+    .line 52
+    iget-object v0, p0, Lretrofit2/HttpException;->response:Lretrofit2/Response;
+
+    return-object v0
 .end method

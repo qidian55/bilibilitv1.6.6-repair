@@ -1,6 +1,6 @@
 .class final Lokhttp3/EventListener$1;
 .super Lokhttp3/EventListener;
-.source "BL"
+.source "EventListener.java"
 
 
 # annotations
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x8
     name = null
 .end annotation
 
@@ -18,6 +18,7 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
     .line 59
     invoke-direct {p0}, Lokhttp3/EventListener;-><init>()V
 

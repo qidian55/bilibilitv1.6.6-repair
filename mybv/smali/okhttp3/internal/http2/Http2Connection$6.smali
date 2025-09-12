@@ -1,11 +1,11 @@
 .class Lokhttp3/internal/http2/Http2Connection$6;
 .super Lokhttp3/internal/NamedRunnable;
-.source "BL"
+.source "Http2Connection.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lokhttp3/internal/http2/Http2Connection;->c(ILokhttp3/internal/http2/ErrorCode;)V
+    value = Lokhttp3/internal/http2/Http2Connection;->pushResetLater(ILokhttp3/internal/http2/ErrorCode;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,23 +15,24 @@
 
 
 # instance fields
-.field final synthetic a:I
+.field final synthetic this$0:Lokhttp3/internal/http2/Http2Connection;
 
-.field final synthetic c:Lokhttp3/internal/http2/ErrorCode;
+.field final synthetic val$errorCode:Lokhttp3/internal/http2/ErrorCode;
 
-.field final synthetic d:Lokhttp3/internal/http2/Http2Connection;
+.field final synthetic val$streamId:I
 
 
 # direct methods
 .method varargs constructor <init>(Lokhttp3/internal/http2/Http2Connection;Ljava/lang/String;[Ljava/lang/Object;ILokhttp3/internal/http2/ErrorCode;)V
     .locals 0
 
+    .prologue
     .line 907
-    iput-object p1, p0, Lokhttp3/internal/http2/Http2Connection$6;->d:Lokhttp3/internal/http2/Http2Connection;
+    iput-object p1, p0, Lokhttp3/internal/http2/Http2Connection$6;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
-    iput p4, p0, Lokhttp3/internal/http2/Http2Connection$6;->a:I
+    iput p4, p0, Lokhttp3/internal/http2/Http2Connection$6;->val$streamId:I
 
-    iput-object p5, p0, Lokhttp3/internal/http2/Http2Connection$6;->c:Lokhttp3/internal/http2/ErrorCode;
+    iput-object p5, p0, Lokhttp3/internal/http2/Http2Connection$6;->val$errorCode:Lokhttp3/internal/http2/ErrorCode;
 
     invoke-direct {p0, p2, p3}, Lokhttp3/internal/NamedRunnable;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
@@ -40,50 +41,53 @@
 
 
 # virtual methods
-.method public c()V
+.method public execute()V
     .locals 3
 
+    .prologue
     .line 909
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$6;->d:Lokhttp3/internal/http2/Http2Connection;
+    iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$6;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
-    iget-object v0, v0, Lokhttp3/internal/http2/Http2Connection;->h:Lokhttp3/internal/http2/PushObserver;
+    iget-object v0, v0, Lokhttp3/internal/http2/Http2Connection;->pushObserver:Lokhttp3/internal/http2/PushObserver;
 
-    iget v1, p0, Lokhttp3/internal/http2/Http2Connection$6;->a:I
+    iget v1, p0, Lokhttp3/internal/http2/Http2Connection$6;->val$streamId:I
 
-    iget-object v2, p0, Lokhttp3/internal/http2/Http2Connection$6;->c:Lokhttp3/internal/http2/ErrorCode;
+    iget-object v2, p0, Lokhttp3/internal/http2/Http2Connection$6;->val$errorCode:Lokhttp3/internal/http2/ErrorCode;
 
-    invoke-interface {v0, v1, v2}, Lokhttp3/internal/http2/PushObserver;->a(ILokhttp3/internal/http2/ErrorCode;)V
+    invoke-interface {v0, v1, v2}, Lokhttp3/internal/http2/PushObserver;->onReset(ILokhttp3/internal/http2/ErrorCode;)V
 
     .line 910
-    iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$6;->d:Lokhttp3/internal/http2/Http2Connection;
+    iget-object v1, p0, Lokhttp3/internal/http2/Http2Connection$6;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
-    monitor-enter v0
+    monitor-enter v1
 
     .line 911
-    :try_start_0
-    iget-object v1, p0, Lokhttp3/internal/http2/Http2Connection$6;->d:Lokhttp3/internal/http2/Http2Connection;
+    :try_start_e
+    iget-object v0, p0, Lokhttp3/internal/http2/Http2Connection$6;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
-    iget-object v1, v1, Lokhttp3/internal/http2/Http2Connection;->q:Ljava/util/Set;
+    iget-object v0, v0, Lokhttp3/internal/http2/Http2Connection;->currentPushRequests:Ljava/util/Set;
 
-    iget v2, p0, Lokhttp3/internal/http2/Http2Connection$6;->a:I
+    iget v2, p0, Lokhttp3/internal/http2/Http2Connection$6;->val$streamId:I
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    invoke-interface {v1, v2}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
     .line 912
-    monitor-exit v0
+    monitor-exit v1
 
+    .line 913
     return-void
 
-    :catchall_0
-    move-exception v1
+    .line 912
+    :catchall_1d
+    move-exception v0
 
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    monitor-exit v1
+    :try_end_1f
+    .catchall {:try_start_e .. :try_end_1f} :catchall_1d
 
-    throw v1
+    throw v0
 .end method

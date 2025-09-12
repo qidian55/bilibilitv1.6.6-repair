@@ -11,7 +11,7 @@
 .end annotation
 
 .annotation runtime Lretrofit2/http/BaseUrl;
-    a = "http://api.bilibili.com"
+    value = "http://api.bilibili.com"
 .end annotation
 
 
@@ -19,17 +19,17 @@
 .method public abstract addBox(Ljava/lang/String;Ljava/lang/String;I)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "name"
+            value = "name"
         .end annotation
     .end param
     .param p3    # I
         .annotation runtime Lretrofit2/http/Field;
-            a = "public"
+            value = "public"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -49,29 +49,29 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/v2/fav/folder/add"
+        value = "/x/v2/fav/folder/add"
     .end annotation
 .end method
 
 .method public abstract addVideoToList(Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "fid"
+            value = "fid"
         .end annotation
     .end param
     .param p3    # J
         .annotation runtime Lretrofit2/http/Field;
-            a = "aid"
+            value = "aid"
         .end annotation
     .end param
     .param p5    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "from"
+            value = "from"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -93,19 +93,19 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/v2/fav/video/add"
+        value = "/x/v2/fav/video/add"
     .end annotation
 .end method
 
 .method public abstract deleteBox(Ljava/lang/String;J)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .param p2    # J
         .annotation runtime Lretrofit2/http/Field;
-            a = "fid"
+            value = "fid"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -124,24 +124,24 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/v2/fav/folder/del"
+        value = "/x/v2/fav/folder/del"
     .end annotation
 .end method
 
 .method public abstract deleteVideo(Ljava/lang/String;JJ)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .param p2    # J
         .annotation runtime Lretrofit2/http/Field;
-            a = "fid"
+            value = "fid"
         .end annotation
     .end param
     .param p4    # J
         .annotation runtime Lretrofit2/http/Field;
-            a = "aid"
+            value = "aid"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -160,24 +160,24 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/v2/fav/video/del"
+        value = "/x/v2/fav/video/del"
     .end annotation
 .end method
 
 .method public abstract deleteVideo(Ljava/lang/String;JLjava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .param p2    # J
         .annotation runtime Lretrofit2/http/Field;
-            a = "fid"
+            value = "fid"
         .end annotation
     .end param
     .param p4    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "aids"
+            value = "aids"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -198,24 +198,24 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/v2/fav/video/mdel"
+        value = "/x/v2/fav/video/mdel"
     .end annotation
 .end method
 
 .method public abstract deleteVideoFromList(Ljava/lang/String;Ljava/lang/String;J)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "fid"
+            value = "fid"
         .end annotation
     .end param
     .param p3    # J
         .annotation runtime Lretrofit2/http/Field;
-            a = "aid"
+            value = "aid"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -235,14 +235,14 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/v2/fav/video/del"
+        value = "/x/v2/fav/video/del"
     .end annotation
 .end method
 
 .method public abstract getFavoriteSearchedVideoList(Ljava/lang/String;Lcom/bilibili/tv/api/favorite/BiliFavoriteVideoApiService$FavParamsMap;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .param p2    # Lcom/bilibili/tv/api/favorite/BiliFavoriteVideoApiService$FavParamsMap;
@@ -263,14 +263,14 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/x/v2/fav/video"
+        value = "/x/v2/fav/video"
     .end annotation
 .end method
 
 .method public abstract getFavoriteVideoListV2(Ljava/lang/String;Lcom/bilibili/tv/api/BiliApiService$MaoPageParamsMap;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .param p2    # Lcom/bilibili/tv/api/BiliApiService$MaoPageParamsMap;
@@ -291,24 +291,24 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/x/v2/fav/video"
+        value = "/x/v2/fav/video"
     .end annotation
 .end method
 
 .method public abstract getStatedBoxList(Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .param p2    # Ljava/lang/Long;
         .annotation runtime Lretrofit2/http/Query;
-            a = "vmid"
+            value = "vmid"
         .end annotation
     .end param
     .param p3    # Ljava/lang/Long;
         .annotation runtime Lretrofit2/http/Query;
-            a = "aid"
+            value = "aid"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -327,24 +327,24 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/x/v2/fav/folder"
+        value = "/x/v2/fav/folder"
     .end annotation
 .end method
 
 .method public abstract getTagDetail(III)Lbl/vp;
     .param p1    # I
         .annotation runtime Lretrofit2/http/Query;
-            a = "tag_id"
+            value = "tag_id"
         .end annotation
     .end param
     .param p2    # I
         .annotation runtime Lretrofit2/http/Query;
-            a = "pn"
+            value = "pn"
         .end annotation
     .end param
     .param p3    # I
         .annotation runtime Lretrofit2/http/Query;
-            a = "ps"
+            value = "ps"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -358,24 +358,24 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/x/tag/detail"
+        value = "/x/tag/detail"
     .end annotation
 .end method
 
 .method public abstract getTagVideos(III)Lbl/vp;
     .param p1    # I
         .annotation runtime Lretrofit2/http/Query;
-            a = "tag_id"
+            value = "tag_id"
         .end annotation
     .end param
     .param p2    # I
         .annotation runtime Lretrofit2/http/Query;
-            a = "pn"
+            value = "pn"
         .end annotation
     .end param
     .param p3    # I
         .annotation runtime Lretrofit2/http/Query;
-            a = "ps"
+            value = "ps"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -389,24 +389,24 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/x/tag/ranking/archives"
+        value = "/x/tag/ranking/archives"
     .end annotation
 .end method
 
 .method public abstract rename(Ljava/lang/String;JLjava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .param p2    # J
         .annotation runtime Lretrofit2/http/Field;
-            a = "fid"
+            value = "fid"
         .end annotation
     .end param
     .param p4    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "name"
+            value = "name"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -427,24 +427,24 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/v2/fav/folder/rename"
+        value = "/x/v2/fav/folder/rename"
     .end annotation
 .end method
 
 .method public abstract switchPublic(Ljava/lang/String;JI)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .param p2    # J
         .annotation runtime Lretrofit2/http/Field;
-            a = "fid"
+            value = "fid"
         .end annotation
     .end param
     .param p4    # I
         .annotation runtime Lretrofit2/http/Field;
-            a = "public"
+            value = "public"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -463,6 +463,6 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/v2/fav/folder/public"
+        value = "/x/v2/fav/folder/public"
     .end annotation
 .end method

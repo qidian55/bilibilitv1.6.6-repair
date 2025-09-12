@@ -41,7 +41,11 @@
 
     .prologue
     .line 172
-    const-string v0, "Mozilla/5.0 BiliTV/1.6.6 (bbcallen@gmail.com)"
+    const-string v0, "http.agent"
+
+    invoke-static {v0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
 
     return-object v0
 .end method
@@ -50,7 +54,7 @@
     .locals 1
 
     .prologue
-    .line 177
+    .line 178
     const-string v0, "@Deprecated"
 
     return-object v0
@@ -60,7 +64,7 @@
     .locals 1
 
     .prologue
-    .line 182
+    .line 183
     const-string v0, "@Deprecated"
 
     return-object v0
@@ -70,7 +74,7 @@
     .locals 1
 
     .prologue
-    .line 187
+    .line 188
     const/16 v0, 0x646
 
     return v0
@@ -80,7 +84,7 @@
     .locals 1
 
     .prologue
-    .line 197
+    .line 198
     iget-object v0, p0, Lcom/bilibili/tv/MainApplication$2;->this$0:Lcom/bilibili/tv/MainApplication;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getBaseContext()Landroid/content/Context;
@@ -98,7 +102,7 @@
     .locals 1
 
     .prologue
-    .line 192
+    .line 193
     const-string v0, "android_tv"
 
     return-object v0

@@ -1,6 +1,6 @@
 .class public interface abstract Lbl/vu;
 .super Ljava/lang/Object;
-.source "BL"
+.source "vu.java"
 
 # interfaces
 .implements Lretrofit2/Converter;
@@ -13,7 +13,8 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lretrofit2/Converter<",
+        "Lretrofit2/Converter",
+        "<",
         "Lokhttp3/ResponseBody;",
         "TT;>;"
     }

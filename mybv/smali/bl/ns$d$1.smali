@@ -56,7 +56,7 @@
 
     iget-object v0, v0, Lbl/ns$d;->a:Lokhttp3/Call;
 
-    invoke-interface {v0}, Lokhttp3/Call;->c()V
+    invoke-interface {v0}, Lokhttp3/Call;->cancel()V
 
     :cond_0
     return-void

@@ -9,12 +9,12 @@ import retrofit2.http.Query;
 import com.alibaba.fastjson.JSONObject;
 
 /* compiled from: BL */
-@BaseUrl(a = "https://api.live.bilibili.com")
+@BaseUrl("https://api.live.bilibili.com")
 /* loaded from: classes.dex */
 public interface aeh {
-    @GET(a = "/room/v1/Area/getRoomList")
-    vp<JSONObject> getRoomList(@Query(a = "parent_area_id") String i, @Query(a = "sort_type") String str, @Query(a = "page") int i2, @Query(a = "page_size") int i3);
+    @GET("/room/v1/Area/getRoomList")
+    vp<JSONObject> getRoomList(@Query("parent_area_id") String i, @Query("sort_type") String str, @Query("page") int i2, @Query("page_size") int i3);
 
-    @GET(a = "/xlive/app-interface/v1/relation/liveAnchor")
-    vp<JSONObject> getAttentionRoomList(@Query(a = "access_key") String str, @Query(a = "platform") String str2, @Query(a = "quality") int i);
+    @GET("/xlive/app-interface/v1/relation/liveAnchor")
+    vp<JSONObject> getAttentionRoomList(@Query("access_key") String str, @Query("platform") String str2, @Query("quality") int i);
 }

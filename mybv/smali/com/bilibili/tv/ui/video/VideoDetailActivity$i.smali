@@ -1443,7 +1443,7 @@
     .line 1390
     check-cast p1, Lretrofit2/HttpException;
 
-    invoke-virtual {p1}, Lretrofit2/HttpException;->a()I
+    invoke-virtual {p1}, Lretrofit2/HttpException;->code()I
 
     move-result v1
 

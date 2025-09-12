@@ -1,6 +1,6 @@
 .class Lretrofit2/Platform$Java8;
 .super Lretrofit2/Platform;
-.source "BL"
+.source "Platform.java"
 
 
 # annotations
@@ -10,7 +10,7 @@
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x8
-    name = "b"
+    name = "Java8"
 .end annotation
 
 .annotation build Lorg/codehaus/mojo/animal_sniffer/IgnoreJRERequirement;
@@ -21,6 +21,7 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
     .line 72
     invoke-direct {p0}, Lretrofit2/Platform;-><init>()V
 
@@ -29,7 +30,7 @@
 
 
 # virtual methods
-.method varargs a(Ljava/lang/reflect/Method;Ljava/lang/Class;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+.method varargs invokeDefaultMethod(Ljava/lang/reflect/Method;Ljava/lang/Class;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     .locals 6
     .param p4    # [Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
@@ -39,8 +40,8 @@
         value = {
             "(",
             "Ljava/lang/reflect/Method;",
-            "Ljava/lang/Class<",
-            "*>;",
+            "Ljava/lang/Class",
+            "<*>;",
             "Ljava/lang/Object;",
             "[",
             "Ljava/lang/Object;",
@@ -55,34 +56,35 @@
         }
     .end annotation
 
-    .line 81
-    const-class v0, Ljava/lang/invoke/MethodHandles$Lookup;
-
-    const/4 v1, 0x2
-
-    new-array v2, v1, [Ljava/lang/Class;
-
-    const-class v3, Ljava/lang/Class;
+    .prologue
+    const/4 v5, 0x2
 
     const/4 v4, 0x0
 
-    aput-object v3, v2, v4
+    const/4 v3, 0x1
 
-    sget-object v3, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    .line 81
+    const-class v0, Ljava/lang/invoke/MethodHandles$Lookup;
 
-    const/4 v5, 0x1
+    new-array v1, v5, [Ljava/lang/Class;
 
-    aput-object v3, v2, v5
+    const-class v2, Ljava/lang/Class;
 
-    invoke-virtual {v0, v2}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    aput-object v2, v1, v4
+
+    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+
+    aput-object v2, v1, v3
+
+    invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v0
 
     .line 82
-    invoke-virtual {v0, v5}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
+    invoke-virtual {v0, v3}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
 
     .line 83
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v1, v5, [Ljava/lang/Object;
 
     aput-object p2, v1, v4
 
@@ -92,7 +94,7 @@
 
     move-result-object v2
 
-    aput-object v2, v1, v5
+    aput-object v2, v1, v3
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -103,28 +105,30 @@
     .line 84
     invoke-virtual {v0, p1, p2}, Ljava/lang/invoke/MethodHandles$Lookup;->unreflectSpecial(Ljava/lang/reflect/Method;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 85
-    invoke-virtual {p1, p3}, Ljava/lang/invoke/MethodHandle;->bindTo(Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;
+    invoke-virtual {v0, p3}, Ljava/lang/invoke/MethodHandle;->bindTo(Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 86
-    invoke-virtual {p1, p4}, Ljava/lang/invoke/MethodHandle;->invokeWithArguments([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p4}, Ljava/lang/invoke/MethodHandle;->invokeWithArguments([Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    .line 83
+    return-object v0
 .end method
 
-.method a(Ljava/lang/reflect/Method;)Z
-    .locals 0
+.method isDefaultMethod(Ljava/lang/reflect/Method;)Z
+    .locals 1
 
+    .prologue
     .line 74
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->isDefault()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

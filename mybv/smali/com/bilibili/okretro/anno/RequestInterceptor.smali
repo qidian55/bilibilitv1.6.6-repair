@@ -1,6 +1,6 @@
 .class public interface abstract annotation Lcom/bilibili/okretro/anno/RequestInterceptor;
 .super Ljava/lang/Object;
-.source "BL"
+.source "RequestInterceptor.java"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;
@@ -23,12 +23,12 @@
 
 
 # virtual methods
-.method public abstract a()Ljava/lang/Class;
+.method public abstract value()Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/lang/Class<",
-            "+",
+            "Ljava/lang/Class",
+            "<+",
             "Lbl/vz;",
             ">;"
         }

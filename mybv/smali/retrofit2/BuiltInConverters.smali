@@ -1,6 +1,6 @@
 .class final Lretrofit2/BuiltInConverters;
 .super Lretrofit2/Converter$Factory;
-.source "BL"
+.source "BuiltInConverters.java"
 
 
 # annotations
@@ -19,6 +19,7 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
     .line 25
     invoke-direct {p0}, Lretrofit2/Converter$Factory;-><init>()V
 
@@ -27,65 +28,8 @@
 
 
 # virtual methods
-.method public a(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/Converter;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/reflect/Type;",
-            "[",
-            "Ljava/lang/annotation/Annotation;",
-            "Lretrofit2/Retrofit;",
-            ")",
-            "Lretrofit2/Converter<",
-            "Lokhttp3/ResponseBody;",
-            "*>;"
-        }
-    .end annotation
-
-    .line 29
-    const-class p3, Lokhttp3/ResponseBody;
-
-    if-ne p1, p3, :cond_1
-
-    .line 30
-    const-class p1, Lretrofit2/http/Streaming;
-
-    invoke-static {p2, p1}, Lretrofit2/Utils;->a([Ljava/lang/annotation/Annotation;Ljava/lang/Class;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    sget-object p1, Lretrofit2/BuiltInConverters$StreamingResponseBodyConverter;->a:Lretrofit2/BuiltInConverters$StreamingResponseBodyConverter;
-
-    goto :goto_0
-
-    :cond_0
-    sget-object p1, Lretrofit2/BuiltInConverters$BufferingResponseBodyConverter;->a:Lretrofit2/BuiltInConverters$BufferingResponseBodyConverter;
-
-    :goto_0
-    return-object p1
-
-    .line 34
-    :cond_1
-    const-class p2, Ljava/lang/Void;
-
-    if-ne p1, p2, :cond_2
-
-    .line 35
-    sget-object p1, Lretrofit2/BuiltInConverters$VoidResponseBodyConverter;->a:Lretrofit2/BuiltInConverters$VoidResponseBodyConverter;
-
-    return-object p1
-
-    :cond_2
-    const/4 p1, 0x0
-
-    return-object p1
-.end method
-
-.method public a(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/Converter;
-    .locals 0
+.method public requestBodyConverter(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/Converter;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -96,33 +40,98 @@
             "Ljava/lang/annotation/Annotation;",
             "Lretrofit2/Retrofit;",
             ")",
-            "Lretrofit2/Converter<",
-            "*",
+            "Lretrofit2/Converter",
+            "<*",
             "Lokhttp3/RequestBody;",
             ">;"
         }
     .end annotation
 
+    .prologue
     .line 43
-    const-class p2, Lokhttp3/RequestBody;
+    const-class v0, Lokhttp3/RequestBody;
 
-    invoke-static {p1}, Lretrofit2/Utils;->a(Ljava/lang/reflect/Type;)Ljava/lang/Class;
+    invoke-static {p1}, Lretrofit2/Utils;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {p2, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_f
 
     .line 44
-    sget-object p1, Lretrofit2/BuiltInConverters$RequestBodyConverter;->a:Lretrofit2/BuiltInConverters$RequestBodyConverter;
+    sget-object v0, Lretrofit2/BuiltInConverters$RequestBodyConverter;->INSTANCE:Lretrofit2/BuiltInConverters$RequestBodyConverter;
 
-    return-object p1
+    .line 46
+    :goto_e
+    return-object v0
 
-    :cond_0
-    const/4 p1, 0x0
+    :cond_f
+    const/4 v0, 0x0
 
-    return-object p1
+    goto :goto_e
+.end method
+
+.method public responseBodyConverter(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/Converter;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/reflect/Type;",
+            "[",
+            "Ljava/lang/annotation/Annotation;",
+            "Lretrofit2/Retrofit;",
+            ")",
+            "Lretrofit2/Converter",
+            "<",
+            "Lokhttp3/ResponseBody;",
+            "*>;"
+        }
+    .end annotation
+
+    .prologue
+    .line 29
+    const-class v0, Lokhttp3/ResponseBody;
+
+    if-ne p1, v0, :cond_12
+
+    .line 30
+    const-class v0, Lretrofit2/http/Streaming;
+
+    invoke-static {p2, v0}, Lretrofit2/Utils;->isAnnotationPresent([Ljava/lang/annotation/Annotation;Ljava/lang/Class;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_f
+
+    sget-object v0, Lretrofit2/BuiltInConverters$StreamingResponseBodyConverter;->INSTANCE:Lretrofit2/BuiltInConverters$StreamingResponseBodyConverter;
+
+    .line 37
+    :goto_e
+    return-object v0
+
+    .line 30
+    :cond_f
+    sget-object v0, Lretrofit2/BuiltInConverters$BufferingResponseBodyConverter;->INSTANCE:Lretrofit2/BuiltInConverters$BufferingResponseBodyConverter;
+
+    goto :goto_e
+
+    .line 34
+    :cond_12
+    const-class v0, Ljava/lang/Void;
+
+    if-ne p1, v0, :cond_19
+
+    .line 35
+    sget-object v0, Lretrofit2/BuiltInConverters$VoidResponseBodyConverter;->INSTANCE:Lretrofit2/BuiltInConverters$VoidResponseBodyConverter;
+
+    goto :goto_e
+
+    .line 37
+    :cond_19
+    const/4 v0, 0x0
+
+    goto :goto_e
 .end method

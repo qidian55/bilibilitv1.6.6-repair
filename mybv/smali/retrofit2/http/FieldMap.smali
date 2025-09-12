@@ -1,6 +1,6 @@
 .class public interface abstract annotation Lretrofit2/http/FieldMap;
 .super Ljava/lang/Object;
-.source "BL"
+.source "FieldMap.java"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;
@@ -9,7 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/AnnotationDefault;
     value = .subannotation Lretrofit2/http/FieldMap;
-        a = false
+        encoded = false
     .end subannotation
 .end annotation
 
@@ -28,5 +28,5 @@
 
 
 # virtual methods
-.method public abstract a()Z
+.method public abstract encoded()Z
 .end method

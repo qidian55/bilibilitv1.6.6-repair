@@ -1,6 +1,6 @@
 .class public Lbl/vo$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "vo.java"
 
 
 # annotations
@@ -24,7 +24,8 @@
 .field private d:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lokhttp3/Interceptor;",
             ">;"
         }
@@ -34,7 +35,8 @@
 .field private e:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lokhttp3/Interceptor;",
             ">;"
         }
@@ -44,35 +46,36 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .locals 3
 
-    .line 77
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .prologue
+    const/4 v2, 0x5
 
     const-wide/16 v0, 0x1770
 
-    .line 78
+    .line 58
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 59
     iput-wide v0, p0, Lbl/vo$a;->a:J
 
-    .line 79
+    .line 60
     iput-wide v0, p0, Lbl/vo$a;->b:J
 
-    .line 80
+    .line 61
     iput-wide v0, p0, Lbl/vo$a;->c:J
 
-    .line 81
+    .line 62
     new-instance v0, Ljava/util/ArrayList;
 
-    const/4 v1, 0x5
-
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v0, v2}, Ljava/util/ArrayList;-><init>(I)V
 
     iput-object v0, p0, Lbl/vo$a;->d:Ljava/util/List;
 
-    .line 82
+    .line 63
     new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v0, v2}, Ljava/util/ArrayList;-><init>(I)V
 
     iput-object v0, p0, Lbl/vo$a;->e:Ljava/util/List;
 
@@ -84,7 +87,8 @@
 .method public a()J
     .locals 2
 
-    .line 113
+    .prologue
+    .line 66
     iget-wide v0, p0, Lbl/vo$a;->a:J
 
     return-wide v0
@@ -93,7 +97,8 @@
 .method public b()J
     .locals 2
 
-    .line 117
+    .prologue
+    .line 70
     iget-wide v0, p0, Lbl/vo$a;->b:J
 
     return-wide v0
@@ -102,7 +107,8 @@
 .method public c()J
     .locals 2
 
-    .line 121
+    .prologue
+    .line 74
     iget-wide v0, p0, Lbl/vo$a;->c:J
 
     return-wide v0
@@ -113,13 +119,15 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lokhttp3/Interceptor;",
             ">;"
         }
     .end annotation
 
-    .line 125
+    .prologue
+    .line 78
     iget-object v0, p0, Lbl/vo$a;->d:Ljava/util/List;
 
     return-object v0
@@ -130,13 +138,15 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lokhttp3/Interceptor;",
             ">;"
         }
     .end annotation
 
-    .line 129
+    .prologue
+    .line 82
     iget-object v0, p0, Lbl/vo$a;->e:Ljava/util/List;
 
     return-object v0

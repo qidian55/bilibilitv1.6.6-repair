@@ -1,6 +1,6 @@
 .class public interface abstract Lretrofit2/CallAdapter;
 .super Ljava/lang/Object;
-.source "BL"
+.source "CallAdapter.java"
 
 
 # annotations
@@ -23,15 +23,15 @@
 
 
 # virtual methods
-.method public abstract a()Ljava/lang/reflect/Type;
-.end method
-
-.method public abstract b(Lretrofit2/Call;)Ljava/lang/Object;
+.method public abstract adapt(Lretrofit2/Call;)Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lretrofit2/Call<",
-            "TR;>;)TT;"
+            "Lretrofit2/Call",
+            "<TR;>;)TT;"
         }
     .end annotation
+.end method
+
+.method public abstract responseType()Ljava/lang/reflect/Type;
 .end method

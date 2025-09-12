@@ -11,7 +11,7 @@
 .end annotation
 
 .annotation runtime Lretrofit2/http/BaseUrl;
-    a = "http://api.bilibili.com"
+    value = "http://api.bilibili.com"
 .end annotation
 
 
@@ -37,6 +37,6 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/report/heartbeat/mobile"
+        value = "/x/report/heartbeat/mobile"
     .end annotation
 .end method

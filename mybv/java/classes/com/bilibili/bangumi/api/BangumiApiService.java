@@ -12,22 +12,22 @@ import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 /* compiled from: BL */
-@BaseUrl(a = "https://bangumi.bilibili.com")
+@BaseUrl("https://bangumi.bilibili.com")
 /* loaded from: classes.dex */
 public interface BangumiApiService {
-    @GET(a = "/api/tags?type=0")
-    @CacheControl(a = jh.AGE_DEFAULT)
-    vp<BangumiApiPageResponse<List<BiliBangumiTag>>> a(@Query(a = "page") int i, @Query(a = "pagesize") int i2);
+    @GET("/api/tags?type=0")
+    @CacheControl(jh.AGE_DEFAULT)
+    vp<BangumiApiPageResponse<List<BiliBangumiTag>>> a(@Query("page") int i, @Query("pagesize") int i2);
 
-    @GET(a = "/api/get_concerned_season")
-    vp<BangumiApiPageResponse<List<BiliBangumiSeason>>> a(@Query(a = "page") int i, @Query(a = "pagesize") int i2, @Query(a = "mid") long j, @Query(a = "access_key") String str);
-    //vp<BangumiApiPageResponse<List<BiliBangumiSeason>>> a(@Query(a = "pagesize") int i2,@Query(a = "page") int i, @Query(a = "mid") long j, @Query(a = "access_key") String str);
+    @GET("/api/get_concerned_season")
+    vp<BangumiApiPageResponse<List<BiliBangumiSeason>>> a(@Query("page") int i, @Query("pagesize") int i2, @Query("mid") long j, @Query("access_key") String str);
+    //vp<BangumiApiPageResponse<List<BiliBangumiSeason>>> a(@Query("pagesize") int i2,@Query("page") int i, @Query("mid") long j, @Query("access_key") String str);
 
-    @GET(a = "/api/bangumi_index_v2")
+    @GET("/api/bangumi_index_v2")
     vp<BangumiApiResponse<BangumiCategoryIndex>> a(@QueryMap CategoryIndexParamsMap categoryIndexParamsMap);
 
-    @GET(a = "/api/user_season_status")
-    vp<BangumiApiResponse<BiliBangumiSeason.UserSeason>> a(@Query(a = "access_key") String str, @Query(a = "season_id") String str2);
+    @GET("/api/user_season_status")
+    vp<BangumiApiResponse<BiliBangumiSeason.UserSeason>> a(@Query("access_key") String str, @Query("season_id") String str2);
 
     /* compiled from: BL */
     /* loaded from: classes.dex */

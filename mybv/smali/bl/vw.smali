@@ -113,7 +113,7 @@
     const-string v1, "Display-ID"
 
     .line 59
-    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 63
     :cond_0
@@ -131,7 +131,7 @@
     const-string v1, "Buvid"
 
     .line 65
-    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 69
     :cond_1
@@ -149,7 +149,7 @@
     const-string v1, "User-Agent"
 
     .line 71
-    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 75
     :cond_2
@@ -167,7 +167,7 @@
     const-string v1, "Device-ID"
 
     .line 77
-    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     :cond_3
     return-void
@@ -238,7 +238,7 @@
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     .line 132
-    invoke-virtual {p1}, Lokhttp3/HttpUrl;->n()I
+    invoke-virtual {p1}, Lokhttp3/HttpUrl;->querySize()I
 
     move-result v1
 
@@ -248,12 +248,12 @@
     if-ge v2, v1, :cond_1
 
     .line 133
-    invoke-virtual {p1, v2}, Lokhttp3/HttpUrl;->a(I)Ljava/lang/String;
+    invoke-virtual {p1, v2}, Lokhttp3/HttpUrl;->queryParameterName(I)Ljava/lang/String;
 
     move-result-object v3
 
     .line 134
-    invoke-virtual {p1, v3}, Lokhttp3/HttpUrl;->c(Ljava/lang/String;)Ljava/util/List;
+    invoke-virtual {p1, v3}, Lokhttp3/HttpUrl;->queryParameterValues(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v4
 
@@ -295,7 +295,7 @@
     move-result-object v0
 
     .line 141
-    invoke-virtual {p1}, Lokhttp3/HttpUrl;->q()Lokhttp3/HttpUrl$Builder;
+    invoke-virtual {p1}, Lokhttp3/HttpUrl;->newBuilder()Lokhttp3/HttpUrl$Builder;
 
     move-result-object p1
 
@@ -304,17 +304,17 @@
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Lokhttp3/HttpUrl$Builder;->f(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
+    invoke-virtual {p1, v0}, Lokhttp3/HttpUrl$Builder;->encodedQuery(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     move-result-object p1
 
     .line 143
-    invoke-virtual {p1}, Lokhttp3/HttpUrl$Builder;->c()Lokhttp3/HttpUrl;
+    invoke-virtual {p1}, Lokhttp3/HttpUrl$Builder;->build()Lokhttp3/HttpUrl;
 
     move-result-object p1
 
     .line 144
-    invoke-virtual {p2, p1}, Lokhttp3/Request$Builder;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
+    invoke-virtual {p2, p1}, Lokhttp3/Request$Builder;->url(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
 
     return-void
 .end method
@@ -336,7 +336,7 @@
 
     if-nez v0, :cond_1
 
-    invoke-virtual {p2}, Lokhttp3/RequestBody;->a()J
+    invoke-virtual {p2}, Lokhttp3/RequestBody;->contentLength()J
 
     move-result-wide v0
     :try_end_0
@@ -367,7 +367,7 @@
     check-cast p2, Lokhttp3/FormBody;
 
     .line 108
-    invoke-virtual {p2}, Lokhttp3/FormBody;->b()I
+    invoke-virtual {p2}, Lokhttp3/FormBody;->size()I
 
     move-result v1
 
@@ -377,11 +377,11 @@
     if-ge v3, v1, :cond_2
 
     .line 109
-    invoke-virtual {p2, v3}, Lokhttp3/FormBody;->b(I)Ljava/lang/String;
+    invoke-virtual {p2, v3}, Lokhttp3/FormBody;->name(I)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {p2, v3}, Lokhttp3/FormBody;->d(I)Ljava/lang/String;
+    invoke-virtual {p2, v3}, Lokhttp3/FormBody;->value(I)Ljava/lang/String;
 
     move-result-object v5
 
@@ -393,7 +393,7 @@
 
     .line 114
     :cond_2
-    invoke-virtual {p1}, Lokhttp3/HttpUrl;->n()I
+    invoke-virtual {p1}, Lokhttp3/HttpUrl;->querySize()I
 
     move-result p2
 
@@ -401,12 +401,12 @@
     if-ge v2, p2, :cond_4
 
     .line 115
-    invoke-virtual {p1, v2}, Lokhttp3/HttpUrl;->a(I)Ljava/lang/String;
+    invoke-virtual {p1, v2}, Lokhttp3/HttpUrl;->queryParameterName(I)Ljava/lang/String;
 
     move-result-object v1
 
     .line 116
-    invoke-virtual {p1, v1}, Lokhttp3/HttpUrl;->c(Ljava/lang/String;)Ljava/util/List;
+    invoke-virtual {p1, v1}, Lokhttp3/HttpUrl;->queryParameterValues(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v3
 
@@ -443,17 +443,17 @@
     invoke-virtual {p0, v0}, Lbl/vw;->a(Ljava/util/Map;)V
 
     .line 123
-    invoke-virtual {p1}, Lokhttp3/HttpUrl;->q()Lokhttp3/HttpUrl$Builder;
+    invoke-virtual {p1}, Lokhttp3/HttpUrl;->newBuilder()Lokhttp3/HttpUrl$Builder;
 
     move-result-object p1
 
     const/4 p2, 0x0
 
-    invoke-virtual {p1, p2}, Lokhttp3/HttpUrl$Builder;->e(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
+    invoke-virtual {p1, p2}, Lokhttp3/HttpUrl$Builder;->query(Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lokhttp3/HttpUrl$Builder;->c()Lokhttp3/HttpUrl;
+    invoke-virtual {p1}, Lokhttp3/HttpUrl$Builder;->build()Lokhttp3/HttpUrl;
 
     move-result-object p1
 
@@ -465,7 +465,7 @@
     const-string v0, "application/x-www-form-urlencoded; charset=utf-8"
 
     .line 125
-    invoke-static {v0}, Lokhttp3/MediaType;->a(Ljava/lang/String;)Lokhttp3/MediaType;
+    invoke-static {v0}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
 
     move-result-object v0
 
@@ -474,16 +474,16 @@
 
     move-result-object p2
 
-    invoke-static {v0, p2}, Lokhttp3/RequestBody;->a(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/RequestBody;
+    invoke-static {v0, p2}, Lokhttp3/RequestBody;->create(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/RequestBody;
 
     move-result-object p2
 
     .line 127
-    invoke-virtual {p3, p1}, Lokhttp3/Request$Builder;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
+    invoke-virtual {p3, p1}, Lokhttp3/Request$Builder;->url(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
 
     move-result-object p1
 
-    invoke-virtual {p1, p2}, Lokhttp3/Request$Builder;->a(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
+    invoke-virtual {p1, p2}, Lokhttp3/Request$Builder;->post(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
 
     return-void
 
@@ -495,7 +495,7 @@
     .locals 3
 
     .line 41
-    invoke-virtual {p1}, Lokhttp3/Request;->e()Lokhttp3/Request$Builder;
+    invoke-virtual {p1}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
 
     move-result-object v0
 
@@ -505,7 +505,7 @@
     const-string v1, "GET"
 
     .line 45
-    invoke-virtual {p1}, Lokhttp3/Request;->b()Ljava/lang/String;
+    invoke-virtual {p1}, Lokhttp3/Request;->method()Ljava/lang/String;
 
     move-result-object v2
 
@@ -516,7 +516,7 @@
     if-eqz v1, :cond_0
 
     .line 46
-    invoke-virtual {p1}, Lokhttp3/Request;->a()Lokhttp3/HttpUrl;
+    invoke-virtual {p1}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
 
     move-result-object p1
 
@@ -528,7 +528,7 @@
     const-string v1, "POST"
 
     .line 47
-    invoke-virtual {p1}, Lokhttp3/Request;->b()Ljava/lang/String;
+    invoke-virtual {p1}, Lokhttp3/Request;->method()Ljava/lang/String;
 
     move-result-object v2
 
@@ -539,11 +539,11 @@
     if-eqz v1, :cond_1
 
     .line 48
-    invoke-virtual {p1}, Lokhttp3/Request;->a()Lokhttp3/HttpUrl;
+    invoke-virtual {p1}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
 
     move-result-object v1
 
-    invoke-virtual {p1}, Lokhttp3/Request;->d()Lokhttp3/RequestBody;
+    invoke-virtual {p1}, Lokhttp3/Request;->body()Lokhttp3/RequestBody;
 
     move-result-object p1
 
@@ -552,7 +552,7 @@
     .line 51
     :cond_1
     :goto_0
-    invoke-virtual {v0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
     move-result-object p1
 

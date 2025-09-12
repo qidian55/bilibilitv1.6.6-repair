@@ -1,6 +1,6 @@
 .class Lokhttp3/internal/cache/CacheInterceptor$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "CacheInterceptor.java"
 
 # interfaces
 .implements Lokio/Source;
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lokhttp3/internal/cache/CacheInterceptor;->a(Lokhttp3/internal/cache/CacheRequest;Lokhttp3/Response;)Lokhttp3/Response;
+    value = Lokhttp3/internal/cache/CacheInterceptor;->cacheWritingResponse(Lokhttp3/internal/cache/CacheRequest;Lokhttp3/Response;)Lokhttp3/Response;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,29 +18,30 @@
 
 
 # instance fields
-.field a:Z
+.field cacheRequestClosed:Z
 
-.field final synthetic b:Lokio/BufferedSource;
+.field final synthetic this$0:Lokhttp3/internal/cache/CacheInterceptor;
 
-.field final synthetic c:Lokhttp3/internal/cache/CacheRequest;
+.field final synthetic val$cacheBody:Lokio/BufferedSink;
 
-.field final synthetic d:Lokio/BufferedSink;
+.field final synthetic val$cacheRequest:Lokhttp3/internal/cache/CacheRequest;
 
-.field final synthetic e:Lokhttp3/internal/cache/CacheInterceptor;
+.field final synthetic val$source:Lokio/BufferedSource;
 
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/cache/CacheInterceptor;Lokio/BufferedSource;Lokhttp3/internal/cache/CacheRequest;Lokio/BufferedSink;)V
     .locals 0
 
+    .prologue
     .line 168
-    iput-object p1, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->e:Lokhttp3/internal/cache/CacheInterceptor;
+    iput-object p1, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->this$0:Lokhttp3/internal/cache/CacheInterceptor;
 
-    iput-object p2, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->b:Lokio/BufferedSource;
+    iput-object p2, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$source:Lokio/BufferedSource;
 
-    iput-object p3, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->c:Lokhttp3/internal/cache/CacheRequest;
+    iput-object p3, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$cacheRequest:Lokhttp3/internal/cache/CacheRequest;
 
-    iput-object p4, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->d:Lokio/BufferedSink;
+    iput-object p4, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$cacheBody:Lokio/BufferedSink;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -49,109 +50,6 @@
 
 
 # virtual methods
-.method public read(Lokio/Buffer;J)J
-    .locals 8
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    const/4 v0, 0x1
-
-    .line 174
-    :try_start_0
-    iget-object v1, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->b:Lokio/BufferedSource;
-
-    invoke-interface {v1, p1, p2, p3}, Lokio/BufferedSource;->read(Lokio/Buffer;J)J
-
-    move-result-wide p2
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    const-wide/16 v1, -0x1
-
-    cmp-long v3, p2, v1
-
-    if-nez v3, :cond_1
-
-    .line 184
-    iget-boolean p1, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->a:Z
-
-    if-nez p1, :cond_0
-
-    .line 185
-    iput-boolean v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->a:Z
-
-    .line 186
-    iget-object p1, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->d:Lokio/BufferedSink;
-
-    invoke-interface {p1}, Lokio/BufferedSink;->close()V
-
-    :cond_0
-    return-wide v1
-
-    .line 191
-    :cond_1
-    iget-object v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->d:Lokio/BufferedSink;
-
-    invoke-interface {v0}, Lokio/BufferedSink;->buffer()Lokio/Buffer;
-
-    move-result-object v3
-
-    invoke-virtual {p1}, Lokio/Buffer;->size()J
-
-    move-result-wide v0
-
-    sub-long v4, v0, p2
-
-    move-object v2, p1
-
-    move-wide v6, p2
-
-    invoke-virtual/range {v2 .. v7}, Lokio/Buffer;->copyTo(Lokio/Buffer;JJ)Lokio/Buffer;
-
-    .line 192
-    iget-object p1, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->d:Lokio/BufferedSink;
-
-    invoke-interface {p1}, Lokio/BufferedSink;->emitCompleteSegments()Lokio/BufferedSink;
-
-    return-wide p2
-
-    :catch_0
-    move-exception p1
-
-    .line 176
-    iget-boolean p2, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->a:Z
-
-    if-nez p2, :cond_2
-
-    .line 177
-    iput-boolean v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->a:Z
-
-    .line 178
-    iget-object p2, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->c:Lokhttp3/internal/cache/CacheRequest;
-
-    invoke-interface {p2}, Lokhttp3/internal/cache/CacheRequest;->b()V
-
-    .line 180
-    :cond_2
-    throw p1
-.end method
-
-.method public timeout()Lokio/Timeout;
-    .locals 1
-
-    .line 197
-    iget-object v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->b:Lokio/BufferedSource;
-
-    invoke-interface {v0}, Lokio/BufferedSource;->timeout()Lokio/Timeout;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public close()V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
@@ -160,37 +58,148 @@
         }
     .end annotation
 
+    .prologue
     .line 201
-    iget-boolean v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->a:Z
+    iget-boolean v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->cacheRequestClosed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     const/16 v0, 0x64
 
     sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     .line 202
-    invoke-static {p0, v0, v1}, Lokhttp3/internal/Util;->a(Lokio/Source;ILjava/util/concurrent/TimeUnit;)Z
+    invoke-static {p0, v0, v1}, Lokhttp3/internal/Util;->discard(Lokio/Source;ILjava/util/concurrent/TimeUnit;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x1
+    if-nez v0, :cond_16
 
     .line 203
-    iput-boolean v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->a:Z
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->cacheRequestClosed:Z
 
     .line 204
-    iget-object v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->c:Lokhttp3/internal/cache/CacheRequest;
+    iget-object v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$cacheRequest:Lokhttp3/internal/cache/CacheRequest;
 
-    invoke-interface {v0}, Lokhttp3/internal/cache/CacheRequest;->b()V
+    invoke-interface {v0}, Lokhttp3/internal/cache/CacheRequest;->abort()V
 
     .line 206
-    :cond_0
-    iget-object v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->b:Lokio/BufferedSource;
+    :cond_16
+    iget-object v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$source:Lokio/BufferedSource;
 
     invoke-interface {v0}, Lokio/BufferedSource;->close()V
 
+    .line 207
     return-void
+.end method
+
+.method public read(Lokio/Buffer;J)J
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    const-wide/16 v0, -0x1
+
+    const/4 v3, 0x1
+
+    .line 174
+    :try_start_3
+    iget-object v2, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$source:Lokio/BufferedSource;
+
+    invoke-interface {v2, p1, p2, p3}, Lokio/BufferedSource;->read(Lokio/Buffer;J)J
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_8} :catch_1a
+
+    move-result-wide v4
+
+    .line 183
+    cmp-long v2, v4, v0
+
+    if-nez v2, :cond_27
+
+    .line 184
+    iget-boolean v2, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->cacheRequestClosed:Z
+
+    if-nez v2, :cond_18
+
+    .line 185
+    iput-boolean v3, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->cacheRequestClosed:Z
+
+    .line 186
+    iget-object v2, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$cacheBody:Lokio/BufferedSink;
+
+    invoke-interface {v2}, Lokio/BufferedSink;->close()V
+
+    :cond_18
+    move-wide v4, v0
+
+    .line 193
+    :goto_19
+    return-wide v4
+
+    .line 175
+    :catch_1a
+    move-exception v0
+
+    .line 176
+    iget-boolean v1, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->cacheRequestClosed:Z
+
+    if-nez v1, :cond_26
+
+    .line 177
+    iput-boolean v3, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->cacheRequestClosed:Z
+
+    .line 178
+    iget-object v1, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$cacheRequest:Lokhttp3/internal/cache/CacheRequest;
+
+    invoke-interface {v1}, Lokhttp3/internal/cache/CacheRequest;->abort()V
+
+    .line 180
+    :cond_26
+    throw v0
+
+    .line 191
+    :cond_27
+    iget-object v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$cacheBody:Lokio/BufferedSink;
+
+    invoke-interface {v0}, Lokio/BufferedSink;->buffer()Lokio/Buffer;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lokio/Buffer;->size()J
+
+    move-result-wide v2
+
+    sub-long/2addr v2, v4
+
+    move-object v0, p1
+
+    invoke-virtual/range {v0 .. v5}, Lokio/Buffer;->copyTo(Lokio/Buffer;JJ)Lokio/Buffer;
+
+    .line 192
+    iget-object v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$cacheBody:Lokio/BufferedSink;
+
+    invoke-interface {v0}, Lokio/BufferedSink;->emitCompleteSegments()Lokio/BufferedSink;
+
+    goto :goto_19
+.end method
+
+.method public timeout()Lokio/Timeout;
+    .locals 1
+
+    .prologue
+    .line 197
+    iget-object v0, p0, Lokhttp3/internal/cache/CacheInterceptor$1;->val$source:Lokio/BufferedSource;
+
+    invoke-interface {v0}, Lokio/BufferedSource;->timeout()Lokio/Timeout;
+
+    move-result-object v0
+
+    return-object v0
 .end method

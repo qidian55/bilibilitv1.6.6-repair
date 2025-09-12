@@ -1,6 +1,6 @@
 .class Lretrofit2/Platform$Android;
 .super Lretrofit2/Platform;
-.source "BL"
+.source "Platform.java"
 
 
 # annotations
@@ -10,7 +10,7 @@
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x8
-    name = "a"
+    name = "Android"
 .end annotation
 
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -24,6 +24,7 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
     .line 90
     invoke-direct {p0}, Lretrofit2/Platform;-><init>()V
 
@@ -32,24 +33,25 @@
 
 
 # virtual methods
-.method a(Ljava/util/concurrent/Executor;)Lretrofit2/CallAdapter$Factory;
+.method defaultCallAdapterFactory(Ljava/util/concurrent/Executor;)Lretrofit2/CallAdapter$Factory;
     .locals 1
     .param p1    # Ljava/util/concurrent/Executor;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    if-nez p1, :cond_0
-
+    .prologue
     .line 96
-    new-instance p1, Ljava/lang/AssertionError;
+    if-nez p1, :cond_8
 
-    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
+    new-instance v0, Ljava/lang/AssertionError;
 
-    throw p1
+    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+
+    throw v0
 
     .line 97
-    :cond_0
+    :cond_8
     new-instance v0, Lretrofit2/ExecutorCallAdapterFactory;
 
     invoke-direct {v0, p1}, Lretrofit2/ExecutorCallAdapterFactory;-><init>(Ljava/util/concurrent/Executor;)V
@@ -57,9 +59,10 @@
     return-object v0
 .end method
 
-.method public b()Ljava/util/concurrent/Executor;
+.method public defaultCallbackExecutor()Ljava/util/concurrent/Executor;
     .locals 1
 
+    .prologue
     .line 92
     new-instance v0, Lretrofit2/Platform$Android$MainThreadExecutor;
 

@@ -1,6 +1,6 @@
 .class public interface abstract annotation Lretrofit2/http/Part;
 .super Ljava/lang/Object;
-.source "BL"
+.source "Part.java"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;
@@ -9,8 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/AnnotationDefault;
     value = .subannotation Lretrofit2/http/Part;
-        a = ""
-        b = "binary"
+        encoding = "binary"
+        value = ""
     .end subannotation
 .end annotation
 
@@ -29,8 +29,8 @@
 
 
 # virtual methods
-.method public abstract a()Ljava/lang/String;
+.method public abstract encoding()Ljava/lang/String;
 .end method
 
-.method public abstract b()Ljava/lang/String;
+.method public abstract value()Ljava/lang/String;
 .end method

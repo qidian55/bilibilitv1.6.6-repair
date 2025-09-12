@@ -313,7 +313,7 @@ public final class CategoryManager {
         @Override // bl.bla
         @WorkerThread
         public CategoryMeta convert(ResponseBody responseBody) throws IOException {
-            String f = responseBody.f();
+            String f = responseBody.string();
             JSONObject parseObject = JSON.parseObject(f);
             if (parseObject.getIntValue("code") == 0) {
                 saveToFile(f);

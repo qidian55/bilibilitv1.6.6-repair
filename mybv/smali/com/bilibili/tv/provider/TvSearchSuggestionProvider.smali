@@ -530,7 +530,7 @@
     move-result-object p2
 
     .line 110
-    invoke-virtual {p2}, Lretrofit2/Response;->f()Ljava/lang/Object;
+    invoke-virtual {p2}, Lretrofit2/Response;->body()Ljava/lang/Object;
 
     move-result-object p2
 

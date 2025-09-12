@@ -1,43 +1,44 @@
 .class public final Lokhttp3/internal/http/RealInterceptorChain;
 .super Ljava/lang/Object;
-.source "BL"
+.source "RealInterceptorChain.java"
 
 # interfaces
 .implements Lokhttp3/Interceptor$Chain;
 
 
 # instance fields
-.field private final a:Ljava/util/List;
+.field private final call:Lokhttp3/Call;
+
+.field private calls:I
+
+.field private final connectTimeout:I
+
+.field private final connection:Lokhttp3/internal/connection/RealConnection;
+
+.field private final eventListener:Lokhttp3/EventListener;
+
+.field private final httpCodec:Lokhttp3/internal/http/HttpCodec;
+
+.field private final index:I
+
+.field private final interceptors:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lokhttp3/Interceptor;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private final b:Lokhttp3/internal/connection/StreamAllocation;
+.field private final readTimeout:I
 
-.field private final c:Lokhttp3/internal/http/HttpCodec;
+.field private final request:Lokhttp3/Request;
 
-.field private final d:Lokhttp3/internal/connection/RealConnection;
+.field private final streamAllocation:Lokhttp3/internal/connection/StreamAllocation;
 
-.field private final e:I
-
-.field private final f:Lokhttp3/Request;
-
-.field private final g:Lokhttp3/Call;
-
-.field private final h:Lokhttp3/EventListener;
-
-.field private final i:I
-
-.field private final j:I
-
-.field private final k:I
-
-.field private l:I
+.field private final writeTimeout:I
 
 
 # direct methods
@@ -46,7 +47,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lokhttp3/Interceptor;",
             ">;",
             "Lokhttp3/internal/connection/StreamAllocation;",
@@ -60,57 +62,100 @@
         }
     .end annotation
 
+    .prologue
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 53
-    iput-object p1, p0, Lokhttp3/internal/http/RealInterceptorChain;->a:Ljava/util/List;
+    iput-object p1, p0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
 
     .line 54
-    iput-object p4, p0, Lokhttp3/internal/http/RealInterceptorChain;->d:Lokhttp3/internal/connection/RealConnection;
+    iput-object p4, p0, Lokhttp3/internal/http/RealInterceptorChain;->connection:Lokhttp3/internal/connection/RealConnection;
 
     .line 55
-    iput-object p2, p0, Lokhttp3/internal/http/RealInterceptorChain;->b:Lokhttp3/internal/connection/StreamAllocation;
+    iput-object p2, p0, Lokhttp3/internal/http/RealInterceptorChain;->streamAllocation:Lokhttp3/internal/connection/StreamAllocation;
 
     .line 56
-    iput-object p3, p0, Lokhttp3/internal/http/RealInterceptorChain;->c:Lokhttp3/internal/http/HttpCodec;
+    iput-object p3, p0, Lokhttp3/internal/http/RealInterceptorChain;->httpCodec:Lokhttp3/internal/http/HttpCodec;
 
     .line 57
-    iput p5, p0, Lokhttp3/internal/http/RealInterceptorChain;->e:I
+    iput p5, p0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
 
     .line 58
-    iput-object p6, p0, Lokhttp3/internal/http/RealInterceptorChain;->f:Lokhttp3/Request;
+    iput-object p6, p0, Lokhttp3/internal/http/RealInterceptorChain;->request:Lokhttp3/Request;
 
     .line 59
-    iput-object p7, p0, Lokhttp3/internal/http/RealInterceptorChain;->g:Lokhttp3/Call;
+    iput-object p7, p0, Lokhttp3/internal/http/RealInterceptorChain;->call:Lokhttp3/Call;
 
     .line 60
-    iput-object p8, p0, Lokhttp3/internal/http/RealInterceptorChain;->h:Lokhttp3/EventListener;
+    iput-object p8, p0, Lokhttp3/internal/http/RealInterceptorChain;->eventListener:Lokhttp3/EventListener;
 
     .line 61
-    iput p9, p0, Lokhttp3/internal/http/RealInterceptorChain;->i:I
+    iput p9, p0, Lokhttp3/internal/http/RealInterceptorChain;->connectTimeout:I
 
     .line 62
-    iput p10, p0, Lokhttp3/internal/http/RealInterceptorChain;->j:I
+    iput p10, p0, Lokhttp3/internal/http/RealInterceptorChain;->readTimeout:I
 
     .line 63
-    iput p11, p0, Lokhttp3/internal/http/RealInterceptorChain;->k:I
+    iput p11, p0, Lokhttp3/internal/http/RealInterceptorChain;->writeTimeout:I
 
+    .line 64
     return-void
 .end method
 
 
 # virtual methods
-.method public a()Lokhttp3/Request;
+.method public call()Lokhttp3/Call;
     .locals 1
 
-    .line 117
-    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->f:Lokhttp3/Request;
+    .prologue
+    .line 109
+    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->call:Lokhttp3/Call;
 
     return-object v0
 .end method
 
-.method public a(Lokhttp3/Request;)Lokhttp3/Response;
+.method public connectTimeoutMillis()I
+    .locals 1
+
+    .prologue
+    .line 71
+    iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->connectTimeout:I
+
+    return v0
+.end method
+
+.method public connection()Lokhttp3/Connection;
+    .locals 1
+
+    .prologue
+    .line 67
+    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->connection:Lokhttp3/internal/connection/RealConnection;
+
+    return-object v0
+.end method
+
+.method public eventListener()Lokhttp3/EventListener;
+    .locals 1
+
+    .prologue
+    .line 113
+    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->eventListener:Lokhttp3/EventListener;
+
+    return-object v0
+.end method
+
+.method public httpStream()Lokhttp3/internal/http/HttpCodec;
+    .locals 1
+
+    .prologue
+    .line 105
+    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->httpCodec:Lokhttp3/internal/http/HttpCodec;
+
+    return-object v0
+.end method
+
+.method public proceed(Lokhttp3/Request;)Lokhttp3/Response;
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -118,379 +163,502 @@
         }
     .end annotation
 
+    .prologue
     .line 121
-    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->b:Lokhttp3/internal/connection/StreamAllocation;
+    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->streamAllocation:Lokhttp3/internal/connection/StreamAllocation;
 
-    iget-object v1, p0, Lokhttp3/internal/http/RealInterceptorChain;->c:Lokhttp3/internal/http/HttpCodec;
+    iget-object v1, p0, Lokhttp3/internal/http/RealInterceptorChain;->httpCodec:Lokhttp3/internal/http/HttpCodec;
 
-    iget-object v2, p0, Lokhttp3/internal/http/RealInterceptorChain;->d:Lokhttp3/internal/connection/RealConnection;
+    iget-object v2, p0, Lokhttp3/internal/http/RealInterceptorChain;->connection:Lokhttp3/internal/connection/RealConnection;
 
-    invoke-virtual {p0, p1, v0, v1, v2}, Lokhttp3/internal/http/RealInterceptorChain;->a(Lokhttp3/Request;Lokhttp3/internal/connection/StreamAllocation;Lokhttp3/internal/http/HttpCodec;Lokhttp3/internal/connection/RealConnection;)Lokhttp3/Response;
+    invoke-virtual {p0, p1, v0, v1, v2}, Lokhttp3/internal/http/RealInterceptorChain;->proceed(Lokhttp3/Request;Lokhttp3/internal/connection/StreamAllocation;Lokhttp3/internal/http/HttpCodec;Lokhttp3/internal/connection/RealConnection;)Lokhttp3/Response;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
-.method public a(Lokhttp3/Request;Lokhttp3/internal/connection/StreamAllocation;Lokhttp3/internal/http/HttpCodec;Lokhttp3/internal/connection/RealConnection;)Lokhttp3/Response;
-    .locals 15
+.method public proceed(Lokhttp3/Request;Lokhttp3/internal/connection/StreamAllocation;Lokhttp3/internal/http/HttpCodec;Lokhttp3/internal/connection/RealConnection;)Lokhttp3/Response;
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    move-object v0, p0
-
+    .prologue
     .line 126
-    iget v1, v0, Lokhttp3/internal/http/RealInterceptorChain;->e:I
+    iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
 
-    iget-object v2, v0, Lokhttp3/internal/http/RealInterceptorChain;->a:Ljava/util/List;
+    iget-object v1, p0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    if-lt v1, v2, :cond_0
-
-    new-instance v1, Ljava/lang/AssertionError;
-
-    invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
-
-    throw v1
-
-    .line 128
-    :cond_0
-    iget v1, v0, Lokhttp3/internal/http/RealInterceptorChain;->l:I
-
-    const/4 v2, 0x1
-
-    add-int/2addr v1, v2
-
-    iput v1, v0, Lokhttp3/internal/http/RealInterceptorChain;->l:I
-
-    .line 131
-    iget-object v1, v0, Lokhttp3/internal/http/RealInterceptorChain;->c:Lokhttp3/internal/http/HttpCodec;
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, v0, Lokhttp3/internal/http/RealInterceptorChain;->d:Lokhttp3/internal/connection/RealConnection;
-
-    invoke-virtual/range {p1 .. p1}, Lokhttp3/Request;->a()Lokhttp3/HttpUrl;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v3}, Lokhttp3/internal/connection/RealConnection;->a(Lokhttp3/HttpUrl;)Z
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-lt v0, v1, :cond_10
 
-    .line 132
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/AssertionError;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    throw v0
 
-    const-string v4, "network interceptor "
+    .line 128
+    :cond_10
+    iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->calls:I
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    add-int/lit8 v0, v0, 0x1
 
-    iget-object v4, v0, Lokhttp3/internal/http/RealInterceptorChain;->a:Ljava/util/List;
+    iput v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->calls:I
 
-    iget v5, v0, Lokhttp3/internal/http/RealInterceptorChain;->e:I
+    .line 131
+    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->httpCodec:Lokhttp3/internal/http/HttpCodec;
 
-    sub-int/2addr v5, v2
+    if-eqz v0, :cond_4f
 
-    invoke-interface {v4, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->connection:Lokhttp3/internal/connection/RealConnection;
 
-    move-result-object v2
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v2, " must retain the same host and port"
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 137
-    :cond_1
-    iget-object v1, v0, Lokhttp3/internal/http/RealInterceptorChain;->c:Lokhttp3/internal/http/HttpCodec;
-
-    if-eqz v1, :cond_2
-
-    iget v1, v0, Lokhttp3/internal/http/RealInterceptorChain;->l:I
-
-    if-le v1, v2, :cond_2
-
-    .line 138
-    new-instance v1, Ljava/lang/IllegalStateException;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "network interceptor "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v4, v0, Lokhttp3/internal/http/RealInterceptorChain;->a:Ljava/util/List;
-
-    iget v5, v0, Lokhttp3/internal/http/RealInterceptorChain;->e:I
-
-    sub-int/2addr v5, v2
-
-    invoke-interface {v4, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v2, " must call proceed() exactly once"
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 143
-    :cond_2
-    new-instance v1, Lokhttp3/internal/http/RealInterceptorChain;
-
-    iget-object v4, v0, Lokhttp3/internal/http/RealInterceptorChain;->a:Ljava/util/List;
-
-    iget v3, v0, Lokhttp3/internal/http/RealInterceptorChain;->e:I
-
-    add-int/lit8 v8, v3, 0x1
-
-    iget-object v10, v0, Lokhttp3/internal/http/RealInterceptorChain;->g:Lokhttp3/Call;
-
-    iget-object v11, v0, Lokhttp3/internal/http/RealInterceptorChain;->h:Lokhttp3/EventListener;
-
-    iget v12, v0, Lokhttp3/internal/http/RealInterceptorChain;->i:I
-
-    iget v13, v0, Lokhttp3/internal/http/RealInterceptorChain;->j:I
-
-    iget v14, v0, Lokhttp3/internal/http/RealInterceptorChain;->k:I
-
-    move-object v3, v1
-
-    move-object/from16 v5, p2
-
-    move-object/from16 v6, p3
-
-    move-object/from16 v7, p4
-
-    move-object/from16 v9, p1
-
-    invoke-direct/range {v3 .. v14}, Lokhttp3/internal/http/RealInterceptorChain;-><init>(Ljava/util/List;Lokhttp3/internal/connection/StreamAllocation;Lokhttp3/internal/http/HttpCodec;Lokhttp3/internal/connection/RealConnection;ILokhttp3/Request;Lokhttp3/Call;Lokhttp3/EventListener;III)V
-
-    .line 146
-    iget-object v3, v0, Lokhttp3/internal/http/RealInterceptorChain;->a:Ljava/util/List;
-
-    iget v4, v0, Lokhttp3/internal/http/RealInterceptorChain;->e:I
-
-    invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lokhttp3/Interceptor;
-
-    .line 147
-    invoke-interface {v3, v1}, Lokhttp3/Interceptor;->a(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
-
-    move-result-object v4
-
-    if-eqz p3, :cond_3
-
-    .line 150
-    iget v5, v0, Lokhttp3/internal/http/RealInterceptorChain;->e:I
-
-    add-int/2addr v5, v2
-
-    iget-object v6, v0, Lokhttp3/internal/http/RealInterceptorChain;->a:Ljava/util/List;
-
-    invoke-interface {v6}, Ljava/util/List;->size()I
-
-    move-result v6
-
-    if-ge v5, v6, :cond_3
-
-    iget v1, v1, Lokhttp3/internal/http/RealInterceptorChain;->l:I
-
-    if-eq v1, v2, :cond_3
-
-    .line 151
-    new-instance v1, Ljava/lang/IllegalStateException;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "network interceptor "
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v3, " must call proceed() exactly once"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    :cond_3
-    if-nez v4, :cond_4
-
-    .line 157
-    new-instance v1, Ljava/lang/NullPointerException;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "interceptor "
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v3, " returned null"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 160
-    :cond_4
-    invoke-virtual {v4}, Lokhttp3/Response;->h()Lokhttp3/ResponseBody;
+    invoke-virtual {p1}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
 
     move-result-object v1
 
-    if-nez v1, :cond_5
+    invoke-virtual {v0, v1}, Lokhttp3/internal/connection/RealConnection;->supportsUrl(Lokhttp3/HttpUrl;)Z
 
-    .line 161
-    new-instance v1, Ljava/lang/IllegalStateException;
+    move-result v0
+
+    if-nez v0, :cond_4f
+
+    .line 132
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "network interceptor "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    iget v3, p0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
+
+    add-int/lit8 v3, v3, -0x1
+
+    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " must retain the same host and port"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 137
+    :cond_4f
+    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->httpCodec:Lokhttp3/internal/http/HttpCodec;
+
+    if-eqz v0, :cond_81
+
+    iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->calls:I
+
+    const/4 v1, 0x1
+
+    if-le v0, v1, :cond_81
+
+    .line 138
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "network interceptor "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    iget v3, p0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
+
+    add-int/lit8 v3, v3, -0x1
+
+    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " must call proceed() exactly once"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 143
+    :cond_81
+    new-instance v0, Lokhttp3/internal/http/RealInterceptorChain;
+
+    iget-object v1, p0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    iget v2, p0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
+
+    add-int/lit8 v5, v2, 0x1
+
+    iget-object v7, p0, Lokhttp3/internal/http/RealInterceptorChain;->call:Lokhttp3/Call;
+
+    iget-object v8, p0, Lokhttp3/internal/http/RealInterceptorChain;->eventListener:Lokhttp3/EventListener;
+
+    iget v9, p0, Lokhttp3/internal/http/RealInterceptorChain;->connectTimeout:I
+
+    iget v10, p0, Lokhttp3/internal/http/RealInterceptorChain;->readTimeout:I
+
+    iget v11, p0, Lokhttp3/internal/http/RealInterceptorChain;->writeTimeout:I
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move-object/from16 v4, p4
+
+    move-object v6, p1
+
+    invoke-direct/range {v0 .. v11}, Lokhttp3/internal/http/RealInterceptorChain;-><init>(Ljava/util/List;Lokhttp3/internal/connection/StreamAllocation;Lokhttp3/internal/http/HttpCodec;Lokhttp3/internal/connection/RealConnection;ILokhttp3/Request;Lokhttp3/Call;Lokhttp3/EventListener;III)V
+
+    .line 146
+    iget-object v1, p0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    iget v2, p0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
+
+    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lokhttp3/Interceptor;
+
+    .line 147
+    invoke-interface {v1, v0}, Lokhttp3/Interceptor;->intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
+
+    move-result-object v2
+
+    .line 150
+    if-eqz p3, :cond_db
+
+    iget v3, p0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
+
+    add-int/lit8 v3, v3, 0x1
+
+    iget-object v4, p0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    invoke-interface {v4}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-ge v3, v4, :cond_db
+
+    iget v0, v0, Lokhttp3/internal/http/RealInterceptorChain;->calls:I
+
+    const/4 v3, 0x1
+
+    if-eq v0, v3, :cond_db
+
+    .line 151
+    new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "interceptor "
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v3, " returned a response with no body"
+    const-string v3, "network interceptor "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " must call proceed() exactly once"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 156
+    :cond_db
+    if-nez v2, :cond_fc
+
+    .line 157
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "interceptor "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    throw v1
+    move-result-object v1
 
-    :cond_5
-    return-object v4
+    const-string v2, " returned null"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 160
+    :cond_fc
+    invoke-virtual {v2}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
+
+    move-result-object v0
+
+    if-nez v0, :cond_121
+
+    .line 161
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "interceptor "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " returned a response with no body"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 165
+    :cond_121
+    return-object v2
 .end method
 
-.method public b()Lokhttp3/Connection;
+.method public readTimeoutMillis()I
     .locals 1
 
-    .line 67
-    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->d:Lokhttp3/internal/connection/RealConnection;
-
-    return-object v0
-.end method
-
-.method public c()I
-    .locals 1
-
-    .line 71
-    iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->i:I
-
-    return v0
-.end method
-
-.method public d()I
-    .locals 1
-
+    .prologue
     .line 81
-    iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->j:I
+    iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->readTimeout:I
 
     return v0
 .end method
 
-.method public e()I
+.method public request()Lokhttp3/Request;
     .locals 1
 
-    .line 91
-    iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->k:I
+    .prologue
+    .line 117
+    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->request:Lokhttp3/Request;
 
-    return v0
+    return-object v0
 .end method
 
-.method public f()Lokhttp3/internal/connection/StreamAllocation;
+.method public streamAllocation()Lokhttp3/internal/connection/StreamAllocation;
     .locals 1
 
+    .prologue
     .line 101
-    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->b:Lokhttp3/internal/connection/StreamAllocation;
+    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->streamAllocation:Lokhttp3/internal/connection/StreamAllocation;
 
     return-object v0
 .end method
 
-.method public g()Lokhttp3/internal/http/HttpCodec;
-    .locals 1
+.method public withConnectTimeout(ILjava/util/concurrent/TimeUnit;)Lokhttp3/Interceptor$Chain;
+    .locals 12
 
-    .line 105
-    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->c:Lokhttp3/internal/http/HttpCodec;
+    .prologue
+    .line 75
+    const-string v0, "timeout"
+
+    int-to-long v2, p1
+
+    invoke-static {v0, v2, v3, p2}, Lokhttp3/internal/Util;->checkDuration(Ljava/lang/String;JLjava/util/concurrent/TimeUnit;)I
+
+    move-result v9
+
+    .line 76
+    new-instance v0, Lokhttp3/internal/http/RealInterceptorChain;
+
+    iget-object v1, p0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    iget-object v2, p0, Lokhttp3/internal/http/RealInterceptorChain;->streamAllocation:Lokhttp3/internal/connection/StreamAllocation;
+
+    iget-object v3, p0, Lokhttp3/internal/http/RealInterceptorChain;->httpCodec:Lokhttp3/internal/http/HttpCodec;
+
+    iget-object v4, p0, Lokhttp3/internal/http/RealInterceptorChain;->connection:Lokhttp3/internal/connection/RealConnection;
+
+    iget v5, p0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
+
+    iget-object v6, p0, Lokhttp3/internal/http/RealInterceptorChain;->request:Lokhttp3/Request;
+
+    iget-object v7, p0, Lokhttp3/internal/http/RealInterceptorChain;->call:Lokhttp3/Call;
+
+    iget-object v8, p0, Lokhttp3/internal/http/RealInterceptorChain;->eventListener:Lokhttp3/EventListener;
+
+    iget v10, p0, Lokhttp3/internal/http/RealInterceptorChain;->readTimeout:I
+
+    iget v11, p0, Lokhttp3/internal/http/RealInterceptorChain;->writeTimeout:I
+
+    invoke-direct/range {v0 .. v11}, Lokhttp3/internal/http/RealInterceptorChain;-><init>(Ljava/util/List;Lokhttp3/internal/connection/StreamAllocation;Lokhttp3/internal/http/HttpCodec;Lokhttp3/internal/connection/RealConnection;ILokhttp3/Request;Lokhttp3/Call;Lokhttp3/EventListener;III)V
 
     return-object v0
 .end method
 
-.method public h()Lokhttp3/Call;
-    .locals 1
+.method public withReadTimeout(ILjava/util/concurrent/TimeUnit;)Lokhttp3/Interceptor$Chain;
+    .locals 12
 
-    .line 109
-    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->g:Lokhttp3/Call;
+    .prologue
+    .line 85
+    const-string v0, "timeout"
+
+    int-to-long v2, p1
+
+    invoke-static {v0, v2, v3, p2}, Lokhttp3/internal/Util;->checkDuration(Ljava/lang/String;JLjava/util/concurrent/TimeUnit;)I
+
+    move-result v10
+
+    .line 86
+    new-instance v0, Lokhttp3/internal/http/RealInterceptorChain;
+
+    iget-object v1, p0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    iget-object v2, p0, Lokhttp3/internal/http/RealInterceptorChain;->streamAllocation:Lokhttp3/internal/connection/StreamAllocation;
+
+    iget-object v3, p0, Lokhttp3/internal/http/RealInterceptorChain;->httpCodec:Lokhttp3/internal/http/HttpCodec;
+
+    iget-object v4, p0, Lokhttp3/internal/http/RealInterceptorChain;->connection:Lokhttp3/internal/connection/RealConnection;
+
+    iget v5, p0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
+
+    iget-object v6, p0, Lokhttp3/internal/http/RealInterceptorChain;->request:Lokhttp3/Request;
+
+    iget-object v7, p0, Lokhttp3/internal/http/RealInterceptorChain;->call:Lokhttp3/Call;
+
+    iget-object v8, p0, Lokhttp3/internal/http/RealInterceptorChain;->eventListener:Lokhttp3/EventListener;
+
+    iget v9, p0, Lokhttp3/internal/http/RealInterceptorChain;->connectTimeout:I
+
+    iget v11, p0, Lokhttp3/internal/http/RealInterceptorChain;->writeTimeout:I
+
+    invoke-direct/range {v0 .. v11}, Lokhttp3/internal/http/RealInterceptorChain;-><init>(Ljava/util/List;Lokhttp3/internal/connection/StreamAllocation;Lokhttp3/internal/http/HttpCodec;Lokhttp3/internal/connection/RealConnection;ILokhttp3/Request;Lokhttp3/Call;Lokhttp3/EventListener;III)V
 
     return-object v0
 .end method
 
-.method public i()Lokhttp3/EventListener;
-    .locals 1
+.method public withWriteTimeout(ILjava/util/concurrent/TimeUnit;)Lokhttp3/Interceptor$Chain;
+    .locals 12
 
-    .line 113
-    iget-object v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->h:Lokhttp3/EventListener;
+    .prologue
+    .line 95
+    const-string v0, "timeout"
+
+    int-to-long v2, p1
+
+    invoke-static {v0, v2, v3, p2}, Lokhttp3/internal/Util;->checkDuration(Ljava/lang/String;JLjava/util/concurrent/TimeUnit;)I
+
+    move-result v11
+
+    .line 96
+    new-instance v0, Lokhttp3/internal/http/RealInterceptorChain;
+
+    iget-object v1, p0, Lokhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+
+    iget-object v2, p0, Lokhttp3/internal/http/RealInterceptorChain;->streamAllocation:Lokhttp3/internal/connection/StreamAllocation;
+
+    iget-object v3, p0, Lokhttp3/internal/http/RealInterceptorChain;->httpCodec:Lokhttp3/internal/http/HttpCodec;
+
+    iget-object v4, p0, Lokhttp3/internal/http/RealInterceptorChain;->connection:Lokhttp3/internal/connection/RealConnection;
+
+    iget v5, p0, Lokhttp3/internal/http/RealInterceptorChain;->index:I
+
+    iget-object v6, p0, Lokhttp3/internal/http/RealInterceptorChain;->request:Lokhttp3/Request;
+
+    iget-object v7, p0, Lokhttp3/internal/http/RealInterceptorChain;->call:Lokhttp3/Call;
+
+    iget-object v8, p0, Lokhttp3/internal/http/RealInterceptorChain;->eventListener:Lokhttp3/EventListener;
+
+    iget v9, p0, Lokhttp3/internal/http/RealInterceptorChain;->connectTimeout:I
+
+    iget v10, p0, Lokhttp3/internal/http/RealInterceptorChain;->readTimeout:I
+
+    invoke-direct/range {v0 .. v11}, Lokhttp3/internal/http/RealInterceptorChain;-><init>(Ljava/util/List;Lokhttp3/internal/connection/StreamAllocation;Lokhttp3/internal/http/HttpCodec;Lokhttp3/internal/connection/RealConnection;ILokhttp3/Request;Lokhttp3/Call;Lokhttp3/EventListener;III)V
 
     return-object v0
+.end method
+
+.method public writeTimeoutMillis()I
+    .locals 1
+
+    .prologue
+    .line 91
+    iget v0, p0, Lokhttp3/internal/http/RealInterceptorChain;->writeTimeout:I
+
+    return v0
 .end method

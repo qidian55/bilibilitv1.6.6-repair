@@ -71,7 +71,7 @@
     .end annotation
 
     .line 135
-    invoke-virtual {p1}, Lokhttp3/ResponseBody;->f()Ljava/lang/String;
+    invoke-virtual {p1}, Lokhttp3/ResponseBody;->string()Ljava/lang/String;
 
     move-result-object p1
 

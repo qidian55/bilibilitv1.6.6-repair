@@ -1,6 +1,6 @@
 .class public interface abstract Lokhttp3/EventListener$Factory;
 .super Ljava/lang/Object;
-.source "BL"
+.source "EventListener.java"
 
 
 # annotations
@@ -10,10 +10,10 @@
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x609
-    name = "a"
+    name = "Factory"
 .end annotation
 
 
 # virtual methods
-.method public abstract a(Lokhttp3/Call;)Lokhttp3/EventListener;
+.method public abstract create(Lokhttp3/Call;)Lokhttp3/EventListener;
 .end method

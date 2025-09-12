@@ -1387,7 +1387,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                 str = "parse_error";
                 i = biliApiException.mCode;
             } else if (th instanceof HttpException) {
-                i = ((HttpException) th).a();
+                i = ((HttpException) th).code();
             }
             abi.a.a("tv_detail_view2_resp", abi.a.a(String.valueOf(VideoDetailActivity.this.s), String.valueOf(mg.a(VideoDetailActivity.this).d()), str, String.valueOf(i)));
         }

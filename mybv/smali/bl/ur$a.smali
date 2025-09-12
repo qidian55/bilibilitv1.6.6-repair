@@ -1,6 +1,6 @@
 .class Lbl/ur$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "ur.java"
 
 
 # annotations
@@ -22,12 +22,14 @@
 .method constructor <init>(Lokhttp3/Cookie;)V
     .locals 0
 
-    .line 65
+    .prologue
+    .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 66
+    .line 21
     iput-object p1, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
+    .line 22
     return-void
 .end method
 
@@ -36,119 +38,123 @@
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
 
-    .line 71
-    instance-of v0, p1, Lbl/ur$a;
+    .prologue
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    .line 25
+    instance-of v1, p1, Lbl/ur$a;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_6
 
-    return v1
+    .line 29
+    :cond_5
+    :goto_5
+    return v0
 
-    .line 72
-    :cond_0
+    .line 28
+    :cond_6
     check-cast p1, Lbl/ur$a;
 
-    .line 73
-    iget-object v0, p1, Lbl/ur$a;->a:Lokhttp3/Cookie;
+    .line 29
+    iget-object v1, p1, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
-    invoke-virtual {v0}, Lokhttp3/Cookie;->a()Ljava/lang/String;
+    invoke-virtual {v1}, Lokhttp3/Cookie;->name()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     iget-object v2, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
-    invoke-virtual {v2}, Lokhttp3/Cookie;->a()Ljava/lang/String;
+    invoke-virtual {v2}, Lokhttp3/Cookie;->name()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_5
 
-    iget-object v0, p1, Lbl/ur$a;->a:Lokhttp3/Cookie;
+    iget-object v1, p1, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
-    .line 74
-    invoke-virtual {v0}, Lokhttp3/Cookie;->e()Ljava/lang/String;
+    invoke-virtual {v1}, Lokhttp3/Cookie;->domain()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     iget-object v2, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
-    invoke-virtual {v2}, Lokhttp3/Cookie;->e()Ljava/lang/String;
+    invoke-virtual {v2}, Lokhttp3/Cookie;->domain()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_5
 
-    iget-object v0, p1, Lbl/ur$a;->a:Lokhttp3/Cookie;
+    iget-object v1, p1, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
-    .line 75
-    invoke-virtual {v0}, Lokhttp3/Cookie;->f()Ljava/lang/String;
+    invoke-virtual {v1}, Lokhttp3/Cookie;->path()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     iget-object v2, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
-    invoke-virtual {v2}, Lokhttp3/Cookie;->f()Ljava/lang/String;
+    invoke-virtual {v2}, Lokhttp3/Cookie;->path()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_5
 
-    iget-object v0, p1, Lbl/ur$a;->a:Lokhttp3/Cookie;
+    iget-object v1, p1, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
-    .line 76
-    invoke-virtual {v0}, Lokhttp3/Cookie;->g()Z
+    invoke-virtual {v1}, Lokhttp3/Cookie;->secure()Z
 
-    move-result v0
+    move-result v1
 
     iget-object v2, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
-    invoke-virtual {v2}, Lokhttp3/Cookie;->g()Z
+    invoke-virtual {v2}, Lokhttp3/Cookie;->secure()Z
 
     move-result v2
 
-    if-ne v0, v2, :cond_1
+    if-ne v1, v2, :cond_5
 
-    iget-object p1, p1, Lbl/ur$a;->a:Lokhttp3/Cookie;
+    iget-object v1, p1, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
-    .line 77
-    invoke-virtual {p1}, Lokhttp3/Cookie;->d()Z
+    invoke-virtual {v1}, Lokhttp3/Cookie;->hostOnly()Z
 
-    move-result p1
+    move-result v1
 
-    iget-object v0, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
+    iget-object v2, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
-    invoke-virtual {v0}, Lokhttp3/Cookie;->d()Z
+    invoke-virtual {v2}, Lokhttp3/Cookie;->hostOnly()Z
 
-    move-result v0
+    move-result v2
 
-    if-ne p1, v0, :cond_1
+    if-ne v1, v2, :cond_5
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    :cond_1
-    return v1
+    goto :goto_5
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .locals 4
 
-    .line 83
+    .prologue
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 33
     iget-object v0, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
-    invoke-virtual {v0}, Lokhttp3/Cookie;->a()Ljava/lang/String;
+    invoke-virtual {v0}, Lokhttp3/Cookie;->name()Ljava/lang/String;
 
     move-result-object v0
 
@@ -156,65 +162,73 @@
 
     move-result v0
 
-    const/16 v1, 0x20f
+    add-int/lit16 v0, v0, 0x20f
 
-    add-int/2addr v1, v0
+    mul-int/lit8 v0, v0, 0x1f
 
-    mul-int/lit8 v1, v1, 0x1f
+    iget-object v3, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
-    .line 84
+    invoke-virtual {v3}, Lokhttp3/Cookie;->domain()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/String;->hashCode()I
+
+    move-result v3
+
+    add-int/2addr v0, v3
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    iget-object v3, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
+
+    invoke-virtual {v3}, Lokhttp3/Cookie;->path()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/String;->hashCode()I
+
+    move-result v3
+
+    add-int/2addr v0, v3
+
+    mul-int/lit8 v3, v0, 0x1f
+
     iget-object v0, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
-    invoke-virtual {v0}, Lokhttp3/Cookie;->e()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v0}, Lokhttp3/Cookie;->secure()Z
 
     move-result v0
 
-    add-int/2addr v1, v0
+    if-nez v0, :cond_40
 
-    mul-int/lit8 v1, v1, 0x1f
+    move v0, v1
 
-    .line 85
-    iget-object v0, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
+    :goto_33
+    add-int/2addr v0, v3
 
-    invoke-virtual {v0}, Lokhttp3/Cookie;->f()Ljava/lang/String;
+    mul-int/lit8 v0, v0, 0x1f
 
-    move-result-object v0
+    iget-object v3, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
 
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v3}, Lokhttp3/Cookie;->hostOnly()Z
 
-    move-result v0
+    move-result v3
 
-    add-int/2addr v1, v0
+    if-nez v3, :cond_42
 
-    mul-int/lit8 v1, v1, 0x1f
+    :goto_3e
+    add-int/2addr v0, v1
 
-    .line 86
-    iget-object v0, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
+    return v0
 
-    invoke-virtual {v0}, Lokhttp3/Cookie;->g()Z
+    :cond_40
+    move v0, v2
 
-    move-result v0
+    goto :goto_33
 
-    xor-int/lit8 v0, v0, 0x1
+    :cond_42
+    move v1, v2
 
-    add-int/2addr v1, v0
-
-    mul-int/lit8 v1, v1, 0x1f
-
-    .line 87
-    iget-object v0, p0, Lbl/ur$a;->a:Lokhttp3/Cookie;
-
-    invoke-virtual {v0}, Lokhttp3/Cookie;->d()Z
-
-    move-result v0
-
-    xor-int/lit8 v0, v0, 0x1
-
-    add-int/2addr v1, v0
-
-    return v1
+    goto :goto_3e
 .end method

@@ -25,11 +25,11 @@ public abstract class vn<T> extends vm<GeneralResponse<T>> {
         if (isCancel()) {
             return;
         }
-        if (!response.e() || isCancel()) {
+        if (!response.isSuccessful() || isCancel()) {
             onFailure(call, new HttpException(response));
             return;
         }
-        GeneralResponse<T> f = response.f();
+        GeneralResponse<T> f = response.body();
         if (f == null) {
             a((T)null);
         } else if (f.code != 0) {

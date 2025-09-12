@@ -1,6 +1,6 @@
 .class interface abstract Lokhttp3/internal/http2/Http2Reader$Handler;
 .super Ljava/lang/Object;
-.source "BL"
+.source "Http2Reader.java"
 
 
 # annotations
@@ -10,27 +10,18 @@
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x608
-    name = "b"
+    name = "Handler"
 .end annotation
 
 
 # virtual methods
-.method public abstract a()V
+.method public abstract ackSettings()V
 .end method
 
-.method public abstract a(IIIZ)V
+.method public abstract alternateService(ILjava/lang/String;Lokio/ByteString;Ljava/lang/String;IJ)V
 .end method
 
-.method public abstract a(IILjava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(II",
-            "Ljava/util/List<",
-            "Lokhttp3/internal/http2/Header;",
-            ">;)V"
-        }
-    .end annotation
-
+.method public abstract data(ZILokio/BufferedSource;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -38,30 +29,38 @@
     .end annotation
 .end method
 
-.method public abstract a(IJ)V
+.method public abstract goAway(ILokhttp3/internal/http2/ErrorCode;Lokio/ByteString;)V
 .end method
 
-.method public abstract a(ILokhttp3/internal/http2/ErrorCode;)V
-.end method
-
-.method public abstract a(ILokhttp3/internal/http2/ErrorCode;Lokio/ByteString;)V
-.end method
-
-.method public abstract a(ZII)V
-.end method
-
-.method public abstract a(ZIILjava/util/List;)V
+.method public abstract headers(ZIILjava/util/List;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZII",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lokhttp3/internal/http2/Header;",
             ">;)V"
         }
     .end annotation
 .end method
 
-.method public abstract a(ZILokio/BufferedSource;I)V
+.method public abstract ping(ZII)V
+.end method
+
+.method public abstract priority(IIIZ)V
+.end method
+
+.method public abstract pushPromise(IILjava/util/List;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(II",
+            "Ljava/util/List",
+            "<",
+            "Lokhttp3/internal/http2/Header;",
+            ">;)V"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -69,5 +68,11 @@
     .end annotation
 .end method
 
-.method public abstract a(ZLokhttp3/internal/http2/Settings;)V
+.method public abstract rstStream(ILokhttp3/internal/http2/ErrorCode;)V
+.end method
+
+.method public abstract settings(ZLokhttp3/internal/http2/Settings;)V
+.end method
+
+.method public abstract windowUpdate(IJ)V
 .end method

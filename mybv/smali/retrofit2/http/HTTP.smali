@@ -1,6 +1,6 @@
 .class public interface abstract annotation Lretrofit2/http/HTTP;
 .super Ljava/lang/Object;
-.source "BL"
+.source "HTTP.java"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;
@@ -9,8 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/AnnotationDefault;
     value = .subannotation Lretrofit2/http/HTTP;
-        b = ""
-        c = false
+        hasBody = false
+        path = ""
     .end subannotation
 .end annotation
 
@@ -29,11 +29,11 @@
 
 
 # virtual methods
-.method public abstract a()Ljava/lang/String;
+.method public abstract hasBody()Z
 .end method
 
-.method public abstract b()Ljava/lang/String;
+.method public abstract method()Ljava/lang/String;
 .end method
 
-.method public abstract c()Z
+.method public abstract path()Ljava/lang/String;
 .end method

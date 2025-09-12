@@ -1,6 +1,6 @@
 .class final Lretrofit2/ParameterHandler$QueryName;
 .super Lretrofit2/ParameterHandler;
-.source "BL"
+.source "ParameterHandler.java"
 
 
 # annotations
@@ -10,7 +10,7 @@
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x18
-    name = "k"
+    name = "QueryName"
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
@@ -18,25 +18,25 @@
         "<T:",
         "Ljava/lang/Object;",
         ">",
-        "Lretrofit2/ParameterHandler<",
-        "TT;>;"
+        "Lretrofit2/ParameterHandler",
+        "<TT;>;"
     }
 .end annotation
 
 
 # instance fields
-.field private final a:Lretrofit2/Converter;
+.field private final encoded:Z
+
+.field private final nameConverter:Lretrofit2/Converter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lretrofit2/Converter<",
-            "TT;",
+            "Lretrofit2/Converter",
+            "<TT;",
             "Ljava/lang/String;",
             ">;"
         }
     .end annotation
 .end field
-
-.field private final b:Z
 
 
 # direct methods
@@ -45,29 +45,31 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lretrofit2/Converter<",
-            "TT;",
+            "Lretrofit2/Converter",
+            "<TT;",
             "Ljava/lang/String;",
             ">;Z)V"
         }
     .end annotation
 
+    .prologue
     .line 128
     invoke-direct {p0}, Lretrofit2/ParameterHandler;-><init>()V
 
     .line 129
-    iput-object p1, p0, Lretrofit2/ParameterHandler$QueryName;->a:Lretrofit2/Converter;
+    iput-object p1, p0, Lretrofit2/ParameterHandler$QueryName;->nameConverter:Lretrofit2/Converter;
 
     .line 130
-    iput-boolean p2, p0, Lretrofit2/ParameterHandler$QueryName;->b:Z
+    iput-boolean p2, p0, Lretrofit2/ParameterHandler$QueryName;->encoded:Z
 
+    .line 131
     return-void
 .end method
 
 
 # virtual methods
-.method a(Lretrofit2/RequestBuilder;Ljava/lang/Object;)V
-    .locals 2
+.method apply(Lretrofit2/RequestBuilder;Ljava/lang/Object;)V
+    .locals 3
     .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -86,25 +88,29 @@
         }
     .end annotation
 
-    if-nez p2, :cond_0
+    .prologue
+    .line 134
+    if-nez p2, :cond_3
 
+    .line 136
+    :goto_2
     return-void
 
     .line 135
-    :cond_0
-    iget-object v0, p0, Lretrofit2/ParameterHandler$QueryName;->a:Lretrofit2/Converter;
+    :cond_3
+    iget-object v0, p0, Lretrofit2/ParameterHandler$QueryName;->nameConverter:Lretrofit2/Converter;
 
     invoke-interface {v0, p2}, Lretrofit2/Converter;->convert(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object v0
 
-    check-cast p2, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iget-boolean v1, p0, Lretrofit2/ParameterHandler$QueryName;->b:Z
+    iget-boolean v2, p0, Lretrofit2/ParameterHandler$QueryName;->encoded:Z
 
-    invoke-virtual {p1, p2, v0, v1}, Lretrofit2/RequestBuilder;->b(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {p1, v0, v1, v2}, Lretrofit2/RequestBuilder;->addQueryParam(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    return-void
+    goto :goto_2
 .end method

@@ -1,6 +1,6 @@
 .class final Lretrofit2/ParameterHandler$QueryMap;
 .super Lretrofit2/ParameterHandler;
-.source "BL"
+.source "ParameterHandler.java"
 
 
 # annotations
@@ -10,7 +10,7 @@
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x18
-    name = "j"
+    name = "QueryMap"
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
@@ -18,8 +18,10 @@
         "<T:",
         "Ljava/lang/Object;",
         ">",
-        "Lretrofit2/ParameterHandler<",
-        "Ljava/util/Map<",
+        "Lretrofit2/ParameterHandler",
+        "<",
+        "Ljava/util/Map",
+        "<",
         "Ljava/lang/String;",
         "TT;>;>;"
     }
@@ -27,18 +29,18 @@
 
 
 # instance fields
-.field private final a:Lretrofit2/Converter;
+.field private final encoded:Z
+
+.field private final valueConverter:Lretrofit2/Converter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lretrofit2/Converter<",
-            "TT;",
+            "Lretrofit2/Converter",
+            "<TT;",
             "Ljava/lang/String;",
             ">;"
         }
     .end annotation
 .end field
-
-.field private final b:Z
 
 
 # direct methods
@@ -47,28 +49,30 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lretrofit2/Converter<",
-            "TT;",
+            "Lretrofit2/Converter",
+            "<TT;",
             "Ljava/lang/String;",
             ">;Z)V"
         }
     .end annotation
 
+    .prologue
     .line 143
     invoke-direct {p0}, Lretrofit2/ParameterHandler;-><init>()V
 
     .line 144
-    iput-object p1, p0, Lretrofit2/ParameterHandler$QueryMap;->a:Lretrofit2/Converter;
+    iput-object p1, p0, Lretrofit2/ParameterHandler$QueryMap;->valueConverter:Lretrofit2/Converter;
 
     .line 145
-    iput-boolean p2, p0, Lretrofit2/ParameterHandler$QueryMap;->b:Z
+    iput-boolean p2, p0, Lretrofit2/ParameterHandler$QueryMap;->encoded:Z
 
+    .line 146
     return-void
 .end method
 
 
 # virtual methods
-.method bridge synthetic a(Lretrofit2/RequestBuilder;Ljava/lang/Object;)V
+.method bridge synthetic apply(Lretrofit2/RequestBuilder;Ljava/lang/Object;)V
     .locals 0
     .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
@@ -80,16 +84,17 @@
         }
     .end annotation
 
+    .prologue
     .line 139
     check-cast p2, Ljava/util/Map;
 
-    invoke-virtual {p0, p1, p2}, Lretrofit2/ParameterHandler$QueryMap;->a(Lretrofit2/RequestBuilder;Ljava/util/Map;)V
+    invoke-virtual {p0, p1, p2}, Lretrofit2/ParameterHandler$QueryMap;->apply(Lretrofit2/RequestBuilder;Ljava/util/Map;)V
 
     return-void
 .end method
 
-.method a(Lretrofit2/RequestBuilder;Ljava/util/Map;)V
-    .locals 3
+.method apply(Lretrofit2/RequestBuilder;Ljava/util/Map;)V
+    .locals 5
     .param p2    # Ljava/util/Map;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -98,7 +103,8 @@
         value = {
             "(",
             "Lretrofit2/RequestBuilder;",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "TT;>;)V"
         }
@@ -110,35 +116,37 @@
         }
     .end annotation
 
-    if-nez p2, :cond_0
+    .prologue
+    .line 150
+    if-nez p2, :cond_a
 
     .line 151
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "Query map was null."
+    const-string v1, "Query map was null."
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 154
-    :cond_0
+    :cond_a
     invoke-interface {p2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-interface {p2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object p2
+    move-result-object v2
 
-    :goto_0
-    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
+    :goto_12
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_a1
 
-    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -151,118 +159,142 @@
 
     check-cast v1, Ljava/lang/String;
 
-    if-nez v1, :cond_1
+    .line 156
+    if-nez v1, :cond_2e
 
     .line 157
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "Query map contained null key."
+    const-string v1, "Query map contained null key."
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 159
-    :cond_1
+    :cond_2e
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    if-nez v0, :cond_2
+    .line 160
+    if-nez v3, :cond_53
 
     .line 161
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "Query map contained null value for key \'"
+    const-string v3, "Query map contained null value for key \'"
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, "\'."
-
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    .line 165
-    :cond_2
-    iget-object v2, p0, Lretrofit2/ParameterHandler$QueryMap;->a:Lretrofit2/Converter;
-
-    invoke-interface {v2, v0}, Lretrofit2/Converter;->convert(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    check-cast v2, Ljava/lang/String;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-nez v2, :cond_3
+    move-result-object v1
+
+    const-string v2, "\'."
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 165
+    :cond_53
+    iget-object v0, p0, Lretrofit2/ParameterHandler$QueryMap;->valueConverter:Lretrofit2/Converter;
+
+    invoke-interface {v0, v3}, Lretrofit2/Converter;->convert(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    .line 166
+    if-nez v0, :cond_9a
 
     .line 167
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Query map value \'"
+    const-string v4, "Query map value \'"
 
-    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    const-string v0, "\' converted to null by "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    iget-object v0, p0, Lretrofit2/ParameterHandler$QueryMap;->a:Lretrofit2/Converter;
+    const-string v3, "\' converted to null by "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lretrofit2/ParameterHandler$QueryMap;->valueConverter:Lretrofit2/Converter;
 
     .line 170
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, " for key \'"
+    move-result-object v2
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, " for key \'"
 
-    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "\'."
+    move-result-object v2
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object p2
+    const-string v2, "\'."
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    throw p1
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     .line 176
-    :cond_3
-    iget-boolean v0, p0, Lretrofit2/ParameterHandler$QueryMap;->b:Z
+    :cond_9a
+    iget-boolean v3, p0, Lretrofit2/ParameterHandler$QueryMap;->encoded:Z
 
-    invoke-virtual {p1, v1, v2, v0}, Lretrofit2/RequestBuilder;->b(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {p1, v1, v0, v3}, Lretrofit2/RequestBuilder;->addQueryParam(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    goto/16 :goto_0
+    goto/16 :goto_12
 
-    :cond_4
+    .line 178
+    :cond_a1
     return-void
 .end method

@@ -53,13 +53,13 @@
     check-cast v0, Lbl/mk;
 
     .line 262
-    invoke-virtual {p0}, Lretrofit2/Response;->d()Lokhttp3/Headers;
+    invoke-virtual {p0}, Lretrofit2/Response;->headers()Lokhttp3/Headers;
 
     move-result-object p0
 
     const-string v1, "Date"
 
-    invoke-virtual {p0, v1}, Lokhttp3/Headers;->b(Ljava/lang/String;)Ljava/util/Date;
+    invoke-virtual {p0, v1}, Lokhttp3/Headers;->getDate(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object p0
 
@@ -203,13 +203,13 @@
     check-cast p1, Lbl/vd;
 
     .line 325
-    invoke-virtual {p0}, Lretrofit2/Response;->d()Lokhttp3/Headers;
+    invoke-virtual {p0}, Lretrofit2/Response;->headers()Lokhttp3/Headers;
 
     move-result-object p0
 
     const-string v0, "Date"
 
-    invoke-virtual {p0, v0}, Lokhttp3/Headers;->b(Ljava/lang/String;)Ljava/util/Date;
+    invoke-virtual {p0, v0}, Lokhttp3/Headers;->getDate(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object p0
 
@@ -458,14 +458,14 @@
     .catch Lcom/bilibili/okretro/BiliApiParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 123
-    invoke-virtual {p0}, Lretrofit2/Response;->e()Z
+    invoke-virtual {p0}, Lretrofit2/Response;->isSuccessful()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
     .line 124
-    invoke-virtual {p0}, Lretrofit2/Response;->f()Ljava/lang/Object;
+    invoke-virtual {p0}, Lretrofit2/Response;->body()Ljava/lang/Object;
 
     move-result-object p0
 
@@ -526,7 +526,7 @@
     :cond_2
     new-instance v0, Lcom/bilibili/lib/passport/BiliPassportException;
 
-    invoke-virtual {p0}, Lretrofit2/Response;->b()I
+    invoke-virtual {p0}, Lretrofit2/Response;->code()I
 
     move-result p0
 
@@ -575,14 +575,14 @@
     .end annotation
 
     .line 293
-    invoke-virtual {p0}, Lretrofit2/Response;->e()Z
+    invoke-virtual {p0}, Lretrofit2/Response;->isSuccessful()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
     .line 294
-    invoke-virtual {p0}, Lretrofit2/Response;->f()Ljava/lang/Object;
+    invoke-virtual {p0}, Lretrofit2/Response;->body()Ljava/lang/Object;
 
     move-result-object p0
 
@@ -614,7 +614,7 @@
     :cond_1
     new-instance v0, Lcom/bilibili/lib/passport/BiliPassportException;
 
-    invoke-virtual {p0}, Lretrofit2/Response;->b()I
+    invoke-virtual {p0}, Lretrofit2/Response;->code()I
 
     move-result p0
 

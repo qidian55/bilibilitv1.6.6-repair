@@ -1,6 +1,6 @@
 .class public interface abstract Lbl/jt;
 .super Ljava/lang/Object;
-.source "BL"
+.source "jt.java"
 
 
 # annotations
@@ -11,7 +11,7 @@
 .end annotation
 
 .annotation runtime Lretrofit2/http/BaseUrl;
-    a = "https://app.bilibili.com"
+    value = "https://app.bilibili.com"
 .end annotation
 
 
@@ -19,12 +19,12 @@
 .method public abstract a(Ljava/lang/String;Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "buvid"
+            value = "buvid"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "device"
+            value = "device"
         .end annotation
     .end param
     .annotation runtime Lcom/bilibili/okretro/anno/CacheControl;
@@ -36,14 +36,16 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lbl/jv;",
             ">;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/x/resource/abtest/abserver"
+        value = "/x/resource/abtest/abserver"
     .end annotation
 .end method

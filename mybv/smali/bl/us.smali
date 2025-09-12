@@ -78,7 +78,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lokhttp3/OkHttpClient;->z()Lokhttp3/OkHttpClient$Builder;
+    invoke-virtual {v0}, Lokhttp3/OkHttpClient;->newBuilder()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
@@ -159,7 +159,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->a(Lokhttp3/CookieJar;)Lokhttp3/OkHttpClient$Builder;
+    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->cookieJar(Lokhttp3/CookieJar;)Lokhttp3/OkHttpClient$Builder;
 
     return-object p0
 .end method
@@ -172,7 +172,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->a(Lokhttp3/Dispatcher;)Lokhttp3/OkHttpClient$Builder;
+    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->dispatcher(Lokhttp3/Dispatcher;)Lokhttp3/OkHttpClient$Builder;
 
     return-object p0
 .end method
@@ -185,7 +185,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->a(Lokhttp3/Dns;)Lokhttp3/OkHttpClient$Builder;
+    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->dns(Lokhttp3/Dns;)Lokhttp3/OkHttpClient$Builder;
 
     return-object p0
 .end method
@@ -198,7 +198,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->a()Ljava/util/List;
+    invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->interceptors()Ljava/util/List;
 
     move-result-object v0
 
@@ -213,7 +213,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->a(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient$Builder;
+    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient$Builder;->addInterceptor(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient$Builder;
 
     :cond_0
     return-object p0
@@ -227,7 +227,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->c()Lokhttp3/OkHttpClient;
+    invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
 
     move-result-object v0
 

@@ -1,11 +1,11 @@
 .class public interface abstract Lcom/bilibili/tv/api/rank/RankApiService;
 .super Ljava/lang/Object;
-.source "BL"
+.source "RankApiService.java"
 
 
 # annotations
 .annotation runtime Lretrofit2/http/BaseUrl;
-    a = "http://app.bilibili.com"
+    value = "http://app.bilibili.com"
 .end annotation
 
 
@@ -13,17 +13,17 @@
 .method public abstract getCategoryRankVideoList(III)Lbl/vp;
     .param p1    # I
         .annotation runtime Lretrofit2/http/Query;
-            a = "rid"
+            value = "rid"
         .end annotation
     .end param
     .param p2    # I
         .annotation runtime Lretrofit2/http/Query;
-            a = "pn"
+            value = "pn"
         .end annotation
     .end param
     .param p3    # I
         .annotation runtime Lretrofit2/http/Query;
-            a = "ps"
+            value = "ps"
         .end annotation
     .end param
     .annotation runtime Lcom/bilibili/okretro/anno/CacheControl;
@@ -32,33 +32,36 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(III)",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
-            "Ljava/util/List<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/rank/BiliRankV2;",
             ">;>;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/x/v2/rank/region"
+        value = "/x/v2/rank/region"
     .end annotation
 .end method
 
 .method public abstract getOriginRankVideoList(Ljava/lang/String;II)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "order"
+            value = "order"
         .end annotation
     .end param
     .param p2    # I
         .annotation runtime Lretrofit2/http/Query;
-            a = "pn"
+            value = "pn"
         .end annotation
     .end param
     .param p3    # I
         .annotation runtime Lretrofit2/http/Query;
-            a = "ps"
+            value = "ps"
         .end annotation
     .end param
     .annotation runtime Lcom/bilibili/okretro/anno/CacheControl;
@@ -69,15 +72,18 @@
             "(",
             "Ljava/lang/String;",
             "II)",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
-            "Ljava/util/List<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/rank/BiliRankV2;",
             ">;>;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/x/v2/rank"
+        value = "/x/v2/rank"
     .end annotation
 .end method

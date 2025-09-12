@@ -18,18 +18,18 @@ import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 /* compiled from: BL */
-@BaseUrl(a = "https://app.bilibili.com")
+@BaseUrl(value = "https://app.bilibili.com")
 /* loaded from: classes.dex */
 public interface VideoApiService {
     @FormUrlEncoded
-    @POST(a = "/x/v2/view/ad/dislike")
+    @POST(value = "/x/v2/view/ad/dislike")
     vp<Void> dislike(@FieldMap Map<String, String> map);
 
-    @GET(a = "/x/v2/view")
-    vp<GeneralResponse<VideoJumpPgc>> getJumpPgc(@QueryMap VideoParamsMapV2 videoParamsMapV2, @Query(a = "access_key") String str);
+    @GET(value = "/x/v2/view")
+    vp<GeneralResponse<VideoJumpPgc>> getJumpPgc(@QueryMap VideoParamsMapV2 videoParamsMapV2, @Query(value = "access_key") String str);
 
-    @GET(a = "/x/v2/view")
-    vp<GeneralResponse<BiliVideoDetail>> getVideoDetails(@QueryMap VideoParamsMapV2 videoParamsMapV2, @Query(a = "access_key") String str);
+    @GET(value = "/x/v2/view")
+    vp<GeneralResponse<BiliVideoDetail>> getVideoDetails(@QueryMap VideoParamsMapV2 videoParamsMapV2, @Query(value = "access_key") String str);
 
     /* compiled from: BL */
     /* loaded from: classes.dex */

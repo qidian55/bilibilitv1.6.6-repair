@@ -1,6 +1,6 @@
 .class final Lokhttp3/CookieJar$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "CookieJar.java"
 
 # interfaces
 .implements Lokhttp3/CookieJar;
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x8
     name = null
 .end annotation
 
@@ -21,6 +21,7 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -29,38 +30,43 @@
 
 
 # virtual methods
-.method public a(Lokhttp3/HttpUrl;)Ljava/util/List;
-    .locals 0
+.method public loadForRequest(Lokhttp3/HttpUrl;)Ljava/util/List;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lokhttp3/HttpUrl;",
             ")",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lokhttp3/Cookie;",
             ">;"
         }
     .end annotation
 
+    .prologue
     .line 41
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
-.method public a(Lokhttp3/HttpUrl;Ljava/util/List;)V
+.method public saveFromResponse(Lokhttp3/HttpUrl;Ljava/util/List;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lokhttp3/HttpUrl;",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lokhttp3/Cookie;",
             ">;)V"
         }
     .end annotation
 
+    .prologue
+    .line 38
     return-void
 .end method

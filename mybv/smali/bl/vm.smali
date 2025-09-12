@@ -1,6 +1,6 @@
 .class public abstract Lbl/vm;
 .super Ljava/lang/Object;
-.source "BL"
+.source "vm.java"
 
 # interfaces
 .implements Lretrofit2/Callback;
@@ -13,8 +13,8 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lretrofit2/Callback<",
-        "TT;>;"
+        "Lretrofit2/Callback",
+        "<TT;>;"
     }
 .end annotation
 
@@ -23,7 +23,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 22
+    .prologue
+    .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,6 +35,8 @@
 .method public isCancel()Z
     .locals 1
 
+    .prologue
+    .line 14
     const/4 v0, 0x0
 
     return v0
@@ -43,7 +46,7 @@
 .end method
 
 .method public onFailure(Lretrofit2/Call;Ljava/lang/Throwable;)V
-    .locals 2
+    .locals 3
     .param p1    # Lretrofit2/Call;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -51,81 +54,91 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lretrofit2/Call<",
-            "TT;>;",
+            "Lretrofit2/Call",
+            "<TT;>;",
             "Ljava/lang/Throwable;",
             ")V"
         }
     .end annotation
 
-    .line 40
+    .prologue
+    .line 35
     invoke-virtual {p0}, Lbl/vm;->isCancel()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
+    .line 46
+    :goto_6
     return-void
 
-    .line 43
-    :cond_0
+    .line 38
+    :cond_7
     invoke-static {}, Lbl/jh;->a()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_37
 
-    if-eqz p1, :cond_1
+    .line 39
+    if-eqz p1, :cond_3b
 
+    .line 40
     const-string v0, "onFailure"
 
-    .line 45
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-interface {p1}, Lretrofit2/Call;->b()Lokhttp3/Request;
+    invoke-interface {p1}, Lretrofit2/Call;->request()Lokhttp3/Request;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {p1}, Lokhttp3/Request;->a()Lokhttp3/HttpUrl;
+    invoke-virtual {v2}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p1, " "
+    move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {p2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-static {v0, p1}, Ltv/danmaku/android/log/BLog;->w(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Ltv/danmaku/android/log/BLog;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
-
-    :cond_1
-    const-string p1, "onFailure"
-
-    const-string v0, ""
-
-    .line 47
-    invoke-static {p1, v0, p2}, Ltv/danmaku/android/log/BLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    .line 51
-    :cond_2
-    :goto_0
+    .line 45
+    :cond_37
+    :goto_37
     invoke-virtual {p0, p2}, Lbl/vm;->onError(Ljava/lang/Throwable;)V
 
-    return-void
+    goto :goto_6
+
+    .line 42
+    :cond_3b
+    const-string v0, "onFailure"
+
+    const-string v1, ""
+
+    invoke-static {v0, v1, p2}, Ltv/danmaku/android/log/BLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    goto :goto_37
 .end method
 
 .method public onResponse(Lretrofit2/Call;Lretrofit2/Response;)V
@@ -137,48 +150,51 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lretrofit2/Call<",
-            "TT;>;",
-            "Lretrofit2/Response<",
-            "TT;>;)V"
+            "Lretrofit2/Call",
+            "<TT;>;",
+            "Lretrofit2/Response",
+            "<TT;>;)V"
         }
     .end annotation
 
-    .line 26
+    .prologue
+    .line 23
     invoke-virtual {p0}, Lbl/vm;->isCancel()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
+    .line 31
+    :goto_6
     return-void
 
-    .line 30
-    :cond_0
-    invoke-virtual {p2}, Lretrofit2/Response;->e()Z
+    .line 26
+    :cond_7
+    invoke-virtual {p2}, Lretrofit2/Response;->isSuccessful()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_16
 
-    .line 31
+    .line 27
     new-instance v0, Lretrofit2/HttpException;
 
     invoke-direct {v0, p2}, Lretrofit2/HttpException;-><init>(Lretrofit2/Response;)V
 
     invoke-virtual {p0, p1, v0}, Lbl/vm;->onFailure(Lretrofit2/Call;Ljava/lang/Throwable;)V
 
-    return-void
+    goto :goto_6
 
-    .line 35
-    :cond_1
-    invoke-virtual {p2}, Lretrofit2/Response;->f()Ljava/lang/Object;
+    .line 29
+    :cond_16
+    invoke-virtual {p2}, Lretrofit2/Response;->body()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Lbl/vm;->onSuccess(Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lbl/vm;->onSuccess(Ljava/lang/Object;)V
 
-    return-void
+    goto :goto_6
 .end method
 
 .method public abstract onSuccess(Ljava/lang/Object;)V

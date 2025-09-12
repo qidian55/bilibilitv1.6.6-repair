@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;
 .super Lcom/bilibili/api/base/util/ParamsMap;
-.source "BL"
+.source "BiliSearchApi.java"
 
 
 # annotations
@@ -18,329 +18,343 @@
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
+    .prologue
+    .line 54
     const/4 v0, 0x0
 
-    .line 58
     invoke-direct {p0, p1, p2, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
+    .line 55
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 5
+    .locals 6
 
-    .line 62
+    .prologue
+    const/4 v2, 0x2
+
+    const/4 v3, 0x1
+
+    const/4 v1, 0x0
+
+    .line 57
     invoke-direct {p0}, Lcom/bilibili/api/base/util/ParamsMap;-><init>()V
 
-    const/4 v0, 0x2
+    .line 58
+    new-array v0, v2, [Ljava/lang/String;
+
+    const-string v4, "user_type"
+
+    aput-object v4, v0, v1
+
+    const-string v4, "0"
+
+    aput-object v4, v0, v3
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+
+    .line 59
+    new-array v0, v2, [Ljava/lang/String;
+
+    const-string v4, "from_source"
+
+    aput-object v4, v0, v1
+
+    const-string v4, "app_search"
+
+    aput-object v4, v0, v3
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+
+    .line 60
+    new-array v0, v2, [Ljava/lang/String;
+
+    const-string v4, "highlight"
+
+    aput-object v4, v0, v1
+
+    const-string v4, "0"
+
+    aput-object v4, v0, v3
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+
+    .line 61
+    new-array v0, v2, [Ljava/lang/String;
+
+    const-string v4, "search_type"
+
+    aput-object v4, v0, v1
+
+    const-string v4, "bili_user"
+
+    aput-object v4, v0, v3
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+
+    .line 62
+    new-array v0, v2, [Ljava/lang/String;
+
+    const-string v4, "keyword"
+
+    aput-object v4, v0, v1
+
+    aput-object p1, v0, v3
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
 
     .line 63
-    new-array v1, v0, [Ljava/lang/String;
-
-    const-string v2, "user_type"
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    const-string v2, "0"
-
-    const/4 v4, 0x1
-
-    aput-object v2, v1, v4
-
-    invoke-virtual {p0, v1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+    if-eqz p3, :cond_6d
 
     .line 64
-    new-array v1, v0, [Ljava/lang/String;
-
-    const-string v2, "from_source"
-
-    aput-object v2, v1, v3
-
-    const-string v2, "app_search"
-
-    aput-object v2, v1, v4
-
-    invoke-virtual {p0, v1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+    const v0, 0xffff
 
     .line 65
-    new-array v1, v0, [Ljava/lang/String;
-
-    const-string v2, "highlight"
-
-    aput-object v2, v1, v3
-
-    const-string v2, "0"
-
-    aput-object v2, v1, v4
-
-    invoke-virtual {p0, v1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
-
-    .line 66
-    new-array v1, v0, [Ljava/lang/String;
-
-    const-string v2, "search_type"
-
-    aput-object v2, v1, v3
-
-    const-string v2, "bili_user"
-
-    aput-object v2, v1, v4
-
-    invoke-virtual {p0, v1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
-
-    .line 67
-    new-array v1, v0, [Ljava/lang/String;
-
-    const-string v2, "keyword"
-
-    aput-object v2, v1, v3
-
-    aput-object p1, v1, v4
-
-    invoke-virtual {p0, v1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
-
-    if-eqz p3, :cond_5
-
-    const/4 p1, -0x1
-
-    .line 69
     invoke-virtual {p3}, Ljava/lang/String;->hashCode()I
 
-    move-result v1
+    move-result v4
 
-    const v2, -0x407a754f
+    .line 66
+    const v5, -0x407a754f
 
-    if-eq v1, v2, :cond_3
+    if-eq v4, v5, :cond_a2
 
-    const/16 v2, 0xd8a
+    .line 67
+    const/16 v5, 0xd8a
 
-    if-eq v1, v2, :cond_2
+    if-eq v4, v5, :cond_98
 
-    const v2, 0x2fd7c0
+    .line 68
+    const v5, 0x2fd7c0
 
-    if-eq v1, v2, :cond_1
+    if-eq v4, v5, :cond_8e
 
-    const v2, 0x62908a7
+    .line 69
+    const v5, 0x62908a7
 
-    if-eq v1, v2, :cond_0
+    if-ne v4, v5, :cond_6a
 
-    goto :goto_0
+    const-string v4, "lvasc"
 
-    :cond_0
-    const-string v1, "lvasc"
+    invoke-virtual {p3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {p3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v4
 
-    move-result p3
+    if-eqz v4, :cond_6a
 
-    if-eqz p3, :cond_4
+    .line 70
+    const/4 v0, 0x3
 
-    const/4 p1, 0x3
+    .line 81
+    :cond_6a
+    :goto_6a
+    packed-switch v0, :pswitch_data_11a
 
-    goto :goto_0
+    .line 100
+    :cond_6d
+    :goto_6d
+    new-array v0, v2, [Ljava/lang/String;
 
-    :cond_1
-    const-string v1, "fans"
+    const-string v4, "page"
 
-    invoke-virtual {p3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p3
-
-    if-eqz p3, :cond_4
-
-    const/4 p1, 0x0
-
-    goto :goto_0
-
-    :cond_2
-    const-string v1, "lv"
-
-    invoke-virtual {p3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p3
-
-    if-eqz p3, :cond_4
-
-    const/4 p1, 0x2
-
-    goto :goto_0
-
-    :cond_3
-    const-string v1, "fansasc"
-
-    invoke-virtual {p3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p3
-
-    if-eqz p3, :cond_4
-
-    const/4 p1, 0x1
-
-    :cond_4
-    :goto_0
-    packed-switch p1, :pswitch_data_0
-
-    goto :goto_1
-
-    .line 83
-    :pswitch_0
-    new-array p1, v0, [Ljava/lang/String;
-
-    const-string p3, "order"
-
-    aput-object p3, p1, v3
-
-    const-string p3, "level"
-
-    aput-object p3, p1, v4
-
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
-
-    .line 84
-    new-array p1, v0, [Ljava/lang/String;
-
-    const-string p3, "order_sort"
-
-    aput-object p3, p1, v3
-
-    const-string p3, "1"
-
-    aput-object p3, p1, v4
-
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
-
-    goto :goto_1
-
-    .line 79
-    :pswitch_1
-    new-array p1, v0, [Ljava/lang/String;
-
-    const-string p3, "order"
-
-    aput-object p3, p1, v3
-
-    const-string p3, "level"
-
-    aput-object p3, p1, v4
-
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
-
-    .line 80
-    new-array p1, v0, [Ljava/lang/String;
-
-    const-string p3, "order_sort"
-
-    aput-object p3, p1, v3
-
-    const-string p3, "0"
-
-    aput-object p3, p1, v4
-
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
-
-    goto :goto_1
-
-    .line 75
-    :pswitch_2
-    new-array p1, v0, [Ljava/lang/String;
-
-    const-string p3, "order"
-
-    aput-object p3, p1, v3
-
-    const-string p3, "fans"
-
-    aput-object p3, p1, v4
-
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
-
-    .line 76
-    new-array p1, v0, [Ljava/lang/String;
-
-    const-string p3, "order_sort"
-
-    aput-object p3, p1, v3
-
-    const-string p3, "1"
-
-    aput-object p3, p1, v4
-
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
-
-    goto :goto_1
-
-    .line 71
-    :pswitch_3
-    new-array p1, v0, [Ljava/lang/String;
-
-    const-string p3, "order"
-
-    aput-object p3, p1, v3
-
-    const-string p3, "fans"
-
-    aput-object p3, p1, v4
-
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
-
-    .line 72
-    new-array p1, v0, [Ljava/lang/String;
-
-    const-string p3, "order_sort"
-
-    aput-object p3, p1, v3
-
-    const-string p3, "0"
-
-    aput-object p3, p1, v4
-
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
-
-    .line 88
-    :cond_5
-    :goto_1
-    new-array p1, v0, [Ljava/lang/String;
-
-    const-string p3, "page"
-
-    aput-object p3, p1, v3
+    aput-object v4, v0, v1
 
     invoke-static {p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v4
 
-    aput-object p2, p1, v4
+    aput-object v4, v0, v3
 
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
 
-    .line 89
-    new-array p1, v0, [Ljava/lang/String;
+    .line 101
+    new-array v0, v2, [Ljava/lang/String;
 
-    const-string p2, "pagesize"
+    const-string v2, "pagesize"
 
-    aput-object p2, p1, v3
+    aput-object v2, v0, v1
 
-    const/16 p2, 0x14
+    const/16 v1, 0x14
 
-    invoke-static {p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    aput-object p2, p1, v4
+    aput-object v1, v0, v3
 
-    invoke-virtual {p0, p1}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
 
+    .line 102
     return-void
 
-    nop
+    .line 72
+    :cond_8e
+    const-string v4, "fans"
 
-    :pswitch_data_0
+    invoke-virtual {p3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6a
+
+    move v0, v1
+
+    .line 73
+    goto :goto_6a
+
+    .line 75
+    :cond_98
+    const-string v4, "lv"
+
+    invoke-virtual {p3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6a
+
+    move v0, v2
+
+    .line 76
+    goto :goto_6a
+
+    .line 78
+    :cond_a2
+    const-string v4, "fansasc"
+
+    invoke-virtual {p3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6a
+
+    move v0, v3
+
+    .line 79
+    goto :goto_6a
+
+    .line 83
+    :pswitch_ac
+    new-array v0, v2, [Ljava/lang/String;
+
+    const-string v4, "order"
+
+    aput-object v4, v0, v1
+
+    const-string v4, "fans"
+
+    aput-object v4, v0, v3
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+
+    .line 84
+    new-array v0, v2, [Ljava/lang/String;
+
+    const-string v4, "order_sort"
+
+    aput-object v4, v0, v1
+
+    const-string v4, "0"
+
+    aput-object v4, v0, v3
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+
+    goto :goto_6d
+
+    .line 87
+    :pswitch_c7
+    new-array v0, v2, [Ljava/lang/String;
+
+    const-string v4, "order"
+
+    aput-object v4, v0, v1
+
+    const-string v4, "fans"
+
+    aput-object v4, v0, v3
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+
+    .line 88
+    new-array v0, v2, [Ljava/lang/String;
+
+    const-string v4, "order_sort"
+
+    aput-object v4, v0, v1
+
+    const-string v4, "1"
+
+    aput-object v4, v0, v3
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+
+    goto :goto_6d
+
+    .line 91
+    :pswitch_e2
+    new-array v0, v2, [Ljava/lang/String;
+
+    const-string v4, "order"
+
+    aput-object v4, v0, v1
+
+    const-string v4, "level"
+
+    aput-object v4, v0, v3
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+
+    .line 92
+    new-array v0, v2, [Ljava/lang/String;
+
+    const-string v4, "order_sort"
+
+    aput-object v4, v0, v1
+
+    const-string v4, "0"
+
+    aput-object v4, v0, v3
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+
+    goto/16 :goto_6d
+
+    .line 95
+    :pswitch_fe
+    new-array v0, v2, [Ljava/lang/String;
+
+    const-string v4, "order"
+
+    aput-object v4, v0, v1
+
+    const-string v4, "level"
+
+    aput-object v4, v0, v3
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+
+    .line 96
+    new-array v0, v2, [Ljava/lang/String;
+
+    const-string v4, "order_sort"
+
+    aput-object v4, v0, v1
+
+    const-string v4, "1"
+
+    aput-object v4, v0, v3
+
+    invoke-virtual {p0, v0}, Lcom/bilibili/tv/api/search/BiliSearchApi$SearchUperParamsMap;->putParams([Ljava/lang/String;)V
+
+    goto/16 :goto_6d
+
+    .line 81
+    :pswitch_data_11a
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_ac
+        :pswitch_c7
+        :pswitch_e2
+        :pswitch_fe
     .end packed-switch
 .end method

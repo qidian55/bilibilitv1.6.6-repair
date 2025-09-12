@@ -38,7 +38,7 @@
 
 
 # virtual methods
-.method public a()Lokhttp3/MediaType;
+.method public contentType()Lokhttp3/MediaType;
     .locals 1
 
     .line 555
@@ -47,7 +47,7 @@
     return-object v0
 .end method
 
-.method public b()J
+.method public contentLength()J
     .locals 2
 
     .line 560
@@ -56,7 +56,7 @@
     return-wide v0
 .end method
 
-.method public c()Lokio/BufferedSource;
+.method public source()Lokio/BufferedSource;
     .locals 2
 
     .line 565

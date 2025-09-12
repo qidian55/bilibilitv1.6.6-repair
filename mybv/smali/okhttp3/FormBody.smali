@@ -1,6 +1,6 @@
 .class public final Lokhttp3/FormBody;
 .super Lokhttp3/RequestBody;
-.source "BL"
+.source "FormBody.java"
 
 
 # annotations
@@ -12,24 +12,26 @@
 
 
 # static fields
-.field private static final a:Lokhttp3/MediaType;
+.field private static final CONTENT_TYPE:Lokhttp3/MediaType;
 
 
 # instance fields
-.field private final b:Ljava/util/List;
+.field private final encodedNames:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private final c:Ljava/util/List;
+.field private final encodedValues:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -41,199 +43,250 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 31
     const-string v0, "application/x-www-form-urlencoded"
 
     .line 32
-    invoke-static {v0}, Lokhttp3/MediaType;->a(Ljava/lang/String;)Lokhttp3/MediaType;
+    invoke-static {v0}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
 
     move-result-object v0
 
-    sput-object v0, Lokhttp3/FormBody;->a:Lokhttp3/MediaType;
+    sput-object v0, Lokhttp3/FormBody;->CONTENT_TYPE:Lokhttp3/MediaType;
 
+    .line 31
     return-void
 .end method
 
 .method constructor <init>(Ljava/util/List;Ljava/util/List;)V
-    .locals 0
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;)V"
         }
     .end annotation
 
+    .prologue
     .line 37
     invoke-direct {p0}, Lokhttp3/RequestBody;-><init>()V
 
     .line 38
-    invoke-static {p1}, Lokhttp3/internal/Util;->a(Ljava/util/List;)Ljava/util/List;
+    invoke-static {p1}, Lokhttp3/internal/Util;->immutableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lokhttp3/FormBody;->b:Ljava/util/List;
+    iput-object v0, p0, Lokhttp3/FormBody;->encodedNames:Ljava/util/List;
 
     .line 39
-    invoke-static {p2}, Lokhttp3/internal/Util;->a(Ljava/util/List;)Ljava/util/List;
+    invoke-static {p2}, Lokhttp3/internal/Util;->immutableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lokhttp3/FormBody;->c:Ljava/util/List;
+    iput-object v0, p0, Lokhttp3/FormBody;->encodedValues:Ljava/util/List;
 
+    .line 40
     return-void
 .end method
 
-.method private a(Lokio/BufferedSink;Z)J
-    .locals 3
+.method private writeOrCountBytes(Lokio/BufferedSink;Z)J
+    .locals 6
     .param p1    # Lokio/BufferedSink;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    if-eqz p2, :cond_0
+    .prologue
+    .line 82
+    const-wide/16 v2, 0x0
+
+    .line 85
+    if-eqz p2, :cond_3a
 
     .line 86
-    new-instance p1, Lokio/Buffer;
+    new-instance v0, Lokio/Buffer;
 
-    invoke-direct {p1}, Lokio/Buffer;-><init>()V
+    invoke-direct {v0}, Lokio/Buffer;-><init>()V
 
-    goto :goto_0
-
-    .line 88
-    :cond_0
-    invoke-interface {p1}, Lokio/BufferedSink;->buffer()Lokio/Buffer;
-
-    move-result-object p1
-
-    :goto_0
-    const/4 v0, 0x0
+    move-object v1, v0
 
     .line 91
-    iget-object v1, p0, Lokhttp3/FormBody;->b:Ljava/util/List;
+    :goto_a
+    const/4 v0, 0x0
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    iget-object v4, p0, Lokhttp3/FormBody;->encodedNames:Ljava/util/List;
 
-    move-result v1
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
-    :goto_1
-    if-ge v0, v1, :cond_2
+    move-result v5
 
-    if-lez v0, :cond_1
+    move v4, v0
 
-    const/16 v2, 0x26
+    :goto_12
+    if-ge v4, v5, :cond_40
 
     .line 92
-    invoke-virtual {p1, v2}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
+    if-lez v4, :cond_1b
+
+    const/16 v0, 0x26
+
+    invoke-virtual {v1, v0}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 93
-    :cond_1
-    iget-object v2, p0, Lokhttp3/FormBody;->b:Ljava/util/List;
+    :cond_1b
+    iget-object v0, p0, Lokhttp3/FormBody;->encodedNames:Ljava/util/List;
 
-    invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;)Lokio/Buffer;
-
-    const/16 v2, 0x3d
+    invoke-virtual {v1, v0}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;)Lokio/Buffer;
 
     .line 94
-    invoke-virtual {p1, v2}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
+    const/16 v0, 0x3d
+
+    invoke-virtual {v1, v0}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
     .line 95
-    iget-object v2, p0, Lokhttp3/FormBody;->c:Ljava/util/List;
+    iget-object v0, p0, Lokhttp3/FormBody;->encodedValues:Ljava/util/List;
 
-    invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;)Lokio/Buffer;
+    invoke-virtual {v1, v0}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;)Lokio/Buffer;
 
-    add-int/lit8 v0, v0, 0x1
+    .line 91
+    add-int/lit8 v0, v4, 0x1
 
-    goto :goto_1
+    move v4, v0
 
-    :cond_2
-    if-eqz p2, :cond_3
+    goto :goto_12
+
+    .line 88
+    :cond_3a
+    invoke-interface {p1}, Lokio/BufferedSink;->buffer()Lokio/Buffer;
+
+    move-result-object v0
+
+    move-object v1, v0
+
+    goto :goto_a
+
+    .line 98
+    :cond_40
+    if-eqz p2, :cond_49
 
     .line 99
-    invoke-virtual {p1}, Lokio/Buffer;->size()J
+    invoke-virtual {v1}, Lokio/Buffer;->size()J
 
-    move-result-wide v0
+    move-result-wide v2
 
     .line 100
-    invoke-virtual {p1}, Lokio/Buffer;->clear()V
+    invoke-virtual {v1}, Lokio/Buffer;->clear()V
 
-    goto :goto_2
+    :cond_49
+    move-wide v0, v2
 
-    :cond_3
-    const-wide/16 v0, 0x0
-
-    :goto_2
+    .line 103
     return-wide v0
 .end method
 
 
 # virtual methods
-.method public a()J
+.method public contentLength()J
     .locals 2
 
+    .prologue
+    .line 68
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
-    .line 68
-    invoke-direct {p0, v0, v1}, Lokhttp3/FormBody;->a(Lokio/BufferedSink;Z)J
+    invoke-direct {p0, v0, v1}, Lokhttp3/FormBody;->writeOrCountBytes(Lokio/BufferedSink;Z)J
 
     move-result-wide v0
 
     return-wide v0
 .end method
 
-.method public a(I)Ljava/lang/String;
+.method public contentType()Lokhttp3/MediaType;
     .locals 1
 
+    .prologue
+    .line 64
+    sget-object v0, Lokhttp3/FormBody;->CONTENT_TYPE:Lokhttp3/MediaType;
+
+    return-object v0
+.end method
+
+.method public encodedName(I)Ljava/lang/String;
+    .locals 1
+
+    .prologue
     .line 48
-    iget-object v0, p0, Lokhttp3/FormBody;->b:Ljava/util/List;
+    iget-object v0, p0, Lokhttp3/FormBody;->encodedNames:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
-    return-object p1
+    return-object v0
 .end method
 
-.method public a(Lokio/BufferedSink;)V
+.method public encodedValue(I)Ljava/lang/String;
     .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
-    const/4 v0, 0x0
+    .prologue
+    .line 56
+    iget-object v0, p0, Lokhttp3/FormBody;->encodedValues:Ljava/util/List;
 
-    .line 72
-    invoke-direct {p0, p1, v0}, Lokhttp3/FormBody;->a(Lokio/BufferedSink;Z)J
+    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    return-void
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
 .end method
 
-.method public b()I
+.method public name(I)Ljava/lang/String;
+    .locals 2
+
+    .prologue
+    .line 52
+    invoke-virtual {p0, p1}, Lokhttp3/FormBody;->encodedName(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lokhttp3/HttpUrl;->percentDecode(Ljava/lang/String;Z)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public size()I
     .locals 1
 
+    .prologue
     .line 44
-    iget-object v0, p0, Lokhttp3/FormBody;->b:Ljava/util/List;
+    iget-object v0, p0, Lokhttp3/FormBody;->encodedNames:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -242,60 +295,38 @@
     return v0
 .end method
 
-.method public b(I)Ljava/lang/String;
-    .locals 1
+.method public value(I)Ljava/lang/String;
+    .locals 2
 
-    .line 52
-    invoke-virtual {p0, p1}, Lokhttp3/FormBody;->a(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    const/4 v0, 0x1
-
-    invoke-static {p1, v0}, Lokhttp3/HttpUrl;->a(Ljava/lang/String;Z)Ljava/lang/String;
-
-    move-result-object p1
-
-    return-object p1
-.end method
-
-.method public c(I)Ljava/lang/String;
-    .locals 1
-
-    .line 56
-    iget-object v0, p0, Lokhttp3/FormBody;->c:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method public d(I)Ljava/lang/String;
-    .locals 1
-
+    .prologue
     .line 60
-    invoke-virtual {p0, p1}, Lokhttp3/FormBody;->c(I)Ljava/lang/String;
+    invoke-virtual {p0, p1}, Lokhttp3/FormBody;->encodedValue(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-static {p1, v0}, Lokhttp3/HttpUrl;->a(Ljava/lang/String;Z)Ljava/lang/String;
+    invoke-static {v0, v1}, Lokhttp3/HttpUrl;->percentDecode(Ljava/lang/String;Z)Ljava/lang/String;
 
-    move-result-object p1
-
-    return-object p1
-.end method
-
-.method public e()Lokhttp3/MediaType;
-    .locals 1
-
-    .line 64
-    sget-object v0, Lokhttp3/FormBody;->a:Lokhttp3/MediaType;
+    move-result-object v0
 
     return-object v0
+.end method
+
+.method public writeTo(Lokio/BufferedSink;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    .line 72
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Lokhttp3/FormBody;->writeOrCountBytes(Lokio/BufferedSink;Z)J
+
+    .line 73
+    return-void
 .end method

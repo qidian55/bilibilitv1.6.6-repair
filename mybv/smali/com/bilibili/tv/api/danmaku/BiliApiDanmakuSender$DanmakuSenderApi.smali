@@ -1,6 +1,6 @@
 .class interface abstract Lcom/bilibili/tv/api/danmaku/BiliApiDanmakuSender$DanmakuSenderApi;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliApiDanmakuSender.java"
 
 
 # annotations
@@ -14,7 +14,7 @@
 .end annotation
 
 .annotation runtime Lretrofit2/http/BaseUrl;
-    a = "http://api.bilibili.com"
+    value = "http://api.bilibili.com"
 .end annotation
 
 
@@ -22,22 +22,22 @@
 .method public abstract sendDanmaku(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "aid"
+            value = "aid"
         .end annotation
     .end param
     .param p3    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "cid"
+            value = "cid"
         .end annotation
     .end param
     .param p4    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "pid"
+            value = "pid"
         .end annotation
     .end param
     .param p5    # Ljava/util/Map;
@@ -45,7 +45,7 @@
         .end annotation
     .end param
     .annotation runtime Lcom/bilibili/okretro/anno/RequestInterceptor;
-        a = Lbl/wa;
+        value = Lbl/wa;
     .end annotation
 
     .annotation system Ldalvik/annotation/Signature;
@@ -55,11 +55,13 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ">;)",
-            "Lbl/vp<",
+            "Lbl/vp",
+            "<",
             "Lcom/alibaba/fastjson/JSONObject;",
             ">;"
         }
@@ -69,6 +71,6 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/comment/post"
+        value = "/comment/post"
     .end annotation
 .end method

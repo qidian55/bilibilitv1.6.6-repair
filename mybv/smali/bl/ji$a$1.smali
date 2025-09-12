@@ -1,6 +1,6 @@
 .class Lbl/ji$a$1;
 .super Lokio/ForwardingSource;
-.source "BL"
+.source "ji.java"
 
 
 # annotations
@@ -15,19 +15,20 @@
 
 
 # instance fields
-.field final synthetic a:Lokhttp3/internal/cache/DiskLruCache$Snapshot;
+.field final synthetic this$0:Lbl/ji$a;
 
-.field final synthetic b:Lbl/ji$a;
+.field final synthetic val$snapshot:Lokhttp3/internal/cache/DiskLruCache$Snapshot;
 
 
 # direct methods
 .method constructor <init>(Lbl/ji$a;Lokio/Source;Lokhttp3/internal/cache/DiskLruCache$Snapshot;)V
     .locals 0
 
-    .line 461
-    iput-object p1, p0, Lbl/ji$a$1;->b:Lbl/ji$a;
+    .prologue
+    .line 44
+    iput-object p1, p0, Lbl/ji$a$1;->this$0:Lbl/ji$a;
 
-    iput-object p3, p0, Lbl/ji$a$1;->a:Lokhttp3/internal/cache/DiskLruCache$Snapshot;
+    iput-object p3, p0, Lbl/ji$a$1;->val$snapshot:Lokhttp3/internal/cache/DiskLruCache$Snapshot;
 
     invoke-direct {p0, p2}, Lokio/ForwardingSource;-><init>(Lokio/Source;)V
 
@@ -44,13 +45,15 @@
         }
     .end annotation
 
-    .line 464
-    iget-object v0, p0, Lbl/ji$a$1;->a:Lokhttp3/internal/cache/DiskLruCache$Snapshot;
+    .prologue
+    .line 47
+    iget-object v0, p0, Lbl/ji$a$1;->val$snapshot:Lokhttp3/internal/cache/DiskLruCache$Snapshot;
 
     invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->close()V
 
-    .line 465
+    .line 48
     invoke-super {p0}, Lokio/ForwardingSource;->close()V
 
+    .line 49
     return-void
 .end method

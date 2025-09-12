@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/bilibili/lib/mod/ModApiService;
 .super Ljava/lang/Object;
-.source "BL"
+.source "ModApiService.java"
 
 
 # annotations
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation runtime Lretrofit2/http/BaseUrl;
-    a = "https://app.bilibili.com"
+    value = "https://app.bilibili.com"
 .end annotation
 
 
@@ -27,8 +27,10 @@
             "(",
             "Lcom/bilibili/lib/mod/ModApiService$ResourceModListParams;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lcom/alibaba/fastjson/JSONArray;",
             ">;>;"
         }
@@ -38,7 +40,7 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/resource/module/list"
+        value = "/x/resource/module/list"
     .end annotation
 .end method
 
@@ -52,8 +54,10 @@
             "(",
             "Lcom/bilibili/lib/mod/ModApiService$ResourceModParams;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lcom/alibaba/fastjson/JSONObject;",
             ">;>;"
         }
@@ -63,6 +67,6 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/resource/module"
+        value = "/x/resource/module"
     .end annotation
 .end method

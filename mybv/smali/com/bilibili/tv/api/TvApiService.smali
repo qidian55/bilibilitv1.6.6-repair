@@ -1,11 +1,11 @@
 .class public interface abstract Lcom/bilibili/tv/api/TvApiService;
 .super Ljava/lang/Object;
-.source "BL"
+.source "TvApiService.java"
 
 
 # annotations
 .annotation runtime Lretrofit2/http/BaseUrl;
-    a = "http://api.snm0516.aisee.tv"
+    value = "http://api.snm0516.aisee.tv"
 .end annotation
 
 
@@ -13,7 +13,7 @@
 .method public abstract suggest(Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "term"
+            value = "term"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -21,15 +21,18 @@
             "(",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
-            "Ljava/util/List<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Ljava/util/List",
+            "<",
             "Lcom/bilibili/tv/api/search/BiliSearchSuggest;",
             ">;>;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/x/tv/suggest"
+        value = "/x/tv/suggest"
     .end annotation
 .end method

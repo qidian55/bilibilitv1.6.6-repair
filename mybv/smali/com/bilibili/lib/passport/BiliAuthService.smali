@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/bilibili/lib/passport/BiliAuthService;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliAuthService.java"
 
 
 # annotations
@@ -14,7 +14,7 @@
 .end annotation
 
 .annotation runtime Lretrofit2/http/BaseUrl;
-    a = "https://passport.bilibili.com"
+    value = "https://passport.bilibili.com"
 .end annotation
 
 
@@ -22,12 +22,12 @@
 .method public abstract QRAuthCode(Ljava/lang/String;Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "auth_code"
+            value = "auth_code"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "guid"
+            value = "guid"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -36,8 +36,10 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lcom/bilibili/lib/passport/QRAuthCode;",
             ">;>;"
         }
@@ -47,14 +49,14 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/api/tv/qrcode/check"
+        value = "/api/tv/qrcode/check"
     .end annotation
 .end method
 
 .method public abstract QRAuthCodeNew(Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "auth_code"
+            value = "auth_code"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -62,8 +64,10 @@
             "(",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lbl/vd;",
             ">;>;"
         }
@@ -73,7 +77,7 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/passport-tv-login/qrcode/poll"
+        value = "/x/passport-tv-login/qrcode/poll"
     .end annotation
 .end method
 
@@ -81,14 +85,15 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lbl/vp<",
+            "Lbl/vp",
+            "<",
             "Lcom/alibaba/fastjson/JSONObject;",
             ">;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/api/tv/qrcode/auth_code"
+        value = "/api/tv/qrcode/auth_code"
     .end annotation
 .end method
 
@@ -96,21 +101,22 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lbl/vp<",
+            "Lbl/vp",
+            "<",
             "Lcom/alibaba/fastjson/JSONObject;",
             ">;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/passport-tv-login/qrcode/auth_code"
+        value = "/x/passport-tv-login/qrcode/auth_code"
     .end annotation
 .end method
 
 .method public abstract QRSign(Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "code"
+            value = "code"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -118,27 +124,29 @@
             "(",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lbl/vd;",
             ">;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/api/oauth2/accessToken?grant_type=authorization_code"
+        value = "/api/oauth2/accessToken?grant_type=authorization_code"
     .end annotation
 .end method
 
 .method public abstract acquireAccessToken(Ljava/lang/String;Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "code"
+            value = "code"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "grant_type"
+            value = "grant_type"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -147,42 +155,44 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lbl/mk;",
             ">;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/api/v2/oauth2/access_token"
+        value = "/api/v2/oauth2/access_token"
     .end annotation
 .end method
 
 .method public abstract authorizeByApp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "access_token"
+            value = "access_token"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "target_subid"
+            value = "target_subid"
         .end annotation
     .end param
     .param p3    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "target_appkey"
+            value = "target_appkey"
         .end annotation
     .end param
     .param p4    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "package"
+            value = "package"
         .end annotation
     .end param
     .param p5    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "signature"
+            value = "signature"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -194,8 +204,10 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lcom/bilibili/lib/passport/AuthorizeCode;",
             ">;>;"
         }
@@ -205,29 +217,29 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/api/oauth2/authorizeByApp"
+        value = "/api/oauth2/authorizeByApp"
     .end annotation
 .end method
 
 .method public abstract bindPhone(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "tel"
+            value = "tel"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "country_id"
+            value = "country_id"
         .end annotation
     .end param
     .param p3    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "captcha"
+            value = "captcha"
         .end annotation
     .end param
     .param p4    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -238,15 +250,17 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Ljava/lang/Void;",
             ">;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/api/member/bindPhone"
+        value = "/api/member/bindPhone"
     .end annotation
 .end method
 
@@ -254,15 +268,17 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lcom/bilibili/lib/passport/AuthKey;",
             ">;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/api/oauth2/getKey"
+        value = "/api/oauth2/getKey"
     .end annotation
 .end method
 
@@ -270,22 +286,24 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lcom/bilibili/lib/passport/AuthKey;",
             ">;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/x/passport-tv-login/key"
+        value = "/x/passport-tv-login/key"
     .end annotation
 .end method
 
 .method public abstract oauthInfo(Ljava/lang/String;Lcom/bilibili/lib/passport/BiliAuthService$CookieParamsMap;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "access_token"
+            value = "access_token"
         .end annotation
     .end param
     .param p2    # Lcom/bilibili/lib/passport/BiliAuthService$CookieParamsMap;
@@ -298,27 +316,29 @@
             "Ljava/lang/String;",
             "Lcom/bilibili/lib/passport/BiliAuthService$CookieParamsMap;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lcom/bilibili/lib/passport/OAuthInfo;",
             ">;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/api/v2/oauth2/info"
+        value = "/api/v2/oauth2/info"
     .end annotation
 .end method
 
 .method public abstract oauthTvInfo(Ljava/lang/String;Ljava/lang/String;Lcom/bilibili/lib/passport/BiliAuthService$CookieParamsMap;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "access_token"
+            value = "access_token"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "guid"
+            value = "guid"
         .end annotation
     .end param
     .param p3    # Lcom/bilibili/lib/passport/BiliAuthService$CookieParamsMap;
@@ -332,27 +352,29 @@
             "Ljava/lang/String;",
             "Lcom/bilibili/lib/passport/BiliAuthService$CookieParamsMap;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lcom/bilibili/lib/passport/OAuthInfo;",
             ">;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/api/tv/auth"
+        value = "/api/tv/auth"
     .end annotation
 .end method
 
 .method public abstract refreshToken(Ljava/lang/String;Ljava/lang/String;Lcom/bilibili/lib/passport/BiliAuthService$CookieParamsMap;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "access_token"
+            value = "access_token"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "refresh_token"
+            value = "refresh_token"
         .end annotation
     .end param
     .param p3    # Lcom/bilibili/lib/passport/BiliAuthService$CookieParamsMap;
@@ -366,8 +388,10 @@
             "Ljava/lang/String;",
             "Lcom/bilibili/lib/passport/BiliAuthService$CookieParamsMap;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lbl/mk;",
             ">;>;"
         }
@@ -377,39 +401,39 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/api/v2/oauth2/refresh_token"
+        value = "/api/v2/oauth2/refresh_token"
     .end annotation
 .end method
 
 .method public abstract registerByTel(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "tel"
+            value = "tel"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "uname"
+            value = "uname"
         .end annotation
     .end param
     .param p3    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "userpwd"
+            value = "userpwd"
         .end annotation
     .end param
     .param p4    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "country_id"
+            value = "country_id"
         .end annotation
     .end param
     .param p5    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "captcha"
+            value = "captcha"
         .end annotation
     .end param
     .param p6    # Z
         .annotation runtime Lretrofit2/http/Query;
-            a = "login"
+            value = "login"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -421,37 +445,39 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             "Z)",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Ljava/lang/Object;",
             ">;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/api/reg/byTel"
+        value = "/api/reg/byTel"
     .end annotation
 .end method
 
 .method public abstract resetPassword(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "tel"
+            value = "tel"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "pwd"
+            value = "pwd"
         .end annotation
     .end param
     .param p3    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "captcha"
+            value = "captcha"
         .end annotation
     .end param
     .param p4    # Z
         .annotation runtime Lretrofit2/http/Query;
-            a = "login"
+            value = "login"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -461,37 +487,39 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             "Z)",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Ljava/lang/Object;",
             ">;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/api/member/reset"
+        value = "/api/member/reset"
     .end annotation
 .end method
 
 .method public abstract sendSMSCaptcha(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "tel"
+            value = "tel"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "country_id"
+            value = "country_id"
         .end annotation
     .end param
     .param p3    # I
         .annotation runtime Lretrofit2/http/Query;
-            a = "reset_pwd"
+            value = "reset_pwd"
         .end annotation
     .end param
     .param p4    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "captcha"
+            value = "captcha"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -502,42 +530,44 @@
             "I",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Ljava/lang/Void;",
             ">;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/api/sms/sendCaptcha"
+        value = "/api/sms/sendCaptcha"
     .end annotation
 .end method
 
 .method public abstract signIn(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "username"
+            value = "username"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "password"
+            value = "password"
         .end annotation
     .end param
     .param p3    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "captcha"
+            value = "captcha"
         .end annotation
     .end param
     .param p4    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "token"
+            value = "token"
         .end annotation
     .end param
     .param p5    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "guid"
+            value = "guid"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -549,8 +579,10 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lcom/bilibili/lib/passport/TvAccessToken;",
             ">;>;"
         }
@@ -560,24 +592,24 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/api/tv/login"
+        value = "/api/tv/login"
     .end annotation
 .end method
 
 .method public abstract signInWithVerify(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "username"
+            value = "username"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "password"
+            value = "password"
         .end annotation
     .end param
     .param p3    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "captcha"
+            value = "captcha"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -587,8 +619,10 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lbl/mk;",
             ">;>;"
         }
@@ -598,14 +632,14 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/api/v2/oauth2/login"
+        value = "/api/v2/oauth2/login"
     .end annotation
 .end method
 
 .method public abstract signOut(Ljava/lang/String;Lcom/bilibili/lib/passport/BiliAuthService$CookieParamsMap;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "access_token"
+            value = "access_token"
         .end annotation
     .end param
     .param p2    # Lcom/bilibili/lib/passport/BiliAuthService$CookieParamsMap;
@@ -618,8 +652,10 @@
             "Ljava/lang/String;",
             "Lcom/bilibili/lib/passport/BiliAuthService$CookieParamsMap;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Ljava/lang/Void;",
             ">;>;"
         }
@@ -629,29 +665,29 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/api/v2/oauth2/revoke"
+        value = "/api/v2/oauth2/revoke"
     .end annotation
 .end method
 
 .method public abstract tvSignInNew(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "username"
+            value = "username"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "password"
+            value = "password"
         .end annotation
     .end param
     .param p3    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "code"
+            value = "code"
         .end annotation
     .end param
     .param p4    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "token"
+            value = "token"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -662,8 +698,10 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Lbl/vd;",
             ">;>;"
         }
@@ -673,29 +711,29 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/passport-tv-login/login"
+        value = "/x/passport-tv-login/login"
     .end annotation
 .end method
 
 .method public abstract verifyCaptcha(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "tel"
+            value = "tel"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "country_id"
+            value = "country_id"
         .end annotation
     .end param
     .param p3    # I
         .annotation runtime Lretrofit2/http/Query;
-            a = "reset_pwd"
+            value = "reset_pwd"
         .end annotation
     .end param
     .param p4    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "captcha"
+            value = "captcha"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -706,14 +744,16 @@
             "I",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/okretro/GeneralResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
             "Ljava/lang/Void;",
             ">;>;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/api/sms/checkCaptcha"
+        value = "/api/sms/checkCaptcha"
     .end annotation
 .end method

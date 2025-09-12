@@ -228,11 +228,11 @@
     const-string v3, "application/octet-stream"
 
     .line 72
-    invoke-static {v3}, Lokhttp3/MediaType;->a(Ljava/lang/String;)Lokhttp3/MediaType;
+    invoke-static {v3}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
 
     move-result-object v3
 
-    invoke-static {v3, v1}, Lokhttp3/RequestBody;->a(Lokhttp3/MediaType;[B)Lokhttp3/RequestBody;
+    invoke-static {v3, v1}, Lokhttp3/RequestBody;->create(Lokhttp3/MediaType;[B)Lokhttp3/RequestBody;
 
     move-result-object v1
 
@@ -246,13 +246,13 @@
     move-result-object v1
 
     .line 75
-    invoke-virtual {v1}, Lretrofit2/Response;->b()I
+    invoke-virtual {v1}, Lretrofit2/Response;->code()I
 
     .line 76
-    invoke-virtual {v1}, Lretrofit2/Response;->c()Ljava/lang/String;
+    invoke-virtual {v1}, Lretrofit2/Response;->message()Ljava/lang/String;
 
     .line 77
-    invoke-virtual {v1}, Lretrofit2/Response;->f()Ljava/lang/Object;
+    invoke-virtual {v1}, Lretrofit2/Response;->body()Ljava/lang/Object;
 
     move-result-object v1
 

@@ -139,7 +139,7 @@
 
     iget-object v0, p0, Lbl/ns$d;->a:Lokhttp3/Call;
 
-    invoke-interface {v0}, Lokhttp3/Call;->c()V
+    invoke-interface {v0}, Lokhttp3/Call;->cancel()V
 
     goto :goto_0
 
@@ -328,29 +328,29 @@
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Lokhttp3/Request$Builder;->a(Lokhttp3/CacheControl;)Lokhttp3/Request$Builder;
+    invoke-virtual {v0, v3}, Lokhttp3/Request$Builder;->cacheControl(Lokhttp3/CacheControl;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     .line 165
-    invoke-virtual {v0, v2}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;)Lokhttp3/Request$Builder;
+    invoke-virtual {v0, v2}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     .line 166
-    invoke-virtual {v0}, Lokhttp3/Request$Builder;->a()Lokhttp3/Request$Builder;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->get()Lokhttp3/Request$Builder;
 
     move-result-object v0
 
     .line 167
-    invoke-virtual {v0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
     move-result-object v0
 
     .line 168
     iget-object v2, p0, Lbl/ns$d;->b:Lokhttp3/Call$Factory;
 
-    invoke-interface {v2, v0}, Lokhttp3/Call$Factory;->a(Lokhttp3/Request;)Lokhttp3/Call;
+    invoke-interface {v2, v0}, Lokhttp3/Call$Factory;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
 
     move-result-object v0
 
@@ -395,7 +395,7 @@
     .line 182
     iget-object v0, p0, Lbl/ns$d;->a:Lokhttp3/Call;
 
-    invoke-interface {v0}, Lokhttp3/Call;->b()Lokhttp3/Response;
+    invoke-interface {v0}, Lokhttp3/Call;->execute()Lokhttp3/Response;
 
     move-result-object v0
     :try_end_2
@@ -404,18 +404,18 @@
 
     .line 189
     :try_start_3
-    invoke-virtual {v0}, Lokhttp3/Response;->c()I
+    invoke-virtual {v0}, Lokhttp3/Response;->code()I
 
     move-result v1
 
     .line 190
-    invoke-virtual {v0}, Lokhttp3/Response;->a()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Response;->request()Lokhttp3/Request;
 
     move-result-object v2
 
     const-string v3, "X-Bili-Img-Request"
 
-    invoke-virtual {v2, v3}, Lokhttp3/Request;->a(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Lokhttp3/Request;->header(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -509,12 +509,12 @@
     .line 205
     :cond_8
     :try_start_5
-    invoke-virtual {v0}, Lokhttp3/Response;->h()Lokhttp3/ResponseBody;
+    invoke-virtual {v0}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
 
     move-result-object v1
 
     .line 206
-    invoke-virtual {v1}, Lokhttp3/ResponseBody;->b()J
+    invoke-virtual {v1}, Lokhttp3/ResponseBody;->contentLength()J
 
     move-result-wide v2
 
@@ -538,7 +538,7 @@
     :try_start_6
     iget-object v4, p0, Lbl/ns$d;->d:Lbl/ase$a;
 
-    invoke-virtual {v1}, Lokhttp3/ResponseBody;->d()Ljava/io/InputStream;
+    invoke-virtual {v1}, Lokhttp3/ResponseBody;->byteStream()Ljava/io/InputStream;
 
     move-result-object v5
 

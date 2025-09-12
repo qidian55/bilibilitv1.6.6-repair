@@ -1,6 +1,6 @@
 .class Lretrofit2/Platform;
 .super Ljava/lang/Object;
-.source "BL"
+.source "Platform.java"
 
 
 # annotations
@@ -13,19 +13,20 @@
 
 
 # static fields
-.field private static final a:Lretrofit2/Platform;
+.field private static final PLATFORM:Lretrofit2/Platform;
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
     .line 29
-    invoke-static {}, Lretrofit2/Platform;->c()Lretrofit2/Platform;
+    invoke-static {}, Lretrofit2/Platform;->findPlatform()Lretrofit2/Platform;
 
     move-result-object v0
 
-    sput-object v0, Lretrofit2/Platform;->a:Lretrofit2/Platform;
+    sput-object v0, Lretrofit2/Platform;->PLATFORM:Lretrofit2/Platform;
 
     return-void
 .end method
@@ -33,97 +34,123 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method static a()Lretrofit2/Platform;
+.method private static findPlatform()Lretrofit2/Platform;
     .locals 1
 
-    .line 32
-    sget-object v0, Lretrofit2/Platform;->a:Lretrofit2/Platform;
-
-    return-object v0
-.end method
-
-.method private static c()Lretrofit2/Platform;
-    .locals 1
-
+    .prologue
+    .line 37
     :try_start_0
     const-string v0, "android.os.Build"
 
-    .line 37
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     .line 38
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 39
     new-instance v0, Lretrofit2/Platform$Android;
 
     invoke-direct {v0}, Lretrofit2/Platform$Android;-><init>()V
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_e} :catch_f
 
+    .line 48
+    :goto_e
     return-object v0
 
-    :catch_0
-    :cond_0
-    :try_start_1
-    const-string v0, "java.util.Optional"
+    .line 41
+    :catch_f
+    move-exception v0
 
     .line 44
+    :cond_10
+    :try_start_10
+    const-string v0, "java.util.Optional"
+
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     .line 45
     new-instance v0, Lretrofit2/Platform$Java8;
 
     invoke-direct {v0}, Lretrofit2/Platform$Java8;-><init>()V
-    :try_end_1
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_1a
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_10 .. :try_end_1a} :catch_1b
 
-    return-object v0
+    goto :goto_e
+
+    .line 46
+    :catch_1b
+    move-exception v0
 
     .line 48
-    :catch_1
     new-instance v0, Lretrofit2/Platform;
 
     invoke-direct {v0}, Lretrofit2/Platform;-><init>()V
+
+    goto :goto_e
+.end method
+
+.method static get()Lretrofit2/Platform;
+    .locals 1
+
+    .prologue
+    .line 32
+    sget-object v0, Lretrofit2/Platform;->PLATFORM:Lretrofit2/Platform;
 
     return-object v0
 .end method
 
 
 # virtual methods
-.method a(Ljava/util/concurrent/Executor;)Lretrofit2/CallAdapter$Factory;
+.method defaultCallAdapterFactory(Ljava/util/concurrent/Executor;)Lretrofit2/CallAdapter$Factory;
     .locals 1
     .param p1    # Ljava/util/concurrent/Executor;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    if-eqz p1, :cond_0
+    .prologue
+    .line 56
+    if-eqz p1, :cond_8
 
     .line 57
     new-instance v0, Lretrofit2/ExecutorCallAdapterFactory;
 
     invoke-direct {v0, p1}, Lretrofit2/ExecutorCallAdapterFactory;-><init>(Ljava/util/concurrent/Executor;)V
 
+    .line 59
+    :goto_7
     return-object v0
 
-    .line 59
-    :cond_0
-    sget-object p1, Lretrofit2/DefaultCallAdapterFactory;->a:Lretrofit2/CallAdapter$Factory;
+    :cond_8
+    sget-object v0, Lretrofit2/DefaultCallAdapterFactory;->INSTANCE:Lretrofit2/CallAdapter$Factory;
 
-    return-object p1
+    goto :goto_7
 .end method
 
-.method varargs a(Ljava/lang/reflect/Method;Ljava/lang/Class;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method defaultCallbackExecutor()Ljava/util/concurrent/Executor;
+    .locals 1
+    .annotation runtime Ljavax/annotation/Nullable;
+    .end annotation
+
+    .prologue
+    .line 52
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method varargs invokeDefaultMethod(Ljava/lang/reflect/Method;Ljava/lang/Class;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
     .param p4    # [Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -132,8 +159,8 @@
         value = {
             "(",
             "Ljava/lang/reflect/Method;",
-            "Ljava/lang/Class<",
-            "*>;",
+            "Ljava/lang/Class",
+            "<*>;",
             "Ljava/lang/Object;",
             "[",
             "Ljava/lang/Object;",
@@ -151,28 +178,21 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
+    .prologue
     .line 68
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw p1
+    throw v0
 .end method
 
-.method a(Ljava/lang/reflect/Method;)Z
-    .locals 0
-
-    const/4 p1, 0x0
-
-    return p1
-.end method
-
-.method b()Ljava/util/concurrent/Executor;
+.method isDefaultMethod(Ljava/lang/reflect/Method;)Z
     .locals 1
-    .annotation runtime Ljavax/annotation/Nullable;
-    .end annotation
 
+    .prologue
+    .line 63
     const/4 v0, 0x0
 
-    return-object v0
+    return v0
 .end method

@@ -1,6 +1,6 @@
 .class public interface abstract Lokhttp3/Call$Factory;
 .super Ljava/lang/Object;
-.source "BL"
+.source "Call.java"
 
 
 # annotations
@@ -10,10 +10,10 @@
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x609
-    name = "a"
+    name = "Factory"
 .end annotation
 
 
 # virtual methods
-.method public abstract a(Lokhttp3/Request;)Lokhttp3/Call;
+.method public abstract newCall(Lokhttp3/Request;)Lokhttp3/Call;
 .end method

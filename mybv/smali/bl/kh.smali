@@ -1,11 +1,11 @@
 .class public interface abstract Lbl/kh;
 .super Ljava/lang/Object;
-.source "BL"
+.source "kh.java"
 
 
 # annotations
 .annotation runtime Lretrofit2/http/BaseUrl;
-    a = "https://app.bilibili.com"
+    value = "https://app.bilibili.com"
 .end annotation
 
 
@@ -14,14 +14,15 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lbl/vp<",
+            "Lbl/vp",
+            "<",
             "Lcom/bilibili/tv/api/main/MainRecommendEx;",
             ">;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/x/ott/autonomy/index"
+        value = "/x/ott/autonomy/index"
     .end annotation
 .end method
 
@@ -29,13 +30,14 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lbl/vp<",
+            "Lbl/vp",
+            "<",
             "Lcom/bilibili/bangumi/api/BangumiMainEx;",
             ">;"
         }
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/x/ott/autonomy/bangumi"
+        value = "/x/ott/autonomy/bangumi"
     .end annotation
 .end method

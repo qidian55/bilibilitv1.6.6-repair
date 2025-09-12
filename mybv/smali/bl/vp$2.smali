@@ -61,7 +61,7 @@
     throw v0
 .end method
 
-.method public b()Lokhttp3/Request;
+.method public request()Lokhttp3/Request;
     .locals 1
 
     .line 200
@@ -79,7 +79,7 @@
 
     move-result-object v0
 
-    invoke-interface {v0}, Lokhttp3/Call;->a()Lokhttp3/Request;
+    invoke-interface {v0}, Lokhttp3/Call;->request()Lokhttp3/Request;
 
     move-result-object v0
 

@@ -13,31 +13,31 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 /* compiled from: BL */
-@BaseUrl(a = "http://api.bilibili.com")
+@BaseUrl(value = "http://api.bilibili.com")
 /* loaded from: classes.dex */
 public interface BiliPlayerHistoryService {
-    @POST(a = "/x/v2/history/clear")
-    vp<JSONObject> clearVideoHistories(@Query(a = "access_key") String str);
+    @POST(value = "/x/v2/history/clear")
+    vp<JSONObject> clearVideoHistories(@Query(value = "access_key") String str);
 
-    @POST(a = "/x/v2/history/delete")
-    vp<JSONObject> clearVideoHistories(@Query(a = "access_key") String access_key, @Query(a = "kid") String kid);
+    @POST(value = "/x/v2/history/delete")
+    vp<JSONObject> clearVideoHistories(@Query(value = "access_key") String access_key, @Query(value = "kid") String kid);
 
-    @GET(a = "/x/v2/history?pn=1&ps=200")
-    vp<GeneralResponse<List<BiliVideoDetail>>> getVideoHistoryList(@Query(a = "access_key") String str);
+    @GET(value = "/x/v2/history?pn=1&ps=200")
+    vp<GeneralResponse<List<BiliVideoDetail>>> getVideoHistoryList(@Query(value = "access_key") String str);
 
-    //@POST(a = "/x/v2/history/toview/clear")
-    //vp<JSONObject> clearVideoToviews(@Query(a = "access_key") String str);
+    //@POST(value = "/x/v2/history/toview/clear")
+    //vp<JSONObject> clearVideoToviews(@Query(value = "access_key") String str);
 
-    @POST(a = "/x/v2/history/toview/del?viewed=true")
-    vp<JSONObject> clearVideoToviews(@Query(a = "access_key") String access_key);
+    @POST(value = "/x/v2/history/toview/del?viewed=true")
+    vp<JSONObject> clearVideoToviews(@Query(value = "access_key") String access_key);
 
-    @POST(a = "/x/v2/history/toview/del")
-    vp<JSONObject> clearVideoToviews(@Query(a = "access_key") String access_key, @Query(a = "aid") long aid);
+    @POST(value = "/x/v2/history/toview/del")
+    vp<JSONObject> clearVideoToviews(@Query(value = "access_key") String access_key, @Query(value = "aid") long aid);
 
-    @GET(a = "/x/v2/history/toview")
-    vp<GeneralResponse<JSONObject>> getVideoToviewList(@Query(a = "access_key") String str);
+    @GET(value = "/x/v2/history/toview")
+    vp<GeneralResponse<JSONObject>> getVideoToviewList(@Query(value = "access_key") String str);
 
     @FormUrlEncoded
-    @POST(a = "/x/v2/history/report")
-    vp<GeneralResponse<Void>> reportProgress(@Field(a = "access_key") String str, @Field(a = "cid") long j, @Field(a = "aid") long i, @Field(a = "sid") long j2, @Field(a = "epid") long j3, @Field(a = "progress") long j4, @Field(a = "type") int i2, @Field(a = "realtime") long j5);
+    @POST(value = "/x/v2/history/report")
+    vp<GeneralResponse<Void>> reportProgress(@Field(value = "access_key") String str, @Field(value = "cid") long j, @Field(value = "aid") long i, @Field(value = "sid") long j2, @Field(value = "epid") long j3, @Field(value = "progress") long j4, @Field(value = "type") int i2, @Field(value = "realtime") long j5);
 }

@@ -58,7 +58,7 @@
     .end annotation
 
     .line 26
-    invoke-virtual {p0}, Lretrofit2/Response;->e()Z
+    invoke-virtual {p0}, Lretrofit2/Response;->isSuccessful()Z
 
     move-result v0
 
@@ -73,7 +73,7 @@
 
     .line 30
     :cond_0
-    invoke-virtual {p0}, Lretrofit2/Response;->f()Ljava/lang/Object;
+    invoke-virtual {p0}, Lretrofit2/Response;->body()Ljava/lang/Object;
 
     move-result-object p0
 

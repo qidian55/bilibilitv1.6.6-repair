@@ -1,6 +1,6 @@
 .class public Lbl/ur;
 .super Ljava/lang/Object;
-.source "BL"
+.source "ur.java"
 
 # interfaces
 .implements Lokhttp3/CookieJar;
@@ -18,7 +18,8 @@
 .field private b:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/HashMap<",
+            "Ljava/util/HashMap",
+            "<",
             "Lbl/ur$a;",
             "Lokhttp3/Cookie;",
             ">;"
@@ -31,10 +32,11 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 20
+    .prologue
+    .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 21
+    .line 15
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -46,165 +48,178 @@
 
 
 # virtual methods
-.method public declared-synchronized a(Lokhttp3/HttpUrl;)Ljava/util/List;
+.method public loadForRequest(Lokhttp3/HttpUrl;)Ljava/util/List;
     .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lokhttp3/HttpUrl;",
             ")",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lokhttp3/Cookie;",
             ">;"
         }
     .end annotation
 
+    .prologue
+    .line 41
     monitor-enter p0
 
-    .line 34
-    :try_start_0
-    new-instance v0, Ljava/util/ArrayList;
+    .line 42
+    :try_start_1
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 36
-    iget-object v1, p0, Lbl/ur;->b:Ljava/util/HashMap;
+    .line 43
+    iget-object v0, p0, Lbl/ur;->b:Ljava/util/HashMap;
 
-    invoke-virtual {v1}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
+    invoke-virtual {v0}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :cond_0
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    .line 37
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    check-cast v2, Ljava/util/Map$Entry;
+    .line 44
+    :cond_10
+    :goto_10
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    move-result v0
 
-    move-result-object v2
+    if-eqz v0, :cond_3f
 
-    check-cast v2, Lokhttp3/Cookie;
+    .line 45
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    .line 38
-    invoke-virtual {v2}, Lokhttp3/Cookie;->c()J
+    move-result-object v0
 
-    move-result-wide v3
+    check-cast v0, Ljava/util/Map$Entry;
+
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lokhttp3/Cookie;
+
+    .line 46
+    invoke-virtual {v0}, Lokhttp3/Cookie;->expiresAt()J
+
+    move-result-wide v4
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v5
+    move-result-wide v6
 
-    cmp-long v7, v3, v5
+    cmp-long v3, v4, v6
 
-    if-gez v7, :cond_1
+    if-gez v3, :cond_35
 
-    .line 39
-    invoke-interface {v1}, Ljava/util/Iterator;->remove()V
+    .line 47
+    invoke-interface {v2}, Ljava/util/Iterator;->remove()V
 
-    goto :goto_0
+    goto :goto_10
 
-    .line 40
-    :cond_1
-    invoke-virtual {v2, p1}, Lokhttp3/Cookie;->a(Lokhttp3/HttpUrl;)Z
+    .line 52
+    :catchall_32
+    move-exception v0
+
+    monitor-exit p0
+    :try_end_34
+    .catchall {:try_start_1 .. :try_end_34} :catchall_32
+
+    throw v0
+
+    .line 48
+    :cond_35
+    :try_start_35
+    invoke-virtual {v0, p1}, Lokhttp3/Cookie;->matches(Lokhttp3/HttpUrl;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_10
 
-    .line 41
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .line 49
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_10
 
-    .line 45
-    :cond_2
+    .line 52
+    :cond_3f
     monitor-exit p0
+    :try_end_40
+    .catchall {:try_start_35 .. :try_end_40} :catchall_32
 
-    return-object v0
-
-    :catchall_0
-    move-exception p1
-
-    .line 33
-    monitor-exit p0
-
-    throw p1
+    .line 53
+    return-object v1
 .end method
 
-.method public declared-synchronized a(Lokhttp3/HttpUrl;Ljava/util/List;)V
-    .locals 2
+.method public saveFromResponse(Lokhttp3/HttpUrl;Ljava/util/List;)V
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lokhttp3/HttpUrl;",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lokhttp3/Cookie;",
             ">;)V"
         }
     .end annotation
 
+    .prologue
+    .line 59
     monitor-enter p0
 
-    .line 26
-    :try_start_0
+    .line 60
+    :try_start_1
     invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object p1
+    move-result-object v1
 
-    :goto_0
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    :goto_5
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result p2
+    move-result v0
 
-    if-eqz p2, :cond_0
+    if-eqz v0, :cond_1f
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object v0
 
-    check-cast p2, Lokhttp3/Cookie;
+    check-cast v0, Lokhttp3/Cookie;
 
-    .line 27
-    new-instance v0, Lbl/ur$a;
+    .line 61
+    iget-object v2, p0, Lbl/ur;->b:Ljava/util/HashMap;
 
-    invoke-direct {v0, p2}, Lbl/ur$a;-><init>(Lokhttp3/Cookie;)V
+    new-instance v3, Lbl/ur$a;
 
-    .line 28
-    iget-object v1, p0, Lbl/ur;->b:Ljava/util/HashMap;
+    invoke-direct {v3, v0}, Lbl/ur$a;-><init>(Lokhttp3/Cookie;)V
 
-    invoke-virtual {v1, v0, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {v2, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_5
 
-    .line 30
-    :cond_0
+    .line 63
+    :catchall_1c
+    move-exception v0
+
     monitor-exit p0
+    :try_end_1e
+    .catchall {:try_start_1 .. :try_end_1e} :catchall_1c
 
+    throw v0
+
+    :cond_1f
+    :try_start_1f
+    monitor-exit p0
+    :try_end_20
+    .catchall {:try_start_1f .. :try_end_20} :catchall_1c
+
+    .line 64
     return-void
-
-    :catchall_0
-    move-exception p1
-
-    .line 25
-    monitor-exit p0
-
-    throw p1
 .end method

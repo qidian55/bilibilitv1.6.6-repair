@@ -9,11 +9,11 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 /* compiled from: BL */
-@BaseUrl(a = "http://api.bilibili.com")
+@BaseUrl(value = "http://api.bilibili.com")
 /* loaded from: classes.dex */
 public interface HeartbeatApiService {
     @FormUrlEncoded
-    @POST(a = "/x/report/heartbeat/mobile")
+    @POST(value = "/x/report/heartbeat/mobile")
     vp<Void> a(@FieldMap ParamsV2 paramsV2);
 
     /* compiled from: BL */

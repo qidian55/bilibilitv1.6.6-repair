@@ -15,22 +15,22 @@ import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 /* compiled from: BL */
-@BaseUrl(a = "http://app.bilibili.com")
+@BaseUrl("http://app.bilibili.com")
 /* loaded from: classes.dex */
 public interface BiliApiService {
-    @GET(a = "/x/feed/upper/archive")
-    @CacheControl(a = jh.AGE_DEFAULT)
-    vp<GeneralResponse<UpperFeedList>> getFeedUpperArchive(@Query(a = "access_key") String str, @Query(a = "pn") int i, @Query(a = "ps") int i2, @Query(a = "style") int i3);
+    @GET("/x/feed/upper/archive")
+    @CacheControl(jh.AGE_DEFAULT)
+    vp<GeneralResponse<UpperFeedList>> getFeedUpperArchive(@Query("access_key") String str, @Query("pn") int i, @Query("ps") int i2, @Query("style") int i3);
 
-    @GET(a = "/x/v2/show")
+    @GET("/x/v2/show")
     vp<MainRecommend> getMainRecommend();
 
-    @GET(a = "/x/v2/search/hot?limit=50")
-    @CacheControl(a = jh.AGE_DEFAULT)
+    @GET("/x/v2/search/hot?limit=50")
+    @CacheControl(jh.AGE_DEFAULT)
     vp<GeneralResponse<BiliSearchRanks>> getSearchRanks();
 
-    @GET(a = "/x/v2/search")
-    @CacheControl(a = jh.AGE_DEFAULT)
+    @GET("/x/v2/search")
+    @CacheControl(jh.AGE_DEFAULT)
     vp<GeneralResponse<BiliSearchResultAllNew>> searchAll(@QueryMap SearchAllParamsMap searchAllParamsMap);
 
     /* compiled from: BL */

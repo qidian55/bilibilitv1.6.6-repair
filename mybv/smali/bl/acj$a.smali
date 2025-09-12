@@ -1,6 +1,6 @@
 .class Lbl/acj$a;
 .super Ljava/lang/Object;
-.source "BL"
+.source "acj.java"
 
 # interfaces
 .implements Lokhttp3/Interceptor;
@@ -25,16 +25,19 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 104
+    .prologue
+    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 23
     return-void
 .end method
 
 .method synthetic constructor <init>(Lbl/acj$1;)V
     .locals 0
 
-    .line 104
+    .prologue
+    .line 19
     invoke-direct {p0}, Lbl/acj$a;-><init>()V
 
     return-void
@@ -43,96 +46,108 @@
 .method private static a(Ljava/lang/String;)Ljava/lang/String;
     .locals 7
 
-    .line 131
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
-
-    :goto_0
-    if-ge v2, v0, :cond_3
-
-    .line 132
-    invoke-virtual {p0, v2}, Ljava/lang/String;->codePointAt(I)I
-
-    move-result v3
-
-    const/16 v4, 0x7f
+    .prologue
+    const/16 v6, 0x7f
 
     const/16 v5, 0x1f
 
-    if-le v3, v5, :cond_0
+    const/4 v1, 0x0
 
-    if-ge v3, v4, :cond_0
-
-    .line 131
-    invoke-static {v3}, Ljava/lang/Character;->charCount(I)I
+    .line 26
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    add-int/2addr v2, v3
+    move v0, v1
 
-    goto :goto_0
+    .line 28
+    :goto_a
+    if-ge v0, v3, :cond_39
 
-    .line 135
-    :cond_0
-    new-instance v3, Lokio/Buffer;
+    .line 29
+    invoke-virtual {p0, v0}, Ljava/lang/String;->codePointAt(I)I
 
-    invoke-direct {v3}, Lokio/Buffer;-><init>()V
+    move-result v2
 
-    .line 136
-    invoke-virtual {v3, p0, v1, v2}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;II)Lokio/Buffer;
+    .line 30
+    if-le v2, v5, :cond_14
 
-    :goto_1
-    if-ge v2, v0, :cond_2
+    if-lt v2, v6, :cond_3a
 
-    .line 138
+    .line 31
+    :cond_14
+    new-instance v4, Lokio/Buffer;
+
+    invoke-direct {v4}, Lokio/Buffer;-><init>()V
+
+    .line 32
+    invoke-virtual {v4, p0, v1, v0}, Lokio/Buffer;->writeUtf8(Ljava/lang/String;II)Lokio/Buffer;
+
+    move v2, v0
+
+    .line 34
+    :goto_1d
+    if-ge v2, v3, :cond_35
+
+    .line 35
     invoke-virtual {p0, v2}, Ljava/lang/String;->codePointAt(I)I
 
     move-result v1
 
-    if-le v1, v5, :cond_1
+    .line 36
+    if-le v1, v5, :cond_27
 
-    if-ge v1, v4, :cond_1
+    if-lt v1, v6, :cond_33
 
-    move v6, v1
+    :cond_27
+    const/16 v0, 0x3f
 
-    goto :goto_2
+    :goto_29
+    invoke-virtual {v4, v0}, Lokio/Buffer;->writeUtf8CodePoint(I)Lokio/Buffer;
 
-    :cond_1
-    const/16 v6, 0x3f
-
-    .line 139
-    :goto_2
-    invoke-virtual {v3, v6}, Lokio/Buffer;->writeUtf8CodePoint(I)Lokio/Buffer;
-
-    .line 137
+    .line 37
     invoke-static {v1}, Ljava/lang/Character;->charCount(I)I
 
-    move-result v1
+    move-result v0
 
-    add-int/2addr v2, v1
+    add-int/2addr v0, v2
 
-    goto :goto_1
+    move v2, v0
 
-    .line 141
-    :cond_2
-    invoke-virtual {v3}, Lokio/Buffer;->readUtf8()Ljava/lang/String;
+    .line 38
+    goto :goto_1d
+
+    :cond_33
+    move v0, v1
+
+    .line 36
+    goto :goto_29
+
+    .line 39
+    :cond_35
+    invoke-virtual {v4}, Lokio/Buffer;->readUtf8()Ljava/lang/String;
 
     move-result-object p0
 
+    .line 43
+    :cond_39
     return-object p0
 
-    :cond_3
-    return-object p0
+    .line 41
+    :cond_3a
+    invoke-static {v2}, Ljava/lang/Character;->charCount(I)I
+
+    move-result v2
+
+    add-int/2addr v0, v2
+
+    .line 42
+    goto :goto_a
 .end method
 
 
 # virtual methods
-.method public a(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
+.method public intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -140,31 +155,32 @@
         }
     .end annotation
 
-    .line 109
-    invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->a()Lokhttp3/Request;
+    .prologue
+    .line 50
+    invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->request()Lokhttp3/Request;
 
     move-result-object v0
 
+    .line 51
     const-string v1, "User-Agent"
 
-    .line 110
-    invoke-virtual {v0, v1}, Lokhttp3/Request;->a(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lokhttp3/Request;->header(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 112
+    .line 52
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_46
 
-    .line 114
+    .line 53
     sget-object v1, Lbl/acj$a;->a:Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2f
 
-    .line 116
+    .line 54
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -173,13 +189,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " "
+    move-result-object v1
+
+    const-string v2, " BiliTV/1.6.6"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "BiliTV/1.6.6"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -191,21 +207,46 @@
 
     sput-object v1, Lbl/acj$a;->a:Ljava/lang/String;
 
-    .line 118
-    :cond_0
+    .line 56
+    :cond_2f
     sget-object v1, Lbl/acj$a;->a:Ljava/lang/String;
 
-    goto :goto_0
+    .line 62
+    :goto_31
+    if-eqz v1, :cond_41
 
-    :cond_1
+    .line 63
+    invoke-virtual {v0}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
+
+    move-result-object v0
+
+    const-string v2, "User-Agent"
+
+    invoke-virtual {v0, v2, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+
+    move-result-object v0
+
+    .line 65
+    :cond_41
+    invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
+
+    move-result-object v0
+
+    return-object v0
+
+    .line 57
+    :cond_46
     const-string v2, "apigame.bilibili.com"
 
-    .line 119
-    invoke-virtual {v0}, Lokhttp3/Request;->a()Lokhttp3/HttpUrl;
+    invoke-virtual {v0}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lokhttp3/HttpUrl;->g()Ljava/lang/String;
+    invoke-virtual {v3}, Lokhttp3/HttpUrl;->host()Ljava/lang/String;
 
     move-result-object v3
 
@@ -213,67 +254,41 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_5e
 
     const-string v2, "BiliTV/1.6.6"
 
-    .line 120
     invoke-static {v1, v2}, Lbl/kt;->c(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-eqz v2, :cond_60
 
-    .line 121
+    .line 58
+    :cond_5e
+    const/4 v1, 0x0
+
+    goto :goto_31
+
+    .line 60
+    :cond_60
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, " "
+    move-result-object v1
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " BiliTV/1.6.6"
 
-    const-string v1, "BiliTV/1.6.6"
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    goto :goto_0
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :cond_2
-    const/4 v1, 0x0
+    move-result-object v1
 
-    :goto_0
-    if-nez v1, :cond_3
-
-    goto :goto_1
-
-    .line 124
-    :cond_3
-    invoke-virtual {v0}, Lokhttp3/Request;->e()Lokhttp3/Request$Builder;
-
-    move-result-object v0
-
-    const-string v2, "User-Agent"
-
-    invoke-virtual {v0, v2, v1}, Lokhttp3/Request$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
-
-    move-result-object v0
-
-    .line 125
-    :goto_1
-    invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->a(Lokhttp3/Request;)Lokhttp3/Response;
-
-    move-result-object p1
-
-    return-object p1
+    goto :goto_31
 .end method

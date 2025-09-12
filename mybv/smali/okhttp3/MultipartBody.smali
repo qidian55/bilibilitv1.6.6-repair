@@ -1,6 +1,6 @@
 .class public final Lokhttp3/MultipartBody;
 .super Lokhttp3/RequestBody;
-.source "BL"
+.source "MultipartBody.java"
 
 
 # annotations
@@ -13,136 +13,141 @@
 
 
 # static fields
-.field public static final a:Lokhttp3/MediaType;
+.field public static final ALTERNATIVE:Lokhttp3/MediaType;
 
-.field public static final b:Lokhttp3/MediaType;
+.field private static final COLONSPACE:[B
 
-.field public static final c:Lokhttp3/MediaType;
+.field private static final CRLF:[B
 
-.field public static final d:Lokhttp3/MediaType;
+.field private static final DASHDASH:[B
 
-.field public static final e:Lokhttp3/MediaType;
+.field public static final DIGEST:Lokhttp3/MediaType;
 
-.field private static final f:[B
+.field public static final FORM:Lokhttp3/MediaType;
 
-.field private static final g:[B
+.field public static final MIXED:Lokhttp3/MediaType;
 
-.field private static final h:[B
+.field public static final PARALLEL:Lokhttp3/MediaType;
 
 
 # instance fields
-.field private final i:Lokio/ByteString;
+.field private final boundary:Lokio/ByteString;
 
-.field private final j:Lokhttp3/MediaType;
+.field private contentLength:J
 
-.field private final k:Lokhttp3/MediaType;
+.field private final contentType:Lokhttp3/MediaType;
 
-.field private final l:Ljava/util/List;
+.field private final originalType:Lokhttp3/MediaType;
+
+.field private final parts:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lokhttp3/MultipartBody$Part;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private m:J
-
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 2
 
-    const-string v0, "multipart/mixed"
+    .prologue
+    const/4 v1, 0x2
 
     .line 35
-    invoke-static {v0}, Lokhttp3/MediaType;->a(Ljava/lang/String;)Lokhttp3/MediaType;
+    const-string v0, "multipart/mixed"
+
+    invoke-static {v0}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
 
     move-result-object v0
 
-    sput-object v0, Lokhttp3/MultipartBody;->a:Lokhttp3/MediaType;
-
-    const-string v0, "multipart/alternative"
+    sput-object v0, Lokhttp3/MultipartBody;->MIXED:Lokhttp3/MediaType;
 
     .line 42
-    invoke-static {v0}, Lokhttp3/MediaType;->a(Ljava/lang/String;)Lokhttp3/MediaType;
+    const-string v0, "multipart/alternative"
+
+    invoke-static {v0}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
 
     move-result-object v0
 
-    sput-object v0, Lokhttp3/MultipartBody;->b:Lokhttp3/MediaType;
-
-    const-string v0, "multipart/digest"
+    sput-object v0, Lokhttp3/MultipartBody;->ALTERNATIVE:Lokhttp3/MediaType;
 
     .line 49
-    invoke-static {v0}, Lokhttp3/MediaType;->a(Ljava/lang/String;)Lokhttp3/MediaType;
+    const-string v0, "multipart/digest"
+
+    invoke-static {v0}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
 
     move-result-object v0
 
-    sput-object v0, Lokhttp3/MultipartBody;->c:Lokhttp3/MediaType;
-
-    const-string v0, "multipart/parallel"
+    sput-object v0, Lokhttp3/MultipartBody;->DIGEST:Lokhttp3/MediaType;
 
     .line 55
-    invoke-static {v0}, Lokhttp3/MediaType;->a(Ljava/lang/String;)Lokhttp3/MediaType;
+    const-string v0, "multipart/parallel"
+
+    invoke-static {v0}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
 
     move-result-object v0
 
-    sput-object v0, Lokhttp3/MultipartBody;->d:Lokhttp3/MediaType;
-
-    const-string v0, "multipart/form-data"
+    sput-object v0, Lokhttp3/MultipartBody;->PARALLEL:Lokhttp3/MediaType;
 
     .line 62
-    invoke-static {v0}, Lokhttp3/MediaType;->a(Ljava/lang/String;)Lokhttp3/MediaType;
+    const-string v0, "multipart/form-data"
+
+    invoke-static {v0}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
 
     move-result-object v0
 
-    sput-object v0, Lokhttp3/MultipartBody;->e:Lokhttp3/MediaType;
-
-    const/4 v0, 0x2
+    sput-object v0, Lokhttp3/MultipartBody;->FORM:Lokhttp3/MediaType;
 
     .line 64
-    new-array v1, v0, [B
+    new-array v0, v1, [B
 
-    fill-array-data v1, :array_0
+    fill-array-data v0, :array_40
 
-    sput-object v1, Lokhttp3/MultipartBody;->f:[B
+    sput-object v0, Lokhttp3/MultipartBody;->COLONSPACE:[B
 
     .line 65
-    new-array v1, v0, [B
+    new-array v0, v1, [B
 
-    fill-array-data v1, :array_1
+    fill-array-data v0, :array_46
 
-    sput-object v1, Lokhttp3/MultipartBody;->g:[B
+    sput-object v0, Lokhttp3/MultipartBody;->CRLF:[B
 
     .line 66
-    new-array v0, v0, [B
+    new-array v0, v1, [B
 
-    fill-array-data v0, :array_2
+    fill-array-data v0, :array_4c
 
-    sput-object v0, Lokhttp3/MultipartBody;->h:[B
+    sput-object v0, Lokhttp3/MultipartBody;->DASHDASH:[B
 
     return-void
 
+    .line 64
     nop
 
-    :array_0
+    :array_40
     .array-data 1
         0x3at
         0x20t
     .end array-data
 
+    .line 65
     nop
 
-    :array_1
+    :array_46
     .array-data 1
         0xdt
         0xat
     .end array-data
 
+    .line 66
     nop
 
-    :array_2
+    :array_4c
     .array-data 1
         0x2dt
         0x2dt
@@ -156,25 +161,27 @@
             "(",
             "Lokio/ByteString;",
             "Lokhttp3/MediaType;",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lokhttp3/MultipartBody$Part;",
             ">;)V"
         }
     .end annotation
 
+    .prologue
     .line 74
     invoke-direct {p0}, Lokhttp3/RequestBody;-><init>()V
 
+    .line 72
     const-wide/16 v0, -0x1
 
-    .line 72
-    iput-wide v0, p0, Lokhttp3/MultipartBody;->m:J
+    iput-wide v0, p0, Lokhttp3/MultipartBody;->contentLength:J
 
     .line 75
-    iput-object p1, p0, Lokhttp3/MultipartBody;->i:Lokio/ByteString;
+    iput-object p1, p0, Lokhttp3/MultipartBody;->boundary:Lokio/ByteString;
 
     .line 76
-    iput-object p2, p0, Lokhttp3/MultipartBody;->j:Lokhttp3/MediaType;
+    iput-object p2, p0, Lokhttp3/MultipartBody;->originalType:Lokhttp3/MediaType;
 
     .line 77
     new-instance v0, Ljava/lang/StringBuilder;
@@ -183,37 +190,122 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p2, "; boundary="
+    move-result-object v0
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "; boundary="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p1}, Lokio/ByteString;->utf8()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lokhttp3/MediaType;->a(Ljava/lang/String;)Lokhttp3/MediaType;
+    invoke-static {v0}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lokhttp3/MultipartBody;->k:Lokhttp3/MediaType;
+    iput-object v0, p0, Lokhttp3/MultipartBody;->contentType:Lokhttp3/MediaType;
 
     .line 78
-    invoke-static {p3}, Lokhttp3/internal/Util;->a(Ljava/util/List;)Ljava/util/List;
+    invoke-static {p3}, Lokhttp3/internal/Util;->immutableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lokhttp3/MultipartBody;->l:Ljava/util/List;
+    iput-object v0, p0, Lokhttp3/MultipartBody;->parts:Ljava/util/List;
 
+    .line 79
     return-void
 .end method
 
-.method private a(Lokio/BufferedSink;Z)J
+.method static appendQuotedString(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .locals 4
+
+    .prologue
+    const/16 v3, 0x22
+
+    .line 203
+    invoke-virtual {p0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 204
+    const/4 v0, 0x0
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    :goto_a
+    if-ge v0, v1, :cond_2b
+
+    .line 205
+    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    .line 206
+    sparse-switch v2, :sswitch_data_30
+
+    .line 217
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 204
+    :goto_16
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_a
+
+    .line 208
+    :sswitch_19
+    const-string v2, "%0A"
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_16
+
+    .line 211
+    :sswitch_1f
+    const-string v2, "%0D"
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_16
+
+    .line 214
+    :sswitch_25
+    const-string v2, "%22"
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_16
+
+    .line 221
+    :cond_2b
+    invoke-virtual {p0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 222
+    return-object p0
+
+    .line 206
+    nop
+
+    :sswitch_data_30
+    .sparse-switch
+        0xa -> :sswitch_19
+        0xd -> :sswitch_1f
+        0x22 -> :sswitch_25
+    .end sparse-switch
+.end method
+
+.method private writeOrCountBytes(Lokio/BufferedSink;Z)J
     .locals 12
     .param p1    # Lokio/BufferedSink;
         .annotation runtime Ljavax/annotation/Nullable;
@@ -225,291 +317,389 @@
         }
     .end annotation
 
-    if-eqz p2, :cond_0
+    .prologue
+    .line 125
+    const-wide/16 v2, 0x0
 
-    .line 129
-    new-instance p1, Lokio/Buffer;
-
-    invoke-direct {p1}, Lokio/Buffer;-><init>()V
-
-    move-object v0, p1
-
-    goto :goto_0
-
-    :cond_0
+    .line 127
     const/4 v0, 0x0
 
+    .line 128
+    if-eqz p2, :cond_c7
+
+    .line 129
+    new-instance v0, Lokio/Buffer;
+
+    invoke-direct {v0}, Lokio/Buffer;-><init>()V
+
+    move-object v1, v0
+
+    move-object p1, v0
+
     .line 132
-    :goto_0
-    iget-object v1, p0, Lokhttp3/MultipartBody;->l:Ljava/util/List;
+    :goto_c
+    const/4 v0, 0x0
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    iget-object v4, p0, Lokhttp3/MultipartBody;->parts:Ljava/util/List;
 
-    move-result v1
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
-    const/4 v2, 0x0
+    move-result v5
 
-    const-wide/16 v3, 0x0
+    move v4, v0
 
-    move-wide v4, v3
-
-    const/4 v3, 0x0
-
-    :goto_1
-    if-ge v3, v1, :cond_6
+    :goto_14
+    if-ge v4, v5, :cond_a8
 
     .line 133
-    iget-object v6, p0, Lokhttp3/MultipartBody;->l:Ljava/util/List;
+    iget-object v0, p0, Lokhttp3/MultipartBody;->parts:Ljava/util/List;
 
-    invoke-interface {v6, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v0
 
-    check-cast v6, Lokhttp3/MultipartBody$Part;
+    check-cast v0, Lokhttp3/MultipartBody$Part;
 
     .line 134
-    iget-object v7, v6, Lokhttp3/MultipartBody$Part;->a:Lokhttp3/Headers;
+    iget-object v6, v0, Lokhttp3/MultipartBody$Part;->headers:Lokhttp3/Headers;
 
     .line 135
-    iget-object v6, v6, Lokhttp3/MultipartBody$Part;->b:Lokhttp3/RequestBody;
+    iget-object v7, v0, Lokhttp3/MultipartBody$Part;->body:Lokhttp3/RequestBody;
 
     .line 137
-    sget-object v8, Lokhttp3/MultipartBody;->h:[B
+    sget-object v0, Lokhttp3/MultipartBody;->DASHDASH:[B
 
-    invoke-interface {p1, v8}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
+    invoke-interface {p1, v0}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
     .line 138
-    iget-object v8, p0, Lokhttp3/MultipartBody;->i:Lokio/ByteString;
+    iget-object v0, p0, Lokhttp3/MultipartBody;->boundary:Lokio/ByteString;
 
-    invoke-interface {p1, v8}, Lokio/BufferedSink;->write(Lokio/ByteString;)Lokio/BufferedSink;
+    invoke-interface {p1, v0}, Lokio/BufferedSink;->write(Lokio/ByteString;)Lokio/BufferedSink;
 
     .line 139
-    sget-object v8, Lokhttp3/MultipartBody;->g:[B
+    sget-object v0, Lokhttp3/MultipartBody;->CRLF:[B
 
-    invoke-interface {p1, v8}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
+    invoke-interface {p1, v0}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
-    if-eqz v7, :cond_1
+    .line 141
+    if-eqz v6, :cond_58
 
     .line 142
-    invoke-virtual {v7}, Lokhttp3/Headers;->a()I
+    const/4 v0, 0x0
+
+    invoke-virtual {v6}, Lokhttp3/Headers;->size()I
 
     move-result v8
 
-    const/4 v9, 0x0
-
-    :goto_2
-    if-ge v9, v8, :cond_1
+    :goto_38
+    if-ge v0, v8, :cond_58
 
     .line 143
-    invoke-virtual {v7, v9}, Lokhttp3/Headers;->a(I)Ljava/lang/String;
+    invoke-virtual {v6, v0}, Lokhttp3/Headers;->name(I)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-interface {p1, v10}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
-
-    move-result-object v10
-
-    sget-object v11, Lokhttp3/MultipartBody;->f:[B
-
-    .line 144
-    invoke-interface {v10, v11}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
-
-    move-result-object v10
-
-    .line 145
-    invoke-virtual {v7, v9}, Lokhttp3/Headers;->b(I)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-interface {v10, v11}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
-
-    move-result-object v10
-
-    sget-object v11, Lokhttp3/MultipartBody;->g:[B
-
-    .line 146
-    invoke-interface {v10, v11}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
-
-    add-int/lit8 v9, v9, 0x1
-
-    goto :goto_2
-
-    .line 150
-    :cond_1
-    invoke-virtual {v6}, Lokhttp3/RequestBody;->e()Lokhttp3/MediaType;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_2
-
-    const-string v8, "Content-Type: "
-
-    .line 152
-    invoke-interface {p1, v8}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
-
-    move-result-object v8
-
-    .line 153
-    invoke-virtual {v7}, Lokhttp3/MediaType;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-interface {v8, v7}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
-
-    move-result-object v7
-
-    sget-object v8, Lokhttp3/MultipartBody;->g:[B
-
-    .line 154
-    invoke-interface {v7, v8}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
-
-    .line 157
-    :cond_2
-    invoke-virtual {v6}, Lokhttp3/RequestBody;->a()J
-
-    move-result-wide v7
-
-    const-wide/16 v9, -0x1
-
-    cmp-long v11, v7, v9
-
-    if-eqz v11, :cond_3
-
-    const-string v9, "Content-Length: "
-
-    .line 159
     invoke-interface {p1, v9}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
     move-result-object v9
 
-    .line 160
-    invoke-interface {v9, v7, v8}, Lokio/BufferedSink;->writeDecimalLong(J)Lokio/BufferedSink;
+    sget-object v10, Lokhttp3/MultipartBody;->COLONSPACE:[B
+
+    .line 144
+    invoke-interface {v9, v10}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
     move-result-object v9
 
-    sget-object v10, Lokhttp3/MultipartBody;->g:[B
+    .line 145
+    invoke-virtual {v6, v0}, Lokhttp3/Headers;->value(I)Ljava/lang/String;
 
-    .line 161
+    move-result-object v10
+
+    invoke-interface {v9, v10}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
+
+    move-result-object v9
+
+    sget-object v10, Lokhttp3/MultipartBody;->CRLF:[B
+
+    .line 146
     invoke-interface {v9, v10}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
-    goto :goto_3
+    .line 142
+    add-int/lit8 v0, v0, 0x1
 
-    :cond_3
-    if-eqz p2, :cond_4
+    goto :goto_38
 
-    .line 164
-    invoke-virtual {v0}, Lokio/Buffer;->clear()V
+    .line 150
+    :cond_58
+    invoke-virtual {v7}, Lokhttp3/RequestBody;->contentType()Lokhttp3/MediaType;
 
-    return-wide v9
+    move-result-object v0
+
+    .line 151
+    if-eqz v0, :cond_71
+
+    .line 152
+    const-string v6, "Content-Type: "
+
+    invoke-interface {p1, v6}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
+
+    move-result-object v6
+
+    .line 153
+    invoke-virtual {v0}, Lokhttp3/MediaType;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {v6, v0}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
+
+    move-result-object v0
+
+    sget-object v6, Lokhttp3/MultipartBody;->CRLF:[B
+
+    .line 154
+    invoke-interface {v0, v6}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
+
+    .line 157
+    :cond_71
+    invoke-virtual {v7}, Lokhttp3/RequestBody;->contentLength()J
+
+    move-result-wide v8
+
+    .line 158
+    const-wide/16 v10, -0x1
+
+    cmp-long v0, v8, v10
+
+    if-eqz v0, :cond_9c
+
+    .line 159
+    const-string v0, "Content-Length: "
+
+    invoke-interface {p1, v0}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
+
+    move-result-object v0
+
+    .line 160
+    invoke-interface {v0, v8, v9}, Lokio/BufferedSink;->writeDecimalLong(J)Lokio/BufferedSink;
+
+    move-result-object v0
+
+    sget-object v6, Lokhttp3/MultipartBody;->CRLF:[B
+
+    .line 161
+    invoke-interface {v0, v6}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
     .line 168
-    :cond_4
-    :goto_3
-    sget-object v9, Lokhttp3/MultipartBody;->g:[B
+    :cond_8a
+    sget-object v0, Lokhttp3/MultipartBody;->CRLF:[B
 
-    invoke-interface {p1, v9}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
+    invoke-interface {p1, v0}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
-    if-eqz p2, :cond_5
+    .line 170
+    if-eqz p2, :cond_a4
 
-    add-long v9, v4, v7
-
-    move-wide v4, v9
-
-    goto :goto_4
-
-    .line 173
-    :cond_5
-    invoke-virtual {v6, p1}, Lokhttp3/RequestBody;->a(Lokio/BufferedSink;)V
+    .line 171
+    add-long/2addr v2, v8
 
     .line 176
-    :goto_4
-    sget-object v6, Lokhttp3/MultipartBody;->g:[B
+    :goto_92
+    sget-object v0, Lokhttp3/MultipartBody;->CRLF:[B
 
-    invoke-interface {p1, v6}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
+    invoke-interface {p1, v0}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
-    add-int/lit8 v3, v3, 0x1
+    .line 132
+    add-int/lit8 v0, v4, 0x1
 
-    goto/16 :goto_1
+    move v4, v0
+
+    goto/16 :goto_14
+
+    .line 162
+    :cond_9c
+    if-eqz p2, :cond_8a
+
+    .line 164
+    invoke-virtual {v1}, Lokio/Buffer;->clear()V
+
+    .line 165
+    const-wide/16 v2, -0x1
+
+    .line 189
+    :cond_a3
+    :goto_a3
+    return-wide v2
+
+    .line 173
+    :cond_a4
+    invoke-virtual {v7, p1}, Lokhttp3/RequestBody;->writeTo(Lokio/BufferedSink;)V
+
+    goto :goto_92
 
     .line 179
-    :cond_6
-    sget-object v1, Lokhttp3/MultipartBody;->h:[B
+    :cond_a8
+    sget-object v0, Lokhttp3/MultipartBody;->DASHDASH:[B
 
-    invoke-interface {p1, v1}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
+    invoke-interface {p1, v0}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
     .line 180
-    iget-object v1, p0, Lokhttp3/MultipartBody;->i:Lokio/ByteString;
+    iget-object v0, p0, Lokhttp3/MultipartBody;->boundary:Lokio/ByteString;
 
-    invoke-interface {p1, v1}, Lokio/BufferedSink;->write(Lokio/ByteString;)Lokio/BufferedSink;
+    invoke-interface {p1, v0}, Lokio/BufferedSink;->write(Lokio/ByteString;)Lokio/BufferedSink;
 
     .line 181
-    sget-object v1, Lokhttp3/MultipartBody;->h:[B
+    sget-object v0, Lokhttp3/MultipartBody;->DASHDASH:[B
 
-    invoke-interface {p1, v1}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
+    invoke-interface {p1, v0}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
     .line 182
-    sget-object v1, Lokhttp3/MultipartBody;->g:[B
+    sget-object v0, Lokhttp3/MultipartBody;->CRLF:[B
 
-    invoke-interface {p1, v1}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
+    invoke-interface {p1, v0}, Lokio/BufferedSink;->write([B)Lokio/BufferedSink;
 
-    if-eqz p2, :cond_7
+    .line 184
+    if-eqz p2, :cond_a3
 
     .line 185
-    invoke-virtual {v0}, Lokio/Buffer;->size()J
+    invoke-virtual {v1}, Lokio/Buffer;->size()J
 
-    move-result-wide p1
+    move-result-wide v4
 
-    add-long v1, v4, p1
+    add-long/2addr v2, v4
 
     .line 186
-    invoke-virtual {v0}, Lokio/Buffer;->clear()V
+    invoke-virtual {v1}, Lokio/Buffer;->clear()V
 
-    goto :goto_5
+    goto :goto_a3
 
-    :cond_7
-    move-wide v1, v4
+    :cond_c7
+    move-object v1, v0
 
-    :goto_5
-    return-wide v1
+    goto/16 :goto_c
 .end method
 
 
 # virtual methods
-.method public a()J
-    .locals 5
+.method public boundary()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 86
+    iget-object v0, p0, Lokhttp3/MultipartBody;->boundary:Lokio/ByteString;
+
+    invoke-virtual {v0}, Lokio/ByteString;->utf8()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public contentLength()J
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
     .line 108
-    iget-wide v0, p0, Lokhttp3/MultipartBody;->m:J
+    iget-wide v0, p0, Lokhttp3/MultipartBody;->contentLength:J
 
+    .line 109
     const-wide/16 v2, -0x1
 
-    cmp-long v4, v0, v2
+    cmp-long v2, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v2, :cond_9
 
+    .line 110
+    :goto_8
     return-wide v0
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
-    .line 110
-    invoke-direct {p0, v0, v1}, Lokhttp3/MultipartBody;->a(Lokio/BufferedSink;Z)J
+    invoke-direct {p0, v0, v1}, Lokhttp3/MultipartBody;->writeOrCountBytes(Lokio/BufferedSink;Z)J
 
     move-result-wide v0
 
-    iput-wide v0, p0, Lokhttp3/MultipartBody;->m:J
+    iput-wide v0, p0, Lokhttp3/MultipartBody;->contentLength:J
 
-    return-wide v0
+    goto :goto_8
 .end method
 
-.method public a(Lokio/BufferedSink;)V
+.method public contentType()Lokhttp3/MediaType;
+    .locals 1
+
+    .prologue
+    .line 104
+    iget-object v0, p0, Lokhttp3/MultipartBody;->contentType:Lokhttp3/MediaType;
+
+    return-object v0
+.end method
+
+.method public part(I)Lokhttp3/MultipartBody$Part;
+    .locals 1
+
+    .prologue
+    .line 99
+    iget-object v0, p0, Lokhttp3/MultipartBody;->parts:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lokhttp3/MultipartBody$Part;
+
+    return-object v0
+.end method
+
+.method public parts()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lokhttp3/MultipartBody$Part;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 95
+    iget-object v0, p0, Lokhttp3/MultipartBody;->parts:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method public size()I
+    .locals 1
+
+    .prologue
+    .line 91
+    iget-object v0, p0, Lokhttp3/MultipartBody;->parts:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public type()Lokhttp3/MediaType;
+    .locals 1
+
+    .prologue
+    .line 82
+    iget-object v0, p0, Lokhttp3/MultipartBody;->originalType:Lokhttp3/MediaType;
+
+    return-object v0
+.end method
+
+.method public writeTo(Lokio/BufferedSink;)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -517,19 +707,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 114
     const/4 v0, 0x0
 
-    .line 114
-    invoke-direct {p0, p1, v0}, Lokhttp3/MultipartBody;->a(Lokio/BufferedSink;Z)J
+    invoke-direct {p0, p1, v0}, Lokhttp3/MultipartBody;->writeOrCountBytes(Lokio/BufferedSink;Z)J
 
+    .line 115
     return-void
-.end method
-
-.method public e()Lokhttp3/MediaType;
-    .locals 1
-
-    .line 104
-    iget-object v0, p0, Lokhttp3/MultipartBody;->k:Lokhttp3/MediaType;
-
-    return-object v0
 .end method

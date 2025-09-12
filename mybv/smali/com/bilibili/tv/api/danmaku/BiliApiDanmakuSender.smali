@@ -1,6 +1,6 @@
 .class public Lcom/bilibili/tv/api/danmaku/BiliApiDanmakuSender;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BiliApiDanmakuSender.java"
 
 
 # annotations
@@ -15,21 +15,23 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 36
+    .prologue
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 .method public static sendDanmaku(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Lcom/alibaba/fastjson/JSONObject;
-    .locals 6
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ">;)",
@@ -43,55 +45,56 @@
         }
     .end annotation
 
-    .line 44
-    new-instance v0, Lokhttp3/FormBody$Builder;
+    .prologue
+    .line 40
+    new-instance v2, Lokhttp3/FormBody$Builder;
 
-    invoke-direct {v0}, Lokhttp3/FormBody$Builder;-><init>()V
+    invoke-direct {v2}, Lokhttp3/FormBody$Builder;-><init>()V
 
-    .line 45
+    .line 41
     invoke-interface {p3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object p3
+    move-result-object v0
 
-    .line 46
-    invoke-interface {p3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object p3
+    move-result-object v3
 
-    :goto_0
-    invoke-interface {p3}, Ljava/util/Iterator;->hasNext()Z
+    :goto_d
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_29
 
-    invoke-interface {p3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/util/Map$Entry;
+    check-cast v0, Ljava/util/Map$Entry;
 
-    .line 47
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/String;
-
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    .line 42
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
 
-    invoke-virtual {v0, v2, v1}, Lokhttp3/FormBody$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    goto :goto_0
+    move-result-object v0
 
-    :cond_0
-    const/4 p3, 0x0
+    check-cast v0, Ljava/lang/String;
 
-    .line 52
+    invoke-virtual {v2, v1, v0}, Lokhttp3/FormBody$Builder;->add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
+
+    goto :goto_d
+
+    .line 44
+    :cond_29
+    const/4 v0, 0x0
+
+    .line 45
     invoke-static {p0}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
     move-result-object v1
@@ -100,7 +103,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_58
 
     invoke-static {p0}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
@@ -114,7 +117,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_58
 
     invoke-static {p0}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
@@ -122,155 +125,150 @@
 
     invoke-virtual {v1}, Lbl/mg;->d()J
 
-    move-result-wide v1
+    move-result-wide v4
 
-    const-wide/16 v3, 0x0
+    const-wide/16 v6, 0x0
 
-    cmp-long v5, v1, v3
+    cmp-long v1, v4, v6
 
-    if-eqz v5, :cond_1
+    if-eqz v1, :cond_58
 
-    .line 53
+    .line 46
     invoke-static {p0}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Lbl/mg;->e()Ljava/lang/String;
+    invoke-virtual {v0}, Lbl/mg;->e()Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v0
 
-    .line 56
-    :cond_1
-    sget-object p0, Lbl/azo;->a:Lbl/azo$a;
+    .line 48
+    :cond_58
+    sget-object v1, Lbl/azo;->a:Lbl/azo$a;
 
-    invoke-virtual {p0}, Lbl/azo$a;->a()Lbl/azo;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lbl/azo;->j()Lbl/pu;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_2
-
-    .line 57
-    iget-object v1, p0, Lbl/pu;->c:Ljava/lang/String;
-
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    .line 58
-    iget-object p3, p0, Lbl/pu;->c:Ljava/lang/String;
-
-    :cond_2
-    const-string p0, "http://api.bilibili.com/x/v2/dm/post"
-
-    .line 61
-    invoke-static {p0}, Lokhttp3/HttpUrl;->f(Ljava/lang/String;)Lokhttp3/HttpUrl;
-
-    move-result-object p0
-
-    .line 62
-    invoke-virtual {p0}, Lokhttp3/HttpUrl;->q()Lokhttp3/HttpUrl$Builder;
-
-    move-result-object p0
-
-    const-string v1, "access_key"
-
-    .line 63
-    invoke-virtual {p0, v1, p3}, Lokhttp3/HttpUrl$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-
-    move-result-object p0
-
-    const-string p3, "aid"
-
-    .line 64
-    invoke-virtual {p0, p3, p2}, Lokhttp3/HttpUrl$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-
-    move-result-object p0
-
-    const-string p2, "oid"
-
-    .line 65
-    invoke-virtual {p0, p2, p1}, Lokhttp3/HttpUrl$Builder;->a(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
-
-    move-result-object p0
-
-    .line 66
-    invoke-virtual {p0}, Lokhttp3/HttpUrl$Builder;->c()Lokhttp3/HttpUrl;
-
-    move-result-object p0
-
-    .line 68
-    new-instance p1, Lokhttp3/Request$Builder;
-
-    invoke-direct {p1}, Lokhttp3/Request$Builder;-><init>()V
-
-    .line 69
-    invoke-virtual {p1, p0}, Lokhttp3/Request$Builder;->a(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
-
-    move-result-object p0
-
-    .line 70
-    invoke-virtual {v0}, Lokhttp3/FormBody$Builder;->a()Lokhttp3/FormBody;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Lokhttp3/Request$Builder;->a(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
-
-    move-result-object p0
-
-    .line 71
-    invoke-virtual {p0}, Lokhttp3/Request$Builder;->b()Lokhttp3/Request;
+    invoke-virtual {v1}, Lbl/azo$a;->a()Lbl/azo;
 
     move-result-object v1
 
-    .line 73
-    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$Builder;
+    invoke-virtual {v1}, Lbl/azo;->j()Lbl/pu;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {p0}, Lokhttp3/OkHttpClient$Builder;->c()Lokhttp3/OkHttpClient;
+    .line 49
+    if-eqz v1, :cond_cd
 
-    move-result-object v4
+    iget-object v3, v1, Lbl/pu;->c:Ljava/lang/String;
 
-    .line 75
-    new-instance p0, Lbl/vp;
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_cd
+
+    .line 50
+    iget-object v0, v1, Lbl/pu;->c:Ljava/lang/String;
+
+    move-object v1, v0
+
+    .line 52
+    :goto_6f
+    const/4 v0, 0x0
+
+    new-array v3, v0, [Ljava/lang/annotation/Annotation;
+
+    .line 53
+    new-instance v0, Lbl/vp;
+
+    new-instance v4, Lokhttp3/Request$Builder;
+
+    invoke-direct {v4}, Lokhttp3/Request$Builder;-><init>()V
+
+    const-string v5, "http://api.bilibili.com/x/v2/dm/post"
+
+    invoke-static {v5}, Lokhttp3/HttpUrl;->parse(Ljava/lang/String;)Lokhttp3/HttpUrl;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lokhttp3/HttpUrl;->newBuilder()Lokhttp3/HttpUrl$Builder;
+
+    move-result-object v5
+
+    const-string v6, "access_key"
+
+    invoke-virtual {v5, v6, v1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
+
+    move-result-object v1
+
+    const-string v5, "aid"
+
+    invoke-virtual {v1, v5, p2}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
+
+    move-result-object v1
+
+    const-string v5, "oid"
+
+    invoke-virtual {v1, v5, p1}, Lokhttp3/HttpUrl$Builder;->addQueryParameter(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/HttpUrl$Builder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lokhttp3/HttpUrl$Builder;->build()Lokhttp3/HttpUrl;
+
+    move-result-object v1
+
+    invoke-virtual {v4, v1}, Lokhttp3/Request$Builder;->url(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
+
+    move-result-object v1
+
+    invoke-virtual {v2}, Lokhttp3/FormBody$Builder;->build()Lokhttp3/FormBody;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lokhttp3/Request$Builder;->post(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+
+    move-result-object v1
 
     const-class v2, Lcom/alibaba/fastjson/JSONObject;
 
-    const/4 p1, 0x0
+    invoke-static {}, Lbl/us;->b()Lokhttp3/OkHttpClient$Builder;
 
-    new-array v3, p1, [Ljava/lang/annotation/Annotation;
+    move-result-object v4
+
+    invoke-virtual {v4}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
+
+    move-result-object v4
 
     invoke-static {}, Lbl/jk;->c()Lbl/ji;
 
     move-result-object v5
 
-    move-object v0, p0
-
     invoke-direct/range {v0 .. v5}, Lbl/vp;-><init>(Lokhttp3/Request;Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lokhttp3/OkHttpClient;Lbl/ji;)V
 
-    .line 76
-    new-instance p1, Lbl/wa;
+    .line 54
+    new-instance v1, Lbl/wa;
 
-    invoke-direct {p1}, Lbl/wa;-><init>()V
+    invoke-direct {v1}, Lbl/wa;-><init>()V
 
-    invoke-virtual {p0, p1}, Lbl/vp;->a(Lbl/vz;)Lbl/vp;
+    invoke-virtual {v0, v1}, Lbl/vp;->a(Lbl/vz;)Lbl/vp;
 
-    .line 78
-    invoke-virtual {p0}, Lbl/vp;->d()Lretrofit2/Response;
+    .line 55
+    invoke-virtual {v0}, Lbl/vp;->d()Lretrofit2/Response;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lbl/we;->a(Lretrofit2/Response;)Ljava/lang/Object;
+    invoke-static {v0}, Lbl/we;->a(Lretrofit2/Response;)Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lcom/alibaba/fastjson/JSONObject;
+    check-cast v0, Lcom/alibaba/fastjson/JSONObject;
 
-    return-object p0
+    return-object v0
+
+    :cond_cd
+    move-object v1, v0
+
+    goto :goto_6f
 .end method

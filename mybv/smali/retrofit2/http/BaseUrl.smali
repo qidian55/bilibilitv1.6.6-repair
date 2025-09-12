@@ -1,6 +1,6 @@
 .class public interface abstract annotation Lretrofit2/http/BaseUrl;
 .super Ljava/lang/Object;
-.source "BL"
+.source "BaseUrl.java"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;
@@ -22,5 +22,5 @@
 
 
 # virtual methods
-.method public abstract a()Ljava/lang/String;
+.method public abstract value()Ljava/lang/String;
 .end method

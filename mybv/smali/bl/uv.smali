@@ -96,11 +96,11 @@
     if-eqz v0, :cond_0
 
     .line 69
-    invoke-virtual {v0}, Lokhttp3/Handshake;->a()Lokhttp3/CipherSuite;
+    invoke-virtual {v0}, Lokhttp3/Handshake;->cipherSuite()Lokhttp3/CipherSuite;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lokhttp3/CipherSuite;->a()Ljava/lang/String;
+    invoke-virtual {v0}, Lokhttp3/CipherSuite;->javaName()Ljava/lang/String;
 
     move-result-object v0
 
@@ -472,7 +472,7 @@
 
     .line 76
     :cond_0
-    invoke-virtual {v0}, Lokhttp3/Handshake;->d()Ljava/util/List;
+    invoke-virtual {v0}, Lokhttp3/Handshake;->localCertificates()Ljava/util/List;
 
     move-result-object v0
 
@@ -512,7 +512,7 @@
     if-eqz v0, :cond_0
 
     .line 97
-    invoke-virtual {v0}, Lokhttp3/Handshake;->e()Ljava/security/Principal;
+    invoke-virtual {v0}, Lokhttp3/Handshake;->localPrincipal()Ljava/security/Principal;
 
     move-result-object v0
 
@@ -559,7 +559,7 @@
     if-eqz v0, :cond_0
 
     .line 91
-    invoke-virtual {v0}, Lokhttp3/Handshake;->c()Ljava/security/Principal;
+    invoke-virtual {v0}, Lokhttp3/Handshake;->peerPrincipal()Ljava/security/Principal;
 
     move-result-object v0
 
@@ -709,7 +709,7 @@
 
     .line 84
     :cond_0
-    invoke-virtual {v0}, Lokhttp3/Handshake;->b()Ljava/util/List;
+    invoke-virtual {v0}, Lokhttp3/Handshake;->peerCertificates()Ljava/util/List;
 
     move-result-object v0
 

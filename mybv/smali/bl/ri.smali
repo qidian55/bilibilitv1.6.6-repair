@@ -141,7 +141,7 @@
     const/16 v2, 0xd3
 
     .line 75
-    invoke-virtual {p1}, Lretrofit2/Response;->a()Lokhttp3/Response;
+    invoke-virtual {p1}, Lretrofit2/Response;->raw()Lokhttp3/Response;
 
     move-result-object p1
 

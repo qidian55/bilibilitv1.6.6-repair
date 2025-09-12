@@ -1,6 +1,6 @@
 .class public final Lbl/uz;
 .super Lbl/uy;
-.source "BL"
+.source "uz.java"
 
 # interfaces
 .implements Lokhttp3/internal/http/UnrepeatableRequestBody;
@@ -12,21 +12,22 @@
 
 # direct methods
 .method public constructor <init>(J)V
-    .locals 3
+    .locals 5
 
-    .line 33
+    .prologue
+    .line 16
     invoke-direct {p0}, Lbl/uy;-><init>()V
 
-    .line 31
+    .line 14
     new-instance v0, Lokio/Pipe;
 
-    const-wide/16 v1, 0x2000
+    const-wide/16 v2, 0x2000
 
-    invoke-direct {v0, v1, v2}, Lokio/Pipe;-><init>(J)V
+    invoke-direct {v0, v2, v3}, Lokio/Pipe;-><init>(J)V
 
     iput-object v0, p0, Lbl/uz;->b:Lokio/Pipe;
 
-    .line 34
+    .line 17
     iget-object v0, p0, Lbl/uz;->b:Lokio/Pipe;
 
     invoke-virtual {v0}, Lokio/Pipe;->sink()Lokio/Sink;
@@ -39,12 +40,13 @@
 
     invoke-virtual {p0, v0, p1, p2}, Lbl/uz;->a(Lokio/BufferedSink;J)V
 
+    .line 18
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lokio/BufferedSink;)V
+.method public writeTo(Lokio/BufferedSink;)V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -52,13 +54,14 @@
         }
     .end annotation
 
-    .line 39
+    .prologue
+    .line 23
     new-instance v0, Lokio/Buffer;
 
     invoke-direct {v0}, Lokio/Buffer;-><init>()V
 
-    .line 40
-    :goto_0
+    .line 24
+    :goto_5
     iget-object v1, p0, Lbl/uz;->b:Lokio/Pipe;
 
     invoke-virtual {v1}, Lokio/Pipe;->source()Lokio/Source;
@@ -69,23 +72,24 @@
 
     invoke-interface {v1, v0, v2, v3}, Lokio/Source;->read(Lokio/Buffer;J)J
 
-    move-result-wide v1
+    move-result-wide v2
 
-    const-wide/16 v3, -0x1
+    const-wide/16 v4, -0x1
 
-    cmp-long v5, v1, v3
+    cmp-long v1, v2, v4
 
-    if-eqz v5, :cond_0
+    if-eqz v1, :cond_1f
 
-    .line 41
+    .line 25
     invoke-virtual {v0}, Lokio/Buffer;->size()J
 
-    move-result-wide v1
+    move-result-wide v2
 
-    invoke-interface {p1, v0, v1, v2}, Lokio/BufferedSink;->write(Lokio/Buffer;J)V
+    invoke-interface {p1, v0, v2, v3}, Lokio/BufferedSink;->write(Lokio/Buffer;J)V
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    .line 27
+    :cond_1f
     return-void
 .end method

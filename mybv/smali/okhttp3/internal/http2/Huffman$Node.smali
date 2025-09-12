@@ -1,6 +1,6 @@
 .class final Lokhttp3/internal/http2/Huffman$Node;
 .super Ljava/lang/Object;
-.source "BL"
+.source "Huffman.java"
 
 
 # annotations
@@ -9,67 +9,72 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = "a"
+    accessFlags = 0x1a
+    name = "Node"
 .end annotation
 
 
 # instance fields
-.field final a:[Lokhttp3/internal/http2/Huffman$Node;
+.field final children:[Lokhttp3/internal/http2/Huffman$Node;
 
-.field final b:I
+.field final symbol:I
 
-.field final c:I
+.field final terminalBits:I
 
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .locals 2
+
+    .prologue
+    const/4 v1, 0x0
 
     .line 208
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 209
     const/16 v0, 0x100
 
-    .line 209
     new-array v0, v0, [Lokhttp3/internal/http2/Huffman$Node;
 
-    iput-object v0, p0, Lokhttp3/internal/http2/Huffman$Node;->a:[Lokhttp3/internal/http2/Huffman$Node;
-
-    const/4 v0, 0x0
+    iput-object v0, p0, Lokhttp3/internal/http2/Huffman$Node;->children:[Lokhttp3/internal/http2/Huffman$Node;
 
     .line 210
-    iput v0, p0, Lokhttp3/internal/http2/Huffman$Node;->b:I
+    iput v1, p0, Lokhttp3/internal/http2/Huffman$Node;->symbol:I
 
     .line 211
-    iput v0, p0, Lokhttp3/internal/http2/Huffman$Node;->c:I
+    iput v1, p0, Lokhttp3/internal/http2/Huffman$Node;->terminalBits:I
 
+    .line 212
     return-void
 .end method
 
 .method constructor <init>(II)V
     .locals 1
 
+    .prologue
     .line 220
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 221
     const/4 v0, 0x0
 
-    .line 221
-    iput-object v0, p0, Lokhttp3/internal/http2/Huffman$Node;->a:[Lokhttp3/internal/http2/Huffman$Node;
+    iput-object v0, p0, Lokhttp3/internal/http2/Huffman$Node;->children:[Lokhttp3/internal/http2/Huffman$Node;
 
     .line 222
-    iput p1, p0, Lokhttp3/internal/http2/Huffman$Node;->b:I
+    iput p1, p0, Lokhttp3/internal/http2/Huffman$Node;->symbol:I
 
-    and-int/lit8 p1, p2, 0x7
-
-    if-nez p1, :cond_0
-
-    const/16 p1, 0x8
+    .line 223
+    and-int/lit8 v0, p2, 0x7
 
     .line 224
-    :cond_0
-    iput p1, p0, Lokhttp3/internal/http2/Huffman$Node;->c:I
+    if-nez v0, :cond_e
 
+    const/16 v0, 0x8
+
+    :cond_e
+    iput v0, p0, Lokhttp3/internal/http2/Huffman$Node;->terminalBits:I
+
+    .line 225
     return-void
 .end method

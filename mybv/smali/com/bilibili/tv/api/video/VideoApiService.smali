@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation runtime Lretrofit2/http/BaseUrl;
-    a = "https://app.bilibili.com"
+    value = "https://app.bilibili.com"
 .end annotation
 
 
@@ -41,7 +41,7 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/v2/view/ad/dislike"
+        value = "/x/v2/view/ad/dislike"
     .end annotation
 .end method
 
@@ -52,7 +52,7 @@
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -71,7 +71,7 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/x/v2/view"
+        value = "/x/v2/view"
     .end annotation
 .end method
 
@@ -82,7 +82,7 @@
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -101,6 +101,6 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        a = "/x/v2/view"
+        value = "/x/v2/view"
     .end annotation
 .end method

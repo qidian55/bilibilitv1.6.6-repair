@@ -122,19 +122,19 @@
     .locals 2
 
     .prologue
-    .line 219
+    .line 220
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x11
 
     if-lt v0, v1, :cond_b
 
-    .line 220
+    .line 221
     const-string v0, "user"
 
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/MainApplication;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 222
+    .line 223
     :cond_b
     return-void
 .end method
@@ -145,48 +145,48 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 203
+    .line 204
     sput-boolean v5, Lcom/tencent/bugly/beta/Beta;->E:Z
 
-    .line 204
+    .line 205
     sget-object v0, Lbl/afr;->a:Lcom/tencent/bugly/beta/upgrade/UpgradeListener;
 
     sput-object v0, Lcom/tencent/bugly/beta/Beta;->L:Lcom/tencent/bugly/beta/upgrade/UpgradeListener;
 
-    .line 205
+    .line 206
     new-instance v0, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, v1}, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;-><init>(Landroid/content/Context;)V
 
-    .line 206
+    .line 207
     const-string v1, "com.bilibili.tv"
 
     invoke-virtual {v0, v1}, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;->c(Ljava/lang/String;)Lcom/tencent/bugly/BuglyStrategy;
 
-    .line 207
+    .line 208
     invoke-virtual {v0, p1}, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;->b(Ljava/lang/String;)Lcom/tencent/bugly/BuglyStrategy;
 
-    .line 208
+    .line 209
     invoke-virtual {v0, v5}, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;->b(Z)Lcom/tencent/bugly/BuglyStrategy;
 
-    .line 209
+    .line 210
     const-string v1, "1.6.6"
 
     invoke-virtual {v0, v1}, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;->a(Ljava/lang/String;)Lcom/tencent/bugly/BuglyStrategy;
 
-    .line 210
+    .line 211
     const-wide/16 v2, 0x4e20
 
     invoke-virtual {v0, v2, v3}, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;->a(J)Lcom/tencent/bugly/BuglyStrategy;
 
-    .line 211
+    .line 212
     sget-boolean v1, Lcom/bilibili/tv/MainApplication;->c:Z
 
     invoke-virtual {v0, v1}, Lcom/tencent/bugly/crashreport/CrashReport$UserStrategy;->a(Z)Lcom/tencent/bugly/BuglyStrategy;
 
-    .line 212
+    .line 213
     invoke-virtual {p0}, Lcom/bilibili/tv/MainApplication;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -195,7 +195,7 @@
 
     move-result-object v1
 
-    .line 213
+    .line 214
     const-string v2, "resolution"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -226,12 +226,12 @@
 
     invoke-static {p0, v2, v1}, Lcom/tencent/bugly/crashreport/CrashReport;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 214
+    .line 215
     const-string v1, "900033619"
 
     invoke-static {p0, v1, v5, v0}, Lcom/tencent/bugly/Bugly;->a(Landroid/content/Context;Ljava/lang/String;ZLcom/tencent/bugly/BuglyStrategy;)V
 
-    .line 215
+    .line 216
     invoke-static {p0}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
     move-result-object v0
@@ -246,7 +246,7 @@
 
     invoke-static {v0}, Lcom/tencent/bugly/crashreport/CrashReport;->a(Ljava/lang/String;)V
 
-    .line 216
+    .line 217
     return-void
 .end method
 
@@ -272,7 +272,7 @@
 
     invoke-static {v0}, Lcom/bilibili/api/BiliConfig;->a(Lcom/bilibili/api/BiliConfig$Delegate;)V
 
-    .line 200
+    .line 201
     return-void
 .end method
 

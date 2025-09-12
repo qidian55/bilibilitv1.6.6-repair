@@ -1,11 +1,11 @@
 .class Lokhttp3/internal/cache/DiskLruCache$Editor$1;
 .super Lokhttp3/internal/cache/FaultHidingSink;
-.source "BL"
+.source "DiskLruCache.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lokhttp3/internal/cache/DiskLruCache$Editor;->a(I)Lokio/Sink;
+    value = Lokhttp3/internal/cache/DiskLruCache$Editor;->newSink(I)Lokio/Sink;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,15 +15,16 @@
 
 
 # instance fields
-.field final synthetic a:Lokhttp3/internal/cache/DiskLruCache$Editor;
+.field final synthetic this$1:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/cache/DiskLruCache$Editor;Lokio/Sink;)V
     .locals 0
 
+    .prologue
     .line 903
-    iput-object p1, p0, Lokhttp3/internal/cache/DiskLruCache$Editor$1;->a:Lokhttp3/internal/cache/DiskLruCache$Editor;
+    iput-object p1, p0, Lokhttp3/internal/cache/DiskLruCache$Editor$1;->this$1:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
     invoke-direct {p0, p2}, Lokhttp3/internal/cache/FaultHidingSink;-><init>(Lokio/Sink;)V
 
@@ -32,33 +33,36 @@
 
 
 # virtual methods
-.method protected a(Ljava/io/IOException;)V
-    .locals 1
+.method protected onException(Ljava/io/IOException;)V
+    .locals 2
 
+    .prologue
     .line 905
-    iget-object p1, p0, Lokhttp3/internal/cache/DiskLruCache$Editor$1;->a:Lokhttp3/internal/cache/DiskLruCache$Editor;
+    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Editor$1;->this$1:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
-    iget-object p1, p1, Lokhttp3/internal/cache/DiskLruCache$Editor;->c:Lokhttp3/internal/cache/DiskLruCache;
+    iget-object v1, v0, Lokhttp3/internal/cache/DiskLruCache$Editor;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
-    monitor-enter p1
+    monitor-enter v1
 
     .line 906
-    :try_start_0
-    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Editor$1;->a:Lokhttp3/internal/cache/DiskLruCache$Editor;
+    :try_start_5
+    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Editor$1;->this$1:Lokhttp3/internal/cache/DiskLruCache$Editor;
 
-    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->a()V
+    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->detach()V
 
     .line 907
-    monitor-exit p1
+    monitor-exit v1
 
+    .line 908
     return-void
 
-    :catchall_0
+    .line 907
+    :catchall_c
     move-exception v0
 
-    monitor-exit p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    monitor-exit v1
+    :try_end_e
+    .catchall {:try_start_5 .. :try_end_e} :catchall_c
 
     throw v0
 .end method

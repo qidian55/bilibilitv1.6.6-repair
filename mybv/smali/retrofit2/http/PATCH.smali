@@ -1,6 +1,6 @@
 .class public interface abstract annotation Lretrofit2/http/PATCH;
 .super Ljava/lang/Object;
-.source "BL"
+.source "PATCH.java"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;
@@ -9,7 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/AnnotationDefault;
     value = .subannotation Lretrofit2/http/PATCH;
-        a = ""
+        value = ""
     .end subannotation
 .end annotation
 
@@ -28,5 +28,5 @@
 
 
 # virtual methods
-.method public abstract a()Ljava/lang/String;
+.method public abstract value()Ljava/lang/String;
 .end method

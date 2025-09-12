@@ -1,6 +1,6 @@
 .class public interface abstract Lokhttp3/Interceptor;
 .super Ljava/lang/Object;
-.source "BL"
+.source "Interceptor.java"
 
 
 # annotations
@@ -12,7 +12,7 @@
 
 
 # virtual methods
-.method public abstract a(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
+.method public abstract intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

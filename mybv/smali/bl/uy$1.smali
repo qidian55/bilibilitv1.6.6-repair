@@ -1,6 +1,6 @@
 .class Lbl/uy$1;
 .super Ljava/io/OutputStream;
-.source "BL"
+.source "uy.java"
 
 
 # annotations
@@ -15,25 +15,26 @@
 
 
 # instance fields
-.field final synthetic a:J
-
-.field final synthetic b:Lokio/BufferedSink;
-
-.field final synthetic c:Lbl/uy;
-
 .field private d:J
+
+.field final synthetic this$0:Lbl/uy;
+
+.field final synthetic val$bufferedSink:Lokio/BufferedSink;
+
+.field final synthetic val$j:J
 
 
 # direct methods
 .method constructor <init>(Lbl/uy;JLokio/BufferedSink;)V
     .locals 0
 
-    .line 48
-    iput-object p1, p0, Lbl/uy$1;->c:Lbl/uy;
+    .prologue
+    .line 38
+    iput-object p1, p0, Lbl/uy$1;->this$0:Lbl/uy;
 
-    iput-wide p2, p0, Lbl/uy$1;->a:J
+    iput-wide p2, p0, Lbl/uy$1;->val$j:J
 
-    iput-object p4, p0, Lbl/uy$1;->b:Lokio/BufferedSink;
+    iput-object p4, p0, Lbl/uy$1;->val$bufferedSink:Lokio/BufferedSink;
 
     invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
 
@@ -43,38 +44,49 @@
 
 # virtual methods
 .method public close()V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 81
-    iget-object v0, p0, Lbl/uy$1;->c:Lbl/uy;
+    .prologue
+    .line 43
+    iget-object v0, p0, Lbl/uy$1;->this$0:Lbl/uy;
 
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Lbl/uy;->a:Z
 
-    .line 83
-    iget-wide v0, p0, Lbl/uy$1;->a:J
+    .line 44
+    iget-wide v0, p0, Lbl/uy$1;->val$j:J
 
     const-wide/16 v2, -0x1
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-eqz v4, :cond_0
+    if-eqz v0, :cond_15
 
     iget-wide v0, p0, Lbl/uy$1;->d:J
 
-    iget-wide v2, p0, Lbl/uy$1;->a:J
+    iget-wide v2, p0, Lbl/uy$1;->val$j:J
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-gez v4, :cond_0
+    if-ltz v0, :cond_1b
 
-    .line 84
+    .line 45
+    :cond_15
+    iget-object v0, p0, Lbl/uy$1;->val$bufferedSink:Lokio/BufferedSink;
+
+    invoke-interface {v0}, Lokio/BufferedSink;->close()V
+
+    .line 46
+    return-void
+
+    .line 48
+    :cond_1b
     new-instance v0, Ljava/net/ProtocolException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -85,17 +97,25 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v2, p0, Lbl/uy$1;->a:J
+    move-result-object v1
+
+    iget-wide v2, p0, Lbl/uy$1;->val$j:J
 
     invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     const-string v2, " bytes but received "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     iget-wide v2, p0, Lbl/uy$1;->d:J
 
     invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -104,14 +124,6 @@
     invoke-direct {v0, v1}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
     throw v0
-
-    .line 88
-    :cond_0
-    iget-object v0, p0, Lbl/uy$1;->b:Lokio/BufferedSink;
-
-    invoke-interface {v0}, Lokio/BufferedSink;->close()V
-
-    return-void
 .end method
 
 .method public flush()V
@@ -122,157 +134,177 @@
         }
     .end annotation
 
-    .line 75
-    iget-object v0, p0, Lbl/uy$1;->c:Lbl/uy;
+    .prologue
+    .line 53
+    iget-object v0, p0, Lbl/uy$1;->this$0:Lbl/uy;
 
     iget-boolean v0, v0, Lbl/uy;->a:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
+    .line 57
+    :goto_6
     return-void
 
-    .line 76
-    :cond_0
-    iget-object v0, p0, Lbl/uy$1;->b:Lokio/BufferedSink;
+    .line 56
+    :cond_7
+    iget-object v0, p0, Lbl/uy$1;->val$bufferedSink:Lokio/BufferedSink;
 
     invoke-interface {v0}, Lokio/BufferedSink;->flush()V
 
-    return-void
+    goto :goto_6
 .end method
 
 .method public write(I)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v0, 0x1
-
-    .line 53
-    new-array v1, v0, [B
-
-    int-to-byte p1, p1
+    .prologue
+    const/4 v3, 0x1
 
     const/4 v2, 0x0
 
-    aput-byte p1, v1, v2
+    .line 61
+    new-array v0, v3, [B
 
-    invoke-virtual {p0, v1, v2, v0}, Lbl/uy$1;->write([BII)V
+    int-to-byte v1, p1
 
+    aput-byte v1, v0, v2
+
+    invoke-virtual {p0, v0, v2, v3}, Lbl/uy$1;->write([BII)V
+
+    .line 62
     return-void
 .end method
 
 .method public write([BII)V
-    .locals 6
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 58
-    iget-object v0, p0, Lbl/uy$1;->c:Lbl/uy;
+    .prologue
+    .line 66
+    iget-object v0, p0, Lbl/uy$1;->this$0:Lbl/uy;
 
     iget-boolean v0, v0, Lbl/uy;->a:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
-    new-instance p1, Ljava/io/IOException;
+    .line 67
+    new-instance v0, Ljava/io/IOException;
 
-    const-string p2, "closed"
+    const-string v1, "closed"
 
-    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
-    .line 60
-    :cond_0
-    iget-wide v0, p0, Lbl/uy$1;->a:J
+    .line 69
+    :cond_e
+    iget-wide v0, p0, Lbl/uy$1;->val$j:J
 
     const-wide/16 v2, -0x1
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-eqz v4, :cond_1
+    if-eqz v0, :cond_20
 
     iget-wide v0, p0, Lbl/uy$1;->d:J
 
     int-to-long v2, p3
 
-    add-long v4, v0, v2
+    add-long/2addr v0, v2
 
-    iget-wide v0, p0, Lbl/uy$1;->a:J
+    iget-wide v2, p0, Lbl/uy$1;->val$j:J
 
-    cmp-long v2, v4, v0
+    cmp-long v0, v0, v2
 
-    if-lez v2, :cond_1
+    if-gtz v0, :cond_37
 
-    .line 61
-    new-instance p1, Ljava/net/ProtocolException;
-
-    new-instance p2, Ljava/lang/StringBuilder;
-
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v0, "expected "
-
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-wide v0, p0, Lbl/uy$1;->a:J
-
-    invoke-virtual {p2, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    const-string v0, " bytes but received "
-
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-wide v0, p0, Lbl/uy$1;->d:J
-
-    invoke-virtual {p2, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-direct {p1, p2}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    .line 65
-    :cond_1
+    .line 70
+    :cond_20
     iget-wide v0, p0, Lbl/uy$1;->d:J
 
     int-to-long v2, p3
 
-    add-long v4, v0, v2
+    add-long/2addr v0, v2
 
-    iput-wide v4, p0, Lbl/uy$1;->d:J
+    iput-wide v0, p0, Lbl/uy$1;->d:J
 
-    .line 67
-    :try_start_0
-    iget-object v0, p0, Lbl/uy$1;->b:Lokio/BufferedSink;
+    .line 72
+    :try_start_26
+    iget-object v0, p0, Lbl/uy$1;->val$bufferedSink:Lokio/BufferedSink;
 
     invoke-interface {v0, p1, p2, p3}, Lokio/BufferedSink;->write([BII)Lokio/BufferedSink;
-    :try_end_0
-    .catch Ljava/io/InterruptedIOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2b
+    .catch Ljava/io/InterruptedIOException; {:try_start_26 .. :try_end_2b} :catch_2c
 
+    .line 73
     return-void
 
-    :catch_0
-    move-exception p1
+    .line 74
+    :catch_2c
+    move-exception v0
 
-    .line 69
-    new-instance p2, Ljava/net/SocketTimeoutException;
+    .line 75
+    new-instance v1, Ljava/net/SocketTimeoutException;
 
-    invoke-virtual {p1}, Ljava/io/InterruptedIOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/InterruptedIOException;->getMessage()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p2, p1}, Ljava/net/SocketTimeoutException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/net/SocketTimeoutException;-><init>(Ljava/lang/String;)V
 
-    throw p2
+    throw v1
+
+    .line 78
+    :cond_37
+    new-instance v0, Ljava/net/ProtocolException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "expected "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-wide v2, p0, Lbl/uy$1;->val$j:J
+
+    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " bytes but received "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-wide v2, p0, Lbl/uy$1;->d:J
+
+    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method

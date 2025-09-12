@@ -1,6 +1,6 @@
 .class public interface abstract annotation Lretrofit2/http/Query;
 .super Ljava/lang/Object;
-.source "BL"
+.source "Query.java"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;
@@ -9,7 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/AnnotationDefault;
     value = .subannotation Lretrofit2/http/Query;
-        b = false
+        encoded = false
     .end subannotation
 .end annotation
 
@@ -28,8 +28,8 @@
 
 
 # virtual methods
-.method public abstract a()Ljava/lang/String;
+.method public abstract encoded()Z
 .end method
 
-.method public abstract b()Z
+.method public abstract value()Ljava/lang/String;
 .end method

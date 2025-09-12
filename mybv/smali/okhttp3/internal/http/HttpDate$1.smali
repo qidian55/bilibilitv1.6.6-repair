@@ -1,6 +1,6 @@
 .class final Lokhttp3/internal/http/HttpDate$1;
 .super Ljava/lang/ThreadLocal;
-.source "BL"
+.source "HttpDate.java"
 
 
 # annotations
@@ -9,13 +9,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x8
     name = null
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/ThreadLocal<",
+        "Ljava/lang/ThreadLocal",
+        "<",
         "Ljava/text/DateFormat;",
         ">;"
     }
@@ -26,6 +27,7 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
     .line 38
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
 
@@ -34,9 +36,22 @@
 
 
 # virtual methods
-.method protected a()Ljava/text/DateFormat;
+.method protected bridge synthetic initialValue()Ljava/lang/Object;
+    .locals 1
+
+    .prologue
+    .line 38
+    invoke-virtual {p0}, Lokhttp3/internal/http/HttpDate$1;->initialValue()Ljava/text/DateFormat;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected initialValue()Ljava/text/DateFormat;
     .locals 3
 
+    .prologue
     .line 41
     new-instance v0, Ljava/text/SimpleDateFormat;
 
@@ -46,26 +61,16 @@
 
     invoke-direct {v0, v1, v2}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
 
+    .line 42
     const/4 v1, 0x0
 
-    .line 42
     invoke-virtual {v0, v1}, Ljava/text/DateFormat;->setLenient(Z)V
 
     .line 43
-    sget-object v1, Lokhttp3/internal/Util;->g:Ljava/util/TimeZone;
+    sget-object v1, Lokhttp3/internal/Util;->UTC:Ljava/util/TimeZone;
 
     invoke-virtual {v0, v1}, Ljava/text/DateFormat;->setTimeZone(Ljava/util/TimeZone;)V
 
-    return-object v0
-.end method
-
-.method protected synthetic initialValue()Ljava/lang/Object;
-    .locals 1
-
-    .line 38
-    invoke-virtual {p0}, Lokhttp3/internal/http/HttpDate$1;->a()Ljava/text/DateFormat;
-
-    move-result-object v0
-
+    .line 44
     return-object v0
 .end method

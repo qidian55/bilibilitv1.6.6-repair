@@ -1,6 +1,6 @@
 .class final Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$UnexpectedException$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "OkHttpURLConnection.java"
 
 # interfaces
 .implements Lokhttp3/Interceptor;
@@ -21,7 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 613
+    .prologue
+    .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,36 +30,45 @@
 
 
 # virtual methods
-.method public a(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
-    .locals 1
+.method public intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 617
+    .prologue
+    .line 74
     :try_start_0
-    invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->a()Lokhttp3/Request;
+    invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->request()Lokhttp3/Request;
 
     move-result-object v0
 
-    invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->a(Lokhttp3/Request;)Lokhttp3/Response;
+    invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
+    :try_end_7
+    .catch Ljava/lang/Error; {:try_start_0 .. :try_end_7} :catch_10
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_7} :catch_9
 
-    move-result-object p1
-    :try_end_0
-    .catch Ljava/lang/Error; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 
-    :catch_0
-    move-exception p1
+    .line 75
+    :catch_9
+    move-exception v0
 
-    .line 619
-    new-instance v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$UnexpectedException;
+    .line 76
+    :goto_a
+    new-instance v1, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$UnexpectedException;
 
-    invoke-direct {v0, p1}, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$UnexpectedException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v1, v0}, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$UnexpectedException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v0
+    throw v1
+
+    .line 75
+    :catch_10
+    move-exception v0
+
+    goto :goto_a
 .end method

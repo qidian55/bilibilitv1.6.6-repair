@@ -1,6 +1,6 @@
 .class public interface abstract annotation Lcom/bilibili/okretro/anno/CacheControl;
 .super Ljava/lang/Object;
-.source "BL"
+.source "CacheControl.java"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;
@@ -9,8 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/AnnotationDefault;
     value = .subannotation Lcom/bilibili/okretro/anno/CacheControl;
-        a = 0x1d4c0L
-        b = true
+        encoded = true
+        value = 0x1d4c0L
     .end subannotation
 .end annotation
 
@@ -29,8 +29,8 @@
 
 
 # virtual methods
-.method public abstract a()J
+.method public abstract encoded()Z
 .end method
 
-.method public abstract b()Z
+.method public abstract value()J
 .end method

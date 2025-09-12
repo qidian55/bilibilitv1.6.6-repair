@@ -1,11 +1,11 @@
 .class public interface abstract Lbl/kd;
 .super Ljava/lang/Object;
-.source "BL"
+.source "kd.java"
 
 
 # annotations
 .annotation runtime Lretrofit2/http/BaseUrl;
-    a = "http://app.bilibili.com"
+    value = "http://app.bilibili.com"
 .end annotation
 
 
@@ -13,12 +13,12 @@
 .method public abstract a(Ljava/lang/String;Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "sid"
+            value = "sid"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -27,8 +27,10 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/bangumi/api/BangumiApiResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/bangumi/api/BangumiApiResponse",
+            "<",
             "Lcom/alibaba/fastjson/JSONObject;",
             ">;>;"
         }
@@ -38,19 +40,19 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/ott/autonomy/follow/add"
+        value = "/x/ott/autonomy/follow/add"
     .end annotation
 .end method
 
 .method public abstract b(Ljava/lang/String;Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "sid"
+            value = "sid"
         .end annotation
     .end param
     .param p2    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Field;
-            a = "access_key"
+            value = "access_key"
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
@@ -59,8 +61,10 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ")",
-            "Lbl/vp<",
-            "Lcom/bilibili/bangumi/api/BangumiApiResponse<",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/bangumi/api/BangumiApiResponse",
+            "<",
             "Lcom/alibaba/fastjson/JSONObject;",
             ">;>;"
         }
@@ -70,6 +74,6 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/POST;
-        a = "/x/ott/autonomy/follow/delete"
+        value = "/x/ott/autonomy/follow/delete"
     .end annotation
 .end method

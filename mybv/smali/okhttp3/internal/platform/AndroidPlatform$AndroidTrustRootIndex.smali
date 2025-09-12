@@ -1,6 +1,6 @@
 .class final Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;
 .super Ljava/lang/Object;
-.source "BL"
+.source "AndroidPlatform.java"
 
 # interfaces
 .implements Lokhttp3/internal/tls/TrustRootIndex;
@@ -13,44 +13,106 @@
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x18
-    name = "b"
+    name = "AndroidTrustRootIndex"
 .end annotation
 
 
 # instance fields
-.field private final a:Ljavax/net/ssl/X509TrustManager;
+.field private final findByIssuerAndSignatureMethod:Ljava/lang/reflect/Method;
 
-.field private final b:Ljava/lang/reflect/Method;
+.field private final trustManager:Ljavax/net/ssl/X509TrustManager;
 
 
 # direct methods
 .method constructor <init>(Ljavax/net/ssl/X509TrustManager;Ljava/lang/reflect/Method;)V
     .locals 0
 
+    .prologue
     .line 393
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 394
-    iput-object p2, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->b:Ljava/lang/reflect/Method;
+    iput-object p2, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->findByIssuerAndSignatureMethod:Ljava/lang/reflect/Method;
 
     .line 395
-    iput-object p1, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->a:Ljavax/net/ssl/X509TrustManager;
+    iput-object p1, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->trustManager:Ljavax/net/ssl/X509TrustManager;
 
+    .line 396
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509Certificate;
+.method public equals(Ljava/lang/Object;)Z
+    .locals 4
+
+    .prologue
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    .line 414
+    if-ne p1, p0, :cond_5
+
+    .line 421
+    :cond_4
+    :goto_4
+    return v0
+
+    .line 417
+    :cond_5
+    instance-of v2, p1, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;
+
+    if-nez v2, :cond_b
+
+    move v0, v1
+
+    .line 418
+    goto :goto_4
+
+    .line 420
+    :cond_b
+    check-cast p1, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;
+
+    .line 421
+    iget-object v2, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->trustManager:Ljavax/net/ssl/X509TrustManager;
+
+    iget-object v3, p1, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->trustManager:Ljavax/net/ssl/X509TrustManager;
+
+    invoke-virtual {v2, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_21
+
+    iget-object v2, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->findByIssuerAndSignatureMethod:Ljava/lang/reflect/Method;
+
+    iget-object v3, p1, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->findByIssuerAndSignatureMethod:Ljava/lang/reflect/Method;
+
+    .line 422
+    invoke-virtual {v2, v3}, Ljava/lang/reflect/Method;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    :cond_21
+    move v0, v1
+
+    goto :goto_4
+.end method
+
+.method public findByIssuerAndSignature(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509Certificate;
     .locals 5
 
-    const/4 v0, 0x0
+    .prologue
+    const/4 v1, 0x0
 
     .line 400
-    :try_start_0
-    iget-object v1, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->b:Ljava/lang/reflect/Method;
+    :try_start_1
+    iget-object v0, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->findByIssuerAndSignatureMethod:Ljava/lang/reflect/Method;
 
-    iget-object v2, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->a:Ljavax/net/ssl/X509TrustManager;
+    iget-object v2, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->trustManager:Ljavax/net/ssl/X509TrustManager;
 
     const/4 v3, 0x1
 
@@ -60,111 +122,68 @@
 
     aput-object p1, v3, v4
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/security/cert/TrustAnchor;
+    check-cast v0, Ljava/security/cert/TrustAnchor;
 
-    if-eqz p1, :cond_0
+    .line 402
+    if-eqz v0, :cond_18
 
     .line 403
-    invoke-virtual {p1}, Ljava/security/cert/TrustAnchor;->getTrustedCert()Ljava/security/cert/X509Certificate;
+    invoke-virtual {v0}, Ljava/security/cert/TrustAnchor;->getTrustedCert()Ljava/security/cert/X509Certificate;
+    :try_end_16
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_16} :catch_1a
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_16} :catch_22
 
-    move-result-object p1
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v0
 
-    goto :goto_0
-
-    :cond_0
-    move-object p1, v0
-
-    :goto_0
-    return-object p1
-
-    :catch_0
+    .line 408
+    :goto_17
     return-object v0
 
-    :catch_1
-    move-exception p1
+    :cond_18
+    move-object v0, v1
 
-    const-string v0, "unable to get issues and signature"
+    .line 403
+    goto :goto_17
+
+    .line 405
+    :catch_1a
+    move-exception v0
 
     .line 406
-    invoke-static {v0, p1}, Lokhttp3/internal/Util;->a(Ljava/lang/String;Ljava/lang/Exception;)Ljava/lang/AssertionError;
+    const-string v1, "unable to get issues and signature"
 
-    move-result-object p1
+    invoke-static {v1, v0}, Lokhttp3/internal/Util;->assertionError(Ljava/lang/String;Ljava/lang/Exception;)Ljava/lang/AssertionError;
 
-    throw p1
-.end method
+    move-result-object v0
 
-.method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    throw v0
 
-    const/4 v0, 0x1
+    .line 407
+    :catch_22
+    move-exception v0
 
-    if-ne p1, p0, :cond_0
+    move-object v0, v1
 
-    return v0
-
-    .line 417
-    :cond_0
-    instance-of v1, p1, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;
-
-    const/4 v2, 0x0
-
-    if-nez v1, :cond_1
-
-    return v2
-
-    .line 420
-    :cond_1
-    check-cast p1, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;
-
-    .line 421
-    iget-object v1, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->a:Ljavax/net/ssl/X509TrustManager;
-
-    iget-object v3, p1, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->a:Ljavax/net/ssl/X509TrustManager;
-
-    invoke-virtual {v1, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->b:Ljava/lang/reflect/Method;
-
-    iget-object p1, p1, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->b:Ljava/lang/reflect/Method;
-
-    .line 422
-    invoke-virtual {v1, p1}, Ljava/lang/reflect/Method;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_2
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
+    .line 408
+    goto :goto_17
 .end method
 
 .method public hashCode()I
     .locals 2
 
+    .prologue
     .line 427
-    iget-object v0, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->a:Ljavax/net/ssl/X509TrustManager;
+    iget-object v0, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->trustManager:Ljavax/net/ssl/X509TrustManager;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    iget-object v1, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->b:Ljava/lang/reflect/Method;
+    iget-object v1, p0, Lokhttp3/internal/platform/AndroidPlatform$AndroidTrustRootIndex;->findByIssuerAndSignatureMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v1}, Ljava/lang/reflect/Method;->hashCode()I
 
