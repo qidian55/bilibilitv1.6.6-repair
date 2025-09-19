@@ -77,7 +77,8 @@ public class acj {
                 acuVar.a();
             }
         });
-        us.a().a(new ur()).a(new Dispatcher(jk.b())).a(acuVar).a(new a()).a(new acm());
+        //us.a().a(new ur()).a(new Dispatcher(jk.b())).a(acuVar).a(new a()).a(new acm());
+        us.a().a(new Dispatcher(jk.b())).a(acuVar).a(new a()).a(new acm());
         try {
             URL.setURLStreamHandlerFactory(new ut());
         } catch (Throwable th) {

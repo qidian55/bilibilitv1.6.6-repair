@@ -390,7 +390,9 @@ public class DanmakuPlayerDFM implements IDanmakuPlayer {
         } else {
             this.mParser = new DanmakuParser(this.mDanmakuDocument, this.mInitWidth, this.mPortraitPlayingEnable).setTimeout(1800L).setDanmakuCountPerScreen(max);
             this.mParser.setParseFinishListener(new OnParseFinishListener());
-            this.mParser.setInfoCid((int)this.mInfo.mCid); //oc233
+
+            this.mParser.setInfoCid((int)this.mInfo.mCid);
+
         }
         this.mDanmakuView.a(true);
         Context context = this.mRootView.getContext();
@@ -700,7 +702,9 @@ DanmakuPlayerDFM.this.send_subtitle(DanmakuPlayerDFM.this.subtitle_data);
         if (this.mParser == null || viewGroup == null) {
             return;
         }
-        this.mParser.parseInputStreamsAsync(viewGroup.getContext(), this.mDanmakuParams, j, j2, (int)this.mInfo.mCid); //oc233
+
+        this.mParser.parseInputStreamsAsync(viewGroup.getContext(), this.mDanmakuParams, j, j2, (int)this.mInfo.mCid);
+
     }
 
     @Override // tv.danmaku.videoplayer.core.danmaku.IDanmakuPlayer

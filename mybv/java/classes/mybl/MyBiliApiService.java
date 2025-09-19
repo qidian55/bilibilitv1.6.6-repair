@@ -4,6 +4,7 @@ import bl.vp;
 import retrofit2.http.*;
 import com.alibaba.fastjson.JSONObject;
 import com.bilibili.okretro.GeneralResponse;
+import com.bilibili.tv.api.video.BiliVideoDetail;
 
 @BaseUrl("https://api.bilibili.com/")
 public interface MyBiliApiService {
@@ -33,7 +34,7 @@ public interface MyBiliApiService {
     vp<GeneralResponse<JSONObject>> modifyRelation(@Field("access_key") String access_key, @Field("fid") long fid, @Field("act") int act, @Field("re_src") int re_src);
 
     @GET("/x/web-interface/view/detail")
-    vp<GeneralResponse<JSONObject>> getVideoDetail(@Query("aid") long aid);
+    vp<GeneralResponse<BiliVideoDetail>> getVideoDetail(@Query("aid") long aid);
 
     @GET("/x/web-interface/dynamic/region")
     vp<GeneralResponse<JSONObject>> getRegionHotVideo(@Query("rid") int rid, @Query("ps") int page_size);
@@ -59,6 +60,9 @@ public interface MyBiliApiService {
 
     @GET("/x/v3/fav/folder/collected/list?platform=web")
     vp<GeneralResponse<JSONObject>> getCollectedFolders(@Query("pn") int page_number, @Query("ps") int page_size, @Query("up_mid") long up_mid);
+
+    @GET("/x/space/fav/season/list")
+    vp<GeneralResponse<JSONObject>> getFavoriteUserSeason(@Query("season_id") long season_id, @Query("pn") int page_number, @Query("ps") int page_size);
 
     @GET("https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/update.json")
     vp<com.bilibili.tv.ui.upgrade.BiliUpgradeInfo> getThirdUpdateInfo();

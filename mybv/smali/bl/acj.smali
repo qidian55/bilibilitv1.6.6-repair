@@ -77,16 +77,8 @@
 
     invoke-virtual {v0, v2}, Lbl/kn;->a(Lbl/kn$c;)V
 
-    .line 80
+    .line 81
     invoke-static {}, Lbl/us;->a()Lbl/us;
-
-    move-result-object v0
-
-    new-instance v2, Lbl/ur;
-
-    invoke-direct {v2}, Lbl/ur;-><init>()V
-
-    invoke-virtual {v0, v2}, Lbl/us;->a(Lokhttp3/CookieJar;)Lbl/us;
 
     move-result-object v0
 
@@ -122,30 +114,30 @@
 
     invoke-virtual {v0, v1}, Lbl/us;->a(Lokhttp3/Interceptor;)Lbl/us;
 
-    .line 82
-    :try_start_65
+    .line 83
+    :try_start_5c
     new-instance v0, Lbl/ut;
 
     invoke-direct {v0}, Lbl/ut;-><init>()V
 
     invoke-static {v0}, Ljava/net/URL;->setURLStreamHandlerFactory(Ljava/net/URLStreamHandlerFactory;)V
-    :try_end_6d
-    .catch Ljava/lang/Throwable; {:try_start_65 .. :try_end_6d} :catch_74
+    :try_end_64
+    .catch Ljava/lang/Throwable; {:try_start_5c .. :try_end_64} :catch_6b
 
-    .line 85
-    :goto_6d
+    .line 86
+    :goto_64
     invoke-static {}, Lbl/abe;->b()Lbl/abe;
 
     move-result-object v0
 
     sput-object v0, Lbl/vo;->a:Lbl/wc$a;
 
-    .line 86
+    .line 87
     return-void
 
-    .line 83
-    :catch_74
+    .line 84
+    :catch_6b
     move-exception v0
 
-    goto :goto_6d
+    goto :goto_64
 .end method

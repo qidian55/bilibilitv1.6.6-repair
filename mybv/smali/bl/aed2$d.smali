@@ -19,10 +19,10 @@
     .locals 0
 
     .prologue
-    .line 50
+    .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 51
+    .line 52
     return-void
 .end method
 
@@ -30,10 +30,10 @@
     .locals 0
 
     .prologue
-    .line 54
+    .line 55
     invoke-direct {p0}, Lbl/aed2$d;-><init>()V
 
-    .line 55
+    .line 56
     return-void
 .end method
 
@@ -43,7 +43,7 @@
     .locals 1
 
     .prologue
-    .line 58
+    .line 59
     new-instance v0, Lbl/aed2;
 
     invoke-direct {v0}, Lbl/aed2;-><init>()V

@@ -36,19 +36,19 @@
 
 .field private b:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;
 
+.field private box_id:J
+
 .field private c:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
 .field private d:Lcom/bilibili/tv/ui/base/LoadingImageView;
-
-.field private e:J
-
-.field private f:J
 
 .field private g:I
 
 .field private h:Z
 
 .field private i:Z
+
+.field private mid:J
 
 
 # direct methods
@@ -228,7 +228,7 @@
     move-result-object v0
 
     .line 106
-    if-eqz v0, :cond_bc
+    if-eqz v0, :cond_b7
 
     .line 107
     const-string v1, "box_name"
@@ -244,7 +244,7 @@
 
     move-result-wide v2
 
-    iput-wide v2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->e:J
+    iput-wide v2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->mid:J
 
     .line 109
     const-string v2, "box_id"
@@ -253,7 +253,7 @@
 
     move-result-wide v2
 
-    iput-wide v2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->f:J
+    iput-wide v2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->box_id:J
 
     .line 110
     const v0, 0x7f080132
@@ -412,18 +412,10 @@
     .line 136
     iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->d:Lcom/bilibili/tv/ui/base/LoadingImageView;
 
-    .line 137
-    if-nez v0, :cond_b9
-
-    .line 138
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 140
-    :cond_b9
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/base/LoadingImageView;->a()V
 
-    .line 142
-    :cond_bc
+    .line 138
+    :cond_b7
     return-void
 .end method
 
@@ -431,24 +423,16 @@
     .locals 2
 
     .prologue
-    .line 251
+    .line 227
     iget-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->c:Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;
 
-    .line 252
-    if-nez v0, :cond_7
-
-    .line 253
-    invoke-static {}, Lbl/bbi;->a()V
-
-    .line 255
-    :cond_7
     new-instance v1, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;
 
     invoke-direct {v1, p0, p1}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$f;-><init>(Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;Lbl/agd;)V
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/border/BorderGridLayoutManager;->a(Lcom/bilibili/tv/widget/border/BorderGridLayoutManager$a;)V
 
-    .line 256
+    .line 228
     return-void
 .end method
 
@@ -478,10 +462,10 @@
     .locals 0
 
     .prologue
-    .line 269
+    .line 240
     invoke-virtual {p0}, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->n()V
 
-    .line 270
+    .line 241
     return-void
 .end method
 
@@ -501,12 +485,22 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 260
+    .line 232
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->i:Z
 
-    .line 261
+    .line 233
+    invoke-static {p0}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
+
+    move-result-object v1
+
+    .line 234
+    const-string v0, "BiliAccount.get(this)"
+
+    invoke-static {v1, v0}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 235
     const-class v0, Lcom/bilibili/tv/api/favorite/BiliFavoriteVideoApiService;
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
@@ -515,26 +509,15 @@
 
     check-cast v0, Lcom/bilibili/tv/api/favorite/BiliFavoriteVideoApiService;
 
-    .line 262
-    invoke-static {p0}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
-
-    move-result-object v1
-
-    .line 263
-    const-string v2, "BiliAccount.get(this)"
-
-    invoke-static {v1, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 264
     invoke-virtual {v1}, Lbl/mg;->e()Ljava/lang/String;
 
     move-result-object v11
 
     new-instance v1, Lcom/bilibili/tv/api/favorite/BiliFavoriteVideoApiService$FavParamsMap;
 
-    iget-wide v2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->e:J
+    iget-wide v2, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->mid:J
 
-    iget-wide v4, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->f:J
+    iget-wide v4, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->box_id:J
 
     const-wide/16 v6, 0x0
 
@@ -552,7 +535,7 @@
 
     invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
-    .line 265
+    .line 236
     return-void
 .end method
 
@@ -562,7 +545,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 223
+    .line 199
     move-object v0, v1
 
     check-cast v0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$b;
@@ -571,19 +554,19 @@
 
     move-object v0, v1
 
-    .line 224
+    .line 200
     check-cast v0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;
 
     iput-object v0, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->b:Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity$a;
 
-    .line 225
+    .line 201
     check-cast v1, Lcom/bilibili/tv/ui/base/LoadingImageView;
 
     iput-object v1, p0, Lcom/bilibili/tv/ui/favorite/boxlist/BoxListInfoActivity;->d:Lcom/bilibili/tv/ui/base/LoadingImageView;
 
-    .line 226
+    .line 202
     invoke-super {p0}, Lcom/bilibili/tv/ui/base/BaseReloadActivity;->onDestroy()V
 
-    .line 227
+    .line 203
     return-void
 .end method

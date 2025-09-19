@@ -120,6 +120,39 @@
     .end annotation
 .end method
 
+.method public abstract getFavoriteUserSeason(JII)Lbl/vp;
+    .param p1    # J
+        .annotation runtime Lretrofit2/http/Query;
+            value = "season_id"
+        .end annotation
+    .end param
+    .param p3    # I
+        .annotation runtime Lretrofit2/http/Query;
+            value = "pn"
+        .end annotation
+    .end param
+    .param p4    # I
+        .annotation runtime Lretrofit2/http/Query;
+            value = "ps"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(JII)",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        value = "/x/space/fav/season/list"
+    .end annotation
+.end method
+
 .method public abstract getFeedVideos(Ljava/lang/String;Ljava/lang/String;)Lbl/vp;
     .param p1    # Ljava/lang/String;
         .annotation runtime Lretrofit2/http/Query;
@@ -346,7 +379,7 @@
             "<",
             "Lcom/bilibili/okretro/GeneralResponse",
             "<",
-            "Lcom/alibaba/fastjson/JSONObject;",
+            "Lcom/bilibili/tv/api/video/BiliVideoDetail;",
             ">;>;"
         }
     .end annotation

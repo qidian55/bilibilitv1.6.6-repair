@@ -53,8 +53,8 @@ public final class BoxListInfoActivity extends BaseReloadActivity implements wf 
     private a b;
     private BorderGridLayoutManager c;
     private LoadingImageView d;
-    private long e;
-    private long f;
+    private long mid;
+    private long box_id;
     private int g = 1;
     private boolean h = true;
     private boolean i;
@@ -105,8 +105,8 @@ public final class BoxListInfoActivity extends BaseReloadActivity implements wf 
         Intent intent = getIntent();
         if (intent != null) {
             String stringExtra = intent.getStringExtra(l);
-            this.e = intent.getLongExtra(j, 0L);
-            this.f = intent.getLongExtra(k, 0L);
+            this.mid = intent.getLongExtra(j, 0L);
+            this.box_id = intent.getLongExtra(k, 0L);
             TextView textView = (TextView) d(R.id.title);
             if (stringExtra != null) {
                 textView.setText(stringExtra);
@@ -133,11 +133,7 @@ public final class BoxListInfoActivity extends BaseReloadActivity implements wf 
             recyclerView.setAdapter(this.a);
             this.b = new a();
             n();
-            LoadingImageView loadingImageView = this.d;
-            if (loadingImageView == null) {
-                bbi.a();
-            }
-            loadingImageView.a();
+            this.d.a();
         }
     }
 
@@ -184,31 +180,11 @@ public final class BoxListInfoActivity extends BaseReloadActivity implements wf 
             if (BoxListInfoActivity.this.i || !BoxListInfoActivity.this.h || BoxListInfoActivity.this.a == null) {
                 return;
             }
-            BorderGridLayoutManager borderGridLayoutManager = BoxListInfoActivity.this.c;
-            if (borderGridLayoutManager == null) {
-                bbi.a();
-            }
-            int p = borderGridLayoutManager.p();
-            BorderGridLayoutManager borderGridLayoutManager2 = BoxListInfoActivity.this.c;
-            if (borderGridLayoutManager2 == null) {
-                bbi.a();
-            }
-            if (borderGridLayoutManager2.x() > 0) {
-                int i3 = p + 1;
-                if (BoxListInfoActivity.this.c == null) {
-                    bbi.a();
-                }
-                if (i3 >= borderGridLayoutManager2.H() - 1) {
-                    BorderGridLayoutManager borderGridLayoutManager3 = BoxListInfoActivity.this.c;
-                    if (borderGridLayoutManager3 == null) {
-                        bbi.a();
-                    }
-                    int H = borderGridLayoutManager3.H();
-                    BorderGridLayoutManager borderGridLayoutManager4 = BoxListInfoActivity.this.c;
-                    if (borderGridLayoutManager4 == null) {
-                        bbi.a();
-                    }
-                    if (H > borderGridLayoutManager4.x()) {
+            int p = BoxListInfoActivity.this.c.p();
+            if (BoxListInfoActivity.this.c.x() > 0) {
+                if (p + 1 >= BoxListInfoActivity.this.c.H() - 1) {
+                    int H = BoxListInfoActivity.this.c.H();
+                    if (H > BoxListInfoActivity.this.c.x()) {
                         BoxListInfoActivity.this.g++;
                         BoxListInfoActivity.this.n();
                     }
@@ -248,20 +224,15 @@ public final class BoxListInfoActivity extends BaseReloadActivity implements wf 
 
     @Override // com.bilibili.tv.ui.base.BaseReloadActivity, com.bilibili.tv.ui.base.BaseUpViewActivity
     public void a(agd agdVar) {
-        BorderGridLayoutManager borderGridLayoutManager = this.c;
-        if (borderGridLayoutManager == null) {
-            bbi.a();
-        }
-        borderGridLayoutManager.a(new f(agdVar));
+        this.c.a(new f(agdVar));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void n() {
         this.i = true;
-        BiliFavoriteVideoApiService biliFavoriteVideoApiService = (BiliFavoriteVideoApiService) vo.a(BiliFavoriteVideoApiService.class);
         mg a2 = mg.a(this);
         bbi.a((Object) a2, "BiliAccount.get(this)");
-        biliFavoriteVideoApiService.getFavoriteSearchedVideoList(a2.e(), new BiliFavoriteVideoApiService.FavParamsMap(this.e, this.f, 0L, null, null, this.g)).a(this.b);
+        ((BiliFavoriteVideoApiService) vo.a(BiliFavoriteVideoApiService.class)).getFavoriteSearchedVideoList(a2.e(), new BiliFavoriteVideoApiService.FavParamsMap(this.mid, this.box_id, 0L, null, null, this.g)).a(this.b);
     }
 
     @Override // com.bilibili.tv.ui.base.BaseReloadActivity, bl.aea
@@ -291,11 +262,7 @@ public final class BoxListInfoActivity extends BaseReloadActivity implements wf 
             BoxListInfoActivity.this.i = false;
             if (BoxListInfoActivity.this.g == 1) {
                 BoxListInfoActivity.this.a(true);
-                LoadingImageView loadingImageView = BoxListInfoActivity.this.d;
-                if (loadingImageView == null) {
-                    bbi.a();
-                }
-                loadingImageView.setRefreshError(true);
+                BoxListInfoActivity.this.d.setRefreshError(true);
             }
         }
 
@@ -306,17 +273,9 @@ public final class BoxListInfoActivity extends BaseReloadActivity implements wf 
             }
             BoxListInfoActivity.this.i = false;
             BoxListInfoActivity.this.a(false);
-            LoadingImageView loadingImageView = BoxListInfoActivity.this.d;
-            if (loadingImageView == null) {
-                bbi.a();
-            }
-            loadingImageView.b();
+            BoxListInfoActivity.this.d.b();
             if (biliSearchFavoriteBox != null && biliSearchFavoriteBox.videos != null) {
-                List<BiliVideoDetail> list = biliSearchFavoriteBox.videos;
-                if (list == null) {
-                    bbi.a();
-                }
-                if (!list.isEmpty()) {
+                if (!biliSearchFavoriteBox.videos.isEmpty()) {
                     if (BoxListInfoActivity.this.a == null) {
                         return;
                     }
@@ -325,40 +284,16 @@ public final class BoxListInfoActivity extends BaseReloadActivity implements wf 
                         BoxListInfoActivity.this.h = false;
                     }
                     if (BoxListInfoActivity.this.g == 1) {
-                        b bVar = BoxListInfoActivity.this.a;
-                        if (bVar == null) {
-                            bbi.a();
-                        }
-                        List<BiliVideoDetail> list2 = biliSearchFavoriteBox.videos;
-                        if (list2 == null) {
-                            bbi.a();
-                        }
-                        bVar.a(list2);
+                        BoxListInfoActivity.this.a.a(biliSearchFavoriteBox.videos);
                         return;
                     }
-                    b bVar2 = BoxListInfoActivity.this.a;
-                    if (bVar2 == null) {
-                        bbi.a();
-                    }
-                    List<BiliVideoDetail> list3 = biliSearchFavoriteBox.videos;
-                    if (list3 == null) {
-                        bbi.a();
-                    }
-                    bVar2.b(list3);
+                    BoxListInfoActivity.this.a.b(biliSearchFavoriteBox.videos);
                     return;
                 }
             }
             if (BoxListInfoActivity.this.g == 1) {
-                LoadingImageView loadingImageView2 = BoxListInfoActivity.this.d;
-                if (loadingImageView2 == null) {
-                    bbi.a();
-                }
-                loadingImageView2.c();
-                LoadingImageView loadingImageView3 = BoxListInfoActivity.this.d;
-                if (loadingImageView3 == null) {
-                    bbi.a();
-                }
-                loadingImageView3.a(R.string.nothing_show);
+                BoxListInfoActivity.this.d.c();
+                BoxListInfoActivity.this.d.a(R.string.nothing_show);
             }
         }
     }
@@ -435,3 +370,4 @@ public final class BoxListInfoActivity extends BaseReloadActivity implements wf 
         }
     }
 }
+

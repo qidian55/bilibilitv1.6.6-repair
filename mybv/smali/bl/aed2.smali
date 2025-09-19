@@ -34,7 +34,7 @@
     .locals 2
 
     .prologue
-    .line 28
+    .line 29
     new-instance v0, Lbl/aed2$d;
 
     const/4 v1, 0x0
@@ -50,7 +50,7 @@
     .locals 0
 
     .prologue
-    .line 27
+    .line 28
     invoke-direct {p0}, Lbl/ady;-><init>()V
 
     return-void
@@ -60,7 +60,7 @@
     .locals 1
 
     .prologue
-    .line 27
+    .line 28
     iget-object v0, p0, Lbl/aed2;->c:Lbl/aed2$b;
 
     return-object v0
@@ -70,7 +70,7 @@
     .locals 6
 
     .prologue
-    .line 106
+    .line 107
     const-class v0, Lmybl/MyBiliApiService;
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
@@ -111,7 +111,7 @@
 
     invoke-virtual {v0, v1}, Lbl/vp;->a(Lretrofit2/Callback;)V
 
-    .line 107
+    .line 108
     return-void
 .end method
 
@@ -121,76 +121,76 @@
     .locals 3
 
     .prologue
-    .line 64
+    .line 65
     const-string v0, "recyclerView"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 65
+    .line 66
     invoke-super {p0, p1, p2}, Lbl/ady;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
 
-    .line 66
+    .line 67
     new-instance v0, Lbl/aed2$a;
 
     invoke-direct {v0, p0}, Lbl/aed2$a;-><init>(Lbl/aed2;)V
 
     iput-object v0, p0, Lbl/aed2;->d:Lbl/aed2$a;
 
-    .line 67
+    .line 68
     invoke-virtual {p0}, Lbl/aed2;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    .line 68
+    .line 69
     const-string v1, "activity!!"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 69
+    .line 70
     new-instance v1, Lcom/bilibili/tv/ui/favorite/FavoriteRightGridLayoutManger;
 
     const/4 v2, 0x4
 
     invoke-direct {v1, v0, v2}, Lcom/bilibili/tv/ui/favorite/FavoriteRightGridLayoutManger;-><init>(Landroid/content/Context;I)V
 
-    .line 70
+    .line 71
     new-instance v0, Lbl/aed2$b;
 
     invoke-direct {v0}, Lbl/aed2$b;-><init>()V
 
     iput-object v0, p0, Lbl/aed2;->c:Lbl/aed2$b;
 
-    .line 71
+    .line 72
     const/4 v0, 0x1
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setHasFixedSize(Z)V
 
-    .line 72
+    .line 73
     invoke-virtual {p1, v1}, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$h;)V
 
-    .line 73
+    .line 74
     const v0, 0x7f0600de
 
     invoke-static {v0}, Lbl/adl;->b(I)I
 
     move-result v0
 
-    .line 74
+    .line 75
     const v2, 0x7f060115
 
     invoke-static {v2}, Lbl/adl;->b(I)I
 
     move-result v2
 
-    .line 75
+    .line 76
     invoke-virtual {p1, v2, v0, v2, v2}, Landroid/support/v7/widget/RecyclerView;->setPadding(IIII)V
 
-    .line 76
+    .line 77
     iget-object v0, p0, Lbl/aed2;->c:Lbl/aed2$b;
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$a;)V
 
-    .line 77
+    .line 78
     const/4 v0, 0x0
 
     check-cast v0, Lbl/aed2$e;
@@ -199,13 +199,13 @@
 
     invoke-virtual {v1, v0}, Lcom/bilibili/tv/ui/favorite/FavoriteRightGridLayoutManger;->a(Lcom/bilibili/tv/widget/border/BorderGridLayoutManager$a;)V
 
-    .line 78
+    .line 79
     invoke-virtual {p0}, Lbl/aed2;->i()V
 
-    .line 79
+    .line 80
     invoke-direct {p0}, Lbl/aed2;->b()V
 
-    .line 80
+    .line 81
     return-void
 .end method
 
@@ -213,7 +213,7 @@
     .locals 1
 
     .prologue
-    .line 84
+    .line 85
     invoke-virtual {p0}, Lbl/aed2;->isVisible()Z
 
     move-result v0
@@ -224,7 +224,7 @@
 
     if-eqz v0, :cond_14
 
-    .line 85
+    .line 86
     iget-object v0, p0, Lbl/aed2;->c:Lbl/aed2$b;
 
     invoke-virtual {v0}, Lbl/aed2$b;->a()I
@@ -233,10 +233,10 @@
 
     if-lez v0, :cond_14
 
-    .line 86
+    .line 87
     const/4 v0, 0x1
 
-    .line 89
+    .line 90
     :goto_13
     return v0
 
@@ -250,13 +250,13 @@
     .locals 0
 
     .prologue
-    .line 101
+    .line 102
     invoke-super {p0}, Lbl/ady;->d_()V
 
-    .line 102
+    .line 103
     invoke-direct {p0}, Lbl/aed2;->b()V
 
-    .line 103
+    .line 104
     return-void
 .end method
 
@@ -266,21 +266,21 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 94
+    .line 95
     move-object v0, v1
 
     check-cast v0, Lbl/aed2$b;
 
     iput-object v0, p0, Lbl/aed2;->c:Lbl/aed2$b;
 
-    .line 95
+    .line 96
     check-cast v1, Lbl/aed2$a;
 
     iput-object v1, p0, Lbl/aed2;->d:Lbl/aed2$a;
 
-    .line 96
+    .line 97
     invoke-super {p0}, Lbl/ady;->onDestroyView()V
 
-    .line 97
+    .line 98
     return-void
 .end method

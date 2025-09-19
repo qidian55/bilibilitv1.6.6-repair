@@ -14,6 +14,7 @@ import com.bilibili.tv.MainApplication;
 import com.bilibili.tv.R;
 import com.bilibili.tv.ui.favorite.FavoriteRightGridLayoutManger;
 import com.bilibili.tv.ui.favorite.boxlist.BoxListInfoActivity;
+import com.bilibili.tv.ui.favorite.boxlist.BoxListInfoActivity2;
 import com.bilibili.tv.widget.ScalableImageView;
 import com.bilibili.tv.widget.border.BorderGridLayoutManager;
 import java.util.ArrayList;
@@ -248,7 +249,8 @@ public final class aed2 extends ady {
                 Object tag2 = view.getTag(R.id.position);
                 if ((tag instanceof JSONObject) && (tag2 instanceof Integer)) {
                     JSONObject biliFavoriteBox = (JSONObject) tag;
-                    BoxListInfoActivity.Companion.a(a2, biliFavoriteBox.getLong("mid"), biliFavoriteBox.getLong("fid"), biliFavoriteBox.getString("title"));
+                    if(biliFavoriteBox.getLong("fid")!=0)BoxListInfoActivity.Companion.a(a2, biliFavoriteBox.getLong("mid"), biliFavoriteBox.getLong("fid"), biliFavoriteBox.getString("title"));
+                    else BoxListInfoActivity2.Companion.a(a2, biliFavoriteBox.getLong("id"), 0L, biliFavoriteBox.getString("title"));
                     ok.a("tv_myfavourite_fold_click", "row", String.valueOf(((int) Math.floor(((Number) tag2).intValue() / aed2.f)) + 1));
                 }
             }

@@ -47,6 +47,7 @@ import com.bilibili.tv.R;
 import com.bilibili.tv.api.favorite.BiliFavoriteVideoApiService;
 import com.bilibili.tv.api.video.BiliVideoDetail;
 import com.bilibili.tv.api.video.VideoApiParser;
+import com.bilibili.tv.api.video.VideoApiParser2;
 import com.bilibili.tv.api.video.VideoApiService;
 import com.bilibili.tv.ui.account.LoginActivity;
 import com.bilibili.tv.ui.auth.AuthSpaceActivity;
@@ -481,6 +482,17 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         mg a2 = mg.a(this);
         bbi.a((Object) a2, "BiliAccount.get(this)");
         ((VideoApiService) vo.a(VideoApiService.class)).getVideoDetails(build, a2.e()).a(new VideoApiParser()).a(this.A);
+    }
+
+    private final void n2() {
+        if (this.s <= 0 || this.A == null) {
+            return;
+        }
+        LoadingImageView loadingImageView = this.p;
+        if (loadingImageView != null) {
+            loadingImageView.a();
+        }
+        ((MyBiliApiService) vo.a(MyBiliApiService.class)).getVideoDetail(this.s).a(new VideoApiParser2()).a(this.A);
     }
 
     private final void a(Context context, String str) {
@@ -1333,10 +1345,6 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
     /* compiled from: BL */
     /* loaded from: classes.dex */
     final class i extends vn<BiliVideoDetail> {
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public i() {
-        }
-
         @Override // bl.vm
         public boolean isCancel() {
             return VideoDetailActivity.this.isFinishing();
@@ -1381,8 +1389,9 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                             }
                         }
                     }
-                } else if (biliApiException.mCode == -404 && (loadingImageView = VideoDetailActivity.this.p) != null) {
-                    loadingImageView.a(R.string.video_not_exist);
+                } else if ((biliApiException.mCode == -404||biliApiException.mCode == 404) && (loadingImageView = VideoDetailActivity.this.p) != null) {
+                    if(biliApiException.mCode == -404)VideoDetailActivity.this.n2();
+                    else loadingImageView.a(R.string.video_not_exist);
                 }
                 str = "parse_error";
                 i = biliApiException.mCode;
