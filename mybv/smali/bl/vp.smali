@@ -398,7 +398,7 @@
 
     .line 95
     :try_start_0
-    invoke-interface {v9}, Lcom/bilibili/okretro/anno/RequestInterceptor;->a()Ljava/lang/Class;
+    invoke-interface {v9}, Lcom/bilibili/okretro/anno/RequestInterceptor;->value()Ljava/lang/Class;
 
     move-result-object v7
 

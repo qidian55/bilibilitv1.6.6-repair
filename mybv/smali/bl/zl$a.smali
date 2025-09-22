@@ -25,7 +25,7 @@
         .end annotation
     .end param
     .annotation runtime Lcom/bilibili/okretro/anno/RequestInterceptor;
-        a = Lbl/vy;
+        value = Lbl/vy;
     .end annotation
 
     .annotation system Ldalvik/annotation/Signature;
