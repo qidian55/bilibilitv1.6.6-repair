@@ -104,7 +104,7 @@ public final class aed2 extends ady {
     }
 
     private final void b() {
-        ((MyBiliApiService) vo.a(MyBiliApiService.class)).getCollectedFolders(1, 50, Long.valueOf(mg.a(getActivity()).d())).a(this.d);
+        ((MyBiliApiService) vo.a(MyBiliApiService.class)).getCollectedFolders(1, 50, Long.valueOf(mg.a(getActivity()).d()), "SESSDATA=" + mg.a(getActivity()).getSESSDATA()).a(this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

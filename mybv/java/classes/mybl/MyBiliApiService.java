@@ -59,7 +59,7 @@ public interface MyBiliApiService {
     vp<JSONObject> getPgcInfos();
 
     @GET("/x/v3/fav/folder/collected/list?platform=web")
-    vp<GeneralResponse<JSONObject>> getCollectedFolders(@Query("pn") int page_number, @Query("ps") int page_size, @Query("up_mid") long up_mid);
+    vp<GeneralResponse<JSONObject>> getCollectedFolders(@Query("pn") int page_number, @Query("ps") int page_size, @Query("up_mid") long up_mid, @Header("Cookie") String cookie);
 
     @GET("/x/space/fav/season/list")
     vp<GeneralResponse<JSONObject>> getFavoriteUserSeason(@Query("season_id") long season_id, @Query("pn") int page_number, @Query("ps") int page_size);

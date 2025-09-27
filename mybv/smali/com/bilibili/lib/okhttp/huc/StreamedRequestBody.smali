@@ -1,34 +1,34 @@
-.class public final Lbl/uz;
-.super Lbl/uy;
-.source "uz.java"
+.class final Lcom/bilibili/lib/okhttp/huc/StreamedRequestBody;
+.super Lcom/bilibili/lib/okhttp/huc/OutputStreamRequestBody;
+.source "StreamedRequestBody.java"
 
 # interfaces
 .implements Lokhttp3/internal/http/UnrepeatableRequestBody;
 
 
 # instance fields
-.field private final b:Lokio/Pipe;
+.field private final pipe:Lokio/Pipe;
 
 
 # direct methods
-.method public constructor <init>(J)V
+.method constructor <init>(J)V
     .locals 5
 
     .prologue
-    .line 16
-    invoke-direct {p0}, Lbl/uy;-><init>()V
+    .line 32
+    invoke-direct {p0}, Lcom/bilibili/lib/okhttp/huc/OutputStreamRequestBody;-><init>()V
 
-    .line 14
+    .line 30
     new-instance v0, Lokio/Pipe;
 
     const-wide/16 v2, 0x2000
 
     invoke-direct {v0, v2, v3}, Lokio/Pipe;-><init>(J)V
 
-    iput-object v0, p0, Lbl/uz;->b:Lokio/Pipe;
+    iput-object v0, p0, Lcom/bilibili/lib/okhttp/huc/StreamedRequestBody;->pipe:Lokio/Pipe;
 
-    .line 17
-    iget-object v0, p0, Lbl/uz;->b:Lokio/Pipe;
+    .line 33
+    iget-object v0, p0, Lcom/bilibili/lib/okhttp/huc/StreamedRequestBody;->pipe:Lokio/Pipe;
 
     invoke-virtual {v0}, Lokio/Pipe;->sink()Lokio/Sink;
 
@@ -38,9 +38,9 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0, p1, p2}, Lbl/uz;->a(Lokio/BufferedSink;J)V
+    invoke-virtual {p0, v0, p1, p2}, Lcom/bilibili/lib/okhttp/huc/StreamedRequestBody;->initOutputStream(Lokio/BufferedSink;J)V
 
-    .line 18
+    .line 34
     return-void
 .end method
 
@@ -55,14 +55,14 @@
     .end annotation
 
     .prologue
-    .line 23
+    .line 37
     new-instance v0, Lokio/Buffer;
 
     invoke-direct {v0}, Lokio/Buffer;-><init>()V
 
-    .line 24
+    .line 38
     :goto_5
-    iget-object v1, p0, Lbl/uz;->b:Lokio/Pipe;
+    iget-object v1, p0, Lcom/bilibili/lib/okhttp/huc/StreamedRequestBody;->pipe:Lokio/Pipe;
 
     invoke-virtual {v1}, Lokio/Pipe;->source()Lokio/Source;
 
@@ -80,7 +80,7 @@
 
     if-eqz v1, :cond_1f
 
-    .line 25
+    .line 39
     invoke-virtual {v0}, Lokio/Buffer;->size()J
 
     move-result-wide v2
@@ -89,7 +89,7 @@
 
     goto :goto_5
 
-    .line 27
+    .line 41
     :cond_1f
     return-void
 .end method

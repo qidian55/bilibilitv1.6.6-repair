@@ -67,7 +67,7 @@
 .end method
 
 .method private final b()V
-    .locals 6
+    .locals 7
 
     .prologue
     .line 107
@@ -75,35 +75,65 @@
 
     invoke-static {v0}, Lbl/vo;->a(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmybl/MyBiliApiService;
+    check-cast v1, Lmybl/MyBiliApiService;
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    const/16 v2, 0x32
+    const/16 v3, 0x32
 
     invoke-virtual {p0}, Lbl/aed2;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-static {v3}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
+    invoke-static {v0}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v3}, Lbl/mg;->d()J
+    invoke-virtual {v0}, Lbl/mg;->d()J
 
     move-result-wide v4
 
     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v3}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v4
 
-    invoke-interface {v0, v1, v2, v4, v5}, Lmybl/MyBiliApiService;->getCollectedFolders(IIJ)Lbl/vp;
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "SESSDATA="
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lbl/aed2;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v6
+
+    invoke-static {v6}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Lbl/mg;->getSESSDATA()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-interface/range {v1 .. v6}, Lmybl/MyBiliApiService;->getCollectedFolders(IIJLjava/lang/String;)Lbl/vp;
 
     move-result-object v0
 

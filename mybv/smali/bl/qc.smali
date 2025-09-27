@@ -41,13 +41,13 @@
 
     if-eqz v1, :cond_1
 
-    new-instance v0, Lbl/ux;
+    new-instance v0, Lcom/bilibili/lib/okhttp/huc/OkHttpsURLConnection;
 
     invoke-static {}, Lbl/us;->c()Lokhttp3/OkHttpClient;
 
     move-result-object v1
 
-    invoke-direct {v0, p0, v1}, Lbl/ux;-><init>(Ljava/net/URL;Lokhttp3/OkHttpClient;)V
+    invoke-direct {v0, p0, v1}, Lcom/bilibili/lib/okhttp/huc/OkHttpsURLConnection;-><init>(Ljava/net/URL;Lokhttp3/OkHttpClient;)V
 
     return-object v0
 

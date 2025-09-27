@@ -23,7 +23,7 @@
     .locals 1
 
     .prologue
-    .line 69
+    .line 579
     new-instance v0, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$UnexpectedException$1;
 
     invoke-direct {v0}, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$UnexpectedException$1;-><init>()V
@@ -33,13 +33,13 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/Throwable;)V
+.method constructor <init>(Ljava/lang/Throwable;)V
     .locals 0
 
     .prologue
-    .line 82
+    .line 590
     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
 
-    .line 83
+    .line 591
     return-void
 .end method

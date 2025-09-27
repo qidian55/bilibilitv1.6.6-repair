@@ -22,7 +22,7 @@
     .locals 0
 
     .prologue
-    .line 69
+    .line 579
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,7 +39,7 @@
     .end annotation
 
     .prologue
-    .line 74
+    .line 582
     :try_start_0
     invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->request()Lokhttp3/Request;
 
@@ -54,11 +54,11 @@
 
     return-object v0
 
-    .line 75
+    .line 583
     :catch_9
     move-exception v0
 
-    .line 76
+    .line 584
     :goto_a
     new-instance v1, Lcom/bilibili/lib/okhttp/huc/OkHttpURLConnection$UnexpectedException;
 
@@ -66,7 +66,7 @@
 
     throw v1
 
-    .line 75
+    .line 583
     :catch_10
     move-exception v0
 

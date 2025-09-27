@@ -69,7 +69,7 @@
     .end annotation
 .end method
 
-.method public abstract getCollectedFolders(IIJ)Lbl/vp;
+.method public abstract getCollectedFolders(IIJLjava/lang/String;)Lbl/vp;
     .param p1    # I
         .annotation runtime Lretrofit2/http/Query;
             value = "pn"
@@ -85,9 +85,16 @@
             value = "up_mid"
         .end annotation
     .end param
+    .param p5    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Header;
+            value = "Cookie"
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(IIJ)",
+            "(IIJ",
+            "Ljava/lang/String;",
+            ")",
             "Lbl/vp",
             "<",
             "Lcom/bilibili/okretro/GeneralResponse",
