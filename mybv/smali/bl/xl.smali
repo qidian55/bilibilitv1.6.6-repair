@@ -195,7 +195,11 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4b
+    if-eqz v3, :cond_4f
+
+    iget-object v3, v2, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mPageIndex:Ljava/lang/String;
+
+    if-eqz v3, :cond_4f
 
     .line 353
     iget-object v3, p0, Lbl/xl;->d:Ljava/util/List;
@@ -209,7 +213,7 @@
     invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 360
-    :goto_37
+    :goto_3b
     iget-wide v2, v2, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mCid:J
 
     iget-object v4, v1, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
@@ -222,24 +226,24 @@
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_48
+    if-nez v2, :cond_4c
 
     .line 361
     invoke-direct {p0, v0}, Lbl/xl;->g(I)V
 
     .line 350
-    :cond_48
+    :cond_4c
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1d
 
     .line 354
-    :cond_4b
+    :cond_4f
     invoke-virtual {v1}, Lcom/bilibili/tv/player/basic/context/PlayerParams;->isTV()Z
 
     move-result v3
 
-    if-eqz v3, :cond_72
+    if-eqz v3, :cond_76
 
     .line 355
     iget-object v3, p0, Lbl/xl;->d:Ljava/util/List;
@@ -272,17 +276,17 @@
 
     invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_37
+    goto :goto_3b
 
     .line 358
-    :cond_72
+    :cond_76
     iget-object v3, p0, Lbl/xl;->d:Ljava/util/List;
 
     iget-object v4, v2, Lcom/bilibili/tv/player/basic/context/ResolveResourceParams;->mPageTitle:Ljava/lang/String;
 
     invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_37
+    goto :goto_3b
 .end method
 
 .method private U()V

@@ -27,49 +27,41 @@
 
 
 # virtual methods
-.method public result()Lorg/json/JSONObject;
-    .locals 4
+.method public result()Lcom/alibaba/fastjson/JSONObject;
+    .locals 3
 
     .prologue
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 118
     :try_start_1
     invoke-virtual {p0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$JsonResponse;->a()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_14
+    if-eqz v1, :cond_12
 
     .line 119
-    new-instance v0, Lorg/json/JSONObject;
+    new-instance v1, Ljava/lang/String;
 
-    new-instance v2, Ljava/lang/String;
+    iget-object v2, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$JsonResponse;->b:[B
 
-    iget-object v3, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$JsonResponse;->b:[B
+    invoke-direct {v1, v2}, Ljava/lang/String;-><init>([B)V
 
-    invoke-direct {v2, v3}, Ljava/lang/String;-><init>([B)V
+    invoke-static {v1}, Lcom/alibaba/fastjson/JSON;->parseObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
+    :try_end_11
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_11} :catch_13
 
-    invoke-direct {v0, v2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-    :try_end_13
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_13} :catch_16
+    move-result-object v0
 
     .line 123
-    :goto_13
+    :cond_12
+    :goto_12
     return-object v0
 
-    :cond_14
-    move-object v0, v1
-
-    .line 121
-    goto :goto_13
-
     .line 122
-    :catch_16
-    move-exception v0
+    :catch_13
+    move-exception v1
 
-    move-object v0, v1
-
-    .line 123
-    goto :goto_13
+    goto :goto_12
 .end method

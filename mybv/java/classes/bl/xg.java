@@ -13,7 +13,7 @@ import com.bilibili.tv.player.basic.context.PlayerParams;
 import com.bilibili.tv.player.basic.context.ResolveResourceParams;
 import java.util.List;
 
-import org.json.JSONObject;
+import com.alibaba.fastjson.JSONObject;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -48,7 +48,7 @@ public class xg {
         if(bangumiEpisodeEx.progress!=null && bangumiEpisodeEx.progress.lastEpId==obtainResolveParams.mEpisodeId)obtainResolveParams.mProgress=(int)bangumiEpisodeEx.progress.lastEpProgress;
 
         if (i > 0) {
-            a.mVideoParams.obtainResolveParams().mExpectedQuality = i;
+            obtainResolveParams.mExpectedQuality = i;
         }
         if (list != null && !list.isEmpty()) {
             int size = list.size();
@@ -70,7 +70,7 @@ public class xg {
                     resolveResourceParams.mFrom = bangumiEpisodeEx.from;
                     resolveResourceParams.mRawVid = bangumiEpisodeEx.vid;
                     resolveResourceParams.mEpCover = bangumiEpisodeEx.cover;
-                    resolveResourceParams.mExpectedQuality = a.mVideoParams.obtainResolveParams().mExpectedQuality;
+                    resolveResourceParams.mExpectedQuality = obtainResolveParams.mExpectedQuality;
                     obtainResolveParamsArray[i3] = resolveResourceParams;
                 }
             }
@@ -121,24 +121,24 @@ public class xg {
         }
 
         if (biliVideoDetail.episodes != null) {
-            int size = biliVideoDetail.episodes.length();
+            int size = biliVideoDetail.episodes.size();
             ResolveResourceParams[] obtainResolveParamsArray = a.mVideoParams.obtainResolveParamsArray(size);
             for (int i3 = 0; i3 < size; i3++) {
-                JSONObject episode = biliVideoDetail.episodes.optJSONObject(i3);
+                JSONObject episode = biliVideoDetail.episodes.getJSONObject(i3);
                 ResolveResourceParams resolveResourceParams = new ResolveResourceParams();
                 resolveResourceParams.mSpid = biliVideoDetail.getSpid();
-                resolveResourceParams.mAvid = episode.optLong("aid");
-                resolveResourceParams.mPage = episode.optJSONObject("page").optInt("page");
-                resolveResourceParams.mFrom = episode.optJSONObject("page").optString("from");
-                resolveResourceParams.mVid = episode.optJSONObject("page").optString("vid");
-                resolveResourceParams.mCid = episode.optLong("cid");
-                resolveResourceParams.mWeb = episode.optJSONObject("page").optString("weblink");
-                resolveResourceParams.mPageTitle = episode.optString("title");
-                resolveResourceParams.mSeasonId = a.mVideoParams.obtainResolveParams().mSeasonId;
+                resolveResourceParams.mAvid = episode.getLongValue("aid");
+                resolveResourceParams.mPage = episode.getJSONObject("page").getIntValue("page");
+                resolveResourceParams.mFrom = episode.getJSONObject("page").getString("from");
+                resolveResourceParams.mVid = episode.getJSONObject("page").getString("vid");
+                resolveResourceParams.mCid = episode.getLongValue("cid");
+                resolveResourceParams.mWeb = episode.getJSONObject("page").getString("weblink");
+                resolveResourceParams.mPageTitle = episode.getString("title");
+                resolveResourceParams.mSeasonId = obtainResolveParams.mSeasonId;
                 if (i > 0) {
                     resolveResourceParams.mExpectedQuality = i;
                 } else {
-                    resolveResourceParams.mExpectedQuality = a.mVideoParams.obtainResolveParams().mExpectedQuality;
+                    resolveResourceParams.mExpectedQuality = obtainResolveParams.mExpectedQuality;
                 }
                 obtainResolveParamsArray[i3] = resolveResourceParams;
             }
@@ -163,11 +163,11 @@ public class xg {
                 resolveResourceParams.mWeb = page2.mWebLink;
                 resolveResourceParams.mHasAlias = page2.mHasAlias;
                 resolveResourceParams.mPageTitle = page2.mTitle;
-                resolveResourceParams.mSeasonId = a.mVideoParams.obtainResolveParams().mSeasonId;
+                resolveResourceParams.mSeasonId = obtainResolveParams.mSeasonId;
                 if (i > 0) {
                     resolveResourceParams.mExpectedQuality = i;
                 } else {
-                    resolveResourceParams.mExpectedQuality = a.mVideoParams.obtainResolveParams().mExpectedQuality;
+                    resolveResourceParams.mExpectedQuality = obtainResolveParams.mExpectedQuality;
                 }
                 obtainResolveParamsArray[i3] = resolveResourceParams;
             }
@@ -217,8 +217,47 @@ public class xg {
         }
         if (a.mVideoParams.mResolveParamsArray == null) {
             a.mVideoParams.mResolveParamsArray = a.mVideoParams.obtainResolveParamsArray(1);
-            a.mVideoParams.mResolveParamsArray[0] = a.mVideoParams.obtainResolveParams();
+            a.mVideoParams.mResolveParamsArray[0] = obtainResolveParams;
         }
         context.startActivity(PlayerActivity.a(context, a));
     }
+
+
+    public static void playCheese2(Context context, JSONObject cheeseInfo, JSONObject episodeInfo) {
+        PlayerParams a = aaj.a(context);
+        yr.a(a, episodeInfo.getString("cover"));
+        yr.c(a, cheeseInfo.getJSONObject("up_info").getString("uname"));
+        yr.b(a, episodeInfo.getString("title"));
+
+        ResolveResourceParams obtainResolveParams = a.mVideoParams.obtainResolveParams();
+        obtainResolveParams.mAvid = episodeInfo.getLongValue("aid");
+        obtainResolveParams.mPage = episodeInfo.getIntValue("index");
+        obtainResolveParams.mFrom = "cheese";
+        obtainResolveParams.mPageTitle = episodeInfo.getString("title");
+        obtainResolveParams.mCid = episodeInfo.getLongValue("cid");
+
+        obtainResolveParams.mSeasonId = cheeseInfo.getString("season_id");
+        obtainResolveParams.mEpisodeId = episodeInfo.getLongValue("id");
+
+        if (a.mVideoParams.mResolveParamsArray == null) {
+            int size = cheeseInfo.getJSONArray("episodes").size();
+            ResolveResourceParams[] obtainResolveParamsArray = a.mVideoParams.obtainResolveParamsArray(size);
+            for (int i = 0; i < size; i++) {
+                JSONObject episode = cheeseInfo.getJSONArray("episodes").getJSONObject(i);
+                ResolveResourceParams resolveResourceParams = new ResolveResourceParams();
+                resolveResourceParams.mAvid = episode.getLongValue("aid");
+                resolveResourceParams.mPage = episode.getIntValue("index");
+                resolveResourceParams.mFrom = "cheese";
+                resolveResourceParams.mCid = episode.getLongValue("cid");
+                resolveResourceParams.mPageTitle = episode.getString("title");
+                resolveResourceParams.mSeasonId = obtainResolveParams.mSeasonId;
+                resolveResourceParams.mEpisodeId = episode.getLongValue("id");
+                resolveResourceParams.mExpectedQuality = obtainResolveParams.mExpectedQuality;
+                obtainResolveParamsArray[i] = resolveResourceParams;
+            }
+        }
+
+        context.startActivity(PlayerActivity.a(context, a));
+    }
+
 }

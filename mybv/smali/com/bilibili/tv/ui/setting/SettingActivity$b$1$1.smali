@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 305
+    .line 308
     iput-object p1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$1$1;->this$2:Lcom/bilibili/tv/ui/setting/SettingActivity$b$1;
 
     iput-object p2, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$1$1;->val$a:Landroid/app/Activity;
@@ -44,16 +44,16 @@
     .locals 2
 
     .prologue
-    .line 308
+    .line 311
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$1$1;->val$a:Landroid/app/Activity;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lbl/abd;->a(Landroid/content/Context;Z)V
 
-    .line 309
+    .line 312
     invoke-virtual {p1}, Lbl/agb;->dismiss()V
 
-    .line 310
+    .line 313
     return-void
 .end method

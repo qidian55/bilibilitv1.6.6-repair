@@ -1504,8 +1504,8 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             }
             if (VideoDetailActivity.this.episodes_video_adapter != null) {
                 List<BiliVideoDetail> list = new ArrayList<BiliVideoDetail>();
-                for(int i=0;i<biliVideoDetail.episodes.length();i++){
-                    BiliVideoDetail t = JSON.parseObject(biliVideoDetail.episodes.optJSONObject(i).optJSONObject("arc").toString(), BiliVideoDetail.class);
+                for(int i=0;i<biliVideoDetail.episodes.size();i++){
+                    BiliVideoDetail t = JSON.parseObject(biliVideoDetail.episodes.getJSONObject(i).getJSONObject("arc").toString(), BiliVideoDetail.class);
                     t.mOwner = biliVideoDetail.mOwner;
                     list.add(t);
                 }

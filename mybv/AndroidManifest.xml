@@ -39,6 +39,7 @@
         <activity android:name="com.bilibili.tv.ui.bangumi.time.BangumiTimelineActivity" android:screenOrientation="landscape"/>
         <activity android:name="com.bilibili.tv.ui.favorite.boxlist.BoxListInfoActivity" android:screenOrientation="landscape"/>
         <activity android:name="com.bilibili.tv.ui.favorite.boxlist.BoxListInfoActivity2" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.favorite.boxlist.BoxListInfoActivity3" android:screenOrientation="landscape"/>
         <activity android:name="com.bilibili.tv.ui.bangumi.BangumiDetailInfoActivity" android:screenOrientation="landscape"/>
         <activity android:name="com.bilibili.tv.ui.bangumi.tag.BangumiTagListActivity" android:screenOrientation="landscape"/>
         <activity android:launchMode="singleTask" android:name="com.bilibili.tv.ui.bangumi.BangumiDetailActivity" android:screenOrientation="landscape"/>

@@ -85,6 +85,10 @@ public final class SplashActivity extends BaseActivity {
                 b("不得利用本项目进行非法活动；不得干扰B站正常运营；不得传播恶意软件或病毒\n🚫禁止在官方平台及官方账号区域宣传本项目\n🚫禁止在微信公众号平台宣传本项目\n🚫禁止利用本项目牟利");
                 a2.a().edit().putBoolean("hint_key2", false).apply();
                 return;
+            } else if (MainApplication.graylist_uids!=null && MainApplication.graylist_uids.contains(mg.a(MainApplication.a()).d())) {
+                b("你存在违规传播该项目情形，请及时消除影响！");
+                a2.a().edit().putBoolean("hint_key2", true).apply();
+                return;
             } else {
                 a(findViewById);
                 return;

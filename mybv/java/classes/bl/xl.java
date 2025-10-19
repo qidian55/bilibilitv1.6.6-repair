@@ -349,7 +349,7 @@ public class xl extends xh implements aaw.a, View.OnFocusChangeListener {
         this.d = new ArrayList();
         for (int i = 0; i < this.j.length; i++) {
             ResolveResourceParams resolveResourceParams = this.j[i];
-            if (b.isBangumi()) {
+            if (b.isBangumi() && resolveResourceParams.mPageIndex!=null) {
                 this.d.add(BiliBangumiSeason.getReadableIndexTitle(resolveResourceParams.mPageIndex));
             } else if (b.isTV()) {
                 this.d.add("第 " + (i + 1) + " 集");

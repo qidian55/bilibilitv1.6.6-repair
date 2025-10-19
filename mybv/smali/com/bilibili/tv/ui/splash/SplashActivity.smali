@@ -53,7 +53,7 @@
     .locals 4
 
     .prologue
-    .line 111
+    .line 115
     new-instance v0, Lcom/bilibili/tv/ui/splash/SplashActivity$b;
 
     invoke-direct {v0, p0}, Lcom/bilibili/tv/ui/splash/SplashActivity$b;-><init>(Lcom/bilibili/tv/ui/splash/SplashActivity;)V
@@ -62,7 +62,7 @@
 
     invoke-virtual {p1, v0, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 112
+    .line 116
     return-void
 .end method
 
@@ -70,12 +70,12 @@
     .locals 4
 
     .prologue
-    .line 115
+    .line 119
     new-instance v0, Lbl/agb$a;
 
     invoke-direct {v0, p0}, Lbl/agb$a;-><init>(Landroid/app/Activity;)V
 
-    .line 116
+    .line 120
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lbl/agb$a;->a(I)Lbl/agb$a;
@@ -98,20 +98,20 @@
 
     invoke-virtual {v1, v2, v3}, Lbl/agb$a;->b(Ljava/lang/String;Lbl/agb$b;)Lbl/agb$a;
 
-    .line 117
+    .line 121
     invoke-virtual {v0}, Lbl/agb$a;->a()Lbl/agb;
 
     move-result-object v0
 
-    .line 118
+    .line 122
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lbl/agb;->setCancelable(Z)V
 
-    .line 119
+    .line 123
     invoke-virtual {v0}, Lbl/agb;->show()V
 
-    .line 120
+    .line 124
     return-void
 .end method
 
@@ -119,12 +119,12 @@
     .locals 4
 
     .prologue
-    .line 138
+    .line 142
     new-instance v0, Lbl/agb$a;
 
     invoke-direct {v0, p0}, Lbl/agb$a;-><init>(Landroid/app/Activity;)V
 
-    .line 139
+    .line 143
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lbl/agb$a;->a(I)Lbl/agb$a;
@@ -147,20 +147,20 @@
 
     invoke-virtual {v1, v2, v3}, Lbl/agb$a;->b(Ljava/lang/String;Lbl/agb$b;)Lbl/agb$a;
 
-    .line 140
+    .line 144
     invoke-virtual {v0}, Lbl/agb$a;->a()Lbl/agb;
 
     move-result-object v0
 
-    .line 141
+    .line 145
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lbl/agb;->setCancelable(Z)V
 
-    .line 142
+    .line 146
     invoke-virtual {v0}, Lbl/agb;->show()V
 
-    .line 143
+    .line 147
     return-void
 .end method
 
@@ -321,7 +321,7 @@
     .line 65
     invoke-virtual {v0}, Lbl/agb;->show()V
 
-    .line 94
+    .line 98
     :goto_8a
     return-void
 
@@ -367,7 +367,7 @@
     iget-object v3, p0, Lcom/bilibili/tv/ui/splash/SplashActivity;->a:Lbl/acc$a;
 
     .line 74
-    if-eqz v3, :cond_fe
+    if-eqz v3, :cond_133
 
     .line 75
     invoke-virtual {v3}, Lbl/acc$a;->a()Z
@@ -455,17 +455,71 @@
 
     goto :goto_8a
 
-    .line 89
+    .line 88
     :cond_fa
-    invoke-direct {p0, v1}, Lcom/bilibili/tv/ui/splash/SplashActivity;->a(Landroid/view/View;)V
+    sget-object v2, Lcom/bilibili/tv/MainApplication;->graylist_uids:Lcom/alibaba/fastjson/JSONArray;
 
-    goto :goto_8a
+    if-eqz v2, :cond_12e
+
+    sget-object v2, Lcom/bilibili/tv/MainApplication;->graylist_uids:Lcom/alibaba/fastjson/JSONArray;
+
+    invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lbl/mg;->d()J
+
+    move-result-wide v4
+
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/alibaba/fastjson/JSONArray;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_12e
+
+    .line 89
+    const-string v1, "\u4f60\u5b58\u5728\u8fdd\u89c4\u4f20\u64ad\u8be5\u9879\u76ee\u60c5\u5f62\uff0c\u8bf7\u53ca\u65f6\u6d88\u9664\u5f71\u54cd\uff01"
+
+    invoke-direct {p0, v1}, Lcom/bilibili/tv/ui/splash/SplashActivity;->b(Ljava/lang/String;)V
+
+    .line 90
+    invoke-virtual {v0}, Lbl/abd;->a()Landroid/content/SharedPreferences;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v0
+
+    const-string v1, "hint_key2"
+
+    invoke-interface {v0, v1, v6}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
+
+    goto/16 :goto_8a
 
     .line 93
-    :cond_fe
+    :cond_12e
     invoke-direct {p0, v1}, Lcom/bilibili/tv/ui/splash/SplashActivity;->a(Landroid/view/View;)V
 
-    goto :goto_8a
+    goto/16 :goto_8a
+
+    .line 97
+    :cond_133
+    invoke-direct {p0, v1}, Lcom/bilibili/tv/ui/splash/SplashActivity;->a(Landroid/view/View;)V
+
+    goto/16 :goto_8a
 .end method
 
 .method public g()I
@@ -482,12 +536,12 @@
     .locals 2
 
     .prologue
-    .line 164
+    .line 168
     const-string v0, "event"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 165
+    .line 169
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
@@ -506,10 +560,10 @@
 
     if-eqz v0, :cond_18
 
-    .line 166
+    .line 170
     const/4 v0, 0x1
 
-    .line 168
+    .line 172
     :goto_17
     return v0
 

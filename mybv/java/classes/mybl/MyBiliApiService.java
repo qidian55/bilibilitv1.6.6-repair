@@ -64,6 +64,14 @@ public interface MyBiliApiService {
     @GET("/x/space/fav/season/list")
     vp<GeneralResponse<JSONObject>> getFavoriteUserSeason(@Query("season_id") long season_id, @Query("pn") int page_number, @Query("ps") int page_size);
 
+    @GET("/pugv/view/web/season")
+    vp<GeneralResponse<JSONObject>> getPugvSeason(@Query("season_id") long season_id);
+
+    @Headers("Referer: https://www.bilibili.com")
+    @GET("/pugv/app/web/favorite/page")
+    vp<GeneralResponse<JSONObject>> getFavoritePugv(@Query("pn") int page_number, @Query("ps") int page_size, @Query("mid") long mid, @Header("Cookie") String cookie);
+
+
     @GET("https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/update.json")
     vp<com.bilibili.tv.ui.upgrade.BiliUpgradeInfo> getThirdUpdateInfo();
 }

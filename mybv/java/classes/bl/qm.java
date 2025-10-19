@@ -31,8 +31,12 @@ public class qm extends py {
             if (a()) {
                 JSONObject jSONObject3 = new JSONObject(new String(this.b));
                 if(jSONObject3.optInt("code")==-351 && jSONObject3.optString("message").equals("受到神秘力量干扰，请稍后再试！")){
-                    xi.error_message="可能受限的UA："+System.getProperty("http.agent");
+                    xi.error_message = "可能受限的UA："+System.getProperty("http.agent");
                     throw new ResolveMediaSourceException("受到神秘力量干扰，请稍后再试！",-351);
+                }
+                if(jSONObject3.optInt("code")==-403){
+                    xi.error_message = jSONObject3.optString("message");
+                    throw new ResolveMediaSourceException(jSONObject3.optString("message"),-403);
                 }
                 JSONObject optJSONObject = jSONObject3.optJSONObject("data");
                 if (optJSONObject != null) {

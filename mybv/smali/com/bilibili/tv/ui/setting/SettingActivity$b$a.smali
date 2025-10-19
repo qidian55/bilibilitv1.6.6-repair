@@ -28,15 +28,15 @@
     .locals 0
 
     .prologue
-    .line 323
+    .line 326
     iput-object p1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$a;->this$1:Lcom/bilibili/tv/ui/setting/SettingActivity$b;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 324
+    .line 327
     iput-object p2, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$a;->b:Landroid/support/v7/widget/RecyclerView$v;
 
-    .line 325
+    .line 328
     return-void
 .end method
 
@@ -46,7 +46,7 @@
     .locals 3
 
     .prologue
-    .line 329
+    .line 332
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$a;->this$1:Lcom/bilibili/tv/ui/setting/SettingActivity$b;
 
     # getter for: Lcom/bilibili/tv/ui/setting/SettingActivity$b;->b:Ljava/lang/ref/WeakReference;
@@ -60,10 +60,10 @@
 
     check-cast v0, Lcom/bilibili/tv/ui/setting/SettingActivity;
 
-    .line 330
+    .line 333
     if-nez p2, :cond_25
 
-    .line 331
+    .line 334
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$a;->this$1:Lcom/bilibili/tv/ui/setting/SettingActivity$b;
 
     # getter for: Lcom/bilibili/tv/ui/setting/SettingActivity$b;->d:Z
@@ -73,30 +73,30 @@
 
     if-eqz v0, :cond_17
 
-    .line 358
+    .line 361
     :cond_16
     :goto_16
     return-void
 
-    .line 334
+    .line 337
     :cond_17
     iget-object v0, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$a;->b:Landroid/support/v7/widget/RecyclerView$v;
 
     iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$v;->a:Landroid/view/View;
 
-    .line 335
+    .line 338
     const-string v1, "holder.itemView"
 
     invoke-static {v0, v1}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 336
+    .line 339
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setSelected(Z)V
 
     goto :goto_16
 
-    .line 339
+    .line 342
     :cond_25
     if-eqz v0, :cond_16
 
@@ -119,48 +119,33 @@
 
     if-eqz v1, :cond_16
 
-    .line 342
+    .line 345
     iget-object v1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$a;->b:Landroid/support/v7/widget/RecyclerView$v;
 
     invoke-virtual {v1}, Landroid/support/v7/widget/RecyclerView$v;->f()I
 
     move-result v1
 
-    .line 343
+    .line 346
     # getter for: Lcom/bilibili/tv/ui/setting/SettingActivity;->d:Lbl/afp;
     invoke-static {v0}, Lcom/bilibili/tv/ui/setting/SettingActivity;->access$300(Lcom/bilibili/tv/ui/setting/SettingActivity;)Lbl/afp;
 
     move-result-object v2
 
-    .line 344
+    .line 347
     if-nez v2, :cond_48
 
-    .line 345
+    .line 348
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 347
+    .line 350
     :cond_48
     invoke-virtual {v2, v1}, Lbl/afp;->c(I)V
 
-    .line 348
+    .line 351
     iget-object v2, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$a;->this$1:Lcom/bilibili/tv/ui/setting/SettingActivity$b;
 
     invoke-virtual {v2, v1}, Lcom/bilibili/tv/ui/setting/SettingActivity$b;->e(I)V
-
-    .line 349
-    iget-object v1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$a;->b:Landroid/support/v7/widget/RecyclerView$v;
-
-    iget-object v1, v1, Landroid/support/v7/widget/RecyclerView$v;->a:Landroid/view/View;
-
-    .line 350
-    const-string v2, "holder.itemView"
-
-    invoke-static {v1, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 351
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->setSelected(Z)V
 
     .line 352
     iget-object v1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$a;->b:Landroid/support/v7/widget/RecyclerView$v;
@@ -168,9 +153,24 @@
     iget-object v1, v1, Landroid/support/v7/widget/RecyclerView$v;->a:Landroid/view/View;
 
     .line 353
-    if-nez v1, :cond_6b
+    const-string v2, "holder.itemView"
+
+    invoke-static {v1, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 354
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setSelected(Z)V
+
+    .line 355
+    iget-object v1, p0, Lcom/bilibili/tv/ui/setting/SettingActivity$b$a;->b:Landroid/support/v7/widget/RecyclerView$v;
+
+    iget-object v1, v1, Landroid/support/v7/widget/RecyclerView$v;->a:Landroid/view/View;
+
+    .line 356
+    if-nez v1, :cond_6b
+
+    .line 357
     new-instance v0, Lkotlin/TypeCastException;
 
     const-string v1, "null cannot be cast to non-null type com.bilibili.tv.widget.side.SideLeftSelectLinearLayout"
@@ -179,13 +179,13 @@
 
     throw v0
 
-    .line 356
+    .line 359
     :cond_6b
     check-cast v1, Lcom/bilibili/tv/widget/side/SideLeftSelectLinearLayout;
 
     invoke-virtual {v1}, Lcom/bilibili/tv/widget/side/SideLeftSelectLinearLayout;->a()V
 
-    .line 357
+    .line 360
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/ui/setting/SettingActivity;->b(I)V

@@ -503,13 +503,21 @@
 
     move-result-object v2
 
+    if-eqz v2, :cond_31
+
+    const-string v2, "dolby"
+
+    invoke-virtual {p0, v2}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v2
+
     const-string v3, "audio"
 
     invoke-virtual {v2, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v2
 
-    if-eqz v2, :cond_29
+    if-eqz v2, :cond_31
 
     const-string v2, "dolby"
 
@@ -526,14 +534,14 @@
     invoke-virtual {v1, v2}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
     .line 40
-    :cond_29
+    :cond_31
     const-string v2, "flac"
 
     invoke-virtual {p0, v2}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v2
 
-    if-eqz v2, :cond_4e
+    if-eqz v2, :cond_56
 
     const-string v2, "flac"
 
@@ -547,7 +555,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_4e
+    if-eqz v2, :cond_56
 
     const-string v2, "flac"
 
@@ -564,7 +572,7 @@
     invoke-virtual {v1, v2}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
     .line 41
-    :cond_4e
+    :cond_56
     const-string v2, "dash_video_audio"
 
     const/4 v3, -0x1
@@ -586,7 +594,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_75
+    if-eqz v1, :cond_7d
 
     const-string v1, "dash_video_264"
 
@@ -605,11 +613,11 @@
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 47
-    :goto_74
+    :goto_7c
     return-object v0
 
     .line 44
-    :cond_75
+    :cond_7d
     const-string v1, "video/av01"
 
     sget-object v2, Lbl/afm3;->prefect_codec:Ljava/lang/String;
@@ -618,7 +626,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_91
+    if-eqz v1, :cond_99
 
     const-string v1, "dash_video_264"
 
@@ -636,10 +644,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    goto :goto_74
+    goto :goto_7c
 
     .line 45
-    :cond_91
+    :cond_99
     const-string v1, "dash_video_264"
 
     const/4 v2, 0x7
@@ -656,5 +664,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    goto :goto_74
+    goto :goto_7c
 .end method

@@ -2450,6 +2450,7 @@
     <public type="id" name="tab_button5" id="0x7f080182" />
     <public type="id" name="codec_button" id="0x7f080183" />
     <public type="id" name="auto_update_checkbox" id="0x7f080184" />
+    <public type="id" name="export_button" id="0x7f080185" />
 
     <public type="integer" name="config_danmaku_fly_duration" id="0x7f090003" />
     <public type="integer" name="config_danmaku_max_danmaku_on_screen" id="0x7f090005" />

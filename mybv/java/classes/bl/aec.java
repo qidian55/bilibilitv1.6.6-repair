@@ -10,7 +10,7 @@ import com.bilibili.tv.R;
 public final class aec extends adx {
     @Override // bl.adx
     public int a() {
-        return 3;
+        return 4;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -28,6 +28,8 @@ public final class aec extends adx {
                 return aee.Companion.a();
             case 2:
                 return aed2.Companion.a();
+            case 3:
+                return aed3.Companion.a();
             default:
                 return null;
         }
@@ -41,6 +43,8 @@ public final class aec extends adx {
                 return "默认收藏";
             case 2:
                 return "订阅合集";
+            case 3:
+                return "课程收藏";
             default:
                 return "";
         }

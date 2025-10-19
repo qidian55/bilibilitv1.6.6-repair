@@ -13,7 +13,7 @@ import bl.pz;
 import bl.qa;
 import bl.qb;
 import bl.qe;
-import org.json.*;
+import com.alibaba.fastjson.*;
 import java.util.concurrent.*;
 
 /* compiled from: BL */
@@ -101,11 +101,11 @@ public class BiliVideoDetail implements Parcelable {
     @JSONField(name = "redirect_link")
     public String mRedirectLink;
     @JSONField(name = "cheese")
-    public com.alibaba.fastjson.JSONObject mCheeseInfo;
+    public JSONObject mCheeseInfo;
 
     @JSONField(name = "bangumi")
-    public void setBangumi(com.alibaba.fastjson.JSONObject mBangumiInfo){
-        this.mBangumiInfo=com.alibaba.fastjson.JSON.parseObject(mBangumiInfo.getJSONObject("season").toJSONString(), BangumiInfo.class);
+    public void setBangumi(JSONObject mBangumiInfo){
+        this.mBangumiInfo = JSON.parseObject(mBangumiInfo.getJSONObject("season").toJSONString(), BangumiInfo.class);
     }
 
     public JSONArray sections;
@@ -116,7 +116,7 @@ public class BiliVideoDetail implements Parcelable {
         public JSONObject result() {
             try {
                 if (a()) {
-                    return new JSONObject(new String(this.b));
+                    return JSON.parseObject(new String(this.b));
                 }
                 return null;
             } catch (Exception e) {
@@ -135,16 +135,16 @@ public class BiliVideoDetail implements Parcelable {
             }
         });
         try{
-            JSONObject detail_infos = future.get().optJSONObject("data");
-            this.sections = detail_infos.optJSONObject("View").optJSONObject("ugc_season").optJSONArray("sections");
-            this.season_title = detail_infos.optJSONObject("View").optJSONObject("ugc_season").optString("title");
-            for(int i=0;i<this.sections.length();i++){
+            JSONObject detail_infos = future.get().getJSONObject("data");
+            this.sections = detail_infos.getJSONObject("View").getJSONObject("ugc_season").getJSONArray("sections");
+            this.season_title = detail_infos.getJSONObject("View").getJSONObject("ugc_season").getString("title");
+            for(int i=0;i<this.sections.size();i++){
                 boolean f=false;
-                this.episodes = this.sections.optJSONObject(i).optJSONArray("episodes");
-                for(int j=0;j<this.episodes.length();j++){
-                    if(this.episodes.optJSONObject(j).optLong("aid")==this.mAvid){
+                this.episodes = this.sections.getJSONObject(i).getJSONArray("episodes");
+                for(int j=0;j<this.episodes.size();j++){
+                    if(this.episodes.getJSONObject(j).getLongValue("aid")==this.mAvid){
                         f=true;
-                        if(this.sections.length()>1)this.season_title += " - " + this.sections.optJSONObject(i).optString("title");
+                        if(this.sections.size()>1)this.season_title += " - " + this.sections.getJSONObject(i).getString("title");
                         break;
                     }
                 }

@@ -56,6 +56,7 @@ public class MainApplication extends Application {
     public avk a;
 
     public static JSONArray blacklist_uids=null;
+    public static JSONArray graylist_uids=null;
 
     public static MainApplication a() {
         return b;
@@ -131,7 +132,9 @@ public class MainApplication extends Application {
             e.printStackTrace();
         }
         try {
-            blacklist_uids = JSON.parseObject(kz.c(inputStream)).getJSONArray("uids");
+            JSONObject j = JSON.parseObject(kz.c(inputStream));
+            blacklist_uids = j.getJSONArray("uids");
+            graylist_uids = j.getJSONArray("warning_uids");
             kz.a(inputStream);
         } catch (Exception e) {
             kz.a(inputStream);

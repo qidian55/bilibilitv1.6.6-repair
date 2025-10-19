@@ -40,7 +40,7 @@
 
 
 # instance fields
-.field public episodes:Lorg/json/JSONArray;
+.field public episodes:Lcom/alibaba/fastjson/JSONArray;
 
 .field public mArcType:I
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
@@ -278,7 +278,7 @@
 
 .field public season_title:Ljava/lang/String;
 
-.field public sections:Lorg/json/JSONArray;
+.field public sections:Lcom/alibaba/fastjson/JSONArray;
 
 
 # direct methods
@@ -1263,7 +1263,7 @@
     if-gt v0, v1, :cond_16
 
     :cond_12
-    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->episodes:Lorg/json/JSONArray;
+    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->episodes:Lcom/alibaba/fastjson/JSONArray;
 
     if-eqz v0, :cond_17
 
@@ -1293,51 +1293,51 @@
 
     move-result-object v0
 
-    check-cast v0, Lorg/json/JSONObject;
+    check-cast v0, Lcom/alibaba/fastjson/JSONObject;
 
     const-string v3, "data"
 
-    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v3}, Lcom/alibaba/fastjson/JSONObject;->getJSONObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
 
     move-result-object v0
 
     .line 139
     const-string v3, "View"
 
-    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v3}, Lcom/alibaba/fastjson/JSONObject;->getJSONObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
 
     move-result-object v3
 
     const-string v4, "ugc_season"
 
-    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-virtual {v3, v4}, Lcom/alibaba/fastjson/JSONObject;->getJSONObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
 
     move-result-object v3
 
     const-string v4, "sections"
 
-    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-virtual {v3, v4}, Lcom/alibaba/fastjson/JSONObject;->getJSONArray(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONArray;
 
     move-result-object v3
 
-    iput-object v3, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->sections:Lorg/json/JSONArray;
+    iput-object v3, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->sections:Lcom/alibaba/fastjson/JSONArray;
 
     .line 140
     const-string v3, "View"
 
-    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v3}, Lcom/alibaba/fastjson/JSONObject;->getJSONObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
 
     move-result-object v0
 
     const-string v3, "ugc_season"
 
-    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v3}, Lcom/alibaba/fastjson/JSONObject;->getJSONObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
 
     move-result-object v0
 
     const-string v3, "title"
 
-    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v3}, Lcom/alibaba/fastjson/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1347,51 +1347,51 @@
 
     .line 141
     :goto_59
-    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->sections:Lorg/json/JSONArray;
+    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->sections:Lcom/alibaba/fastjson/JSONArray;
 
-    invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
+    invoke-virtual {v0}, Lcom/alibaba/fastjson/JSONArray;->size()I
 
     move-result v0
 
     if-ge v3, v0, :cond_16
 
     .line 143
-    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->sections:Lorg/json/JSONArray;
+    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->sections:Lcom/alibaba/fastjson/JSONArray;
 
-    invoke-virtual {v0, v3}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+    invoke-virtual {v0, v3}, Lcom/alibaba/fastjson/JSONArray;->getJSONObject(I)Lcom/alibaba/fastjson/JSONObject;
 
     move-result-object v0
 
     const-string v4, "episodes"
 
-    invoke-virtual {v0, v4}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-virtual {v0, v4}, Lcom/alibaba/fastjson/JSONObject;->getJSONArray(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONArray;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->episodes:Lorg/json/JSONArray;
+    iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->episodes:Lcom/alibaba/fastjson/JSONArray;
 
     move v0, v2
 
     .line 144
     :goto_70
-    iget-object v4, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->episodes:Lorg/json/JSONArray;
+    iget-object v4, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->episodes:Lcom/alibaba/fastjson/JSONArray;
 
-    invoke-virtual {v4}, Lorg/json/JSONArray;->length()I
+    invoke-virtual {v4}, Lcom/alibaba/fastjson/JSONArray;->size()I
 
     move-result v4
 
     if-ge v0, v4, :cond_cb
 
     .line 145
-    iget-object v4, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->episodes:Lorg/json/JSONArray;
+    iget-object v4, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->episodes:Lcom/alibaba/fastjson/JSONArray;
 
-    invoke-virtual {v4, v0}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+    invoke-virtual {v4, v0}, Lcom/alibaba/fastjson/JSONArray;->getJSONObject(I)Lcom/alibaba/fastjson/JSONObject;
 
     move-result-object v4
 
     const-string v5, "aid"
 
-    invoke-virtual {v4, v5}, Lorg/json/JSONObject;->optLong(Ljava/lang/String;)J
+    invoke-virtual {v4, v5}, Lcom/alibaba/fastjson/JSONObject;->getLongValue(Ljava/lang/String;)J
 
     move-result-wide v4
 
@@ -1402,9 +1402,9 @@
     if-nez v4, :cond_c0
 
     .line 147
-    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->sections:Lorg/json/JSONArray;
+    iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->sections:Lcom/alibaba/fastjson/JSONArray;
 
-    invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
+    invoke-virtual {v0}, Lcom/alibaba/fastjson/JSONArray;->size()I
 
     move-result v0
 
@@ -1426,15 +1426,15 @@
 
     move-result-object v0
 
-    iget-object v4, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->sections:Lorg/json/JSONArray;
+    iget-object v4, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail;->sections:Lcom/alibaba/fastjson/JSONArray;
 
-    invoke-virtual {v4, v3}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
+    invoke-virtual {v4, v3}, Lcom/alibaba/fastjson/JSONArray;->getJSONObject(I)Lcom/alibaba/fastjson/JSONObject;
 
     move-result-object v4
 
     const-string v5, "title"
 
-    invoke-virtual {v4, v5}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v4, v5}, Lcom/alibaba/fastjson/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 

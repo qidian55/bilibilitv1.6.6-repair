@@ -127,6 +127,52 @@
     .end annotation
 .end method
 
+.method public abstract getFavoritePugv(IIJLjava/lang/String;)Lbl/vp;
+    .param p1    # I
+        .annotation runtime Lretrofit2/http/Query;
+            value = "pn"
+        .end annotation
+    .end param
+    .param p2    # I
+        .annotation runtime Lretrofit2/http/Query;
+            value = "ps"
+        .end annotation
+    .end param
+    .param p3    # J
+        .annotation runtime Lretrofit2/http/Query;
+            value = "mid"
+        .end annotation
+    .end param
+    .param p5    # Ljava/lang/String;
+        .annotation runtime Lretrofit2/http/Header;
+            value = "Cookie"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(IIJ",
+            "Ljava/lang/String;",
+            ")",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        value = "/pugv/app/web/favorite/page"
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/Headers;
+        value = {
+            "Referer: https://www.bilibili.com"
+        }
+    .end annotation
+.end method
+
 .method public abstract getFavoriteUserSeason(JII)Lbl/vp;
     .param p1    # J
         .annotation runtime Lretrofit2/http/Query;
@@ -296,6 +342,29 @@
 
     .annotation runtime Lretrofit2/http/GET;
         value = "/pgc/page/pc/cinema/tab?is_refresh=0&cursor=0"
+    .end annotation
+.end method
+
+.method public abstract getPugvSeason(J)Lbl/vp;
+    .param p1    # J
+        .annotation runtime Lretrofit2/http/Query;
+            value = "season_id"
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(J)",
+            "Lbl/vp",
+            "<",
+            "Lcom/bilibili/okretro/GeneralResponse",
+            "<",
+            "Lcom/alibaba/fastjson/JSONObject;",
+            ">;>;"
+        }
+    .end annotation
+
+    .annotation runtime Lretrofit2/http/GET;
+        value = "/pugv/view/web/season"
     .end annotation
 .end method
 

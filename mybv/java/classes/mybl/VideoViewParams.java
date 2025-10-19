@@ -36,7 +36,7 @@ public class VideoViewParams {
     public static Bundle toBundleData(JSONObject dash) {
         Bundle bundle = new Bundle();
         JSONArray audios=dash.optJSONArray("audio");
-        if(dash.optJSONObject("dolby").optJSONObject("audio")!=null)audios.put(dash.optJSONObject("dolby").optJSONObject("audio"));
+        if(dash.optJSONObject("dolby")!=null&&dash.optJSONObject("dolby").optJSONObject("audio")!=null)audios.put(dash.optJSONObject("dolby").optJSONObject("audio"));
         if(dash.optJSONObject("flac")!=null&&dash.optJSONObject("flac").optJSONObject("audio")!=null)audios.put(dash.optJSONObject("flac").optJSONObject("audio"));
         bundle.putBundle(IjkMediaMeta.IJKM_DASH_KEY_AUDIO, filterData(-1, false, audios));
         //bundle.putBundle(IjkMediaMeta.IJKM_DASH_KEY_VIDEO_264, filterData(7, true, dash.optJSONArray("video")));
