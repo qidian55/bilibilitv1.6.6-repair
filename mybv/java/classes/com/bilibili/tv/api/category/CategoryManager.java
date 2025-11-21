@@ -76,6 +76,7 @@ public final class CategoryManager {
     public static final int T2_GAME_CENTER = 65540;
     public static final int T2_RANKING = 65638;
     public static final int T2_SEARCH = 65637;
+    public static final int T2_ELSE = 65639;
     public static final int T_ROOT = 0;
     private static String sApiVersion;
     private static final Object sFileLock;
@@ -108,6 +109,7 @@ public final class CategoryManager {
         sIconsArray.append(T1_ANIMAL, R.drawable.ic_pets_180);
         sIconsArray.append(T1_CAR, R.drawable.ic_directions_car_180);
         sIconsArray.append(T1_SPORTS, R.drawable.ic_sports_soccer_180);
+        sIconsArray.append(T2_ELSE, R.drawable.ic_more_horiz_180);
 
         sFileLock = new Object();
     }

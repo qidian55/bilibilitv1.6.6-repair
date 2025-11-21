@@ -2059,6 +2059,7 @@
     <public type="drawable" name="ic_toview_180" id="0x7f070105" />
     <public type="drawable" name="background_splash" id="0x7f070106" />
     <public type="drawable" name="ic_folder_open_180" id="0x7f070107" />
+    <public type="drawable" name="ic_more_horiz_180" id="0x7f070108" />
 
     <public type="id" name="ALT" id="0x7f080000" />
     <public type="id" name="CTRL" id="0x7f080001" />

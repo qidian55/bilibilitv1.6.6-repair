@@ -2080,6 +2080,7 @@ public final class R {
         public static final int ic_toview_180 = 0x7f070105;
         public static final int background_splash = 0x7f070106;
         public static final int ic_folder_open_180 = 0x7f070107;
+        public static final int ic_more_horiz_180 = 0x7f070108;
     }
 
     public static final class id {

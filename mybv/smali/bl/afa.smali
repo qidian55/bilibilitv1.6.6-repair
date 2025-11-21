@@ -1,6 +1,6 @@
 .class public final Lbl/afa;
 .super Lbl/adu;
-.source "BL"
+.source "afa.java"
 
 # interfaces
 .implements Lbl/aez;
@@ -10,8 +10,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lbl/afa$c;,
         Lbl/afa$b;,
+        Lbl/afa$c;,
+        Lbl/afa$d;,
         Lbl/afa$a;
     }
 .end annotation
@@ -37,6 +38,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 38
     new-instance v0, Lbl/afa$a;
 
     const/4 v1, 0x0
@@ -51,28 +54,21 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 40
+    .prologue
+    .line 37
     invoke-direct {p0}, Lbl/adu;-><init>()V
 
     return-void
 .end method
 
-.method public static final synthetic a(Lbl/afa;I)V
+.method static synthetic access$002(Lbl/afa;I)I
     .locals 0
 
-    .line 40
+    .prologue
+    .line 37
     iput p1, p0, Lbl/afa;->c:I
 
-    return-void
-.end method
-
-.method public static final synthetic e()I
-    .locals 1
-
-    .line 40
-    sget v0, Lbl/afa;->e:I
-
-    return v0
+    return p1
 .end method
 
 
@@ -80,6 +76,8 @@
 .method public a()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 47
     const-string v0, "ott-platform.area-tab.0.0.pv"
 
     return-object v0
@@ -88,105 +86,95 @@
 .method public a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
     .locals 8
 
+    .prologue
+    const/4 v4, 0x0
+
+    .line 76
     const-string v0, "recyclerView"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 56
+    .line 77
     invoke-super {p0, p1, p2}, Lbl/adu;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
 
-    const p2, 0x7f06010a
+    .line 78
+    const v0, 0x7f06010a
 
-    .line 58
-    invoke-static {p2}, Lbl/adl;->b(I)I
+    invoke-static {v0}, Lbl/adl;->b(I)I
 
-    move-result p2
+    move-result v6
 
+    .line 79
     const v0, 0x7f06014d
 
-    .line 59
+    invoke-static {v0}, Lbl/adl;->b(I)I
+
+    move-result v7
+
+    .line 80
+    const v0, 0x7f06022b
+
     invoke-static {v0}, Lbl/adl;->b(I)I
 
     move-result v0
 
-    const v1, 0x7f06022b
+    .line 81
+    invoke-virtual {p1, v0, v0, v0, v0}, Landroid/support/v7/widget/RecyclerView;->setPadding(IIII)V
 
-    .line 60
-    invoke-static {v1}, Lbl/adl;->b(I)I
-
-    move-result v1
-
-    .line 62
-    invoke-virtual {p1, v1, v1, v1, v1}, Landroid/support/v7/widget/RecyclerView;->setPadding(IIII)V
-
-    .line 63
-    new-instance v1, Lcom/bilibili/tv/ui/main/content/MainAreaFragment$onViewCreated$1;
-
+    .line 82
     invoke-virtual {p0}, Lbl/afa;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v2
 
-    move-object v4, v2
-
-    check-cast v4, Landroid/content/Context;
-
-    sget v5, Lbl/afa;->e:I
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
-
-    move-object v2, v1
-
-    move-object v3, p0
-
-    invoke-direct/range {v2 .. v7}, Lcom/bilibili/tv/ui/main/content/MainAreaFragment$onViewCreated$1;-><init>(Lbl/afa;Landroid/content/Context;IIZ)V
-
-    check-cast v1, Landroid/support/v7/widget/GridLayoutManager;
-
-    iput-object v1, p0, Lbl/afa;->a:Landroid/support/v7/widget/GridLayoutManager;
-
-    .line 84
-    new-instance v1, Lbl/afa$c;
-
-    invoke-direct {v1, p0}, Lbl/afa$c;-><init>(Lbl/afa;)V
-
-    iput-object v1, p0, Lbl/afa;->b:Lbl/afa$c;
-
-    .line 85
-    iget-object v1, p0, Lbl/afa;->a:Landroid/support/v7/widget/GridLayoutManager;
-
-    check-cast v1, Landroid/support/v7/widget/RecyclerView$h;
-
-    invoke-virtual {p1, v1}, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$h;)V
-
     .line 86
-    new-instance v1, Lbl/afa$d;
+    new-instance v0, Lbl/afa$1;
 
-    invoke-direct {v1, v0, p2}, Lbl/afa$d;-><init>(II)V
+    const/4 v3, 0x2
 
-    check-cast v1, Landroid/support/v7/widget/RecyclerView$g;
+    move-object v1, p0
 
-    invoke-virtual {p1, v1}, Landroid/support/v7/widget/RecyclerView;->a(Landroid/support/v7/widget/RecyclerView$g;)V
+    move v5, v4
 
-    const/4 p2, 0x0
+    invoke-direct/range {v0 .. v5}, Lbl/afa$1;-><init>(Lbl/afa;Landroid/content/Context;IIZ)V
 
-    .line 105
-    invoke-virtual {p1, p2}, Landroid/support/v7/widget/RecyclerView;->setFocusable(Z)V
+    iput-object v0, p0, Lbl/afa;->a:Landroid/support/v7/widget/GridLayoutManager;
 
-    .line 106
-    iget-object p2, p0, Lbl/afa;->b:Lbl/afa$c;
+    .line 110
+    new-instance v0, Lbl/afa$c;
 
-    check-cast p2, Landroid/support/v7/widget/RecyclerView$a;
+    invoke-direct {v0, p0}, Lbl/afa$c;-><init>(Lbl/afa;)V
 
-    invoke-virtual {p1, p2}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$a;)V
+    iput-object v0, p0, Lbl/afa;->b:Lbl/afa$c;
 
+    .line 111
+    iget-object v0, p0, Lbl/afa;->a:Landroid/support/v7/widget/GridLayoutManager;
+
+    invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$h;)V
+
+    .line 112
+    new-instance v0, Lbl/afa$d;
+
+    invoke-direct {v0, v7, v6}, Lbl/afa$d;-><init>(II)V
+
+    invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->a(Landroid/support/v7/widget/RecyclerView$g;)V
+
+    .line 113
+    invoke-virtual {p1, v4}, Landroid/support/v7/widget/RecyclerView;->setFocusable(Z)V
+
+    .line 114
+    iget-object v0, p0, Lbl/afa;->b:Lbl/afa$c;
+
+    invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$a;)V
+
+    .line 115
     return-void
 .end method
 
 .method public a_()Z
     .locals 1
 
+    .prologue
+    .line 52
     invoke-static {p0}, Lbl/wg;->a(Lbl/wf;)Z
 
     move-result v0
@@ -197,6 +185,8 @@
 .method public b()Landroid/os/Bundle;
     .locals 1
 
+    .prologue
+    .line 57
     const/4 v0, 0x0
 
     return-object v0
@@ -205,180 +195,212 @@
 .method public e_()Landroid/view/View;
     .locals 2
 
-    .line 132
-    iget-object v0, p0, Lbl/afa;->b:Lbl/afa$c;
+    .prologue
+    const/4 v0, 0x0
 
-    if-eqz v0, :cond_4
+    .line 184
+    iget-object v1, p0, Lbl/afa;->b:Lbl/afa$c;
 
-    iget-object v0, p0, Lbl/afa;->b:Lbl/afa$c;
+    if-nez v1, :cond_6
 
-    if-nez v0, :cond_0
+    .line 203
+    :cond_5
+    :goto_5
+    return-object v0
 
+    .line 187
+    :cond_6
+    iget-object v1, p0, Lbl/afa;->b:Lbl/afa$c;
+
+    .line 188
+    if-nez v1, :cond_d
+
+    .line 189
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_0
-    invoke-virtual {v0}, Lbl/afa$c;->a()I
+    .line 191
+    :cond_d
+    invoke-virtual {v1}, Lbl/afa$c;->a()I
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-eqz v1, :cond_5
 
-    goto :goto_0
-
-    .line 135
-    :cond_1
+    .line 194
     iget-object v0, p0, Lbl/afa;->a:Landroid/support/v7/widget/GridLayoutManager;
 
-    if-nez v0, :cond_2
+    .line 195
+    if-nez v0, :cond_1a
 
+    .line 196
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_2
+    .line 198
+    :cond_1a
     invoke-virtual {v0}, Landroid/support/v7/widget/GridLayoutManager;->o()I
 
     move-result v0
 
-    .line 136
+    .line 199
     iget-object v1, p0, Lbl/afa;->a:Landroid/support/v7/widget/GridLayoutManager;
 
-    if-nez v1, :cond_3
+    .line 200
+    if-nez v1, :cond_25
 
+    .line 201
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_3
+    .line 203
+    :cond_25
     invoke-virtual {v1, v0}, Landroid/support/v7/widget/GridLayoutManager;->c(I)Landroid/view/View;
 
     move-result-object v0
 
-    return-object v0
-
-    :cond_4
-    :goto_0
-    const/4 v0, 0x0
-
-    return-object v0
+    goto :goto_5
 .end method
 
 .method public onDestroyView()V
     .locals 1
 
-    .line 110
+    .prologue
+    .line 149
     invoke-super {p0}, Lbl/adu;->onDestroyView()V
 
+    .line 150
     const/4 v0, 0x0
 
-    .line 111
     check-cast v0, Lbl/afa$c;
 
     iput-object v0, p0, Lbl/afa;->b:Lbl/afa$c;
 
+    .line 151
     return-void
 .end method
 
 .method public onHiddenChanged(Z)V
     .locals 2
 
-    .line 263
+    .prologue
+    .line 376
     invoke-super {p0, p1}, Lbl/adu;->onHiddenChanged(Z)V
 
-    .line 264
+    .line 377
     invoke-static {}, Lbl/wh;->a()Lbl/wh;
 
-    move-result-object v0
+    move-result-object v1
 
-    move-object v1, p0
+    if-nez p1, :cond_e
 
-    check-cast v1, Landroid/support/v4/app/Fragment;
+    const/4 v0, 0x1
 
-    xor-int/lit8 p1, p1, 0x1
+    :goto_a
+    invoke-virtual {v1, p0, v0}, Lbl/wh;->a(Landroid/support/v4/app/Fragment;Z)V
 
-    invoke-virtual {v0, v1, p1}, Lbl/wh;->a(Landroid/support/v4/app/Fragment;Z)V
-
+    .line 378
     return-void
+
+    .line 377
+    :cond_e
+    const/4 v0, 0x0
+
+    goto :goto_a
 .end method
 
 .method public setUserVisibleHint(Z)V
-    .locals 2
+    .locals 3
 
-    .line 115
+    .prologue
+    .line 155
     invoke-super {p0, p1}, Lbl/adu;->setUserVisibleHint(Z)V
 
-    if-eqz p1, :cond_4
+    .line 156
+    if-eqz p1, :cond_1b
 
-    .line 117
+    .line 157
     invoke-virtual {p0}, Lbl/afa;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    move-result-object p1
-
-    if-nez p1, :cond_0
-
-    new-instance p1, Lkotlin/TypeCastException;
-
-    const-string v0, "null cannot be cast to non-null type com.bilibili.tv.ui.main.MainActivity"
-
-    invoke-direct {p1, v0}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    :cond_0
-    check-cast p1, Lcom/bilibili/tv/ui/main/MainActivity;
-
-    .line 118
-    invoke-virtual {p0}, Lbl/afa;->d()Landroid/support/v7/widget/RecyclerView;
-
     move-result-object v0
 
-    if-nez v0, :cond_1
+    .line 158
+    if-nez v0, :cond_13
 
+    .line 159
+    new-instance v0, Lkotlin/TypeCastException;
+
+    const-string v1, "null cannot be cast to non-null type com.bilibili.tv.ui.main.MainActivity"
+
+    invoke-direct {v0, v1}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 161
+    :cond_13
+    check-cast v0, Lcom/bilibili/tv/ui/main/MainActivity;
+
+    .line 162
+    invoke-virtual {p0}, Lbl/afa;->d()Landroid/support/v7/widget/RecyclerView;
+
+    move-result-object v1
+
+    if-nez v1, :cond_1c
+
+    .line 180
+    :cond_1b
+    :goto_1b
     return-void
 
-    .line 121
-    :cond_1
+    .line 165
+    :cond_1c
     invoke-virtual {p0}, Lbl/afa;->d()Landroid/support/v7/widget/RecyclerView;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_2
+    .line 166
+    if-nez v1, :cond_25
 
+    .line 167
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_2
-    iget v1, p0, Lbl/afa;->c:I
+    .line 169
+    :cond_25
+    iget v2, p0, Lbl/afa;->c:I
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->a(I)V
+    invoke-virtual {v1, v2}, Landroid/support/v7/widget/RecyclerView;->a(I)V
 
-    .line 122
+    .line 170
     invoke-virtual {p0}, Lbl/afa;->d()Landroid/support/v7/widget/RecyclerView;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_3
+    .line 171
+    if-nez v1, :cond_33
 
+    .line 172
     invoke-static {}, Lbl/bbi;->a()V
 
-    :cond_3
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->getLayoutManager()Landroid/support/v7/widget/RecyclerView$h;
+    .line 174
+    :cond_33
+    invoke-virtual {v1}, Landroid/support/v7/widget/RecyclerView;->getLayoutManager()Landroid/support/v7/widget/RecyclerView$h;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget v1, p0, Lbl/afa;->c:I
+    iget v2, p0, Lbl/afa;->c:I
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView$h;->c(I)Landroid/view/View;
+    invoke-virtual {v1, v2}, Landroid/support/v7/widget/RecyclerView$h;->c(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_4
+    .line 175
+    if-eqz v1, :cond_1b
 
-    .line 123
-    invoke-virtual {p1}, Lcom/bilibili/tv/ui/main/MainActivity;->h()Z
+    invoke-virtual {v0}, Lcom/bilibili/tv/ui/main/MainActivity;->h()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_4
+    if-eqz v0, :cond_1b
 
-    .line 124
-    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
+    .line 178
+    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
 
-    :cond_4
-    return-void
+    goto :goto_1b
 .end method

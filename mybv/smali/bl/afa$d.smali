@@ -1,110 +1,112 @@
 .class public final Lbl/afa$d;
 .super Landroid/support/v7/widget/RecyclerView$g;
-.source "BL"
+.source "afa.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lbl/afa;->a(Landroid/support/v7/widget/RecyclerView;Landroid/os/Bundle;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lbl/afa;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x19
-    name = null
+    name = "d"
 .end annotation
 
 
 # instance fields
-.field final synthetic a:I
+.field final a:I
 
-.field final synthetic b:I
+.field final b:I
 
 
 # direct methods
 .method constructor <init>(II)V
     .locals 0
 
-    .line 86
-    iput p1, p0, Lbl/afa$d;->a:I
-
-    iput p2, p0, Lbl/afa$d;->b:I
-
+    .prologue
+    .line 122
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$g;-><init>()V
 
+    .line 123
+    iput p1, p0, Lbl/afa$d;->a:I
+
+    .line 124
+    iput p2, p0, Lbl/afa$d;->b:I
+
+    .line 125
     return-void
 .end method
 
 
 # virtual methods
 .method public a(Landroid/graphics/Rect;Landroid/view/View;Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$s;)V
-    .locals 1
+    .locals 4
 
-    const-string p4, "outRect"
+    .prologue
+    const/4 v1, 0x0
 
-    invoke-static {p1, p4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    .line 131
+    const-string v0, "outRect"
 
-    const-string p4, "view"
+    invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p2, p4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    .line 132
+    const-string v0, "view"
 
-    const-string p4, "parent"
+    invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p3, p4}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+    .line 133
+    const-string v0, "parent"
 
-    .line 88
+    invoke-static {p3, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 134
     invoke-virtual {p3, p2}, Landroid/support/v7/widget/RecyclerView;->f(Landroid/view/View;)I
 
-    move-result p2
+    move-result v2
 
-    .line 94
-    invoke-static {}, Lbl/afa;->e()I
+    .line 135
+    const/4 v0, 0x2
 
-    move-result p3
+    if-lt v2, v0, :cond_26
 
-    const/4 p4, 0x0
+    iget v0, p0, Lbl/afa$d;->a:I
 
-    if-lt p2, p3, :cond_0
+    .line 136
+    :goto_19
+    rem-int/lit8 v2, v2, 0x2
 
-    .line 95
-    iget p3, p0, Lbl/afa$d;->a:I
+    if-nez v2, :cond_28
 
-    goto :goto_0
+    .line 137
+    iget v2, p0, Lbl/afa$d;->b:I
 
-    :cond_0
-    const/4 p3, 0x0
+    div-int/lit8 v2, v2, 0x2
 
-    .line 97
-    :goto_0
-    invoke-static {}, Lbl/afa;->e()I
+    move v3, v1
 
-    move-result v0
+    .line 143
+    :goto_22
+    invoke-virtual {p1, v0, v3, v1, v2}, Landroid/graphics/Rect;->set(IIII)V
 
-    rem-int/2addr p2, v0
-
-    if-nez p2, :cond_1
-
-    .line 98
-    iget p2, p0, Lbl/afa$d;->b:I
-
-    div-int/lit8 p2, p2, 0x2
-
-    move v0, p2
-
-    const/4 p2, 0x0
-
-    goto :goto_1
-
-    .line 100
-    :cond_1
-    iget p2, p0, Lbl/afa$d;->b:I
-
-    div-int/lit8 p2, p2, 0x2
-
-    const/4 v0, 0x0
-
-    .line 102
-    :goto_1
-    invoke-virtual {p1, p3, p2, p4, v0}, Landroid/graphics/Rect;->set(IIII)V
-
+    .line 144
     return-void
+
+    :cond_26
+    move v0, v1
+
+    .line 135
+    goto :goto_19
+
+    .line 140
+    :cond_28
+    iget v2, p0, Lbl/afa$d;->b:I
+
+    div-int/lit8 v3, v2, 0x2
+
+    move v2, v1
+
+    .line 141
+    goto :goto_22
 .end method

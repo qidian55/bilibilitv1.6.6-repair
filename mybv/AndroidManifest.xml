@@ -48,6 +48,7 @@
         <activity android:name="com.bilibili.tv.ui.video.VideoDetailInfoActivity" android:screenOrientation="landscape"/>
         <activity android:name="com.bilibili.tv.ui.video.VideoMoreEpisodeActivity" android:screenOrientation="landscape"/>
         <activity android:name="com.bilibili.tv.ui.ranking.RankingActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.bilibili.tv.ui.ranking.ElseActivity" android:screenOrientation="landscape"/>
         <activity android:name="com.bilibili.tv.ui.setting.SettingActivity" android:screenOrientation="landscape"/>
         <activity android:name="com.bilibili.tv.ui.area.AreaActivity" android:screenOrientation="landscape"/>
         <activity android:name="com.bilibili.tv.ui.video.tag.VideoTagSearchActivity" android:screenOrientation="landscape"/>

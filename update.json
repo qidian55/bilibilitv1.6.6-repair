@@ -1,12 +1,12 @@
 {
-    "apkMd5":"f864d3eacd8d9da9857f3c49c7e946cf",
+    "apkMd5":"6efa80c69b16921f4c374f1307a50e83",
     "apkUrl":"https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/mybv.apk",
-    "fileSize":8279947,
+    "fileSize":8288234,
     "id":"",
-    "newFeature":"完善用户黑名单机制\n完善“我的收藏”\n测试性功能——日志收集",
+    "newFeature":"增加部分分区",
     "publishTime":0,
     "title":"New",
     "upgradeType":1,
     "versionCode":1606,
-    "versionName":"1.6.6.20251019"
+    "versionName":"1.6.6.20251121"
 }

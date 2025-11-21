@@ -71,6 +71,15 @@ public interface MyBiliApiService {
     @GET("/pugv/app/web/favorite/page")
     vp<GeneralResponse<JSONObject>> getFavoritePugv(@Query("pn") int page_number, @Query("ps") int page_size, @Query("mid") long mid, @Header("Cookie") String cookie);
 
+    @GET("/x/web-interface/popular")
+    vp<GeneralResponse<JSONObject>> getPopular(@Query("pn") int page_number, @Query("ps") int page_size);
+
+    @Headers("Cookie: buvid3=00000000-0000-0000-0000-00000000000000000infoc")
+    @GET("/x/web-interface/popular/series/one")
+    vp<GeneralResponse<JSONObject>> getWeeklyPrecious(@Query("number") long number);
+
+    @GET("/x/web-interface/popular/precious?page_size=100&page=1")
+    vp<GeneralResponse<JSONObject>> getPopularPrecious();
 
     @GET("https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/update.json")
     vp<com.bilibili.tv.ui.upgrade.BiliUpgradeInfo> getThirdUpdateInfo();
