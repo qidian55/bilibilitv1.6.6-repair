@@ -1,0 +1,1106 @@
+package tv.danmaku.videoplayer.core.videoview;
+
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.net.Uri;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
+import bl.att;
+import java.io.IOException;
+import java.util.Locale;
+import tv.danmaku.android.log.BLog;
+import tv.danmaku.ijk.media.player.IMediaPlayer;
+import tv.danmaku.ijk.media.player.MediaPlayerProxy;
+import tv.danmaku.media.tencent.SimpleMediaPlayer2;
+import tv.danmaku.videoplayer.core.android.utils.DeviceUtils;
+import tv.danmaku.videoplayer.core.commander.Commands;
+import tv.danmaku.videoplayer.core.commander.IPlayerCommander;
+import tv.danmaku.videoplayer.core.commander.PlayerCommander;
+import tv.danmaku.videoplayer.core.media.IMediaPlayerFactory;
+import tv.danmaku.videoplayer.core.media.MediaInfoHolder;
+import tv.danmaku.videoplayer.core.media.PlayerProxyUtils;
+import tv.danmaku.videoplayer.core.media.PlayerReleaseEventManager;
+import tv.danmaku.videoplayer.core.media.TextureMediaPlayer;
+import tv.danmaku.videoplayer.core.media.mediacenter.IPlayerLifecycleMonitor;
+import tv.danmaku.videoplayer.core.media.mediacenter.MediaCenter;
+import tv.danmaku.videoplayer.core.media.resource.PlayerConfig;
+import tv.danmaku.videoplayer.core.videoview.IVideoView;
+
+/* compiled from: BL */
+/* loaded from: classes.dex */
+public class BaseVideoView implements IVideoView {
+    public static final int ERROR_CREATE_MEDIA_PLAYER = 20234;
+    public static final int ERROR_CREATE_VIDEO_VIEW = 20233;
+    public static final int INFO_EXTRA_INVOKE_BY_USER = -1;
+
+    public int rotation_type = 0;
+    public int reflection_type = 1;
+
+    private AspectRatio mAspectRatio;
+    private boolean mAspectRatioChanged;
+    private int mCurrentBufferPercentage;
+    private long mDuration;
+    private IVideoView.OnExtraInfoListener mExtraInfoListener;
+    private boolean mIsPlayerReported;
+    private long mLastPosition;
+    private IMediaPlayerFactory mMediaPlayerFactory;
+    private IMediaPlayer.OnCompletionListener mOnCompletionListener;
+    private IMediaPlayer.OnErrorListener mOnErrorListener;
+    private IMediaPlayer.OnInfoListener mOnInfoListener;
+    private IMediaPlayer.OnPreparedListener mOnPreparedListener;
+    private IVideoView.OnPreparedStepListener mOnPreparedStepListener;
+    private IVideoView.OnVideoDefnChangedListener mOnVideoDefnChangedListener;
+    private IVideoView.OnVideoSizeChangedListener mOnVideoSizeChangedListener;
+    private int mParentHeight;
+    private int mParentWidth;
+    private IPlayerCommander mPlayer;
+    private boolean mReleaseLast;
+    private boolean mResuming;
+    private Runnable mResumingRunnable;
+    private IMediaPlayer.OnSeekCompleteListener mSeekCompleteListener;
+    private int mSeekWhenPrepared;
+    private int mSession;
+    private int mSurfaceHeight;
+    private int mSurfaceWidth;
+    private Uri mUri;
+    private int mVideoHeight;
+    private IVideoParams mVideoParams;
+    private int mVideoSarDen;
+    private int mVideoSarNum;
+    private ViewGroup mVideoViewParent;
+    private int mVideoWidth;
+    private String TAG = "BaseVideoView";
+    private IVideoViewController mVideoView = null;
+    private Context mContext = null;
+    private int mCurrentState = 0;
+    private int mTargetState = 0;
+    private PlayerConfig mCodecConfig = new PlayerConfig();
+    private int mVideoViewType = 2;
+    private boolean mPlayerStateChangedByOthers = false;
+    private boolean mIsPrepared = false;
+    private Point mVideoSize = new Point();
+    private IPlayerLifecycleMonitor mPlayerStateChangedListener = new IPlayerLifecycleMonitor() { // from class: tv.danmaku.videoplayer.core.videoview.BaseVideoView.1
+        @Override // tv.danmaku.videoplayer.core.media.mediacenter.IPlayerLifecycleMonitor
+        public void onEvent(int i, Object... objArr) {
+            if (i != 30235) {
+                switch (i) {
+                    case 1:
+                        if (BaseVideoView.this.mPlayer != null && !BaseVideoView.this.isPlaybackCompleted()) {
+                            BaseVideoView.this.mSeekWhenPrepared = (int) BaseVideoView.this.mPlayer.getCurrentPosition();
+                        }
+                        BaseVideoView.this.mPlayerStateChangedByOthers = true;
+                        BaseVideoView.this.release(true);
+                        PlayerReleaseEventManager.getInstance().unregister(BaseVideoView.this.mSession);
+                        break;
+                    case 2:
+                        BLog.i(BaseVideoView.this.TAG, "MediaPlayer is reset by others.");
+                        BLog.i(PlayerReleaseEventManager.TAG, String.format(Locale.getDefault(), "unregister when player reset : %d", Integer.valueOf(BaseVideoView.this.mSession)));
+                        break;
+                    case 3:
+                        if (BaseVideoView.this.mPlayer != null && !BaseVideoView.this.isPlaybackCompleted()) {
+                            BaseVideoView.this.mSeekWhenPrepared = (int) BaseVideoView.this.mPlayer.getCurrentPosition();
+                            break;
+                        }
+                        break;
+                    case 4:
+                        BaseVideoView.this.release(true);
+                        PlayerReleaseEventManager.getInstance().unregister(BaseVideoView.this.mSession);
+                        BaseVideoView.this.mPlayerStateChangedByOthers = true;
+                        BLog.i(BaseVideoView.this.TAG, "MediaPlayer is released by others.");
+                        BLog.i(PlayerReleaseEventManager.TAG, String.format(Locale.getDefault(), "unregister when player released : %d", Integer.valueOf(BaseVideoView.this.mSession)));
+                        break;
+                }
+            }
+            if (BaseVideoView.this.isPlaying()) {
+                BaseVideoView.this.pause();
+            }
+        }
+    };
+    private PlayerReleaseEventManager.OnEventListener mOnEventListener = new PlayerReleaseEventManager.OnEventListener() { // from class: tv.danmaku.videoplayer.core.videoview.BaseVideoView.2
+        @Override // tv.danmaku.videoplayer.core.media.PlayerReleaseEventManager.OnEventListener
+        public void onWillShutDown(IMediaPlayer iMediaPlayer) {
+            if (BaseVideoView.this.mExtraInfoListener != null) {
+                BaseVideoView.this.mExtraInfoListener.onExtraInfo(IVideoView.OnExtraInfoListener.WILL_PLAYER_SHUT_DOWN, iMediaPlayer);
+            }
+        }
+
+        @Override // tv.danmaku.videoplayer.core.media.PlayerReleaseEventManager.OnEventListener
+        public void onDidShutDown(IMediaPlayer iMediaPlayer) {
+            if (BaseVideoView.this.mExtraInfoListener != null) {
+                BaseVideoView.this.mExtraInfoListener.onExtraInfo(IVideoView.OnExtraInfoListener.DID_PLAYER_SHUT_DOWN, iMediaPlayer);
+            }
+        }
+    };
+
+    private Runnable createResumingRunnable() {
+        return new Runnable() { // from class: tv.danmaku.videoplayer.core.videoview.BaseVideoView.3
+            @Override // java.lang.Runnable
+            public void run() {
+                BaseVideoView.this.mResuming = false;
+            }
+        };
+    }
+
+    private Runnable run0 = new Runnable() { // from class: tv.danmaku.videoplayer.core.videoview.BaseVideoView.4
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        BaseVideoView.this.openVideo(false);
+                    }
+                };
+
+    private IVideoViewProxy mProxy = new AbsVideoViewProxy() { // from class: tv.danmaku.videoplayer.core.videoview.BaseVideoView.5
+        @Override // tv.danmaku.videoplayer.core.videoview.IVideoViewProxy
+        public void onInitVideoView() {
+            if (BaseVideoView.this.isInPlaybackState()) {
+                return;
+            }
+            BaseVideoView.this.mCurrentState = 0;
+            BaseVideoView.this.mTargetState = 0;
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:18:0x008a, code lost:
+        
+            if (r2 > r5) goto L23;
+         */
+        @Override // tv.danmaku.videoplayer.core.videoview.IVideoViewProxy
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onMeasure(int i, int i2, Rect rect) {
+            int width = View.getDefaultSize(BaseVideoView.this.mVideoWidth, i);
+            int height = View.getDefaultSize(BaseVideoView.this.mVideoHeight, i2);
+            if (BaseVideoView.this.mVideoWidth > 0 && BaseVideoView.this.mVideoHeight > 0) {
+                int mode = View.MeasureSpec.getMode(i);
+                int size = View.MeasureSpec.getSize(i);
+                int mode2 = View.MeasureSpec.getMode(i2);
+                int size2 = View.MeasureSpec.getSize(i2);
+                float f = size;
+                float f2 = size2;
+                float f3 = f / f2;
+                float videoRatio = BaseVideoView.this.getVideoRatio(BaseVideoView.this.mAspectRatio, f3);
+                if (mode == 1073741824 && mode2 == 1073741824) {
+                    if (videoRatio != f3) {
+                        BLog.ifmt(BaseVideoView.this.TAG, "onMeasure(): image size incorrect %dx%d", Integer.valueOf(size), Integer.valueOf(size2));
+                        Point videoSizeByRatio = BaseVideoView.this.getVideoSizeByRatio(f3, videoRatio, size, size2);
+                        width = videoSizeByRatio.x;
+                        height = videoSizeByRatio.y;
+                    } else {
+                        width = size;
+                        height = size2;
+                    }
+                } else if (mode == 1073741824) {
+                    int i3 = (int) (f / videoRatio);
+                    if (mode2 == Integer.MIN_VALUE && i3 > size2) {
+                        width = size;
+                        height = size2;
+                    } else {
+                        height = i3;
+                        width = size;
+                    }
+                } else if (mode2 == 1073741824) {
+                    int i5 = (int) (f2 * videoRatio);
+                    if (mode == Integer.MIN_VALUE && i5 > size) {
+                        width = size;
+                        height = size2;
+                    } else {
+                        width = i5;
+                        height = size2;
+                    }
+                } else {
+                    int videoWidth = BaseVideoView.this.mVideoWidth;
+                    int videoHeight = BaseVideoView.this.mVideoHeight;
+                    if (mode2 == Integer.MIN_VALUE && videoHeight > size2) {
+                        videoWidth = (int) (f2 * videoRatio);
+                        videoHeight = size2;
+                    }
+                    if (mode == Integer.MIN_VALUE && videoWidth > size) {
+                        videoHeight = (int) (f / videoRatio);
+                        videoWidth = size;
+                    }
+                    width = videoWidth;
+                    height = videoHeight;
+                }
+                BLog.ifmt(BaseVideoView.this.TAG, "onMeasure(): Video: %dx%dx%2f, Window: %dx%dx%2f, Measured: %dx%d", Integer.valueOf(BaseVideoView.this.mVideoWidth), Integer.valueOf(BaseVideoView.this.mVideoHeight), Float.valueOf(videoRatio), Integer.valueOf(size), Integer.valueOf(size2), Float.valueOf(f3), Integer.valueOf(width), Integer.valueOf(height));
+            }
+            rect.right = width;
+            rect.bottom = height;
+            try {
+                if (BaseVideoView.this.mPlayer != null && (BaseVideoView.this.mVideoView instanceof TextureVideoView)) {
+                    BaseVideoView.this.mVideoView.onBindDisplayTarget(BaseVideoView.this.mPlayer.getPlayer());
+                }
+                if (BaseVideoView.this.mVideoView instanceof SurfaceVideoView) {
+                    BaseVideoView.this.mVideoView.onChangeSurfaceSize(rect.right, rect.bottom);
+                }
+            } catch (IllegalStateException unused) {
+            }
+        }
+
+        @Override // tv.danmaku.videoplayer.core.videoview.IVideoViewProxy
+        public void onDisplayTargetAvailable(int i, Object obj) {
+            BLog.i(BaseVideoView.this.TAG, "onDisplayTargetAvailable, type=" + i);
+            if (BaseVideoView.this.mPlayer == null || BaseVideoView.this.mVideoView == null) {
+                return;
+            }
+            BaseVideoView.this.mVideoView.onBindDisplayTarget(BaseVideoView.this.mPlayer.getPlayer());
+        }
+
+        @Override // tv.danmaku.videoplayer.core.videoview.IVideoViewProxy
+        public void onDisplayTargetSizeChanged(int i, Object obj, int i2, int i3) {
+            BLog.i(BaseVideoView.this.TAG, "onDisplayTargetSizeChanged, type=" + i + ", w=" + i2 + ", h=" + i3);
+            if (obj == null) {
+                return;
+            }
+            BaseVideoView.this.mSurfaceWidth = i2;
+            BaseVideoView.this.mSurfaceHeight = i3;
+            if (BaseVideoView.this.mPlayer != null) {
+                try {
+                    BaseVideoView.this.resetSurfaceHolderType();
+                    if (i2 > 0 && i3 > 0 && BaseVideoView.this.mVideoView != null) {
+                        BaseVideoView.this.mVideoView.onChangeSurfaceSize(i2, i3);
+                        if (BaseVideoView.this.mVideoView instanceof GLVideoView) {
+                            GLVideoView gLVideoView = (GLVideoView) BaseVideoView.this.mVideoView;
+                            if (BaseVideoView.this.mVideoWidth != gLVideoView.getVideoWidth() || BaseVideoView.this.mVideoHeight != gLVideoView.getVideoHeight()) {
+                                BaseVideoView.this.mVideoView.onChangeVideoSize(BaseVideoView.this.mVideoWidth, BaseVideoView.this.mVideoHeight);
+                            }
+                        }
+                    }
+                } catch (IllegalArgumentException e) {
+                    BLog.e(BaseVideoView.this.TAG, "onBindDisplayTarget", e);
+                } catch (IllegalStateException e2) {
+                    BLog.e(BaseVideoView.this.TAG, "onBindDisplayTarget", e2);
+                }
+            }
+            boolean z = false;
+            boolean z2 = BaseVideoView.this.mTargetState == 3;
+            if (BaseVideoView.this.mVideoWidth == i2 && BaseVideoView.this.mVideoHeight == i3) {
+                z = true;
+            }
+            if (BaseVideoView.this.mPlayer != null && z2 && z) {
+                if (BaseVideoView.this.mSeekWhenPrepared != 0) {
+                    BaseVideoView.this.seekTo(BaseVideoView.this.mSeekWhenPrepared);
+                }
+                BaseVideoView.this.start();
+            }
+        }
+
+        @Override // tv.danmaku.videoplayer.core.videoview.IVideoViewProxy
+        public void onDisplayTargetDestroyed(int i, Object obj) {
+            BLog.i(BaseVideoView.this.TAG, "onDisplayTargetDestroyed, type=" + i);
+            if (BaseVideoView.this.mVideoView != null) {
+                BaseVideoView.this.mVideoView.onReleaseSurface(BaseVideoView.this.mPlayer);
+            }
+        }
+    };
+    IMediaPlayer.OnVideoSizeChangedListener mSizeChangedListener = new IMediaPlayer.OnVideoSizeChangedListener() { // from class: tv.danmaku.videoplayer.core.videoview.BaseVideoView.6
+        @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnVideoSizeChangedListener
+        public void onVideoSizeChanged(IMediaPlayer iMediaPlayer, int i, int i2, int i3, int i4) {
+            int videoWidth = iMediaPlayer.getVideoWidth();
+            int videoHeight = iMediaPlayer.getVideoHeight();
+            int videoSarNum = iMediaPlayer.getVideoSarNum();
+            int videoSarDen = iMediaPlayer.getVideoSarDen();
+            if (videoWidth > 0) {
+                BaseVideoView.this.mVideoWidth = videoWidth;
+            }
+            if (videoHeight > 0) {
+                BaseVideoView.this.mVideoHeight = videoHeight;
+            }
+            if (videoSarNum > 0) {
+                BaseVideoView.this.mVideoSarNum = videoSarNum;
+            }
+            if (videoSarDen > 0) {
+                BaseVideoView.this.mVideoSarDen = videoSarDen;
+            }
+            BLog.ifmt(BaseVideoView.this.TAG, "onVideoSizeChanged(%dx%d, [SAR %d:%d]", Integer.valueOf(BaseVideoView.this.mVideoWidth), Integer.valueOf(BaseVideoView.this.mVideoHeight), Integer.valueOf(BaseVideoView.this.mVideoSarNum), Integer.valueOf(BaseVideoView.this.mVideoSarDen));
+            if (BaseVideoView.this.mVideoView != null && BaseVideoView.this.mVideoWidth != 0 && BaseVideoView.this.mVideoHeight != 0) {
+                BaseVideoView.this.mVideoView.onChangeVideoSize(BaseVideoView.this.mVideoWidth, BaseVideoView.this.mVideoHeight);
+                if (BaseVideoView.this.mVideoView.getView() != null) {
+                    BaseVideoView.this.mVideoView.getView().requestLayout();
+                }
+            }
+            if (BaseVideoView.this.mOnVideoSizeChangedListener != null) {
+                BaseVideoView.this.mOnVideoSizeChangedListener.onVideoSizeChanged(i, i2, i3, i4);
+            }
+        }
+    };
+    IMediaPlayer.OnPreparedListener mPreparedListener = new IMediaPlayer.OnPreparedListener() { // from class: tv.danmaku.videoplayer.core.videoview.BaseVideoView.7
+        @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnPreparedListener
+        public void onPrepared(IMediaPlayer iMediaPlayer) {
+            BaseVideoView.this.mCurrentState = 2;
+            BaseVideoView.this.mIsPrepared = true;
+            if (BaseVideoView.this.mOnPreparedStepListener != null) {
+                BaseVideoView.this.mOnPreparedStepListener.onPreparedSuccess();
+            }
+            int videoWidth = iMediaPlayer.getVideoWidth();
+            int videoHeight = iMediaPlayer.getVideoHeight();
+            int videoSarNum = iMediaPlayer.getVideoSarNum();
+            int videoSarDen = iMediaPlayer.getVideoSarDen();
+            if (videoWidth > 0) {
+                BaseVideoView.this.mVideoWidth = videoWidth;
+            }
+            if (videoHeight > 0) {
+                BaseVideoView.this.mVideoHeight = videoHeight;
+            }
+            if (videoSarNum > 0) {
+                BaseVideoView.this.mVideoSarNum = videoSarNum;
+            }
+            if (videoSarDen > 0) {
+                BaseVideoView.this.mVideoSarDen = videoSarDen;
+            }
+            if (BaseVideoView.this.mVideoView != null && videoWidth != 0 && videoHeight != 0) {
+                BaseVideoView.this.mVideoView.onChangeSurfaceSize(videoWidth, videoHeight);
+                if (BaseVideoView.this.mVideoView.getView() != null) {
+                    BaseVideoView.this.mVideoView.getView().requestLayout();
+                }
+            }
+            if (BaseVideoView.this.mOnPreparedListener != null) {
+                BaseVideoView.this.mOnPreparedListener.onPrepared(iMediaPlayer);
+            }
+            int i = BaseVideoView.this.mSeekWhenPrepared;
+            if (i != 0) {
+                BaseVideoView.this.seekTo(i);
+                BaseVideoView.this.mSeekWhenPrepared = 0;
+            }
+            if (BaseVideoView.this.mTargetState == 4) {
+                BaseVideoView.this.pause();
+            }
+        }
+    };
+    private IMediaPlayer.OnCompletionListener mCompletionListener = new IMediaPlayer.OnCompletionListener() { // from class: tv.danmaku.videoplayer.core.videoview.BaseVideoView.8
+        @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnCompletionListener
+        public void onCompletion(IMediaPlayer iMediaPlayer) {
+            try {
+                BaseVideoView.this.mLastPosition = iMediaPlayer.getCurrentPosition();
+                BaseVideoView.this.mCurrentState = 5;
+                BaseVideoView.this.mTargetState = 5;
+                if (BaseVideoView.this.mVideoView != null) {
+                    BaseVideoView.this.mVideoView.onSetKeepScreenOn(false);
+                }
+                if (BaseVideoView.this.mOnCompletionListener != null) {
+                    BaseVideoView.this.mOnCompletionListener.onCompletion(iMediaPlayer);
+                }
+            } catch (Exception e) {
+                BLog.e(BaseVideoView.this.TAG, e);
+            }
+        }
+    };
+    private IMediaPlayer.OnErrorListener mErrorListener = new IMediaPlayer.OnErrorListener() { // from class: tv.danmaku.videoplayer.core.videoview.BaseVideoView.9
+        @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnErrorListener
+        @SuppressLint({"InlinedApi"})
+        public boolean onError(IMediaPlayer iMediaPlayer, int i, int i2) {
+            if (iMediaPlayer != null) {
+                BaseVideoView.this.mLastPosition = iMediaPlayer.getCurrentPosition();
+            }
+            BLog.i(BaseVideoView.this.TAG, "Error: " + i + "," + i2);
+            BaseVideoView.this.mCurrentState = -1;
+            BaseVideoView.this.mTargetState = -1;
+            IMediaPlayer internalMediaPlayer = iMediaPlayer instanceof MediaPlayerProxy ? ((MediaPlayerProxy) iMediaPlayer).getInternalMediaPlayer() : iMediaPlayer;
+            BaseVideoView.this.detachVideoView();
+            if (BaseVideoView.this.mOnPreparedStepListener != null) {
+                BaseVideoView.this.mOnPreparedStepListener.onPreparedFailed(BaseVideoView.this.mCodecConfig, i, i2);
+            }
+            boolean z = BaseVideoView.this.mOnErrorListener != null && BaseVideoView.this.mOnErrorListener.onError(iMediaPlayer, i, i2);
+            BaseVideoView.this.mMediaPlayerFactory.onError(internalMediaPlayer, i, i2);
+            return z;
+        }
+    };
+    private IMediaPlayer.OnBufferingUpdateListener mBufferingUpdateListener = new IMediaPlayer.OnBufferingUpdateListener() { // from class: tv.danmaku.videoplayer.core.videoview.BaseVideoView.10
+        @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnBufferingUpdateListener
+        public void onBufferingUpdate(IMediaPlayer iMediaPlayer, int i) {
+            BaseVideoView.this.mCurrentBufferPercentage = i;
+        }
+    };
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setSpeed(float f) {
+        if (this.mPlayer != null) {
+            this.mPlayer.setSpeed(f);
+        }
+    }
+
+    public BaseVideoView(IVideoParams iVideoParams, IMediaPlayerFactory iMediaPlayerFactory, int i, int i2, AspectRatio aspectRatio, int i3) {
+        this.mAspectRatio = AspectRatio.RATIO_ADJUST_CONTENT;
+        this.mParentWidth = -1;
+        this.mParentHeight = -1;
+        this.mVideoParams = iVideoParams;
+        this.mParentWidth = i;
+        this.mParentHeight = i2;
+        this.mAspectRatio = aspectRatio;
+        this.mMediaPlayerFactory = iMediaPlayerFactory;
+        this.mSession = i3;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public <T> T require(String str, T t) {
+        return this.mPlayer == null ? t : (T) this.mPlayer.require(str, t);
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public Object act(String str, Object... objArr) {
+        if (this.mPlayer != null) {
+            return this.mPlayer.act(str, objArr);
+        }
+        return null;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public View createVideoView(Context context, int i) {
+        this.mVideoViewType = i;
+        if (this.mVideoView != null) {
+            return this.mVideoView.getView();
+        }
+        this.mContext = context.getApplicationContext();
+        if (this.mVideoView == null) {
+            this.mVideoView = this.mMediaPlayerFactory.createVideoView(context, this.mVideoViewType, getCodecConfig());
+            if ((i == 2 || i == 3) && this.mPlayer != null) {
+                this.mVideoView.onBindDisplayTarget(this.mPlayer.getPlayer());
+            }
+        }
+        if (this.mVideoView == null) {
+            this.mErrorListener.onError(null, ERROR_CREATE_VIDEO_VIEW, 0);
+            return null;
+        }
+        this.mVideoView.onBindProxy(this.mProxy);
+        this.mVideoView.initVideoView();
+        this.TAG = BaseVideoView.class.getSimpleName() + "::" + this.mVideoView.getName();
+        return this.mVideoView.getView();
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public View getView() {
+        if (this.mVideoView != null) {
+            return this.mVideoView.getView();
+        }
+        return null;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setVideoPath(String str) {
+        setVideoPath(str, this.mReleaseLast);
+    }
+
+    private void setVideoPath(String str, boolean z) {
+        setVideoURI(Uri.parse(str), z);
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setVideoURI(Uri uri) {
+        setVideoURI(uri, true);
+    }
+
+    private void setVideoURI(Uri uri, boolean z) {
+        this.mUri = uri;
+        BLog.i(this.TAG, "set video uri " + uri);
+        this.mLastPosition = 0L;
+        openVideo(z);
+        if (getView() == null || this.mVideoView == null || this.mVideoView.getView() == null) {
+            return;
+        }
+        this.mVideoView.getView().requestLayout();
+        this.mVideoView.getView().invalidate();
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setCodecConfig(PlayerConfig playerConfig) {
+        this.mCodecConfig = playerConfig;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public PlayerConfig getCodecConfig() {
+        return this.mCodecConfig;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setPlayParams(IVideoParams iVideoParams) {
+        this.mVideoParams = iVideoParams;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void resetAspectRatio(int i, int i2) {
+        resetAspectRatio(i, i2, false);
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void resetAspectRatio(int i, int i2, boolean z) {
+        this.mParentWidth = i;
+        this.mParentHeight = i2;
+        if (this.mAspectRatio != null) {
+            if (this.mAspectRatioChanged || z) {
+                setAspectRatio(this.mAspectRatio, false);
+            }
+        }
+    }
+
+    private void setAspectRatio(AspectRatio aspectRatio, boolean z) {
+        if (z && this.mAspectRatio == aspectRatio) {
+            return;
+        }
+        this.mAspectRatioChanged = true;
+        this.mAspectRatio = aspectRatio;
+        Point displaySize = getDisplaySize();
+        int i = displaySize.x;
+        int i2 = displaySize.y;
+        float f = i / i2;
+        this.mSurfaceWidth = this.mVideoWidth;
+        this.mSurfaceHeight = this.mVideoHeight;
+        float videoRatio = getVideoRatio(aspectRatio, f);
+        Point videoSizeByRatio = getVideoSizeByRatio(f, videoRatio, i, i2);
+        int i3 = videoSizeByRatio.x;
+        int i4 = videoSizeByRatio.y;
+        if (this.mVideoView != null) {
+            this.mVideoView.onChangeLayoutSize(i3, i4);
+            this.mVideoView.onChangeSurfaceSize(this.mSurfaceWidth, this.mSurfaceHeight);
+        }
+        BLog.ifmt(this.TAG, "setAspectRatio() VIDEO: %dx%dx%f, Surface: %dx%d, LP: %dx%d, Window: %dx%dx%f", Integer.valueOf(this.mVideoWidth), Integer.valueOf(this.mVideoHeight), Float.valueOf(videoRatio), Integer.valueOf(this.mSurfaceWidth), Integer.valueOf(this.mSurfaceHeight), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f));
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setAspectRatio(AspectRatio aspectRatio) {
+        setAspectRatio(aspectRatio, true);
+    }
+
+    public void adjustScreen(int type) {
+        if(type==1)this.reflection_type=-this.reflection_type;
+        if(type==2)this.rotation_type=(this.rotation_type+1)%4;
+        this.mVideoView.setRotation(this.rotation_type*90.0f);
+        if(this.rotation_type%2==0){
+            this.mVideoView.setScaleX(this.reflection_type*1.0f);
+            this.mVideoView.setScaleY(1.0f);
+        }else{
+            float k=Math.min(this.mSurfaceHeight/this.mVideoWidth,this.mSurfaceWidth/this.mVideoHeight);
+            //float k=this.mVideoHeight/this.mVideoWidth;
+            this.mVideoView.setScaleX(this.reflection_type*k);
+            this.mVideoView.setScaleY(k);
+        }
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public AspectRatio getAspectRatio() {
+        return this.mAspectRatio;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Point getVideoSizeByRatio(float f, float f2, int i, int i2) {
+        int i3;
+        if (this.mAspectRatio != AspectRatio.RATIO_CENTER_CROP) {
+            i3 = f <= f2 ? i : (int) (i2 * f2);
+            if (f <= f2) {
+                i2 = (int) (i / f2);
+            }
+        } else {
+            i3 = f > f2 ? i : (int) (i2 * f2);
+            if (f > f2) {
+                i2 = (int) (i / f2);
+            }
+        }
+        this.mVideoSize.set(i3, i2);
+        return this.mVideoSize;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public float getVideoRatio(AspectRatio aspectRatio, float f) {
+        switch (aspectRatio) {
+            case RATIO_CENTER_CROP:
+            case RATIO_ADJUST_CONTENT:
+                float f2 = this.mVideoWidth / this.mVideoHeight;
+                return (this.mVideoSarNum <= 1 || this.mVideoSarDen <= 1) ? f2 : (f2 * this.mVideoSarNum) / this.mVideoSarDen;
+            case RATIO_16_9_INSIDE:
+                return 1.7777778f;
+            case RATIO_4_3_INSIDE:
+                return 1.3333334f;
+            default:
+                return f;
+        }
+    }
+
+    @TargetApi(17)
+    private Point getDisplaySize() {
+        Point point = new Point();
+        if (this.mParentWidth > 0 && this.mParentHeight > 0) {
+            point.x = this.mParentWidth;
+            point.y = this.mParentHeight;
+            return point;
+        }
+        View view = getView();
+        if (view != null) {
+            ViewGroup viewGroup = (ViewGroup) view.getParent();
+            ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
+            if (layoutParams != null && layoutParams.width > 0 && layoutParams.height > 0) {
+                point.x = layoutParams.width;
+                point.y = layoutParams.height;
+                return point;
+            }
+            point.x = viewGroup.getMeasuredWidth();
+            point.y = viewGroup.getMeasuredHeight();
+        }
+        return point;
+    }
+
+    @SuppressLint({"InlinedApi"})
+    private void openVideo() {
+        openVideo(this.mReleaseLast);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    @SuppressLint({"InlinedApi"})
+    public void openVideo(boolean z) {
+        PlayerConfig codecConfig;
+        TextureMediaPlayer.SurfaceTexturePair surfaceTexturePair;
+        BLog.i(this.TAG, "Attempt to openVideo " + this.mUri + ", " + this.mVideoParams);
+        if (this.mUri == null || this.mVideoParams == null || this.mVideoParams.getMediaSource() == null) {
+            return;
+        }
+        Context context = this.mContext;
+        IMediaPlayer iMediaPlayer = null;
+        try {
+            if (this.mOnPreparedStepListener != null) {
+                if (this.mCodecConfig.mRetryCount >= 1) {
+                    this.mOnPreparedStepListener.onStartRetry(this.mCodecConfig);
+                } else {
+                    this.mOnPreparedStepListener.onPreparedInit(this.mCodecConfig);
+                }
+                this.mOnPreparedStepListener.onPreparedStart();
+            }
+            IMediaPlayer player = this.mPlayer != null ? this.mPlayer.getPlayer() : null;
+            codecConfig = getCodecConfig();
+            if (player != null) {
+                surfaceTexturePair = (codecConfig.is3rd() || !(player instanceof TextureMediaPlayer)) ? null : ((TextureMediaPlayer) player).detachSurfaceTexture();
+                release(false);
+            } else {
+                surfaceTexturePair = null;
+            }
+            IMediaPlayer createMediaPlayer = createMediaPlayer(context, this.mVideoParams);
+            if (createMediaPlayer == null) {
+                this.mErrorListener.onError(null, ERROR_CREATE_MEDIA_PLAYER, 0);
+                return;
+            }
+            if (this.mExtraInfoListener != null) {
+                this.mExtraInfoListener.onExtraInfo(IVideoView.OnExtraInfoListener.INSTALL_PLAYER, new Object[0]);
+            }
+            iMediaPlayer = ((this.mVideoViewType != 2 && this.mVideoViewType != 3) || codecConfig.is3rd() || (createMediaPlayer instanceof TextureMediaPlayer)) ? createMediaPlayer : new TextureMediaPlayer(createMediaPlayer);
+            this.mPlayer = PlayerCommander.create(iMediaPlayer);
+            act(Commands.CMD_SET_ON_EXTRA_INFO_LIS, this.mExtraInfoListener);
+            act(Commands.CMD_SET_ON_VIDEO_DEF_CHANGED_LIS, this.mOnVideoDefnChangedListener);
+            if (this.mVideoParams.keepInBackground()) {
+                this.mPlayer.setKeepInBackground(this.mVideoParams.keepInBackground());
+            }
+            initListeners();
+            this.mCurrentBufferPercentage = 0;
+            this.mDuration = -1L;
+            resetSurfaceHolderType();
+            if (surfaceTexturePair != null && (iMediaPlayer instanceof TextureMediaPlayer)) {
+                ((TextureMediaPlayer) iMediaPlayer).attachSurfacePair(surfaceTexturePair);
+            }
+            if (this.mVideoView != null) {
+                this.mVideoView.onBindDisplayTarget(this.mPlayer.getPlayer());
+                this.mVideoView.onSetKeepScreenOn(true);
+            }
+            this.mPlayer.setAudioStreamType(3);
+            this.mPlayer.setScreenOnWhilePlaying(true);
+            this.mIsPrepared = false;
+            if (this.mExtraInfoListener != null) {
+                this.mExtraInfoListener.onExtraInfo(IVideoView.OnExtraInfoListener.WILL_PLAYER_PREPARE, iMediaPlayer);
+            }
+            this.mPlayer.openVideo(context, this.mVideoParams, this.mUri);
+            this.mCurrentState = 1;
+            if (!this.mIsPlayerReported) {
+                this.mIsPlayerReported = true;
+            }
+        } catch (IOException e) {
+            BLog.w(this.TAG, "Unable to openVideo: " + this.mUri, e);
+            this.mCurrentState = -1;
+            this.mCurrentState = -1;
+            if (this.mOnErrorListener != null) {
+                this.mOnErrorListener.onError(iMediaPlayer, -1004, 0);
+            }
+            this.mReleaseLast = true;
+        } catch (IllegalArgumentException e) {
+            BLog.w(this.TAG, "Unable to openVideo: " + this.mUri, e);
+            this.mCurrentState = -1;
+            this.mCurrentState = -1;
+            if (this.mOnErrorListener != null) {
+                this.mOnErrorListener.onError(iMediaPlayer, 1, 0);
+            }
+            this.mReleaseLast = true;
+        } catch (IllegalStateException e) {
+            BLog.w(this.TAG, "Unable to openVideo: " + this.mUri, e);
+            this.mCurrentState = -1;
+            this.mCurrentState = -1;
+            if (this.mOnErrorListener != null) {
+                this.mOnErrorListener.onError(iMediaPlayer, 1, 0);
+            }
+            this.mReleaseLast = true;
+        } catch (Exception e) {
+            BLog.e(this.TAG, e);
+        }
+    }
+
+    private IMediaPlayer createMediaPlayer(Context context, IVideoParams iVideoParams) {
+        IMediaPlayer obtainPlayer = MediaCenter.getInstance().obtainPlayer(this.mMediaPlayerFactory, context, this.mCodecConfig, this.mPlayerStateChangedListener, iVideoParams, this.mVideoView);
+        this.mMediaPlayerFactory.addPlayerStateChangedListener(this.mPlayerStateChangedListener);
+        PlayerReleaseEventManager.getInstance().register(this.mSession, this.mOnEventListener);
+        BLog.i(PlayerReleaseEventManager.TAG, String.format(Locale.getDefault(), "register when create media player : %d", Integer.valueOf(this.mSession)));
+        return obtainPlayer;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void stopPlayback() {
+        if (this.mPlayer != null) {
+            this.mSeekWhenPrepared = getCurrentPosition();
+            release(true);
+            this.mPlayer = null;
+            this.mCurrentState = 0;
+            this.mTargetState = 0;
+        }
+    }
+
+    private void initListeners() {
+        if (this.mPlayer == null) {
+            return;
+        }
+        this.mPlayer.setOnPreparedListener(this.mPreparedListener);
+        this.mPlayer.setOnVideoSizeChangedListener(this.mSizeChangedListener);
+        this.mPlayer.setOnCompletionListener(this.mCompletionListener);
+        this.mPlayer.setOnErrorListener(this.mErrorListener);
+        this.mPlayer.setOnBufferingUpdateListener(this.mBufferingUpdateListener);
+        this.mPlayer.setOnInfoListener(this.mOnInfoListener);
+        this.mPlayer.setOnSeekCompleteListener(this.mSeekCompleteListener);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void release(boolean z) {
+        if (this.mVideoView != null) {
+            this.mVideoView.onSetKeepScreenOn(false);
+        }
+        if (this.mExtraInfoListener != null) {
+            this.mExtraInfoListener.onExtraInfo(SimpleMediaPlayer2.ON_EXTRA_INFO_PREAD_END, new Object[0]);
+            this.mExtraInfoListener.onExtraInfo(IVideoView.OnExtraInfoListener.WILL_PLAYER_RELEASE, new Object[0]);
+        }
+        IPlayerCommander iPlayerCommander = this.mPlayer;
+        if (iPlayerCommander != null) {
+            IMediaPlayer player = iPlayerCommander.getPlayer();
+            IMediaPlayer internalMediaPlayer = player instanceof MediaPlayerProxy ? ((MediaPlayerProxy) player).getInternalMediaPlayer() : player;
+            this.mMediaPlayerFactory.removePlayerStateChangedListener(this.mPlayerStateChangedListener);
+            MediaCenter.getInstance().releasePlayer(this.mMediaPlayerFactory, internalMediaPlayer, this.mPlayerStateChangedListener);
+            if (player instanceof TextureMediaPlayer) {
+                ((TextureMediaPlayer) player).releaseSurfaceTexture();
+            }
+            iPlayerCommander.onRelease();
+            this.mPlayer = null;
+            if (z) {
+                detachVideoView();
+            }
+            this.mCurrentState = 0;
+            this.mAspectRatio = AspectRatio.RATIO_ADJUST_CONTENT;
+            if (z) {
+                this.mTargetState = 0;
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void resetSurfaceHolderType() {
+        if (DeviceUtils.isMeizuDevice() && this.mCodecConfig.isIJKPlayer() && this.mVideoView != null) {
+            this.mVideoView.onResetSurfaceHolderType(this.mCodecConfig.isIJKPlayer() ? 0 : 3);
+        }
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void start() {
+        if (isInPlaybackState()) {
+            try {
+                this.mPlayer.start();
+                MediaCenter.getInstance().setActive(PlayerProxyUtils.getActualPlayer(this.mPlayer.getPlayer()));
+                if (this.mCurrentState == 4) {
+                    this.mResuming = true;
+                    View view = getView();
+                    if (view != null) {
+                        if (this.mResumingRunnable == null) {
+                            this.mResumingRunnable = createResumingRunnable();
+                        }
+                        view.postDelayed(this.mResumingRunnable, 300L);
+                    } else {
+                        this.mResuming = false;
+                    }
+                }
+                this.mCurrentState = 3;
+            } catch (IllegalStateException e) {
+                BLog.e(this.TAG, "start player error :" + e.getMessage());
+                this.mErrorListener.onError(this.mPlayer.getPlayer(), 1, 0);
+            }
+        } else if (this.mPlayerStateChangedByOthers) {
+            attachVideoView();
+            if (this.mVideoView != null && this.mVideoView.getView() != null) {
+                this.mVideoView.getView().post(this.run0);
+            }
+        }
+        this.mTargetState = 3;
+        if (this.mVideoView != null) {
+            this.mVideoView.onSetKeepScreenOn(true);
+        }
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void pause() {
+        if (isInPlaybackState() && this.mCurrentState != 5) {
+            BLog.i(this.TAG, "pause");
+            try {
+                this.mPlayer.pause();
+                this.mCurrentState = 4;
+            } catch (Exception unused) {
+            }
+        }
+        this.mTargetState = 4;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void suspend() {
+        release(false);
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void resume() {
+        openVideo();
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public int getDuration() {
+        if (isInPlaybackState()) {
+            if (this.mDuration <= 0) {
+                this.mDuration = this.mPlayer.getDuration();
+            }
+            return (int) this.mDuration;
+        }
+        this.mDuration = -1L;
+        return (int) this.mDuration;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public int getCurrentPosition() {
+        if (isInPlaybackState() && !this.mResuming && this.mIsPrepared && this.mPlayer != null) {
+            long currentPosition = this.mPlayer.getCurrentPosition();
+            this.mLastPosition = currentPosition;
+            return (int) currentPosition;
+        }
+        return (int) this.mLastPosition;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    @SuppressLint({"InlinedApi"})
+    public void seekTo(int i) {
+        this.mSeekWhenPrepared = i;
+        if (getDuration() > 0 && isInPlaybackState()) {
+            try {
+                this.mPlayer.seekTo(i);
+                if (!isPlaybackCompleted()) {
+                    this.mSeekWhenPrepared = 0;
+                }
+                if (this.mOnInfoListener != null) {
+                    this.mOnInfoListener.onInfo(this.mPlayer.getPlayer(), IMediaPlayer.MEDIA_INFO_BUFFERING_START, -1);
+                }
+            } catch (IllegalStateException e) {
+                att.a(e);
+            }
+        }
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public boolean isPlaying() {
+        return (this.mCodecConfig == null || !this.mCodecConfig.is3rd()) ? this.mCurrentState == 3 : this.mPlayer != null && this.mPlayer.isPlaying();
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public boolean isPlayable() {
+        return this.mPlayer != null && this.mPlayer.isPlayable();
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public int getBufferPercentage() {
+        if (this.mPlayer != null) {
+            return this.mCurrentBufferPercentage;
+        }
+        return 0;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean isInPlaybackState() {
+        return (this.mPlayer == null || this.mCurrentState == -1 || this.mCurrentState == 0 || this.mCurrentState == 1) ? false : true;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public int getState() {
+        return this.mCurrentState;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public boolean isPlaybackCompleted() {
+        return this.mCurrentState == 5;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public boolean isPaused() {
+        return this.mCurrentState == 4;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void switchQualityDefinition(String str) {
+        setVideoPath(str);
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void detachVideoView() {
+        if (this.mVideoView != null && this.mVideoViewParent != null) {
+            this.mVideoViewParent.removeView(this.mVideoView.getView());
+        }
+        if (this.mVideoView != null && this.mVideoView.getView() != null && this.mVideoView.getView().getParent() != null) {
+            ((ViewGroup) this.mVideoView.getView().getParent()).removeView(this.mVideoView.getView());
+        }
+        if (this.mVideoView != null) {
+            this.mVideoView.unInitVideoView();
+        }
+        this.mVideoView = null;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void attachVideoView() {
+        PlayerConfig codecConfig;
+        if (this.mVideoViewParent == null || this.mVideoView != null) {
+            return;
+        }
+        IMediaPlayer player = this.mPlayer != null ? this.mPlayer.getPlayer() : null;
+        if ((player instanceof TextureMediaPlayer) && (codecConfig = getCodecConfig()) != null && codecConfig.mPlayer != 2) {
+            ((TextureMediaPlayer) player).detachSurfaceTexture();
+        }
+        createVideoView(this.mContext, this.mVideoViewType);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+        layoutParams.gravity = 17;
+        attachTo(this.mVideoViewParent, 0, layoutParams);
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public MediaInfoHolder getMediaInfo() {
+        MediaInfoHolder mediaInfoHolder = new MediaInfoHolder();
+        try {
+            IPlayerCommander iPlayerCommander = this.mPlayer;
+            if (iPlayerCommander != null) {
+                mediaInfoHolder.mVideoWidth = iPlayerCommander.getVideoWidth();
+                mediaInfoHolder.mVideoHeight = iPlayerCommander.getVideoHeight();
+                mediaInfoHolder.mVideoSarNum = iPlayerCommander.getVideoSarNum();
+                mediaInfoHolder.mVideoSarDen = iPlayerCommander.getVideoSarDen();
+            } else {
+                mediaInfoHolder.mVideoWidth = this.mVideoWidth;
+                mediaInfoHolder.mVideoHeight = this.mVideoHeight;
+                mediaInfoHolder.mVideoSarNum = this.mVideoSarNum;
+                mediaInfoHolder.mVideoSarDen = this.mVideoSarDen;
+            }
+            if (this.mVideoView != null) {
+                mediaInfoHolder.mVoutViewType = this.mVideoView.getName();
+            }
+            if (iPlayerCommander != null) {
+                mediaInfoHolder.mMediaInfo = iPlayerCommander.getMediaInfo();
+            }
+        } catch (IllegalStateException e) {
+            BLog.e(this.TAG, "getMediaInfo -> " + e);
+        }
+        return mediaInfoHolder;
+    }
+
+    /* compiled from: BL */
+    abstract class AbsVideoViewProxy implements IVideoViewProxy {
+        private AbsVideoViewProxy() {
+        }
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setOnPreparedStepListener(IVideoView.OnPreparedStepListener onPreparedStepListener) {
+        this.mOnPreparedStepListener = onPreparedStepListener;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setOnPreparedListener(IMediaPlayer.OnPreparedListener onPreparedListener) {
+        this.mOnPreparedListener = onPreparedListener;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setOnCompletionListener(IMediaPlayer.OnCompletionListener onCompletionListener) {
+        this.mOnCompletionListener = onCompletionListener;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setOnInfoListener(IMediaPlayer.OnInfoListener onInfoListener) {
+        this.mOnInfoListener = onInfoListener;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setOnErrorListener(IMediaPlayer.OnErrorListener onErrorListener) {
+        this.mOnErrorListener = onErrorListener;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setOnKeyListener(View.OnKeyListener onKeyListener) {
+        View view = getView();
+        if (view != null) {
+            view.setOnKeyListener(onKeyListener);
+        }
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setOnVideoDefnChangedListener(IVideoView.OnVideoDefnChangedListener onVideoDefnChangedListener) {
+        this.mOnVideoDefnChangedListener = onVideoDefnChangedListener;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setOnVideoSizeChangedListener(IVideoView.OnVideoSizeChangedListener onVideoSizeChangedListener) {
+        this.mOnVideoSizeChangedListener = onVideoSizeChangedListener;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setOnSeekComplete(IMediaPlayer.OnSeekCompleteListener onSeekCompleteListener) {
+        this.mSeekCompleteListener = onSeekCompleteListener;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setOnExtraInfoListener(IVideoView.OnExtraInfoListener onExtraInfoListener) {
+        this.mExtraInfoListener = onExtraInfoListener;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public int getVideoViewType() {
+        return this.mVideoViewType;
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void setVolume(float f, float f2) {
+        if (this.mPlayer != null) {
+            this.mPlayer.setVolume(f, f2);
+        }
+    }
+
+    @Override // tv.danmaku.videoplayer.core.videoview.IVideoView
+    public void attachTo(ViewGroup viewGroup, int i, ViewGroup.LayoutParams layoutParams) {
+        View view = getView();
+        if (view != null && viewGroup.indexOfChild(view) == -1) {
+            ViewParent parent = view.getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(view);
+            }
+            if (layoutParams instanceof FrameLayout.LayoutParams) {
+                ((FrameLayout.LayoutParams) layoutParams).gravity = 17;
+            }
+            viewGroup.addView(view, i, layoutParams);
+            if (view instanceof TextureVideoView) {
+                view.setScaleX(1.00001f);
+            }
+            initListeners();
+        }
+        this.mVideoViewParent = viewGroup;
+    }
+
+    public Uri getUri() {
+        return this.mUri;
+    }
+}

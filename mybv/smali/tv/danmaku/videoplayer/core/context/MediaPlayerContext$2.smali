@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 70
+    .line 73
     iput-object p1, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$2;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .locals 2
 
     .prologue
-    .line 73
+    .line 76
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$2;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
 
     # getter for: Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;->mVideoView:Ltv/danmaku/videoplayer/core/videoview/IVideoView;
@@ -59,12 +59,12 @@
 
     if-nez v0, :cond_11
 
-    .line 77
+    .line 80
     :cond_10
     :goto_10
     return-void
 
-    .line 76
+    .line 79
     :cond_11
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/context/MediaPlayerContext$2;->this$0:Ltv/danmaku/videoplayer/core/context/MediaPlayerContext;
 

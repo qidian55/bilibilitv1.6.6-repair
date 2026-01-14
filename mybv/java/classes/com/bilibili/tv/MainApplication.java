@@ -47,6 +47,7 @@ import mybl.BiliFilter;
 import com.alibaba.fastjson.*;
 import com.bilibili.tv.player.widget.PlayerMenuRight;
 import com.bilibili.tv.ui.main.content.MainMyFragment;
+import tv.danmaku.videoplayer.core.media.ijk.IjkMediaCodecInfo;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -112,6 +113,7 @@ public class MainApplication extends Application {
         mybl.VideoViewParams.prefect_cdn=config.getString("prefect_cdn");
         bl.afm3.prefect_codec=config.getString("prefect_codec");
         bl.afm3.prefect_decoder=config.getString("prefect_decoder");
+        if(bl.afm3.prefect_decoder!=null)IjkMediaCodecInfo.getKnownCodecList().put(bl.afm3.prefect_decoder, IjkMediaCodecInfo.RANK_MAX);
         bl.afq.auto_update=config.getBooleanValue("auto_update");
         try{BiliFilter.updateConfig();}catch(Exception e){e.printStackTrace();}
         JSONArray myarea_map=config.getJSONArray("myarea_map");

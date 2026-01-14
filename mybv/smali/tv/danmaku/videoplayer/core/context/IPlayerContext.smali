@@ -21,6 +21,9 @@
 .method public abstract addPlayerEventListener(Ltv/danmaku/videoplayer/core/context/IPlayerContext$PlayerEventListener;)V
 .end method
 
+.method public abstract adjustScreen(I)V
+.end method
+
 .method public abstract attachDanmakuView(Landroid/view/ViewGroup;ZI)V
 .end method
 

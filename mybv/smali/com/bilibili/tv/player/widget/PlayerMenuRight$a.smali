@@ -21,6 +21,9 @@
 .method public abstract a(F)V
 .end method
 
+.method public abstract adjust_screen(I)V
+.end method
+
 .method public abstract b(F)V
 .end method
 

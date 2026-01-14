@@ -25,6 +25,7 @@
     <public type="array" name="player_screen_ratio" id="0x7f020004" />
 
     <public type="array" name="player_mode" id="0x7f020005" />
+    <public type="array" name="screen_adjust" id="0x7f020006" />
 
     <public type="attr" name="actionBarDivider" id="0x7f030000" />
     <public type="attr" name="actionBarItemBackground" id="0x7f030001" />

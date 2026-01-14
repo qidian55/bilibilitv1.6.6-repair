@@ -22,6 +22,7 @@ public interface IEventCenter {
         SWITCH_EPISODE_REMOTE,
         SWITCH_QUALITY_REMOTE,
         DANMAKU_TOGGLE_REMOTE,
-        SWITCH_SPEED
+        SWITCH_SPEED,
+        SCREEN_ADJUST
     }
 }

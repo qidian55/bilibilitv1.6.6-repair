@@ -46,6 +46,8 @@
 
 .field public static final enum RESOLVE_SUCCESS:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
 
+.field public static final enum SCREEN_ADJUST:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
+
 .field public static final enum SEEK:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
 
 .field public static final enum SWITCH_EPISODE:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
@@ -240,8 +242,19 @@
 
     sput-object v0, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;->SWITCH_SPEED:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
 
+    .line 26
+    new-instance v0, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
+
+    const-string v1, "SCREEN_ADJUST"
+
+    const/16 v2, 0x10
+
+    invoke-direct {v0, v1, v2}, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;->SCREEN_ADJUST:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
+
     .line 9
-    const/16 v0, 0x10
+    const/16 v0, 0x11
 
     new-array v0, v0, [Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
 
@@ -328,6 +341,12 @@
     const/16 v1, 0xf
 
     sget-object v2, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;->SWITCH_SPEED:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x10
+
+    sget-object v2, Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;->SCREEN_ADJUST:Lcom/bilibili/tv/player/interfaces/IEventCenter$EventType;
 
     aput-object v2, v0, v1
 

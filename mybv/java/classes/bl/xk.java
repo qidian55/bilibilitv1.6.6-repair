@@ -247,36 +247,31 @@ initSubtitle();
     public void b(IEventCenter.EventType eventType, Object... objArr) {
         if (eventType == IEventCenter.EventType.SWITCH_EPISODE) {
             R();
-        } else if (eventType != IEventCenter.EventType.SWITCH_SPEED) {
-            int i = 1;
-            if (eventType == IEventCenter.EventType.DANMAKU_SIZE) {
-                if (this.c != null) {
-                    this.c.setDanmakuOption(IDanmakuPlayer.DanmakuOptionName.TEXTSIZE_SCALE, (Float) objArr[0]);
+        } else if (eventType == IEventCenter.EventType.DANMAKU_SIZE && this.c != null) {
+                this.c.setDanmakuOption(IDanmakuPlayer.DanmakuOptionName.TEXTSIZE_SCALE, (Float) objArr[0]);
+        } else if (eventType == IEventCenter.EventType.DANMAKU_ALPHA && this.c != null) {
+            this.c.setDanmakuOption(IDanmakuPlayer.DanmakuOptionName.TRANSPARENCY, (Float) objArr[0]);
+        } else if (eventType == IEventCenter.EventType.POST_DANMAKU) {
+            String str = (String) objArr[0];
+            int i1 = 25;
+            int i2 = 16777215;
+            int i3 = 1;
+            if (objArr.length == 4) {
+                try {
+                    i1 = Integer.parseInt((String) objArr[1]);
+                    i2 = Integer.parseInt((String) objArr[2]);
+                    i3 = Integer.parseInt((String) objArr[3]);
+                } catch (Exception e) {
+                    att.a(e);
                 }
-            } else if (eventType == IEventCenter.EventType.DANMAKU_ALPHA) {
-                if (this.c != null) {
-                    this.c.setDanmakuOption(IDanmakuPlayer.DanmakuOptionName.TRANSPARENCY, (Float) objArr[0]);
-                }
-            } else if (eventType == IEventCenter.EventType.POST_DANMAKU) {
-                String str = (String) objArr[0];
-                int i1 = 25;
-                int i2 = 16777215;
-                int i3 = 1;
-                if (objArr.length == 4) {
-                    try {
-                        i1 = Integer.parseInt((String) objArr[1]);
-                        i2 = Integer.parseInt((String) objArr[2]);
-                        i3 = Integer.parseInt((String) objArr[3]);
-                    } catch (Exception e) {
-                        att.a(e);
-                    }
-                }
-                a(str, i1, i2, i3);
-            } else if (eventType == IEventCenter.EventType.SEEK && objArr.length >= 3 && this.c != null) {
-                this.c.seekDanmaku(((Long) objArr[1]).longValue(), ((Long) objArr[2]).longValue());
             }
-        } else if (this.c != null) {
+            a(str, i1, i2, i3);
+        } else if (eventType == IEventCenter.EventType.SEEK && objArr.length >= 3 && this.c != null) {
+            this.c.seekDanmaku(((Long) objArr[1]).longValue(), ((Long) objArr[2]).longValue());
+        } else if (eventType == IEventCenter.EventType.SWITCH_SPEED && this.c != null) {
             this.c.setSpeed(((Float) objArr[0]).floatValue());
+        } else if (eventType == IEventCenter.EventType.SCREEN_ADJUST && this.c != null) {
+            this.c.adjustScreen(((Integer) objArr[0]).intValue());
         }
         super.b(eventType, objArr);
     }

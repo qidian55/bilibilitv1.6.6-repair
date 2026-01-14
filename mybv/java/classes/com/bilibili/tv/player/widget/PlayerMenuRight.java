@@ -45,6 +45,7 @@ public class PlayerMenuRight extends aay<String> {
     private List<String> size_list;
     private List<String> alpha_list;
     private List<String> ratio_list;
+    private List<String> adjust_list=Arrays.asList(new String[]{"旋转","镜像"});
     private int quality_id;
     private int danmaku_type;
     private int size_id;
@@ -76,6 +77,8 @@ public class PlayerMenuRight extends aay<String> {
         void e(int i);
 
         void f(int i);
+
+        void adjust_screen(int i);
 
         void set_danmaku_type(int i);
 
@@ -348,6 +351,10 @@ public class PlayerMenuRight extends aay<String> {
                 i3 = this.ratio_id;
                 this.ratio_id = i2;
             }
+            if (this.adjust_list.indexOf(str) != -1) {
+                this.d.adjust_screen(i2);
+                return true;
+            }
             if (this.size_list.indexOf(str) != -1) {
                 this.d.a(Float.valueOf(this.size_list.get(i2)).floatValue());
                 i3 = this.size_id;
@@ -418,19 +425,19 @@ public class PlayerMenuRight extends aay<String> {
             case 2:
                 i3 = this.ratio_id;
                 break;
-            case 3:
+            case 4:
                 i3 = this.size_id;
                 break;
-            case 4:
+            case 5:
                 i3 = this.alpha_id;
                 break;
-            case 5:
+            case 6:
                 i3 = this.speed_id;
                 break;
-            case 6:
+            case 7:
                 i3 = this.mode_id;
                 break;
-            case 7:
+            case 8:
                 i3 = this.subtitle_id;
                 break;
             default:
@@ -463,18 +470,21 @@ public class PlayerMenuRight extends aay<String> {
                     list = this.ratio_list;
                     break;
                 case 3:
-                    list = this.size_list;
+                    list = this.adjust_list;
                     break;
                 case 4:
-                    list = this.alpha_list;
+                    list = this.size_list;
                     break;
                 case 5:
-                    list = this.speed_list;
+                    list = this.alpha_list;
                     break;
                 case 6:
-                    list = this.mode_list;
+                    list = this.speed_list;
                     break;
                 case 7:
+                    list = this.mode_list;
+                    break;
+                case 8:
                     list = this.subtitle_list;
                     break;
                 default:

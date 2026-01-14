@@ -73,6 +73,13 @@ public class BiliPlayerContext implements IPlayerContext {
         }
     }
 
+    @Override // tv.danmaku.videoplayer.core.context.IPlayerContext
+    public void adjustScreen(int type) {
+        if (this.mMediaPlayerContext != null) {
+            this.mMediaPlayerContext.adjustScreen(type);
+        }
+    }
+
     public BiliPlayerContext() {
     }
 

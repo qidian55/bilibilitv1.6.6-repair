@@ -39,6 +39,11 @@ public class xw extends xh implements bbb<Message, Boolean>, PlayerMenuRight.a {
     }
 
     @Override // com.bilibili.tv.player.widget.PlayerMenuRight.a
+    public void adjust_screen(int type) {
+        a(IEventCenter.EventType.SCREEN_ADJUST, Integer.valueOf(type));
+    }
+
+    @Override // com.bilibili.tv.player.widget.PlayerMenuRight.a
     public void switch_speed(float f) {
         a(IEventCenter.EventType.SWITCH_SPEED, Float.valueOf(f));
     }

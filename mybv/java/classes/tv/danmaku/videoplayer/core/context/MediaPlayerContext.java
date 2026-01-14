@@ -27,6 +27,9 @@ import tv.danmaku.videoplayer.core.videoview.IVideoView;
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public class MediaPlayerContext implements AudioManager.OnAudioFocusChangeListener {
+    public int rotation_type = 0;
+    public int reflection_type = 1;
+
     private static final int AUDIO_FOCUSED = 2;
     private static final int AUDIO_NO_FOCUS_CAN_DUCK = 1;
     private static final int AUDIO_NO_FOCUS_NO_DUCK = 0;
@@ -90,6 +93,27 @@ public class MediaPlayerContext implements AudioManager.OnAudioFocusChangeListen
     public void setSpeed(float f) {
         if (this.mVideoView != null) {
             this.mVideoView.setSpeed(f);
+        }
+    }
+
+    public void adjustScreen(int type) {
+        if(type==1)this.reflection_type=-this.reflection_type;
+        if(type==0)this.rotation_type=(this.rotation_type-1)%4;
+        BaseVideoView baseVideoView = (BaseVideoView) this.mVideoView;
+        tv.danmaku.videoplayer.core.videoview.TextureVideoView mVideoView = (tv.danmaku.videoplayer.core.videoview.TextureVideoView) this.mVideoView.getView();
+        mVideoView.setRotation(this.rotation_type*90.0f);
+        if(this.rotation_type%2==0){
+            mVideoView.setScaleX(this.reflection_type*1.0f);
+            mVideoView.setScaleY(1.0f);
+        }else{
+            //float k=Math.min(mVideoView.getWidth()*1.0f/baseVideoView.getMediaInfo().mVideoWidth,mVideoView.getHeight()*1.0f/baseVideoView.getMediaInfo().mVideoHeight);
+            ViewGroup viewGroup = (ViewGroup) mVideoView.getParent();
+            float k=viewGroup.getMeasuredHeight()*1.0f/viewGroup.getMeasuredWidth();
+            int mVideoHeight=baseVideoView.getMediaInfo().mVideoHeight;
+            int mVideoWidth=baseVideoView.getMediaInfo().mVideoWidth;
+            if(mVideoHeight>mVideoWidth)k=1.0f/k;
+            mVideoView.setScaleX(this.reflection_type*k);
+            mVideoView.setScaleY(k);
         }
     }
 
@@ -473,39 +497,29 @@ public class MediaPlayerContext implements AudioManager.OnAudioFocusChangeListen
     */
     private IVideoView getVideoViewInstance() {
         IVideoView baseVideoView;
-        View createVideoView;
         if (this.mVideoView != null) {
             baseVideoView = this.mVideoView;
         } else {
             baseVideoView = new BaseVideoView(this.mVideoParams, this.mPlayerFactory, this.mVideoViewWidth, this.mVideoViewHeight, getAspectRatio(), this.mSession);
             baseVideoView.setCodecConfig(getPlayerConfig());
         }
-        int i = 1;
         setVideoViewListeners(baseVideoView, true);
         IVideoParams iVideoParams = this.mVideoParams;
-        if (iVideoParams != null) {
+        if(false){//if (iVideoParams != null) {
             int voutViewType = iVideoParams.getVoutViewType();
-            if (voutViewType != 1) {
-                if (voutViewType == 3) {
-                    if (BuildHelper.isApi16_JellyBeanOrLater()) {
-                        i = 3;
-                    }
-                }
-            }
-            createVideoView = baseVideoView.createVideoView(this.mContext, i);
+            View createVideoView = baseVideoView.createVideoView(this.mContext, (voutViewType != 1 && voutViewType == 3 && BuildHelper.isApi16_JellyBeanOrLater()) ? 3 : 1);
             if (createVideoView != null) {
                 createVideoView.setLayoutParams(getLayoutParams(this.mVideoViewParent));
             }
             baseVideoView.setOnVideoSizeChangedListener(this.mVideoSizeChangedListener);
-            return baseVideoView;
+        } else {
+            if (baseVideoView.createVideoView(this.mContext, 2) != null) {
+            }
+            baseVideoView.setOnVideoSizeChangedListener(this.mVideoSizeChangedListener);
         }
-        i = 2;
-        createVideoView = baseVideoView.createVideoView(this.mContext, i);
-        if (createVideoView != null) {
-        }
-        baseVideoView.setOnVideoSizeChangedListener(this.mVideoSizeChangedListener);
         return baseVideoView;
     }
+
 
     private boolean setVideoView(IVideoView iVideoView) {
         ViewGroup.LayoutParams layoutParams;

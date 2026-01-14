@@ -204,4 +204,7 @@ public interface IPlayerContext {
     void willAttachToService(boolean z);
 
     boolean willBeAttachedToService();
+
+
+    void adjustScreen(int type);
 }

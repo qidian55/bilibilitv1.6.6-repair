@@ -18,6 +18,7 @@
         <item>@string/quality</item>
         <item>@string/danmaku_toggle</item>
         <item>@string/screen_ratio</item>
+        <item>画面调节</item>
         <item>@string/danmaku_size</item>
         <item>@string/danmaku_alpha</item>
         <item>播放速度</item>
@@ -43,5 +44,9 @@
         <item>单集循环</item>
         <item>单集退出</item>
         <item>列表循环</item>
+    </string-array>
+    <string-array name="screen_adjust">
+        <item>旋转</item>
+        <item>镜像</item>
     </string-array>
 </resources>

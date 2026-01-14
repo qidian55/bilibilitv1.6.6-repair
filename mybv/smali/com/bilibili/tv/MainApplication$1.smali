@@ -36,7 +36,7 @@
     .locals 0
 
     .prologue
-    .line 77
+    .line 78
     iput-object p1, p0, Lcom/bilibili/tv/MainApplication$1;->this$0:Lcom/bilibili/tv/MainApplication;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
     .locals 1
 
     .prologue
-    .line 82
+    .line 83
     const/4 v0, 0x1
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -64,7 +64,7 @@
     .locals 1
 
     .prologue
-    .line 77
+    .line 78
     invoke-virtual {p0}, Lcom/bilibili/tv/MainApplication$1;->a()Ljava/lang/Boolean;
 
     move-result-object v0
