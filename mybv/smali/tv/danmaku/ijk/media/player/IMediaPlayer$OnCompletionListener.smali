@@ -1,6 +1,6 @@
 .class public interface abstract Ltv/danmaku/ijk/media/player/IMediaPlayer$OnCompletionListener;
 .super Ljava/lang/Object;
-.source "BL"
+.source "IMediaPlayer.java"
 
 
 # annotations

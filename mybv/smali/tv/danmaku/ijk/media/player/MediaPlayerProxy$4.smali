@@ -1,6 +1,6 @@
 .class Ltv/danmaku/ijk/media/player/MediaPlayerProxy$4;
 .super Ljava/lang/Object;
-.source "BL"
+.source "MediaPlayerProxy.java"
 
 # interfaces
 .implements Ltv/danmaku/ijk/media/player/IMediaPlayer$OnSeekCompleteListener;
@@ -20,17 +20,18 @@
 # instance fields
 .field final synthetic this$0:Ltv/danmaku/ijk/media/player/MediaPlayerProxy;
 
-.field final synthetic val$finalListener:Ltv/danmaku/ijk/media/player/IMediaPlayer$OnSeekCompleteListener;
+.field final synthetic val$onSeekCompleteListener:Ltv/danmaku/ijk/media/player/IMediaPlayer$OnSeekCompleteListener;
 
 
 # direct methods
 .method constructor <init>(Ltv/danmaku/ijk/media/player/MediaPlayerProxy;Ltv/danmaku/ijk/media/player/IMediaPlayer$OnSeekCompleteListener;)V
     .locals 0
 
-    .line 229
+    .prologue
+    .line 209
     iput-object p1, p0, Ltv/danmaku/ijk/media/player/MediaPlayerProxy$4;->this$0:Ltv/danmaku/ijk/media/player/MediaPlayerProxy;
 
-    iput-object p2, p0, Ltv/danmaku/ijk/media/player/MediaPlayerProxy$4;->val$finalListener:Ltv/danmaku/ijk/media/player/IMediaPlayer$OnSeekCompleteListener;
+    iput-object p2, p0, Ltv/danmaku/ijk/media/player/MediaPlayerProxy$4;->val$onSeekCompleteListener:Ltv/danmaku/ijk/media/player/IMediaPlayer$OnSeekCompleteListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -40,14 +41,16 @@
 
 # virtual methods
 .method public onSeekComplete(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V
-    .locals 1
+    .locals 2
 
-    .line 232
-    iget-object p1, p0, Ltv/danmaku/ijk/media/player/MediaPlayerProxy$4;->val$finalListener:Ltv/danmaku/ijk/media/player/IMediaPlayer$OnSeekCompleteListener;
+    .prologue
+    .line 212
+    iget-object v0, p0, Ltv/danmaku/ijk/media/player/MediaPlayerProxy$4;->val$onSeekCompleteListener:Ltv/danmaku/ijk/media/player/IMediaPlayer$OnSeekCompleteListener;
 
-    iget-object v0, p0, Ltv/danmaku/ijk/media/player/MediaPlayerProxy$4;->this$0:Ltv/danmaku/ijk/media/player/MediaPlayerProxy;
+    iget-object v1, p0, Ltv/danmaku/ijk/media/player/MediaPlayerProxy$4;->this$0:Ltv/danmaku/ijk/media/player/MediaPlayerProxy;
 
-    invoke-interface {p1, v0}, Ltv/danmaku/ijk/media/player/IMediaPlayer$OnSeekCompleteListener;->onSeekComplete(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V
+    invoke-interface {v0, v1}, Ltv/danmaku/ijk/media/player/IMediaPlayer$OnSeekCompleteListener;->onSeekComplete(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V
 
+    .line 213
     return-void
 .end method

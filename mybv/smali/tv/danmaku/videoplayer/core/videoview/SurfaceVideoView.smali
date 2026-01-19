@@ -1,6 +1,6 @@
 .class public Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;
 .super Landroid/view/SurfaceView;
-.source "BL"
+.source "SurfaceVideoView.java"
 
 # interfaces
 .implements Ltv/danmaku/videoplayer/core/videoview/IVideoViewController;
@@ -24,49 +24,53 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .locals 1
 
-    .line 35
+    .prologue
+    .line 40
     invoke-direct {p0, p1}, Landroid/view/SurfaceView;-><init>(Landroid/content/Context;)V
 
-    const/4 p1, 0x0
+    .line 41
+    const/4 v0, 0x0
 
-    .line 29
-    iput-object p1, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mSurfaceHolder:Landroid/view/SurfaceHolder;
+    iput-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mSurfaceHolder:Landroid/view/SurfaceHolder;
 
-    .line 159
-    new-instance p1, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;
+    .line 42
+    new-instance v0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;
 
-    invoke-direct {p1, p0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;-><init>(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;)V
+    invoke-direct {v0, p0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;-><init>(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;)V
 
-    iput-object p1, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mSHCallback:Landroid/view/SurfaceHolder$Callback;
+    iput-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mSHCallback:Landroid/view/SurfaceHolder$Callback;
 
-    .line 36
-    new-instance p1, Landroid/graphics/Rect;
+    .line 69
+    new-instance v0, Landroid/graphics/Rect;
 
-    invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object p1, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mRect:Landroid/graphics/Rect;
+    iput-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mRect:Landroid/graphics/Rect;
 
+    .line 70
     return-void
 .end method
 
 .method static synthetic access$002(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;Landroid/view/SurfaceHolder;)Landroid/view/SurfaceHolder;
     .locals 0
 
-    .line 23
+    .prologue
+    .line 16
     iput-object p1, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mSurfaceHolder:Landroid/view/SurfaceHolder;
 
     return-object p1
 .end method
 
 .method static synthetic access$100(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;)Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
-    .locals 0
+    .locals 1
 
-    .line 23
-    iget-object p0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mProxy:Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
+    .prologue
+    .line 16
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mProxy:Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
 
-    return-object p0
+    return-object v0
 .end method
 
 
@@ -74,6 +78,8 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 26
     const-string v0, "SurfaceRender"
 
     return-object v0
@@ -82,18 +88,23 @@
 .method public getView()Landroid/view/View;
     .locals 0
 
+    .prologue
+    .line 31
     return-object p0
 .end method
 
 .method public initVideoView()V
-    .locals 2
+    .locals 3
 
-    .line 57
+    .prologue
+    const/4 v2, 0x0
+
+    .line 79
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mProxy:Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
-    .line 58
+    .line 80
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Proxy must be bind first!"
@@ -102,13 +113,13 @@
 
     throw v0
 
-    :cond_0
+    .line 82
+    :cond_d
     const/4 v0, 0x1
 
-    .line 61
     invoke-virtual {p0, v0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->setKeepScreenOn(Z)V
 
-    .line 62
+    .line 83
     invoke-virtual {p0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v0
@@ -117,7 +128,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/SurfaceHolder;->addCallback(Landroid/view/SurfaceHolder$Callback;)V
 
-    .line 63
+    .line 84
     invoke-virtual {p0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v0
@@ -126,25 +137,26 @@
 
     invoke-interface {v0, v1}, Landroid/view/SurfaceHolder;->setType(I)V
 
-    const/4 v0, 0x0
+    .line 85
+    invoke-virtual {p0, v2}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->setFocusable(Z)V
 
-    .line 64
-    invoke-virtual {p0, v0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->setFocusable(Z)V
+    .line 86
+    invoke-virtual {p0, v2}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->setFocusableInTouchMode(Z)V
 
-    .line 65
-    invoke-virtual {p0, v0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->setFocusableInTouchMode(Z)V
-
-    .line 66
+    .line 87
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mProxy:Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
 
     invoke-interface {v0}, Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;->onInitVideoView()V
 
+    .line 88
     return-void
 .end method
 
 .method public isAllowCustomSurfaceFormat()Z
     .locals 1
 
+    .prologue
+    .line 36
     const/4 v0, 0x1
 
     return v0
@@ -153,10 +165,11 @@
 .method public onBindDisplayTarget(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V
     .locals 1
 
-    .line 113
+    .prologue
+    .line 133
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mSurfaceHolder:Landroid/view/SurfaceHolder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mSurfaceHolder:Landroid/view/SurfaceHolder;
 
@@ -164,7 +177,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mSurfaceHolder:Landroid/view/SurfaceHolder;
 
@@ -176,122 +189,139 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_19
 
-    .line 114
+    .line 137
+    :cond_18
+    :goto_18
+    return-void
+
+    .line 136
+    :cond_19
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mSurfaceHolder:Landroid/view/SurfaceHolder;
 
     invoke-interface {p1, v0}, Ltv/danmaku/ijk/media/player/IMediaPlayer;->setDisplay(Landroid/view/SurfaceHolder;)V
 
-    :cond_0
-    return-void
+    goto :goto_18
 .end method
 
 .method public onBindProxy(Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;)V
     .locals 0
 
-    .line 51
+    .prologue
+    .line 74
     iput-object p1, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mProxy:Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
 
+    .line 75
     return-void
 .end method
 
 .method public onChangeLayoutSize(II)V
     .locals 1
 
-    .line 89
+    .prologue
+    .line 109
     invoke-virtual {p0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
 
-    .line 90
+    .line 110
     iput p1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 91
+    .line 111
     iput p2, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 92
+    .line 112
     invoke-virtual {p0, v0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
+    .line 113
     return-void
 .end method
 
 .method public onChangeSurfaceSize(II)V
     .locals 1
 
-    .line 97
+    .prologue
+    .line 117
     invoke-virtual {p0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Landroid/view/SurfaceHolder;->setFixedSize(II)V
 
+    .line 118
     return-void
 .end method
 
 .method public onChangeVideoSize(II)V
     .locals 1
 
-    .line 102
+    .prologue
+    .line 122
     invoke-virtual {p0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Landroid/view/SurfaceHolder;->setFixedSize(II)V
 
+    .line 123
     return-void
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 0
+    .locals 1
 
-    .line 155
+    .prologue
+    .line 162
     invoke-super {p0, p1}, Landroid/view/SurfaceView;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 156
+    .line 163
     invoke-virtual {p0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->getHolder()Landroid/view/SurfaceHolder;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/view/SurfaceHolder;->setSizeFromLayout()V
+    invoke-interface {v0}, Landroid/view/SurfaceHolder;->setSizeFromLayout()V
 
+    .line 164
     return-void
 .end method
 
 .method protected onMeasure(II)V
     .locals 2
 
-    .line 79
-    iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mRect:Landroid/graphics/Rect;
-
+    .prologue
     const/4 v1, 0x0
+
+    .line 100
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mRect:Landroid/graphics/Rect;
 
     invoke-virtual {v0, v1, v1, p1, p2}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 81
+    .line 101
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mProxy:Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
-    .line 82
+    .line 102
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mProxy:Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
 
     iget-object v1, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mRect:Landroid/graphics/Rect;
 
     invoke-interface {v0, p1, p2, v1}, Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;->onMeasure(IILandroid/graphics/Rect;)V
 
-    .line 84
-    :cond_0
-    iget-object p1, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mRect:Landroid/graphics/Rect;
+    .line 104
+    :cond_11
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mRect:Landroid/graphics/Rect;
 
-    iget p1, p1, Landroid/graphics/Rect;->right:I
+    iget v0, v0, Landroid/graphics/Rect;->right:I
 
-    iget-object p2, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mRect:Landroid/graphics/Rect;
+    iget-object v1, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mRect:Landroid/graphics/Rect;
 
-    iget p2, p2, Landroid/graphics/Rect;->bottom:I
+    iget v1, v1, Landroid/graphics/Rect;->bottom:I
 
-    invoke-virtual {p0, p1, p2}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->setMeasuredDimension(II)V
+    invoke-virtual {p0, v0, v1}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->setMeasuredDimension(II)V
 
+    .line 105
     return-void
 .end method
 
@@ -301,85 +331,102 @@
         value = 0xe
     .end annotation
 
-    if-eqz p1, :cond_0
+    .prologue
+    .line 142
+    if-eqz p1, :cond_6
 
+    .line 144
     const/4 v0, 0x0
 
-    .line 123
-    :try_start_0
+    :try_start_3
     invoke-interface {p1, v0}, Ltv/danmaku/ijk/media/player/IMediaPlayer;->setDisplay(Landroid/view/SurfaceHolder;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/IllegalStateException; {:try_start_3 .. :try_end_6} :catch_7
 
-    :catch_0
-    :cond_0
+    .line 148
+    :cond_6
+    :goto_6
     return-void
+
+    .line 145
+    :catch_7
+    move-exception v0
+
+    goto :goto_6
 .end method
 
 .method public onResetSurfaceHolderType(I)V
     .locals 1
 
-    .line 136
+    .prologue
+    .line 152
     invoke-virtual {p0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Landroid/view/SurfaceHolder;->setType(I)V
 
+    .line 153
     return-void
 .end method
 
 .method public onSetKeepScreenOn(Z)V
     .locals 1
 
-    .line 107
+    .prologue
+    .line 127
     invoke-super {p0, p1}, Landroid/view/SurfaceView;->setKeepScreenOn(Z)V
 
-    .line 108
+    .line 128
     invoke-virtual {p0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->getRootView()Landroid/view/View;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setKeepScreenOn(Z)V
 
+    .line 129
     return-void
 .end method
 
 .method public onSetSurfaceFormat(I)V
     .locals 1
 
-    .line 141
+    .prologue
+    .line 157
     invoke-virtual {p0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Landroid/view/SurfaceHolder;->setFormat(I)V
 
+    .line 158
     return-void
 .end method
 
 .method public unInitVideoView()V
     .locals 3
 
-    const/4 v0, 0x0
+    .prologue
+    const/4 v2, 0x0
 
-    .line 71
-    invoke-virtual {p0, v0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->setKeepScreenOn(Z)V
+    .line 92
+    invoke-virtual {p0, v2}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->setKeepScreenOn(Z)V
 
-    .line 72
+    .line 93
     invoke-virtual {p0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->getHolder()Landroid/view/SurfaceHolder;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget-object v2, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mSHCallback:Landroid/view/SurfaceHolder$Callback;
+    iget-object v1, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mSHCallback:Landroid/view/SurfaceHolder$Callback;
 
-    invoke-interface {v1, v2}, Landroid/view/SurfaceHolder;->removeCallback(Landroid/view/SurfaceHolder$Callback;)V
+    invoke-interface {v0, v1}, Landroid/view/SurfaceHolder;->removeCallback(Landroid/view/SurfaceHolder$Callback;)V
 
-    .line 73
-    invoke-virtual {p0, v0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->setFocusable(Z)V
+    .line 94
+    invoke-virtual {p0, v2}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->setFocusable(Z)V
 
-    .line 74
-    invoke-virtual {p0, v0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->setFocusableInTouchMode(Z)V
+    .line 95
+    invoke-virtual {p0, v2}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->setFocusableInTouchMode(Z)V
 
+    .line 96
     return-void
 .end method

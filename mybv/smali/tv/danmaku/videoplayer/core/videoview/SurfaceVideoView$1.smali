@@ -1,14 +1,14 @@
 .class Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "SurfaceVideoView.java"
 
 # interfaces
 .implements Landroid/view/SurfaceHolder$Callback;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;-><init>(Landroid/content/Context;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -25,7 +25,8 @@
 .method constructor <init>(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;)V
     .locals 0
 
-    .line 159
+    .prologue
+    .line 42
     iput-object p1, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;->this$0:Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,71 +37,80 @@
 
 # virtual methods
 .method public surfaceChanged(Landroid/view/SurfaceHolder;III)V
-    .locals 1
+    .locals 2
 
-    const-string p2, "SurfaceVideoView"
+    .prologue
+    .line 54
+    const-string v0, "SurfaceVideoView"
 
-    const-string v0, "surfaceChanged"
+    const-string v1, "surfaceChanged"
 
-    .line 173
-    invoke-static {p2, v0}, Ltv/danmaku/android/log/BLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Ltv/danmaku/android/log/BLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 174
-    iget-object p2, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;->this$0:Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;
+    .line 55
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;->this$0:Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;
 
-    invoke-static {p2, p1}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->access$002(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;Landroid/view/SurfaceHolder;)Landroid/view/SurfaceHolder;
+    # setter for: Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mSurfaceHolder:Landroid/view/SurfaceHolder;
+    invoke-static {v0, p1}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->access$002(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;Landroid/view/SurfaceHolder;)Landroid/view/SurfaceHolder;
 
-    .line 176
-    iget-object p2, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;->this$0:Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;
+    .line 56
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;->this$0:Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;
 
-    invoke-static {p2}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->access$100(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;)Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
+    # getter for: Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mProxy:Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
+    invoke-static {v0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->access$100(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;)Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
 
-    move-result-object p2
+    move-result-object v0
 
-    if-eqz p2, :cond_0
+    if-eqz v0, :cond_1e
 
-    .line 177
-    iget-object p2, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;->this$0:Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;
+    .line 57
+    iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;->this$0:Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;
 
-    invoke-static {p2}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->access$100(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;)Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
+    # getter for: Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mProxy:Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
+    invoke-static {v0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->access$100(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;)Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
 
-    move-result-object p2
+    move-result-object v0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {p2, v0, p1, p3, p4}, Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;->onDisplayTargetSizeChanged(ILjava/lang/Object;II)V
+    invoke-interface {v0, v1, p1, p3, p4}, Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;->onDisplayTargetSizeChanged(ILjava/lang/Object;II)V
 
-    :cond_0
+    .line 59
+    :cond_1e
     return-void
 .end method
 
 .method public surfaceCreated(Landroid/view/SurfaceHolder;)V
     .locals 2
 
+    .prologue
+    .line 45
     const-string v0, "SurfaceVideoView"
 
     const-string v1, "surfaceCreated"
 
-    .line 163
     invoke-static {v0, v1}, Ltv/danmaku/android/log/BLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 164
+    .line 46
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;->this$0:Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;
 
+    # setter for: Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mSurfaceHolder:Landroid/view/SurfaceHolder;
     invoke-static {v0, p1}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->access$002(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;Landroid/view/SurfaceHolder;)Landroid/view/SurfaceHolder;
 
-    .line 166
+    .line 47
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;->this$0:Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;
 
+    # getter for: Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mProxy:Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
     invoke-static {v0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->access$100(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;)Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
-    .line 167
+    .line 48
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;->this$0:Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;
 
+    # getter for: Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mProxy:Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
     invoke-static {v0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->access$100(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;)Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
 
     move-result-object v0
@@ -109,32 +119,36 @@
 
     invoke-interface {v0, v1, p1}, Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;->onDisplayTargetAvailable(ILjava/lang/Object;)V
 
-    :cond_0
+    .line 50
+    :cond_1e
     return-void
 .end method
 
 .method public surfaceDestroyed(Landroid/view/SurfaceHolder;)V
     .locals 2
 
+    .prologue
+    .line 63
     const-string v0, "SurfaceVideoView"
 
     const-string v1, "surfaceDestroyed"
 
-    .line 183
     invoke-static {v0, v1}, Ltv/danmaku/android/log/BLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 185
+    .line 64
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;->this$0:Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;
 
+    # getter for: Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mProxy:Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
     invoke-static {v0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->access$100(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;)Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
-    .line 186
+    .line 65
     iget-object v0, p0, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView$1;->this$0:Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;
 
+    # getter for: Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->mProxy:Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
     invoke-static {v0}, Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;->access$100(Ltv/danmaku/videoplayer/core/videoview/SurfaceVideoView;)Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;
 
     move-result-object v0
@@ -143,6 +157,7 @@
 
     invoke-interface {v0, v1, p1}, Ltv/danmaku/videoplayer/core/videoview/IVideoViewProxy;->onDisplayTargetDestroyed(ILjava/lang/Object;)V
 
-    :cond_0
+    .line 67
+    :cond_19
     return-void
 .end method

@@ -1,20 +1,20 @@
 .class public interface abstract Ltv/danmaku/ijk/media/player/IMediaPlayer;
 .super Ljava/lang/Object;
-.source "BL"
+.source "IMediaPlayer.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Ltv/danmaku/ijk/media/player/IMediaPlayer$OnVideoSizeChangedListener;,
         Ltv/danmaku/ijk/media/player/IMediaPlayer$OnTrackerListener;,
         Ltv/danmaku/ijk/media/player/IMediaPlayer$OnTimedTextListener;,
+        Ltv/danmaku/ijk/media/player/IMediaPlayer$OnSeekCompleteListener;,
+        Ltv/danmaku/ijk/media/player/IMediaPlayer$OnPreparedListener;,
         Ltv/danmaku/ijk/media/player/IMediaPlayer$OnInfoListener;,
         Ltv/danmaku/ijk/media/player/IMediaPlayer$OnErrorListener;,
-        Ltv/danmaku/ijk/media/player/IMediaPlayer$OnVideoSizeChangedListener;,
-        Ltv/danmaku/ijk/media/player/IMediaPlayer$OnSeekCompleteListener;,
-        Ltv/danmaku/ijk/media/player/IMediaPlayer$OnBufferingUpdateListener;,
         Ltv/danmaku/ijk/media/player/IMediaPlayer$OnCompletionListener;,
-        Ltv/danmaku/ijk/media/player/IMediaPlayer$OnPreparedListener;
+        Ltv/danmaku/ijk/media/player/IMediaPlayer$OnBufferingUpdateListener;
     }
 .end annotation
 
@@ -185,7 +185,8 @@
             "(",
             "Landroid/content/Context;",
             "Landroid/net/Uri;",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ">;)V"
@@ -269,6 +270,9 @@
 .method public abstract setScreenOnWhilePlaying(Z)V
 .end method
 
+.method public abstract setSpeed(F)V
+.end method
+
 .method public abstract setSurface(Landroid/view/Surface;)V
 .end method
 
@@ -294,8 +298,4 @@
             Ljava/lang/IllegalStateException;
         }
     .end annotation
-.end method
-
-
-.method public abstract setSpeed(F)V
 .end method

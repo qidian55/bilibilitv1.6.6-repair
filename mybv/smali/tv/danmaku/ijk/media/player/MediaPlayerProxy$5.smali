@@ -1,6 +1,6 @@
 .class Ltv/danmaku/ijk/media/player/MediaPlayerProxy$5;
 .super Ljava/lang/Object;
-.source "BL"
+.source "MediaPlayerProxy.java"
 
 # interfaces
 .implements Ltv/danmaku/ijk/media/player/IMediaPlayer$OnVideoSizeChangedListener;
@@ -20,17 +20,18 @@
 # instance fields
 .field final synthetic this$0:Ltv/danmaku/ijk/media/player/MediaPlayerProxy;
 
-.field final synthetic val$finalListener:Ltv/danmaku/ijk/media/player/IMediaPlayer$OnVideoSizeChangedListener;
+.field final synthetic val$onVideoSizeChangedListener:Ltv/danmaku/ijk/media/player/IMediaPlayer$OnVideoSizeChangedListener;
 
 
 # direct methods
 .method constructor <init>(Ltv/danmaku/ijk/media/player/MediaPlayerProxy;Ltv/danmaku/ijk/media/player/IMediaPlayer$OnVideoSizeChangedListener;)V
     .locals 0
 
-    .line 244
+    .prologue
+    .line 223
     iput-object p1, p0, Ltv/danmaku/ijk/media/player/MediaPlayerProxy$5;->this$0:Ltv/danmaku/ijk/media/player/MediaPlayerProxy;
 
-    iput-object p2, p0, Ltv/danmaku/ijk/media/player/MediaPlayerProxy$5;->val$finalListener:Ltv/danmaku/ijk/media/player/IMediaPlayer$OnVideoSizeChangedListener;
+    iput-object p2, p0, Ltv/danmaku/ijk/media/player/MediaPlayerProxy$5;->val$onVideoSizeChangedListener:Ltv/danmaku/ijk/media/player/IMediaPlayer$OnVideoSizeChangedListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,8 +43,9 @@
 .method public onVideoSizeChanged(Ltv/danmaku/ijk/media/player/IMediaPlayer;IIII)V
     .locals 6
 
-    .line 247
-    iget-object v0, p0, Ltv/danmaku/ijk/media/player/MediaPlayerProxy$5;->val$finalListener:Ltv/danmaku/ijk/media/player/IMediaPlayer$OnVideoSizeChangedListener;
+    .prologue
+    .line 226
+    iget-object v0, p0, Ltv/danmaku/ijk/media/player/MediaPlayerProxy$5;->val$onVideoSizeChangedListener:Ltv/danmaku/ijk/media/player/IMediaPlayer$OnVideoSizeChangedListener;
 
     iget-object v1, p0, Ltv/danmaku/ijk/media/player/MediaPlayerProxy$5;->this$0:Ltv/danmaku/ijk/media/player/MediaPlayerProxy;
 
@@ -57,5 +59,6 @@
 
     invoke-interface/range {v0 .. v5}, Ltv/danmaku/ijk/media/player/IMediaPlayer$OnVideoSizeChangedListener;->onVideoSizeChanged(Ltv/danmaku/ijk/media/player/IMediaPlayer;IIII)V
 
+    .line 227
     return-void
 .end method
