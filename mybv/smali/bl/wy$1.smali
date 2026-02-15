@@ -1,6 +1,6 @@
 .class synthetic Lbl/wy$1;
 .super Ljava/lang/Object;
-.source "BL"
+.source "wy.java"
 
 
 # annotations

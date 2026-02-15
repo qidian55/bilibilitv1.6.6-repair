@@ -588,7 +588,7 @@
     .line 43
     const-string v1, "video/hevc"
 
-    sget-object v2, Lbl/afm3;->prefect_codec:Ljava/lang/String;
+    sget-object v2, Lbl/afo;->prefect_codec:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -620,7 +620,7 @@
     :cond_7d
     const-string v1, "video/av01"
 
-    sget-object v2, Lbl/afm3;->prefect_codec:Ljava/lang/String;
+    sget-object v2, Lbl/afo;->prefect_codec:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

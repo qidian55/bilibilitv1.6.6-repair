@@ -40,10 +40,10 @@
 
     const/4 v2, 0x0
 
-    .line 151
+    .line 152
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 153
+    .line 154
     :try_start_5
     sget-object v1, Lmybl/BiliFilter;->filter_rule_path:Ljava/lang/String;
 
@@ -55,7 +55,7 @@
 
     invoke-static {}, Lmybl/BiliFilter;->saveConfig()V
 
-    .line 155
+    .line 156
     :cond_10
     sget-object v1, Lmybl/BiliFilter;->filter_rule_path:Ljava/lang/String;
 
@@ -67,7 +67,7 @@
 
     if-eqz v1, :cond_5f
 
-    .line 156
+    .line 157
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v1
@@ -90,17 +90,17 @@
 
     move-result-object v3
 
-    .line 157
+    .line 158
     invoke-static {v3}, Lbl/kz;->c(Ljava/io/InputStream;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 158
+    .line 159
     invoke-static {v3}, Lbl/kz;->a(Ljava/io/InputStream;)V
 
     move-object v3, v1
 
-    .line 165
+    .line 166
     :goto_38
     if-nez v3, :cond_74
 
@@ -128,34 +128,34 @@
     :try_end_4c
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_4c} :catch_4c
 
-    .line 176
+    .line 177
     :catch_4c
     move-exception v0
 
     move-object v1, v0
 
-    .line 177
+    .line 178
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 178
+    .line 179
     const-string v0, "Error read filter config!"
 
     invoke-static {v0, v1}, Ltv/danmaku/android/log/BLog;->w(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 179
+    .line 180
     const/4 v0, 0x0
 
     check-cast v0, Ljava/io/InputStream;
 
     invoke-static {v0}, Lbl/kz;->a(Ljava/io/InputStream;)V
 
-    .line 180
+    .line 181
     sput-boolean v2, Lmybl/BiliFilter;->filter_on:Z
 
-    .line 181
+    .line 182
     throw v1
 
-    .line 160
+    .line 161
     :cond_5f
     :try_start_5f
     new-instance v1, Ljava/io/File;
@@ -164,17 +164,17 @@
 
     invoke-direct {v1, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 161
+    .line 162
     new-instance v3, Ljava/io/FileInputStream;
 
     invoke-direct {v3, v1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 
-    .line 162
+    .line 163
     invoke-static {v3}, Lbl/kz;->c(Ljava/io/InputStream;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 163
+    .line 164
     invoke-static {v3}, Lbl/kz;->a(Ljava/io/InputStream;)V
 
     move-object v3, v1
@@ -184,7 +184,7 @@
     :cond_74
     move v1, v2
 
-    .line 165
+    .line 166
     goto :goto_3b
 
     :cond_76
@@ -192,13 +192,13 @@
 
     goto :goto_41
 
-    .line 166
+    .line 167
     :cond_78
     invoke-static {v3}, Lcom/alibaba/fastjson/JSON;->parseObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
 
     move-result-object v0
 
-    .line 167
+    .line 168
     const-string v1, "\u76f4\u64ad\u56de\u653e"
 
     invoke-virtual {v0, v1}, Lcom/alibaba/fastjson/JSONObject;->getBoolean(Ljava/lang/String;)Ljava/lang/Boolean;
@@ -211,7 +211,7 @@
 
     iput-boolean v1, p0, Lmybl/Config;->live_record:Z
 
-    .line 168
+    .line 169
     const-string v1, "\u4f5c\u7528\u8303\u56f4"
 
     invoke-virtual {v0, v1}, Lcom/alibaba/fastjson/JSONObject;->getJSONArray(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONArray;
@@ -220,7 +220,7 @@
 
     iput-object v1, p0, Lmybl/Config;->scopes:Lcom/alibaba/fastjson/JSONArray;
 
-    .line 169
+    .line 170
     const-string v1, "\u5c4f\u853d\u8bcd"
 
     invoke-virtual {v0, v1}, Lcom/alibaba/fastjson/JSONObject;->getJSONArray(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONArray;
@@ -229,7 +229,7 @@
 
     iput-object v1, p0, Lmybl/Config;->masked_words:Lcom/alibaba/fastjson/JSONArray;
 
-    .line 170
+    .line 171
     const-string v1, "\u7981\u7528\u8bcd"
 
     invoke-virtual {v0, v1}, Lcom/alibaba/fastjson/JSONObject;->getJSONArray(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONArray;
@@ -238,7 +238,7 @@
 
     iput-object v1, p0, Lmybl/Config;->banned_words:Lcom/alibaba/fastjson/JSONArray;
 
-    .line 171
+    .line 172
     const-string v1, "\u9ed1\u540d\u5355\u7528\u6237"
 
     invoke-virtual {v0, v1}, Lcom/alibaba/fastjson/JSONObject;->getJSONObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
@@ -247,14 +247,14 @@
 
     iput-object v0, p0, Lmybl/Config;->blacklist_users:Lcom/alibaba/fastjson/JSONObject;
 
-    .line 172
+    .line 173
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lmybl/Config;->filter_words:Ljava/util/List;
 
-    .line 173
+    .line 174
     iget-boolean v0, p0, Lmybl/Config;->live_record:Z
 
     if-nez v0, :cond_ba
@@ -265,7 +265,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 174
+    .line 175
     :cond_ba
     iget-object v0, p0, Lmybl/Config;->masked_words:Lcom/alibaba/fastjson/JSONArray;
 
@@ -316,7 +316,7 @@
 
     goto :goto_c0
 
-    .line 175
+    .line 176
     :cond_eb
     iget-object v0, p0, Lmybl/Config;->banned_words:Lcom/alibaba/fastjson/JSONArray;
 
@@ -357,7 +357,7 @@
 
     goto :goto_f1
 
-    .line 183
+    .line 184
     :cond_10f
     return-void
 .end method

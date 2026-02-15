@@ -21,9 +21,6 @@ import java.util.concurrent.*;
 import android.graphics.*;
 import android.content.Intent;
 import android.graphics.drawable.*;
-import android.media.MediaCodecInfo;
-import android.media.MediaCodecList;
-import tv.danmaku.videoplayer.core.media.ijk.IjkMediaCodecInfo;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -31,20 +28,20 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
     public static final a Companion = new a(null);
     public static List<String> tmp_cdns;
     public static List<String> tmp_splashs;
-    public static String prefect_codec = null;
-    public static String prefect_decoder = null;
-    public List<String> supported_codecs = new ArrayList<>(Arrays.asList("video/avc","video/hevc","video/av01"));
     private DrawFrameLayout filter_button;
     private DrawLinearLayout folder_open_button;
     private DrawFrameLayout cdn_button;
     private DrawFrameLayout splash_button;
-    private DrawFrameLayout codec_button;
     private DrawFrameLayout export_button;
     private DrawEditText filter_path;
     private DrawEditText cdn_value;
     private CheckBox skip_checkbox0;
     private CheckBox skip_checkbox1;
     private CheckBox skip_checkbox2;
+    private RadioButton view_radiobutton0;
+    private RadioButton view_radiobutton1;
+    private RadioButton view_radiobutton2;
+    private RadioGroup view_radiogroup;
 
     @Override // bl.adw
     public boolean c() {
@@ -63,13 +60,16 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         this.folder_open_button = (DrawLinearLayout)inflate.findViewById(R.id.experiment_folder_open);
         this.cdn_button = (DrawFrameLayout)inflate.findViewById(R.id.cdn_button);
         this.splash_button = (DrawFrameLayout)inflate.findViewById(R.id.splash_button);
-        this.codec_button = (DrawFrameLayout)inflate.findViewById(R.id.codec_button);
         this.export_button = (DrawFrameLayout)inflate.findViewById(R.id.export_button);
         this.filter_path = (DrawEditText)inflate.findViewById(R.id.filter_path);
         this.cdn_value = (DrawEditText)inflate.findViewById(R.id.cdn_value);
         this.skip_checkbox0 = (CheckBox)inflate.findViewById(R.id.skip_checkbox0);
         this.skip_checkbox1 = (CheckBox)inflate.findViewById(R.id.skip_checkbox1);
         this.skip_checkbox2 = (CheckBox)inflate.findViewById(R.id.skip_checkbox2);
+        this.view_radiobutton0 = (RadioButton)inflate.findViewById(R.id.view_radiobutton0);
+        this.view_radiobutton1 = (RadioButton)inflate.findViewById(R.id.view_radiobutton1);
+        this.view_radiobutton2 = (RadioButton)inflate.findViewById(R.id.view_radiobutton2);
+        this.view_radiogroup = (RadioGroup)inflate.findViewById(R.id.view_radiogroup);
 
         this.filter_button.setUpDrawable(R.drawable.shadow_white_rect);
         this.filter_button.setOnFocusChangeListener(this);
@@ -79,8 +79,6 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         this.cdn_button.setOnFocusChangeListener(this);
         this.splash_button.setUpDrawable(R.drawable.shadow_white_rect);
         this.splash_button.setOnFocusChangeListener(this);
-        this.codec_button.setUpDrawable(R.drawable.shadow_white_rect);
-        this.codec_button.setOnFocusChangeListener(this);
         this.export_button.setUpDrawable(R.drawable.shadow_white_rect);
         this.export_button.setOnFocusChangeListener(this);
         if(BiliFilter.filter_on){
@@ -98,22 +96,31 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
         else{
             ((ShadowTextView)((ViewGroup)this.cdn_button).getChildAt(0)).setText("区域CDN");
         }
-        if(afm3.prefect_decoder!=null)((ShadowTextView)((ViewGroup)this.codec_button).getChildAt(0)).setText(afm3.prefect_decoder);
         this.cdn_value.setText(VideoViewParams.prefect_cdn);
         this.filter_button.setOnClickListener(this);
         this.folder_open_button.setOnClickListener(this);
         this.cdn_button.setOnClickListener(this);
         this.splash_button.setOnClickListener(this);
-        this.codec_button.setOnClickListener(this);
         this.export_button.setOnClickListener(this);
         this.filter_path.setOnEditorActionListener(this);
         this.cdn_value.setOnEditorActionListener(this);
         this.skip_checkbox0.setChecked(BiliFilter.skip_categories.contains("intro"));
         this.skip_checkbox1.setChecked(BiliFilter.skip_categories.contains("outro"));
         this.skip_checkbox2.setChecked(BiliFilter.skip_categories.contains("sponsor"));
+        ((RadioButton)this.view_radiogroup.getChildAt(BiliFilter.prefer_videoview-1)).setChecked(true);
         this.skip_checkbox0.setOnCheckedChangeListener(this);
         this.skip_checkbox1.setOnCheckedChangeListener(this);
         this.skip_checkbox2.setOnCheckedChangeListener(this);
+        this.view_radiogroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                int index=group.indexOfChild(group.findViewById(checkedId))+1;
+                if(index==1)lr.a(afm3.this.getActivity(), "注意：该模式不支持画面调节");
+                //if(index==3)lr.a(afm3.this.getActivity(), "注意：该模式不支持IJK软解");
+                BiliFilter.prefer_videoview=index;
+                abd.set_personal_config(MainApplication.a(), "prefer_videoview", BiliFilter.prefer_videoview);
+            }
+        });
         return inflate;
     }
 
@@ -239,47 +246,6 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
                 }).create();
             dialog.show();
         }
-        if(view == this.codec_button){
-            List<String> tmp_codecs = new ArrayList<String>();
-            tmp_codecs.add("无");
-            List<String> show_decoders = new ArrayList<String>();
-            show_decoders.add("无");
-            for(int i=0;i<MediaCodecList.getCodecCount();i++){
-                MediaCodecInfo info = MediaCodecList.getCodecInfoAt(i);
-                if(!info.isEncoder()){
-                    String[] types = info.getSupportedTypes();
-                    for(int j=0;j<types.length;j++)
-                        if(this.supported_codecs.contains(types[j])){
-                            tmp_codecs.add(types[j]);
-                            show_decoders.add(info.getName());
-                        }
-                }
-            }
-            AlertDialog dialog = new AlertDialog.Builder(getContext())
-                .setItems(show_decoders.toArray(new String[0]), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Map<String, Integer> sKnownCodecList = IjkMediaCodecInfo.getKnownCodecList();
-                        Iterator<Map.Entry<String, Integer>> iterator = sKnownCodecList.entrySet().iterator();
-                        while (iterator.hasNext()) {
-                            Map.Entry<String, Integer> entry = iterator.next();
-                            if (entry.getValue()==IjkMediaCodecInfo.RANK_MAX)iterator.remove();
-                        }
-                        if(which>1){
-                            afm3.prefect_codec = tmp_codecs.get(which);
-                            afm3.prefect_decoder = show_decoders.get(which);
-                            sKnownCodecList.put(afm3.prefect_decoder, IjkMediaCodecInfo.RANK_MAX);
-                        }else{
-                            afm3.prefect_codec = null;
-                            afm3.prefect_decoder = null;
-                        }
-                        abd.set_personal_config(MainApplication.a(), "prefect_codec", afm3.prefect_codec);
-                        abd.set_personal_config(MainApplication.a(), "prefect_decoder", afm3.prefect_decoder);
-                        ((ShadowTextView)((ViewGroup)afm3.this.codec_button).getChildAt(0)).setText(show_decoders.get(which));
-                    }
-                }).create();
-            dialog.show();
-        }
         if(view == this.export_button){
             InputStream inputStream = null;
             OutputStream outputStream = null;
@@ -366,9 +332,19 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
     }
 
     public final boolean a() {
-        if (this.filter_button == null || this.filter_button.hasFocus() || this.folder_open_button == null || this.folder_open_button.hasFocus() || this.filter_path == null || this.filter_path.hasFocus() || this.cdn_button == null || this.cdn_button.hasFocus() || this.cdn_value == null || this.cdn_value.hasFocus() || this.skip_checkbox0 == null || this.skip_checkbox0.hasFocus() || this.skip_checkbox1 == null || this.skip_checkbox1.hasFocus() || this.skip_checkbox2 == null || this.skip_checkbox2.hasFocus() || this.splash_button == null || this.splash_button.hasFocus() || this.codec_button == null || this.codec_button.hasFocus() || this.export_button == null || this.export_button.hasFocus()) {
-            return false;
-        }
+        if (this.filter_button == null || this.filter_button.hasFocus()) return false;
+        if (this.folder_open_button == null || this.folder_open_button.hasFocus()) return false;
+        if (this.filter_path == null || this.filter_path.hasFocus()) return false;
+        if (this.cdn_button == null || this.cdn_button.hasFocus()) return false;
+        if (this.cdn_value == null || this.cdn_value.hasFocus()) return false;
+        if (this.skip_checkbox0 == null || this.skip_checkbox0.hasFocus()) return false;
+        if (this.skip_checkbox1 == null || this.skip_checkbox1.hasFocus()) return false;
+        if (this.skip_checkbox2 == null || this.skip_checkbox2.hasFocus()) return false;
+        if (this.view_radiobutton0 == null || this.view_radiobutton0.hasFocus()) return false;
+        if (this.view_radiobutton1 == null || this.view_radiobutton1.hasFocus()) return false;
+        if (this.view_radiobutton2 == null || this.view_radiobutton2.hasFocus()) return false;
+        if (this.splash_button == null || this.splash_button.hasFocus()) return false;
+        if (this.export_button == null || this.export_button.hasFocus()) return false;
         this.filter_button.requestFocus();
         return true;
     }

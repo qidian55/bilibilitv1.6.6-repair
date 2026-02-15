@@ -1,6 +1,6 @@
 .class public abstract Lbl/wy;
 .super Lbl/wx;
-.source "BL"
+.source "wy.java"
 
 # interfaces
 .implements Landroid/view/TextureView$SurfaceTextureListener;
@@ -15,11 +15,11 @@
 
 
 # static fields
-.field protected static H:I = -0x1
+.field protected static H:I
 
-.field protected static I:Z = false
+.field protected static I:Z
 
-.field public static J:Z = true
+.field public static J:Z
 
 
 # instance fields
@@ -62,180 +62,203 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .locals 1
+
+    .prologue
+    .line 25
+    const/4 v0, -0x1
+
+    sput v0, Lbl/wy;->H:I
+
+    .line 26
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lbl/wy;->I:Z
+
+    .line 27
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lbl/wy;->J:Z
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .locals 3
 
-    .line 90
+    .prologue
+    const/4 v2, 0x0
+
+    .line 84
     invoke-direct {p0, p1}, Lbl/wx;-><init>(Landroid/content/Context;)V
 
-    .line 63
+    .line 85
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lbl/wy;->M:Landroid/os/Handler;
 
+    .line 86
     const-string v0, ""
 
-    .line 67
     iput-object v0, p0, Lbl/wy;->O:Ljava/lang/String;
 
+    .line 87
     const/16 v0, -0x16
 
-    .line 68
     iput v0, p0, Lbl/wy;->P:I
 
+    .line 88
     const/high16 v0, -0x40800000    # -1.0f
 
-    .line 70
     iput v0, p0, Lbl/wy;->Q:F
 
+    .line 89
     const/4 v0, -0x1
 
-    .line 73
     iput v0, p0, Lbl/wy;->T:I
 
+    .line 90
     const-wide/16 v0, -0x1
 
-    .line 77
     iput-wide v0, p0, Lbl/wy;->W:J
 
-    const/4 v0, 0x0
-
-    .line 80
-    iput-boolean v0, p0, Lbl/wy;->ac:Z
-
-    .line 81
-    iput-boolean v0, p0, Lbl/wy;->ad:Z
-
-    .line 82
-    iput-boolean v0, p0, Lbl/wy;->ae:Z
-
     .line 91
+    iput-boolean v2, p0, Lbl/wy;->ac:Z
+
+    .line 92
+    iput-boolean v2, p0, Lbl/wy;->ad:Z
+
+    .line 93
+    iput-boolean v2, p0, Lbl/wy;->ae:Z
+
+    .line 94
     invoke-virtual {p0, p1}, Lbl/wy;->a(Landroid/content/Context;)V
 
+    .line 95
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .locals 3
 
-    .line 95
+    .prologue
+    const/4 v2, 0x0
+
+    .line 98
     invoke-direct {p0, p1, p2}, Lbl/wx;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 63
-    new-instance p2, Landroid/os/Handler;
+    .line 99
+    new-instance v0, Landroid/os/Handler;
 
-    invoke-direct {p2}, Landroid/os/Handler;-><init>()V
+    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    iput-object p2, p0, Lbl/wy;->M:Landroid/os/Handler;
+    iput-object v0, p0, Lbl/wy;->M:Landroid/os/Handler;
 
-    const-string p2, ""
+    .line 100
+    const-string v0, ""
 
-    .line 67
-    iput-object p2, p0, Lbl/wy;->O:Ljava/lang/String;
+    iput-object v0, p0, Lbl/wy;->O:Ljava/lang/String;
 
-    const/16 p2, -0x16
+    .line 101
+    const/16 v0, -0x16
 
-    .line 68
-    iput p2, p0, Lbl/wy;->P:I
+    iput v0, p0, Lbl/wy;->P:I
 
-    const/high16 p2, -0x40800000    # -1.0f
+    .line 102
+    const/high16 v0, -0x40800000    # -1.0f
 
-    .line 70
-    iput p2, p0, Lbl/wy;->Q:F
+    iput v0, p0, Lbl/wy;->Q:F
 
-    const/4 p2, -0x1
+    .line 103
+    const/4 v0, -0x1
 
-    .line 73
-    iput p2, p0, Lbl/wy;->T:I
+    iput v0, p0, Lbl/wy;->T:I
 
+    .line 104
     const-wide/16 v0, -0x1
 
-    .line 77
     iput-wide v0, p0, Lbl/wy;->W:J
 
-    const/4 p2, 0x0
+    .line 105
+    iput-boolean v2, p0, Lbl/wy;->ac:Z
 
-    .line 80
-    iput-boolean p2, p0, Lbl/wy;->ac:Z
+    .line 106
+    iput-boolean v2, p0, Lbl/wy;->ad:Z
 
-    .line 81
-    iput-boolean p2, p0, Lbl/wy;->ad:Z
+    .line 107
+    iput-boolean v2, p0, Lbl/wy;->ae:Z
 
-    .line 82
-    iput-boolean p2, p0, Lbl/wy;->ae:Z
-
-    .line 96
+    .line 108
     invoke-virtual {p0, p1}, Lbl/wy;->a(Landroid/content/Context;)V
 
+    .line 109
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/Boolean;)V
-    .locals 2
+    .locals 3
 
-    .line 85
-    invoke-direct {p0, p1, p2}, Lbl/wx;-><init>(Landroid/content/Context;Ljava/lang/Boolean;)V
-
-    .line 63
-    new-instance p2, Landroid/os/Handler;
-
-    invoke-direct {p2}, Landroid/os/Handler;-><init>()V
-
-    iput-object p2, p0, Lbl/wy;->M:Landroid/os/Handler;
-
-    const-string p2, ""
-
-    .line 67
-    iput-object p2, p0, Lbl/wy;->O:Ljava/lang/String;
-
-    const/16 p2, -0x16
-
-    .line 68
-    iput p2, p0, Lbl/wy;->P:I
-
-    const/high16 p2, -0x40800000    # -1.0f
+    .prologue
+    const/4 v2, 0x0
 
     .line 70
-    iput p2, p0, Lbl/wy;->Q:F
+    invoke-direct {p0, p1, p2}, Lbl/wx;-><init>(Landroid/content/Context;Ljava/lang/Boolean;)V
 
-    const/4 p2, -0x1
+    .line 71
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+
+    iput-object v0, p0, Lbl/wy;->M:Landroid/os/Handler;
+
+    .line 72
+    const-string v0, ""
+
+    iput-object v0, p0, Lbl/wy;->O:Ljava/lang/String;
 
     .line 73
-    iput p2, p0, Lbl/wy;->T:I
+    const/16 v0, -0x16
 
+    iput v0, p0, Lbl/wy;->P:I
+
+    .line 74
+    const/high16 v0, -0x40800000    # -1.0f
+
+    iput v0, p0, Lbl/wy;->Q:F
+
+    .line 75
+    const/4 v0, -0x1
+
+    iput v0, p0, Lbl/wy;->T:I
+
+    .line 76
     const-wide/16 v0, -0x1
 
-    .line 77
     iput-wide v0, p0, Lbl/wy;->W:J
 
-    const/4 p2, 0x0
+    .line 77
+    iput-boolean v2, p0, Lbl/wy;->ac:Z
+
+    .line 78
+    iput-boolean v2, p0, Lbl/wy;->ad:Z
+
+    .line 79
+    iput-boolean v2, p0, Lbl/wy;->ae:Z
 
     .line 80
-    iput-boolean p2, p0, Lbl/wy;->ac:Z
-
-    .line 81
-    iput-boolean p2, p0, Lbl/wy;->ad:Z
-
-    .line 82
-    iput-boolean p2, p0, Lbl/wy;->ae:Z
-
-    .line 86
     invoke-virtual {p0, p1}, Lbl/wy;->a(Landroid/content/Context;)V
 
+    .line 81
     return-void
 .end method
 
 .method private getNetSpeed()J
     .locals 2
 
-    .line 741
+    .prologue
+    .line 572
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
     move-result-object v0
@@ -244,35 +267,39 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    .line 573
+    if-eqz v0, :cond_e
 
-    .line 742
     instance-of v1, v0, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_11
 
-    .line 743
+    .line 574
+    :cond_e
+    const-wide/16 v0, -0x1
+
+    .line 576
+    :goto_10
+    return-wide v0
+
+    :cond_11
     check-cast v0, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;
 
     invoke-virtual {v0}, Ltv/danmaku/ijk/media/player/IjkMediaPlayer;->getTcpSpeed()J
 
     move-result-wide v0
 
-    return-wide v0
-
-    :cond_0
-    const-wide/16 v0, -0x1
-
-    return-wide v0
+    goto :goto_10
 .end method
 
 .method private j()V
     .locals 2
 
-    .line 558
+    .prologue
+    .line 501
     invoke-virtual {p0}, Lbl/wy;->t()V
 
-    .line 559
+    .line 502
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -281,9 +308,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lbl/wy;->r:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -291,30 +322,32 @@
 
     invoke-static {v0}, Lbl/ww;->b(Ljava/lang/String;)V
 
-    .line 560
+    .line 503
     iget-object v0, p0, Lbl/wy;->q:Ljava/lang/String;
 
     iput-object v0, p0, Lbl/wy;->r:Ljava/lang/String;
 
+    .line 504
     return-void
 .end method
 
 
 # virtual methods
 .method public a()V
-    .locals 7
+    .locals 8
 
-    .line 386
+    .prologue
+    const-wide/16 v6, 0x0
+
+    const/4 v5, 0x1
+
+    const/4 v4, -0x1
+
+    .line 367
     iget v0, p0, Lbl/wy;->g:I
 
-    const/4 v1, 0x1
+    if-ne v0, v5, :cond_4f
 
-    if-eq v0, v1, :cond_0
-
-    return-void
-
-    .line 390
-    :cond_0
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
     move-result-object v0
@@ -323,113 +356,115 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-eqz v0, :cond_4f
 
-    return-void
-
-    .line 395
-    :cond_1
+    .line 368
     invoke-virtual {v0}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->start()V
 
-    .line 397
-    iget v2, p0, Lbl/wy;->T:I
+    .line 369
+    iget v1, p0, Lbl/wy;->T:I
 
-    const/4 v3, -0x1
+    if-eq v1, v4, :cond_21
 
-    if-eq v2, v3, :cond_2
+    .line 370
+    iget v1, p0, Lbl/wy;->T:I
 
-    .line 398
-    iget v2, p0, Lbl/wy;->T:I
+    int-to-long v2, v1
 
-    int-to-long v4, v2
+    invoke-virtual {v0, v2, v3}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->seekTo(J)V
 
-    invoke-virtual {v0, v4, v5}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->seekTo(J)V
+    .line 371
+    iput v4, p0, Lbl/wy;->T:I
 
-    .line 399
-    iput v3, p0, Lbl/wy;->T:I
-
-    .line 402
-    :cond_2
+    .line 373
+    :cond_21
     invoke-virtual {p0}, Lbl/wy;->u()V
 
-    const/4 v2, 0x2
+    .line 374
+    const/4 v1, 0x2
 
-    .line 403
-    invoke-virtual {p0, v2}, Lbl/wy;->setStateAndUi(I)V
+    invoke-virtual {p0, v1}, Lbl/wy;->setStateAndUi(I)V
 
-    .line 405
-    iget-object v2, p0, Lbl/wy;->v:Lbl/wt;
+    .line 375
+    iget-object v1, p0, Lbl/wy;->v:Lbl/wt;
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_40
 
     invoke-virtual {p0}, Lbl/wy;->x()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_40
 
-    const-string v2, "onPrepared"
+    .line 376
+    const-string v1, "onPrepared"
 
-    .line 406
-    invoke-static {v2}, Lbl/ww;->a(Ljava/lang/String;)V
+    invoke-static {v1}, Lbl/ww;->a(Ljava/lang/String;)V
 
-    .line 407
-    iget-object v2, p0, Lbl/wy;->v:Lbl/wt;
+    .line 377
+    iget-object v1, p0, Lbl/wy;->v:Lbl/wt;
 
-    iget-object v3, p0, Lbl/wy;->r:Ljava/lang/String;
+    iget-object v2, p0, Lbl/wy;->r:Ljava/lang/String;
 
-    iget-object v4, p0, Lbl/wy;->s:[Ljava/lang/Object;
+    iget-object v3, p0, Lbl/wy;->s:[Ljava/lang/Object;
 
-    invoke-interface {v2, v3, v4}, Lbl/wt;->a(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-interface {v1, v2, v3}, Lbl/wt;->a(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 410
-    :cond_3
+    .line 379
+    :cond_40
     iget-wide v2, p0, Lbl/wy;->W:J
 
-    const-wide/16 v4, 0x0
+    cmp-long v1, v2, v6
 
-    cmp-long v6, v2, v4
+    if-lez v1, :cond_4d
 
-    if-lez v6, :cond_4
-
-    .line 411
+    .line 380
     iget-wide v2, p0, Lbl/wy;->W:J
 
     invoke-virtual {v0, v2, v3}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->seekTo(J)V
 
-    .line 412
-    iput-wide v4, p0, Lbl/wy;->W:J
+    .line 381
+    iput-wide v6, p0, Lbl/wy;->W:J
 
-    .line 415
-    :cond_4
-    iput-boolean v1, p0, Lbl/wy;->n:Z
+    .line 383
+    :cond_4d
+    iput-boolean v5, p0, Lbl/wy;->n:Z
 
+    .line 385
+    :cond_4f
     return-void
 .end method
 
 .method public a(I)V
     .locals 2
 
-    .line 469
+    .prologue
+    .line 434
     iget v0, p0, Lbl/wy;->g:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget v0, p0, Lbl/wy;->g:I
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_b
 
-    if-eqz p1, :cond_0
+    if-nez p1, :cond_c
 
-    .line 471
+    .line 440
+    :cond_b
+    :goto_b
+    return-void
+
+    .line 437
+    :cond_c
     invoke-virtual {p0, p1}, Lbl/wy;->setTextAndProgress(I)V
 
-    .line 472
+    .line 438
     iput p1, p0, Lbl/wy;->U:I
 
-    .line 473
+    .line 439
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -438,313 +473,343 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {p0}, Lbl/wy;->getNetSpeedText()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " percent "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lbl/ww;->a(Ljava/lang/String;)V
+    invoke-static {v0}, Lbl/ww;->a(Ljava/lang/String;)V
 
-    :cond_0
-    return-void
+    goto :goto_b
 .end method
 
 .method public a(II)V
-    .locals 1
+    .locals 3
 
-    const/16 p2, 0x26
+    .prologue
+    .line 444
+    const/16 v0, 0x26
 
-    if-eq p1, p2, :cond_0
+    if-eq p1, v0, :cond_8
 
-    const/16 p2, -0x26
+    const/16 v0, -0x26
 
-    if-eq p1, p2, :cond_0
+    if-ne p1, v0, :cond_9
 
-    const/4 p1, 0x7
+    .line 452
+    :cond_8
+    :goto_8
+    return-void
 
-    .line 490
-    invoke-virtual {p0, p1}, Lbl/wy;->setStateAndUi(I)V
+    .line 447
+    :cond_9
+    const/4 v0, 0x7
 
-    .line 491
+    invoke-virtual {p0, v0}, Lbl/wy;->setStateAndUi(I)V
+
+    .line 448
     invoke-direct {p0}, Lbl/wy;->j()V
 
-    .line 492
-    iget-object p1, p0, Lbl/wy;->v:Lbl/wt;
+    .line 449
+    iget-object v0, p0, Lbl/wy;->v:Lbl/wt;
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_8
 
-    .line 493
-    iget-object p1, p0, Lbl/wy;->v:Lbl/wt;
+    .line 450
+    iget-object v0, p0, Lbl/wy;->v:Lbl/wt;
 
-    iget-object p2, p0, Lbl/wy;->r:Ljava/lang/String;
+    iget-object v1, p0, Lbl/wy;->r:Ljava/lang/String;
 
-    iget-object v0, p0, Lbl/wy;->s:[Ljava/lang/Object;
+    iget-object v2, p0, Lbl/wy;->s:[Ljava/lang/Object;
 
-    invoke-interface {p1, p2, v0}, Lbl/wt;->c(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-interface {v0, v1, v2}, Lbl/wt;->c(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    :cond_0
-    return-void
+    goto :goto_8
 .end method
 
 .method public a(IIII)V
-    .locals 0
+    .locals 1
 
-    if-eqz p1, :cond_0
+    .prologue
+    .line 484
+    if-eqz p1, :cond_4
 
-    if-eqz p2, :cond_0
+    if-nez p2, :cond_5
 
-    .line 527
-    iget-object p1, p0, Lbl/wy;->x:Lbl/wz;
-
-    invoke-virtual {p1}, Lbl/wz;->requestLayout()V
-
-    :cond_0
+    .line 488
+    :cond_4
+    :goto_4
     return-void
+
+    .line 487
+    :cond_5
+    iget-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
+
+    invoke-virtual {v0}, Landroid/view/TextureView;->requestLayout()V
+
+    goto :goto_4
 .end method
 
 .method protected a(Landroid/content/Context;)V
-    .locals 1
+    .locals 2
 
-    .line 100
+    .prologue
+    .line 112
     iput-object p1, p0, Lbl/wy;->p:Landroid/content/Context;
 
-    .line 101
+    .line 113
     invoke-virtual {p0}, Lbl/wy;->getLayoutId()I
 
     move-result v0
 
     invoke-static {p1, v0, p0}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    const p1, 0x7f080069
+    .line 114
+    const v0, 0x7f080069
 
-    .line 102
-    invoke-virtual {p0, p1}, Lbl/wy;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lbl/wy;->findViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/widget/ImageView;
+    check-cast v0, Landroid/widget/ImageView;
 
-    iput-object p1, p0, Lbl/wy;->y:Landroid/widget/ImageView;
+    iput-object v0, p0, Lbl/wy;->y:Landroid/widget/ImageView;
 
-    const p1, 0x7f080121
+    .line 115
+    const v0, 0x7f080121
 
-    .line 103
-    invoke-virtual {p0, p1}, Lbl/wy;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lbl/wy;->findViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/widget/FrameLayout;
+    check-cast v0, Landroid/widget/FrameLayout;
 
-    iput-object p1, p0, Lbl/wy;->u:Landroid/view/ViewGroup;
+    iput-object v0, p0, Lbl/wy;->u:Landroid/view/ViewGroup;
 
-    .line 104
+    .line 116
     invoke-virtual {p0}, Lbl/wy;->isInEditMode()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_26
 
+    .line 124
+    :goto_25
     return-void
 
-    .line 107
-    :cond_0
-    new-instance p1, Lbl/wy$a;
+    .line 119
+    :cond_26
+    new-instance v0, Lbl/wy$a;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {p1, v0}, Lbl/wy$a;-><init>(Lbl/wy$1;)V
+    invoke-direct {v0, v1}, Lbl/wy$a;-><init>(Lbl/wy$1;)V
 
-    iput-object p1, p0, Lbl/wy;->N:Lbl/wy$a;
+    iput-object v0, p0, Lbl/wy;->N:Lbl/wy$a;
 
-    .line 108
+    .line 120
     invoke-virtual {p0}, Lbl/wy;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object p1
+    move-result-object v0
 
-    iget p1, p1, Landroid/util/DisplayMetrics;->widthPixels:I
+    iget v0, v0, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    iput p1, p0, Lbl/wy;->R:I
+    iput v0, p0, Lbl/wy;->R:I
 
-    .line 109
+    .line 121
     invoke-virtual {p0}, Lbl/wy;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object p1
+    move-result-object v0
 
-    iget p1, p1, Landroid/util/DisplayMetrics;->heightPixels:I
+    iget v0, v0, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    iput p1, p0, Lbl/wy;->S:I
+    iput v0, p0, Lbl/wy;->S:I
 
-    .line 110
+    .line 122
     invoke-virtual {p0}, Lbl/wy;->getContext()Landroid/content/Context;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object p1
+    move-result-object v0
 
-    const-string v0, "audio"
+    const-string v1, "audio"
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/media/AudioManager;
+    check-cast v0, Landroid/media/AudioManager;
 
-    iput-object p1, p0, Lbl/wy;->L:Landroid/media/AudioManager;
+    iput-object v0, p0, Lbl/wy;->L:Landroid/media/AudioManager;
 
-    .line 111
+    .line 123
     invoke-virtual {p0}, Lbl/wy;->getContext()Landroid/content/Context;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/high16 v0, 0x42480000    # 50.0f
+    const/high16 v1, 0x42480000    # 50.0f
 
-    invoke-static {p1, v0}, Lbl/wu;->a(Landroid/content/Context;F)I
+    invoke-static {v0, v1}, Lbl/wu;->a(Landroid/content/Context;F)I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lbl/wy;->V:I
+    iput v0, p0, Lbl/wy;->V:I
 
-    return-void
+    goto :goto_25
 .end method
 
 .method public varargs a(Ljava/lang/String;ZLjava/io/File;[Ljava/lang/Object;)Z
-    .locals 5
+    .locals 6
 
+    .prologue
     const/4 v0, 0x0
 
-    if-eqz p4, :cond_0
+    .line 129
+    if-eqz p4, :cond_11
 
-    .line 121
     array-length v1, p4
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_11
 
-    .line 122
     aget-object v1, p4, v0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
-    .line 124
+    .line 130
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {p0, v1}, Lbl/wy;->setTitle(Ljava/lang/String;)V
 
-    .line 128
-    :cond_0
+    .line 132
+    :cond_11
     iput-boolean p2, p0, Lbl/wy;->e:Z
 
-    .line 129
+    .line 133
     iput-object p3, p0, Lbl/wy;->t:Ljava/io/File;
 
-    .line 130
+    .line 134
     iput-object p1, p0, Lbl/wy;->q:Ljava/lang/String;
 
-    .line 131
+    .line 135
     invoke-virtual {p0}, Lbl/wy;->x()Z
 
-    move-result p2
+    move-result v1
 
-    if-eqz p2, :cond_1
+    if-eqz v1, :cond_2b
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide p2
+    move-result-wide v2
 
-    sget-wide v1, Lbl/wy;->a:J
+    sget-wide v4, Lbl/wy;->a:J
 
-    sub-long v3, p2, v1
+    sub-long/2addr v2, v4
 
-    const-wide/16 p2, 0x7d0
+    const-wide/16 v4, 0x7d0
 
-    cmp-long v1, v3, p2
+    cmp-long v1, v2, v4
 
-    if-gez v1, :cond_1
+    if-gez v1, :cond_2b
 
+    .line 142
+    :goto_2a
     return v0
 
-    .line 134
-    :cond_1
+    .line 138
+    :cond_2b
     iput v0, p0, Lbl/wy;->g:I
 
-    .line 144
+    .line 139
     iput-object p1, p0, Lbl/wy;->r:Ljava/lang/String;
 
-    .line 145
+    .line 140
     iput-object p4, p0, Lbl/wy;->s:[Ljava/lang/Object;
 
-    .line 146
+    .line 141
     invoke-virtual {p0, v0}, Lbl/wy;->setStateAndUi(I)V
 
-    const/4 p1, 0x1
+    .line 142
+    const/4 v0, 0x1
 
-    return p1
+    goto :goto_2a
 .end method
 
 .method protected attachViewToParent(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
-    .locals 0
+    .locals 2
 
-    .line 262
+    .prologue
+    .line 259
     invoke-super {p0, p1, p2, p3}, Lbl/wx;->attachViewToParent(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
+    .line 260
+    iget-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
+
+    if-eqz v0, :cond_f
+
+    .line 261
+    iget-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
+
+    const v1, 0x3f800054    # 1.00001f
+
+    invoke-virtual {v0, v1}, Landroid/view/TextureView;->setScaleX(F)V
+
     .line 263
-    iget-object p1, p0, Lbl/wy;->x:Lbl/wz;
-
-    if-eqz p1, :cond_0
-
-    .line 264
-    iget-object p1, p0, Lbl/wy;->x:Lbl/wz;
-
-    const p2, 0x3f800054    # 1.00001f
-
-    invoke-virtual {p1, p2}, Lbl/wz;->setScaleX(F)V
-
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public b()V
     .locals 3
 
-    .line 420
+    .prologue
+    .line 389
     iget-object v0, p0, Lbl/wy;->v:Lbl/wt;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     invoke-virtual {p0}, Lbl/wy;->x()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
+    .line 390
     const-string v0, "onAutoComplete"
 
-    .line 421
     invoke-static {v0}, Lbl/ww;->a(Ljava/lang/String;)V
 
-    .line 422
+    .line 391
     iget-object v0, p0, Lbl/wy;->v:Lbl/wt;
 
     iget-object v1, p0, Lbl/wy;->r:Ljava/lang/String;
@@ -753,38 +818,38 @@
 
     invoke-interface {v0, v1, v2}, Lbl/wt;->d(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    :cond_0
+    .line 393
+    :cond_18
     const/4 v0, 0x6
 
-    .line 424
     invoke-virtual {p0, v0}, Lbl/wy;->setStateAndUi(I)V
 
-    .line 425
+    .line 394
     iget-object v0, p0, Lbl/wy;->u:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_29
 
-    .line 426
+    .line 395
     iget-object v0, p0, Lbl/wy;->u:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->removeAllViews()V
 
-    .line 429
-    :cond_1
+    .line 397
+    :cond_29
     sget-boolean v0, Lbl/wy;->I:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_45
 
+    .line 398
     const/4 v0, 0x0
 
-    .line 430
     sput-boolean v0, Lbl/wy;->I:Z
 
-    .line 431
+    .line 399
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
     move-result-object v0
@@ -793,9 +858,9 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_45
 
-    .line 432
+    .line 400
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
     move-result-object v0
@@ -806,30 +871,32 @@
 
     invoke-interface {v0}, Lbl/ws;->b()V
 
-    .line 435
-    :cond_2
+    .line 403
+    :cond_45
     iget-boolean v0, p0, Lbl/wy;->k:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_53
 
-    .line 436
+    .line 404
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Lbl/wm;->b(Lbl/ws;)V
+    check-cast v0, Lbl/ws;
 
-    .line 438
-    :cond_3
+    invoke-virtual {v1, v0}, Lbl/wm;->b(Lbl/ws;)V
+
+    .line 406
+    :cond_53
     iget-object v0, p0, Lbl/wy;->L:Landroid/media/AudioManager;
 
     iget-object v1, p0, Lbl/wy;->N:Lbl/wy$a;
 
     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->abandonAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;)I
 
-    .line 439
+    .line 407
     invoke-virtual {p0}, Lbl/wy;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -844,222 +911,238 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->clearFlags(I)V
 
+    .line 408
     return-void
 .end method
 
 .method public b(II)V
-    .locals 1
+    .locals 2
 
+    .prologue
+    const/4 v1, -0x1
+
+    .line 456
     const/16 v0, 0x2bd
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_17
 
-    .line 501
-    iget p1, p0, Lbl/wy;->g:I
+    .line 457
+    iget v0, p0, Lbl/wy;->g:I
 
-    sput p1, Lbl/wy;->H:I
+    sput v0, Lbl/wy;->H:I
 
-    .line 502
-    iget-boolean p1, p0, Lbl/wy;->m:Z
+    .line 458
+    iget-boolean v0, p0, Lbl/wy;->m:Z
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_12
 
-    iget-boolean p1, p0, Lbl/wy;->n:Z
+    iget-boolean v0, p0, Lbl/wy;->n:Z
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_12
 
-    goto :goto_1
+    .line 480
+    :cond_11
+    :goto_11
+    return-void
 
-    :cond_0
-    const/4 p1, 0x3
+    .line 461
+    :cond_12
+    const/4 v0, 0x3
 
-    .line 505
-    invoke-virtual {p0, p1}, Lbl/wy;->setStateAndUi(I)V
+    invoke-virtual {p0, v0}, Lbl/wy;->setStateAndUi(I)V
 
-    goto :goto_1
+    goto :goto_11
 
-    :cond_1
+    .line 464
+    :cond_17
     const/16 v0, 0x2be
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_2f
 
-    .line 508
-    sget p1, Lbl/wy;->H:I
+    .line 465
+    sget v0, Lbl/wy;->H:I
 
-    const/4 p2, -0x1
+    if-eq v0, v1, :cond_11
 
-    if-eq p1, p2, :cond_4
+    .line 466
+    iget-boolean v0, p0, Lbl/wy;->m:Z
 
-    .line 509
-    iget-boolean p1, p0, Lbl/wy;->m:Z
+    if-eqz v0, :cond_27
 
-    if-eqz p1, :cond_2
+    iget-boolean v0, p0, Lbl/wy;->n:Z
 
-    iget-boolean p1, p0, Lbl/wy;->n:Z
+    if-nez v0, :cond_2c
 
-    if-eqz p1, :cond_2
+    .line 467
+    :cond_27
+    sget v0, Lbl/wy;->H:I
 
-    goto :goto_0
+    invoke-virtual {p0, v0}, Lbl/wy;->setStateAndUi(I)V
 
-    .line 512
-    :cond_2
-    sget p1, Lbl/wy;->H:I
+    .line 469
+    :cond_2c
+    sput v1, Lbl/wy;->H:I
 
-    invoke-virtual {p0, p1}, Lbl/wy;->setStateAndUi(I)V
+    goto :goto_11
 
-    .line 514
-    :goto_0
-    sput p2, Lbl/wy;->H:I
-
-    goto :goto_1
-
-    :cond_3
+    .line 474
+    :cond_2f
     const/16 v0, 0x2711
 
-    if-ne p1, v0, :cond_4
+    if-ne p1, v0, :cond_11
 
-    .line 517
+    .line 475
     iput p2, p0, Lbl/wy;->h:I
 
-    .line 518
-    iget-object p1, p0, Lbl/wy;->x:Lbl/wz;
+    .line 476
+    iget-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
 
-    if-eqz p1, :cond_4
+    if-eqz v0, :cond_11
 
-    .line 519
-    iget-object p1, p0, Lbl/wy;->x:Lbl/wz;
+    .line 477
+    iget-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
 
-    iget p2, p0, Lbl/wy;->h:I
+    iget v1, p0, Lbl/wy;->h:I
 
-    int-to-float p2, p2
+    int-to-float v1, v1
 
-    invoke-virtual {p1, p2}, Lbl/wz;->setRotation(F)V
+    invoke-virtual {v0, v1}, Landroid/view/TextureView;->setRotation(F)V
 
-    :cond_4
-    :goto_1
-    return-void
+    goto :goto_11
 .end method
 
 .method protected b(IIII)V
-    .locals 0
+    .locals 1
 
-    .line 607
-    iget-boolean p1, p0, Lbl/wy;->ac:Z
+    .prologue
+    .line 534
+    iget-boolean v0, p0, Lbl/wy;->ac:Z
 
-    const/16 p1, 0x5e
+    .line 535
+    const/16 v0, 0x5e
 
-    if-le p2, p1, :cond_0
+    if-le p2, v0, :cond_8
 
+    .line 536
     const/16 p2, 0x64
 
-    :cond_0
-    if-eqz p2, :cond_1
+    .line 538
+    :cond_8
+    if-eqz p2, :cond_c
 
-    .line 611
-    iget-boolean p1, p0, Lbl/wy;->o:Z
+    .line 539
+    iget-boolean v0, p0, Lbl/wy;->o:Z
 
-    :cond_1
+    .line 541
+    :cond_c
     return-void
 .end method
 
 .method public c()V
-    .locals 3
+    .locals 4
 
-    const/4 v0, 0x0
+    .prologue
+    const/4 v1, 0x0
 
-    .line 445
-    invoke-virtual {p0, v0}, Lbl/wy;->setStateAndUi(I)V
+    const/4 v3, 0x0
 
-    .line 446
-    iget-object v1, p0, Lbl/wy;->u:Landroid/view/ViewGroup;
+    .line 412
+    invoke-virtual {p0, v3}, Lbl/wy;->setStateAndUi(I)V
 
-    invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
+    .line 413
+    iget-object v0, p0, Lbl/wy;->u:Landroid/view/ViewGroup;
 
-    move-result v1
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
 
-    if-lez v1, :cond_0
+    move-result v0
 
-    .line 447
-    iget-object v1, p0, Lbl/wy;->u:Landroid/view/ViewGroup;
+    if-lez v0, :cond_12
 
-    invoke-virtual {v1}, Landroid/view/ViewGroup;->removeAllViews()V
+    .line 414
+    iget-object v0, p0, Lbl/wy;->u:Landroid/view/ViewGroup;
 
-    .line 450
-    :cond_0
-    sget-boolean v1, Lbl/wy;->I:Z
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->removeAllViews()V
 
-    if-eqz v1, :cond_1
+    .line 416
+    :cond_12
+    sget-boolean v0, Lbl/wy;->I:Z
 
-    .line 451
-    sput-boolean v0, Lbl/wy;->I:Z
+    if-eqz v0, :cond_2d
 
-    .line 452
+    .line 417
+    sput-boolean v3, Lbl/wy;->I:Z
+
+    .line 418
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lbl/wm;->c()Lbl/ws;
+    invoke-virtual {v0}, Lbl/wm;->c()Lbl/ws;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_2d
 
-    .line 453
+    .line 419
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lbl/wm;->c()Lbl/ws;
+    invoke-virtual {v0}, Lbl/wm;->c()Lbl/ws;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Lbl/ws;->c()V
+    invoke-interface {v0}, Lbl/ws;->c()V
 
-    .line 456
-    :cond_1
-    iget-boolean v1, p0, Lbl/wy;->k:Z
+    .line 422
+    :cond_2d
+    iget-boolean v0, p0, Lbl/wy;->k:Z
 
-    if-nez v1, :cond_2
+    if-nez v0, :cond_44
 
-    .line 457
+    .line 423
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x0
+    move-object v0, v1
 
-    invoke-virtual {v1, v2}, Lbl/wm;->a(Lbl/ws;)V
+    check-cast v0, Lbl/ws;
 
-    .line 458
+    invoke-virtual {v2, v0}, Lbl/wm;->a(Lbl/ws;)V
+
+    .line 424
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Lbl/wm;->b(Lbl/ws;)V
+    check-cast v1, Lbl/ws;
 
-    .line 460
-    :cond_2
+    invoke-virtual {v0, v1}, Lbl/wm;->b(Lbl/ws;)V
+
+    .line 426
+    :cond_44
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, v0}, Lbl/wm;->a(I)V
+    invoke-virtual {v0, v3}, Lbl/wm;->a(I)V
 
-    .line 461
+    .line 427
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, v0}, Lbl/wm;->b(I)V
+    invoke-virtual {v0, v3}, Lbl/wm;->b(I)V
 
-    .line 463
+    .line 428
     iget-object v0, p0, Lbl/wy;->L:Landroid/media/AudioManager;
 
     iget-object v1, p0, Lbl/wy;->N:Lbl/wy$a;
 
     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->abandonAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;)I
 
-    .line 464
+    .line 429
     invoke-virtual {p0}, Lbl/wy;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1074,19 +1157,23 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->clearFlags(I)V
 
+    .line 430
     return-void
 .end method
 
 .method public d()V
     .locals 0
 
+    .prologue
+    .line 49
     return-void
 .end method
 
 .method public e()V
-    .locals 3
+    .locals 4
 
-    .line 208
+    .prologue
+    .line 206
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
     move-result-object v0
@@ -1095,122 +1182,134 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    .line 207
+    if-eqz v0, :cond_10
 
-    .line 209
     invoke-virtual {v0}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->isPlaying()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_11
 
-    const/4 v1, 0x5
+    .line 218
+    :cond_10
+    :goto_10
+    return-void
 
     .line 210
+    :cond_11
+    const/4 v1, 0x5
+
     invoke-virtual {p0, v1}, Lbl/wy;->setStateAndUi(I)V
 
     .line 211
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide v2
 
-    iput-wide v1, p0, Lbl/wy;->aa:J
+    iput-wide v2, p0, Lbl/wy;->aa:J
 
     .line 212
     invoke-virtual {v0}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->getCurrentPosition()J
 
-    move-result-wide v1
+    move-result-wide v2
 
-    iput-wide v1, p0, Lbl/wy;->ab:J
+    iput-wide v2, p0, Lbl/wy;->ab:J
 
     .line 214
-    :try_start_0
+    :try_start_21
     invoke-virtual {v0}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->pause()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_24
+    .catch Ljava/lang/Exception; {:try_start_21 .. :try_end_24} :catch_25
 
-    goto :goto_0
+    goto :goto_10
 
-    :catch_0
+    .line 215
+    :catch_25
     move-exception v0
 
     .line 216
     invoke-static {v0}, Lbl/att;->a(Ljava/lang/Throwable;)V
 
-    :cond_0
-    :goto_0
-    return-void
+    goto :goto_10
 .end method
 
 .method public f()V
     .locals 6
 
-    const-wide/16 v0, 0x0
+    .prologue
+    const-wide/16 v4, 0x0
+
+    .line 222
+    iput-wide v4, p0, Lbl/wy;->aa:J
 
     .line 223
-    iput-wide v0, p0, Lbl/wy;->aa:J
+    iget v0, p0, Lbl/wy;->g:I
+
+    const/4 v1, 0x5
+
+    if-ne v0, v1, :cond_19
 
     .line 224
-    iget v2, p0, Lbl/wy;->g:I
-
-    const/4 v3, 0x5
-
-    if-ne v2, v3, :cond_0
-
-    .line 225
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Lbl/wm;->i()Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;
+    invoke-virtual {v0}, Lbl/wm;->i()Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 226
-    iget-wide v3, p0, Lbl/wy;->ab:J
+    .line 225
+    iget-wide v2, p0, Lbl/wy;->ab:J
 
-    cmp-long v5, v3, v0
+    cmp-long v1, v2, v4
 
-    if-lez v5, :cond_0
+    if-lez v1, :cond_19
 
-    if-eqz v2, :cond_0
+    if-nez v0, :cond_1a
 
-    const/4 v0, 0x2
-
-    .line 227
-    invoke-virtual {p0, v0}, Lbl/wy;->setStateAndUi(I)V
+    .line 236
+    :cond_19
+    :goto_19
+    return-void
 
     .line 228
-    iget-wide v0, p0, Lbl/wy;->ab:J
+    :cond_1a
+    const/4 v1, 0x2
 
-    invoke-virtual {v2, v0, v1}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->seekTo(J)V
+    invoke-virtual {p0, v1}, Lbl/wy;->setStateAndUi(I)V
 
-    .line 230
-    :try_start_0
-    invoke-virtual {v2}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->start()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .line 229
+    iget-wide v2, p0, Lbl/wy;->ab:J
 
-    goto :goto_0
+    invoke-virtual {v0, v2, v3}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->seekTo(J)V
 
-    :catch_0
-    move-exception v0
+    .line 231
+    :try_start_23
+    invoke-virtual {v0}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->start()V
+    :try_end_26
+    .catch Ljava/lang/Exception; {:try_start_23 .. :try_end_26} :catch_27
+
+    goto :goto_19
 
     .line 232
+    :catch_27
+    move-exception v0
+
+    .line 233
     invoke-static {v0}, Lbl/att;->a(Ljava/lang/Throwable;)V
 
-    :cond_0
-    :goto_0
-    return-void
+    goto :goto_19
 .end method
 
 .method public g()V
     .locals 1
 
+    .prologue
     .line 240
     sget-boolean v0, Lbl/wy;->J:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 241
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
@@ -1221,7 +1320,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 242
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
@@ -1235,87 +1334,95 @@
     invoke-interface {v0}, Lbl/ws;->c()V
 
     .line 244
-    :cond_0
+    :cond_19
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lbl/wm;->d()V
 
-    goto :goto_0
+    .line 248
+    :goto_20
+    return-void
 
-    :cond_1
+    .line 247
+    :cond_21
     const/4 v0, 0x1
 
-    .line 246
     sput-boolean v0, Lbl/wy;->J:Z
 
-    :goto_0
-    return-void
+    goto :goto_20
 .end method
 
 .method public getBufferPoint()I
     .locals 1
 
-    .line 775
+    .prologue
+    .line 592
     iget v0, p0, Lbl/wy;->U:I
 
     return v0
 .end method
 
 .method public getCurrentPositionWhenPlaying()I
-    .locals 4
+    .locals 3
 
-    .line 574
-    iget v0, p0, Lbl/wy;->g:I
+    .prologue
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    .line 507
+    iget v1, p0, Lbl/wy;->g:I
 
     const/4 v2, 0x2
 
-    if-eq v0, v2, :cond_0
+    if-eq v1, v2, :cond_c
 
-    iget v0, p0, Lbl/wy;->g:I
+    iget v1, p0, Lbl/wy;->g:I
 
     const/4 v2, 0x5
 
-    if-ne v0, v2, :cond_1
+    if-eq v1, v2, :cond_c
 
-    .line 576
-    :cond_0
-    :try_start_0
+    .line 514
+    :goto_b
+    return v0
+
+    .line 511
+    :cond_c
+    :try_start_c
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Lbl/wm;->i()Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;
+    invoke-virtual {v1}, Lbl/wm;->i()Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->getCurrentPosition()J
+    invoke-virtual {v1}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->getCurrentPosition()J
+    :try_end_17
+    .catch Ljava/lang/IllegalStateException; {:try_start_c .. :try_end_17} :catch_1a
 
-    move-result-wide v2
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-wide v0
 
-    long-to-int v1, v2
+    long-to-int v0, v0
 
-    :cond_1
-    return v1
+    goto :goto_b
 
-    :catch_0
-    move-exception v0
+    .line 512
+    :catch_1a
+    move-exception v1
 
-    .line 578
-    invoke-static {v0}, Lbl/att;->a(Ljava/lang/Throwable;)V
+    .line 513
+    invoke-static {v1}, Lbl/att;->a(Ljava/lang/Throwable;)V
 
-    return v1
+    goto :goto_b
 .end method
 
 .method public getCurrentState()I
     .locals 1
 
-    .line 676
+    .prologue
+    .line 552
     iget v0, p0, Lbl/wy;->g:I
 
     return v0
@@ -1324,7 +1431,8 @@
 .method public getDuration()I
     .locals 2
 
-    .line 591
+    .prologue
+    .line 520
     :try_start_0
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
@@ -1335,24 +1443,28 @@
     move-result-object v0
 
     invoke-virtual {v0}, Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;->getDuration()J
+    :try_end_b
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_b} :catch_e
 
     move-result-wide v0
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
     long-to-int v0, v0
 
+    .line 523
+    :goto_d
     return v0
 
-    :catch_0
+    .line 521
+    :catch_e
     move-exception v0
 
-    .line 593
+    .line 522
     invoke-static {v0}, Lbl/att;->a(Ljava/lang/Throwable;)V
 
+    .line 523
     const/4 v0, 0x0
 
-    return v0
+    goto :goto_d
 .end method
 
 .method public abstract getLayoutId()I
@@ -1361,12 +1473,12 @@
 .method public getNetSpeedText()Ljava/lang/String;
     .locals 2
 
-    .line 755
+    .prologue
+    .line 580
     invoke-direct {p0}, Lbl/wy;->getNetSpeed()J
 
     move-result-wide v0
 
-    .line 756
     invoke-static {v0, v1}, Lbl/wu;->a(J)Ljava/lang/String;
 
     move-result-object v0
@@ -1377,7 +1489,8 @@
 .method public getPlayPosition()I
     .locals 1
 
-    .line 697
+    .prologue
+    .line 564
     iget v0, p0, Lbl/wy;->P:I
 
     return v0
@@ -1386,7 +1499,8 @@
 .method public getPlayTag()Ljava/lang/String;
     .locals 1
 
-    .line 683
+    .prologue
+    .line 556
     iget-object v0, p0, Lbl/wy;->O:Ljava/lang/String;
 
     return-object v0
@@ -1395,7 +1509,8 @@
 .method public getSeekOnStart()J
     .locals 2
 
-    .line 760
+    .prologue
+    .line 584
     iget-wide v0, p0, Lbl/wy;->W:J
 
     return-wide v0
@@ -1404,27 +1519,83 @@
 .method protected h()V
     .locals 3
 
-    .line 269
+    .prologue
+    const/4 v2, -0x1
+
+    .line 267
     iget-object v0, p0, Lbl/wy;->u:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_e
 
-    .line 270
+    .line 268
     iget-object v0, p0, Lbl/wy;->u:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->removeAllViews()V
 
-    :cond_0
+    .line 270
+    :cond_e
     const/4 v0, 0x0
 
-    .line 272
-    iput-object v0, p0, Lbl/wy;->x:Lbl/wz;
+    iput-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
+
+    .line 271
+    sget v0, Lmybl/BiliFilter;->prefer_videoview:I
+
+    const/4 v1, 0x3
+
+    if-ne v0, v1, :cond_3f
+
+    new-instance v0, Lbl/wz3;
+
+    invoke-virtual {p0}, Lbl/wy;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lbl/wz3;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
 
     .line 273
+    :goto_21
+    iget-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
+
+    invoke-virtual {v0, p0}, Landroid/view/TextureView;->setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
+
+    .line 274
+    iget-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
+
+    iget v1, p0, Lbl/wy;->h:I
+
+    int-to-float v1, v1
+
+    invoke-virtual {v0, v1}, Landroid/view/TextureView;->setRotation(F)V
+
+    .line 275
+    new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
+
+    invoke-direct {v0, v2, v2}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+
+    .line 276
+    const/16 v1, 0x11
+
+    iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
+
+    .line 277
+    iget-object v1, p0, Lbl/wy;->u:Landroid/view/ViewGroup;
+
+    iget-object v2, p0, Lbl/wy;->x:Landroid/view/TextureView;
+
+    invoke-virtual {v1, v2, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 278
+    return-void
+
+    .line 272
+    :cond_3f
     new-instance v0, Lbl/wz;
 
     invoke-virtual {p0}, Lbl/wy;->getContext()Landroid/content/Context;
@@ -1433,53 +1604,21 @@
 
     invoke-direct {v0, v1}, Lbl/wz;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lbl/wy;->x:Lbl/wz;
+    iput-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
 
-    .line 274
-    iget-object v0, p0, Lbl/wy;->x:Lbl/wz;
-
-    invoke-virtual {v0, p0}, Lbl/wz;->setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
-
-    .line 275
-    iget-object v0, p0, Lbl/wy;->x:Lbl/wz;
-
-    iget v1, p0, Lbl/wy;->h:I
-
-    int-to-float v1, v1
-
-    invoke-virtual {v0, v1}, Lbl/wz;->setRotation(F)V
-
-    .line 276
-    new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
-
-    const/4 v1, -0x1
-
-    invoke-direct {v0, v1, v1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
-
-    const/16 v1, 0x11
-
-    .line 277
-    iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
-
-    .line 278
-    iget-object v1, p0, Lbl/wy;->u:Landroid/view/ViewGroup;
-
-    iget-object v2, p0, Lbl/wy;->x:Lbl/wz;
-
-    invoke-virtual {v1, v2, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    return-void
+    goto :goto_21
 .end method
 
 .method public i()V
-    .locals 6
+    .locals 4
 
-    .line 254
+    .prologue
+    .line 251
     invoke-virtual {p0}, Lbl/wy;->x()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -1487,40 +1626,42 @@
 
     sget-wide v2, Lbl/wy;->a:J
 
-    sub-long v4, v0, v2
+    sub-long/2addr v0, v2
 
-    const-wide/16 v0, 0x7d0
+    const-wide/16 v2, 0x7d0
 
-    cmp-long v2, v4, v0
+    cmp-long v0, v0, v2
 
-    if-lez v2, :cond_0
+    if-lez v0, :cond_16
 
-    .line 255
+    .line 252
     invoke-virtual {p0}, Lbl/wy;->g()V
 
-    :cond_0
+    .line 254
+    :cond_16
     const/4 v0, 0x0
 
-    .line 257
     iput-boolean v0, p0, Lbl/wy;->n:Z
 
+    .line 255
     return-void
 .end method
 
 .method public m()V
     .locals 3
 
-    .line 185
+    .prologue
+    .line 183
     iget-object v0, p0, Lbl/wy;->v:Lbl/wt;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
+    .line 184
     const-string v0, "onStart"
 
-    .line 186
     invoke-static {v0}, Lbl/ww;->a(Ljava/lang/String;)V
 
-    .line 187
+    .line 185
     iget-object v0, p0, Lbl/wy;->v:Lbl/wt;
 
     iget-object v1, p0, Lbl/wy;->r:Ljava/lang/String;
@@ -1529,17 +1670,21 @@
 
     invoke-interface {v0, v1, v2}, Lbl/wt;->b(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 189
-    :cond_0
+    .line 187
+    :cond_12
     invoke-virtual {p0}, Lbl/wy;->n()V
 
+    .line 188
     return-void
 .end method
 
 .method protected n()V
     .locals 6
 
-    .line 193
+    .prologue
+    const/4 v5, 0x1
+
+    .line 191
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
     move-result-object v0
@@ -1548,9 +1693,9 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
-    .line 194
+    .line 192
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
     move-result-object v0
@@ -1561,15 +1706,15 @@
 
     invoke-interface {v0}, Lbl/ws;->c()V
 
-    .line 196
-    :cond_0
+    .line 194
+    :cond_16
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
     move-result-object v0
 
     invoke-virtual {v0, p0}, Lbl/wm;->a(Lbl/ws;)V
 
-    .line 197
+    .line 195
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
     move-result-object v0
@@ -1578,7 +1723,7 @@
 
     invoke-virtual {v0, v1}, Lbl/wm;->a(Ljava/lang/String;)V
 
-    .line 198
+    .line 196
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
     move-result-object v0
@@ -1587,21 +1732,19 @@
 
     invoke-virtual {v0, v1}, Lbl/wm;->c(I)V
 
-    .line 199
+    .line 197
     invoke-virtual {p0}, Lbl/wy;->h()V
 
-    .line 200
+    .line 198
     iget-object v0, p0, Lbl/wy;->L:Landroid/media/AudioManager;
 
     iget-object v1, p0, Lbl/wy;->N:Lbl/wy$a;
 
     const/4 v2, 0x3
 
-    const/4 v3, 0x1
+    invoke-virtual {v0, v1, v2, v5}, Landroid/media/AudioManager;->requestAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;II)I
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/media/AudioManager;->requestAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;II)I
-
-    .line 201
+    .line 199
     invoke-virtual {p0}, Lbl/wy;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1616,7 +1759,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
 
-    .line 202
+    .line 200
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
     move-result-object v0
@@ -1625,133 +1768,139 @@
 
     iget-object v2, p0, Lbl/wy;->w:Ljava/util/Map;
 
-    iget-boolean v4, p0, Lbl/wy;->m:Z
+    iget-boolean v3, p0, Lbl/wy;->m:Z
 
-    iget v5, p0, Lbl/wy;->i:F
+    iget v4, p0, Lbl/wy;->i:F
 
-    invoke-virtual {v0, v1, v2, v4, v5}, Lbl/wm;->a(Ljava/lang/String;Ljava/util/Map;ZF)V
+    invoke-virtual {v0, v1, v2, v3, v4}, Lbl/wm;->a(Ljava/lang/String;Ljava/util/Map;ZF)V
 
-    .line 203
-    invoke-virtual {p0, v3}, Lbl/wy;->setStateAndUi(I)V
+    .line 201
+    invoke-virtual {p0, v5}, Lbl/wy;->setStateAndUi(I)V
 
+    .line 202
     return-void
 .end method
 
 .method public o()V
-    .locals 3
+    .locals 2
+
+    .prologue
+    .line 281
+    iget-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
+
+    if-eqz v0, :cond_17
 
     .line 282
-    iget-object v0, p0, Lbl/wy;->x:Lbl/wz;
-
-    if-eqz v0, :cond_0
-
-    .line 283
     iget-boolean v0, p0, Lbl/wy;->ae:Z
 
-    xor-int/lit8 v0, v0, 0x1
+    if-nez v0, :cond_18
 
+    const/4 v0, 0x1
+
+    :goto_9
     iput-boolean v0, p0, Lbl/wy;->ae:Z
 
-    .line 284
-    iget-object v0, p0, Lbl/wy;->x:Lbl/wz;
+    .line 283
+    iget-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
 
-    const v1, -0x407fffac    # -1.00001f
+    iget-object v1, p0, Lbl/wy;->x:Landroid/view/TextureView;
 
-    iget-object v2, p0, Lbl/wy;->x:Lbl/wz;
+    invoke-virtual {v1}, Landroid/view/TextureView;->getScaleX()F
 
-    invoke-virtual {v2}, Lbl/wz;->getScaleX()F
+    move-result v1
 
-    move-result v2
+    neg-float v1, v1
 
-    mul-float v2, v2, v1
+    invoke-virtual {v0, v1}, Landroid/view/TextureView;->setScaleX(F)V
 
-    invoke-virtual {v0, v2}, Lbl/wz;->setScaleX(F)V
-
-    .line 285
-    iget-object v0, p0, Lbl/wy;->x:Lbl/wz;
-
-    const v1, 0x3f800054    # 1.00001f
-
-    iget-object v2, p0, Lbl/wy;->x:Lbl/wz;
-
-    invoke-virtual {v2}, Lbl/wz;->getScaleY()F
-
-    move-result v2
-
-    mul-float v2, v2, v1
-
-    invoke-virtual {v0, v2}, Lbl/wz;->setScaleY(F)V
-
-    :cond_0
+    .line 287
+    :cond_17
     return-void
+
+    .line 282
+    :cond_18
+    const/4 v0, 0x0
+
+    goto :goto_9
 .end method
 
 .method public onSurfaceTextureAvailable(Landroid/graphics/SurfaceTexture;II)V
-    .locals 0
+    .locals 2
 
-    .line 321
-    new-instance p2, Landroid/view/Surface;
+    .prologue
+    .line 306
+    new-instance v0, Landroid/view/Surface;
 
-    invoke-direct {p2, p1}, Landroid/view/Surface;-><init>(Landroid/graphics/SurfaceTexture;)V
+    invoke-direct {v0, p1}, Landroid/view/Surface;-><init>(Landroid/graphics/SurfaceTexture;)V
 
-    iput-object p2, p0, Lbl/wy;->K:Landroid/view/Surface;
+    iput-object v0, p0, Lbl/wy;->K:Landroid/view/Surface;
 
-    .line 322
+    .line 307
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
-    move-result-object p1
+    move-result-object v0
 
-    iget-object p2, p0, Lbl/wy;->K:Landroid/view/Surface;
+    iget-object v1, p0, Lbl/wy;->K:Landroid/view/Surface;
 
-    invoke-virtual {p1, p2}, Lbl/wm;->a(Landroid/view/Surface;)V
+    invoke-virtual {v0, v1}, Lbl/wm;->a(Landroid/view/Surface;)V
 
-    .line 324
+    .line 308
     invoke-virtual {p0}, Lbl/wy;->q()V
 
+    .line 309
     return-void
 .end method
 
 .method public onSurfaceTextureDestroyed(Landroid/graphics/SurfaceTexture;)Z
     .locals 2
 
-    .line 334
+    .prologue
+    .line 313
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Lbl/wm;->a(Landroid/view/Surface;)V
+    check-cast v0, Landroid/view/Surface;
 
-    .line 335
+    invoke-virtual {v1, v0}, Lbl/wm;->a(Landroid/view/Surface;)V
+
+    .line 314
     invoke-virtual {p1}, Landroid/graphics/SurfaceTexture;->release()V
 
-    .line 336
+    .line 315
     invoke-virtual {p0}, Lbl/wy;->v()V
 
-    const/4 p1, 0x1
+    .line 316
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method
 
 .method public onSurfaceTextureSizeChanged(Landroid/graphics/SurfaceTexture;II)V
     .locals 0
 
+    .prologue
+    .line 55
     return-void
 .end method
 
 .method public onSurfaceTextureUpdated(Landroid/graphics/SurfaceTexture;)V
     .locals 0
 
-    .line 343
+    .prologue
+    .line 321
     invoke-virtual {p0}, Lbl/wy;->r()V
 
+    .line 322
     return-void
 .end method
 
 .method public p()Z
     .locals 1
 
+    .prologue
     .line 290
     iget-boolean v0, p0, Lbl/wy;->ae:Z
 
@@ -1761,17 +1910,18 @@
 .method protected q()V
     .locals 2
 
-    .line 348
+    .prologue
+    .line 326
     :try_start_0
     iget v0, p0, Lbl/wy;->g:I
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     iget-object v0, p0, Lbl/wy;->z:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lbl/wy;->z:Landroid/graphics/Bitmap;
 
@@ -1779,9 +1929,15 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_12
 
-    .line 349
+    .line 335
+    :cond_11
+    :goto_11
+    return-void
+
+    .line 329
+    :cond_12
     iget-object v0, p0, Lbl/wy;->y:Landroid/widget/ImageView;
 
     iget v1, p0, Lbl/wy;->h:I
@@ -1790,49 +1946,49 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setRotation(F)V
 
-    .line 350
+    .line 330
     iget-object v0, p0, Lbl/wy;->y:Landroid/widget/ImageView;
 
     iget-object v1, p0, Lbl/wy;->z:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 351
+    .line 331
     iget-object v0, p0, Lbl/wy;->y:Landroid/widget/ImageView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_27
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_27} :catch_28
 
-    goto :goto_0
+    goto :goto_11
 
-    :catch_0
+    .line 332
+    :catch_28
     move-exception v0
 
-    .line 354
+    .line 333
     invoke-static {v0}, Lbl/att;->a(Ljava/lang/Throwable;)V
 
-    :cond_0
-    :goto_0
-    return-void
+    goto :goto_11
 .end method
 
 .method protected r()V
     .locals 2
 
-    .line 360
+    .prologue
+    .line 339
     :try_start_0
     iget v0, p0, Lbl/wy;->g:I
 
     const/4 v1, 0x5
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_11
 
     iget-object v0, p0, Lbl/wy;->z:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lbl/wy;->z:Landroid/graphics/Bitmap;
 
@@ -1840,56 +1996,62 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_12
 
-    .line 361
+    .line 348
+    :cond_11
+    :goto_11
+    return-void
+
+    .line 342
+    :cond_12
     iget-object v0, p0, Lbl/wy;->y:Landroid/widget/ImageView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 362
+    .line 343
     iget-object v0, p0, Lbl/wy;->y:Landroid/widget/ImageView;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
+    .line 344
     const/4 v0, 0x0
 
-    .line 364
     iput-object v0, p0, Lbl/wy;->z:Landroid/graphics/Bitmap;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_22
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_22} :catch_23
 
-    goto :goto_0
+    goto :goto_11
 
-    :catch_0
+    .line 345
+    :catch_23
     move-exception v0
 
-    .line 367
+    .line 346
     invoke-static {v0}, Lbl/att;->a(Ljava/lang/Throwable;)V
 
-    :cond_0
-    :goto_0
-    return-void
+    goto :goto_11
 .end method
 
 .method protected s()V
     .locals 2
 
-    .line 373
+    .prologue
+    .line 352
     :try_start_0
     iget v0, p0, Lbl/wy;->g:I
 
     const/4 v1, 0x5
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_11
 
     iget-object v0, p0, Lbl/wy;->z:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lbl/wy;->z:Landroid/graphics/Bitmap;
 
@@ -1897,273 +2059,298 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_12
 
-    .line 374
+    .line 362
+    :cond_11
+    :goto_11
+    return-void
+
+    .line 355
+    :cond_12
     iget-object v0, p0, Lbl/wy;->y:Landroid/widget/ImageView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 375
+    .line 356
     iget-object v0, p0, Lbl/wy;->y:Landroid/widget/ImageView;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 376
+    .line 357
     iget-object v0, p0, Lbl/wy;->z:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
+    .line 358
     const/4 v0, 0x0
 
-    .line 377
     iput-object v0, p0, Lbl/wy;->z:Landroid/graphics/Bitmap;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_27
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_27} :catch_28
 
-    goto :goto_0
+    goto :goto_11
 
-    :catch_0
+    .line 359
+    :catch_28
     move-exception v0
 
-    .line 380
+    .line 360
     invoke-static {v0}, Lbl/att;->a(Ljava/lang/Throwable;)V
 
-    :cond_0
-    :goto_0
-    return-void
+    goto :goto_11
 .end method
 
 .method public setIsTouchWiget(Z)V
     .locals 0
 
-    .line 669
+    .prologue
+    .line 548
     iput-boolean p1, p0, Lbl/wy;->ad:Z
 
+    .line 549
     return-void
 .end method
 
 .method public setPlayPosition(I)V
     .locals 0
 
-    .line 704
+    .prologue
+    .line 568
     iput p1, p0, Lbl/wy;->P:I
 
+    .line 569
     return-void
 .end method
 
 .method public setPlayTag(Ljava/lang/String;)V
     .locals 0
 
-    .line 692
+    .prologue
+    .line 560
     iput-object p1, p0, Lbl/wy;->O:Ljava/lang/String;
 
+    .line 561
     return-void
 .end method
 
 .method public setRotationView(I)V
-    .locals 1
+    .locals 2
 
-    .line 309
+    .prologue
+    .line 300
     iput p1, p0, Lbl/wy;->h:I
 
-    .line 310
-    iget-object v0, p0, Lbl/wy;->x:Lbl/wz;
+    .line 301
+    iget-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
 
-    int-to-float p1, p1
+    int-to-float v1, p1
 
-    invoke-virtual {v0, p1}, Lbl/wz;->setRotation(F)V
+    invoke-virtual {v0, v1}, Landroid/view/TextureView;->setRotation(F)V
 
+    .line 302
     return-void
 .end method
 
 .method public setSeekOnStart(J)V
-    .locals 0
+    .locals 1
 
-    .line 768
+    .prologue
+    .line 588
     iput-wide p1, p0, Lbl/wy;->W:J
 
+    .line 589
     return-void
 .end method
 
 .method protected setSmallVideoTextureView(Landroid/view/View$OnTouchListener;)V
-    .locals 1
+    .locals 2
 
+    .prologue
     .line 295
-    iget-object v0, p0, Lbl/wy;->x:Lbl/wz;
+    iget-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
 
-    invoke-virtual {v0, p1}, Lbl/wz;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v0, p1}, Landroid/view/TextureView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    .line 296
+    iget-object v0, p0, Lbl/wy;->x:Landroid/view/TextureView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/TextureView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 297
-    iget-object p1, p0, Lbl/wy;->x:Lbl/wz;
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Lbl/wz;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
     return-void
 .end method
 
 .method protected setStateAndUi(I)V
-    .locals 1
+    .locals 2
 
-    .line 151
+    .prologue
+    .line 147
     iput p1, p0, Lbl/wy;->g:I
 
-    .line 152
-    iget p1, p0, Lbl/wy;->g:I
+    .line 148
+    iget v0, p0, Lbl/wy;->g:I
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch v0, :pswitch_data_44
 
-    :pswitch_0
-    goto :goto_0
+    .line 180
+    :cond_7
+    :goto_7
+    :pswitch_7
+    return-void
 
-    .line 174
-    :pswitch_1
+    .line 150
+    :pswitch_8
     invoke-virtual {p0}, Lbl/wy;->x()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_1
+    if-eqz v0, :cond_1e
+
+    .line 151
+    invoke-virtual {p0}, Lbl/wy;->v()V
+
+    .line 152
+    invoke-static {}, Lbl/wm;->a()Lbl/wm;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lbl/wm;->d()V
+
+    .line 153
+    invoke-virtual {p0}, Lbl/wy;->s()V
+
+    .line 154
+    const/4 v0, 0x0
+
+    iput v0, p0, Lbl/wy;->U:I
+
+    .line 156
+    :cond_1e
+    iget-object v0, p0, Lbl/wy;->L:Landroid/media/AudioManager;
+
+    if-eqz v0, :cond_7
+
+    .line 157
+    iget-object v0, p0, Lbl/wy;->L:Landroid/media/AudioManager;
+
+    iget-object v1, p0, Lbl/wy;->N:Lbl/wy$a;
+
+    invoke-virtual {v0, v1}, Landroid/media/AudioManager;->abandonAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;)I
+
+    goto :goto_7
+
+    .line 162
+    :pswitch_2a
+    invoke-virtual {p0}, Lbl/wy;->w()V
+
+    goto :goto_7
+
+    .line 165
+    :pswitch_2e
+    invoke-virtual {p0}, Lbl/wy;->u()V
+
+    goto :goto_7
+
+    .line 168
+    :pswitch_32
+    invoke-virtual {p0}, Lbl/wy;->u()V
+
+    goto :goto_7
+
+    .line 171
+    :pswitch_36
+    invoke-virtual {p0}, Lbl/wy;->v()V
+
+    goto :goto_7
+
+    .line 174
+    :pswitch_3a
+    invoke-virtual {p0}, Lbl/wy;->x()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
 
     .line 175
     invoke-static {}, Lbl/wm;->h()V
 
-    goto :goto_0
+    goto :goto_7
 
-    .line 179
-    :pswitch_2
-    invoke-virtual {p0}, Lbl/wy;->v()V
-
-    goto :goto_0
-
-    .line 171
-    :pswitch_3
-    invoke-virtual {p0}, Lbl/wy;->u()V
-
-    goto :goto_0
-
-    .line 168
-    :pswitch_4
-    invoke-virtual {p0}, Lbl/wy;->u()V
-
-    goto :goto_0
-
-    .line 165
-    :pswitch_5
-    invoke-virtual {p0}, Lbl/wy;->w()V
-
-    goto :goto_0
-
-    .line 154
-    :pswitch_6
-    invoke-virtual {p0}, Lbl/wy;->x()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    .line 155
-    invoke-virtual {p0}, Lbl/wy;->v()V
-
-    .line 156
-    invoke-static {}, Lbl/wm;->a()Lbl/wm;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Lbl/wm;->d()V
-
-    .line 157
-    invoke-virtual {p0}, Lbl/wy;->s()V
-
-    const/4 p1, 0x0
-
-    .line 158
-    iput p1, p0, Lbl/wy;->U:I
-
-    .line 160
-    :cond_0
-    iget-object p1, p0, Lbl/wy;->L:Landroid/media/AudioManager;
-
-    if-eqz p1, :cond_1
-
-    .line 161
-    iget-object p1, p0, Lbl/wy;->L:Landroid/media/AudioManager;
-
-    iget-object v0, p0, Lbl/wy;->N:Lbl/wy$a;
-
-    invoke-virtual {p1, v0}, Landroid/media/AudioManager;->abandonAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;)I
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :pswitch_data_0
+    .line 148
+    :pswitch_data_44
     .packed-switch 0x0
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_0
-        :pswitch_0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_8
+        :pswitch_2a
+        :pswitch_2e
+        :pswitch_7
+        :pswitch_7
+        :pswitch_32
+        :pswitch_36
+        :pswitch_3a
     .end packed-switch
 .end method
 
 .method protected setTextAndProgress(I)V
     .locals 4
 
-    .line 600
+    .prologue
+    .line 528
     invoke-virtual {p0}, Lbl/wy;->getCurrentPositionWhenPlaying()I
 
-    move-result v0
+    move-result v2
 
-    .line 601
+    .line 529
     invoke-virtual {p0}, Lbl/wy;->getDuration()I
 
     move-result v1
 
-    mul-int/lit8 v2, v0, 0x64
+    .line 530
+    mul-int/lit8 v3, v2, 0x64
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
-    const/4 v3, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_d
+    div-int v0, v3, v0
 
-    :cond_0
-    move v3, v1
+    invoke-virtual {p0, v0, p1, v2, v1}, Lbl/wy;->b(IIII)V
 
-    .line 602
-    :goto_0
-    div-int/2addr v2, v3
-
-    .line 603
-    invoke-virtual {p0, v2, p1, v0, v1}, Lbl/wy;->b(IIII)V
-
+    .line 531
     return-void
+
+    :cond_13
+    move v0, v1
+
+    .line 530
+    goto :goto_d
 .end method
 
 .method public setTitle(Ljava/lang/String;)V
     .locals 0
 
+    .prologue
+    .line 58
     return-void
 .end method
 
 .method public t()V
     .locals 3
 
-    .line 532
+    .prologue
+    .line 491
     iget-boolean v0, p0, Lbl/wy;->o:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
-    .line 534
+    .line 492
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2172,9 +2359,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lbl/wy;->r:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2182,7 +2373,7 @@
 
     invoke-static {v0}, Lbl/ww;->b(Ljava/lang/String;)V
 
-    .line 536
+    .line 493
     iget-object v0, p0, Lbl/wy;->r:Ljava/lang/String;
 
     const-string v1, "file://"
@@ -2195,47 +2386,55 @@
 
     invoke-static {v0}, Lbl/wu;->a(Ljava/lang/String;)V
 
-    .line 537
+    .line 494
     iget-object v0, p0, Lbl/wy;->q:Ljava/lang/String;
 
     iput-object v0, p0, Lbl/wy;->r:Ljava/lang/String;
 
-    goto :goto_0
+    .line 498
+    :goto_2d
+    return-void
 
-    .line 538
-    :cond_0
+    .line 497
+    :cond_2e
     iget-object v0, p0, Lbl/wy;->r:Ljava/lang/String;
 
     const-string v1, "127.0.0.1"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    :goto_0
-    return-void
+    goto :goto_2d
 .end method
 
 .method protected u()V
     .locals 0
 
+    .prologue
+    .line 61
     return-void
 .end method
 
 .method protected v()V
     .locals 0
 
+    .prologue
+    .line 64
     return-void
 .end method
 
 .method protected w()V
     .locals 0
 
+    .prologue
+    .line 67
     return-void
 .end method
 
 .method protected x()Z
     .locals 1
 
-    .line 635
+    .prologue
+    .line 544
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
     move-result-object v0
@@ -2244,7 +2443,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     invoke-static {}, Lbl/wm;->a()Lbl/wm;
 
@@ -2254,15 +2453,15 @@
 
     move-result-object v0
 
-    if-ne v0, p0, :cond_0
+    if-ne v0, p0, :cond_16
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :goto_15
+    return v0
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x0
 
-    :goto_0
-    return v0
+    goto :goto_15
 .end method

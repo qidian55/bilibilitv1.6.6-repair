@@ -24,6 +24,7 @@ public class BiliFilter {
     public static Set<String> skip_categories = new HashSet<String>();
     public static boolean progressbar_on = false;
     public static boolean fastquit_on = false;
+    public static int prefer_videoview = 1;
 
     public static void updateConfig() throws Exception{
         BiliFilter.filter_rule_path = abd.get_filter_path(MainApplication.a().getApplicationContext());
