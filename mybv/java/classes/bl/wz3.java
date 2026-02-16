@@ -14,7 +14,7 @@ public class wz3 extends lz {
         super(context);
     }
 
-    @Override // tv.danmaku.videoplayer.core.videoview.IVideoViewProxy
+    @Override // android.view.View
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int videoWidth = wm.a().j();
         int videoHeight = wm.a().k();
