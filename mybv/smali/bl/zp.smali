@@ -8,12 +8,12 @@
     .locals 1
 
     .prologue
-    .line 18
+    .line 20
     const-string v0, "kvtdb_video_history_db"
 
     invoke-direct {p0, p1, v0}, Lbl/aab;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 19
+    .line 21
     return-void
 .end method
 
@@ -26,32 +26,123 @@
     .end annotation
 
     .prologue
-    .line 57
+    .line 73
     new-instance v0, Lbl/zp;
 
     invoke-direct {v0, p0}, Lbl/zp;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {v0}, Lbl/zp;->c()V
 
-    .line 58
+    .line 74
     return-void
+.end method
+
+.method public static a(Landroid/content/Context;Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;Ljava/lang/String;)V
+    .locals 6
+
+    .prologue
+    .line 59
+    new-instance v0, Lbl/zp;
+
+    invoke-direct {v0, p0}, Lbl/zp;-><init>(Landroid/content/Context;)V
+
+    .line 60
+    new-instance v1, Lcom/alibaba/fastjson/JSONObject;
+
+    invoke-direct {v1}, Lcom/alibaba/fastjson/JSONObject;-><init>()V
+
+    .line 61
+    const-string v2, "aid"
+
+    iget-wide v4, p1, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->aid:J
+
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v2, v3}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 62
+    const-string v2, "epid"
+
+    iget-wide v4, p1, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->epid:J
+
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v2, v3}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 63
+    const-string v2, "title"
+
+    iget-object v3, p1, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->shareCopy:Ljava/lang/String;
+
+    invoke-virtual {v1, v2, v3}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 64
+    const-string v2, "pic"
+
+    iget-object v3, p1, Lcom/bilibili/bangumi/api/newbean/BangumiEpisodeEx;->cover:Ljava/lang/String;
+
+    invoke-virtual {v1, v2, v3}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 65
+    invoke-virtual {v1}, Lcom/alibaba/fastjson/JSONObject;->toJSONString()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 66
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_39
+
+    .line 70
+    :goto_38
+    return-void
+
+    .line 69
+    :cond_39
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "season"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2, v1}, Lbl/zp;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_38
 .end method
 
 .method public static a(Landroid/content/Context;Lcom/bilibili/tv/api/video/BiliVideoDetail;)V
     .locals 6
 
     .prologue
-    .line 44
+    .line 46
     new-instance v0, Lbl/zp;
 
     invoke-direct {v0, p0}, Lbl/zp;-><init>(Landroid/content/Context;)V
 
-    .line 45
+    .line 47
     new-instance v1, Lcom/alibaba/fastjson/JSONObject;
 
     invoke-direct {v1}, Lcom/alibaba/fastjson/JSONObject;-><init>()V
 
-    .line 46
+    .line 48
     const-string v2, "aid"
 
     iget-wide v4, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
@@ -62,37 +153,37 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 47
+    .line 49
     const-string v2, "title"
 
     iget-object v3, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mTitle:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v3}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 48
+    .line 50
     const-string v2, "pic"
 
     iget-object v3, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mCover:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v3}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 49
+    .line 51
     invoke-virtual {v1}, Lcom/alibaba/fastjson/JSONObject;->toJSONString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 50
+    .line 52
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
     if-eqz v2, :cond_2e
 
-    .line 54
+    .line 56
     :goto_2d
     return-void
 
-    .line 53
+    .line 55
     :cond_2e
     iget-wide v2, p1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mAvid:J
 
@@ -116,7 +207,7 @@
     .end annotation
 
     .prologue
-    .line 40
+    .line 42
     const/4 v0, 0x1
 
     const/16 v1, 0x400
@@ -137,12 +228,12 @@
     .end annotation
 
     .prologue
-    .line 22
+    .line 24
     new-instance v2, Lcom/bilibili/tv/api/video/BiliVideoHistorylList;
 
     invoke-direct {v2}, Lcom/bilibili/tv/api/video/BiliVideoHistorylList;-><init>()V
 
-    .line 23
+    .line 25
     add-int/lit8 v0, p1, -0x1
 
     mul-int/2addr v0, p2
@@ -151,24 +242,24 @@
 
     move-result-object v0
 
-    .line 24
+    .line 26
     if-eqz v0, :cond_46
 
-    .line 25
+    .line 27
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, v2, Lcom/bilibili/tv/api/video/BiliVideoHistorylList;->mList:Ljava/util/List;
 
-    .line 26
+    .line 28
     iget-object v0, v0, Lbl/aaa;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    .line 27
+    .line 29
     :cond_1b
     :goto_1b
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
@@ -177,14 +268,14 @@
 
     if-eqz v0, :cond_46
 
-    .line 28
+    .line 30
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lbl/zz;
 
-    .line 29
+    .line 31
     iget-object v1, v0, Lbl/zz;->c:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -193,7 +284,7 @@
 
     if-nez v1, :cond_1b
 
-    .line 30
+    .line 32
     iget-object v1, v0, Lbl/zz;->c:Ljava/lang/String;
 
     const-class v4, Lcom/bilibili/tv/api/video/BiliVideoDetail;
@@ -204,7 +295,7 @@
 
     check-cast v1, Lcom/bilibili/tv/api/video/BiliVideoDetail;
 
-    .line 31
+    .line 33
     iget-wide v4, v0, Lbl/zz;->b:J
 
     const-wide/16 v6, 0x3e8
@@ -213,14 +304,14 @@
 
     iput-wide v4, v1, Lcom/bilibili/tv/api/video/BiliVideoDetail;->mViewAt:J
 
-    .line 32
+    .line 34
     iget-object v0, v2, Lcom/bilibili/tv/api/video/BiliVideoHistorylList;->mList:Ljava/util/List;
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1b
 
-    .line 36
+    .line 38
     :cond_46
     return-object v2
 .end method

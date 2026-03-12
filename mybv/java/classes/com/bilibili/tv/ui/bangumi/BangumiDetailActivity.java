@@ -59,7 +59,8 @@ import com.bilibili.tv.widget.PagerSlidingTabStrip;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.TypeCastException;
-import u.aly.au;
+
+import bl.zp;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -143,7 +144,7 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
         }
 
         public final Intent a(Context context, String str) {
-            bbi.b(context, au.aD);
+            bbi.b(context, "context");
             Intent intent = new Intent(context, (Class<?>) BangumiDetailActivity.class);
             Bundle bundle = new Bundle();
             bundle.putString("bundle_season_id", str);
@@ -165,11 +166,7 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
             return;
         }
         this.A = new BangumiUniformSeason();
-        BangumiUniformSeason bangumiUniformSeason = this.A;
-        if (bangumiUniformSeason == null) {
-            bbi.a();
-        }
-        bangumiUniformSeason.seasonId = this.a;
+        this.A.seasonId = this.a;
         k();
         this.D = new e();
         this.E = new f();
@@ -217,22 +214,10 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
     private final void k() {
         this.q = (FrameLayout) d(R.id.bangumi_layout);
         this.r = (ImageView) d(R.id.bangumi_blur);
-        FrameLayout frameLayout = this.q;
-        if (frameLayout == null) {
-            bbi.a();
-        }
-        frameLayout.getViewTreeObserver().addOnGlobalFocusChangeListener(new g());
+        this.q.getViewTreeObserver().addOnGlobalFocusChangeListener(new g());
         LoadingImageView.a aVar = LoadingImageView.Companion;
-        FrameLayout frameLayout2 = this.q;
-        if (frameLayout2 == null) {
-            bbi.a();
-        }
-        this.n = aVar.a(frameLayout2);
-        LoadingImageView loadingImageView = this.n;
-        if (loadingImageView == null) {
-            bbi.a();
-        }
-        loadingImageView.a();
+        this.n = aVar.a(this.q);
+        this.n.a();
         this.k = d(R.id.content_layout);
         this.l = d(R.id.bangumi_episo_layout);
         this.b = (TextView) d(R.id.bangumi_title);
@@ -246,92 +231,32 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
         this.j = (TextView) d(R.id.bangumi_play_episode_txt);
         d dVar = new d();
         this.m = (DrawTextView) d(R.id.bangumi_follow);
-        DrawTextView drawTextView = this.m;
-        if (drawTextView == null) {
-            bbi.a();
-        }
         d dVar2 = dVar;
-        drawTextView.setOnFocusChangeListener(dVar2);
-        DrawTextView drawTextView2 = this.m;
-        if (drawTextView2 == null) {
-            bbi.a();
-        }
-        drawTextView2.setUpDrawable(R.drawable.shadow_red_rect);
-        DrawTextView drawTextView3 = this.m;
-        if (drawTextView3 == null) {
-            bbi.a();
-        }
+        this.m.setOnFocusChangeListener(dVar2);
+        this.m.setUpDrawable(R.drawable.shadow_red_rect);
         BangumiDetailActivity bangumiDetailActivity = this;
-        drawTextView3.setOnClickListener(bangumiDetailActivity);
+        this.m.setOnClickListener(bangumiDetailActivity);
         this.C = (DrawTextView) d(R.id.bangumi_play);
-        DrawTextView drawTextView4 = this.C;
-        if (drawTextView4 == null) {
-            bbi.a();
-        }
-        drawTextView4.setOnClickListener(bangumiDetailActivity);
-        DrawTextView drawTextView5 = this.C;
-        if (drawTextView5 == null) {
-            bbi.a();
-        }
-        drawTextView5.setUpDrawable(R.drawable.shadow_red_rect);
-        DrawTextView drawTextView6 = this.C;
-        if (drawTextView6 == null) {
-            bbi.a();
-        }
-        drawTextView6.setOnFocusChangeListener(dVar2);
+        this.C.setOnClickListener(bangumiDetailActivity);
+        this.C.setUpDrawable(R.drawable.shadow_red_rect);
+        this.C.setOnFocusChangeListener(dVar2);
         this.H = (DrawTextView) d(R.id.bangumi_go_buy);
-        DrawTextView drawTextView7 = this.H;
-        if (drawTextView7 == null) {
-            bbi.a();
-        }
-        drawTextView7.setOnClickListener(bangumiDetailActivity);
-        DrawTextView drawTextView8 = this.H;
-        if (drawTextView8 == null) {
-            bbi.a();
-        }
-        drawTextView8.setUpDrawable(R.drawable.shadow_red_rect);
-        DrawTextView drawTextView9 = this.H;
-        if (drawTextView9 == null) {
-            bbi.a();
-        }
-        drawTextView9.setOnFocusChangeListener(dVar2);
+        this.H.setOnClickListener(bangumiDetailActivity);
+        this.H.setUpDrawable(R.drawable.shadow_red_rect);
+        this.H.setOnFocusChangeListener(dVar2);
         this.G = (DrawTextView) d(R.id.bangumi_more);
-        DrawTextView drawTextView10 = this.G;
-        if (drawTextView10 == null) {
-            bbi.a();
-        }
-        drawTextView10.setOnFocusChangeListener(dVar2);
-        DrawTextView drawTextView11 = this.G;
-        if (drawTextView11 == null) {
-            bbi.a();
-        }
-        drawTextView11.setUpDrawable(R.drawable.shadow_red_rect);
-        DrawTextView drawTextView12 = this.G;
-        if (drawTextView12 == null) {
-            bbi.a();
-        }
-        drawTextView12.setOnClickListener(bangumiDetailActivity);
+        this.G.setOnFocusChangeListener(dVar2);
+        this.G.setUpDrawable(R.drawable.shadow_red_rect);
+        this.G.setOnClickListener(bangumiDetailActivity);
         this.t = (PagerSlidingTabStrip) d(R.id.bangumi_tabs);
-        PagerSlidingTabStrip pagerSlidingTabStrip = this.t;
-        if (pagerSlidingTabStrip == null) {
-            bbi.a();
-        }
-        pagerSlidingTabStrip.setOnPageChangeListener(this);
+        this.t.setOnPageChangeListener(this);
         this.p = new ArrayList();
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         bbi.a((Object) supportFragmentManager, "supportFragmentManager");
         this.o = new b(this, supportFragmentManager, this.p);
         this.s = (ViewPager) d(R.id.bangumi_pager);
-        ViewPager viewPager = this.s;
-        if (viewPager == null) {
-            bbi.a();
-        }
-        viewPager.setAdapter(this.o);
-        PagerSlidingTabStrip pagerSlidingTabStrip2 = this.t;
-        if (pagerSlidingTabStrip2 == null) {
-            bbi.a();
-        }
-        pagerSlidingTabStrip2.setViewPager(this.s);
+        this.s.setAdapter(this.o);
+        this.t.setViewPager(this.s);
     }
 
     private final void l() {
@@ -371,11 +296,7 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
                     }
                     StringBuilder sb = new StringBuilder();
                     sb.append("http://bangumi.bilibili.com/anime/");
-                    BangumiUniformSeason bangumiUniformSeason2 = this.A;
-                    if (bangumiUniformSeason2 == null) {
-                        bbi.a();
-                    }
-                    sb.append(bangumiUniformSeason2.seasonId);
+                    sb.append(this.A.seasonId);
                     VipActivity.Companion.a(this, this.a, sb.toString(), 116);
                     return;
                 }
@@ -384,11 +305,7 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
             case R.id.bangumi_more /* 2131230769 */:
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("http://bangumi.bilibili.com/anime/");
-                BangumiUniformSeason bangumiUniformSeason3 = this.A;
-                if (bangumiUniformSeason3 == null) {
-                    bbi.a();
-                }
-                sb2.append(bangumiUniformSeason3.seasonId);
+                sb2.append(this.A.seasonId);
                 String sb3 = sb2.toString();
                 BangumiDetailInfoActivity.a aVar = BangumiDetailInfoActivity.Companion;
                 BangumiDetailActivity bangumiDetailActivity2 = this;
@@ -409,31 +326,14 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
     }
 
     private final void m() {
-        BangumiUniformSeason bangumiUniformSeason = this.A;
-        if (bangumiUniformSeason == null) {
-            bbi.a();
-        }
-        if (bangumiUniformSeason.episodes.isEmpty()) {
+        if (this.A.episodes.isEmpty()) {
             lr.a(this, (int) R.string.bangumi_nothing_play);
             return;
         }
-        BangumiUniformSeason bangumiUniformSeason2 = this.A;
-        if (bangumiUniformSeason2 == null) {
-            bbi.a();
-        }
-        int i = bangumiUniformSeason2.seasonType;
-        BangumiDetailActivity bangumiDetailActivity = this;
-        String str = this.a;
-        BangumiUniformSeason bangumiUniformSeason3 = this.A;
-        if (bangumiUniformSeason3 == null) {
-            bbi.a();
-        }
-        BangumiEpisodeEx bangumiEpisodeEx = bangumiUniformSeason3.episodes.get(this.z);
-        BangumiUniformSeason bangumiUniformSeason4 = this.A;
-        if (bangumiUniformSeason4 == null) {
-            bbi.a();
-        }
-        xg.a(i, bangumiDetailActivity, str, bangumiEpisodeEx, bangumiUniformSeason4.episodes);
+        int i = this.A.seasonType;
+        BangumiEpisodeEx bangumiEpisodeEx = this.A.episodes.get(this.z);
+        xg.a(i, this, this.a, bangumiEpisodeEx, this.A.episodes);
+        zp.a(this, bangumiEpisodeEx, this.a);
     }
 
     private final void n() {
@@ -451,18 +351,16 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
         this.w = true;
         if (this.v) {
             kd kdVar = (kd) vo.a(kd.class);
-            String str = this.a;
             mg a3 = mg.a(bangumiDetailActivity);
             bbi.a((Object) a3, "BiliAccount.get(this)");
-            kdVar.b(str, a3.e()).a(this.F);
+            kdVar.b(this.a, a3.e()).a(this.F);
             this.v = false;
             ok.a("tv_bangumi_view_click_follow", "action", "取消追番");
         } else {
             kd kdVar2 = (kd) vo.a(kd.class);
-            String str2 = this.a;
             mg a4 = mg.a(bangumiDetailActivity);
             bbi.a((Object) a4, "BiliAccount.get(this)");
-            kdVar2.a(str2, a4.e()).a(this.F);
+            kdVar2.a(this.a, a4.e()).a(this.F);
             this.v = true;
             ok.a("tv_bangumi_view_click_follow", "action", "追番");
         }
@@ -478,11 +376,7 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
 
     @Override // android.support.v4.view.ViewPager.f
     public void a(int i) {
-        PagerSlidingTabStrip pagerSlidingTabStrip = this.t;
-        if (pagerSlidingTabStrip == null) {
-            bbi.a();
-        }
-        View childAt = pagerSlidingTabStrip.getChildAt(0);
+        View childAt = this.t.getChildAt(0);
         if (!(childAt instanceof LinearLayout)) {
             childAt = null;
         }
@@ -531,19 +425,11 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
             return;
         }
         if (ads.a(this.A)) {
-            BangumiUniformSeason bangumiUniformSeason = this.A;
-            if (bangumiUniformSeason == null) {
-                bbi.a();
-            }
-            valueOf = bangumiUniformSeason.episodes.get(i).index;
+            valueOf = this.A.episodes.get(i).index;
         } else {
             valueOf = Integer.valueOf(i + 1);
         }
-        TextView textView = this.j;
-        if (textView == null) {
-            bbi.a();
-        }
-        textView.setText(getString(R.string.bangumi_play_last_episode_fmt, new Object[]{valueOf}));
+        this.j.setText(getString(R.string.bangumi_play_last_episode_fmt, new Object[]{valueOf}));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -592,73 +478,21 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
         /* renamed from: a, reason: merged with bridge method [inline-methods] */
         public void onSuccess(BangumiApiResponse<BangumiUniformSeason> bangumiApiResponse) {
             if ((bangumiApiResponse != null ? bangumiApiResponse.result : null) == null) {
-                LoadingImageView loadingImageView = BangumiDetailActivity.this.n;
-                if (loadingImageView == null) {
-                    bbi.a();
-                }
-                loadingImageView.c();
+                BangumiDetailActivity.this.n.c();
                 return;
             }
             BangumiDetailActivity.this.A = bangumiApiResponse.result;
-            LoadingImageView loadingImageView2 = BangumiDetailActivity.this.n;
-            if (loadingImageView2 == null) {
-                bbi.a();
-            }
-            loadingImageView2.b();
-            View view = BangumiDetailActivity.this.k;
-            if (view == null) {
-                bbi.a();
-            }
+            BangumiDetailActivity.this.n.b();
             boolean z = false;
-            view.setVisibility(0);
-            TextView textView = BangumiDetailActivity.this.b;
-            if (textView == null) {
-                bbi.a();
-            }
-            BangumiUniformSeason bangumiUniformSeason = BangumiDetailActivity.this.A;
-            if (bangumiUniformSeason == null) {
-                bbi.a();
-            }
-            textView.setText(bangumiUniformSeason.title);
-            TextView textView2 = BangumiDetailActivity.this.c;
-            if (textView2 == null) {
-                bbi.a();
-            }
-            BangumiUniformSeason bangumiUniformSeason2 = BangumiDetailActivity.this.A;
-            if (bangumiUniformSeason2 == null) {
-                bbi.a();
-            }
-            textView2.setText(ads.c(bangumiUniformSeason2));
+            BangumiDetailActivity.this.k.setVisibility(0);
+            BangumiDetailActivity.this.b.setText(BangumiDetailActivity.this.A.title);
+            BangumiDetailActivity.this.c.setText(ads.c(BangumiDetailActivity.this.A));
             BangumiDetailActivity bangumiDetailActivity = BangumiDetailActivity.this;
-            BangumiUniformSeason bangumiUniformSeason3 = BangumiDetailActivity.this.A;
-            if (bangumiUniformSeason3 == null) {
-                bbi.a();
-            }
-            bangumiDetailActivity.a(bangumiUniformSeason3.cover);
-            TextView textView3 = BangumiDetailActivity.this.i;
-            if (textView3 == null) {
-                bbi.a();
-            }
-            textView3.setVisibility(8);
-            TextView textView4 = BangumiDetailActivity.this.h;
-            if (textView4 == null) {
-                bbi.a();
-            }
-            textView4.setVisibility(8);
-            TextView textView5 = BangumiDetailActivity.this.e;
-            if (textView5 == null) {
-                bbi.a();
-            }
-            textView5.setMaxLines(6);
-            TextView textView6 = BangumiDetailActivity.this.e;
-            if (textView6 == null) {
-                bbi.a();
-            }
-            BangumiUniformSeason bangumiUniformSeason4 = BangumiDetailActivity.this.A;
-            if (bangumiUniformSeason4 == null) {
-                bbi.a();
-            }
-            textView6.setText(bangumiUniformSeason4.evaluate);
+            bangumiDetailActivity.a(BangumiDetailActivity.this.A.cover);
+            BangumiDetailActivity.this.i.setVisibility(8);
+            BangumiDetailActivity.this.h.setVisibility(8);
+            BangumiDetailActivity.this.e.setMaxLines(6);
+            BangumiDetailActivity.this.e.setText(BangumiDetailActivity.this.A.evaluate);
             a();
             if (BangumiDetailActivity.this.A.userStatus != null) {
                 BangumiDetailActivity.this.v = BangumiDetailActivity.this.A.userStatus.isFollowed;
@@ -680,24 +514,12 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
         public void onError(Throwable th) {
             bbi.b(th, "t");
             adl.a.a(th, BangumiDetailActivity.this);
-            LoadingImageView loadingImageView = BangumiDetailActivity.this.n;
-            if (loadingImageView == null) {
-                bbi.a();
-            }
-            loadingImageView.setRefreshError(true);
+            BangumiDetailActivity.this.n.setRefreshError(true);
         }
 
         private final void a() {
-            TextView textView = BangumiDetailActivity.this.g;
-            if (textView == null) {
-                bbi.a();
-            }
-            textView.setVisibility(8);
-            TextView textView2 = BangumiDetailActivity.this.f;
-            if (textView2 == null) {
-                bbi.a();
-            }
-            textView2.setVisibility(8);
+            BangumiDetailActivity.this.g.setVisibility(8);
+            BangumiDetailActivity.this.f.setVisibility(8);
         }
 
         private final void a(BangumiUniformSeason bangumiUniformSeason) {
@@ -732,105 +554,33 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
         private final void b(BangumiUniformSeason bangumiUniformSeason) {
             BangumiUserStatus.WatchProgress watchProgress;
             if (ads.b(bangumiUniformSeason)) {
-                View view = BangumiDetailActivity.this.l;
-                if (view == null) {
-                    bbi.a();
-                }
-                view.setVisibility(8);
-                DrawTextView drawTextView = BangumiDetailActivity.this.C;
-                if (drawTextView == null) {
-                    bbi.a();
-                }
-                drawTextView.setText(R.string.bangumi_empty_episode);
-                DrawTextView drawTextView2 = BangumiDetailActivity.this.C;
-                if (drawTextView2 == null) {
-                    bbi.a();
-                }
-                drawTextView2.setTextColor(BangumiDetailActivity.this.getResources().getColor(R.color.white_50));
-                DrawTextView drawTextView3 = BangumiDetailActivity.this.m;
-                if (drawTextView3 == null) {
-                    bbi.a();
-                }
-                drawTextView3.requestFocus();
-                DrawTextView drawTextView4 = BangumiDetailActivity.this.G;
-                if (drawTextView4 == null) {
-                    bbi.a();
-                }
-                drawTextView4.setNextFocusUpId(R.id.bangumi_more);
-                DrawTextView drawTextView5 = BangumiDetailActivity.this.G;
-                if (drawTextView5 == null) {
-                    bbi.a();
-                }
-                drawTextView5.setNextFocusRightId(R.id.bangumi_more);
-                DrawTextView drawTextView6 = BangumiDetailActivity.this.G;
-                if (drawTextView6 == null) {
-                    bbi.a();
-                }
-                drawTextView6.setNextFocusDownId(-1);
-                DrawTextView drawTextView7 = BangumiDetailActivity.this.m;
-                if (drawTextView7 == null) {
-                    bbi.a();
-                }
-                drawTextView7.setNextFocusRightId(R.id.bangumi_follow);
+                BangumiDetailActivity.this.l.setVisibility(8);
+                BangumiDetailActivity.this.C.setText(R.string.bangumi_empty_episode);
+                BangumiDetailActivity.this.C.setTextColor(BangumiDetailActivity.this.getResources().getColor(R.color.white_50));
+                BangumiDetailActivity.this.m.requestFocus();
+                BangumiDetailActivity.this.G.setNextFocusUpId(R.id.bangumi_more);
+                BangumiDetailActivity.this.G.setNextFocusRightId(R.id.bangumi_more);
+                BangumiDetailActivity.this.G.setNextFocusDownId(-1);
+                BangumiDetailActivity.this.m.setNextFocusRightId(R.id.bangumi_follow);
                 return;
             }
-            View view2 = BangumiDetailActivity.this.l;
-            if (view2 == null) {
-                bbi.a();
-            }
-            view2.setVisibility(0);
-            BangumiDetailActivity bangumiDetailActivity = BangumiDetailActivity.this;
-            if (bangumiUniformSeason == null) {
-                bbi.a();
-            }
-            bangumiDetailActivity.x = bangumiUniformSeason.episodes.size();
+            BangumiDetailActivity.this.l.setVisibility(0);
+            BangumiDetailActivity.this.x = bangumiUniformSeason.episodes.size();
             abx.b b = abx.b(BangumiDetailActivity.this.x);
             int i = b.c;
             for (int i2 = 0; i2 < i; i2++) {
                 int i3 = i2 * b.b;
-                List list = BangumiDetailActivity.this.p;
-                if (list == null) {
-                    bbi.a();
-                }
                 BangumiEpisodeFragment.a aVar = BangumiEpisodeFragment.Companion;
-                String str = BangumiDetailActivity.this.a;
-                if (str == null) {
-                    bbi.a();
-                }
-                BangumiUniformSeason bangumiUniformSeason2 = BangumiDetailActivity.this.A;
-                if (bangumiUniformSeason2 == null) {
-                    bbi.a();
-                }
-                list.add(aVar.a(bangumiUniformSeason.episodes, str, i2, bangumiUniformSeason2.seasonType, i3, b.b + i3, bangumiUniformSeason.userStatus.isPaid));
+                BangumiDetailActivity.this.p.add(aVar.a(bangumiUniformSeason.episodes, BangumiDetailActivity.this.a, i2, BangumiDetailActivity.this.A.seasonType, i3, b.b + i3, bangumiUniformSeason.userStatus.isPaid));
             }
             int i4 = b.c * b.b;
             if (i4 < BangumiDetailActivity.this.x) {
-                List list2 = BangumiDetailActivity.this.p;
-                if (list2 == null) {
-                    bbi.a();
-                }
                 BangumiEpisodeFragment.a aVar2 = BangumiEpisodeFragment.Companion;
-                String str2 = BangumiDetailActivity.this.a;
-                if (str2 == null) {
-                    bbi.a();
-                }
                 int i5 = b.c;
-                BangumiUniformSeason bangumiUniformSeason3 = BangumiDetailActivity.this.A;
-                if (bangumiUniformSeason3 == null) {
-                    bbi.a();
-                }
-                list2.add(aVar2.a(bangumiUniformSeason.episodes, str2, i5, bangumiUniformSeason3.seasonType, i4, BangumiDetailActivity.this.x, bangumiUniformSeason.userStatus.isPaid));
+                BangumiDetailActivity.this.p.add(aVar2.a(bangumiUniformSeason.episodes, BangumiDetailActivity.this.a, i5, BangumiDetailActivity.this.A.seasonType, i4, BangumiDetailActivity.this.x, bangumiUniformSeason.userStatus.isPaid));
             }
-            b bVar = BangumiDetailActivity.this.o;
-            if (bVar == null) {
-                bbi.a();
-            }
-            bVar.notifyDataSetChanged();
-            PagerSlidingTabStrip pagerSlidingTabStrip = BangumiDetailActivity.this.t;
-            if (pagerSlidingTabStrip == null) {
-                bbi.a();
-            }
-            pagerSlidingTabStrip.a();
+            BangumiDetailActivity.this.o.notifyDataSetChanged();
+            BangumiDetailActivity.this.t.a();
             BangumiDetailActivity bangumiDetailActivity2 = BangumiDetailActivity.this;
             BangumiUserStatus bangumiUserStatus = bangumiUniformSeason.userStatus;
             bangumiDetailActivity2.b((bangumiUserStatus == null || (watchProgress = bangumiUserStatus.watchProgress) == null) ? null : watchProgress.lastEpIndex);
@@ -915,33 +665,17 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
         boolean a2 = ads.a(this.A);
         if (this.v) {
             if (a2) {
-                DrawTextView drawTextView = this.m;
-                if (drawTextView == null) {
-                    bbi.a();
-                }
-                drawTextView.setText(R.string.bangumi_followed);
+                this.m.setText(R.string.bangumi_followed);
                 return;
             }
-            DrawTextView drawTextView2 = this.m;
-            if (drawTextView2 == null) {
-                bbi.a();
-            }
-            drawTextView2.setText(R.string.bangumi_un_favorite);
+            this.m.setText(R.string.bangumi_un_favorite);
             return;
         }
         if (a2) {
-            DrawTextView drawTextView3 = this.m;
-            if (drawTextView3 == null) {
-                bbi.a();
-            }
-            drawTextView3.setText(R.string.bangumi_follow);
+            this.m.setText(R.string.bangumi_follow);
             return;
         }
-        DrawTextView drawTextView4 = this.m;
-        if (drawTextView4 == null) {
-            bbi.a();
-        }
-        drawTextView4.setText(R.string.bangumi_favorite);
+        this.m.setText(R.string.bangumi_favorite);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -953,11 +687,7 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
             return;
         }
         try {
-            Long valueOf = Long.valueOf(str);
-            if (valueOf == null) {
-                bbi.a();
-            }
-            j = valueOf.longValue();
+            j = Long.valueOf(str).longValue();
         } catch (NumberFormatException unused) {
             j = 0;
         }
@@ -990,16 +720,8 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
         this.z = a(this.A, a3 != null ? a3.epid : 0L);
         abx.a a4 = abx.a(this.z, abx.b(this.x));
         if (this.p != null) {
-            List<BangumiEpisodeFragment> list = this.p;
-            if (list == null) {
-                bbi.a();
-            }
-            if (list.size() > a4.a) {
-                List<BangumiEpisodeFragment> list2 = this.p;
-                if (list2 == null) {
-                    bbi.a();
-                }
-                list2.get(a4.a).a(a4);
+            if (this.p.size() > a4.a) {
+                this.p.get(a4.a).a(a4);
                 e(a4.a);
             }
         }
@@ -1009,9 +731,6 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
     private final int a(BangumiUniformSeason bangumiUniformSeason, long j) {
         if (j <= 0 || ads.b(bangumiUniformSeason)) {
             return 0;
-        }
-        if (bangumiUniformSeason == null) {
-            bbi.a();
         }
         int size = bangumiUniformSeason.episodes.size();
         for (int i = 0; i < size; i++) {
@@ -1026,16 +745,8 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
         if (this.s == null) {
             return;
         }
-        ViewPager viewPager = this.s;
-        if (viewPager == null) {
-            bbi.a();
-        }
-        viewPager.setCurrentItem(i);
-        PagerSlidingTabStrip pagerSlidingTabStrip = this.t;
-        if (pagerSlidingTabStrip == null) {
-            bbi.a();
-        }
-        View childAt = pagerSlidingTabStrip.getChildAt(0);
+        this.s.setCurrentItem(i);
+        View childAt = this.t.getChildAt(0);
         if (childAt == null) {
             throw new TypeCastException("null cannot be cast to non-null type android.view.ViewGroup");
         }
@@ -1131,9 +842,6 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
             if (view == null) {
                 view = BangumiDetailActivity.this.B;
             }
-            if (view == null) {
-                bbi.a();
-            }
             ViewParent parent = view.getParent();
             ViewParent parent2 = view2.getParent();
             if (view2.getId() == R.id.bangumi_play && view.getId() != R.id.bangumi_play) {
@@ -1145,11 +853,7 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
             if (a(parent2)) {
                 if (parent2 != null) {
                     int indexOfChild = ((LinearLayout) parent2).indexOfChild(view2);
-                    ViewPager viewPager = BangumiDetailActivity.this.s;
-                    if (viewPager == null) {
-                        bbi.a();
-                    }
-                    viewPager.setCurrentItem(indexOfChild);
+                    BangumiDetailActivity.this.s.setCurrentItem(indexOfChild);
                     if (view2 instanceof TextView) {
                         BangumiDetailActivity.this.a((TextView) view2, true);
                     }
@@ -1158,16 +862,8 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
                 }
             }
             if ((view.getId() == R.id.bangumi_more || view.getId() == R.id.bangumi_follow) && a(parent2)) {
-                List list = BangumiDetailActivity.this.p;
-                if (list == null) {
-                    bbi.a();
-                }
-                if (!list.isEmpty()) {
-                    List list2 = BangumiDetailActivity.this.p;
-                    if (list2 == null) {
-                        bbi.a();
-                    }
-                    ((BangumiEpisodeFragment) list2.get(0)).a(new abx.a());
+                if (!BangumiDetailActivity.this.p.isEmpty()) {
+                    ((BangumiEpisodeFragment) BangumiDetailActivity.this.p.get(0)).a(new abx.a());
                 }
             }
             if (a(parent) && view2.getId() == R.id.episode_layout && (view instanceof TextView)) {
@@ -1177,11 +873,7 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
                 if (view instanceof TextView) {
                     BangumiDetailActivity.this.a((TextView) view, false);
                 } else if (view instanceof DrawRelativeLayout) {
-                    PagerSlidingTabStrip pagerSlidingTabStrip = BangumiDetailActivity.this.t;
-                    if (pagerSlidingTabStrip == null) {
-                        bbi.a();
-                    }
-                    View childAt = pagerSlidingTabStrip.getChildAt(0);
+                    View childAt = BangumiDetailActivity.this.t.getChildAt(0);
                     if (childAt == null) {
                         throw new TypeCastException("null cannot be cast to non-null type android.view.ViewGroup");
                     }
@@ -1216,11 +908,7 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
 
         @Override // android.support.v4.app.FragmentPagerAdapter
         public Fragment getItem(int i) {
-            List<BangumiEpisodeFragment> list = this.b;
-            if (list == null) {
-                bbi.a();
-            }
-            return list.get(i);
+            return this.b.get(i);
         }
 
         @Override // bl.cy
@@ -1235,55 +923,23 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
         @Override // bl.cy
         public CharSequence getPageTitle(int i) {
             if (!ads.b(this.a.A)) {
-                BangumiUniformSeason bangumiUniformSeason = this.a.A;
-                if (bangumiUniformSeason == null) {
-                    bbi.a();
-                }
-                if (1 != bangumiUniformSeason.episodes.size()) {
-                    BangumiUniformSeason bangumiUniformSeason2 = this.a.A;
-                    if (bangumiUniformSeason2 == null) {
-                        bbi.a();
-                    }
-                    int a = abx.a(bangumiUniformSeason2.episodes.size());
+                if (1 != this.a.A.episodes.size()) {
+                    int a = abx.a(this.a.A.episodes.size());
                     int i2 = i * a;
-                    BangumiUniformSeason bangumiUniformSeason3 = this.a.A;
-                    if (bangumiUniformSeason3 == null) {
-                        bbi.a();
-                    }
-                    if (i2 < bangumiUniformSeason3.episodes.size()) {
+                    if (i2 < this.a.A.episodes.size()) {
                         int i3 = ((i + 1) * a) - 1;
-                        BangumiUniformSeason bangumiUniformSeason4 = this.a.A;
-                        if (bangumiUniformSeason4 == null) {
-                            bbi.a();
-                        }
-                        if (i3 >= bangumiUniformSeason4.episodes.size()) {
-                            BangumiUniformSeason bangumiUniformSeason5 = this.a.A;
-                            if (bangumiUniformSeason5 == null) {
-                                bbi.a();
-                            }
-                            i3 = bangumiUniformSeason5.episodes.size() - 1;
+                        if (i3 >= this.a.A.episodes.size()) {
+                            i3 = this.a.A.episodes.size() - 1;
                         }
                         if (i2 == i3) {
-                            BangumiUniformSeason bangumiUniformSeason6 = this.a.A;
-                            if (bangumiUniformSeason6 == null) {
-                                bbi.a();
-                            }
-                            String str = bangumiUniformSeason6.episodes.get(i2).index;
+                            String str = this.a.A.episodes.get(i2).index;
                             bbi.a((Object) str, "mSeason!!.episodes[start].index");
                             return str;
                         }
                         StringBuilder sb = new StringBuilder();
-                        BangumiUniformSeason bangumiUniformSeason7 = this.a.A;
-                        if (bangumiUniformSeason7 == null) {
-                            bbi.a();
-                        }
-                        sb.append(bangumiUniformSeason7.episodes.get(i2).index);
+                        sb.append(this.a.A.episodes.get(i2).index);
                         sb.append("-");
-                        BangumiUniformSeason bangumiUniformSeason8 = this.a.A;
-                        if (bangumiUniformSeason8 == null) {
-                            bbi.a();
-                        }
-                        sb.append(bangumiUniformSeason8.episodes.get(i3).index);
+                        sb.append(this.a.A.episodes.get(i3).index);
                         return sb.toString();
                     }
                     return "";
@@ -1296,3 +952,5 @@ public final class BangumiDetailActivity extends BaseActivity implements ViewPag
         }
     }
 }
+
+

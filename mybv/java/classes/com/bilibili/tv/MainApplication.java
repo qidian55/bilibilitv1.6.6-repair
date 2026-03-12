@@ -59,6 +59,11 @@ public class MainApplication extends Application {
     public static JSONArray blacklist_uids=null;
     public static JSONArray graylist_uids=null;
 
+    static {
+        System.setProperty("java.net.preferIPv6Addresses", "false");
+        System.setProperty("java.net.preferIPv4Stack", "true");
+    }
+
     public static MainApplication a() {
         return b;
     }
@@ -143,8 +148,6 @@ public class MainApplication extends Application {
             kz.a(inputStream);
             e.printStackTrace();
         }
-        System.setProperty("java.net.preferIPv6Addresses", "false");
-        System.setProperty("java.net.preferIPv4Stack", "true");
     }
 
     @Override // android.app.Application, android.content.ComponentCallbacks

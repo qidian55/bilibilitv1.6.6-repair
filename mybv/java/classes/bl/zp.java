@@ -11,6 +11,8 @@ import com.bilibili.tv.api.video.BiliVideoHistorylList;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import com.bilibili.bangumi.api.newbean.BangumiEpisodeEx;
+
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public class zp extends aab {
@@ -51,6 +53,20 @@ public class zp extends aab {
             return;
         }
         zpVar.a(String.valueOf(biliVideoDetail.mAvid), jSONString);
+    }
+
+    public static void a(Context context, BangumiEpisodeEx bangumiEpisodeEx, String season_id) {
+        zp zpVar = new zp(context);
+        JSONObject jSONObject = new JSONObject();
+        jSONObject.put("aid", (Object) Long.valueOf(bangumiEpisodeEx.aid));
+        jSONObject.put("epid", (Object) Long.valueOf(bangumiEpisodeEx.epid));
+        jSONObject.put("title", (Object) bangumiEpisodeEx.shareCopy);
+        jSONObject.put("pic", (Object) bangumiEpisodeEx.cover);
+        String jSONString = jSONObject.toJSONString();
+        if (TextUtils.isEmpty(jSONString)) {
+            return;
+        }
+        zpVar.a("season"+season_id, jSONString);
     }
 
     public static void a(Context context) throws SQLException {

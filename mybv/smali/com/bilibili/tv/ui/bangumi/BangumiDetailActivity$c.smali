@@ -34,12 +34,12 @@
     .locals 0
 
     .prologue
-    .line 875
+    .line 625
     iput-object p1, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$c;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
 
     invoke-direct {p0}, Lbl/vm;-><init>()V
 
-    .line 876
+    .line 626
     return-void
 .end method
 
@@ -49,7 +49,7 @@
     .locals 1
 
     .prologue
-    .line 880
+    .line 630
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$c;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->isFinishing()Z
@@ -65,25 +65,25 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 902
+    .line 652
     const-string v1, "t"
 
     invoke-static {p1, v1}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 903
+    .line 653
     sget-object v1, Lbl/adl;->a:Lbl/adl;
 
     iget-object v2, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$c;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
 
     invoke-virtual {v1, p1, v2}, Lbl/adl;->a(Ljava/lang/Throwable;Landroid/app/Activity;)V
 
-    .line 904
+    .line 654
     iget-object v1, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$c;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
 
     # setter for: Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->w:Z
     invoke-static {v1, v0}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->access$2102(Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;Z)Z
 
-    .line 905
+    .line 655
     iget-object v1, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$c;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
 
     iget-object v2, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$c;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
@@ -101,12 +101,12 @@
     # setter for: Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->v:Z
     invoke-static {v1, v0}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->access$802(Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;Z)Z
 
-    .line 906
+    .line 656
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$c;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->o()V
 
-    .line 907
+    .line 657
     return-void
 .end method
 
@@ -123,12 +123,12 @@
     .end annotation
 
     .prologue
-    .line 886
+    .line 636
     const-string v0, "result"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 887
+    .line 637
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$c;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
 
     const/4 v1, 0x0
@@ -136,7 +136,7 @@
     # setter for: Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->w:Z
     invoke-static {v0, v1}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->access$2102(Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;Z)Z
 
-    .line 888
+    .line 638
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$c;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
 
     # getter for: Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->v:Z
@@ -146,7 +146,7 @@
 
     if-eqz v0, :cond_39
 
-    .line 889
+    .line 639
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$c;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
 
     # getter for: Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->A:Lcom/bilibili/bangumi/api/uniform/BangumiUniformSeason;
@@ -160,7 +160,7 @@
 
     if-eqz v0, :cond_2c
 
-    .line 890
+    .line 640
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$c;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;->getApplicationContext()Landroid/content/Context;
@@ -171,11 +171,11 @@
 
     invoke-static {v0, v1}, Lbl/lr;->a(Landroid/content/Context;I)V
 
-    .line 898
+    .line 648
     :goto_2b
     return-void
 
-    .line 893
+    .line 643
     :cond_2c
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$c;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
 
@@ -189,7 +189,7 @@
 
     goto :goto_2b
 
-    .line 897
+    .line 647
     :cond_39
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$c;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
 
@@ -208,7 +208,7 @@
     .locals 0
 
     .prologue
-    .line 874
+    .line 624
     check-cast p1, Lcom/bilibili/bangumi/api/BangumiApiResponse;
 
     invoke-virtual {p0, p1}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$c;->onSuccess(Lcom/bilibili/bangumi/api/BangumiApiResponse;)V

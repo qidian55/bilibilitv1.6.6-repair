@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 175
+    .line 178
     iput-object p1, p0, Lcom/bilibili/tv/MainApplication$2;->this$0:Lcom/bilibili/tv/MainApplication;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .locals 1
 
     .prologue
-    .line 178
+    .line 181
     const-string v0, "http.agent"
 
     invoke-static {v0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
@@ -54,7 +54,7 @@
     .locals 1
 
     .prologue
-    .line 184
+    .line 187
     const-string v0, "@Deprecated"
 
     return-object v0
@@ -64,7 +64,7 @@
     .locals 1
 
     .prologue
-    .line 189
+    .line 192
     const-string v0, "@Deprecated"
 
     return-object v0
@@ -74,7 +74,7 @@
     .locals 1
 
     .prologue
-    .line 194
+    .line 197
     const/16 v0, 0x646
 
     return v0
@@ -84,7 +84,7 @@
     .locals 1
 
     .prologue
-    .line 204
+    .line 207
     iget-object v0, p0, Lcom/bilibili/tv/MainApplication$2;->this$0:Lcom/bilibili/tv/MainApplication;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/MainApplication;->getBaseContext()Landroid/content/Context;
@@ -102,7 +102,7 @@
     .locals 1
 
     .prologue
-    .line 199
+    .line 202
     const-string v0, "android_tv"
 
     return-object v0

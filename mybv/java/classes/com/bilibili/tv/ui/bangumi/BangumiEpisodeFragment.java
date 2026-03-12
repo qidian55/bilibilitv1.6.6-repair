@@ -31,7 +31,8 @@ import java.util.ArrayList;
 import java.util.List;
 import kotlin.TypeCastException;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-import u.aly.au;
+
+import bl.zp;
 
 /* compiled from: BL */
 /* loaded from: classes.dex */
@@ -89,12 +90,7 @@ public final class BangumiEpisodeFragment extends adu {
             this.g = new ArrayList<>(this.all_episodes.subList(this.d, end));
             h = arguments.getBoolean("bundle_is_paid", false);
         }
-        FragmentActivity activity = getActivity();
-        if (activity == null) {
-            bbi.a();
-        }
-        bbi.a((Object) activity, "activity!!");
-        EpisodeGridLayoutManager episodeGridLayoutManager = new EpisodeGridLayoutManager(activity, 4, 1, false);
+        EpisodeGridLayoutManager episodeGridLayoutManager = new EpisodeGridLayoutManager(getActivity(), 4, 1, false);
         recyclerView.getLayoutParams().height = -1;
         int b2 = adl.b(R.dimen.px_12);
         int b3 = adl.b(R.dimen.px_18);
@@ -128,11 +124,7 @@ public final class BangumiEpisodeFragment extends adu {
             if (aVar3 == null || i != aVar3.a || (d = d()) == null) {
                 return;
             }
-            abx.a aVar4 = this.e;
-            if (aVar4 == null) {
-                bbi.a();
-            }
-            View childAt = d.getChildAt(aVar4.b);
+            View childAt = d.getChildAt(this.e.b);
             if (childAt != null) {
                 childAt.requestFocus();
             }
@@ -167,11 +159,7 @@ public final class BangumiEpisodeFragment extends adu {
             bbi.b(vVar, "holder");
             if (vVar instanceof c) {
                 c cVar = (c) vVar;
-                ArrayList<BangumiEpisodeEx> arrayList = this.c;
-                if (arrayList == null) {
-                    bbi.a();
-                }
-                BangumiEpisodeEx bangumiEpisodeEx = arrayList.get(i);
+                BangumiEpisodeEx bangumiEpisodeEx = this.c.get(i);
                 bbi.a((Object) bangumiEpisodeEx, "mEpisodes!![position]");
                 BangumiEpisodeEx bangumiEpisodeEx2 = bangumiEpisodeEx;
                 String str = bangumiEpisodeEx2.index.toString();
@@ -190,16 +178,8 @@ public final class BangumiEpisodeFragment extends adu {
                 cVar.A().setTag(bangumiEpisodeEx2);
                 cVar.A().setOnClickListener(this);
                 if (this.b != null) {
-                    abx.a aVar = this.b;
-                    if (aVar == null) {
-                        bbi.a();
-                    }
-                    if (aVar.b == i) {
-                        abx.a aVar2 = this.b;
-                        if (aVar2 == null) {
-                            bbi.a();
-                        }
-                        if (aVar2.a == BangumiEpisodeFragment.this.f) {
+                    if (this.b.b == i) {
+                        if (this.b.a == BangumiEpisodeFragment.this.f) {
                             cVar.A().requestFocus();
                         }
                     }
@@ -241,6 +221,7 @@ public final class BangumiEpisodeFragment extends adu {
             if (BangumiEpisodeFragment.h) {
                 Integer num = BangumiEpisodeFragment.this.c;
                 xg.a(num != null ? num.intValue() : -1, activity, BangumiEpisodeFragment.this.b, bangumiEpisodeEx, BangumiEpisodeFragment.this.all_episodes);
+                zp.a(activity, bangumiEpisodeEx, BangumiEpisodeFragment.this.b);
                 return;
             }
             int i = bangumiEpisodeEx.status;
@@ -270,6 +251,7 @@ public final class BangumiEpisodeFragment extends adu {
                     default:
                         Integer num2 = BangumiEpisodeFragment.this.c;
                         xg.a(num2 != null ? num2.intValue() : -1, activity, BangumiEpisodeFragment.this.b, bangumiEpisodeEx, BangumiEpisodeFragment.this.all_episodes);
+                        zp.a(activity, bangumiEpisodeEx, BangumiEpisodeFragment.this.b);
                         return;
                 }
             }
@@ -293,15 +275,12 @@ public final class BangumiEpisodeFragment extends adu {
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public EpisodeGridLayoutManager(Context context, int i, int i2, boolean z) {
             super(context, i, i2, z);
-            bbi.b(context, au.aD);
+            bbi.b(context, "context");
         }
 
         @Override // android.support.v7.widget.RecyclerView.h
         public View d(View view, int i) {
             if (i == 130) {
-                if (view == null) {
-                    bbi.a();
-                }
                 if (d(view) >= H() - c()) {
                     return view;
                 }

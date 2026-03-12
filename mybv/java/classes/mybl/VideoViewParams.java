@@ -9,6 +9,7 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 
 import bl.afo;
 import org.json.*;
+import java.net.InetAddress;
 
 public class VideoViewParams {
     public static List<String> cdn_history = new ArrayList<String>();
@@ -29,7 +30,14 @@ public class VideoViewParams {
             info=s.split("\\?")[0].split("/");
             if(info[info.length-1].equals(name))url=s;
         }
-        if(VideoViewParams.prefect_cdn!=null&&!VideoViewParams.prefect_cdn.isEmpty())url = Uri.parse(url).buildUpon().authority(VideoViewParams.prefect_cdn).build().toString();
+        String hostname=Uri.parse(url).getHost();
+        if(VideoViewParams.prefect_cdn!=null&&!VideoViewParams.prefect_cdn.isEmpty())hostname=VideoViewParams.prefect_cdn;
+        //url = Uri.parse(url).buildUpon().authority(VideoViewParams.prefect_cdn).build().toString();
+        try{
+            url = Uri.parse(url).buildUpon().authority(InetAddress.getByName(hostname).getHostAddress()).build().toString();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         return url;
     }
 

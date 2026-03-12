@@ -19,10 +19,10 @@
     .locals 0
 
     .prologue
-    .line 53
+    .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
+    .line 55
     return-void
 .end method
 
@@ -30,10 +30,10 @@
     .locals 0
 
     .prologue
-    .line 57
+    .line 58
     invoke-direct {p0}, Lcom/bilibili/tv/ui/bangumi/BangumiEpisodeFragment$a;-><init>()V
 
-    .line 58
+    .line 59
     return-void
 .end method
 
@@ -55,22 +55,22 @@
     .end annotation
 
     .prologue
-    .line 61
+    .line 62
     const-string v0, "episodes"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 62
+    .line 63
     const-string v0, "seasonId"
 
     invoke-static {p2, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 63
+    .line 64
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 64
+    .line 65
     const-string v1, "bundle_episodes"
 
     new-instance v2, Ljava/util/ArrayList;
@@ -79,44 +79,44 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 65
+    .line 66
     const-string v1, "bundle_season_id"
 
     invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 66
+    .line 67
     const-string v1, "bundle_pos"
 
     invoke-virtual {v0, v1, p3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 67
+    .line 68
     const-string v1, "bundle_season_type"
 
     invoke-virtual {v0, v1, p4}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 68
+    .line 69
     const-string v1, "bundle_start"
 
     invoke-virtual {v0, v1, p5}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 69
+    .line 70
     const-string v1, "bundle_end"
 
     invoke-virtual {v0, v1, p6}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 70
+    .line 71
     const-string v1, "bundle_is_paid"
 
     invoke-virtual {v0, v1, p7}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 71
+    .line 72
     new-instance v1, Lcom/bilibili/tv/ui/bangumi/BangumiEpisodeFragment;
 
     invoke-direct {v1}, Lcom/bilibili/tv/ui/bangumi/BangumiEpisodeFragment;-><init>()V
 
-    .line 72
+    .line 73
     invoke-virtual {v1, v0}, Lcom/bilibili/tv/ui/bangumi/BangumiEpisodeFragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 73
+    .line 74
     return-object v1
 .end method

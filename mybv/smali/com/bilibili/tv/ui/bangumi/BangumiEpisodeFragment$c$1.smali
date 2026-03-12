@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 334
+    .line 313
     iput-object p1, p0, Lcom/bilibili/tv/ui/bangumi/BangumiEpisodeFragment$c$1;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiEpisodeFragment$c;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .locals 1
 
     .prologue
-    .line 337
+    .line 316
     iget-object v0, p0, Lcom/bilibili/tv/ui/bangumi/BangumiEpisodeFragment$c$1;->this$0:Lcom/bilibili/tv/ui/bangumi/BangumiEpisodeFragment$c;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/bangumi/BangumiEpisodeFragment$c;->z()Lcom/bilibili/tv/widget/DrawTextView;
@@ -49,6 +49,6 @@
 
     invoke-virtual {v0, p2}, Lcom/bilibili/tv/widget/DrawTextView;->setUpEnabled(Z)V
 
-    .line 338
+    .line 317
     return-void
 .end method

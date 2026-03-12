@@ -19,10 +19,10 @@
     .locals 0
 
     .prologue
-    .line 138
+    .line 139
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 139
+    .line 140
     return-void
 .end method
 
@@ -30,10 +30,10 @@
     .locals 0
 
     .prologue
-    .line 142
+    .line 143
     invoke-direct {p0}, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity$a;-><init>()V
 
-    .line 143
+    .line 144
     return-void
 .end method
 
@@ -43,31 +43,31 @@
     .locals 3
 
     .prologue
-    .line 146
+    .line 147
     const-string v0, "context"
 
     invoke-static {p1, v0}, Lbl/bbi;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 147
+    .line 148
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/bilibili/tv/ui/bangumi/BangumiDetailActivity;
 
     invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 148
+    .line 149
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 149
+    .line 150
     const-string v2, "bundle_season_id"
 
     invoke-virtual {v1, v2, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 150
+    .line 151
     invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
-    .line 151
+    .line 152
     return-object v0
 .end method
