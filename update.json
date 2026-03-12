@@ -1,9 +1,9 @@
 {
-    "apkMd5":"ef7f1f1ac63a9d43d4cfbf35461647f7",
+    "apkMd5":"9c00c38f5f3addf7d490a75efcf9ecf6",
     "apkUrl":"https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/mybv.apk",
     "fileSize":8288234,
     "id":"",
-    "newFeature":"更新封禁名单\n优化历史记录管理\n测试性调整——IP直连（也许能够加快视频加载速度）",
+    "newFeature":"修复IPv6环境下的DNS解析错误",
     "publishTime":0,
     "title":"New",
     "upgradeType":1,
