@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 207
+    .line 209
     iput-object p1, p0, Lbl/afm3$3;->this$0:Lbl/afm3;
 
     iput-object p2, p0, Lbl/afm3$3;->val$show_splashs:[Ljava/lang/String;
@@ -44,7 +44,7 @@
     .locals 10
 
     .prologue
-    .line 211
+    .line 213
     :try_start_0
     new-instance v1, Ljava/io/File;
 
@@ -66,7 +66,7 @@
 
     invoke-direct {v1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 212
+    .line 214
     invoke-virtual {v1}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v0
@@ -83,11 +83,11 @@
 
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
-    .line 213
+    .line 215
     :cond_25
     if-nez p2, :cond_50
 
-    .line 214
+    .line 216
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v0
@@ -96,7 +96,7 @@
 
     invoke-virtual {v1}, Ljava/io/File;->delete()Z
 
-    .line 239
+    .line 241
     :cond_30
     :goto_30
     iget-object v0, p0, Lbl/afm3$3;->this$0:Lbl/afm3;
@@ -120,7 +120,7 @@
 
     invoke-virtual {v0, v1}, Lcom/bilibili/tv/widget/ShadowTextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 240
+    .line 242
     iget-object v0, p0, Lbl/afm3$3;->this$0:Lbl/afm3;
 
     invoke-virtual {v0}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -131,11 +131,11 @@
 
     invoke-static {v0, v1}, Lbl/lr;->b(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 245
+    .line 247
     :goto_4f
     return-void
 
-    .line 217
+    .line 219
     :cond_50
     iget-object v0, p0, Lbl/afm3$3;->this$0:Lbl/afm3;
 
@@ -151,7 +151,7 @@
 
     check-cast v0, Landroid/graphics/drawable/BitmapDrawable;
 
-    .line 218
+    .line 220
     invoke-virtual {v0}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -164,17 +164,17 @@
 
     move-result-object v2
 
-    .line 219
+    .line 221
     new-instance v3, Landroid/graphics/Canvas;
 
     invoke-direct {v3, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    .line 221
+    .line 223
     invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0
 
-    .line 222
+    .line 224
     new-instance v4, Lbl/afm3$3$1;
 
     invoke-direct {v4, p0, p2}, Lbl/afm3$3$1;-><init>(Lbl/afm3$3;I)V
@@ -183,14 +183,14 @@
 
     move-result-object v0
 
-    .line 229
+    .line 231
     invoke-interface {v0}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/graphics/Bitmap;
 
-    .line 230
+    .line 232
     const/4 v4, 0x0
 
     new-instance v5, Landroid/graphics/RectF;
@@ -209,36 +209,36 @@
 
     invoke-virtual {v3, v0, v4, v5, v6}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/RectF;Landroid/graphics/Paint;)V
 
-    .line 232
+    .line 234
     invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
 
-    .line 233
+    .line 235
     new-instance v0, Ljava/io/FileOutputStream;
 
     invoke-direct {v0, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
-    .line 234
+    .line 236
     sget-object v1, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
 
     const/16 v3, 0x64
 
     invoke-virtual {v2, v1, v3, v0}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
 
-    .line 235
+    .line 237
     invoke-virtual {v0}, Ljava/io/FileOutputStream;->close()V
     :try_end_a7
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_a7} :catch_a8
 
     goto :goto_30
 
-    .line 241
+    .line 243
     :catch_a8
     move-exception v0
 
-    .line 242
+    .line 244
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 243
+    .line 245
     iget-object v1, p0, Lbl/afm3$3;->this$0:Lbl/afm3;
 
     invoke-virtual {v1}, Lbl/afm3;->getActivity()Landroid/support/v4/app/FragmentActivity;

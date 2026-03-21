@@ -165,14 +165,22 @@
     :cond_f
     iget-object v1, v0, Lmybl/BiliLiveContent;->mCover:Ljava/lang/String;
 
-    if-eqz v1, :cond_21
+    if-eqz v1, :cond_29
 
     .line 262
     invoke-static {}, Lbl/nv;->a()Lbl/nv;
 
     move-result-object v2
 
+    invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
+
+    move-result-object v1
+
     iget-object v3, v0, Lmybl/BiliLiveContent;->mCover:Ljava/lang/String;
+
+    invoke-static {v1, v3}, Lbl/ach;->c(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
 
     move-object v1, p1
 
@@ -183,7 +191,7 @@
     invoke-virtual {v2, v3, v1}, Lbl/nv;->a(Ljava/lang/String;Landroid/widget/ImageView;)V
 
     .line 264
-    :cond_21
+    :cond_29
     check-cast p1, Lbl/aef$c;
 
     .line 265

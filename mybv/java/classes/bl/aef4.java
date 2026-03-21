@@ -160,7 +160,7 @@ public class aef4 extends ady {
             }
             c cVar = (c) advVar;
             if (biliVideoDetail.mCover != null) {
-                nv.a().a(biliVideoDetail.mCover, cVar.n);
+                nv.a().a(ach.c(MainApplication.a(), biliVideoDetail.mCover), cVar.n);
             }
             cVar.o.setText(biliVideoDetail.mTitle);
             cVar.p.setText(biliVideoDetail.getAuthor());

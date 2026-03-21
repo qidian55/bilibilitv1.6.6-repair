@@ -205,52 +205,20 @@
 
     goto :goto_4f
 
-    .line 33
+    .line 35
     :cond_7c
-    invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    sget-object v0, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/net/Uri;->getHost()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 34
-    sget-object v2, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
-
-    if-eqz v2, :cond_92
-
-    sget-object v2, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
-
-    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v2
-
-    if-nez v2, :cond_92
+    if-eqz v0, :cond_9e
 
     sget-object v0, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
 
-    .line 37
-    :cond_92
-    :try_start_92
-    invoke-static {v0}, Ljava/net/InetAddress;->getAllByName(Ljava/lang/String;)[Ljava/net/InetAddress;
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
-    move-result-object v0
+    move-result v0
 
-    .line 38
-    array-length v2, v0
+    if-nez v0, :cond_9e
 
-    :goto_97
-    if-ge v1, v2, :cond_b7
-
-    aget-object v3, v0, v1
-
-    .line 39
-    instance-of v4, v3, Ljava/net/Inet4Address;
-
-    if-eqz v4, :cond_b8
-
-    .line 40
     invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
@@ -259,9 +227,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v3}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
-
-    move-result-object v1
+    sget-object v1, Lmybl/VideoViewParams;->prefect_cdn:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->authority(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
@@ -272,30 +238,12 @@
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/net/Uri;->toString()Ljava/lang/String;
-    :try_end_b6
-    .catch Ljava/lang/Exception; {:try_start_92 .. :try_end_b6} :catch_bb
 
     move-result-object p0
 
     .line 47
-    :cond_b7
-    :goto_b7
+    :cond_9e
     return-object p0
-
-    .line 38
-    :cond_b8
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_97
-
-    .line 44
-    :catch_bb
-    move-exception v0
-
-    .line 45
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_b7
 .end method
 
 .method private static filterData(IZLorg/json/JSONArray;)Landroid/os/Bundle;

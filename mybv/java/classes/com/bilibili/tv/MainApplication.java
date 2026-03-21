@@ -115,6 +115,7 @@ public class MainApplication extends Application {
         BiliFilter.filter_on=config.getBooleanValue("filter_on");
         BiliFilter.progressbar_on=config.getBooleanValue("progressbar_on");
         BiliFilter.fastquit_on=config.getBooleanValue("fastquit_on");
+        BiliFilter.thumbnail_off=config.getBooleanValue("thumbnail_off");
         if(config.containsKey("prefer_videoview"))BiliFilter.prefer_videoview=config.getIntValue("prefer_videoview");
         mybl.VideoViewParams.prefect_cdn=config.getString("prefect_cdn");
         bl.afo.prefect_codec=config.getString("prefect_codec");

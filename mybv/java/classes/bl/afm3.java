@@ -174,6 +174,8 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
                 JSONObject default_cdns = JSON.parseObject("{\"腾讯\":[\"upos-sz-mirrorcos.bilivideo.com\",\"upos-sz-mirrorcosb.bilivideo.com\",\"upos-sz-mirrorcoso1.bilivideo.com\"],\"百度\":[\"upos-sz-mirrorbos.bilivideo.com\"],\"阿里\":[\"upos-sz-mirrorali.bilivideo.com\",\"upos-sz-mirroralib.bilivideo.com\",\"upos-sz-mirroralio1.bilivideo.com\"],\"华为\":[\"upos-sz-mirrorhw.bilivideo.com\",\"upos-sz-mirrorhwb.bilivideo.com\",\"upos-sz-mirrorhwo1.bilivideo.com\",\"upos-sz-mirror08c.bilivideo.com\",\"upos-sz-mirror08h.bilivideo.com\",\"upos-sz-mirror08ct.bilivideo.com\"],\"海外\":[\"upos-sz-mirroraliov.bilivideo.com\"],\"其它\":[\"upos-sz-upcdnbda2.bilivideo.com\",\"upos-sz-upcdnws.bilivideo.com\",\"upos-tf-all-tx.bilivideo.com\"]}");
                 afm3.tmp_cdns = new ArrayList<String>();
                 show_cdns = new ArrayList<String>();
+                afm3.tmp_cdns.add("");
+                show_cdns.add("无");
                 for (String cdn_provider: default_cdns.keySet()){
                     JSONArray values = default_cdns.getJSONArray(cdn_provider);
                     for(int i=0;i<values.size();i++){
@@ -309,7 +311,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
 
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-        if (actionId == EditorInfo.IME_ACTION_DONE) {
+        if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_GO || actionId == EditorInfo.IME_ACTION_NEXT || actionId == EditorInfo.IME_ACTION_SEND) {
             if(v==this.filter_path)updateFilterPath(v.getText().toString());
             if(v==this.cdn_value){
                 if(v.getText().toString().isEmpty()||v.getText().toString().endsWith(".bilivideo.com")){

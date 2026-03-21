@@ -259,7 +259,7 @@ public class aef extends ady {
                 return;
             }
             if (biliLive.mCover != null) {
-                nv.a().a(biliLive.mCover, ((c) advVar).n);
+                nv.a().a(ach.c(MainApplication.a(), biliLive.mCover), ((c) advVar).n);
             }
             c cVar = (c) advVar;
             cVar.o.setText(biliLive.mTitle);

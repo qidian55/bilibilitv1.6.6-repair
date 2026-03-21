@@ -18,6 +18,7 @@ public final class afm4 extends adw implements View.OnFocusChangeListener, View.
     public static final a Companion = new a(null);
     private DrawFrameLayout progressbar_button;
     private DrawFrameLayout fastquit_button;
+    private DrawFrameLayout thumbnail_button;
 
     public static String[] tab_names = {"","动态","待看","关注","收藏","历史"};
     private DrawFrameLayout[] tab_buttons = {null,null,null,null,null,null};
@@ -37,6 +38,7 @@ public final class afm4 extends adw implements View.OnFocusChangeListener, View.
         View inflate = inflater.inflate(R.layout.fragment_personalization, viewGroup, false);
         this.progressbar_button = (DrawFrameLayout)inflate.findViewById(R.id.progressbar_button);
         this.fastquit_button = (DrawFrameLayout)inflate.findViewById(R.id.fastquit_button);
+        this.thumbnail_button = (DrawFrameLayout)inflate.findViewById(R.id.thumbnail_button);
         this.tab_buttons[1] = (DrawFrameLayout)inflate.findViewById(R.id.tab_button1);
         this.tab_buttons[2] = (DrawFrameLayout)inflate.findViewById(R.id.tab_button2);
         this.tab_buttons[3] = (DrawFrameLayout)inflate.findViewById(R.id.tab_button3);
@@ -47,6 +49,8 @@ public final class afm4 extends adw implements View.OnFocusChangeListener, View.
         this.progressbar_button.setOnFocusChangeListener(this);
         this.fastquit_button.setUpDrawable(R.drawable.shadow_white_rect);
         this.fastquit_button.setOnFocusChangeListener(this);
+        this.thumbnail_button.setUpDrawable(R.drawable.shadow_white_rect);
+        this.thumbnail_button.setOnFocusChangeListener(this);
         if(BiliFilter.progressbar_on){
             ((ShadowTextView)((ViewGroup)this.progressbar_button).getChildAt(0)).setText("开");
             this.progressbar_button.setBackgroundResource(R.drawable.shape_rectangle_trans_with_12corner_white_50);
@@ -55,8 +59,13 @@ public final class afm4 extends adw implements View.OnFocusChangeListener, View.
             ((ShadowTextView)((ViewGroup)this.fastquit_button).getChildAt(0)).setText("开");
             this.fastquit_button.setBackgroundResource(R.drawable.shape_rectangle_trans_with_12corner_white_50);
         }
+        if(BiliFilter.thumbnail_off){
+            ((ShadowTextView)((ViewGroup)this.thumbnail_button).getChildAt(0)).setText("开");
+            this.thumbnail_button.setBackgroundResource(R.drawable.shape_rectangle_trans_with_12corner_white_50);
+        }
         this.progressbar_button.setOnClickListener(this);
         this.fastquit_button.setOnClickListener(this);
+        this.thumbnail_button.setOnClickListener(this);
         for(int i=1;i<6;i++){
             this.tab_buttons[i].setUpDrawable(R.drawable.shadow_white_rect);
             this.tab_buttons[i].setOnFocusChangeListener(this);
@@ -92,6 +101,18 @@ public final class afm4 extends adw implements View.OnFocusChangeListener, View.
             BiliFilter.fastquit_on=!BiliFilter.fastquit_on;
             abd.set_personal_config(MainApplication.a().getApplicationContext(),"fastquit_on",BiliFilter.fastquit_on);
         }
+        if(view == this.thumbnail_button){
+            if(BiliFilter.thumbnail_off){
+                ((ShadowTextView)((ViewGroup)view).getChildAt(0)).setText("关");
+                view.setBackgroundResource(R.drawable.shape_rectangle_trans_with_12corner_white_10);
+            }
+            else{
+                ((ShadowTextView)((ViewGroup)view).getChildAt(0)).setText("开");
+                view.setBackgroundResource(R.drawable.shape_rectangle_trans_with_12corner_white_50);
+            }
+            BiliFilter.thumbnail_off=!BiliFilter.thumbnail_off;
+            abd.set_personal_config(MainApplication.a().getApplicationContext(),"thumbnail_off",BiliFilter.thumbnail_off);
+        }
         for(int i=1;i<6;i++){
             if(this.tab_buttons[i]==view){
                 int t=MainMyFragment.MyMap[i];
@@ -123,7 +144,7 @@ public final class afm4 extends adw implements View.OnFocusChangeListener, View.
     }
 
     public final boolean a() {
-        if (this.progressbar_button == null || this.progressbar_button.hasFocus() || this.fastquit_button == null || this.fastquit_button.hasFocus()) {
+        if (this.progressbar_button == null || this.progressbar_button.hasFocus() || this.fastquit_button == null || this.fastquit_button.hasFocus() || this.thumbnail_button == null || this.thumbnail_button.hasFocus()) {
             return false;
         }
         for(int i=1;i<6;i++){

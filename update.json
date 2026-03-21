@@ -1,12 +1,12 @@
 {
-    "apkMd5":"9c00c38f5f3addf7d490a75efcf9ecf6",
+    "apkMd5":"f1d794931e55c582a41bebcf36028a3e",
     "apkUrl":"https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/mybv.apk",
-    "fileSize":8288234,
+    "fileSize":8292330,
     "id":"",
-    "newFeature":"修复IPv6环境下的DNS解析错误",
+    "newFeature":"回退测试性调整\n上调缩略图分辨率",
     "publishTime":0,
     "title":"New",
     "upgradeType":1,
     "versionCode":1606,
-    "versionName":"1.6.6.20260312"
+    "versionName":"1.6.6.20260321"
 }

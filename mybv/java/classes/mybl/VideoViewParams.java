@@ -30,20 +30,20 @@ public class VideoViewParams {
             info=s.split("\\?")[0].split("/");
             if(info[info.length-1].equals(name))url=s;
         }
-        String hostname=Uri.parse(url).getHost();
-        if(VideoViewParams.prefect_cdn!=null&&!VideoViewParams.prefect_cdn.isEmpty())hostname=VideoViewParams.prefect_cdn;
-        //url = Uri.parse(url).buildUpon().authority(VideoViewParams.prefect_cdn).build().toString();
-        try{
-            InetAddress[] addresses = InetAddress.getAllByName(hostname);
-            for(InetAddress addr: addresses){
-                if(addr instanceof Inet4Address){
-                    url = Uri.parse(url).buildUpon().authority(addr.getHostAddress()).build().toString();
-                    break;
-                }
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+        //String hostname=Uri.parse(url).getHost();
+        //if(VideoViewParams.prefect_cdn!=null&&!VideoViewParams.prefect_cdn.isEmpty())hostname=VideoViewParams.prefect_cdn;
+        if(VideoViewParams.prefect_cdn!=null&&!VideoViewParams.prefect_cdn.isEmpty())url = Uri.parse(url).buildUpon().authority(VideoViewParams.prefect_cdn).build().toString();
+        //try{
+        //    InetAddress[] addresses = InetAddress.getAllByName(hostname);
+        //    for(InetAddress addr: addresses){
+        //        if(addr instanceof Inet4Address){
+        //            url = Uri.parse(url).buildUpon().authority(addr.getHostAddress()).build().toString();
+        //            break;
+        //        }
+        //    }
+        //}catch(Exception e){
+        //    e.printStackTrace();
+        //}
         return url;
     }
 
