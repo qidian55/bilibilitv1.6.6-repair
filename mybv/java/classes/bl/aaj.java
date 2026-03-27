@@ -28,7 +28,7 @@ public class aaj {
                 playerParams.mVideoParams.mCodecMode = 3;
                 break;
             case 2:
-                playerParams.mVideoParams.mCodecMode = 4;
+                playerParams.mVideoParams.mCodecMode = 2;
                 break;
             case 3:
                 playerParams.mVideoParams.mCodecMode = 0;

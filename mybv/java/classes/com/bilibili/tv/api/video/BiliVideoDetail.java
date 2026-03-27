@@ -102,6 +102,8 @@ public class BiliVideoDetail implements Parcelable {
     public String mRedirectLink;
     @JSONField(name = "cheese")
     public JSONObject mCheeseInfo;
+    @JSONField(name = "argue_msg")
+    public String mArgueMsg;
 
     @JSONField(name = "bangumi")
     public void setBangumi(JSONObject mBangumiInfo){
@@ -136,6 +138,9 @@ public class BiliVideoDetail implements Parcelable {
         });
         try{
             JSONObject detail_infos = future.get().getJSONObject("data");
+
+            this.mArgueMsg = detail_infos.getJSONObject("View").getJSONObject("argue_info").getString("argue_msg");
+
             this.sections = detail_infos.getJSONObject("View").getJSONObject("ugc_season").getJSONArray("sections");
             this.season_title = detail_infos.getJSONObject("View").getJSONObject("ugc_season").getString("title");
             for(int i=0;i<this.sections.size();i++){

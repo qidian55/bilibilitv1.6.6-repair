@@ -388,7 +388,7 @@ public class yd implements Handler.Callback, IMediaPlayer.OnCompletionListener, 
         Bundle bundle2 = new Bundle(bundle);
         switch (i) {
             case IVideoView.OnExtraInfoListener.CTRL_WILL_CONCAT_RESOLVE_SEGMENT_SYS /* 65573 */:
-            case 131079:
+            case IVideoView.OnExtraInfoListener.CTRL_WILL_CONCAT_RESOLVE_SEGMENT /* 131079 */:
                 if (bundle.getBoolean("url_resolved", false)) {
                     return true;
                 }
@@ -445,10 +445,10 @@ public class yd implements Handler.Callback, IMediaPlayer.OnCompletionListener, 
                 BLog.i("PlayerController", "android last: oldUrl after handled by " + aVar + "," + string);
                 bundle.putString("url", bundle2.getString("url", string));
                 return true;
-            case 131073:
+            case IVideoView.OnExtraInfoListener.CTRL_WILL_TCP_OPEN /* 131073 */:
                 return b2;
-            case 131075:
-            case 131077:
+            case IVideoView.OnExtraInfoListener.CTRL_WILL_HTTP_OPEN /* 131075 */:
+            case IVideoView.OnExtraInfoListener.CTRL_WILL_LIVE_OPEN /* 131077 */:
                 if (bundle.getBoolean("url_resolved", false)) {
                     bundle.putBoolean("url_resolved", false);
                     return true;

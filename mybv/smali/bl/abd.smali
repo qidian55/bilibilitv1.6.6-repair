@@ -289,6 +289,67 @@
     goto :goto_1a
 .end method
 
+.method public static add_account(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 3
+
+    .prologue
+    .line 282
+    invoke-static {p0}, Lbl/abd;->get_accounts(Landroid/content/Context;)Lcom/alibaba/fastjson/JSONObject;
+
+    move-result-object v0
+
+    .line 283
+    new-instance v1, Lcom/alibaba/fastjson/JSONObject;
+
+    invoke-direct {v1}, Lcom/alibaba/fastjson/JSONObject;-><init>()V
+
+    .line 284
+    const-string v2, "username"
+
+    invoke-virtual {v1, v2, p2}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 285
+    const-string v2, "account_info"
+
+    invoke-virtual {v1, v2, p3}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 286
+    const-string v2, "passport_info"
+
+    invoke-virtual {v1, v2, p4}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 287
+    invoke-virtual {v0, p1, v1}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 288
+    invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lbl/abd;->a()Landroid/content/SharedPreferences;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v1
+
+    const-string v2, "accounts_info"
+
+    invoke-virtual {v0}, Lcom/alibaba/fastjson/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
+
+    .line 289
+    return-void
+.end method
+
 .method public static b(Landroid/content/Context;F)V
     .locals 2
 
@@ -666,6 +727,47 @@
     goto :goto_16
 .end method
 
+.method public static del_account(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 3
+
+    .prologue
+    .line 292
+    invoke-static {p0}, Lbl/abd;->get_accounts(Landroid/content/Context;)Lcom/alibaba/fastjson/JSONObject;
+
+    move-result-object v0
+
+    .line 293
+    invoke-virtual {v0, p1}, Lcom/alibaba/fastjson/JSONObject;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 294
+    invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lbl/abd;->a()Landroid/content/SharedPreferences;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v1
+
+    const-string v2, "accounts_info"
+
+    invoke-virtual {v0}, Lcom/alibaba/fastjson/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
+
+    .line 295
+    return-void
+.end method
+
 .method public static e(Landroid/content/Context;)Z
     .locals 3
 
@@ -797,6 +899,56 @@
     sget v0, Lbl/abd;->k:F
 
     goto :goto_19
+.end method
+
+.method public static get_accounts(Landroid/content/Context;)Lcom/alibaba/fastjson/JSONObject;
+    .locals 3
+
+    .prologue
+    .line 270
+    .line 272
+    :try_start_0
+    invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lbl/abd;->a()Landroid/content/SharedPreferences;
+
+    move-result-object v0
+
+    const-string v1, "accounts_info"
+
+    const-string v2, "{}"
+
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/alibaba/fastjson/JSON;->parseObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
+    :try_end_13
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_13} :catch_15
+
+    move-result-object v0
+
+    .line 278
+    :goto_14
+    return-object v0
+
+    .line 274
+    :catch_15
+    move-exception v0
+
+    move-object v1, v0
+
+    .line 275
+    new-instance v0, Lcom/alibaba/fastjson/JSONObject;
+
+    invoke-direct {v0}, Lcom/alibaba/fastjson/JSONObject;-><init>()V
+
+    .line 276
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_14
 .end method
 
 .method public static get_danmaku_type(Landroid/content/Context;)I

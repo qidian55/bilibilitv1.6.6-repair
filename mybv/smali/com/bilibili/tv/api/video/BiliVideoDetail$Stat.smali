@@ -82,7 +82,7 @@
     .locals 1
 
     .prologue
-    .line 449
+    .line 454
     new-instance v0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat$1;
 
     invoke-direct {v0}, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat$1;-><init>()V
@@ -96,10 +96,10 @@
     .locals 0
 
     .prologue
-    .line 496
+    .line 501
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 497
+    .line 502
     return-void
 .end method
 
@@ -107,59 +107,59 @@
     .locals 1
 
     .prologue
-    .line 499
+    .line 504
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 500
+    .line 505
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mPlays:Ljava/lang/String;
 
-    .line 501
+    .line 506
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mDanmakus:Ljava/lang/String;
 
-    .line 502
+    .line 507
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mComments:Ljava/lang/String;
 
-    .line 503
+    .line 508
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mFavorites:I
 
-    .line 504
+    .line 509
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mCoins:I
 
-    .line 505
+    .line 510
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mShares:I
 
-    .line 506
+    .line 511
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mLikes:I
 
-    .line 507
+    .line 512
     return-void
 .end method
 
@@ -169,7 +169,7 @@
     .locals 1
 
     .prologue
-    .line 482
+    .line 487
     const/4 v0, 0x0
 
     return v0
@@ -179,41 +179,41 @@
     .locals 1
 
     .prologue
-    .line 487
+    .line 492
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mPlays:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 488
+    .line 493
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mDanmakus:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 489
+    .line 494
     iget-object v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mComments:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 490
+    .line 495
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mFavorites:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 491
+    .line 496
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mCoins:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 492
+    .line 497
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mShares:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 493
+    .line 498
     iget v0, p0, Lcom/bilibili/tv/api/video/BiliVideoDetail$Stat;->mLikes:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 494
+    .line 499
     return-void
 .end method

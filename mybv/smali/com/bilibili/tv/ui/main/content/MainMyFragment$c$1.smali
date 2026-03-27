@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 534
+    .line 594
     iput-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$c$1;->this$0:Lcom/bilibili/tv/ui/main/content/MainMyFragment$c;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,10 +40,10 @@
     .locals 1
 
     .prologue
-    .line 537
+    .line 597
     invoke-static {p1, p2}, Lbl/adj;->a(Landroid/view/View;Z)V
 
-    .line 538
+    .line 598
     iget-object v0, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$c$1;->this$0:Lcom/bilibili/tv/ui/main/content/MainMyFragment$c;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/main/content/MainMyFragment$c;->G()Lcom/bilibili/tv/widget/DrawLinearLayout;
@@ -52,6 +52,6 @@
 
     invoke-virtual {v0, p2}, Lcom/bilibili/tv/widget/DrawLinearLayout;->setUpEnabled(Z)V
 
-    .line 539
+    .line 599
     return-void
 .end method

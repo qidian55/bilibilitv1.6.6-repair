@@ -28,28 +28,28 @@
     .locals 0
 
     .prologue
-    .line 466
+    .line 524
     iput-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$b$a;->this$0:Lcom/bilibili/tv/ui/main/content/MainMyFragment$b;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 467
+    .line 525
     iput-object p2, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$b$a;->b:Landroid/app/Activity;
 
-    .line 468
+    .line 526
     return-void
 .end method
 
 
 # virtual methods
 .method public final a(Lbl/agb;Landroid/view/View;)V
-    .locals 3
+    .locals 6
 
     .prologue
-    .line 472
+    .line 530
     sget-object v1, Lbl/abn;->a:Lbl/abn;
 
-    .line 473
+    .line 531
     iget-object v0, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$b$a;->b:Landroid/app/Activity;
 
     check-cast v0, Lcom/bilibili/tv/ui/main/MainActivity;
@@ -58,17 +58,31 @@
 
     move-result-object v0
 
+    .line 532
     invoke-static {v0}, Lbl/mg;->a(Landroid/content/Context;)Lbl/mg;
 
-    move-result-object v0
+    move-result-object v2
 
-    .line 474
-    const-string v2, "BiliAccount.get(activity.applicationContext)"
+    .line 533
+    invoke-virtual {v2}, Lbl/mg;->c()Lcom/bilibili/lib/account/model/AccountInfo;
 
-    invoke-static {v0, v2}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    move-result-object v3
 
-    .line 475
-    invoke-virtual {v1, v0}, Lbl/abn;->a(Lbl/mg;)Lbl/jb;
+    iget-wide v4, v3, Lcom/bilibili/lib/account/model/AccountInfo;->mMid:J
+
+    invoke-static {v4, v5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v3}, Lbl/abd;->del_account(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 534
+    const-string v0, "BiliAccount.get(activity.applicationContext)"
+
+    invoke-static {v2, v0}, Lbl/bbi;->a(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 535
+    invoke-virtual {v1, v2}, Lbl/abn;->a(Lbl/mg;)Lbl/jb;
 
     move-result-object v0
 
@@ -80,6 +94,6 @@
 
     invoke-virtual {v0, v1, v2}, Lbl/jb;->a(Lbl/ja;Ljava/util/concurrent/Executor;)Lbl/jb;
 
-    .line 485
+    .line 545
     return-void
 .end method

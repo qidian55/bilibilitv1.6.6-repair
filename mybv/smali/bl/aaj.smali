@@ -164,7 +164,7 @@
     :pswitch_49
     iget-object v0, p1, Lcom/bilibili/tv/player/basic/context/PlayerParams;->mVideoParams:Lcom/bilibili/tv/player/basic/context/VideoViewParams;
 
-    const/4 v1, 0x4
+    const/4 v1, 0x2
 
     iput v1, v0, Lcom/bilibili/tv/player/basic/context/VideoViewParams;->mCodecMode:I
 

@@ -7,6 +7,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
+import android.media.AudioManager;
 import android.view.Surface;
 import com.bilibili.tv.MainApplication;
 import java.lang.ref.WeakReference;
@@ -200,9 +201,10 @@ public class wm implements IMediaPlayer.OnBufferingUpdateListener, IMediaPlayer.
 
     private void b(Message message) {
         this.h = new AndroidMediaPlayer();
-        this.h.setAudioStreamType(3);
+        this.h.setAudioStreamType(AudioManager.STREAM_MUSIC);
         try {
-            this.h.setDataSource(this.l, Uri.parse(((wo) message.obj).a()), ((wo) message.obj).b());
+            //this.h.setDataSource(this.l, Uri.parse(((wo) message.obj).a()), ((wo) message.obj).b());
+            this.h.setDataSource(((wo) message.obj).a());
         } catch (Exception e) {
             att.a(e);
         }
@@ -223,7 +225,7 @@ public class wm implements IMediaPlayer.OnBufferingUpdateListener, IMediaPlayer.
                     String url = args.getString("url", "");
                     Long expires = Long.valueOf(Uri.parse(url).getQueryParameter("expires"));
                     int http_code = args.getInt("http_code", 0);
-                    if(http_code==403 && System.currentTimeMillis()>expires){
+                    if(http_code==403 || System.currentTimeMillis()/1000>expires){
                         LivePlayerActivity._this.refresh();
                     }
                 }
@@ -344,15 +346,15 @@ public class wm implements IMediaPlayer.OnBufferingUpdateListener, IMediaPlayer.
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnBufferingUpdateListener
-    public void onBufferingUpdate(IMediaPlayer iMediaPlayer, final int i) {
+    public void onBufferingUpdate(IMediaPlayer iMediaPlayer, final int what) {
         this.k.post(new Runnable() { // from class: bl.wm.3
             @Override // java.lang.Runnable
             public void run() {
                 if (wm.this.p != null) {
-                    if (i <= wm.this.v) {
+                    if (what <= wm.this.v) {
                         wm.this.b().a(wm.this.v);
                     } else {
-                        wm.this.b().a(i);
+                        wm.this.b().a(what);
                     }
                 }
             }
@@ -372,12 +374,12 @@ public class wm implements IMediaPlayer.OnBufferingUpdateListener, IMediaPlayer.
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnErrorListener
-    public boolean onError(IMediaPlayer iMediaPlayer, final int i, final int i2) {
+    public boolean onError(IMediaPlayer iMediaPlayer, final int what, final int arg1) {
         this.k.post(new Runnable() { // from class: bl.wm.5
             @Override // java.lang.Runnable
             public void run() {
                 if (wm.this.p != null) {
-                    wm.this.b().a(i, i2);
+                    wm.this.b().a(what, arg1);
                 }
             }
         });
@@ -385,12 +387,28 @@ public class wm implements IMediaPlayer.OnBufferingUpdateListener, IMediaPlayer.
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnInfoListener
-    public boolean onInfo(IMediaPlayer iMediaPlayer, final int i, final int i2) {
+    public boolean onInfo(IMediaPlayer iMediaPlayer, final int what, final int arg1) {
+        switch(what){
+            case IMediaPlayer.MEDIA_INFO_BUFFERING_START:
+            default:
+                try{
+                    String url = this.h.getDataSource();
+                    //System.out.println(url);
+                    Long expires = Long.valueOf(Uri.parse(url).getQueryParameter("expires"));
+                    if(System.currentTimeMillis()/1000>expires){
+                        LivePlayerActivity._this.refresh();
+                        //this.h.setDataSource();
+                    }
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
+        }
         this.k.post(new Runnable() { // from class: bl.wm.6
             @Override // java.lang.Runnable
             public void run() {
                 if (wm.this.p != null) {
-                    wm.this.b().b(i, i2);
+                    wm.this.b().b(what, arg1);
                 }
             }
         });

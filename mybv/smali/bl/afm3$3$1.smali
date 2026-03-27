@@ -38,7 +38,7 @@
     .locals 0
 
     .prologue
-    .line 224
+    .line 220
     iput-object p1, p0, Lbl/afm3$3$1;->this$1:Lbl/afm3$3;
 
     iput p2, p0, Lbl/afm3$3$1;->val$which:I
@@ -51,29 +51,35 @@
 
 # virtual methods
 .method public call()Landroid/graphics/Bitmap;
-    .locals 3
+    .locals 4
 
     .prologue
-    .line 227
-    new-instance v1, Lbl/qa$a;
+    .line 223
+    new-instance v0, Lbl/qa$a;
 
-    const-class v0, Lbl/afm3$Response;
+    const-class v1, Lbl/afm3$Response;
 
-    invoke-direct {v1, v0}, Lbl/qa$a;-><init>(Ljava/lang/Class;)V
+    invoke-direct {v0, v1}, Lbl/qa$a;-><init>(Ljava/lang/Class;)V
 
-    sget-object v0, Lbl/afm3;->tmp_splashs:Ljava/util/List;
+    iget-object v1, p0, Lbl/afm3$3$1;->this$1:Lbl/afm3$3;
 
-    iget v2, p0, Lbl/afm3$3$1;->val$which:I
+    iget-object v1, v1, Lbl/afm3$3;->val$default_splashs:Lcom/alibaba/fastjson/JSONObject;
 
-    add-int/lit8 v2, v2, -0x1
+    iget-object v2, p0, Lbl/afm3$3$1;->this$1:Lbl/afm3$3;
 
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    iget-object v2, v2, Lbl/afm3$3;->val$show_splashs:[Ljava/lang/String;
 
-    move-result-object v0
+    iget v3, p0, Lbl/afm3$3$1;->val$which:I
 
-    check-cast v0, Ljava/lang/String;
+    add-int/lit8 v3, v3, -0x1
 
-    invoke-virtual {v1, v0}, Lbl/qa$a;->a(Ljava/lang/String;)Lbl/qa$a;
+    aget-object v2, v2, v3
+
+    invoke-virtual {v1, v2}, Lcom/alibaba/fastjson/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lbl/qa$a;->a(Ljava/lang/String;)Lbl/qa$a;
 
     move-result-object v0
 
@@ -97,7 +103,7 @@
 
     check-cast v0, Lbl/afm3$Response;
 
-    .line 228
+    .line 224
     invoke-virtual {v0}, Lbl/afm3$Response;->e()Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -114,7 +120,7 @@
     .end annotation
 
     .prologue
-    .line 224
+    .line 220
     invoke-virtual {p0}, Lbl/afm3$3$1;->call()Landroid/graphics/Bitmap;
 
     move-result-object v0

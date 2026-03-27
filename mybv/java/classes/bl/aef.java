@@ -1,7 +1,9 @@
 package bl;
 
 import android.app.Activity;
+import android.graphics.PorterDuff;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -259,11 +261,12 @@ public class aef extends ady {
                 return;
             }
             if (biliLive.mCover != null) {
-                nv.a().a(ach.c(MainApplication.a(), biliLive.mCover), ((c) advVar).n);
+                nv.a().a(ach.c(MainApplication.a(), biliLive.mCover), ((c) advVar).img);
             }
             c cVar = (c) advVar;
-            cVar.o.setText(biliLive.mTitle);
-            cVar.p.setText("在线 " + adh.a(biliLive.mOnline));
+            cVar.title.setText(biliLive.mTitle);
+            cVar.sub_title.setText("在线 " + adh.a(biliLive.mOnline));
+            cVar.up.setText(biliLive.mUname);
             cVar.a.setTag(biliLive);
             cVar.a.setOnClickListener(this);
         }
@@ -304,17 +307,28 @@ public class aef extends ady {
     /* compiled from: BL */
     /* loaded from: classes.dex */
     public static class c extends adv implements View.OnFocusChangeListener {
-        public ScalableImageView n;
-        public TextView o;
-        public TextView p;
-        public DrawRelativeLayout q;
+        public ScalableImageView img;
+        public TextView title;
+        public TextView sub_title;
+        public DrawRelativeLayout draw;
+
+        public TextView up;
 
         public c(View view) {
             super(view);
-            this.n = (ScalableImageView) a(view, R.id.img);
-            this.o = (TextView) a(view, R.id.title);
-            this.p = (TextView) a(view, R.id.sub_title);
-            this.q = (DrawRelativeLayout) a(view, R.id.draw);
+            this.img = (ScalableImageView) a(view, R.id.img);
+            this.title = (TextView) a(view, R.id.title);
+            this.sub_title = (TextView) a(view, R.id.sub_title);
+            this.draw = (DrawRelativeLayout) a(view, R.id.draw);
+
+            this.up = (TextView) a(view, R.id.up);
+            Drawable drawableC = adl.a.c(R.drawable.ic_video_info_up);
+            int iB = adl.b(R.dimen.px_34);
+            drawableC.setBounds(0, 0, iB, iB);
+            int iD = adl.d(R.color.white_50);
+            drawableC.setColorFilter(iD, PorterDuff.Mode.MULTIPLY);
+            this.up.setCompoundDrawables(drawableC, null, null, null);
+
             view.setOnFocusChangeListener(this);
         }
 
@@ -324,7 +338,7 @@ public class aef extends ady {
 
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
-            this.q.setUpEnabled(z);
+            this.draw.setUpEnabled(z);
         }
     }
 

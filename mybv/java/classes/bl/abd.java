@@ -265,4 +265,32 @@ public class abd {
         }
         return config;
     }
+
+    public static JSONObject get_accounts(Context context) {
+        JSONObject accounts = null;
+        try{
+            accounts = JSON.parseObject(a(context).a().getString("accounts_info", "{}"));
+        }
+        catch(Exception e){
+            accounts = new JSONObject();
+            e.printStackTrace();
+        }
+        return accounts;
+    }
+
+    public static void add_account(Context context, String mid, String username, String account_info, String passport_info) {
+        JSONObject accounts = get_accounts(context);
+        JSONObject account = new JSONObject();
+        account.put("username",username);
+        account.put("account_info",account_info);
+        account.put("passport_info",passport_info);
+        accounts.put(mid,account);
+        a(context).a().edit().putString("accounts_info", accounts.toString()).apply();
+    }
+
+    public static void del_account(Context context, String mid) {
+        JSONObject accounts = get_accounts(context);
+        accounts.remove(mid);
+        a(context).a().edit().putString("accounts_info", accounts.toString()).apply();
+    }
 }

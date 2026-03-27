@@ -86,15 +86,16 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
     private boolean B;
     private ImageView a;
     private ImageView b;
-    private TextView cc;
+    private TextView video_detail_title;
+    private TextView video_argue_msg;
     private DrawTextView d;
     private TextView e;
-    private TextView ff;
+    private TextView video_detail_danmaku;
     private TextView g;
-    private TextView hh;
+    private TextView video_detail_ep_title;
     private TextView i;
-    private DrawLinearLayout j;
-    private ImageView k;
+    private DrawLinearLayout video_detail_favorite;
+    private ImageView video_detail_favorite_img;
     private TextView l;
     private View m;
     private RecyclerView n;
@@ -166,25 +167,26 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         d dVar = new d();
         this.a = (ImageView) d(R.id.video_detail_cover);
         this.b = (ImageView) d(R.id.blur);
-        this.cc = (TextView) d(R.id.video_detail_title);
+        this.video_detail_title = (TextView) d(R.id.video_detail_title);
+        this.video_argue_msg = (TextView) d(R.id.video_argue_msg);
         this.d = (DrawTextView) d(R.id.video_detail_up_text);
         this.e = (TextView) d(R.id.video_detail_play_count);
-        this.ff = (TextView) d(R.id.video_detail_danmaku);
+        this.video_detail_danmaku = (TextView) d(R.id.video_detail_danmaku);
         this.g = (TextView) d(R.id.video_detail_uptime);
-        this.hh = (TextView) d(R.id.video_detail_ep_title);
+        this.video_detail_ep_title = (TextView) d(R.id.video_detail_ep_title);
         this.i = (TextView) d(R.id.video_detail_relate_title);
         this.episodes_title = (TextView) d(R.id.video_detail_episodes_title);
         this.m = d(R.id.content_layout);
-        this.j = (DrawLinearLayout) d(R.id.video_detail_favorite);
-        this.k = (ImageView) d(R.id.video_detail_favorite_img);
+        this.video_detail_favorite = (DrawLinearLayout) d(R.id.video_detail_favorite);
+        this.video_detail_favorite_img = (ImageView) d(R.id.video_detail_favorite_img);
         this.l = (TextView) d(R.id.video_detail_favorite_text);
-        DrawLinearLayout drawLinearLayout = this.j;
+        DrawLinearLayout drawLinearLayout = this.video_detail_favorite;
         if (drawLinearLayout != null) {
             drawLinearLayout.setOnFocusChangeListener(dVar);
             drawLinearLayout.setUpDrawable(R.drawable.shadow_red_rect);
             drawLinearLayout.setOnClickListener(this);
             drawLinearLayout.setOnLongClickListener(this);
-            drawLinearLayout.findViewById(R.id.video_detail_favorite_text).setVisibility(8);
+            drawLinearLayout.findViewById(R.id.video_detail_favorite_text).setVisibility(View.GONE);
         }
 
         drawLinearLayout = (DrawLinearLayout) d(R.id.video_detail_like);
@@ -193,7 +195,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             drawLinearLayout.setUpDrawable(R.drawable.shadow_red_rect);
             drawLinearLayout.setOnClickListener(this);
             drawLinearLayout.setOnLongClickListener(this);
-            drawLinearLayout.findViewById(R.id.video_detail_like_text).setVisibility(8);
+            drawLinearLayout.findViewById(R.id.video_detail_like_text).setVisibility(View.GONE);
         }
         drawLinearLayout = (DrawLinearLayout) d(R.id.video_detail_coin);
         if (drawLinearLayout != null) {
@@ -201,7 +203,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             drawLinearLayout.setUpDrawable(R.drawable.shadow_red_rect);
             drawLinearLayout.setOnClickListener(this);
             drawLinearLayout.setOnLongClickListener(this);
-            drawLinearLayout.findViewById(R.id.video_detail_coin_text).setVisibility(8);
+            drawLinearLayout.findViewById(R.id.video_detail_coin_text).setVisibility(View.GONE);
         }
 
         DrawTextView drawTextView = (DrawTextView) d(R.id.video_detail_more_btn);
@@ -218,10 +220,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         FrameLayout frameLayout = this.q;
         if (frameLayout != null) {
             this.p = LoadingImageView.Companion.a(frameLayout);
-            LoadingImageView loadingImageView = this.p;
-            if (loadingImageView != null) {
-                loadingImageView.a();
-            }
+            this.p.a();
         }
         this.n = (RecyclerView) d(R.id.flow_tag_view);
         FixLinearLayoutManager fixLinearLayoutManager = new FixLinearLayoutManager(this, 0, false) { // from class: com.bilibili.tv.ui.video.VideoDetailActivity$initView$linearLayoutManager$1
@@ -253,15 +252,9 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                 return null;
             }
         };
-        RecyclerView recyclerView = this.n;
-        if (recyclerView != null) {
-            recyclerView.setLayoutManager(fixLinearLayoutManager);
-        }
+        this.n.setLayoutManager(fixLinearLayoutManager);
         this.x = new g();
-        RecyclerView recyclerView2 = this.n;
-        if (recyclerView2 != null) {
-            recyclerView2.setAdapter(this.x);
-        }
+        this.n.setAdapter(this.x);
         this.o = (RecyclerView) d(R.id.video_detail_ep_layout);
         int dimension = (int) getResources().getDimension(R.dimen.px_24);
         this.t = new ArrayList();
@@ -474,10 +467,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         if (this.s <= 0 || this.A == null) {
             return;
         }
-        LoadingImageView loadingImageView = this.p;
-        if (loadingImageView != null) {
-            loadingImageView.a();
-        }
+        this.p.a();
         VideoApiService.VideoParamsMapV2 build = new VideoApiService.VideoParamsMapV2.Builder(this.s).setAutoPlay("0").build();
         mg a2 = mg.a(this);
         bbi.a((Object) a2, "BiliAccount.get(this)");
@@ -488,10 +478,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         if (this.s <= 0 || this.A == null) {
             return;
         }
-        LoadingImageView loadingImageView = this.p;
-        if (loadingImageView != null) {
-            loadingImageView.a();
-        }
+        this.p.a();
         ((MyBiliApiService) vo.a(MyBiliApiService.class)).getVideoDetail(this.s).a(new VideoApiParser2()).a(this.A);
     }
 
@@ -631,7 +618,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             if (textView != null) {
                 textView.setText(biliVideoDetail.isCoinVideo()?"已投币":"投币");
             }
-            imageView = this.k;
+            imageView = this.video_detail_favorite_img;
             if (imageView != null) {
                 imageView.setBackgroundResource(biliVideoDetail.isFavoriteVideo()?R.drawable.ic_favorite_hightlight:R.drawable.ic_favorite);
             }
@@ -664,10 +651,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         @Override // bl.vn
         public void a(Void r2) {
             VideoDetailActivity.this.B = false;
-            BiliVideoDetail biliVideoDetail = VideoDetailActivity.this.u;
-            if (biliVideoDetail != null) {
-                biliVideoDetail.setFavoriteStatus(true);
-            }
+            VideoDetailActivity.this.u.setFavoriteStatus(true);
             VideoDetailActivity.this.o();
             lr.a(VideoDetailActivity.this.getApplicationContext(), (int) R.string.video_favored1);
         }
@@ -707,10 +691,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         @Override // bl.vn
         public void a(Void r2) {
             VideoDetailActivity.this.B = false;
-            BiliVideoDetail biliVideoDetail = VideoDetailActivity.this.u;
-            if (biliVideoDetail != null) {
-                biliVideoDetail.setFavoriteStatus(false);
-            }
+            VideoDetailActivity.this.u.setFavoriteStatus(false);
             VideoDetailActivity.this.o();
             lr.a(VideoDetailActivity.this.getApplicationContext(), (int) R.string.video_unsubscribe_success);
         }
@@ -746,15 +727,12 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         @Override // bl.vn
         public void a(JSONObject response) {
             VideoDetailActivity.this.B = false;
-            BiliVideoDetail biliVideoDetail = VideoDetailActivity.this.u;
-            if (biliVideoDetail != null) {
-                biliVideoDetail.setLikeStatus(!biliVideoDetail.isLikeVideo());
-            }
+            VideoDetailActivity.this.u.setLikeStatus(!VideoDetailActivity.this.u.isLikeVideo());
             VideoDetailActivity.this.o();
             if(response.getString("toast")!=null && !response.getString("toast").equals("")) {
                 lr.b(VideoDetailActivity.this.getApplicationContext(), response.getString("toast"));
             }
-            else if (biliVideoDetail != null && biliVideoDetail.isLikeVideo()) {
+            else if (VideoDetailActivity.this.u != null && VideoDetailActivity.this.u.isLikeVideo()) {
                 lr.b(VideoDetailActivity.this.getApplicationContext(), "点赞成功啦");
             }
         }
@@ -764,10 +742,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             bbi.b(th, "t");
             adl.a.a(th, VideoDetailActivity.this);
             VideoDetailActivity.this.B = false;
-            BiliVideoDetail biliVideoDetail = VideoDetailActivity.this.u;
-            if (biliVideoDetail != null) {
-                lr.b(VideoDetailActivity.this.getApplicationContext(), biliVideoDetail.isLikeVideo()?"取消点赞失败":"点赞失败惹←_←");
-            }
+            lr.b(VideoDetailActivity.this.getApplicationContext(), VideoDetailActivity.this.u.isLikeVideo()?"取消点赞失败":"点赞失败惹←_←");
         }
 
         @Override // bl.vm
@@ -880,16 +855,16 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                 return;
             }
             if(view.getId()==R.id.video_detail_like && view.findViewById(R.id.video_detail_like_text)!=null){
-                if(z)view.findViewById(R.id.video_detail_like_text).setVisibility(0);
-                else view.findViewById(R.id.video_detail_like_text).setVisibility(8);
+                if(z)view.findViewById(R.id.video_detail_like_text).setVisibility(View.VISIBLE);
+                else view.findViewById(R.id.video_detail_like_text).setVisibility(View.GONE);
             }
             if(view.getId()==R.id.video_detail_coin && view.findViewById(R.id.video_detail_coin_text)!=null){
-                if(z)view.findViewById(R.id.video_detail_coin_text).setVisibility(0);
-                else view.findViewById(R.id.video_detail_coin_text).setVisibility(8);
+                if(z)view.findViewById(R.id.video_detail_coin_text).setVisibility(View.VISIBLE);
+                else view.findViewById(R.id.video_detail_coin_text).setVisibility(View.GONE);
             }
             if(view.getId()==R.id.video_detail_favorite && view.findViewById(R.id.video_detail_favorite_text)!=null){
-                if(z)view.findViewById(R.id.video_detail_favorite_text).setVisibility(0);
-                else view.findViewById(R.id.video_detail_favorite_text).setVisibility(8);
+                if(z)view.findViewById(R.id.video_detail_favorite_text).setVisibility(View.VISIBLE);
+                else view.findViewById(R.id.video_detail_favorite_text).setVisibility(View.GONE);
             }
             if (view instanceof afz) {
                 ((afz) view).setUpEnabled(z);
@@ -1357,10 +1332,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             adl.a.a(th, VideoDetailActivity.this);
             int i = 0;
             VideoDetailActivity.this.y = false;
-            LoadingImageView loadingImageView2 = VideoDetailActivity.this.p;
-            if (loadingImageView2 != null) {
-                loadingImageView2.setRefreshError(false);
-            }
+            VideoDetailActivity.this.p.setRefreshError(false);
             String str = "net_error";
             if (th instanceof BiliApiException) {
                 BiliApiException biliApiException = (BiliApiException) th;
@@ -1369,24 +1341,15 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                     bbi.a((Object) a, "BiliAccount.get(applicationContext)");
                     if (!a.a()) {
                         VideoDetailActivity.this.y = true;
-                        LoadingImageView loadingImageView3 = VideoDetailActivity.this.p;
-                        if (loadingImageView3 != null) {
-                            loadingImageView3.a(R.string.video_load_error_no_permission);
-                        }
+                        VideoDetailActivity.this.p.a(R.string.video_load_error_no_permission);
                     } else {
                         mg a2 = mg.a(VideoDetailActivity.this.getApplicationContext());
                         bbi.a((Object) a2, "BiliAccount.get(applicationContext)");
                         AccountInfo c = a2.c();
                         if (c == null || c.isFormalAccount()) {
-                            LoadingImageView loadingImageView4 = VideoDetailActivity.this.p;
-                            if (loadingImageView4 != null) {
-                                loadingImageView4.a(R.string.video_load_error_404);
-                            }
+                            VideoDetailActivity.this.p.a(R.string.video_load_error_404);
                         } else {
-                            LoadingImageView loadingImageView5 = VideoDetailActivity.this.p;
-                            if (loadingImageView5 != null) {
-                                loadingImageView5.a(R.string.video_load_error_need_formal_account);
-                            }
+                            VideoDetailActivity.this.p.a(R.string.video_load_error_need_formal_account);
                         }
                     }
                 } else if ((biliApiException.mCode == -404||biliApiException.mCode == 404) && (loadingImageView = VideoDetailActivity.this.p) != null) {
@@ -1406,44 +1369,25 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
         public void a(BiliVideoDetail biliVideoDetail) {
             VideoDetailActivity.this.y = false;
             if (biliVideoDetail == null) {
-                LoadingImageView loadingImageView = VideoDetailActivity.this.p;
-                if (loadingImageView != null) {
-                    loadingImageView.c();
-                }
-                LoadingImageView loadingImageView2 = VideoDetailActivity.this.p;
-                if (loadingImageView2 != null) {
-                    loadingImageView2.a(R.string.nothing_show);
-                }
+                VideoDetailActivity.this.p.c();
+                VideoDetailActivity.this.p.a(R.string.nothing_show);
                 abi.a.a("tv_detail_view2_resp", abi.a.a(String.valueOf(VideoDetailActivity.this.s), String.valueOf(mg.a(VideoDetailActivity.this).d()), "parse_error", "0"));
                 return;
             }
-            View view = VideoDetailActivity.this.m;
-            if (view != null) {
-                view.setVisibility(0);
-            }
-            LoadingImageView loadingImageView3 = VideoDetailActivity.this.p;
-            if (loadingImageView3 != null) {
-                loadingImageView3.b();
-            }
+            VideoDetailActivity.this.m.setVisibility(View.VISIBLE);
+            VideoDetailActivity.this.p.b();
             VideoDetailActivity.this.u = biliVideoDetail;
             VideoDetailActivity.this.a(ach.c(VideoDetailActivity.this.getApplicationContext(), biliVideoDetail.mCover));
             VideoDetailActivity.this.o();
-            TextView textView = VideoDetailActivity.this.cc;
-            if (textView != null) {
-                textView.setText(biliVideoDetail.mTitle);
+            VideoDetailActivity.this.video_detail_title.setText(biliVideoDetail.mTitle);
+            if(biliVideoDetail.mArgueMsg!=null&&!biliVideoDetail.mArgueMsg.isEmpty()){
+                VideoDetailActivity.this.video_argue_msg.setText("⚠"+biliVideoDetail.mArgueMsg);
+            } else {
+                VideoDetailActivity.this.video_argue_msg.setVisibility(View.GONE);
             }
-            DrawTextView drawTextView = VideoDetailActivity.this.d;
-            if (drawTextView != null) {
-                drawTextView.setText(biliVideoDetail.getAuthor());
-            }
-            TextView textView2 = VideoDetailActivity.this.e;
-            if (textView2 != null) {
-                textView2.setText(adh.a(biliVideoDetail.getPlays()));
-            }
-            TextView textView3 = VideoDetailActivity.this.ff;
-            if (textView3 != null) {
-                textView3.setText(adh.a(biliVideoDetail.getDanmakus()));
-            }
+            VideoDetailActivity.this.d.setText(biliVideoDetail.getAuthor());
+            VideoDetailActivity.this.e.setText(adh.a(biliVideoDetail.getPlays()));
+            VideoDetailActivity.this.video_detail_danmaku.setText(adh.a(biliVideoDetail.getDanmakus()));
             b(biliVideoDetail);
             a((List<? extends BiliVideoDetail.Tag>) biliVideoDetail.mTags);
             d(biliVideoDetail);
@@ -1466,10 +1410,10 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             TextView textView2 = VideoDetailActivity.this.g;
             if (textView2 != null) {
                 if (biliVideoDetail.mCreatedTimestamp == 0) {
-                    textView2.setVisibility(8);
+                    textView2.setVisibility(View.GONE);
                 }
                 else{
-                    textView2.setVisibility(0);
+                    textView2.setVisibility(View.VISIBLE);
                     textView2.setText(DateUtils.getRelativeTimeSpanString(biliVideoDetail.mCreatedTimestamp * ((long) IjkMediaCodecInfo.RANK_MAX), System.currentTimeMillis(), 1000L));
                 }
             }
@@ -1483,23 +1427,18 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             for (BiliVideoDetail.Tag tag : list) {
                 hashMap.put(tag.name, Integer.valueOf(tag.id));
             }
-            g gVar = VideoDetailActivity.this.x;
-            if (gVar != null) {
-                gVar.a(hashMap);
-            }
+            VideoDetailActivity.this.x.a(hashMap);
         }
 
         private final void showEpisodes(BiliVideoDetail biliVideoDetail) {
             biliVideoDetail.getUGCseason();
+            if(biliVideoDetail.mArgueMsg!=null&&!biliVideoDetail.mArgueMsg.isEmpty()){
+                VideoDetailActivity.this.video_argue_msg.setText("⚠"+biliVideoDetail.mArgueMsg);
+                VideoDetailActivity.this.video_argue_msg.setVisibility(View.VISIBLE);
+            }
             if (biliVideoDetail.episodes == null) {
-                TextView textView = VideoDetailActivity.this.episodes_title;
-                if (textView != null) {
-                    textView.setVisibility(8);
-                }
-                RecyclerView recyclerView = VideoDetailActivity.this.episodes_video;
-                if (recyclerView != null) {
-                    recyclerView.setVisibility(8);
-                }
+                VideoDetailActivity.this.episodes_title.setVisibility(View.GONE);
+                VideoDetailActivity.this.episodes_video.setVisibility(View.GONE);
                 return;
             }
             if (VideoDetailActivity.this.episodes_video_adapter != null) {
@@ -1514,23 +1453,17 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
             TextView textView2 = VideoDetailActivity.this.episodes_title;
             if (textView2 != null) {
                 if(biliVideoDetail.season_title!=null)textView2.setText(biliVideoDetail.season_title);
-                textView2.setVisibility(0);
+                textView2.setVisibility(View.VISIBLE);
             }
-            RecyclerView recyclerView2 = VideoDetailActivity.this.episodes_video;
-            if (recyclerView2 != null) {
-                recyclerView2.setVisibility(0);
-            }
+            VideoDetailActivity.this.episodes_video.setVisibility(View.VISIBLE);
         }
 
         private final void c(BiliVideoDetail biliVideoDetail) {
             if (biliVideoDetail.mRelatedList == null || biliVideoDetail.mRelatedList.isEmpty()) {
-                TextView textView = VideoDetailActivity.this.i;
-                if (textView != null) {
-                    textView.setVisibility(8);
-                }
+                VideoDetailActivity.this.i.setVisibility(View.GONE);
                 RecyclerView recyclerView = VideoDetailActivity.this.r;
                 if (recyclerView != null) {
-                    recyclerView.setVisibility(8);
+                    recyclerView.setVisibility(View.GONE);
                     return;
                 }
                 return;
@@ -1540,52 +1473,31 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                 bbi.a((Object) list, "response.mRelatedList");
                 VideoDetailActivity.this.v.a(list);
             }
-            TextView textView2 = VideoDetailActivity.this.i;
-            if (textView2 != null) {
-                textView2.setVisibility(0);
-            }
-            RecyclerView recyclerView2 = VideoDetailActivity.this.r;
-            if (recyclerView2 != null) {
-                recyclerView2.setVisibility(0);
-            }
+            VideoDetailActivity.this.i.setVisibility(View.VISIBLE);
+            VideoDetailActivity.this.r.setVisibility(View.VISIBLE);
         }
 
         private final void d(BiliVideoDetail biliVideoDetail) {
             if (biliVideoDetail.mPageList == null || biliVideoDetail.mPageList.isEmpty()) {
-                TextView textView = VideoDetailActivity.this.hh;
-                if (textView != null) {
-                    textView.setVisibility(8);
-                }
+                VideoDetailActivity.this.video_detail_ep_title.setVisibility(View.GONE);
                 RecyclerView recyclerView = VideoDetailActivity.this.o;
                 if (recyclerView != null) {
-                    recyclerView.setVisibility(8);
+                    recyclerView.setVisibility(View.GONE);
                     return;
                 }
                 return;
             }
-            TextView textView2 = VideoDetailActivity.this.hh;
             int i = 0;
-            if (textView2 != null) {
-                textView2.setVisibility(0);
-            }
-            RecyclerView recyclerView2 = VideoDetailActivity.this.o;
-            if (recyclerView2 != null) {
-                recyclerView2.setVisibility(0);
-            }
-            TextView textView3 = VideoDetailActivity.this.hh;
-            if (textView3 != null) {
-                textView3.setText(VideoDetailActivity.this.getString(R.string.video_detail_ep_title, new Object[]{String.valueOf(biliVideoDetail.mPageList.size())}));
-            }
+            VideoDetailActivity.this.video_detail_ep_title.setVisibility(View.VISIBLE);
+            VideoDetailActivity.this.o.setVisibility(View.VISIBLE);
+            VideoDetailActivity.this.video_detail_ep_title.setText(VideoDetailActivity.this.getString(R.string.video_detail_ep_title, new Object[]{String.valueOf(biliVideoDetail.mPageList.size())}));
             int i2 = biliVideoDetail.mRelatedList != null && !biliVideoDetail.mRelatedList.isEmpty() ? VideoDetailActivity.E : VideoDetailActivity.F;
             int size = biliVideoDetail.mPageList.size();
             if (size > i2) {
                 size = i2;
             }
             d dVar = new d();
-            List list = VideoDetailActivity.this.t;
-            if (list != null) {
-                list.clear();
-            }
+            VideoDetailActivity.this.t.clear();
             int i3 = size - 1;
             if (i3 >= 0) {
                 while (true) {
@@ -1593,10 +1505,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                         DrawTextView l = VideoDetailActivity.this.l();
                         l.setUpDrawable(R.drawable.shadow_red_rect);
                         l.setOnFocusChangeListener(dVar);
-                        add addVar = VideoDetailActivity.this.w;
-                        if (addVar != null) {
-                            addVar.a(l);
-                        }
+                        VideoDetailActivity.this.w.a(l);
                         break;
                     } else {
                         List list2 = VideoDetailActivity.this.t;
@@ -1612,10 +1521,7 @@ public final class VideoDetailActivity extends BaseActivity implements View.OnCl
                     }
                 }
             }
-            add addVar2 = VideoDetailActivity.this.w;
-            if (addVar2 != null) {
-                addVar2.d();
-            }
+            VideoDetailActivity.this.w.d();
         }
     }
 

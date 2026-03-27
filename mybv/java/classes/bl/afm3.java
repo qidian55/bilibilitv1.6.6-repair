@@ -25,9 +25,8 @@ import android.graphics.drawable.*;
 /* compiled from: BL */
 /* loaded from: classes.dex */
 public final class afm3 extends adw implements View.OnFocusChangeListener, View.OnClickListener, TextView.OnEditorActionListener, CompoundButton.OnCheckedChangeListener {
-    public static final a Companion = new a(null);
     public static List<String> tmp_cdns;
-    public static List<String> tmp_splashs;
+    public static final a Companion = new a(null);
     private DrawFrameLayout filter_button;
     private DrawLinearLayout folder_open_button;
     private DrawFrameLayout cdn_button;
@@ -168,14 +167,12 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
             }
         }
         if(view == this.cdn_button){
-            afm3.tmp_cdns = VideoViewParams.cdn_history;
-            List<String> show_cdns = VideoViewParams.cdn_history;
-            if(afm3.tmp_cdns.size()==0){
+            afm3.tmp_cdns = new ArrayList<String>();
+            List<String> show_cdns = new ArrayList<String>();
+            afm3.tmp_cdns.add("");
+            show_cdns.add("无");
+            if(VideoViewParams.cdn_history.size()==0){
                 JSONObject default_cdns = JSON.parseObject("{\"腾讯\":[\"upos-sz-mirrorcos.bilivideo.com\",\"upos-sz-mirrorcosb.bilivideo.com\",\"upos-sz-mirrorcoso1.bilivideo.com\"],\"百度\":[\"upos-sz-mirrorbos.bilivideo.com\"],\"阿里\":[\"upos-sz-mirrorali.bilivideo.com\",\"upos-sz-mirroralib.bilivideo.com\",\"upos-sz-mirroralio1.bilivideo.com\"],\"华为\":[\"upos-sz-mirrorhw.bilivideo.com\",\"upos-sz-mirrorhwb.bilivideo.com\",\"upos-sz-mirrorhwo1.bilivideo.com\",\"upos-sz-mirror08c.bilivideo.com\",\"upos-sz-mirror08h.bilivideo.com\",\"upos-sz-mirror08ct.bilivideo.com\"],\"海外\":[\"upos-sz-mirroraliov.bilivideo.com\"],\"其它\":[\"upos-sz-upcdnbda2.bilivideo.com\",\"upos-sz-upcdnws.bilivideo.com\",\"upos-tf-all-tx.bilivideo.com\"]}");
-                afm3.tmp_cdns = new ArrayList<String>();
-                show_cdns = new ArrayList<String>();
-                afm3.tmp_cdns.add("");
-                show_cdns.add("无");
                 for (String cdn_provider: default_cdns.keySet()){
                     JSONArray values = default_cdns.getJSONArray(cdn_provider);
                     for(int i=0;i<values.size();i++){
@@ -184,6 +181,9 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
                         show_cdns.add(cdn_value+"（"+cdn_provider+"）");
                     }
                 }
+            }else{
+                afm3.tmp_cdns.addAll(VideoViewParams.cdn_history);
+                show_cdns.addAll(VideoViewParams.cdn_history);
             }
             AlertDialog dialog = new AlertDialog.Builder(getContext())
                 .setItems(show_cdns.toArray(new String[0]), new DialogInterface.OnClickListener() {
@@ -201,10 +201,6 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
             //https://api.bilibili.com/x/polymer/web-dynamic/v1/opus/feed/space?host_mid=6823116&offset=&type=dynamic
             JSONObject default_splashs = JSON.parseObject("{\"款式一\":\"http://i0.hdslb.com/bfs/archive/1d40e975b09d5c87b11b3ae0c9ce6c6b82f63d9e.png\",\"款式二\":\"http://i0.hdslb.com/bfs/archive/351c02ba3f75f5eaa107c68ddf2222d74521773a.png\",\"slogan\":\"http://i0.hdslb.com/bfs/archive/06543a163e2a4e0189b12e3025f9c1d69203ed6d.png\",\"10周年\":\"http://i0.hdslb.com/bfs/archive/574469a4a20f41ba4dc9ecd41d15f94eea875ed9.png\",\"11周年\":\"http://i0.hdslb.com/bfs/archive/3007728d674a385306ba0b07055103a78b9eed62.png\",\"BW2020\":\"http://i0.hdslb.com/bfs/archive/e2d2f57e08b511d1a47203859f7bddb4ef9d4e16.png\"}");
             String[] show_splashs={"默认", "款式一", "款式二", "slogan", "10周年", "11周年", "BW2020"};
-            afm3.tmp_splashs = new ArrayList<String>();
-            for (String key: default_splashs.keySet()){
-                afm3.tmp_splashs.add(default_splashs.getString(key));
-            }
             AlertDialog dialog = new AlertDialog.Builder(getContext())
                 .setItems(show_splashs, new DialogInterface.OnClickListener() {
                     @Override
@@ -224,7 +220,7 @@ public final class afm3 extends adw implements View.OnFocusChangeListener, View.
                                 Future<Bitmap> future = threadPool.submit(new Callable<Bitmap>() {
                                     @Override
                                     public Bitmap call() {
-                                        Response response = (Response) pz.a(new qa.a(Response.class).a(afm3.tmp_splashs.get(which-1)).a(new qb()).a(), "GET");
+                                        Response response = (Response) pz.a(new qa.a(Response.class).a(default_splashs.getString(show_splashs[which-1])).a(new qb()).a(), "GET");
                                         return response.e();
                                     }
                                 });

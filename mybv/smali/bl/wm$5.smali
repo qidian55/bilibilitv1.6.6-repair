@@ -20,9 +20,9 @@
 # instance fields
 .field final synthetic this$0:Lbl/wm;
 
-.field final synthetic val$i:I
+.field final synthetic val$arg1:I
 
-.field final synthetic val$i2:I
+.field final synthetic val$what:I
 
 
 # direct methods
@@ -30,12 +30,12 @@
     .locals 0
 
     .prologue
-    .line 376
+    .line 378
     iput-object p1, p0, Lbl/wm$5;->this$0:Lbl/wm;
 
-    iput p2, p0, Lbl/wm$5;->val$i:I
+    iput p2, p0, Lbl/wm$5;->val$what:I
 
-    iput p3, p0, Lbl/wm$5;->val$i2:I
+    iput p3, p0, Lbl/wm$5;->val$arg1:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,7 +48,7 @@
     .locals 3
 
     .prologue
-    .line 379
+    .line 381
     iget-object v0, p0, Lbl/wm$5;->this$0:Lbl/wm;
 
     # getter for: Lbl/wm;->p:Ljava/lang/ref/WeakReference;
@@ -58,20 +58,20 @@
 
     if-eqz v0, :cond_15
 
-    .line 380
+    .line 382
     iget-object v0, p0, Lbl/wm$5;->this$0:Lbl/wm;
 
     invoke-virtual {v0}, Lbl/wm;->b()Lbl/ws;
 
     move-result-object v0
 
-    iget v1, p0, Lbl/wm$5;->val$i:I
+    iget v1, p0, Lbl/wm$5;->val$what:I
 
-    iget v2, p0, Lbl/wm$5;->val$i2:I
+    iget v2, p0, Lbl/wm$5;->val$arg1:I
 
     invoke-interface {v0, v1, v2}, Lbl/ws;->a(II)V
 
-    .line 382
+    .line 384
     :cond_15
     return-void
 .end method

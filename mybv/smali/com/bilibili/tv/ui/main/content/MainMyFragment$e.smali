@@ -26,12 +26,12 @@
     .locals 0
 
     .prologue
-    .line 166
+    .line 171
     iput-object p1, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$e;->this$0:Lcom/bilibili/tv/ui/main/content/MainMyFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 167
+    .line 172
     return-void
 .end method
 
@@ -41,7 +41,7 @@
     .locals 3
 
     .prologue
-    .line 171
+    .line 176
     iget-object v0, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$e;->this$0:Lcom/bilibili/tv/ui/main/content/MainMyFragment;
 
     # getter for: Lcom/bilibili/tv/ui/main/content/MainMyFragment;->b:Lcom/bilibili/tv/ui/main/content/MainMyFragment$b;
@@ -60,12 +60,12 @@
 
     if-nez v0, :cond_11
 
-    .line 192
+    .line 197
     :cond_10
     :goto_10
     return-void
 
-    .line 174
+    .line 179
     :cond_11
     iget-object v0, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$e;->this$0:Lcom/bilibili/tv/ui/main/content/MainMyFragment;
 
@@ -74,7 +74,7 @@
     # setter for: Lcom/bilibili/tv/ui/main/content/MainMyFragment;->c:Z
     invoke-static {v0, v1}, Lcom/bilibili/tv/ui/main/content/MainMyFragment;->access$102(Lcom/bilibili/tv/ui/main/content/MainMyFragment;Z)Z
 
-    .line 175
+    .line 180
     iget-object v0, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$e;->this$0:Lcom/bilibili/tv/ui/main/content/MainMyFragment;
 
     # getter for: Lcom/bilibili/tv/ui/main/content/MainMyFragment;->a:Landroid/support/v7/widget/GridLayoutManager;
@@ -82,13 +82,13 @@
 
     move-result-object v0
 
-    .line 176
+    .line 181
     if-nez v0, :cond_22
 
-    .line 177
+    .line 182
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 179
+    .line 184
     :cond_22
     iget-object v1, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$e;->this$0:Lcom/bilibili/tv/ui/main/content/MainMyFragment;
 
@@ -97,13 +97,13 @@
 
     move-result-object v1
 
-    .line 180
+    .line 185
     if-nez v1, :cond_2d
 
-    .line 181
+    .line 186
     invoke-static {}, Lbl/bbi;->a()V
 
-    .line 183
+    .line 188
     :cond_2d
     invoke-virtual {v1}, Lcom/bilibili/tv/ui/main/content/MainMyFragment$b;->e()I
 
@@ -113,32 +113,32 @@
 
     move-result-object v1
 
-    .line 184
+    .line 189
     iget-object v0, p0, Lcom/bilibili/tv/ui/main/content/MainMyFragment$e;->this$0:Lcom/bilibili/tv/ui/main/content/MainMyFragment;
 
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/main/content/MainMyFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    .line 185
+    .line 190
     if-eqz v1, :cond_10
 
     instance-of v2, v0, Lcom/bilibili/tv/ui/main/MainActivity;
 
     if-eqz v2, :cond_10
 
-    .line 188
+    .line 193
     check-cast v0, Lcom/bilibili/tv/ui/main/MainActivity;
 
-    .line 189
+    .line 194
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Lcom/bilibili/tv/ui/main/MainActivity;->a(Z)V
 
-    .line 190
+    .line 195
     invoke-virtual {v0}, Lcom/bilibili/tv/ui/main/MainActivity;->k()V
 
-    .line 191
+    .line 196
     invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
 
     goto :goto_10

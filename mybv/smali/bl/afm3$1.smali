@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 114
+    .line 113
     iput-object p1, p0, Lbl/afm3$1;->this$0:Lbl/afm3;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .locals 3
 
     .prologue
-    .line 117
+    .line 116
     invoke-virtual {p1, p2}, Landroid/widget/RadioGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -51,7 +51,7 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    .line 118
+    .line 117
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_18
@@ -66,11 +66,11 @@
 
     invoke-static {v1, v2}, Lbl/lr;->a(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 120
+    .line 119
     :cond_18
     sput v0, Lmybl/BiliFilter;->prefer_videoview:I
 
-    .line 121
+    .line 120
     invoke-static {}, Lcom/bilibili/tv/MainApplication;->a()Lcom/bilibili/tv/MainApplication;
 
     move-result-object v0
@@ -85,6 +85,6 @@
 
     invoke-static {v0, v1, v2}, Lbl/abd;->set_personal_config(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 122
+    .line 121
     return-void
 .end method

@@ -22,7 +22,7 @@
     .locals 0
 
     .prologue
-    .line 875
+    .line 850
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -44,15 +44,15 @@
 
     const/4 v2, 0x0
 
-    .line 879
+    .line 854
     if-nez p1, :cond_f
 
-    .line 900
+    .line 875
     :cond_e
     :goto_e
     return-void
 
-    .line 882
+    .line 857
     :cond_f
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -68,7 +68,7 @@
 
     if-eqz v0, :cond_27
 
-    .line 883
+    .line 858
     if-eqz p2, :cond_61
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -77,7 +77,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 886
+    .line 861
     :cond_27
     :goto_27
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -94,7 +94,7 @@
 
     if-eqz v0, :cond_3f
 
-    .line 887
+    .line 862
     if-eqz p2, :cond_69
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -103,7 +103,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 890
+    .line 865
     :cond_3f
     :goto_3f
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -120,7 +120,7 @@
 
     if-eqz v0, :cond_57
 
-    .line 891
+    .line 866
     if-eqz p2, :cond_71
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -129,21 +129,21 @@
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 894
+    .line 869
     :cond_57
     :goto_57
     instance-of v0, p1, Lbl/afz;
 
     if-eqz v0, :cond_79
 
-    .line 895
+    .line 870
     check-cast p1, Lbl/afz;
 
     invoke-interface {p1, p2}, Lbl/afz;->setUpEnabled(Z)V
 
     goto :goto_e
 
-    .line 884
+    .line 859
     :cond_61
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -153,7 +153,7 @@
 
     goto :goto_27
 
-    .line 888
+    .line 863
     :cond_69
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -163,7 +163,7 @@
 
     goto :goto_3f
 
-    .line 892
+    .line 867
     :cond_71
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -173,7 +173,7 @@
 
     goto :goto_57
 
-    .line 896
+    .line 871
     :cond_79
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -193,7 +193,7 @@
 
     if-eqz v0, :cond_e
 
-    .line 898
+    .line 873
     invoke-virtual {v0, p2}, Lcom/bilibili/tv/widget/DrawTextView;->setUpEnabled(Z)V
 
     goto/16 :goto_e

@@ -29,6 +29,11 @@ import com.bilibili.tv.widget.FixGridLayoutManager;
 import kotlin.TypeCastException;
 
 import bl.*;
+import java.io.*;
+import java.util.*;
+import com.alibaba.fastjson.*;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import com.bilibili.tv.ui.history.VideoToviewActivity;
 import com.bilibili.tv.widget.border.BorderGridLayoutManager;
 import com.bilibili.tv.widget.side.SideRightGridLayoutManger;
@@ -256,7 +261,7 @@ public final class MainMyFragment extends adu implements aez, wf {
 
     /* compiled from: BL */
     /* loaded from: classes.dex */
-    static final class b extends RecyclerView.a<adv> implements View.OnClickListener {
+    static final class b extends RecyclerView.a<adv> implements View.OnClickListener, View.OnLongClickListener {
         private final int[] titles = {R.string.login, R.string.my_attention, R.string.my_toview, R.string.my_follow, R.string.my_favorite, R.string.my_history};
         private final int[] colors = {R.color.color_1, R.color.color_2, R.color.color_3, R.color.color_4, R.color.color_5, R.color.color_6};
         private final int[] logos = {R.drawable.ic_user_center_default_avatar, R.drawable.ic_group_180, R.drawable.ic_toview_180, R.drawable.ic_user_center_follow_bangumi, R.drawable.ic_user_center_star, R.drawable.ic_user_center_history};
@@ -306,6 +311,7 @@ public final class MainMyFragment extends adu implements aez, wf {
                 cVar.F().setText("");
                 advVar.a.setTag(R.id.position, Integer.valueOf(i));
                 advVar.a.setOnClickListener(this);
+                if(i==0)advVar.a.setOnLongClickListener(this);
                 if (i == 0 && this.d != null) {
                     AccountInfo accountInfo = this.d;
                     if (accountInfo == null) {
@@ -390,6 +396,58 @@ public final class MainMyFragment extends adu implements aez, wf {
             }
         }
 
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View v) {
+            Context context = v.getContext();
+            bbi.a((Object) context, "v.context");
+            Activity a2 = adl.a(context);
+            Object tag = v.getTag(R.id.position);
+            if(tag != null && ((Integer) tag).intValue()==0 && this.e){
+                mg bili_account = mg.a(MainApplication.a());
+                try{
+                    String account_info=new BufferedReader(new FileReader(new File(context.getFilesDir(),"bili.account.storage"))).readLine();
+                    String passport_info=new BufferedReader(new FileReader(new File(context.getFilesDir(),"bili.passport.storage"))).readLine();
+                    abd.add_account(context,String.valueOf(bili_account.c().mMid),bili_account.c().mUserName,account_info,passport_info);
+
+                    List<String> tmp_mids = new ArrayList<String>();
+                    List<String> show_usernames = new ArrayList<String>();
+                    JSONObject accounts=abd.get_accounts(context);
+                    show_usernames.add("+");
+                    for(Map.Entry<String,Object> entry:accounts.entrySet()){
+                        tmp_mids.add(entry.getKey());
+                        show_usernames.add(((JSONObject)entry.getValue()).getString("username"));
+                    }
+                    AlertDialog dialog = new AlertDialog.Builder(context)
+                        .setItems(show_usernames.toArray(new String[0]), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if(which==0)LoginActivity.Companion.a(a2, MainActivity.Companion.a());
+                                else{
+                                    JSONObject account=accounts.getJSONObject(tmp_mids.get(which-1));
+                                    try{
+                                        FileWriter fw=new FileWriter(new File(context.getFilesDir(),"bili.account.storage"));
+                                        fw.write(account.getString("account_info"));
+                                        fw.close();
+                                        FileWriter fw2=new FileWriter(new File(context.getFilesDir(),"bili.passport.storage"));
+                                        fw2.write(account.getString("passport_info"));
+                                        fw2.close();
+                                        System.exit(0);
+                                    } catch(Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                        }).create();
+                    dialog.show();
+                } catch(Exception e) {
+                    e.printStackTrace();
+                    return false;
+                }
+                return true;
+            }
+            return false;
+        }
+
         @Override // android.view.View.OnClickListener
         public void onClick(View v) {
             bbi.b(v, "v");
@@ -470,9 +528,11 @@ public final class MainMyFragment extends adu implements aez, wf {
             @Override // bl.agb.b
             public final void a(final agb agbVar, View view) {
                 abn abnVar = abn.a;
-                mg a = mg.a(((MainActivity) this.b).getApplicationContext());
-                bbi.a((Object) a, "BiliAccount.get(activity.applicationContext)");
-                abnVar.a(a).a(new ja<Void, Void>() { // from class: bl.MainMyFragment.b.a.1
+                Context context = ((MainActivity) this.b).getApplicationContext();
+                mg bili_account = mg.a(context);
+                abd.del_account(context,String.valueOf(bili_account.c().mMid));
+                bbi.a((Object) bili_account, "BiliAccount.get(activity.applicationContext)");
+                abnVar.a(bili_account).a(new ja<Void, Void>() { // from class: bl.MainMyFragment.b.a.1
                     @Override // bl.ja
                     public final Void a(jb<Void> jbVar) {
                         b.this.e(0);

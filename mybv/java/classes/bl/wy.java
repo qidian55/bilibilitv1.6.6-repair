@@ -17,6 +17,7 @@ import java.io.File;
 import tv.danmaku.ijk.media.player.AbstractMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
+import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.videoplayer.core.videoview.GLVideoView;
 
 /* compiled from: BL */
@@ -453,7 +454,7 @@ public abstract class wy extends wx implements TextureView.SurfaceTextureListene
 
     @Override // bl.ws
     public void b(int i, int i2) {
-        if (i == 701) {
+        if (i == IMediaPlayer.MEDIA_INFO_BUFFERING_START) {
             H = this.g;
             if (this.m && this.n) {
                 return;
@@ -461,7 +462,7 @@ public abstract class wy extends wx implements TextureView.SurfaceTextureListene
             setStateAndUi(3);
             return;
         }
-        if (i == 702) {
+        if (i == IMediaPlayer.MEDIA_INFO_BUFFERING_END) {
             if (H != -1) {
                 if (!this.m || !this.n) {
                     setStateAndUi(H);
@@ -471,7 +472,7 @@ public abstract class wy extends wx implements TextureView.SurfaceTextureListene
             }
             return;
         }
-        if (i == 10001) {
+        if (i == IMediaPlayer.MEDIA_INFO_VIDEO_ROTATION_CHANGED) {
             this.h = i2;
             if (this.x != null) {
                 this.x.setRotation(this.h);

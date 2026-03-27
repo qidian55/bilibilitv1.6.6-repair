@@ -1,12 +1,12 @@
 {
-    "apkMd5":"f1d794931e55c582a41bebcf36028a3e",
+    "apkMd5":"d737ddc75849603b446db1b556b2276a",
     "apkUrl":"https://github.com/qidian55/bilibilitv1.6.6-repair/raw/refs/heads/main/mybv.apk",
     "fileSize":8292330,
     "id":"",
-    "newFeature":"回退测试性调整\n上调缩略图分辨率",
+    "newFeature":"视频增加AI标识\n测试性功能——账号切换（长按）",
     "publishTime":0,
     "title":"New",
     "upgradeType":1,
     "versionCode":1606,
-    "versionName":"1.6.6.20260321"
+    "versionName":"1.6.6.20260327"
 }

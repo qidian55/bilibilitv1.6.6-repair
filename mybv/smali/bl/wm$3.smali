@@ -20,7 +20,7 @@
 # instance fields
 .field final synthetic this$0:Lbl/wm;
 
-.field final synthetic val$i:I
+.field final synthetic val$what:I
 
 
 # direct methods
@@ -28,10 +28,10 @@
     .locals 0
 
     .prologue
-    .line 348
+    .line 350
     iput-object p1, p0, Lbl/wm$3;->this$0:Lbl/wm;
 
-    iput p2, p0, Lbl/wm$3;->val$i:I
+    iput p2, p0, Lbl/wm$3;->val$what:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -44,7 +44,7 @@
     .locals 2
 
     .prologue
-    .line 351
+    .line 353
     iget-object v0, p0, Lbl/wm$3;->this$0:Lbl/wm;
 
     # getter for: Lbl/wm;->p:Ljava/lang/ref/WeakReference;
@@ -54,8 +54,8 @@
 
     if-eqz v0, :cond_21
 
-    .line 352
-    iget v0, p0, Lbl/wm$3;->val$i:I
+    .line 354
+    iget v0, p0, Lbl/wm$3;->val$what:I
 
     iget-object v1, p0, Lbl/wm$3;->this$0:Lbl/wm;
 
@@ -66,7 +66,7 @@
 
     if-gt v0, v1, :cond_22
 
-    .line 353
+    .line 355
     iget-object v0, p0, Lbl/wm$3;->this$0:Lbl/wm;
 
     invoke-virtual {v0}, Lbl/wm;->b()Lbl/ws;
@@ -82,12 +82,12 @@
 
     invoke-interface {v0, v1}, Lbl/ws;->a(I)V
 
-    .line 358
+    .line 360
     :cond_21
     :goto_21
     return-void
 
-    .line 355
+    .line 357
     :cond_22
     iget-object v0, p0, Lbl/wm$3;->this$0:Lbl/wm;
 
@@ -95,7 +95,7 @@
 
     move-result-object v0
 
-    iget v1, p0, Lbl/wm$3;->val$i:I
+    iget v1, p0, Lbl/wm$3;->val$what:I
 
     invoke-interface {v0, v1}, Lbl/ws;->a(I)V
 
