@@ -24,7 +24,8 @@ public class BiliFilter {
     public static Set<String> skip_categories = new HashSet<String>();
     public static boolean progressbar_on = false;
     public static boolean fastquit_on = false;
-    public static boolean thumbnail_off = false;
+    public static boolean auto_play = true;
+    public static int thumbnail_quality = 0;
     public static int prefer_videoview = 1;
 
     public static void updateConfig() throws Exception{

@@ -665,6 +665,7 @@ public class xi extends xh implements bbb<Message, Boolean> {
         }
         this.b.sendEmptyMessage(5000200);
         super.onPrepared(iMediaPlayer);
+        if(!mybl.BiliFilter.auto_play)T();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

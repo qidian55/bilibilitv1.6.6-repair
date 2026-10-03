@@ -2479,8 +2479,12 @@ public final class R {
         public static final int view_radiobutton1 = 0x7f080187;
         public static final int view_radiobutton2 = 0x7f080188;
         public static final int view_radiogroup = 0x7f080189;
-        public static final int thumbnail_button = 0x7f08018a;
-        public static final int video_argue_msg = 0x7f08018b;
+        public static final int video_argue_msg = 0x7f08018a;
+        public static final int autoplay_button = 0x7f08018b;
+        public static final int thumbnail_radiobutton0 = 0x7f08018c;
+        public static final int thumbnail_radiobutton1 = 0x7f08018d;
+        public static final int thumbnail_radiobutton2 = 0x7f08018e;
+        public static final int thumbnail_radiogroup = 0x7f08018f;
     }
 
     public static final class integer {

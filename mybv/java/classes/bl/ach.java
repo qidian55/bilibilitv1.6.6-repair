@@ -8,35 +8,30 @@ import com.bilibili.api.utils.ThumbImageUriGetter;
 /* JADX INFO: loaded from: classes.dex */
 public class ach {
     private static int a(int i, float f) {
-        return (int) ((i * f) + 0.5f);
+        return (int) ((i * f * (2*BiliFilter.thumbnail_quality+1)) + 0.5f);
     }
 
     public static String a(Context context, String str) {//大卡片
-        if(BiliFilter.thumbnail_off)return str;
         float f = context == null ? 2.0f : context.getResources().getDisplayMetrics().density;
-        return a().get(ThumbImageUriGetter.a.a(str, a(450, f), a(600, f), true, ThumbImageUriGetter.a.WEBP));
+        return a().get(ThumbImageUriGetter.a.a(str, a(180, f), a(240, f), true, ThumbImageUriGetter.a.WEBP));
     }
 
-    public static String b(Context context, String str) {//中卡片
-        if(BiliFilter.thumbnail_off)return str;
+    public static String b(Context context, String str) {//小卡片
         float f = context == null ? 2.0f : context.getResources().getDisplayMetrics().density;
-        return a().get(ThumbImageUriGetter.a.a(str, a(300, f), a(400, f), true, ThumbImageUriGetter.a.WEBP));
+        return a().get(ThumbImageUriGetter.a.a(str, a(120, f), a(160, f), true, ThumbImageUriGetter.a.WEBP));
     }
 
-    public static String c(Context context, String str) {//小卡片
-        if(BiliFilter.thumbnail_off)return str;
+    public static String c(Context context, String str) {//竖卡片
         float f = context == null ? 2.0f : context.getResources().getDisplayMetrics().density;
-        return a().get(ThumbImageUriGetter.a.a(str, a(480, f), a(300, f), true, ThumbImageUriGetter.a.WEBP));
+        return a().get(ThumbImageUriGetter.a.a(str, a(160, f), a(100, f), true, ThumbImageUriGetter.a.WEBP));
     }
 
     public static String d(Context context, String str) {//头像
-        if(BiliFilter.thumbnail_off)return str;
-        int iA = a(300, context == null ? 2.0f : context.getResources().getDisplayMetrics().density);
-        return a().get(ThumbImageUriGetter.a.a(str, iA, iA, true, ThumbImageUriGetter.a.WEBP));
+        float f = context == null ? 2.0f : context.getResources().getDisplayMetrics().density;
+        return a().get(ThumbImageUriGetter.a.a(str, a(100, f), a(100, f), true, ThumbImageUriGetter.a.WEBP));
     }
 
     public static String a(Context context, String str, int i, int i2) {
-        if(BiliFilter.thumbnail_off)return str;
         return a().get(ThumbImageUriGetter.a.a(str, i, i2, true, ThumbImageUriGetter.a.WEBP));
     }
 

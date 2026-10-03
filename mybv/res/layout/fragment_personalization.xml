@@ -92,17 +92,17 @@
             android:focusable="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="禁用缩略图："
+            android:text="自动播放："
             android:textColor="@color/white"
             android:textSize="@dimen/px_44"
             android:layout_marginLeft="@dimen/px_30"
             android:layout_marginRight="@dimen/px_30" />
         <com.bilibili.tv.widget.DrawFrameLayout
-            android:id="@id/thumbnail_button"
+            android:id="@id/autoplay_button"
             android:background="@drawable/shape_rectangle_trans_with_12corner_white_10"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:nextFocusRight="@id/thumbnail_button"
+            android:nextFocusRight="@id/autoplay_button"
             android:paddingLeft="@dimen/px_30"
             android:paddingRight="@dimen/px_30"
             android:layout_width="wrap_content"
@@ -117,6 +117,73 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/px_44" />
         </com.bilibili.tv.widget.DrawFrameLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:focusable="false"
+        android:clipChildren="false"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_200">
+        <com.bilibili.tv.widget.ShadowTextView
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:focusable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="缩略图质量："
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_44"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30" />
+        <RadioGroup 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/thumbnail_radiogroup"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@id/thumbnail_radiobutton0"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:nextFocusLeft="@id/thumbnail_radiobutton0"
+                android:nextFocusRight="@id/thumbnail_radiobutton1"
+                android:paddingLeft="@dimen/px_30"
+                android:paddingRight="@dimen/px_30"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px_96"
+                android:buttonTint="@color/white_50"
+                android:text="低"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px_44" />
+            <RadioButton
+                android:id="@id/thumbnail_radiobutton1"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:nextFocusLeft="@id/thumbnail_radiobutton0"
+                android:nextFocusRight="@id/thumbnail_radiobutton2"
+                android:paddingLeft="@dimen/px_30"
+                android:paddingRight="@dimen/px_30"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px_96"
+                android:buttonTint="@color/white_50"
+                android:text="中"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px_44" />
+            <RadioButton
+                android:id="@id/thumbnail_radiobutton2"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:nextFocusLeft="@id/thumbnail_radiobutton1"
+                android:nextFocusRight="@id/thumbnail_radiobutton2"
+                android:paddingLeft="@dimen/px_30"
+                android:paddingRight="@dimen/px_30"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px_96"
+                android:buttonTint="@color/white_50"
+                android:text="高"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px_44" />
+        </RadioGroup>
     </LinearLayout>
     <LinearLayout
         android:gravity="center"

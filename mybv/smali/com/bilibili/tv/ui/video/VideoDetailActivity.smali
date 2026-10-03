@@ -628,7 +628,7 @@
     iput-object v0, p0, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->video_detail_title:Landroid/widget/TextView;
 
     .line 171
-    const v0, 0x7f08018b
+    const v0, 0x7f08018a
 
     invoke-virtual {p0, v0}, Lcom/bilibili/tv/ui/video/VideoDetailActivity;->d(I)Landroid/view/View;
 

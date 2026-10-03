@@ -293,35 +293,35 @@
     .locals 3
 
     .prologue
-    .line 282
+    .line 284
     invoke-static {p0}, Lbl/abd;->get_accounts(Landroid/content/Context;)Lcom/alibaba/fastjson/JSONObject;
 
     move-result-object v0
 
-    .line 283
+    .line 285
     new-instance v1, Lcom/alibaba/fastjson/JSONObject;
 
     invoke-direct {v1}, Lcom/alibaba/fastjson/JSONObject;-><init>()V
 
-    .line 284
+    .line 286
     const-string v2, "username"
 
     invoke-virtual {v1, v2, p2}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 285
+    .line 287
     const-string v2, "account_info"
 
     invoke-virtual {v1, v2, p3}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 286
+    .line 288
     const-string v2, "passport_info"
 
     invoke-virtual {v1, v2, p4}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 287
+    .line 289
     invoke-virtual {v0, p1, v1}, Lcom/alibaba/fastjson/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 288
+    .line 290
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v1
@@ -346,7 +346,7 @@
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 289
+    .line 291
     return-void
 .end method
 
@@ -731,15 +731,15 @@
     .locals 3
 
     .prologue
-    .line 292
+    .line 294
     invoke-static {p0}, Lbl/abd;->get_accounts(Landroid/content/Context;)Lcom/alibaba/fastjson/JSONObject;
 
     move-result-object v0
 
-    .line 293
+    .line 295
     invoke-virtual {v0, p1}, Lcom/alibaba/fastjson/JSONObject;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 294
+    .line 296
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
     move-result-object v1
@@ -764,7 +764,7 @@
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 295
+    .line 297
     return-void
 .end method
 
@@ -905,8 +905,8 @@
     .locals 3
 
     .prologue
-    .line 270
     .line 272
+    .line 274
     :try_start_0
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
@@ -930,22 +930,22 @@
 
     move-result-object v0
 
-    .line 278
+    .line 280
     :goto_14
     return-object v0
 
-    .line 274
+    .line 276
     :catch_15
     move-exception v0
 
     move-object v1, v0
 
-    .line 275
+    .line 277
     new-instance v0, Lcom/alibaba/fastjson/JSONObject;
 
     invoke-direct {v0}, Lcom/alibaba/fastjson/JSONObject;-><init>()V
 
-    .line 276
+    .line 278
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_14
@@ -1057,42 +1057,51 @@
     const/4 v0, 0x0
 
     .line 259
-    const-string v1, "{\"filter_on\":false,\"progressbar_on\":false,\"fastquit_on\":false,\"auto_update\":false}"
+    const-string v1, "{\"filter_on\":false, \"progressbar_on\":false, \"fastquit_on\":false, \"auto_update\":false, \"auto_play\":true, \"thumbnail_quality\":0, \"prefer_videoview\":1}"
 
     .line 261
     :try_start_3
+    invoke-static {v1}, Lcom/alibaba/fastjson/JSON;->parseObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
+
+    move-result-object v0
+
+    .line 262
     invoke-static {p0}, Lbl/abd;->a(Landroid/content/Context;)Lbl/abd;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Lbl/abd;->a()Landroid/content/SharedPreferences;
+    invoke-virtual {v1}, Lbl/abd;->a()Landroid/content/SharedPreferences;
 
-    move-result-object v2
+    move-result-object v1
 
-    const-string v3, "personal_config"
+    const-string v2, "personal_config"
 
-    invoke-interface {v2, v3, v1}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    const-string v3, "{}"
+
+    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-static {v1}, Lcom/alibaba/fastjson/JSON;->parseObject(Ljava/lang/String;)Lcom/alibaba/fastjson/JSONObject;
-    :try_end_14
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_14} :catch_16
 
-    move-result-object v0
+    move-result-object v1
 
-    .line 266
-    :goto_15
+    invoke-virtual {v0, v1}, Lcom/alibaba/fastjson/JSONObject;->putAll(Ljava/util/Map;)V
+    :try_end_1e
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_1e} :catch_1f
+
+    .line 268
+    :goto_1e
     return-object v0
 
-    .line 263
-    :catch_16
+    .line 265
+    :catch_1f
     move-exception v1
 
-    .line 264
+    .line 266
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_15
+    goto :goto_1e
 .end method
 
 .method public static get_skip_categories(Landroid/content/Context;)Ljava/util/Set;
